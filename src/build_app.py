@@ -184,3 +184,7 @@ for k, v in stats.items():
     print(f"  {k:9s} {v:3d}/129  {bar}")
 missing = [k for k, v in stats.items() if v == 0]
 if missing: print(f"  NOT YET LANDED: {', '.join(missing)}")
+
+# keep the staging copy in lockstep with every build
+import subprocess
+subprocess.run(['python3', os.path.join(os.path.dirname(__file__), 'make_staging.py')])
