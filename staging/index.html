@@ -427,12 +427,16 @@ ol.how b { color: var(--ink); font-weight: 600; }
   :root { --gut: 1rem; }
   .only-wide { display: none; }
   .only-narrow { display: inline; }
-  /* the intro is a desktop luxury; on a phone it buries the survey 600px down.
-     keep the one-line lede, drop the how-to and the stat block. */
-  .how, .headnote { display: none; }
-  .head { grid-template-columns: 1fr; padding: 1rem var(--gut) 0.9rem; }
-  h1 { font-size: clamp(1.9rem, 9vw, 2.4rem); }
-  .lede { font-size: var(--t-s); margin-top: 0.35rem; }
+  /* the intro is a desktop luxury; on a phone it buried the survey behind three
+     stacked text bands. Drop the how-to, the stat block AND the lede so the top
+     is just the title, then the live match bar, then the questions. */
+  .how, .headnote, .lede { display: none; }
+  .head { grid-template-columns: 1fr; padding: 0.9rem var(--gut) 0.7rem; }
+  h1 { font-size: clamp(1.8rem, 8vw, 2.2rem); }
+  /* lighter rules so the bands do not read as a wall */
+  .head { border-bottom-width: 1px; }
+  .livepick { border-bottom-width: 1px !important; }
+  .survey-head { padding-top: 0.7rem; padding-bottom: 0.6rem; }
   .field { grid-template-columns: 1fr; }
   .survey { border-right: 0; position: static; padding-bottom: 5rem; }
 
@@ -624,8 +628,7 @@ h1, .survey h2, .plate h2, .v-name, .sheet-name, .pcard .pn, .lp-name {
       <button class="livepick" id="livepick" type="button" aria-label="Your best match so far, tap to see the full list"></button>
       <div class="survey-head">
         <h2>What you want</h2>
-        <p>Set each one, then how much it matters on the <b>Skip · A little · Matters · A lot</b> bar.
-        <em>A lot</em> counts nine times <em>A little</em>, so one thing you really care about can win on its own.</p>
+        <p>Set each answer, and how much it matters on the <b>Skip · A little · Matters · A lot</b> bar.<span class="only-wide"> <em>A lot</em> counts nine times <em>A little</em>, so one thing you really care about can win on its own.</span></p>
       </div>
       <div id="qs"></div>
       <div class="survey-foot"><button class="reset" id="reset">Start over</button></div>
