@@ -148,6 +148,44 @@ const weights = {};
 Q.forEach((q) => { state[q.id] = q.multi ? [q.def] : q.def; weights[q.id] = q.w; });
 let selected = null;
 
+/* ---------- shareable answers ----------
+   The whole survey packs into the URL, so forwarding the link forwards YOUR result,
+   not a blank form. One char per question: value then weight. */
+const OPTKEY = '0123456789abcdefghij';
+function encodeState() {
+  return Q.map((q) => {
+    const v = state[q.id];
+    const val = q.kind === 'range'
+      ? String(v)
+      : OPTKEY[q.opts.findIndex((o) => o[0] === (q.multi ? v[0] : v))];
+    return val + '.' + weights[q.id];
+  }).join('_');
+}
+function decodeState(s) {
+  const parts = (s || '').split('_');
+  if (parts.length !== Q.length) return false;
+  try {
+    Q.forEach((q, i) => {
+      const [val, w] = parts[i].split('.');
+      if (q.kind === 'range') {
+        const n = +val;
+        if (!Number.isFinite(n)) throw 0;
+        state[q.id] = clamp(n, q.min, q.max);
+      } else {
+        const o = q.opts[OPTKEY.indexOf(val)];
+        if (!o) throw 0;
+        state[q.id] = q.multi ? [o[0]] : o[0];
+      }
+      weights[q.id] = clamp(+w || 0, 0, 3);
+    });
+    return true;
+  } catch (e) { return false; }
+}
+function syncURL() {
+  history.replaceState(null, '', '#' + encodeState());
+}
+const shared = location.hash.length > 2 && decodeState(location.hash.slice(1));
+
 /* ---------- scoring ---------- */
 function scoreAll() {
   const out = DATA.map((p) => {
@@ -369,11 +407,44 @@ function detailHTML(r) {
   </div>`;
 }
 
+/* the result someone actually forwards: one place, why, and the catch */
+function verdict() {
+  const r = ranked.find((x) => !x.excluded);
+  const host = $('#verdict');
+  if (!r) { host.innerHTML = `<p class="empty">Nothing clears your dealbreakers. Loosen one.</p>`; return; }
+  const p = r.p, L = p.lived || {};
+  const reasons = r.good.map((g) => SHORT[g.id] || g.label.toLowerCase());
+  const against = r.bad && r.bad.s < 0.45 ? (SHORT[r.bad.id] || r.bad.label.toLowerCase()) : null;
+  const runners = ranked.filter((x) => !x.excluded).slice(1, 4);
+  const drive = p.prox && p.prox.drive_min_to_big_city != null
+    ? (p.prox.drive_min_to_big_city === 0 ? 'you are in it'
+       : `${Math.round(p.prox.drive_min_to_big_city)} min to ${p.prox.nearest_big_city}`)
+    : (p.prox ? `no road out, ${p.prox.nearest_big_city} is the nearest city` : null);
+  const jan = cv(p, 'tmean', '1');
+  host.innerHTML = `
+    <p class="v-eyebrow">You should live in</p>
+    <h2 class="v-name">${p.name}<span class="v-pv">${p.prov}</span></h2>
+    <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
+      ${against ? `<span class="v-but">The trade is ${against}.</span>` : ''}</p>
+    <div class="v-facts">
+      ${jan != null ? `<span><b>${jan > 0 ? '+' : ''}${jan.toFixed(1)}°</b> in January</span>` : ''}
+      ${p.pop != null ? `<span><b>${fmtNum(p.pop)}</b> people</span>` : ''}
+      ${p.cost && p.cost.home_price ? `<span><b>$${fmtNum(p.cost.home_price)}</b> a home</span>` : ''}
+      ${drive ? `<span><b>${drive}</b></span>` : ''}
+    </div>
+    ${L.honest_downside ? `<p class="v-catch"><b>The catch, from people who live there.</b> ${L.honest_downside}</p>` : ''}
+    <div class="v-foot">
+      <button class="v-share" id="share">Send this to someone</button>
+      <span class="v-next">Then ${runners.map((x) => x.p.name).join(', ')}</span>
+    </div>`;
+}
+
 function render() {
   ranked = scoreAll();
   const live = ranked.filter((r) => !r.excluded);
-  const cut = ranked.filter((r) => r.excluded);
   $('#count').textContent = `${live.length} of ${DATA.length} places`;
+  verdict();
+  syncURL();
 
   const list = $('#index');
   list.innerHTML = ranked.map((r, i) => {
@@ -410,9 +481,9 @@ function buildSurvey() {
     let body;
     if (q.kind === 'range') {
       body = `<div class="slider-row">
-          <input type="range" id="r-${q.id}" min="${q.min}" max="${q.max}" step="${q.step}" value="${q.def}"
+          <input type="range" id="r-${q.id}" min="${q.min}" max="${q.max}" step="${q.step}" value="${state[q.id]}"
                  aria-label="${q.label}">
-          <span class="readout" id="o-${q.id}">${q.fmt(q.def)}</span>
+          <span class="readout" id="o-${q.id}">${q.fmt(state[q.id])}</span>
         </div>
         <div class="scale-ends"><span>${q.ends[0]}</span><span>${q.ends[1]}</span></div>`;
     } else {
@@ -514,9 +585,27 @@ cvs.addEventListener('click', () => {
   if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
 });
 
+/* share: native sheet on a phone, clipboard everywhere else */
+document.addEventListener('click', async (e) => {
+  const b = e.target.closest('#share');
+  if (!b) return;
+  const top = ranked.find((r) => !r.excluded);
+  const url = location.href;
+  const text = top ? `Apparently I should live in ${top.p.name}, ${top.p.prov}.` : 'Where should I live in Canada?';
+  try {
+    if (navigator.share) { await navigator.share({ title: 'Where To Live / Canada', text, url }); return; }
+    await navigator.clipboard.writeText(`${text} ${url}`);
+    b.textContent = 'Link copied. It has your answers in it.';
+    setTimeout(() => { b.textContent = 'Send this to someone'; }, 2600);
+  } catch (err) {
+    b.textContent = url;
+  }
+});
+
 $('#reset').addEventListener('click', () => {
   Q.forEach((q) => { state[q.id] = q.multi ? [q.def] : q.def; weights[q.id] = q.w; });
   selected = null;
+  history.replaceState(null, '', location.pathname);
   buildSurvey(); render();
 });
 
@@ -530,6 +619,18 @@ $('#theme').addEventListener('click', () => {
 
 let rt;
 addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(render, 120); });
+
+// the canvas reads its ink from CSS variables, so a theme flip has to force a repaint
+// or the map keeps yesterday's palette
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if (!root.dataset.theme) render();
+});
+
+// arriving on someone else's link: say so, and invite them to argue with it
+if (shared) {
+  $('#lede').innerHTML = `Someone sent you their answers. This is <em>their</em> result, not yours.
+    Change anything on the left and it becomes yours, then send it back.`;
+}
 
 buildSurvey();
 render();
