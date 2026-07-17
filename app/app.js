@@ -15,7 +15,7 @@ const LIVED_N = DATA.filter((p) => p.lived).length;   // researched places, live
 const Q = [
   {
     id: 'winter', g: 'Climate', label: 'Winter', col: 'Jan', hint: 'The January you want to wake up in.',
-    kind: 'range', min: -26, max: 6, step: 1, def: -5, w: 2,
+    kind: 'range', min: -26, max: 6, step: 1, nudge: 2, def: -5, w: 2,
     fmt: (v) => `${v > 0 ? '+' : ''}${v}°`, ends: ['Deep freeze', 'No winter'],
     score: (p, v) => near(cv(p, 'tmean', '1'), v, 16),
     show: (p) => { const x = cv(p, 'tmean', '1'); return x == null ? null : [x.toFixed(1), '°']; },
@@ -80,7 +80,7 @@ const Q = [
   },
   {
     id: 'cost', g: 'The place', label: 'Housing budget', col: 'Home', hint: 'What you can pay.',
-    kind: 'range', min: 200, max: 1400, step: 25, def: 600, w: 2,
+    kind: 'range', min: 200, max: 1400, step: 25, nudge: 100, def: 600, w: 2,
     fmt: (v) => `$${v}k`, ends: ['$200k', '$1.4M'],
     score: (p, v) => { const h = p.cost ? p.cost.home_price : null; if (h == null) return null;
       const b = v * 1000;
@@ -420,6 +420,20 @@ function ribbon(el, p) {
   t.forEach((v,i) => c.fillText(M[i], i*bw+bw/2-3, h-1));
 }
 
+/* the live result pinned to the top of the Answer tab on a phone, so you see
+   your best match update as you tune instead of tab-switching to check. */
+function livepick() {
+  const el = $('#livepick'); if (!el) return;
+  const r = ranked.find((x) => !x.excluded);
+  if (!r) { el.innerHTML = `<span class="lp-lead">No match</span><span class="lp-name">Loosen a dealbreaker</span>`; return; }
+  const p = r.p;
+  el.innerHTML =
+    `<span class="lp-lead">Best match so far</span>
+     <span class="lp-name">${p.name}<span class="lp-pv">${p.prov}</span></span>
+     <span class="lp-fit" style="background:${rampOf(r.fit)}">${Math.round(r.fit)}</span>
+     <span class="lp-go">see all ${ranked.filter((x)=>!x.excluded).length} &rsaquo;</span>`;
+}
+
 /* ---------- render ---------- */
 function verdict() {
   const r = ranked.find((x) => !x.excluded);
@@ -563,6 +577,7 @@ function draw() {
       (ranked.length > PLATE_N ? ` &nbsp;<button class="showall" id="showall">${
         showAll ? 'show the top 60' : `show all ${ranked.length}`}</button>` : '');
   verdict();
+  livepick();
   history.replaceState(null, '', '#' + encodeState());
 
   const cols = Q.filter((q) => q.col);
@@ -651,6 +666,13 @@ $('#cards').addEventListener('click', (e) => {
 
 /* bottom tab bar: switch the visible screen. Ephemeral, never in the URL. */
 const field = $('.field');
+
+// tapping the live-pick bar jumps to the full list
+$('#livepick').addEventListener('click', () => {
+  field.dataset.view = 'list';
+  $('#tabbar').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.tab === 'list'));
+  scrollTo(0, 0);
+});
 $('#tabbar').addEventListener('click', (e) => {
   const b = e.target.closest('button[data-tab]'); if (!b) return;
   field.dataset.view = b.dataset.tab;
@@ -666,7 +688,14 @@ MOBILE.addEventListener('change', () => { selected = null; render(); });
 function buildSurvey() {
   let lastG = null;
   $('#qs').innerHTML = Q.map((q) => {
-    const head = q.g !== lastG ? `<p class="qgroup">${q.g}</p>` : '';
+    // "Life there" (the eight mostly-off census questions) collapses on a phone so
+    // the survey opens at ~9 questions instead of a 17-question wall.
+    const collapsible = q.g === 'Life there';
+    const head = q.g !== lastG
+      ? (collapsible
+          ? `<button class="qgroup qgroup-toggle" id="lifetoggle" type="button" aria-expanded="false">${q.g}<span class="qg-more">8 more things &rsaquo;</span></button>`
+          : `<p class="qgroup">${q.g}</p>`)
+      : '';
     lastG = q.g;
     const body = q.kind === 'range'
       ? `<div class="slider-row">
@@ -682,10 +711,17 @@ function buildSurvey() {
     // explicit, so "off" no longer means "click the same box again".
     const seg = WLAB.map((lab, n) => `<button class="seg-b${n === 0 ? ' skip' : ''}" type="button"
         data-w="${q.id}" data-n="${n}" aria-label="${q.label}, ${lab}" aria-pressed="${weights[q.id] === n}">${lab}</button>`).join('');
-    return head + `<div class="q"><p class="q-label">${q.label}</p>
+    return head + `<div class="q${collapsible ? ' q-life' : ''}"><p class="q-label">${q.label}</p>
       <p class="q-hint">${q.hint}</p>${body}
       <div class="seg" role="group" aria-label="How much ${q.label} matters">${seg}</div></div>`;
   }).join('');
+  // wire the collapse toggle (default collapsed on a phone)
+  const tog = $('#lifetoggle');
+  if (tog) tog.addEventListener('click', () => {
+    const open = $('#qs').classList.toggle('life-open');
+    tog.setAttribute('aria-expanded', open);
+    tog.querySelector('.qg-more').innerHTML = open ? 'hide &rsaquo;' : '8 more things &rsaquo;';
+  });
 }
 const WLAB = ['Skip', 'A little', 'Matters', 'A lot'];
 function syncTicks() {
@@ -705,7 +741,7 @@ $('#qs').addEventListener('click', (e) => {
   const st = e.target.closest('.step');
   if (st) {
     const id = st.dataset.step, q = Q.find((x) => x.id === id);
-    state[id] = clamp(state[id] + (+st.dataset.dir) * q.step, q.min, q.max);
+    state[id] = clamp(state[id] + (+st.dataset.dir) * (q.nudge || q.step), q.min, q.max);
     ownIt();
     const inp = $('#r-' + id), out = $('#o-' + id);
     if (inp) inp.value = state[id];
