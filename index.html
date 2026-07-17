@@ -144,20 +144,23 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
 .survey-head p { margin: 0.25rem 0 0; font-size: var(--t-xs); color: var(--ink-2); }
 
 .q { padding: 1rem var(--gut); border-bottom: 1px solid var(--rule); }
-.q-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
 .q-label { font-size: var(--t-s); font-weight: 600; margin: 0; }
 .q-hint { font-size: var(--t-xs); color: var(--ink-3); margin: 0.1rem 0 0.5rem; }
 
-/* importance. three states, weight not colour, so it never competes
-   with the score ramp for meaning. */
-.weight { display: flex; gap: 3px; align-items: center; }
-.tick {
-  width: 26px; height: 22px; padding: 0; cursor: pointer; border-radius: 0;
-  border: 1px solid var(--rule-2); background: transparent;
+/* importance as a labelled segmented bar, full width under the choice. one
+   thing you care about should be unmistakable, not three tiny squares. */
+.seg { display: flex; gap: 0; border: 1px solid var(--rule-2); background: var(--page); margin-top: 0.55rem; }
+.seg-b {
+  flex: 1 1 0; min-width: 0; min-height: 42px;
+  font: inherit; font-size: var(--t-xs); font-weight: 600; color: var(--ink-3);
+  background: transparent; border: 0; border-left: 1px solid var(--rule-2);
+  cursor: pointer; padding: 0.3rem 0.2rem; white-space: nowrap; border-radius: 0;
 }
-.tick:hover { border-color: var(--ink-2); }
-.tick[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); }
-.tick:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
+.seg-b:first-child { border-left: 0; }
+.seg-b[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg-b.skip[aria-pressed="true"] { background: var(--sink); color: var(--ink-2); }
+.seg-b:hover { color: var(--ink); }
+.seg-b:focus-visible { outline: 2px solid var(--warm); outline-offset: -2px; position: relative; z-index: 1; }
 
 .opts { display: flex; flex-wrap: wrap; gap: 5px; }
 .opt {
@@ -374,11 +377,6 @@ ol.how b { color: var(--ink); font-weight: 600; }
 .lede em { font-style: italic; color: var(--ink); }
 
 /* the weight control says what it does now */
-.wlab {
-  font-size: var(--t-xs); color: var(--ink-3); margin-right: 0.35rem;
-  min-width: 8.4ch; text-align: right;
-}
-.tick[aria-pressed="true"] ~ .wlab, .weight:hover .wlab { color: var(--ink-2); }
 
 /* when the answers contradict each other, say so */
 .v-warn {
@@ -411,6 +409,12 @@ ol.how b { color: var(--ink); font-weight: 600; }
   :root { --gut: 1rem; }
   .only-wide { display: none; }
   .only-narrow { display: inline; }
+  /* the intro is a desktop luxury; on a phone it buries the survey 600px down.
+     keep the one-line lede, drop the how-to and the stat block. */
+  .how, .headnote { display: none; }
+  .head { grid-template-columns: 1fr; padding: 1rem var(--gut) 0.9rem; }
+  h1 { font-size: clamp(1.9rem, 9vw, 2.4rem); }
+  .lede { font-size: var(--t-s); margin-top: 0.35rem; }
   .field { grid-template-columns: 1fr; }
   .survey { border-right: 0; position: static; padding-bottom: 5rem; }
 
@@ -474,16 +478,15 @@ ol.how b { color: var(--ink); font-weight: 600; }
     border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--paper); z-index: 1; }
 
   /* fatter controls: 44px minimum, per Apple and Material */
-  .tick { width: 44px; height: 44px; }
   .opt { padding: 0.7rem 0.9rem; font-size: var(--t-m); }
+  .seg-b { min-height: 48px; font-size: var(--t-s); }
   input[type=range] { height: 44px; }
   input[type=range]::-webkit-slider-thumb { width: 20px; height: 32px; margin-top: -15.5px; }
   input[type=range]::-moz-range-thumb { width: 20px; height: 32px; }
   .reset { padding: 0.7rem 1rem; font-size: var(--t-s); }
   .q { padding: 1.1rem var(--gut); }
   .q-label { font-size: var(--t-m); }
-  .wlab { min-width: 6.5ch; }
-
+  
   /* map fills the screen on its own tab */
   .field[data-view="map"] .map-wrap { padding-bottom: 5rem; }
   .field[data-view="map"] canvas#map { min-height: 60vh; }
@@ -520,10 +523,9 @@ ol.how b { color: var(--ink); font-weight: 600; }
       This one asks what <em>you</em> want, then re-ranks all <b>712 places in Canada</b> against it.</p>
       <ol class="how">
         <li><b>Say what you want</b> on the left. Winter, size, budget, politics, and eleven more.</li>
-        <li><b>Say how much each one matters.</b> Click the boxes beside it: one for a little,
-            three for a lot, click again to switch it off. The steps are steep on purpose.
-            <em>Matters a lot</em> counts nine times <em>matters a little</em>, so one thing you
-            really care about can outrank everything else put together.</li>
+        <li><b>Say how much each one matters</b> on the <em>Skip · A little · Matters · A lot</em>
+            bar under it. The steps are steep on purpose: <em>A lot</em> counts nine times
+            <em>A little</em>, so one thing you really care about can outrank everything else together.</li>
         <li><b>Read your answer</b> at the top. <span class="only-wide">Read the table for why, and
             hover any column heading to see what it means.</span><span class="only-narrow">Tap
             <b>List</b> for the ranking, or any place for its full record.</span></li>
@@ -1272,20 +1274,19 @@ function buildSurvey() {
          <div class="scale-ends"><span>${q.ends[0]}</span><span>${q.ends[1]}</span></div>`
       : `<div class="opts">${q.opts.map(([v,l]) => `<button class="opt" data-q="${q.id}" data-v="${v}"
            aria-pressed="${state[q.id]===v}">${l}</button>`).join('')}</div>`;
-    const WL = ['off', 'matters a little', 'matters', 'matters a lot'];
-    return head + `<div class="q"><div class="q-top"><p class="q-label">${q.label}</p>
-      <div class="weight" role="group" aria-label="How much ${q.label} matters">
-        <span class="wlab" id="wl-${q.id}">${WL[weights[q.id]]}</span>
-        ${[1,2,3].map((n) => `<button class="tick" data-w="${q.id}" data-n="${n}"
-          title="${WL[n]}" aria-label="${q.label}, ${WL[n]}" aria-pressed="${weights[q.id]>=n}"></button>`).join('')}
-      </div></div><p class="q-hint">${q.hint}</p>${body}</div>`;
+    // importance as a four-stop word bar, not three unlabelled squares. Skip is
+    // explicit, so "off" no longer means "click the same box again".
+    const seg = WLAB.map((lab, n) => `<button class="seg-b${n === 0 ? ' skip' : ''}" type="button"
+        data-w="${q.id}" data-n="${n}" aria-label="${q.label}, ${lab}" aria-pressed="${weights[q.id] === n}">${lab}</button>`).join('');
+    return head + `<div class="q"><p class="q-label">${q.label}</p>
+      <p class="q-hint">${q.hint}</p>${body}
+      <div class="seg" role="group" aria-label="How much ${q.label} matters">${seg}</div></div>`;
   }).join('');
 }
-const WLAB = ['off', 'matters a little', 'matters', 'matters a lot'];
+const WLAB = ['Skip', 'A little', 'Matters', 'A lot'];
 function syncTicks() {
-  document.querySelectorAll('.tick').forEach((t) =>
-    t.setAttribute('aria-pressed', weights[t.dataset.w] >= +t.dataset.n));
-  Q.forEach((q) => { const l = $('#wl-' + q.id); if (l) l.textContent = WLAB[weights[q.id]]; });
+  document.querySelectorAll('.seg-b').forEach((b) =>
+    b.setAttribute('aria-pressed', weights[b.dataset.w] === +b.dataset.n));
 }
 
 $('#qs').addEventListener('input', (e) => {
@@ -1295,16 +1296,15 @@ $('#qs').addEventListener('input', (e) => {
   render();
 });
 $('#qs').addEventListener('click', (e) => {
-  const o = e.target.closest('.opt'), w = e.target.closest('.tick');
+  const o = e.target.closest('.opt'), w = e.target.closest('.seg-b');
   if (o) {
     state[o.dataset.q] = o.dataset.v;
     o.closest('.opts').querySelectorAll('.opt').forEach((b) => b.setAttribute('aria-pressed', b === o));
-    if (!weights[o.dataset.q]) { weights[o.dataset.q] = 1; syncTicks(); }
+    if (!weights[o.dataset.q]) { weights[o.dataset.q] = 2; syncTicks(); }   // touching a dead question wakes it
     render();
   }
   if (w) {
-    const id = w.dataset.w, n = +w.dataset.n;
-    weights[id] = weights[id] === n ? n-1 : n;
+    weights[w.dataset.w] = +w.dataset.n;      // set the importance directly
     syncTicks(); render();
   }
 });

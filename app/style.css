@@ -139,20 +139,23 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
 .survey-head p { margin: 0.25rem 0 0; font-size: var(--t-xs); color: var(--ink-2); }
 
 .q { padding: 1rem var(--gut); border-bottom: 1px solid var(--rule); }
-.q-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
 .q-label { font-size: var(--t-s); font-weight: 600; margin: 0; }
 .q-hint { font-size: var(--t-xs); color: var(--ink-3); margin: 0.1rem 0 0.5rem; }
 
-/* importance. three states, weight not colour, so it never competes
-   with the score ramp for meaning. */
-.weight { display: flex; gap: 3px; align-items: center; }
-.tick {
-  width: 26px; height: 22px; padding: 0; cursor: pointer; border-radius: 0;
-  border: 1px solid var(--rule-2); background: transparent;
+/* importance as a labelled segmented bar, full width under the choice. one
+   thing you care about should be unmistakable, not three tiny squares. */
+.seg { display: flex; gap: 0; border: 1px solid var(--rule-2); background: var(--page); margin-top: 0.55rem; }
+.seg-b {
+  flex: 1 1 0; min-width: 0; min-height: 42px;
+  font: inherit; font-size: var(--t-xs); font-weight: 600; color: var(--ink-3);
+  background: transparent; border: 0; border-left: 1px solid var(--rule-2);
+  cursor: pointer; padding: 0.3rem 0.2rem; white-space: nowrap; border-radius: 0;
 }
-.tick:hover { border-color: var(--ink-2); }
-.tick[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); }
-.tick:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
+.seg-b:first-child { border-left: 0; }
+.seg-b[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg-b.skip[aria-pressed="true"] { background: var(--sink); color: var(--ink-2); }
+.seg-b:hover { color: var(--ink); }
+.seg-b:focus-visible { outline: 2px solid var(--warm); outline-offset: -2px; position: relative; z-index: 1; }
 
 .opts { display: flex; flex-wrap: wrap; gap: 5px; }
 .opt {
@@ -369,11 +372,6 @@ ol.how b { color: var(--ink); font-weight: 600; }
 .lede em { font-style: italic; color: var(--ink); }
 
 /* the weight control says what it does now */
-.wlab {
-  font-size: var(--t-xs); color: var(--ink-3); margin-right: 0.35rem;
-  min-width: 8.4ch; text-align: right;
-}
-.tick[aria-pressed="true"] ~ .wlab, .weight:hover .wlab { color: var(--ink-2); }
 
 /* when the answers contradict each other, say so */
 .v-warn {
@@ -406,6 +404,12 @@ ol.how b { color: var(--ink); font-weight: 600; }
   :root { --gut: 1rem; }
   .only-wide { display: none; }
   .only-narrow { display: inline; }
+  /* the intro is a desktop luxury; on a phone it buries the survey 600px down.
+     keep the one-line lede, drop the how-to and the stat block. */
+  .how, .headnote { display: none; }
+  .head { grid-template-columns: 1fr; padding: 1rem var(--gut) 0.9rem; }
+  h1 { font-size: clamp(1.9rem, 9vw, 2.4rem); }
+  .lede { font-size: var(--t-s); margin-top: 0.35rem; }
   .field { grid-template-columns: 1fr; }
   .survey { border-right: 0; position: static; padding-bottom: 5rem; }
 
@@ -469,16 +473,15 @@ ol.how b { color: var(--ink); font-weight: 600; }
     border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--paper); z-index: 1; }
 
   /* fatter controls: 44px minimum, per Apple and Material */
-  .tick { width: 44px; height: 44px; }
   .opt { padding: 0.7rem 0.9rem; font-size: var(--t-m); }
+  .seg-b { min-height: 48px; font-size: var(--t-s); }
   input[type=range] { height: 44px; }
   input[type=range]::-webkit-slider-thumb { width: 20px; height: 32px; margin-top: -15.5px; }
   input[type=range]::-moz-range-thumb { width: 20px; height: 32px; }
   .reset { padding: 0.7rem 1rem; font-size: var(--t-s); }
   .q { padding: 1.1rem var(--gut); }
   .q-label { font-size: var(--t-m); }
-  .wlab { min-width: 6.5ch; }
-
+  
   /* map fills the screen on its own tab */
   .field[data-view="map"] .map-wrap { padding-bottom: 5rem; }
   .field[data-view="map"] canvas#map { min-height: 60vh; }

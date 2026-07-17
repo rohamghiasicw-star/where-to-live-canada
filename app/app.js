@@ -631,20 +631,19 @@ function buildSurvey() {
          <div class="scale-ends"><span>${q.ends[0]}</span><span>${q.ends[1]}</span></div>`
       : `<div class="opts">${q.opts.map(([v,l]) => `<button class="opt" data-q="${q.id}" data-v="${v}"
            aria-pressed="${state[q.id]===v}">${l}</button>`).join('')}</div>`;
-    const WL = ['off', 'matters a little', 'matters', 'matters a lot'];
-    return head + `<div class="q"><div class="q-top"><p class="q-label">${q.label}</p>
-      <div class="weight" role="group" aria-label="How much ${q.label} matters">
-        <span class="wlab" id="wl-${q.id}">${WL[weights[q.id]]}</span>
-        ${[1,2,3].map((n) => `<button class="tick" data-w="${q.id}" data-n="${n}"
-          title="${WL[n]}" aria-label="${q.label}, ${WL[n]}" aria-pressed="${weights[q.id]>=n}"></button>`).join('')}
-      </div></div><p class="q-hint">${q.hint}</p>${body}</div>`;
+    // importance as a four-stop word bar, not three unlabelled squares. Skip is
+    // explicit, so "off" no longer means "click the same box again".
+    const seg = WLAB.map((lab, n) => `<button class="seg-b${n === 0 ? ' skip' : ''}" type="button"
+        data-w="${q.id}" data-n="${n}" aria-label="${q.label}, ${lab}" aria-pressed="${weights[q.id] === n}">${lab}</button>`).join('');
+    return head + `<div class="q"><p class="q-label">${q.label}</p>
+      <p class="q-hint">${q.hint}</p>${body}
+      <div class="seg" role="group" aria-label="How much ${q.label} matters">${seg}</div></div>`;
   }).join('');
 }
-const WLAB = ['off', 'matters a little', 'matters', 'matters a lot'];
+const WLAB = ['Skip', 'A little', 'Matters', 'A lot'];
 function syncTicks() {
-  document.querySelectorAll('.tick').forEach((t) =>
-    t.setAttribute('aria-pressed', weights[t.dataset.w] >= +t.dataset.n));
-  Q.forEach((q) => { const l = $('#wl-' + q.id); if (l) l.textContent = WLAB[weights[q.id]]; });
+  document.querySelectorAll('.seg-b').forEach((b) =>
+    b.setAttribute('aria-pressed', weights[b.dataset.w] === +b.dataset.n));
 }
 
 $('#qs').addEventListener('input', (e) => {
@@ -654,16 +653,15 @@ $('#qs').addEventListener('input', (e) => {
   render();
 });
 $('#qs').addEventListener('click', (e) => {
-  const o = e.target.closest('.opt'), w = e.target.closest('.tick');
+  const o = e.target.closest('.opt'), w = e.target.closest('.seg-b');
   if (o) {
     state[o.dataset.q] = o.dataset.v;
     o.closest('.opts').querySelectorAll('.opt').forEach((b) => b.setAttribute('aria-pressed', b === o));
-    if (!weights[o.dataset.q]) { weights[o.dataset.q] = 1; syncTicks(); }
+    if (!weights[o.dataset.q]) { weights[o.dataset.q] = 2; syncTicks(); }   // touching a dead question wakes it
     render();
   }
   if (w) {
-    const id = w.dataset.w, n = +w.dataset.n;
-    weights[id] = weights[id] === n ? n-1 : n;
+    weights[w.dataset.w] = +w.dataset.n;      // set the importance directly
     syncTicks(); render();
   }
 });

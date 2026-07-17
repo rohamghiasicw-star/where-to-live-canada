@@ -789,45 +789,42 @@ $('#dclose').addEventListener('click',closeDetail);
 $('#scrim').addEventListener('click',closeDetail);
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&selectedKey) closeDetail(); });
 
-/* ---------- draggable bottom sheets (touch + mouse via pointer events) ---------- */
+/* ---------- draggable bottom sheets (touch + mouse via pointer events) ----------
+   The pointer is only captured once a real drag crosses a threshold, so a plain
+   tap on a card inside the sheet passes straight through to open its detail. */
 function attachSheet(sheet, getSnaps, opts={}){
   const scroll=opts.scroll? sheet.querySelector(opts.scroll):null;
-  let startY=0, startT=0, cur=0, dragging=false, moved=false, pid=null;
+  let startY=0, startT=0, cur=(getSnaps()[0]||0), dragging=false, moved=false, pid=null, decideBody=false;
   const setT=(y)=>{ cur=y; sheet.style.transform=`translateY(${y}px)`; };
   function snapTo(y){
     const snaps=getSnaps();
     let best=snaps[0]; for(const s of snaps) if(Math.abs(s-y)<Math.abs(best-y)) best=s;
     sheet.classList.add('animate'); setT(best);
   }
-  function fromGrip(e){ return !scroll || !scroll.contains(e.target); }
+  const onGrip=(t)=> !scroll || !scroll.contains(t);
   function down(e){
-    const snaps=getSnaps();
-    const grip=fromGrip(e);
-    // if dragging from the scroll body, only take over when at the top and pulling down
-    if(!grip){
-      const atTop=scroll.scrollTop<=0;
-      const isFull=Math.abs(cur-Math.min(...snaps))<2;
-      if(!(atTop||!isFull)) return;          // let it scroll
-      if(isFull && !atTop) return;
-    }
-    dragging=true; moved=false; pid=e.pointerId; startY=e.clientY; startT=cur;
-    sheet.classList.remove('animate');
-    try{ sheet.setPointerCapture(pid); }catch(_){}
+    startY=e.clientY; startT=cur; moved=false; pid=e.pointerId;
+    if(onGrip(e.target)){ dragging=true; decideBody=false; sheet.classList.remove('animate'); try{sheet.setPointerCapture(pid);}catch(_){} }
+    else { dragging=false; decideBody=true; }   // wait and see: tap vs drag
   }
   function move(e){
-    if(!dragging) return;
+    if(!dragging && !decideBody) return;
     const snaps=getSnaps(), min=Math.min(...snaps), max=Math.max(...snaps);
-    let y=startT+(e.clientY-startY);
-    // if pulling down from inside the scroll, only allow when at top
-    if(scroll && scroll.contains(e.target) && scroll.scrollTop>0 && y>startT){ }
-    y=clamp(y,min-20,max+40);
-    if(Math.abs(e.clientY-startY)>3) moved=true;
-    if(moved){ e.preventDefault(); setT(y); }
+    const dy=e.clientY-startY;
+    if(!dragging && decideBody){
+      const isFull=Math.abs(cur-min)<2, atTop=scroll.scrollTop<=0;
+      const shouldStart=(!isFull) || (atTop && dy>6);   // collapse only by pulling down from the top
+      if(Math.abs(dy)>6 && shouldStart){ dragging=true; sheet.classList.remove('animate'); try{sheet.setPointerCapture(pid);}catch(_){} }
+      else return;                                        // let the list scroll natively
+    }
+    const y=clamp(startT+dy, min-20, max+40);
+    moved=true; e.preventDefault(); setT(y);
   }
-  function up(e){
+  function up(){
+    decideBody=false;
     if(!dragging) return; dragging=false;
     try{ sheet.releasePointerCapture(pid); }catch(_){}
-    if(moved){ snapTo(cur); }
+    if(moved) snapTo(cur);
   }
   sheet.addEventListener('pointerdown',down);
   sheet.addEventListener('pointermove',move,{passive:false});
@@ -845,25 +842,29 @@ function mapSnaps(){
 }
 mapSheetCtl=attachSheet($('#mapsheet'), mapSnaps, {scroll:'#mapsheet-scroll'});
 
-/* detail sheet drag-to-dismiss (snap: open at 0, or dismiss) */
+/* detail sheet drag-to-dismiss (drag the grip/header down to close) */
 (function(){
   const sheet=$('#detail'), scroll=$('#detail-scroll');
-  let startY=0, cur=0, dragging=false, moved=false, pid=null, fromGrip=false;
+  let startY=0, cur=0, dragging=false, moved=false, pid=null, decide=false;
   const H=()=>sheet.getBoundingClientRect().height;
   function down(e){
-    fromGrip = $('#detailgrip').contains(e.target) || $('#detail-head').contains(e.target);
-    if(!fromGrip){ if(scroll.scrollTop>0) return; }
-    dragging=true; moved=false; pid=e.pointerId; startY=e.clientY; cur=0;
-    sheet.classList.remove('animate');
-    try{ sheet.setPointerCapture(pid);}catch(_){}
+    if($('#dclose').contains(e.target)) return;   // let the close button click through
+    const grip = $('#detailgrip').contains(e.target) || $('#detail-head').contains(e.target);
+    startY=e.clientY; moved=false; pid=e.pointerId; cur=0;
+    if(grip){ dragging=true; decide=false; sheet.classList.remove('animate'); try{sheet.setPointerCapture(pid);}catch(_){} }
+    else { dragging=false; decide=true; }
   }
   function move(e){
-    if(!dragging) return;
-    let dy=e.clientY-startY; if(dy<0) dy=0;
-    if(Math.abs(e.clientY-startY)>3) moved=true;
-    if(moved){ e.preventDefault(); cur=dy; sheet.style.transform=`translateY(${dy}px)`; }
+    if(!dragging && !decide) return;
+    let dy=e.clientY-startY;
+    if(!dragging && decide){
+      if(dy>6 && scroll.scrollTop<=0){ dragging=true; sheet.classList.remove('animate'); try{sheet.setPointerCapture(pid);}catch(_){} }
+      else return;
+    }
+    if(dy<0) dy=0; moved=true; e.preventDefault(); cur=dy; sheet.style.transform=`translateY(${dy}px)`;
   }
   function up(){
+    decide=false;
     if(!dragging) return; dragging=false;
     try{ sheet.releasePointerCapture(pid);}catch(_){}
     sheet.classList.add('animate');
