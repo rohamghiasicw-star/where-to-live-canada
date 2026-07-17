@@ -1,0 +1,905 @@
+[
+ {
+  "name": "Vancouver",
+  "prov": "BC",
+  "lat": 49.2608724,
+  "lon": -123.113952,
+  "osm_display": "Vancouver, Metro Vancouver Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Victoria",
+  "prov": "BC",
+  "lat": 48.4283182,
+  "lon": -123.364953,
+  "osm_display": "Victoria, Capital Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Kelowna",
+  "prov": "BC",
+  "lat": 49.8879177,
+  "lon": -119.495902,
+  "osm_display": "Kelowna, Westbank First Nation #9, Regional District of Central Okanagan, British Columbia, Canada"
+ },
+ {
+  "name": "Kamloops",
+  "prov": "BC",
+  "lat": 50.6758269,
+  "lon": -120.339415,
+  "osm_display": "Kamloops, Thompson-Nicola Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Nanaimo",
+  "prov": "BC",
+  "lat": 49.163877,
+  "lon": -123.938122,
+  "osm_display": "Nanaimo, Regional District of Nanaimo, British Columbia, Canada"
+ },
+ {
+  "name": "Prince George",
+  "prov": "BC",
+  "lat": 53.9128645,
+  "lon": -122.7453699,
+  "osm_display": "Prince George, Regional District of Fraser-Fort George, British Columbia, Canada"
+ },
+ {
+  "name": "Nelson",
+  "prov": "BC",
+  "lat": 49.494891,
+  "lon": -117.290039,
+  "osm_display": "Nelson, Regional District of Central Kootenay, British Columbia, Canada"
+ },
+ {
+  "name": "Revelstoke",
+  "prov": "BC",
+  "lat": 50.998045,
+  "lon": -118.1956709,
+  "osm_display": "Revelstoke, Columbia-Shuswap Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Squamish",
+  "prov": "BC",
+  "lat": 49.6980743,
+  "lon": -123.155861,
+  "osm_display": "Squamish, Squamish-Lillooet Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Tofino",
+  "prov": "BC",
+  "lat": 49.1528473,
+  "lon": -125.9048279,
+  "osm_display": "Tofino, Alberni-Clayoquot Regional District, British Columbia, V0R 2Z0, Canada"
+ },
+ {
+  "name": "Penticton",
+  "prov": "BC",
+  "lat": 49.5003268,
+  "lon": -119.593249,
+  "osm_display": "Penticton, Regional District of Okanagan-Similkameen, British Columbia, Canada"
+ },
+ {
+  "name": "Vernon",
+  "prov": "BC",
+  "lat": 50.2668671,
+  "lon": -119.2718157,
+  "osm_display": "Vernon, Regional District of North Okanagan, British Columbia, Canada"
+ },
+ {
+  "name": "Courtenay",
+  "prov": "BC",
+  "lat": 49.6894061,
+  "lon": -124.9954959,
+  "osm_display": "Courtenay, Comox Valley Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Abbotsford",
+  "prov": "BC",
+  "lat": 49.0521162,
+  "lon": -122.329479,
+  "osm_display": "Abbotsford, Fraser Valley Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Chilliwack",
+  "prov": "BC",
+  "lat": 49.1709788,
+  "lon": -121.95255,
+  "osm_display": "Chilliwack, Fraser Valley Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Cranbrook",
+  "prov": "BC",
+  "lat": 49.5107477,
+  "lon": -115.7672772,
+  "osm_display": "Cranbrook, Regional District of East Kootenay, British Columbia, Canada"
+ },
+ {
+  "name": "Fernie",
+  "prov": "BC",
+  "lat": 49.5041747,
+  "lon": -115.062867,
+  "osm_display": "Fernie, Regional District of East Kootenay, British Columbia, Canada"
+ },
+ {
+  "name": "Smithers",
+  "prov": "BC",
+  "lat": 54.7792074,
+  "lon": -127.1760991,
+  "osm_display": "Smithers, Regional District of Bulkley-Nechako, British Columbia, Canada"
+ },
+ {
+  "name": "Powell River",
+  "prov": "BC",
+  "lat": 49.835676,
+  "lon": -124.524412,
+  "osm_display": "Powell River, qathet Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Salt Spring Island",
+  "prov": "BC",
+  "lat": 48.8296672,
+  "lon": -123.5151614,
+  "osm_display": "Saltspring Island, Salt Spring Island Electoral Area, Capital Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Sechelt",
+  "prov": "BC",
+  "lat": 49.4721147,
+  "lon": -123.763124,
+  "osm_display": "Sechelt, Sunshine Coast Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Whistler",
+  "prov": "BC",
+  "lat": 50.1171903,
+  "lon": -122.9543022,
+  "osm_display": "Whistler Resort Municipality, Squamish-Lillooet Regional District, British Columbia, Canada"
+ },
+ {
+  "name": "Calgary",
+  "prov": "AB",
+  "lat": 51.0456064,
+  "lon": -114.057541,
+  "osm_display": "Calgary, Alberta, Canada"
+ },
+ {
+  "name": "Edmonton",
+  "prov": "AB",
+  "lat": 53.5462055,
+  "lon": -113.491241,
+  "osm_display": "Edmonton, Alberta, Canada"
+ },
+ {
+  "name": "Canmore",
+  "prov": "AB",
+  "lat": 51.0866897,
+  "lon": -115.3481135,
+  "osm_display": "Canmore, Town of Canmore, Alberta, T1W 2H4, Canada"
+ },
+ {
+  "name": "Banff",
+  "prov": "AB",
+  "lat": 51.175076,
+  "lon": -115.5720773,
+  "osm_display": "Banff, Alberta, Canada"
+ },
+ {
+  "name": "Lethbridge",
+  "prov": "AB",
+  "lat": 49.6945782,
+  "lon": -112.8331033,
+  "osm_display": "Lethbridge, Alberta, Canada"
+ },
+ {
+  "name": "Red Deer",
+  "prov": "AB",
+  "lat": 52.2690628,
+  "lon": -113.8141464,
+  "osm_display": "City of Red Deer, Alberta, Canada"
+ },
+ {
+  "name": "Medicine Hat",
+  "prov": "AB",
+  "lat": 50.04303,
+  "lon": -110.679016,
+  "osm_display": "Medicine Hat, Alberta, Canada"
+ },
+ {
+  "name": "Grande Prairie",
+  "prov": "AB",
+  "lat": 55.17108,
+  "lon": -118.7949873,
+  "osm_display": "Grande Prairie, Alberta, Canada"
+ },
+ {
+  "name": "Jasper",
+  "prov": "AB",
+  "lat": 52.8752336,
+  "lon": -118.0824291,
+  "osm_display": "Municipality of Jasper, Alberta, Canada"
+ },
+ {
+  "name": "Camrose",
+  "prov": "AB",
+  "lat": 53.013131,
+  "lon": -112.840576,
+  "osm_display": "Camrose, Alberta, Canada"
+ },
+ {
+  "name": "Okotoks",
+  "prov": "AB",
+  "lat": 50.7253685,
+  "lon": -113.975082,
+  "osm_display": "Okotoks, Town of Okotoks, Alberta, T1S 2N7, Canada"
+ },
+ {
+  "name": "Saskatoon",
+  "prov": "SK",
+  "lat": 52.131802,
+  "lon": -106.660767,
+  "osm_display": "Saskatoon, Saskatchewan, Canada"
+ },
+ {
+  "name": "Regina",
+  "prov": "SK",
+  "lat": 50.4479733,
+  "lon": -104.6158764,
+  "osm_display": "Regina, Saskatchewan, Canada"
+ },
+ {
+  "name": "Prince Albert",
+  "prov": "SK",
+  "lat": 53.2020289,
+  "lon": -105.7558962,
+  "osm_display": "Prince Albert, Saskatchewan, Canada"
+ },
+ {
+  "name": "Moose Jaw",
+  "prov": "SK",
+  "lat": 50.3967209,
+  "lon": -105.535666,
+  "osm_display": "Moose Jaw, Saskatchewan, Canada"
+ },
+ {
+  "name": "Swift Current",
+  "prov": "SK",
+  "lat": 50.2849138,
+  "lon": -107.7984496,
+  "osm_display": "Swift Current, Saskatchewan, Canada"
+ },
+ {
+  "name": "Winnipeg",
+  "prov": "MB",
+  "lat": 49.8955367,
+  "lon": -97.1384584,
+  "osm_display": "Winnipeg, Manitoba, Canada"
+ },
+ {
+  "name": "Brandon",
+  "prov": "MB",
+  "lat": 49.8511143,
+  "lon": -99.9608924,
+  "osm_display": "Brandon, Manitoba, Canada"
+ },
+ {
+  "name": "Gimli",
+  "prov": "MB",
+  "lat": 50.6323125,
+  "lon": -96.9881076,
+  "osm_display": "Gimli, Manitoba, R0C 1B0, Canada"
+ },
+ {
+  "name": "Steinbach",
+  "prov": "MB",
+  "lat": 49.5254414,
+  "lon": -96.6854275,
+  "osm_display": "Steinbach, Manitoba, Canada"
+ },
+ {
+  "name": "Churchill",
+  "prov": "MB",
+  "lat": 58.769268,
+  "lon": -94.1729517,
+  "osm_display": "Churchill, Manitoba, R0B 0E0, Canada"
+ },
+ {
+  "name": "Toronto",
+  "prov": "ON",
+  "lat": 43.6534817,
+  "lon": -79.3839347,
+  "osm_display": "Toronto, Golden Horseshoe, Ontario, Canada"
+ },
+ {
+  "name": "Ottawa",
+  "prov": "ON",
+  "lat": 45.4208777,
+  "lon": -75.6901106,
+  "osm_display": "Ottawa, Eastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Hamilton",
+  "prov": "ON",
+  "lat": 43.2560802,
+  "lon": -79.8728583,
+  "osm_display": "Hamilton, Golden Horseshoe, Ontario, Canada"
+ },
+ {
+  "name": "London",
+  "prov": "ON",
+  "lat": 42.9836747,
+  "lon": -81.2496068,
+  "osm_display": "London, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Kingston",
+  "prov": "ON",
+  "lat": 44.3054151,
+  "lon": -76.4283781,
+  "osm_display": "Kingston, Eastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Guelph",
+  "prov": "ON",
+  "lat": 43.5460516,
+  "lon": -80.2493276,
+  "osm_display": "Guelph, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Kitchener-Waterloo",
+  "prov": "ON",
+  "lat": 43.451291,
+  "lon": -80.4927815,
+  "osm_display": "Kitchener, Region of Waterloo, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Windsor",
+  "prov": "ON",
+  "lat": 42.2858536,
+  "lon": -82.9780695,
+  "osm_display": "Windsor, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Greater Sudbury",
+  "prov": "ON",
+  "lat": 46.49272,
+  "lon": -80.991211,
+  "osm_display": "Greater Sudbury, Sudbury District, Northeastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Thunder Bay",
+  "prov": "ON",
+  "lat": 48.406414,
+  "lon": -89.259796,
+  "osm_display": "Thunder Bay, Thunder Bay District, Northwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Barrie",
+  "prov": "ON",
+  "lat": 44.3893208,
+  "lon": -79.6901302,
+  "osm_display": "Barrie, Central Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Peterborough",
+  "prov": "ON",
+  "lat": 44.3048009,
+  "lon": -78.3199496,
+  "osm_display": "Peterborough, Central Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Collingwood",
+  "prov": "ON",
+  "lat": 44.5027226,
+  "lon": -80.2172379,
+  "osm_display": "Collingwood, Simcoe County, Central Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Goderich",
+  "prov": "ON",
+  "lat": 43.7430924,
+  "lon": -81.7110949,
+  "osm_display": "Goderich, Huron County, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Stratford",
+  "prov": "ON",
+  "lat": 43.3700899,
+  "lon": -80.9818016,
+  "osm_display": "Stratford, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Niagara-on-the-Lake",
+  "prov": "ON",
+  "lat": 43.2556116,
+  "lon": -79.0723264,
+  "osm_display": "Niagara-on-the-Lake, Niagara Region, Golden Horseshoe, Ontario, Canada"
+ },
+ {
+  "name": "Owen Sound",
+  "prov": "ON",
+  "lat": 44.5678105,
+  "lon": -80.9430094,
+  "osm_display": "Owen Sound, Grey County, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Sault Ste. Marie",
+  "prov": "ON",
+  "lat": 46.5126554,
+  "lon": -84.3330301,
+  "osm_display": "Sault Ste. Marie, Algoma District, Northeastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "North Bay",
+  "prov": "ON",
+  "lat": 46.3092115,
+  "lon": -79.4607617,
+  "osm_display": "North Bay, Nipissing District, Northeastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Huntsville",
+  "prov": "ON",
+  "lat": 45.3263919,
+  "lon": -79.218434,
+  "osm_display": "Huntsville, District Municipality of Muskoka, Muskoka District, Central Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Picton",
+  "prov": "ON",
+  "lat": 44.0077067,
+  "lon": -77.1411741,
+  "osm_display": "Picton, Prince Edward County, Central Ontario, Ontario, M4N 1A5, Canada"
+ },
+ {
+  "name": "Cobourg",
+  "prov": "ON",
+  "lat": 43.9595998,
+  "lon": -78.1677784,
+  "osm_display": "Cobourg, Northumberland County, Central Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Brockville",
+  "prov": "ON",
+  "lat": 44.6039207,
+  "lon": -75.7016829,
+  "osm_display": "Brockville, Eastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Cornwall",
+  "prov": "ON",
+  "lat": 45.0469989,
+  "lon": -74.7333845,
+  "osm_display": "Cornwall, Eastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Orillia",
+  "prov": "ON",
+  "lat": 44.6066135,
+  "lon": -79.4169256,
+  "osm_display": "Orillia, Central Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Sarnia",
+  "prov": "ON",
+  "lat": 42.9743821,
+  "lon": -82.403533,
+  "osm_display": "Sarnia, Lambton County, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "St. Catharines",
+  "prov": "ON",
+  "lat": 43.1579812,
+  "lon": -79.2441003,
+  "osm_display": "St. Catharines, Niagara Region, Golden Horseshoe, Ontario, Canada"
+ },
+ {
+  "name": "Oshawa",
+  "prov": "ON",
+  "lat": 43.8975558,
+  "lon": -78.8635324,
+  "osm_display": "Oshawa, Durham Region, Golden Horseshoe, Ontario, Canada"
+ },
+ {
+  "name": "Timmins",
+  "prov": "ON",
+  "lat": 48.477473,
+  "lon": -81.330414,
+  "osm_display": "Timmins, Cochrane District, Northeastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Kenora",
+  "prov": "ON",
+  "lat": 49.766215,
+  "lon": -94.4893528,
+  "osm_display": "Kenora, Kenora District, Northwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Elora",
+  "prov": "ON",
+  "lat": 43.681148,
+  "lon": -80.429581,
+  "osm_display": "Elora, Centre Wellington, Wellington County, Southwestern Ontario, Ontario, N1M 1K4, Canada"
+ },
+ {
+  "name": "Perth",
+  "prov": "ON",
+  "lat": 44.8992423,
+  "lon": -76.2487294,
+  "osm_display": "Perth, Lanark County, Eastern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Almonte",
+  "prov": "ON",
+  "lat": 45.226049,
+  "lon": -76.1945277,
+  "osm_display": "Almonte, Mississippi Mills, Lanark County, Eastern Ontario, Ontario, K0A 1A0, Canada"
+ },
+ {
+  "name": "Bracebridge",
+  "prov": "ON",
+  "lat": 45.041508,
+  "lon": -79.310989,
+  "osm_display": "Bracebridge, District Municipality of Muskoka, Muskoka District, Central Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Meaford",
+  "prov": "ON",
+  "lat": 44.6069298,
+  "lon": -80.5916531,
+  "osm_display": "Meaford, Grey County, Southwestern Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Bayfield",
+  "prov": "ON",
+  "lat": 43.5609982,
+  "lon": -81.6959031,
+  "osm_display": "Bayfield, Bluewater, Huron County, Southwestern Ontario, Ontario, N0M 1G0, Canada"
+ },
+ {
+  "name": "Port Hope",
+  "prov": "ON",
+  "lat": 43.9515755,
+  "lon": -78.2939704,
+  "osm_display": "Port Hope, Northumberland County, Central Ontario, Ontario, Canada"
+ },
+ {
+  "name": "Tobermory",
+  "prov": "ON",
+  "lat": 45.234697,
+  "lon": -81.6430491,
+  "osm_display": "Tobermory, Bruce County, Southwestern Ontario, Ontario, N0H 2R0, Canada"
+ },
+ {
+  "name": "Montreal",
+  "prov": "QC",
+  "lat": 45.5031824,
+  "lon": -73.5698065,
+  "osm_display": "Montr\u00e9al, Agglom\u00e9ration de Montr\u00e9al, Montr\u00e9al (r\u00e9gion administrative), Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Quebec City",
+  "prov": "QC",
+  "lat": 46.8137431,
+  "lon": -71.2084061,
+  "osm_display": "Qu\u00e9bec, Agglom\u00e9ration de Qu\u00e9bec, Capitale-Nationale, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Gatineau",
+  "prov": "QC",
+  "lat": 45.4277659,
+  "lon": -75.710976,
+  "osm_display": "Gatineau, Outaouais, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Sherbrooke",
+  "prov": "QC",
+  "lat": 45.403271,
+  "lon": -71.889038,
+  "osm_display": "Sherbrooke, Estrie, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Trois-Rivieres",
+  "prov": "QC",
+  "lat": 46.3432325,
+  "lon": -72.5428485,
+  "osm_display": "Trois-Rivi\u00e8res, Mauricie, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Saguenay",
+  "prov": "QC",
+  "lat": 48.405959,
+  "lon": -71.069183,
+  "osm_display": "Saguenay, Saguenay\u2013Lac-Saint-Jean, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Rimouski",
+  "prov": "QC",
+  "lat": 48.450155,
+  "lon": -68.529968,
+  "osm_display": "Rimouski, Rimouski-Neigette, Bas-Saint-Laurent, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Mont-Tremblant",
+  "prov": "QC",
+  "lat": 46.11588,
+  "lon": -74.5891426,
+  "osm_display": "Mont-Tremblant, Les Laurentides, Laurentides, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Magog",
+  "prov": "QC",
+  "lat": 45.2658014,
+  "lon": -72.1480686,
+  "osm_display": "Magog, Memphr\u00e9magog, Estrie, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Baie-Saint-Paul",
+  "prov": "QC",
+  "lat": 47.444343,
+  "lon": -70.505447,
+  "osm_display": "Baie-Saint-Paul, Charlevoix, Capitale-Nationale, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Val-d'Or",
+  "prov": "QC",
+  "lat": 48.1023356,
+  "lon": -77.7875715,
+  "osm_display": "Val-d'Or, La Vall\u00e9e-de-l'Or, Abitibi-T\u00e9miscamingue, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Gaspe",
+  "prov": "QC",
+  "lat": 48.6146774,
+  "lon": -66.0665726,
+  "osm_display": "Gasp\u00e9sie, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Granby",
+  "prov": "QC",
+  "lat": 45.3990409,
+  "lon": -72.721834,
+  "osm_display": "Granby, La Haute-Yamaska, Estrie, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Drummondville",
+  "prov": "QC",
+  "lat": 45.8864303,
+  "lon": -72.5018764,
+  "osm_display": "Drummondville, Drummond, Centre-du-Qu\u00e9bec, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Saint-Sauveur",
+  "prov": "QC",
+  "lat": 45.894309,
+  "lon": -74.158058,
+  "osm_display": "Saint-Sauveur, Les Pays-d'en-Haut, Laurentides, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "North Hatley",
+  "prov": "QC",
+  "lat": 45.275611,
+  "lon": -71.972122,
+  "osm_display": "North Hatley, Memphr\u00e9magog, Estrie, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Sept-Iles",
+  "prov": "QC",
+  "lat": 50.2109579,
+  "lon": -66.3790642,
+  "osm_display": "Sept-\u00celes, Sept-Rivi\u00e8res, C\u00f4te-Nord, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Rouyn-Noranda",
+  "prov": "QC",
+  "lat": 48.2420524,
+  "lon": -79.0205378,
+  "osm_display": "Rouyn-Noranda, Abitibi-T\u00e9miscamingue, Qu\u00e9bec, Canada"
+ },
+ {
+  "name": "Fredericton",
+  "prov": "NB",
+  "lat": 45.9488278,
+  "lon": -66.6291827,
+  "osm_display": "City of Fredericton, York County, New Brunswick / Nouveau-Brunswick, Canada"
+ },
+ {
+  "name": "Moncton",
+  "prov": "NB",
+  "lat": 46.0985679,
+  "lon": -64.8004265,
+  "osm_display": "City of Moncton, Westmorland County, New Brunswick / Nouveau-Brunswick, Canada"
+ },
+ {
+  "name": "Saint John",
+  "prov": "NB",
+  "lat": 45.272764,
+  "lon": -66.0627914,
+  "osm_display": "City of Saint John, Saint John County, New Brunswick / Nouveau-Brunswick, Canada"
+ },
+ {
+  "name": "Sackville",
+  "prov": "NB",
+  "lat": 45.9079431,
+  "lon": -64.3723708,
+  "osm_display": "Sackville, 211, Main Street, Middle Sackville, Sackville, Sackville Parish, Tantramar, Westmorland County, New Brunswick / Nouveau-Brunswick, E4L 4B5, Canada"
+ },
+ {
+  "name": "St. Andrews",
+  "prov": "NB",
+  "lat": 45.0749302,
+  "lon": -67.0516937,
+  "osm_display": "Town of Saint Andrews, Charlotte County, New Brunswick / Nouveau-Brunswick, Canada"
+ },
+ {
+  "name": "Bathurst",
+  "prov": "NB",
+  "lat": 47.6208671,
+  "lon": -65.6537546,
+  "osm_display": "Ville de Bathurst, Comt\u00e9 de Gloucester, New Brunswick / Nouveau-Brunswick, Canada"
+ },
+ {
+  "name": "Miramichi",
+  "prov": "NB",
+  "lat": 47.0298004,
+  "lon": -65.4704158,
+  "osm_display": "City of Miramichi, Northumberland County, New Brunswick / Nouveau-Brunswick, Canada"
+ },
+ {
+  "name": "Halifax",
+  "prov": "NS",
+  "lat": 44.648618,
+  "lon": -63.5859487,
+  "osm_display": "Halifax, Halifax Regional Municipality, Halifax County, Nova Scotia, Canada"
+ },
+ {
+  "name": "Lunenburg",
+  "prov": "NS",
+  "lat": 44.3774954,
+  "lon": -64.3154816,
+  "osm_display": "Lunenburg, Town of Lunenburg, Lunenburg County, Nova Scotia, B0J 2C0, Canada"
+ },
+ {
+  "name": "Wolfville",
+  "prov": "NS",
+  "lat": 45.0914073,
+  "lon": -64.3645102,
+  "osm_display": "Wolfville, Town of Wolfville, Kings County, Nova Scotia, Canada"
+ },
+ {
+  "name": "Truro",
+  "prov": "NS",
+  "lat": 45.3656974,
+  "lon": -63.2864971,
+  "osm_display": "Truro, Town of Truro, Colchester County, Nova Scotia, Canada"
+ },
+ {
+  "name": "Sydney",
+  "prov": "NS",
+  "lat": 46.1382112,
+  "lon": -60.1941912,
+  "osm_display": "Sydney, Cape Breton Regional Municipality, Cape Breton County, Nova Scotia, Canada"
+ },
+ {
+  "name": "Annapolis Royal",
+  "prov": "NS",
+  "lat": 44.7419775,
+  "lon": -65.5160971,
+  "osm_display": "Annapolis Royal, Town of Annapolis Royal, Annapolis County, Nova Scotia, Canada"
+ },
+ {
+  "name": "Mahone Bay",
+  "prov": "NS",
+  "lat": 44.4488931,
+  "lon": -64.387173,
+  "osm_display": "Mahone Bay, Town of Mahone Bay, Lunenburg County, Nova Scotia, B0J 2E0, Canada"
+ },
+ {
+  "name": "Chester",
+  "prov": "NS",
+  "lat": 44.5413322,
+  "lon": -64.2411853,
+  "osm_display": "Chester, Chester District Municipality, Lunenburg County, Nova Scotia, B0J 1J0, Canada"
+ },
+ {
+  "name": "Bridgewater",
+  "prov": "NS",
+  "lat": 44.3774134,
+  "lon": -64.5193946,
+  "osm_display": "Town of Bridgewater, Lunenburg County, Nova Scotia, Canada"
+ },
+ {
+  "name": "Antigonish",
+  "prov": "NS",
+  "lat": 45.6213607,
+  "lon": -61.9904928,
+  "osm_display": "Antigonish, Town of Antigonish, Antigonish County, Nova Scotia, Canada"
+ },
+ {
+  "name": "Digby",
+  "prov": "NS",
+  "lat": 44.6194028,
+  "lon": -65.758575,
+  "osm_display": "Town of Digby, Digby County, Nova Scotia, B0V 1A0, Canada"
+ },
+ {
+  "name": "Yarmouth",
+  "prov": "NS",
+  "lat": 43.8372648,
+  "lon": -66.1157,
+  "osm_display": "Town of Yarmouth, Yarmouth County, Nova Scotia, Canada"
+ },
+ {
+  "name": "Charlottetown",
+  "prov": "PE",
+  "lat": 46.2354187,
+  "lon": -63.1265388,
+  "osm_display": "City of Charlottetown, Queens County, Prince Edward Island, Canada"
+ },
+ {
+  "name": "Summerside",
+  "prov": "PE",
+  "lat": 46.394259,
+  "lon": -63.7892386,
+  "osm_display": "Summerside, City of Summerside, Prince County, Prince Edward Island, Canada"
+ },
+ {
+  "name": "St. John's",
+  "prov": "NL",
+  "lat": 47.5646794,
+  "lon": -52.7066964,
+  "osm_display": "St. John's, Newfoundland, Newfoundland and Labrador, Canada"
+ },
+ {
+  "name": "Corner Brook",
+  "prov": "NL",
+  "lat": 48.95317,
+  "lon": -57.947388,
+  "osm_display": "Corner Brook, Newfoundland, Newfoundland and Labrador, Canada"
+ },
+ {
+  "name": "Gander",
+  "prov": "NL",
+  "lat": 48.9592291,
+  "lon": -54.6187879,
+  "osm_display": "Gander, Newfoundland, Newfoundland and Labrador, Canada"
+ },
+ {
+  "name": "Bonavista",
+  "prov": "NL",
+  "lat": 48.6541763,
+  "lon": -53.110338,
+  "osm_display": "Bonavista, Newfoundland, Newfoundland and Labrador, A0C 1B0, Canada"
+ },
+ {
+  "name": "Grand Falls-Windsor",
+  "prov": "NL",
+  "lat": 48.944151,
+  "lon": -55.652618,
+  "osm_display": "Grand Falls-Windsor, Newfoundland, Newfoundland and Labrador, Canada"
+ },
+ {
+  "name": "Whitehorse",
+  "prov": "YT",
+  "lat": 60.721571,
+  "lon": -135.054932,
+  "osm_display": "Whitehorse, Yukon, Canada"
+ },
+ {
+  "name": "Dawson City",
+  "prov": "YT",
+  "lat": 64.0606605,
+  "lon": -139.431695,
+  "osm_display": "Dawson City, Yukon, Y0B 1G0, Canada"
+ },
+ {
+  "name": "Yellowknife",
+  "prov": "NT",
+  "lat": 62.4540807,
+  "lon": -114.377385,
+  "osm_display": "Yellowknife, North Slave Region, Northwest Territories, Canada"
+ },
+ {
+  "name": "Iqaluit",
+  "prov": "NU",
+  "lat": 63.7492738,
+  "lon": -68.5213763,
+  "osm_display": "Iqaluit \u1403\u1583\u14d7\u1403\u1466, \u1403\u1583\u14d7\u1403\u1466, \u157f\u146d\u1585\u1456\u14d7\u1483 Qikiqtaaluk Region, \u14c4\u14c7\u1557\u1466 Nunavut, Canada"
+ }
+]

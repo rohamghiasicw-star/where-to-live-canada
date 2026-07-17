@@ -1,0 +1,518 @@
+[
+ {
+  "name": "Vancouver",
+  "prov": "BC"
+ },
+ {
+  "name": "Victoria",
+  "prov": "BC"
+ },
+ {
+  "name": "Kelowna",
+  "prov": "BC"
+ },
+ {
+  "name": "Kamloops",
+  "prov": "BC"
+ },
+ {
+  "name": "Nanaimo",
+  "prov": "BC"
+ },
+ {
+  "name": "Prince George",
+  "prov": "BC"
+ },
+ {
+  "name": "Nelson",
+  "prov": "BC"
+ },
+ {
+  "name": "Revelstoke",
+  "prov": "BC"
+ },
+ {
+  "name": "Squamish",
+  "prov": "BC"
+ },
+ {
+  "name": "Tofino",
+  "prov": "BC"
+ },
+ {
+  "name": "Penticton",
+  "prov": "BC"
+ },
+ {
+  "name": "Vernon",
+  "prov": "BC"
+ },
+ {
+  "name": "Courtenay",
+  "prov": "BC"
+ },
+ {
+  "name": "Abbotsford",
+  "prov": "BC"
+ },
+ {
+  "name": "Chilliwack",
+  "prov": "BC"
+ },
+ {
+  "name": "Cranbrook",
+  "prov": "BC"
+ },
+ {
+  "name": "Fernie",
+  "prov": "BC"
+ },
+ {
+  "name": "Smithers",
+  "prov": "BC"
+ },
+ {
+  "name": "Powell River",
+  "prov": "BC"
+ },
+ {
+  "name": "Salt Spring Island",
+  "prov": "BC"
+ },
+ {
+  "name": "Sechelt",
+  "prov": "BC"
+ },
+ {
+  "name": "Whistler",
+  "prov": "BC"
+ },
+ {
+  "name": "Calgary",
+  "prov": "AB"
+ },
+ {
+  "name": "Edmonton",
+  "prov": "AB"
+ },
+ {
+  "name": "Canmore",
+  "prov": "AB"
+ },
+ {
+  "name": "Banff",
+  "prov": "AB"
+ },
+ {
+  "name": "Lethbridge",
+  "prov": "AB"
+ },
+ {
+  "name": "Red Deer",
+  "prov": "AB"
+ },
+ {
+  "name": "Medicine Hat",
+  "prov": "AB"
+ },
+ {
+  "name": "Grande Prairie",
+  "prov": "AB"
+ },
+ {
+  "name": "Jasper",
+  "prov": "AB"
+ },
+ {
+  "name": "Camrose",
+  "prov": "AB"
+ },
+ {
+  "name": "Okotoks",
+  "prov": "AB"
+ },
+ {
+  "name": "Saskatoon",
+  "prov": "SK"
+ },
+ {
+  "name": "Regina",
+  "prov": "SK"
+ },
+ {
+  "name": "Prince Albert",
+  "prov": "SK"
+ },
+ {
+  "name": "Moose Jaw",
+  "prov": "SK"
+ },
+ {
+  "name": "Swift Current",
+  "prov": "SK"
+ },
+ {
+  "name": "Winnipeg",
+  "prov": "MB"
+ },
+ {
+  "name": "Brandon",
+  "prov": "MB"
+ },
+ {
+  "name": "Gimli",
+  "prov": "MB"
+ },
+ {
+  "name": "Steinbach",
+  "prov": "MB"
+ },
+ {
+  "name": "Churchill",
+  "prov": "MB"
+ },
+ {
+  "name": "Toronto",
+  "prov": "ON"
+ },
+ {
+  "name": "Ottawa",
+  "prov": "ON"
+ },
+ {
+  "name": "Hamilton",
+  "prov": "ON"
+ },
+ {
+  "name": "London",
+  "prov": "ON"
+ },
+ {
+  "name": "Kingston",
+  "prov": "ON"
+ },
+ {
+  "name": "Guelph",
+  "prov": "ON"
+ },
+ {
+  "name": "Kitchener-Waterloo",
+  "prov": "ON"
+ },
+ {
+  "name": "Windsor",
+  "prov": "ON"
+ },
+ {
+  "name": "Greater Sudbury",
+  "prov": "ON"
+ },
+ {
+  "name": "Thunder Bay",
+  "prov": "ON"
+ },
+ {
+  "name": "Barrie",
+  "prov": "ON"
+ },
+ {
+  "name": "Peterborough",
+  "prov": "ON"
+ },
+ {
+  "name": "Collingwood",
+  "prov": "ON"
+ },
+ {
+  "name": "Goderich",
+  "prov": "ON"
+ },
+ {
+  "name": "Stratford",
+  "prov": "ON"
+ },
+ {
+  "name": "Niagara-on-the-Lake",
+  "prov": "ON"
+ },
+ {
+  "name": "Owen Sound",
+  "prov": "ON"
+ },
+ {
+  "name": "Sault Ste. Marie",
+  "prov": "ON"
+ },
+ {
+  "name": "North Bay",
+  "prov": "ON"
+ },
+ {
+  "name": "Huntsville",
+  "prov": "ON"
+ },
+ {
+  "name": "Picton",
+  "prov": "ON"
+ },
+ {
+  "name": "Cobourg",
+  "prov": "ON"
+ },
+ {
+  "name": "Brockville",
+  "prov": "ON"
+ },
+ {
+  "name": "Cornwall",
+  "prov": "ON"
+ },
+ {
+  "name": "Orillia",
+  "prov": "ON"
+ },
+ {
+  "name": "Sarnia",
+  "prov": "ON"
+ },
+ {
+  "name": "St. Catharines",
+  "prov": "ON"
+ },
+ {
+  "name": "Oshawa",
+  "prov": "ON"
+ },
+ {
+  "name": "Timmins",
+  "prov": "ON"
+ },
+ {
+  "name": "Kenora",
+  "prov": "ON"
+ },
+ {
+  "name": "Elora",
+  "prov": "ON"
+ },
+ {
+  "name": "Perth",
+  "prov": "ON"
+ },
+ {
+  "name": "Almonte",
+  "prov": "ON"
+ },
+ {
+  "name": "Bracebridge",
+  "prov": "ON"
+ },
+ {
+  "name": "Meaford",
+  "prov": "ON"
+ },
+ {
+  "name": "Bayfield",
+  "prov": "ON"
+ },
+ {
+  "name": "Port Hope",
+  "prov": "ON"
+ },
+ {
+  "name": "Tobermory",
+  "prov": "ON"
+ },
+ {
+  "name": "Montreal",
+  "prov": "QC"
+ },
+ {
+  "name": "Quebec City",
+  "prov": "QC"
+ },
+ {
+  "name": "Gatineau",
+  "prov": "QC"
+ },
+ {
+  "name": "Sherbrooke",
+  "prov": "QC"
+ },
+ {
+  "name": "Trois-Rivieres",
+  "prov": "QC"
+ },
+ {
+  "name": "Saguenay",
+  "prov": "QC"
+ },
+ {
+  "name": "Rimouski",
+  "prov": "QC"
+ },
+ {
+  "name": "Mont-Tremblant",
+  "prov": "QC"
+ },
+ {
+  "name": "Magog",
+  "prov": "QC"
+ },
+ {
+  "name": "Baie-Saint-Paul",
+  "prov": "QC"
+ },
+ {
+  "name": "Val-d'Or",
+  "prov": "QC"
+ },
+ {
+  "name": "Gaspe",
+  "prov": "QC"
+ },
+ {
+  "name": "Granby",
+  "prov": "QC"
+ },
+ {
+  "name": "Drummondville",
+  "prov": "QC"
+ },
+ {
+  "name": "Saint-Sauveur",
+  "prov": "QC"
+ },
+ {
+  "name": "North Hatley",
+  "prov": "QC"
+ },
+ {
+  "name": "Sept-Iles",
+  "prov": "QC"
+ },
+ {
+  "name": "Rouyn-Noranda",
+  "prov": "QC"
+ },
+ {
+  "name": "Fredericton",
+  "prov": "NB"
+ },
+ {
+  "name": "Moncton",
+  "prov": "NB"
+ },
+ {
+  "name": "Saint John",
+  "prov": "NB"
+ },
+ {
+  "name": "Sackville",
+  "prov": "NB"
+ },
+ {
+  "name": "St. Andrews",
+  "prov": "NB"
+ },
+ {
+  "name": "Bathurst",
+  "prov": "NB"
+ },
+ {
+  "name": "Miramichi",
+  "prov": "NB"
+ },
+ {
+  "name": "Halifax",
+  "prov": "NS"
+ },
+ {
+  "name": "Lunenburg",
+  "prov": "NS"
+ },
+ {
+  "name": "Wolfville",
+  "prov": "NS"
+ },
+ {
+  "name": "Truro",
+  "prov": "NS"
+ },
+ {
+  "name": "Sydney",
+  "prov": "NS"
+ },
+ {
+  "name": "Annapolis Royal",
+  "prov": "NS"
+ },
+ {
+  "name": "Mahone Bay",
+  "prov": "NS"
+ },
+ {
+  "name": "Chester",
+  "prov": "NS"
+ },
+ {
+  "name": "Bridgewater",
+  "prov": "NS"
+ },
+ {
+  "name": "Antigonish",
+  "prov": "NS"
+ },
+ {
+  "name": "Digby",
+  "prov": "NS"
+ },
+ {
+  "name": "Yarmouth",
+  "prov": "NS"
+ },
+ {
+  "name": "Charlottetown",
+  "prov": "PE"
+ },
+ {
+  "name": "Summerside",
+  "prov": "PE"
+ },
+ {
+  "name": "St. John's",
+  "prov": "NL"
+ },
+ {
+  "name": "Corner Brook",
+  "prov": "NL"
+ },
+ {
+  "name": "Gander",
+  "prov": "NL"
+ },
+ {
+  "name": "Bonavista",
+  "prov": "NL"
+ },
+ {
+  "name": "Grand Falls-Windsor",
+  "prov": "NL"
+ },
+ {
+  "name": "Whitehorse",
+  "prov": "YT"
+ },
+ {
+  "name": "Dawson City",
+  "prov": "YT"
+ },
+ {
+  "name": "Yellowknife",
+  "prov": "NT"
+ },
+ {
+  "name": "Iqaluit",
+  "prov": "NU"
+ }
+]

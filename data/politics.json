@@ -1,0 +1,2007 @@
+[
+ {
+  "name": "Gander",
+  "prov": "NL",
+  "riding": "Central Newfoundland",
+  "lean": 23.0,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 54.1,
+   "Liberal": 43.5,
+   "NDP-New Democratic Party": 2.4
+  },
+  "total_votes": 40636
+ },
+ {
+  "name": "Grand Falls-Windsor",
+  "prov": "NL",
+  "riding": "Central Newfoundland",
+  "lean": 23.0,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 54.1,
+   "Liberal": 43.5,
+   "NDP-New Democratic Party": 2.4
+  },
+  "total_votes": 40636
+ },
+ {
+  "name": "Corner Brook",
+  "prov": "NL",
+  "riding": "Long Range Mountains",
+  "lean": 20.8,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.3,
+   "Liberal": 42.7,
+   "NDP-New Democratic Party": 4.4,
+   "People's Party": 1.2
+  },
+  "total_votes": 46143
+ },
+ {
+  "name": "St. John's",
+  "prov": "NL",
+  "riding": "St. John's East",
+  "lean": -3.5,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 62.3,
+   "Conservative": 25.9,
+   "NDP-New Democratic Party": 11.2,
+   "Green Party": 0.3
+  },
+  "total_votes": 46051
+ },
+ {
+  "name": "Bonavista",
+  "prov": "NL",
+  "riding": "Terra Nova--The Peninsulas",
+  "lean": 17.4,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 48.0,
+   "Liberal": 47.9,
+   "NDP-New Democratic Party": 4.1
+  },
+  "total_votes": 40875
+ },
+ {
+  "name": "Charlottetown",
+  "prov": "PE",
+  "riding": "Charlottetown",
+  "lean": 2.8,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 64.8,
+   "Conservative": 29.1,
+   "NDP-New Democratic Party": 4.3,
+   "Green Party": 1.2,
+   "People's Party": 0.6
+  },
+  "total_votes": 21089
+ },
+ {
+  "name": "Summerside",
+  "prov": "PE",
+  "riding": "Egmont",
+  "lean": 13.9,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 51.9,
+   "Conservative": 43.4,
+   "NDP-New Democratic Party": 2.4,
+   "Green Party": 2.2
+  },
+  "total_votes": 24008
+ },
+ {
+  "name": "Annapolis Royal",
+  "prov": "NS",
+  "riding": "Acadie--Annapolis",
+  "lean": 17.8,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 47.7,
+   "Liberal": 46.6,
+   "NDP-New Democratic Party": 3.7,
+   "Green Party": 1.2,
+   "People's Party": 0.9
+  },
+  "total_votes": 48298
+ },
+ {
+  "name": "Digby",
+  "prov": "NS",
+  "riding": "Acadie--Annapolis",
+  "lean": 17.8,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 47.7,
+   "Liberal": 46.6,
+   "NDP-New Democratic Party": 3.7,
+   "Green Party": 1.2,
+   "People's Party": 0.9
+  },
+  "total_votes": 48298
+ },
+ {
+  "name": "Yarmouth",
+  "prov": "NS",
+  "riding": "Acadie--Annapolis",
+  "lean": 17.8,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 47.7,
+   "Liberal": 46.6,
+   "NDP-New Democratic Party": 3.7,
+   "Green Party": 1.2,
+   "People's Party": 0.9
+  },
+  "total_votes": 48298
+ },
+ {
+  "name": "Antigonish",
+  "prov": "NS",
+  "riding": "Cape Breton--Canso--Antigonish",
+  "lean": 14.6,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 51.6,
+   "Conservative": 43.2,
+   "NDP-New Democratic Party": 4.0,
+   "People's Party": 0.7
+  },
+  "total_votes": 48278
+ },
+ {
+  "name": "Truro",
+  "prov": "NS",
+  "riding": "Cumberland--Colchester",
+  "lean": 16.1,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 48.3,
+   "Conservative": 45.8,
+   "NDP-New Democratic Party": 3.8,
+   "Green Party": 1.4,
+   "People's Party": 0.7
+  },
+  "total_votes": 49530
+ },
+ {
+  "name": "Halifax",
+  "prov": "NS",
+  "riding": "Halifax",
+  "lean": -11.2,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 63.0,
+   "Conservative": 19.1,
+   "NDP-New Democratic Party": 16.6,
+   "Green Party": 0.8,
+   "People's Party": 0.5
+  },
+  "total_votes": 52160
+ },
+ {
+  "name": "Wolfville",
+  "prov": "NS",
+  "riding": "Kings--Hants",
+  "lean": 6.8,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 60.6,
+   "Conservative": 33.4,
+   "NDP-New Democratic Party": 3.6,
+   "Green Party": 1.4,
+   "People's Party": 1.0
+  },
+  "total_votes": 59179
+ },
+ {
+  "name": "Lunenburg",
+  "prov": "NS",
+  "riding": "South Shore--St. Margarets",
+  "lean": 15.2,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 54.9,
+   "Conservative": 41.1,
+   "Green Party": 1.6,
+   "People's Party": 1.4
+  },
+  "total_votes": 50711
+ },
+ {
+  "name": "Mahone Bay",
+  "prov": "NS",
+  "riding": "South Shore--St. Margarets",
+  "lean": 15.2,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 54.9,
+   "Conservative": 41.1,
+   "Green Party": 1.6,
+   "People's Party": 1.4
+  },
+  "total_votes": 50711
+ },
+ {
+  "name": "Chester",
+  "prov": "NS",
+  "riding": "South Shore--St. Margarets",
+  "lean": 15.2,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 54.9,
+   "Conservative": 41.1,
+   "Green Party": 1.6,
+   "People's Party": 1.4
+  },
+  "total_votes": 50711
+ },
+ {
+  "name": "Bridgewater",
+  "prov": "NS",
+  "riding": "South Shore--St. Margarets",
+  "lean": 15.2,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 54.9,
+   "Conservative": 41.1,
+   "Green Party": 1.6,
+   "People's Party": 1.4
+  },
+  "total_votes": 50711
+ },
+ {
+  "name": "Sydney",
+  "prov": "NS",
+  "riding": "Sydney--Glace Bay",
+  "lean": 11.7,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 54.6,
+   "Conservative": 38.1,
+   "NDP-New Democratic Party": 3.8,
+   "People's Party": 1.2
+  },
+  "total_votes": 47166
+ },
+ {
+  "name": "Bathurst",
+  "prov": "NB",
+  "riding": "Acadie--Bathurst",
+  "lean": 2.3,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 67.5,
+   "Conservative": 26.0,
+   "NDP-New Democratic Party": 4.4,
+   "People's Party": 2.2
+  },
+  "total_votes": 48248
+ },
+ {
+  "name": "Sackville",
+  "prov": "NB",
+  "riding": "Beauséjour",
+  "lean": 7.0,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 60.6,
+   "Conservative": 33.3,
+   "NDP-New Democratic Party": 2.4,
+   "Green Party": 2.2,
+   "People's Party": 0.8
+  },
+  "total_votes": 59631
+ },
+ {
+  "name": "Fredericton",
+  "prov": "NB",
+  "riding": "Fredericton--Oromocto",
+  "lean": 5.9,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 61.3,
+   "Conservative": 32.3,
+   "Green Party": 3.1,
+   "NDP-New Democratic Party": 1.8,
+   "People's Party": 0.4
+  },
+  "total_votes": 50169
+ },
+ {
+  "name": "Miramichi",
+  "prov": "NB",
+  "riding": "Miramichi--Grand Lake",
+  "lean": 17.6,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 48.2,
+   "Liberal": 47.1,
+   "NDP-New Democratic Party": 2.5,
+   "Green Party": 2.2
+  },
+  "total_votes": 38257
+ },
+ {
+  "name": "Moncton",
+  "prov": "NB",
+  "riding": "Moncton--Dieppe",
+  "lean": 3.8,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 63.0,
+   "Conservative": 31.2,
+   "NDP-New Democratic Party": 3.7,
+   "Green Party": 2.1
+  },
+  "total_votes": 47958
+ },
+ {
+  "name": "Saint John",
+  "prov": "NB",
+  "riding": "Saint John--Kennebecasis",
+  "lean": 9.3,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 58.1,
+   "Conservative": 37.3,
+   "NDP-New Democratic Party": 2.7,
+   "Green Party": 1.6
+  },
+  "total_votes": 44967
+ },
+ {
+  "name": "St. Andrews",
+  "prov": "NB",
+  "riding": "Saint John--St. Croix",
+  "lean": 21.4,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 53.1,
+   "Liberal": 41.5,
+   "NDP-New Democratic Party": 3.3,
+   "Green Party": 1.6
+  },
+  "total_votes": 50092
+ },
+ {
+  "name": "Val-d'Or",
+  "prov": "QC",
+  "riding": "Abitibi--Baie-James--Nunavik--Eeyou",
+  "lean": 1.6,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 41.2,
+   "Bloc Québécois": 34.0,
+   "Conservative": 22.4,
+   "NDP-New Democratic Party": 2.5
+  },
+  "total_votes": 30561
+ },
+ {
+  "name": "Rouyn-Noranda",
+  "prov": "QC",
+  "riding": "Abitibi--Témiscamingue",
+  "lean": 1.0,
+  "lean_label": "swing",
+  "winner": "Bloc Québécois",
+  "shares": {
+   "Bloc Québécois": 49.4,
+   "Liberal": 27.0,
+   "Conservative": 19.7,
+   "NDP-New Democratic Party": 3.0
+  },
+  "total_votes": 50115
+ },
+ {
+  "name": "Magog",
+  "prov": "QC",
+  "riding": "Brome--Missisquoi",
+  "lean": -1.2,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 48.3,
+   "Bloc Québécois": 28.0,
+   "Conservative": 19.1,
+   "NDP-New Democratic Party": 2.2,
+   "Green Party": 1.6,
+   "People's Party": 0.8
+  },
+  "total_votes": 71952
+ },
+ {
+  "name": "Saguenay",
+  "prov": "QC",
+  "riding": "Chicoutimi--Le Fjord",
+  "lean": 11.1,
+  "lean_label": "swing",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 34.1,
+   "Bloc Québécois": 31.2,
+   "Liberal": 31.1,
+   "NDP-New Democratic Party": 1.9,
+   "Green Party": 0.9,
+   "People's Party": 0.7
+  },
+  "total_votes": 50839
+ },
+ {
+  "name": "Sherbrooke",
+  "prov": "QC",
+  "riding": "Compton--Stanstead",
+  "lean": 0.6,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 45.6,
+   "Bloc Québécois": 26.4,
+   "Conservative": 21.8,
+   "NDP-New Democratic Party": 3.2,
+   "Green Party": 1.8,
+   "People's Party": 1.2
+  },
+  "total_votes": 65620
+ },
+ {
+  "name": "North Hatley",
+  "prov": "QC",
+  "riding": "Compton--Stanstead",
+  "lean": 0.6,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 45.6,
+   "Bloc Québécois": 26.4,
+   "Conservative": 21.8,
+   "NDP-New Democratic Party": 3.2,
+   "Green Party": 1.8,
+   "People's Party": 1.2
+  },
+  "total_votes": 65620
+ },
+ {
+  "name": "Sept-Iles",
+  "prov": "QC",
+  "riding": "Côte-Nord--Kawawachikamach--Nitassinan",
+  "lean": 5.6,
+  "lean_label": "swing",
+  "winner": "Bloc Québécois",
+  "shares": {
+   "Bloc Québécois": 43.7,
+   "Liberal": 27.4,
+   "Conservative": 25.2,
+   "NDP-New Democratic Party": 1.7
+  },
+  "total_votes": 37183
+ },
+ {
+  "name": "Drummondville",
+  "prov": "QC",
+  "riding": "Drummond",
+  "lean": 3.1,
+  "lean_label": "swing",
+  "winner": "Bloc Québécois",
+  "shares": {
+   "Bloc Québécois": 42.8,
+   "Liberal": 28.4,
+   "Conservative": 22.7,
+   "NDP-New Democratic Party": 4.6,
+   "People's Party": 1.4
+  },
+  "total_votes": 56239
+ },
+ {
+  "name": "Gatineau",
+  "prov": "QC",
+  "riding": "Hull--Aylmer",
+  "lean": -6.4,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 62.1,
+   "Conservative": 16.9,
+   "Bloc Québécois": 12.1,
+   "NDP-New Democratic Party": 5.5,
+   "Green Party": 2.2,
+   "People's Party": 0.7
+  },
+  "total_votes": 51487
+ },
+ {
+  "name": "Mont-Tremblant",
+  "prov": "QC",
+  "riding": "Laurentides--Labelle",
+  "lean": -2.3,
+  "lean_label": "swing",
+  "winner": "Bloc Québécois",
+  "shares": {
+   "Bloc Québécois": 44.6,
+   "Liberal": 34.9,
+   "Conservative": 14.9,
+   "NDP-New Democratic Party": 2.5,
+   "Green Party": 1.6,
+   "People's Party": 1.4
+  },
+  "total_votes": 52983
+ },
+ {
+  "name": "Saint-Sauveur",
+  "prov": "QC",
+  "riding": "Les Pays-d'en-Haut",
+  "lean": -1.1,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 41.0,
+   "Bloc Québécois": 36.1,
+   "Conservative": 18.0,
+   "NDP-New Democratic Party": 2.3,
+   "Green Party": 1.6,
+   "People's Party": 1.0
+  },
+  "total_votes": 65703
+ },
+ {
+  "name": "Baie-Saint-Paul",
+  "prov": "QC",
+  "riding": "Montmorency--Charlevoix",
+  "lean": 11.8,
+  "lean_label": "swing",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 34.5,
+   "Bloc Québécois": 33.6,
+   "Liberal": 28.8,
+   "NDP-New Democratic Party": 1.5,
+   "Green Party": 1.0,
+   "People's Party": 0.6
+  },
+  "total_votes": 59407
+ },
+ {
+  "name": "Quebec City",
+  "prov": "QC",
+  "riding": "Québec Centre",
+  "lean": -13.2,
+  "lean_label": "leans left",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 49.5,
+   "Bloc Québécois": 35.9,
+   "NDP-New Democratic Party": 7.8,
+   "People's Party": 5.0
+  },
+  "total_votes": 56319
+ },
+ {
+  "name": "Rimouski",
+  "prov": "QC",
+  "riding": "Rimouski--La Matapédia",
+  "lean": -2.7,
+  "lean_label": "swing",
+  "winner": "Bloc Québécois",
+  "shares": {
+   "Bloc Québécois": 46.2,
+   "Liberal": 35.5,
+   "Conservative": 13.6,
+   "NDP-New Democratic Party": 1.8,
+   "People's Party": 0.6
+  },
+  "total_votes": 54040
+ },
+ {
+  "name": "Gaspe",
+  "prov": "QC",
+  "riding": "Rimouski--La Matapédia",
+  "lean": -2.7,
+  "lean_label": "swing",
+  "winner": "Bloc Québécois",
+  "shares": {
+   "Bloc Québécois": 46.2,
+   "Liberal": 35.5,
+   "Conservative": 13.6,
+   "NDP-New Democratic Party": 1.8,
+   "People's Party": 0.6
+  },
+  "total_votes": 54040
+ },
+ {
+  "name": "Granby",
+  "prov": "QC",
+  "riding": "Shefford",
+  "lean": -0.6,
+  "lean_label": "swing",
+  "winner": "Bloc Québécois",
+  "shares": {
+   "Bloc Québécois": 40.1,
+   "Liberal": 39.3,
+   "Conservative": 17.1,
+   "NDP-New Democratic Party": 2.3,
+   "People's Party": 1.2
+  },
+  "total_votes": 66631
+ },
+ {
+  "name": "Trois-Rivieres",
+  "prov": "QC",
+  "riding": "Trois-Rivières",
+  "lean": 5.1,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 41.0,
+   "Bloc Québécois": 27.6,
+   "Conservative": 27.2,
+   "NDP-New Democratic Party": 2.3,
+   "Green Party": 0.9,
+   "People's Party": 0.5
+  },
+  "total_votes": 61317
+ },
+ {
+  "name": "Montreal",
+  "prov": "QC",
+  "riding": "Ville-Marie--Le Sud-Ouest--Île-des-Soeurs",
+  "lean": -6.1,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 63.7,
+   "Conservative": 18.8,
+   "Bloc Québécois": 9.0,
+   "NDP-New Democratic Party": 6.0,
+   "Green Party": 2.1
+  },
+  "total_votes": 48519
+ },
+ {
+  "name": "Barrie",
+  "prov": "ON",
+  "riding": "Barrie--Springwater--Oro-Medonte",
+  "lean": 20.7,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 51.7,
+   "Liberal": 44.4,
+   "NDP-New Democratic Party": 2.4,
+   "Green Party": 1.4
+  },
+  "total_votes": 65709
+ },
+ {
+  "name": "Picton",
+  "prov": "ON",
+  "riding": "Bay of Quinte",
+  "lean": 14.6,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 50.4,
+   "Conservative": 44.7,
+   "NDP-New Democratic Party": 3.6,
+   "Green Party": 1.3
+  },
+  "total_votes": 65182
+ },
+ {
+  "name": "Owen Sound",
+  "prov": "ON",
+  "riding": "Bruce--Grey--Owen Sound",
+  "lean": 22.2,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 53.0,
+   "Liberal": 40.1,
+   "NDP-New Democratic Party": 3.1,
+   "Green Party": 2.2,
+   "People's Party": 0.8
+  },
+  "total_votes": 66911
+ },
+ {
+  "name": "Meaford",
+  "prov": "ON",
+  "riding": "Bruce--Grey--Owen Sound",
+  "lean": 22.2,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 53.0,
+   "Liberal": 40.1,
+   "NDP-New Democratic Party": 3.1,
+   "Green Party": 2.2,
+   "People's Party": 0.8
+  },
+  "total_votes": 66911
+ },
+ {
+  "name": "Tobermory",
+  "prov": "ON",
+  "riding": "Bruce--Grey--Owen Sound",
+  "lean": 22.2,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 53.0,
+   "Liberal": 40.1,
+   "NDP-New Democratic Party": 3.1,
+   "Green Party": 2.2,
+   "People's Party": 0.8
+  },
+  "total_votes": 66911
+ },
+ {
+  "name": "Guelph",
+  "prov": "ON",
+  "riding": "Guelph",
+  "lean": 1.8,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 54.7,
+   "Conservative": 30.7,
+   "Green Party": 10.2,
+   "NDP-New Democratic Party": 3.2,
+   "People's Party": 0.7
+  },
+  "total_votes": 66593
+ },
+ {
+  "name": "Hamilton",
+  "prov": "ON",
+  "riding": "Hamilton Centre",
+  "lean": -8.5,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 37.6,
+   "Conservative": 30.0,
+   "NDP-New Democratic Party": 29.1,
+   "Green Party": 1.4,
+   "People's Party": 1.0
+  },
+  "total_votes": 56952
+ },
+ {
+  "name": "Goderich",
+  "prov": "ON",
+  "riding": "Huron--Bruce",
+  "lean": 21.6,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 53.2,
+   "Liberal": 41.5,
+   "NDP-New Democratic Party": 3.3,
+   "Green Party": 1.3
+  },
+  "total_votes": 69657
+ },
+ {
+  "name": "Bayfield",
+  "prov": "ON",
+  "riding": "Huron--Bruce",
+  "lean": 21.6,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 53.2,
+   "Liberal": 41.5,
+   "NDP-New Democratic Party": 3.3,
+   "Green Party": 1.3
+  },
+  "total_votes": 69657
+ },
+ {
+  "name": "Timmins",
+  "prov": "ON",
+  "riding": "Kapuskasing--Timmins--Mushkegowuk",
+  "lean": 16.7,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 48.9,
+   "Liberal": 39.0,
+   "NDP-New Democratic Party": 10.4,
+   "People's Party": 1.7
+  },
+  "total_votes": 47137
+ },
+ {
+  "name": "Kenora",
+  "prov": "ON",
+  "riding": "Kenora--Kiiwetinoong",
+  "lean": 13.7,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 48.7,
+   "Liberal": 35.2,
+   "NDP-New Democratic Party": 13.8,
+   "Green Party": 1.1,
+   "People's Party": 0.8
+  },
+  "total_votes": 26892
+ },
+ {
+  "name": "Kingston",
+  "prov": "ON",
+  "riding": "Kingston and the Islands",
+  "lean": 3.1,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 63.2,
+   "Conservative": 30.6,
+   "NDP-New Democratic Party": 4.7,
+   "Green Party": 1.4
+  },
+  "total_votes": 76993
+ },
+ {
+  "name": "Kitchener-Waterloo",
+  "prov": "ON",
+  "riding": "Kitchener Centre",
+  "lean": -3.1,
+  "lean_label": "swing",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 34.2,
+   "Green Party": 33.6,
+   "Liberal": 29.3,
+   "NDP-New Democratic Party": 2.0,
+   "People's Party": 0.6
+  },
+  "total_votes": 59084
+ },
+ {
+  "name": "Perth",
+  "prov": "ON",
+  "riding": "Lanark--Frontenac",
+  "lean": 19.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.4,
+   "Liberal": 45.6,
+   "NDP-New Democratic Party": 2.9,
+   "Green Party": 1.1
+  },
+  "total_votes": 67813
+ },
+ {
+  "name": "Almonte",
+  "prov": "ON",
+  "riding": "Lanark--Frontenac",
+  "lean": 19.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.4,
+   "Liberal": 45.6,
+   "NDP-New Democratic Party": 2.9,
+   "Green Party": 1.1
+  },
+  "total_votes": 67813
+ },
+ {
+  "name": "Brockville",
+  "prov": "ON",
+  "riding": "Leeds--Grenville--Thousand Islands--Rideau Lakes",
+  "lean": 19.8,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.0,
+   "Liberal": 44.4,
+   "NDP-New Democratic Party": 3.5,
+   "Green Party": 1.2,
+   "People's Party": 0.9
+  },
+  "total_votes": 66811
+ },
+ {
+  "name": "London",
+  "prov": "ON",
+  "riding": "London Centre",
+  "lean": 1.8,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 56.7,
+   "Conservative": 31.1,
+   "NDP-New Democratic Party": 9.7,
+   "Green Party": 1.5,
+   "People's Party": 0.9
+  },
+  "total_votes": 59923
+ },
+ {
+  "name": "Niagara-on-the-Lake",
+  "prov": "ON",
+  "riding": "Niagara Falls--Niagara-on-the-Lake",
+  "lean": 19.1,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 49.1,
+   "Liberal": 44.9,
+   "NDP-New Democratic Party": 3.9,
+   "Green Party": 0.9,
+   "People's Party": 0.8
+  },
+  "total_votes": 60595
+ },
+ {
+  "name": "North Bay",
+  "prov": "ON",
+  "riding": "Nipissing--Timiskaming",
+  "lean": 14.5,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 47.2,
+   "Conservative": 44.6,
+   "NDP-New Democratic Party": 6.1,
+   "People's Party": 1.1,
+   "Green Party": 1.0
+  },
+  "total_votes": 58576
+ },
+ {
+  "name": "Cobourg",
+  "prov": "ON",
+  "riding": "Northumberland--Clarke",
+  "lean": 19.4,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 49.0,
+   "Liberal": 45.9,
+   "NDP-New Democratic Party": 2.9,
+   "Green Party": 0.9,
+   "People's Party": 0.7
+  },
+  "total_votes": 71192
+ },
+ {
+  "name": "Port Hope",
+  "prov": "ON",
+  "riding": "Northumberland--Clarke",
+  "lean": 19.4,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 49.0,
+   "Liberal": 45.9,
+   "NDP-New Democratic Party": 2.9,
+   "Green Party": 0.9,
+   "People's Party": 0.7
+  },
+  "total_votes": 71192
+ },
+ {
+  "name": "Oshawa",
+  "prov": "ON",
+  "riding": "Oshawa",
+  "lean": 15.3,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 48.2,
+   "Liberal": 43.0,
+   "NDP-New Democratic Party": 7.7,
+   "Green Party": 1.2
+  },
+  "total_votes": 66700
+ },
+ {
+  "name": "Ottawa",
+  "prov": "ON",
+  "riding": "Ottawa Centre",
+  "lean": -16.0,
+  "lean_label": "leans left",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 62.7,
+   "NDP-New Democratic Party": 19.6,
+   "Conservative": 15.6,
+   "Green Party": 1.1
+  },
+  "total_votes": 81338
+ },
+ {
+  "name": "Huntsville",
+  "prov": "ON",
+  "riding": "Parry Sound--Muskoka",
+  "lean": 22.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 52.2,
+   "Liberal": 42.6,
+   "NDP-New Democratic Party": 3.6,
+   "People's Party": 1.6
+  },
+  "total_votes": 64653
+ },
+ {
+  "name": "Bracebridge",
+  "prov": "ON",
+  "riding": "Parry Sound--Muskoka",
+  "lean": 22.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 52.2,
+   "Liberal": 42.6,
+   "NDP-New Democratic Party": 3.6,
+   "People's Party": 1.6
+  },
+  "total_votes": 64653
+ },
+ {
+  "name": "Stratford",
+  "prov": "ON",
+  "riding": "Perth--Wellington",
+  "lean": 22.7,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 53.0,
+   "Liberal": 40.8,
+   "NDP-New Democratic Party": 4.5,
+   "People's Party": 1.7
+  },
+  "total_votes": 64092
+ },
+ {
+  "name": "Peterborough",
+  "prov": "ON",
+  "riding": "Peterborough",
+  "lean": 12.7,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 54.3,
+   "Conservative": 41.0,
+   "NDP-New Democratic Party": 3.0,
+   "Green Party": 0.8,
+   "People's Party": 0.3
+  },
+  "total_votes": 79059
+ },
+ {
+  "name": "Sarnia",
+  "prov": "ON",
+  "riding": "Sarnia--Lambton--Bkejwanong",
+  "lean": 23.1,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 53.1,
+   "Liberal": 37.9,
+   "NDP-New Democratic Party": 5.4,
+   "People's Party": 1.5
+  },
+  "total_votes": 76389
+ },
+ {
+  "name": "Sault Ste. Marie",
+  "prov": "ON",
+  "riding": "Sault Ste. Marie--Algoma",
+  "lean": 13.4,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 47.4,
+   "Conservative": 44.7,
+   "NDP-New Democratic Party": 6.6,
+   "Green Party": 0.8
+  },
+  "total_votes": 65317
+ },
+ {
+  "name": "Collingwood",
+  "prov": "ON",
+  "riding": "Simcoe--Grey",
+  "lean": 21.7,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 52.1,
+   "Liberal": 43.4,
+   "NDP-New Democratic Party": 2.3,
+   "Green Party": 1.5,
+   "People's Party": 0.8
+  },
+  "total_votes": 67907
+ },
+ {
+  "name": "Orillia",
+  "prov": "ON",
+  "riding": "Simcoe North",
+  "lean": 18.3,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 48.4,
+   "Liberal": 44.7,
+   "NDP-New Democratic Party": 3.8,
+   "Green Party": 1.9,
+   "People's Party": 1.0
+  },
+  "total_votes": 66605
+ },
+ {
+  "name": "St. Catharines",
+  "prov": "ON",
+  "riding": "St. Catharines",
+  "lean": 11.5,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 52.0,
+   "Conservative": 40.4,
+   "NDP-New Democratic Party": 6.0,
+   "People's Party": 0.8
+  },
+  "total_votes": 66810
+ },
+ {
+  "name": "Cornwall",
+  "prov": "ON",
+  "riding": "Stormont--Dundas--Glengarry",
+  "lean": 24.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 56.3,
+   "Liberal": 39.8,
+   "NDP-New Democratic Party": 2.5,
+   "Green Party": 1.0
+  },
+  "total_votes": 66407
+ },
+ {
+  "name": "Greater Sudbury",
+  "prov": "ON",
+  "riding": "Sudbury",
+  "lean": 10.0,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 51.9,
+   "Conservative": 39.2,
+   "NDP-New Democratic Party": 7.7,
+   "People's Party": 1.3
+  },
+  "total_votes": 60839
+ },
+ {
+  "name": "Thunder Bay",
+  "prov": "ON",
+  "riding": "Thunder Bay--Rainy River",
+  "lean": 12.8,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 48.5,
+   "Conservative": 42.9,
+   "NDP-New Democratic Party": 6.8,
+   "People's Party": 1.0,
+   "Green Party": 0.8
+  },
+  "total_votes": 43531
+ },
+ {
+  "name": "Toronto",
+  "prov": "ON",
+  "riding": "University--Rosedale",
+  "lean": -5.1,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 64.0,
+   "Conservative": 23.5,
+   "NDP-New Democratic Party": 9.9,
+   "Green Party": 1.7
+  },
+  "total_votes": 62265
+ },
+ {
+  "name": "Elora",
+  "prov": "ON",
+  "riding": "Wellington--Halton Hills North",
+  "lean": 20.6,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.6,
+   "Liberal": 44.4,
+   "Green Party": 2.1,
+   "NDP-New Democratic Party": 2.0,
+   "People's Party": 0.8
+  },
+  "total_votes": 66646
+ },
+ {
+  "name": "Windsor",
+  "prov": "ON",
+  "riding": "Windsor West",
+  "lean": -0.6,
+  "lean_label": "swing",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 39.0,
+   "Liberal": 30.9,
+   "NDP-New Democratic Party": 27.8,
+   "People's Party": 1.0,
+   "Green Party": 0.7
+  },
+  "total_votes": 54888
+ },
+ {
+  "name": "Brandon",
+  "prov": "MB",
+  "riding": "Brandon--Souris",
+  "lean": 23.3,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 62.2,
+   "Liberal": 23.4,
+   "NDP-New Democratic Party": 14.4
+  },
+  "total_votes": 46027
+ },
+ {
+  "name": "Churchill",
+  "prov": "MB",
+  "riding": "Churchill--Keewatinook Aski",
+  "lean": -11.9,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 45.5,
+   "NDP-New Democratic Party": 28.7,
+   "Conservative": 24.1,
+   "People's Party": 1.7
+  },
+  "total_votes": 20469
+ },
+ {
+  "name": "Steinbach",
+  "prov": "MB",
+  "riding": "Provencher",
+  "lean": 32.8,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 66.3,
+   "Liberal": 25.9,
+   "NDP-New Democratic Party": 4.6,
+   "People's Party": 1.8,
+   "Green Party": 1.4
+  },
+  "total_votes": 51803
+ },
+ {
+  "name": "Gimli",
+  "prov": "MB",
+  "riding": "Selkirk--Interlake--Eastman",
+  "lean": 26.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 60.2,
+   "Liberal": 30.4,
+   "NDP-New Democratic Party": 6.5,
+   "Green Party": 1.3,
+   "People's Party": 0.9
+  },
+  "total_votes": 54479
+ },
+ {
+  "name": "Winnipeg",
+  "prov": "MB",
+  "riding": "Winnipeg Centre",
+  "lean": -19.6,
+  "lean_label": "leans left",
+  "winner": "NDP-New Democratic Party",
+  "shares": {
+   "NDP-New Democratic Party": 39.4,
+   "Liberal": 35.4,
+   "Conservative": 22.3,
+   "Green Party": 1.1,
+   "People's Party": 1.1
+  },
+  "total_votes": 34289
+ },
+ {
+  "name": "Saskatoon",
+  "prov": "SK",
+  "riding": "Carlton Trail--Eagle Creek",
+  "lean": 39.6,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 77.4,
+   "Liberal": 17.0,
+   "NDP-New Democratic Party": 5.6
+  },
+  "total_votes": 47051
+ },
+ {
+  "name": "Moose Jaw",
+  "prov": "SK",
+  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "lean": 37.0,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 71.9,
+   "Liberal": 16.7,
+   "NDP-New Democratic Party": 7.5,
+   "People's Party": 3.0,
+   "Green Party": 0.9
+  },
+  "total_votes": 45879
+ },
+ {
+  "name": "Prince Albert",
+  "prov": "SK",
+  "riding": "Prince Albert",
+  "lean": 33.1,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 71.5,
+   "Liberal": 19.2,
+   "NDP-New Democratic Party": 9.3
+  },
+  "total_votes": 38844
+ },
+ {
+  "name": "Regina",
+  "prov": "SK",
+  "riding": "Regina--Wascana",
+  "lean": 19.2,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.1,
+   "Liberal": 43.7,
+   "NDP-New Democratic Party": 4.9,
+   "People's Party": 0.7,
+   "Green Party": 0.7
+  },
+  "total_votes": 44077
+ },
+ {
+  "name": "Swift Current",
+  "prov": "SK",
+  "riding": "Swift Current--Grasslands--Kindersley",
+  "lean": 43.8,
+  "lean_label": "solid right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 82.0,
+   "Liberal": 11.2,
+   "NDP-New Democratic Party": 5.7
+  },
+  "total_votes": 39388
+ },
+ {
+  "name": "Camrose",
+  "prov": "AB",
+  "riding": "Battle River--Crowfoot",
+  "lean": 46.4,
+  "lean_label": "solid right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 82.8,
+   "Liberal": 11.7,
+   "NDP-New Democratic Party": 3.2,
+   "People's Party": 1.6,
+   "Green Party": 0.7
+  },
+  "total_votes": 64807
+ },
+ {
+  "name": "Calgary",
+  "prov": "AB",
+  "riding": "Calgary Centre",
+  "lean": 20.3,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.2,
+   "Liberal": 45.8,
+   "NDP-New Democratic Party": 2.6,
+   "People's Party": 0.6,
+   "Green Party": 0.6
+  },
+  "total_votes": 62946
+ },
+ {
+  "name": "Edmonton",
+  "prov": "AB",
+  "riding": "Edmonton Centre",
+  "lean": 5.0,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 44.3,
+   "Conservative": 37.9,
+   "NDP-New Democratic Party": 15.5,
+   "People's Party": 0.9
+  },
+  "total_votes": 54428
+ },
+ {
+  "name": "Okotoks",
+  "prov": "AB",
+  "riding": "Foothills",
+  "lean": 41.0,
+  "lean_label": "solid right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 76.3,
+   "Liberal": 19.1,
+   "NDP-New Democratic Party": 2.7,
+   "People's Party": 1.1,
+   "Green Party": 0.8
+  },
+  "total_votes": 71888
+ },
+ {
+  "name": "Grande Prairie",
+  "prov": "AB",
+  "riding": "Grande Prairie",
+  "lean": 45.6,
+  "lean_label": "solid right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 81.7,
+   "Liberal": 11.8,
+   "NDP-New Democratic Party": 4.2,
+   "People's Party": 1.4
+  },
+  "total_votes": 58652
+ },
+ {
+  "name": "Lethbridge",
+  "prov": "AB",
+  "riding": "Lethbridge",
+  "lean": 28.9,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 61.1,
+   "Liberal": 32.7,
+   "NDP-New Democratic Party": 3.6,
+   "People's Party": 0.7,
+   "Green Party": 0.7
+  },
+  "total_votes": 66937
+ },
+ {
+  "name": "Medicine Hat",
+  "prov": "AB",
+  "riding": "Medicine Hat--Cardston--Warner",
+  "lean": 39.2,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 76.7,
+   "Liberal": 17.7,
+   "NDP-New Democratic Party": 4.8,
+   "Green Party": 0.8
+  },
+  "total_votes": 54100
+ },
+ {
+  "name": "Red Deer",
+  "prov": "AB",
+  "riding": "Red Deer",
+  "lean": 37.1,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 71.6,
+   "Liberal": 21.9,
+   "NDP-New Democratic Party": 3.8,
+   "People's Party": 1.3,
+   "Green Party": 1.0
+  },
+  "total_votes": 61828
+ },
+ {
+  "name": "Canmore",
+  "prov": "AB",
+  "riding": "Yellowhead",
+  "lean": 35.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 69.1,
+   "Liberal": 25.2,
+   "NDP-New Democratic Party": 4.0,
+   "People's Party": 1.4
+  },
+  "total_votes": 69290
+ },
+ {
+  "name": "Banff",
+  "prov": "AB",
+  "riding": "Yellowhead",
+  "lean": 35.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 69.1,
+   "Liberal": 25.2,
+   "NDP-New Democratic Party": 4.0,
+   "People's Party": 1.4
+  },
+  "total_votes": 69290
+ },
+ {
+  "name": "Jasper",
+  "prov": "AB",
+  "riding": "Yellowhead",
+  "lean": 35.5,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 69.1,
+   "Liberal": 25.2,
+   "NDP-New Democratic Party": 4.0,
+   "People's Party": 1.4
+  },
+  "total_votes": 69290
+ },
+ {
+  "name": "Abbotsford",
+  "prov": "BC",
+  "riding": "Abbotsford--South Langley",
+  "lean": 21.0,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 43.1,
+   "Liberal": 33.9,
+   "NDP-New Democratic Party": 3.8,
+   "Green Party": 1.0,
+   "People's Party": 0.8
+  },
+  "total_votes": 55972
+ },
+ {
+  "name": "Chilliwack",
+  "prov": "BC",
+  "riding": "Chilliwack--Hope",
+  "lean": 21.4,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 54.8,
+   "Liberal": 35.4,
+   "NDP-New Democratic Party": 7.3,
+   "Green Party": 1.6,
+   "People's Party": 0.7
+  },
+  "total_votes": 65754
+ },
+ {
+  "name": "Nelson",
+  "prov": "BC",
+  "riding": "Columbia--Kootenay--Southern Rockies",
+  "lean": 12.9,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.4,
+   "Liberal": 28.2,
+   "NDP-New Democratic Party": 18.0,
+   "Green Party": 1.5,
+   "People's Party": 0.7
+  },
+  "total_votes": 71542
+ },
+ {
+  "name": "Cranbrook",
+  "prov": "BC",
+  "riding": "Columbia--Kootenay--Southern Rockies",
+  "lean": 12.9,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.4,
+   "Liberal": 28.2,
+   "NDP-New Democratic Party": 18.0,
+   "Green Party": 1.5,
+   "People's Party": 0.7
+  },
+  "total_votes": 71542
+ },
+ {
+  "name": "Fernie",
+  "prov": "BC",
+  "riding": "Columbia--Kootenay--Southern Rockies",
+  "lean": 12.9,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.4,
+   "Liberal": 28.2,
+   "NDP-New Democratic Party": 18.0,
+   "Green Party": 1.5,
+   "People's Party": 0.7
+  },
+  "total_votes": 71542
+ },
+ {
+  "name": "Tofino",
+  "prov": "BC",
+  "riding": "Courtenay--Alberni",
+  "lean": -10.4,
+  "lean_label": "swing",
+  "winner": "NDP-New Democratic Party",
+  "shares": {
+   "NDP-New Democratic Party": 39.6,
+   "Conservative": 35.1,
+   "Liberal": 22.7,
+   "Green Party": 1.7,
+   "People's Party": 0.5
+  },
+  "total_votes": 79766
+ },
+ {
+  "name": "Courtenay",
+  "prov": "BC",
+  "riding": "Courtenay--Alberni",
+  "lean": -10.4,
+  "lean_label": "swing",
+  "winner": "NDP-New Democratic Party",
+  "shares": {
+   "NDP-New Democratic Party": 39.6,
+   "Conservative": 35.1,
+   "Liberal": 22.7,
+   "Green Party": 1.7,
+   "People's Party": 0.5
+  },
+  "total_votes": 79766
+ },
+ {
+  "name": "Revelstoke",
+  "prov": "BC",
+  "riding": "Kamloops--Shuswap--Central Rockies",
+  "lean": 20.1,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 52.2,
+   "Liberal": 39.0,
+   "NDP-New Democratic Party": 5.5,
+   "Green Party": 2.4,
+   "People's Party": 0.9
+  },
+  "total_votes": 68056
+ },
+ {
+  "name": "Kamloops",
+  "prov": "BC",
+  "riding": "Kamloops--Thompson--Nicola",
+  "lean": 19.6,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 51.5,
+   "Liberal": 40.2,
+   "NDP-New Democratic Party": 5.9,
+   "Green Party": 1.5,
+   "People's Party": 0.8
+  },
+  "total_votes": 62102
+ },
+ {
+  "name": "Kelowna",
+  "prov": "BC",
+  "riding": "Kelowna",
+  "lean": 16.6,
+  "lean_label": "leans right",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 48.8,
+   "Conservative": 46.9,
+   "NDP-New Democratic Party": 3.3,
+   "Green Party": 1.0
+  },
+  "total_votes": 58841
+ },
+ {
+  "name": "Nanaimo",
+  "prov": "BC",
+  "riding": "Nanaimo--Ladysmith",
+  "lean": -5.2,
+  "lean_label": "swing",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 35.5,
+   "Liberal": 27.8,
+   "NDP-New Democratic Party": 18.3,
+   "Green Party": 18.1,
+   "People's Party": 0.4
+  },
+  "total_votes": 74397
+ },
+ {
+  "name": "Powell River",
+  "prov": "BC",
+  "riding": "North Island--Powell River",
+  "lean": -4.2,
+  "lean_label": "swing",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 38.7,
+   "NDP-New Democratic Party": 32.6,
+   "Liberal": 26.2,
+   "Green Party": 1.9,
+   "People's Party": 0.4
+  },
+  "total_votes": 80929
+ },
+ {
+  "name": "Prince George",
+  "prov": "BC",
+  "riding": "Prince George--Peace River--Northern Rockies",
+  "lean": 34.9,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 71.1,
+   "Liberal": 19.6,
+   "NDP-New Democratic Party": 6.0,
+   "Green Party": 2.1,
+   "People's Party": 1.2
+  },
+  "total_votes": 58992
+ },
+ {
+  "name": "Salt Spring Island",
+  "prov": "BC",
+  "riding": "Saanich--Gulf Islands",
+  "lean": -13.7,
+  "lean_label": "leans left",
+  "winner": "Green Party",
+  "shares": {
+   "Green Party": 39.1,
+   "Liberal": 31.8,
+   "Conservative": 25.1,
+   "NDP-New Democratic Party": 4.0
+  },
+  "total_votes": 79786
+ },
+ {
+  "name": "Penticton",
+  "prov": "BC",
+  "riding": "Similkameen--South Okanagan--West Kootenay",
+  "lean": 8.7,
+  "lean_label": "swing",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 44.1,
+   "Liberal": 37.3,
+   "NDP-New Democratic Party": 16.2,
+   "Green Party": 1.5,
+   "People's Party": 1.0
+  },
+  "total_votes": 68216
+ },
+ {
+  "name": "Smithers",
+  "prov": "BC",
+  "riding": "Skeena--Bulkley Valley",
+  "lean": -1.0,
+  "lean_label": "swing",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 47.2,
+   "NDP-New Democratic Party": 39.3,
+   "Liberal": 11.0,
+   "Green Party": 1.2
+  },
+  "total_votes": 44932
+ },
+ {
+  "name": "Vancouver",
+  "prov": "BC",
+  "riding": "Vancouver Granville",
+  "lean": 0.1,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 62.1,
+   "Conservative": 28.8,
+   "NDP-New Democratic Party": 7.5,
+   "Green Party": 1.6
+  },
+  "total_votes": 59577
+ },
+ {
+  "name": "Vernon",
+  "prov": "BC",
+  "riding": "Vernon--Lake Country--Monashee",
+  "lean": 18.2,
+  "lean_label": "leans right",
+  "winner": "Conservative",
+  "shares": {
+   "Conservative": 50.4,
+   "Liberal": 42.8,
+   "NDP-New Democratic Party": 5.1,
+   "Green Party": 1.6
+  },
+  "total_votes": 67141
+ },
+ {
+  "name": "Victoria",
+  "prov": "BC",
+  "riding": "Victoria",
+  "lean": -17.9,
+  "lean_label": "leans left",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 54.3,
+   "NDP-New Democratic Party": 24.9,
+   "Conservative": 17.0,
+   "Green Party": 3.1,
+   "People's Party": 0.4
+  },
+  "total_votes": 75768
+ },
+ {
+  "name": "Squamish",
+  "prov": "BC",
+  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "lean": 5.5,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 59.7,
+   "Conservative": 33.0,
+   "Green Party": 3.4,
+   "NDP-New Democratic Party": 3.2,
+   "People's Party": 0.5
+  },
+  "total_votes": 64247
+ },
+ {
+  "name": "Sechelt",
+  "prov": "BC",
+  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "lean": 5.5,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 59.7,
+   "Conservative": 33.0,
+   "Green Party": 3.4,
+   "NDP-New Democratic Party": 3.2,
+   "People's Party": 0.5
+  },
+  "total_votes": 64247
+ },
+ {
+  "name": "Whistler",
+  "prov": "BC",
+  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "lean": 5.5,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 59.7,
+   "Conservative": 33.0,
+   "Green Party": 3.4,
+   "NDP-New Democratic Party": 3.2,
+   "People's Party": 0.5
+  },
+  "total_votes": 64247
+ },
+ {
+  "name": "Whitehorse",
+  "prov": "YT",
+  "riding": "Yukon",
+  "lean": 8.2,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 53.1,
+   "Conservative": 38.5,
+   "NDP-New Democratic Party": 6.3,
+   "Green Party": 2.1
+  },
+  "total_votes": 22636
+ },
+ {
+  "name": "Dawson City",
+  "prov": "YT",
+  "riding": "Yukon",
+  "lean": 8.2,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 53.1,
+   "Conservative": 38.5,
+   "NDP-New Democratic Party": 6.3,
+   "Green Party": 2.1
+  },
+  "total_votes": 22636
+ },
+ {
+  "name": "Yellowknife",
+  "prov": "NT",
+  "riding": "Northwest Territories",
+  "lean": 1.6,
+  "lean_label": "swing",
+  "winner": "Liberal",
+  "shares": {
+   "Liberal": 53.5,
+   "Conservative": 33.3,
+   "NDP-New Democratic Party": 12.2,
+   "Green Party": 1.0
+  },
+  "total_votes": 16549
+ },
+ {
+  "name": "Iqaluit",
+  "prov": "NU",
+  "riding": "Nunavut",
+  "lean": -16.3,
+  "lean_label": "leans left",
+  "winner": "NDP-New Democratic Party",
+  "shares": {
+   "NDP-New Democratic Party": 37.3,
+   "Liberal": 36.7,
+   "Conservative": 26.0
+  },
+  "total_votes": 7657
+ }
+]

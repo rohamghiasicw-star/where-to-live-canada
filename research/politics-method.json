@@ -1,0 +1,13 @@
+{
+ "axis": {
+  "Liberal": -18,
+  "Conservative": 60,
+  "NDP-New Democratic Party": -68,
+  "Bloc Québécois": -8,
+  "Green Party": -52,
+  "People's Party": 82
+ },
+ "election": "45th Canadian General Election, 28 April 2025",
+ "source": "Elections Canada official validated results, Table 12",
+ "method": "vote-weighted mean of party axis positions, majors only"
+}

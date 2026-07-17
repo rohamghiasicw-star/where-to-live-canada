@@ -1,0 +1,13 @@
+BC|Vancouver|Victoria|Kelowna|Kamloops|Nanaimo|Prince George|Nelson|Revelstoke|Squamish|Tofino|Penticton|Vernon|Courtenay|Abbotsford|Chilliwack|Cranbrook|Fernie|Smithers|Powell River|Salt Spring Island|Sechelt|Whistler
+AB|Calgary|Edmonton|Canmore|Banff|Lethbridge|Red Deer|Medicine Hat|Grande Prairie|Jasper|Camrose|Okotoks
+SK|Saskatoon|Regina|Prince Albert|Moose Jaw|Swift Current
+MB|Winnipeg|Brandon|Gimli|Steinbach|Churchill
+ON|Toronto|Ottawa|Hamilton|London|Kingston|Guelph|Kitchener-Waterloo|Windsor|Greater Sudbury|Thunder Bay|Barrie|Peterborough|Collingwood|Goderich|Stratford|Niagara-on-the-Lake|Owen Sound|Sault Ste. Marie|North Bay|Huntsville|Picton|Cobourg|Brockville|Cornwall|Orillia|Sarnia|St. Catharines|Oshawa|Timmins|Kenora|Elora|Perth|Almonte|Bracebridge|Meaford|Bayfield|Port Hope|Tobermory
+QC|Montreal|Quebec City|Gatineau|Sherbrooke|Trois-Rivieres|Saguenay|Rimouski|Mont-Tremblant|Magog|Baie-Saint-Paul|Val-d'Or|Gaspe|Granby|Drummondville|Saint-Sauveur|North Hatley|Sept-Iles|Rouyn-Noranda
+NB|Fredericton|Moncton|Saint John|Sackville|St. Andrews|Bathurst|Miramichi
+NS|Halifax|Lunenburg|Wolfville|Truro|Sydney|Annapolis Royal|Mahone Bay|Chester|Bridgewater|Antigonish|Digby|Yarmouth
+PE|Charlottetown|Summerside
+NL|St. John's|Corner Brook|Gander|Bonavista|Grand Falls-Windsor
+YT|Whitehorse|Dawson City
+NT|Yellowknife
+NU|Iqaluit

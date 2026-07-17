@@ -1,0 +1,1036 @@
+[
+ {
+  "name": "Vancouver",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Victoria",
+  "prov": "BC",
+  "nearest_big_city": "Victoria",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Kelowna",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 288.9,
+  "km_to_big_city": 390.5,
+  "routed": true
+ },
+ {
+  "name": "Kamloops",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 255.2,
+  "km_to_big_city": 354.3,
+  "routed": true
+ },
+ {
+  "name": "Nanaimo",
+  "prov": "BC",
+  "nearest_big_city": "Victoria",
+  "drive_min_to_big_city": 106.7,
+  "km_to_big_city": 110.8,
+  "routed": true
+ },
+ {
+  "name": "Prince George",
+  "prov": "BC",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 580.2,
+  "km_to_big_city": 740.1,
+  "routed": true
+ },
+ {
+  "name": "Nelson",
+  "prov": "BC",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 495.0,
+  "km_to_big_city": 619.5,
+  "routed": true
+ },
+ {
+  "name": "Revelstoke",
+  "prov": "BC",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 329.4,
+  "km_to_big_city": 407.9,
+  "routed": true
+ },
+ {
+  "name": "Squamish",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 66.5,
+  "km_to_big_city": 63.9,
+  "routed": true
+ },
+ {
+  "name": "Tofino",
+  "prov": "BC",
+  "nearest_big_city": "Victoria",
+  "drive_min_to_big_city": 295.7,
+  "km_to_big_city": 317.0,
+  "routed": true
+ },
+ {
+  "name": "Penticton",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 312.2,
+  "km_to_big_city": 418.1,
+  "routed": true
+ },
+ {
+  "name": "Vernon",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 341.0,
+  "km_to_big_city": 441.0,
+  "routed": true
+ },
+ {
+  "name": "Courtenay",
+  "prov": "BC",
+  "nearest_big_city": "Victoria",
+  "drive_min_to_big_city": 189.6,
+  "km_to_big_city": 220.0,
+  "routed": true
+ },
+ {
+  "name": "Abbotsford",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 64.6,
+  "km_to_big_city": 67.8,
+  "routed": true
+ },
+ {
+  "name": "Chilliwack",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 89.9,
+  "km_to_big_city": 103.4,
+  "routed": true
+ },
+ {
+  "name": "Cranbrook",
+  "prov": "BC",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 309.3,
+  "km_to_big_city": 389.2,
+  "routed": true
+ },
+ {
+  "name": "Fernie",
+  "prov": "BC",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 232.1,
+  "km_to_big_city": 293.4,
+  "routed": true
+ },
+ {
+  "name": "Smithers",
+  "prov": "BC",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 885.6,
+  "km_to_big_city": 1112.4,
+  "routed": true
+ },
+ {
+  "name": "Powell River",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 229.2,
+  "km_to_big_city": 170.2,
+  "routed": true
+ },
+ {
+  "name": "Salt Spring Island",
+  "prov": "BC",
+  "nearest_big_city": "Victoria",
+  "drive_min_to_big_city": 121.9,
+  "km_to_big_city": 93.6,
+  "routed": true
+ },
+ {
+  "name": "Sechelt",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 97.6,
+  "km_to_big_city": 66.9,
+  "routed": true
+ },
+ {
+  "name": "Whistler",
+  "prov": "BC",
+  "nearest_big_city": "Vancouver",
+  "drive_min_to_big_city": 118.7,
+  "km_to_big_city": 121.1,
+  "routed": true
+ },
+ {
+  "name": "Calgary",
+  "prov": "AB",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Edmonton",
+  "prov": "AB",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Canmore",
+  "prov": "AB",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 79.4,
+  "km_to_big_city": 102.8,
+  "routed": true
+ },
+ {
+  "name": "Banff",
+  "prov": "AB",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 100.9,
+  "km_to_big_city": 127.8,
+  "routed": true
+ },
+ {
+  "name": "Lethbridge",
+  "prov": "AB",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 162.1,
+  "km_to_big_city": 213.1,
+  "routed": true
+ },
+ {
+  "name": "Red Deer",
+  "prov": "AB",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 110.1,
+  "km_to_big_city": 147.4,
+  "routed": true
+ },
+ {
+  "name": "Medicine Hat",
+  "prov": "AB",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 217.1,
+  "km_to_big_city": 294.8,
+  "routed": true
+ },
+ {
+  "name": "Grande Prairie",
+  "prov": "AB",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 330.8,
+  "km_to_big_city": 458.8,
+  "routed": true
+ },
+ {
+  "name": "Jasper",
+  "prov": "AB",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 279.1,
+  "km_to_big_city": 365.0,
+  "routed": true
+ },
+ {
+  "name": "Camrose",
+  "prov": "AB",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 82.7,
+  "km_to_big_city": 94.8,
+  "routed": true
+ },
+ {
+  "name": "Okotoks",
+  "prov": "AB",
+  "nearest_big_city": "Calgary",
+  "drive_min_to_big_city": 41.1,
+  "km_to_big_city": 47.1,
+  "routed": true
+ },
+ {
+  "name": "Saskatoon",
+  "prov": "SK",
+  "nearest_big_city": "Saskatoon",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Regina",
+  "prov": "SK",
+  "nearest_big_city": "Saskatoon",
+  "drive_min_to_big_city": 188.1,
+  "km_to_big_city": 259.1,
+  "routed": true
+ },
+ {
+  "name": "Prince Albert",
+  "prov": "SK",
+  "nearest_big_city": "Saskatoon",
+  "drive_min_to_big_city": 103.3,
+  "km_to_big_city": 140.9,
+  "routed": true
+ },
+ {
+  "name": "Moose Jaw",
+  "prov": "SK",
+  "nearest_big_city": "Saskatoon",
+  "drive_min_to_big_city": 164.5,
+  "km_to_big_city": 225.7,
+  "routed": true
+ },
+ {
+  "name": "Swift Current",
+  "prov": "SK",
+  "nearest_big_city": "Saskatoon",
+  "drive_min_to_big_city": 209.4,
+  "km_to_big_city": 270.4,
+  "routed": true
+ },
+ {
+  "name": "Winnipeg",
+  "prov": "MB",
+  "nearest_big_city": "Winnipeg",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Brandon",
+  "prov": "MB",
+  "nearest_big_city": "Winnipeg",
+  "drive_min_to_big_city": 168.0,
+  "km_to_big_city": 214.1,
+  "routed": true
+ },
+ {
+  "name": "Gimli",
+  "prov": "MB",
+  "nearest_big_city": "Winnipeg",
+  "drive_min_to_big_city": 79.5,
+  "km_to_big_city": 89.4,
+  "routed": true
+ },
+ {
+  "name": "Steinbach",
+  "prov": "MB",
+  "nearest_big_city": "Winnipeg",
+  "drive_min_to_big_city": 57.0,
+  "km_to_big_city": 65.1,
+  "routed": true
+ },
+ {
+  "name": "Churchill",
+  "prov": "MB",
+  "nearest_big_city": "Winnipeg",
+  "km_to_big_city": 1256.3,
+  "drive_min_to_big_city": null,
+  "routed": false,
+  "note": "no road route (fly-in); straight-line distance only"
+ },
+ {
+  "name": "Toronto",
+  "prov": "ON",
+  "nearest_big_city": "Toronto",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Ottawa",
+  "prov": "ON",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Hamilton",
+  "prov": "ON",
+  "nearest_big_city": "Hamilton",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "London",
+  "prov": "ON",
+  "nearest_big_city": "London",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Kingston",
+  "prov": "ON",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 142.7,
+  "km_to_big_city": 189.0,
+  "routed": true
+ },
+ {
+  "name": "Guelph",
+  "prov": "ON",
+  "nearest_big_city": "Kitchener-Waterloo",
+  "drive_min_to_big_city": 30.4,
+  "km_to_big_city": 25.2,
+  "routed": true
+ },
+ {
+  "name": "Kitchener-Waterloo",
+  "prov": "ON",
+  "nearest_big_city": "Kitchener-Waterloo",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Windsor",
+  "prov": "ON",
+  "nearest_big_city": "Windsor",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Greater Sudbury",
+  "prov": "ON",
+  "nearest_big_city": "Toronto",
+  "drive_min_to_big_city": 317.9,
+  "km_to_big_city": 386.9,
+  "routed": true
+ },
+ {
+  "name": "Thunder Bay",
+  "prov": "ON",
+  "nearest_big_city": "Winnipeg",
+  "drive_min_to_big_city": 586.7,
+  "km_to_big_city": 695.7,
+  "routed": true
+ },
+ {
+  "name": "Barrie",
+  "prov": "ON",
+  "nearest_big_city": "Toronto",
+  "drive_min_to_big_city": 83.2,
+  "km_to_big_city": 95.2,
+  "routed": true
+ },
+ {
+  "name": "Peterborough",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 64.6,
+  "km_to_big_city": 72.8,
+  "routed": true
+ },
+ {
+  "name": "Collingwood",
+  "prov": "ON",
+  "nearest_big_city": "Toronto",
+  "drive_min_to_big_city": 136.1,
+  "km_to_big_city": 146.9,
+  "routed": true
+ },
+ {
+  "name": "Goderich",
+  "prov": "ON",
+  "nearest_big_city": "London",
+  "drive_min_to_big_city": 101.3,
+  "km_to_big_city": 98.6,
+  "routed": true
+ },
+ {
+  "name": "Stratford",
+  "prov": "ON",
+  "nearest_big_city": "Kitchener-Waterloo",
+  "drive_min_to_big_city": 49.2,
+  "km_to_big_city": 45.1,
+  "routed": true
+ },
+ {
+  "name": "Niagara-on-the-Lake",
+  "prov": "ON",
+  "nearest_big_city": "St. Catharines",
+  "drive_min_to_big_city": 25.7,
+  "km_to_big_city": 20.7,
+  "routed": true
+ },
+ {
+  "name": "Owen Sound",
+  "prov": "ON",
+  "nearest_big_city": "Kitchener-Waterloo",
+  "drive_min_to_big_city": 145.2,
+  "km_to_big_city": 146.3,
+  "routed": true
+ },
+ {
+  "name": "Sault Ste. Marie",
+  "prov": "ON",
+  "nearest_big_city": "Windsor",
+  "drive_min_to_big_city": 369.5,
+  "km_to_big_city": 562.0,
+  "routed": true
+ },
+ {
+  "name": "North Bay",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 273.7,
+  "km_to_big_city": 306.3,
+  "routed": true
+ },
+ {
+  "name": "Huntsville",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 168.6,
+  "km_to_big_city": 181.1,
+  "routed": true
+ },
+ {
+  "name": "Picton",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 130.7,
+  "km_to_big_city": 157.4,
+  "routed": true
+ },
+ {
+  "name": "Cobourg",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 48.2,
+  "km_to_big_city": 62.0,
+  "routed": true
+ },
+ {
+  "name": "Brockville",
+  "prov": "ON",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 85.8,
+  "km_to_big_city": 114.4,
+  "routed": true
+ },
+ {
+  "name": "Cornwall",
+  "prov": "ON",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 85.4,
+  "km_to_big_city": 102.2,
+  "routed": true
+ },
+ {
+  "name": "Orillia",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 106.4,
+  "km_to_big_city": 103.9,
+  "routed": true
+ },
+ {
+  "name": "Sarnia",
+  "prov": "ON",
+  "nearest_big_city": "London",
+  "drive_min_to_big_city": 83.8,
+  "km_to_big_city": 103.2,
+  "routed": true
+ },
+ {
+  "name": "St. Catharines",
+  "prov": "ON",
+  "nearest_big_city": "St. Catharines",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Oshawa",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Timmins",
+  "prov": "ON",
+  "nearest_big_city": "Toronto",
+  "drive_min_to_big_city": 593.8,
+  "km_to_big_city": 679.8,
+  "routed": true
+ },
+ {
+  "name": "Kenora",
+  "prov": "ON",
+  "nearest_big_city": "Winnipeg",
+  "drive_min_to_big_city": 172.3,
+  "km_to_big_city": 209.2,
+  "routed": true
+ },
+ {
+  "name": "Elora",
+  "prov": "ON",
+  "nearest_big_city": "Kitchener-Waterloo",
+  "drive_min_to_big_city": 36.3,
+  "km_to_big_city": 29.9,
+  "routed": true
+ },
+ {
+  "name": "Perth",
+  "prov": "ON",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 75.9,
+  "km_to_big_city": 83.6,
+  "routed": true
+ },
+ {
+  "name": "Almonte",
+  "prov": "ON",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 46.3,
+  "km_to_big_city": 52.3,
+  "routed": true
+ },
+ {
+  "name": "Bracebridge",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 142.7,
+  "km_to_big_city": 145.9,
+  "routed": true
+ },
+ {
+  "name": "Meaford",
+  "prov": "ON",
+  "nearest_big_city": "Kitchener-Waterloo",
+  "drive_min_to_big_city": 149.0,
+  "km_to_big_city": 147.0,
+  "routed": true
+ },
+ {
+  "name": "Bayfield",
+  "prov": "ON",
+  "nearest_big_city": "London",
+  "drive_min_to_big_city": 88.4,
+  "km_to_big_city": 83.2,
+  "routed": true
+ },
+ {
+  "name": "Port Hope",
+  "prov": "ON",
+  "nearest_big_city": "Oshawa",
+  "drive_min_to_big_city": 40.1,
+  "km_to_big_city": 50.6,
+  "routed": true
+ },
+ {
+  "name": "Tobermory",
+  "prov": "ON",
+  "nearest_big_city": "Kitchener-Waterloo",
+  "drive_min_to_big_city": 246.8,
+  "km_to_big_city": 250.1,
+  "routed": true
+ },
+ {
+  "name": "Montreal",
+  "prov": "QC",
+  "nearest_big_city": "Montreal",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Quebec City",
+  "prov": "QC",
+  "nearest_big_city": "Quebec City",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Gatineau",
+  "prov": "QC",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 5.9,
+  "km_to_big_city": 3.2,
+  "routed": true
+ },
+ {
+  "name": "Sherbrooke",
+  "prov": "QC",
+  "nearest_big_city": "Montreal",
+  "drive_min_to_big_city": 124.0,
+  "km_to_big_city": 147.5,
+  "routed": true
+ },
+ {
+  "name": "Trois-Rivieres",
+  "prov": "QC",
+  "nearest_big_city": "Quebec City",
+  "drive_min_to_big_city": 104.1,
+  "km_to_big_city": 129.6,
+  "routed": true
+ },
+ {
+  "name": "Saguenay",
+  "prov": "QC",
+  "nearest_big_city": "Quebec City",
+  "drive_min_to_big_city": 164.0,
+  "km_to_big_city": 207.0,
+  "routed": true
+ },
+ {
+  "name": "Rimouski",
+  "prov": "QC",
+  "nearest_big_city": "Quebec City",
+  "drive_min_to_big_city": 259.1,
+  "km_to_big_city": 293.9,
+  "routed": true
+ },
+ {
+  "name": "Mont-Tremblant",
+  "prov": "QC",
+  "nearest_big_city": "Montreal",
+  "drive_min_to_big_city": 109.3,
+  "km_to_big_city": 131.9,
+  "routed": true
+ },
+ {
+  "name": "Magog",
+  "prov": "QC",
+  "nearest_big_city": "Montreal",
+  "drive_min_to_big_city": 100.0,
+  "km_to_big_city": 124.2,
+  "routed": true
+ },
+ {
+  "name": "Baie-Saint-Paul",
+  "prov": "QC",
+  "nearest_big_city": "Quebec City",
+  "drive_min_to_big_city": 84.0,
+  "km_to_big_city": 94.1,
+  "routed": true
+ },
+ {
+  "name": "Val-d'Or",
+  "prov": "QC",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 363.6,
+  "km_to_big_city": 416.3,
+  "routed": true
+ },
+ {
+  "name": "Gaspe",
+  "prov": "QC",
+  "nearest_big_city": "Quebec City",
+  "drive_min_to_big_city": 597.9,
+  "km_to_big_city": 581.4,
+  "routed": true
+ },
+ {
+  "name": "Granby",
+  "prov": "QC",
+  "nearest_big_city": "Montreal",
+  "drive_min_to_big_city": 69.0,
+  "km_to_big_city": 80.6,
+  "routed": true
+ },
+ {
+  "name": "Drummondville",
+  "prov": "QC",
+  "nearest_big_city": "Montreal",
+  "drive_min_to_big_city": 89.2,
+  "km_to_big_city": 104.7,
+  "routed": true
+ },
+ {
+  "name": "Saint-Sauveur",
+  "prov": "QC",
+  "nearest_big_city": "Montreal",
+  "drive_min_to_big_city": 63.9,
+  "km_to_big_city": 74.9,
+  "routed": true
+ },
+ {
+  "name": "North Hatley",
+  "prov": "QC",
+  "nearest_big_city": "Montreal",
+  "drive_min_to_big_city": 114.1,
+  "km_to_big_city": 141.7,
+  "routed": true
+ },
+ {
+  "name": "Sept-Iles",
+  "prov": "QC",
+  "nearest_big_city": "Quebec City",
+  "drive_min_to_big_city": 512.8,
+  "km_to_big_city": 641.6,
+  "routed": true
+ },
+ {
+  "name": "Rouyn-Noranda",
+  "prov": "QC",
+  "nearest_big_city": "Ottawa",
+  "drive_min_to_big_city": 460.3,
+  "km_to_big_city": 523.0,
+  "routed": true
+ },
+ {
+  "name": "Fredericton",
+  "prov": "NB",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 309.0,
+  "km_to_big_city": 436.4,
+  "routed": true
+ },
+ {
+  "name": "Moncton",
+  "prov": "NB",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 189.6,
+  "km_to_big_city": 261.4,
+  "routed": true
+ },
+ {
+  "name": "Saint John",
+  "prov": "NB",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 291.8,
+  "km_to_big_city": 412.0,
+  "routed": true
+ },
+ {
+  "name": "Sackville",
+  "prov": "NB",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 154.4,
+  "km_to_big_city": 213.2,
+  "routed": true
+ },
+ {
+  "name": "St. Andrews",
+  "prov": "NB",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 367.3,
+  "km_to_big_city": 513.5,
+  "routed": true
+ },
+ {
+  "name": "Bathurst",
+  "prov": "NB",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 349.7,
+  "km_to_big_city": 463.3,
+  "routed": true
+ },
+ {
+  "name": "Miramichi",
+  "prov": "NB",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 290.4,
+  "km_to_big_city": 386.3,
+  "routed": true
+ },
+ {
+  "name": "Halifax",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 0.0,
+  "km_to_big_city": 0.0,
+  "routed": true
+ },
+ {
+  "name": "Lunenburg",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 80.3,
+  "km_to_big_city": 96.9,
+  "routed": true
+ },
+ {
+  "name": "Wolfville",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 72.6,
+  "km_to_big_city": 89.5,
+  "routed": true
+ },
+ {
+  "name": "Truro",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 73.7,
+  "km_to_big_city": 94.7,
+  "routed": true
+ },
+ {
+  "name": "Sydney",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 324.8,
+  "km_to_big_city": 402.3,
+  "routed": true
+ },
+ {
+  "name": "Annapolis Royal",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 156.2,
+  "km_to_big_city": 196.7,
+  "routed": true
+ },
+ {
+  "name": "Mahone Bay",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 69.4,
+  "km_to_big_city": 86.5,
+  "routed": true
+ },
+ {
+  "name": "Chester",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 55.2,
+  "km_to_big_city": 66.6,
+  "routed": true
+ },
+ {
+  "name": "Bridgewater",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 81.1,
+  "km_to_big_city": 102.2,
+  "routed": true
+ },
+ {
+  "name": "Antigonish",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 156.9,
+  "km_to_big_city": 213.5,
+  "routed": true
+ },
+ {
+  "name": "Digby",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 173.1,
+  "km_to_big_city": 228.3,
+  "routed": true
+ },
+ {
+  "name": "Yarmouth",
+  "prov": "NS",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 225.6,
+  "km_to_big_city": 302.0,
+  "routed": true
+ },
+ {
+  "name": "Charlottetown",
+  "prov": "PE",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 253.6,
+  "km_to_big_city": 326.4,
+  "routed": true
+ },
+ {
+  "name": "Summerside",
+  "prov": "PE",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 230.7,
+  "km_to_big_city": 295.5,
+  "routed": true
+ },
+ {
+  "name": "St. John's",
+  "prov": "NL",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 1415.8,
+  "km_to_big_city": 1490.4,
+  "routed": true
+ },
+ {
+  "name": "Corner Brook",
+  "prov": "NL",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 894.9,
+  "km_to_big_city": 806.4,
+  "routed": true
+ },
+ {
+  "name": "Gander",
+  "prov": "NL",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 1158.2,
+  "km_to_big_city": 1156.4,
+  "routed": true
+ },
+ {
+  "name": "Bonavista",
+  "prov": "NL",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 1368.6,
+  "km_to_big_city": 1396.8,
+  "routed": true
+ },
+ {
+  "name": "Grand Falls-Windsor",
+  "prov": "NL",
+  "nearest_big_city": "Halifax",
+  "drive_min_to_big_city": 1087.2,
+  "km_to_big_city": 1062.5,
+  "routed": true
+ },
+ {
+  "name": "Whitehorse",
+  "prov": "YT",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 1584.1,
+  "km_to_big_city": 1993.0,
+  "routed": true
+ },
+ {
+  "name": "Dawson City",
+  "prov": "YT",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 2039.8,
+  "km_to_big_city": 2524.9,
+  "routed": true
+ },
+ {
+  "name": "Yellowknife",
+  "prov": "NT",
+  "nearest_big_city": "Edmonton",
+  "drive_min_to_big_city": 1116.2,
+  "km_to_big_city": 1454.8,
+  "routed": true
+ },
+ {
+  "name": "Iqaluit",
+  "prov": "NU",
+  "nearest_big_city": "Quebec City",
+  "km_to_big_city": 2363.0,
+  "drive_min_to_big_city": null,
+  "routed": false,
+  "note": "no road route (fly-in); straight-line distance only"
+ }
+]
