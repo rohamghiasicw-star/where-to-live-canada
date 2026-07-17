@@ -99,6 +99,15 @@ for r in (load('data/census.json') or []):
     if k not in by: continue
     for f in ('pop','density','settlement_type','area_km2'):
         if r.get(f) is not None: by[k][f] = r[f]
+    # prefer the July 2025 population estimate for size + display; keep the 2021
+    # census count for reference. Density/income/dwellings stay on the census.
+    if r.get('pop_2025') is not None:
+        by[k]['pop_2021'] = r.get('pop')
+        by[k]['pop'] = r['pop_2025']
+        by[k]['pop_year'] = 2025
+        pp = r['pop_2025']
+        by[k]['settlement_type'] = ('big city' if pp >= 500000 else 'mid city' if pp >= 100000 else
+            'small city' if pp >= 25000 else 'town' if pp >= 5000 else 'village')
     by[k]['csd'] = r.get('csd')
     cost = {
         'home_price': r.get('dwell_avg'),
@@ -191,6 +200,18 @@ for p in places:
 
 # ---- assemble
 html = open(D('app/index.html')).read()
+
+# self-healing counts: these drifted stale ("71 of 712") as the place list changed.
+# compute them from the actual data so they can never go wrong again.
+N = len(places)
+smallest = min(places, key=lambda p: p.get('pop') or 9e9)
+html = re.sub(r'all <b>\d+ places in Canada</b>', f'all <b>{N} places in Canada</b>', html)
+html = re.sub(r'<b>\d+</b> cities and towns', f'<b>{N}</b> cities and towns', html)
+html = re.sub(r'Residents have been researched for \d+ of \d+ places',
+              f'Residents have been researched for {lived} of {N} places', html)
+html = re.sub(r'Toronto down to <b>[^<]+</b>, pop\. [\d,]+',
+              f"Toronto down to <b>{smallest['name']}</b>, pop. {int(smallest.get('pop') or 0):,}", html)
+
 fonts = open(D('fonts/faces.css')).read()
 css  = open(D('app/style.css')).read()
 js   = open(D('app/app.js')).read()

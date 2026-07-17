@@ -27,7 +27,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 66.2,
   "commute_long_pct": 14.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5041
  },
  {
   "name": "Upper Island Cove",
@@ -57,7 +58,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 20.5,
   "commute_long_pct": 17.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1553
  },
  {
   "name": "Bay Roberts",
@@ -87,7 +89,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 50.7,
   "commute_long_pct": 14.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6407
  },
  {
   "name": "Clarke's Beach",
@@ -117,7 +120,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 49.0,
   "commute_long_pct": 9.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1555
  },
  {
   "name": "Conception Bay South",
@@ -147,7 +151,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 29.7,
   "commute_long_pct": 2.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 29725
  },
  {
   "name": "Wabana",
@@ -177,7 +182,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 45.1,
   "commute_long_pct": 29.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2008
  },
  {
   "name": "Portugal Cove-St. Philip's",
@@ -207,7 +213,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 20.7,
   "commute_long_pct": 3.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9167
  },
  {
   "name": "Torbay",
@@ -237,7 +244,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 32.6,
   "commute_long_pct": 3.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8297
  },
  {
   "name": "Logy Bay-Middle Cove-Outer Cove",
@@ -267,7 +275,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 37.6,
   "commute_long_pct": 2.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2601
  },
  {
   "name": "Paradise",
@@ -297,7 +306,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 34.3,
   "commute_long_pct": 4.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 26155
  },
  {
   "name": "St. John's",
@@ -327,7 +337,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 52.5,
   "commute_long_pct": 2.4,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 128693
  },
  {
   "name": "Mount Pearl",
@@ -357,7 +368,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 45.5,
   "commute_long_pct": 2.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 24266
  },
  {
   "name": "Grand Bank",
@@ -387,7 +399,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 76.6,
   "commute_long_pct": 5.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2082
  },
  {
   "name": "Harbour Breton",
@@ -417,7 +430,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 78.3,
   "commute_long_pct": 4.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1481
  },
  {
   "name": "Stephenville",
@@ -447,7 +461,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 74.6,
   "commute_long_pct": 5.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6840
  },
  {
   "name": "Kippens",
@@ -477,7 +492,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 73.6,
   "commute_long_pct": 6.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1927
  },
  {
   "name": "Massey Drive",
@@ -507,7 +523,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 70.6,
   "commute_long_pct": 3.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1760
  },
  {
   "name": "Corner Brook",
@@ -537,7 +554,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 74.0,
   "commute_long_pct": 2.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20549
  },
  {
   "name": "Irishtown-Summerside",
@@ -567,7 +585,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 12.9,
   "commute_long_pct": 3.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1296
  },
  {
   "name": "Gander",
@@ -597,7 +616,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 86.6,
   "commute_long_pct": 3.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12707
  },
  {
   "name": "Grand Falls-Windsor",
@@ -627,7 +647,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 79.9,
   "commute_long_pct": 4.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14510
  },
  {
   "name": "Bishop's Falls",
@@ -657,7 +678,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 42.1,
   "commute_long_pct": 5.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3162
  },
  {
   "name": "Botwood",
@@ -687,7 +709,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 59.9,
   "commute_long_pct": 4.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2884
  },
  {
   "name": "Bonavista",
@@ -717,7 +740,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 83.9,
   "commute_long_pct": 3.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3293
  },
  {
   "name": "Springdale",
@@ -747,7 +771,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 73.8,
   "commute_long_pct": 8.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2893
  },
  {
   "name": "Labrador City",
@@ -777,7 +802,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 70.4,
   "commute_long_pct": 0.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7965
  },
  {
   "name": "Souris",
@@ -807,7 +833,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 63.8,
   "commute_long_pct": 2.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1285
  },
  {
   "name": "Charlottetown",
@@ -837,7 +864,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 63.6,
   "commute_long_pct": 1.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 48118
  },
  {
   "name": "Stratford",
@@ -867,7 +895,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 44.2,
   "commute_long_pct": 3.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 13152
  },
  {
   "name": "Cornwall",
@@ -897,7 +926,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 39.2,
   "commute_long_pct": 2.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7920
  },
  {
   "name": "Kensington",
@@ -927,7 +957,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 45.2,
   "commute_long_pct": 3.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2016
  },
  {
   "name": "Summerside",
@@ -957,7 +988,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 70.1,
   "commute_long_pct": 3.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19006
  },
  {
   "name": "Alberton",
@@ -987,7 +1019,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 45.8,
   "commute_long_pct": 2.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1498
  },
  {
   "name": "Shelburne",
@@ -1017,7 +1050,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 69.8,
   "commute_long_pct": 3.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1797
  },
  {
   "name": "Yarmouth (District)",
@@ -1047,7 +1081,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 47.8,
   "commute_long_pct": 3.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10637
  },
  {
   "name": "Yarmouth (Town)",
@@ -1077,7 +1112,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 71.1,
   "commute_long_pct": 2.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7129
  },
  {
   "name": "Digby (District)",
@@ -1107,7 +1143,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 43.7,
   "commute_long_pct": 5.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7528
  },
  {
   "name": "Digby (Town)",
@@ -1137,7 +1174,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 69.4,
   "commute_long_pct": 4.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2153
  },
  {
   "name": "Annapolis Royal",
@@ -1167,7 +1205,8 @@
   "commute_bike_pct": 9.5,
   "commute_short_pct": 61.9,
   "commute_long_pct": 9.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 580
  },
  {
   "name": "Middleton",
@@ -1197,7 +1236,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 48.4,
   "commute_long_pct": 4.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1978
  },
  {
   "name": "Lunenburg (District)",
@@ -1227,7 +1267,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 34.7,
   "commute_long_pct": 8.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 26862
  },
  {
   "name": "Bridgewater",
@@ -1257,7 +1298,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 64.3,
   "commute_long_pct": 4.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9989
  },
  {
   "name": "Lunenburg (Town)",
@@ -1287,7 +1329,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 57.4,
   "commute_long_pct": 2.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2523
  },
  {
   "name": "Mahone Bay",
@@ -1317,7 +1360,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 47.4,
   "commute_long_pct": 7.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1200
  },
  {
   "name": "Chester",
@@ -1347,7 +1391,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 36.2,
   "commute_long_pct": 10.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11740
  },
  {
   "name": "Berwick",
@@ -1377,7 +1422,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 51.4,
   "commute_long_pct": 4.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2631
  },
  {
   "name": "Kentville",
@@ -1407,7 +1453,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 53.8,
   "commute_long_pct": 5.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7589
  },
  {
   "name": "Wolfville",
@@ -1437,7 +1484,8 @@
   "commute_bike_pct": 1.9,
   "commute_short_pct": 45.7,
   "commute_long_pct": 4.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5587
  },
  {
   "name": "Halifax",
@@ -1467,7 +1515,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 30.4,
   "commute_long_pct": 3.9,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 516822
  },
  {
   "name": "Truro",
@@ -1497,7 +1546,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 64.1,
   "commute_long_pct": 5.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14652
  },
  {
   "name": "Amherst",
@@ -1527,7 +1577,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 67.9,
   "commute_long_pct": 3.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10072
  },
  {
   "name": "Oxford",
@@ -1557,7 +1608,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 52.9,
   "commute_long_pct": 4.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1261
  },
  {
   "name": "Pictou",
@@ -1587,7 +1639,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 48.7,
   "commute_long_pct": 5.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3307
  },
  {
   "name": "Westville",
@@ -1617,7 +1670,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 59.2,
   "commute_long_pct": 2.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3731
  },
  {
   "name": "Stellarton",
@@ -1647,7 +1701,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 65.5,
   "commute_long_pct": 4.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4251
  },
  {
   "name": "New Glasgow",
@@ -1677,7 +1732,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 65.5,
   "commute_long_pct": 4.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10378
  },
  {
   "name": "Trenton",
@@ -1707,7 +1763,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 55.4,
   "commute_long_pct": 3.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2499
  },
  {
   "name": "Antigonish (Subd. A, Subdivision of county municipality)",
@@ -1737,7 +1794,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 50.1,
   "commute_long_pct": 5.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9682
  },
  {
   "name": "Antigonish (Town)",
@@ -1767,7 +1825,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 71.9,
   "commute_long_pct": 4.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5175
  },
  {
   "name": "Port Hawkesbury",
@@ -1797,7 +1856,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 69.3,
   "commute_long_pct": 2.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3442
  },
  {
   "name": "Cape Breton",
@@ -1827,7 +1887,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 46.4,
   "commute_long_pct": 2.6,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 106752
  },
  {
   "name": "Saint John",
@@ -1857,7 +1918,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 51.4,
   "commute_long_pct": 2.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 79371
  },
  {
   "name": "Saint Andrews",
@@ -1887,7 +1949,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 69.4,
   "commute_long_pct": 4.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2167
  },
  {
   "name": "St. Stephen",
@@ -1917,7 +1980,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 71.1,
   "commute_long_pct": 2.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4876
  },
  {
   "name": "Oromocto",
@@ -1947,7 +2011,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 69.2,
   "commute_long_pct": 1.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9451
  },
  {
   "name": "Hampton",
@@ -1977,7 +2042,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.5,
   "commute_long_pct": 5.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4754
  },
  {
   "name": "Sussex",
@@ -2007,7 +2073,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 65.5,
   "commute_long_pct": 4.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4994
  },
  {
   "name": "Sussex Corner",
@@ -2037,7 +2104,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 66.0,
   "commute_long_pct": 4.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1532
  },
  {
   "name": "Rothesay",
@@ -2067,7 +2135,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 33.5,
   "commute_long_pct": 2.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12626
  },
  {
   "name": "Quispamsis",
@@ -2097,7 +2166,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.1,
   "commute_long_pct": 2.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20240
  },
  {
   "name": "Riverview",
@@ -2127,7 +2197,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 43.7,
   "commute_long_pct": 3.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 22614
  },
  {
   "name": "Hillsborough",
@@ -2157,7 +2228,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 27.4,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1414
  },
  {
   "name": "Cap-Pelé",
@@ -2187,7 +2259,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 56.8,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3092
  },
  {
   "name": "Sackville",
@@ -2217,7 +2290,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 58.2,
   "commute_long_pct": 1.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6572
  },
  {
   "name": "Moncton",
@@ -2247,7 +2321,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 56.2,
   "commute_long_pct": 2.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 102378
  },
  {
   "name": "Salisbury",
@@ -2277,7 +2352,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 23.7,
   "commute_long_pct": 2.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2585
  },
  {
   "name": "Dieppe",
@@ -2307,7 +2383,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 47.2,
   "commute_long_pct": 2.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 35986
  },
  {
   "name": "Shediac",
@@ -2337,7 +2414,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 46.5,
   "commute_long_pct": 1.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9849
  },
  {
   "name": "Bouctouche",
@@ -2367,7 +2445,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 52.7,
   "commute_long_pct": 3.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2678
  },
  {
   "name": "Saint-Antoine",
@@ -2397,7 +2476,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.0,
   "commute_long_pct": 1.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1880
  },
  {
   "name": "Richibucto",
@@ -2427,7 +2507,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 56.0,
   "commute_long_pct": 5.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1745
  },
  {
   "name": "Rogersville",
@@ -2457,7 +2538,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 54.4,
   "commute_long_pct": 14.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1288
  },
  {
   "name": "Miramichi",
@@ -2487,7 +2569,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 60.3,
   "commute_long_pct": 2.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19402
  },
  {
   "name": "New Maryland",
@@ -2517,7 +2600,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 43.8,
   "commute_long_pct": 1.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4455
  },
  {
   "name": "Fredericton",
@@ -2547,7 +2631,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 55.2,
   "commute_long_pct": 2.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 74655
  },
  {
   "name": "Woodstock",
@@ -2577,7 +2662,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 63.5,
   "commute_long_pct": 3.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6260
  },
  {
   "name": "Florenceville-Bristol",
@@ -2607,7 +2693,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 51.7,
   "commute_long_pct": 5.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1583
  },
  {
   "name": "Perth-Andover",
@@ -2637,7 +2724,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 65.1,
   "commute_long_pct": 3.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1609
  },
  {
   "name": "Plaster Rock",
@@ -2667,7 +2755,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 64.9,
   "commute_long_pct": 8.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1062
  },
  {
   "name": "Grand Falls / Grand-Sault",
@@ -2697,7 +2786,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 72.2,
   "commute_long_pct": 3.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5465
  },
  {
   "name": "Saint-Léonard",
@@ -2727,7 +2817,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 47.6,
   "commute_long_pct": 4.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1384
  },
  {
   "name": "Edmundston",
@@ -2757,7 +2848,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 72.2,
   "commute_long_pct": 1.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 18174
  },
  {
   "name": "Campbellton",
@@ -2787,7 +2879,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 77.8,
   "commute_long_pct": 1.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7485
  },
  {
   "name": "Dalhousie",
@@ -2817,7 +2910,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 55.4,
   "commute_long_pct": 1.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3255
  },
  {
   "name": "Saint-Quentin",
@@ -2847,7 +2941,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 77.2,
   "commute_long_pct": 4.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2294
  },
  {
   "name": "Bathurst",
@@ -2877,7 +2972,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 69.0,
   "commute_long_pct": 4.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 13331
  },
  {
   "name": "Petit-Rocher",
@@ -2907,7 +3003,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 33.3,
   "commute_long_pct": 2.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2019
  },
  {
   "name": "Beresford",
@@ -2937,7 +3034,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 49.0,
   "commute_long_pct": 4.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4389
  },
  {
   "name": "Shippagan",
@@ -2967,7 +3065,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 57.8,
   "commute_long_pct": 1.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3073
  },
  {
   "name": "Lamèque",
@@ -2997,7 +3096,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 57.8,
   "commute_long_pct": 1.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1392
  },
  {
   "name": "Gaspé",
@@ -3027,7 +3127,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 58.2,
   "commute_long_pct": 3.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15479
  },
  {
   "name": "Price",
@@ -3057,7 +3158,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 51.6,
   "commute_long_pct": 1.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1701
  },
  {
   "name": "Mont-Joli",
@@ -3087,7 +3189,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 62.3,
   "commute_long_pct": 1.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6492
  },
  {
   "name": "Rimouski",
@@ -3117,7 +3220,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 62.2,
   "commute_long_pct": 2.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 51756
  },
  {
   "name": "Trois-Pistoles",
@@ -3147,7 +3251,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 66.2,
   "commute_long_pct": 2.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3123
  },
  {
   "name": "Rivière-du-Loup",
@@ -3177,7 +3282,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 74.2,
   "commute_long_pct": 1.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20650
  },
  {
   "name": "La Pocatière",
@@ -3207,7 +3313,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 69.0,
   "commute_long_pct": 2.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4206
  },
  {
   "name": "Baie-Saint-Paul",
@@ -3237,7 +3344,8 @@
   "commute_bike_pct": 2.8,
   "commute_short_pct": 71.7,
   "commute_long_pct": 3.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7760
  },
  {
   "name": "Sainte-Pétronille",
@@ -3267,7 +3375,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 12.9,
   "commute_long_pct": 3.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1015
  },
  {
   "name": "Beaupré",
@@ -3297,7 +3406,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 41.1,
   "commute_long_pct": 3.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4314
  },
  {
   "name": "Boischatel",
@@ -3327,7 +3437,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.2,
   "commute_long_pct": 2.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9250
  },
  {
   "name": "Fossambault-sur-le-Lac",
@@ -3357,7 +3468,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 13.8,
   "commute_long_pct": 4.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2505
  },
  {
   "name": "Shannon",
@@ -3387,7 +3499,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 41.6,
   "commute_long_pct": 3.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7088
  },
  {
   "name": "Lac-Beauport",
@@ -3417,7 +3530,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 15.2,
   "commute_long_pct": 2.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8524
  },
  {
   "name": "Québec",
@@ -3447,7 +3561,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 32.4,
   "commute_long_pct": 2.6,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 592658
  },
  {
   "name": "L'Ancienne-Lorette",
@@ -3477,7 +3592,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 38.1,
   "commute_long_pct": 1.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17876
  },
  {
   "name": "Saint-Augustin-de-Desmaures",
@@ -3507,7 +3623,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 30.8,
   "commute_long_pct": 2.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20864
  },
  {
   "name": "Lévis",
@@ -3537,7 +3654,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 34.6,
   "commute_long_pct": 2.5,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 160882
  },
  {
   "name": "Sainte-Marie",
@@ -3567,7 +3685,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 55.0,
   "commute_long_pct": 2.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 13873
  },
  {
   "name": "Saint-Georges",
@@ -3597,7 +3716,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 55.5,
   "commute_long_pct": 3.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 33881
  },
  {
   "name": "Lac-Mégantic",
@@ -3627,7 +3747,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 79.2,
   "commute_long_pct": 2.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5947
  },
  {
   "name": "Disraeli",
@@ -3657,7 +3778,8 @@
   "commute_bike_pct": 3.2,
   "commute_short_pct": 40.6,
   "commute_long_pct": 4.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2390
  },
  {
   "name": "Thetford Mines",
@@ -3687,7 +3809,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 65.2,
   "commute_long_pct": 4.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 27155
  },
  {
   "name": "East Broughton",
@@ -3717,7 +3840,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 37.2,
   "commute_long_pct": 10.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2311
  },
  {
   "name": "Plessisville",
@@ -3747,7 +3871,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 62.3,
   "commute_long_pct": 2.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6774
  },
  {
   "name": "Laurier-Station",
@@ -3777,7 +3902,8 @@
   "commute_bike_pct": 1.6,
   "commute_short_pct": 46.7,
   "commute_long_pct": 3.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2838
  },
  {
   "name": "Donnacona",
@@ -3807,7 +3933,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 33.3,
   "commute_long_pct": 1.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7785
  },
  {
   "name": "Saint-Marc-des-Carrières",
@@ -3837,7 +3964,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 52.4,
   "commute_long_pct": 3.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2961
  },
  {
   "name": "Trois-Rivières",
@@ -3867,7 +3995,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 46.9,
   "commute_long_pct": 3.5,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 149934
  },
  {
   "name": "Victoriaville",
@@ -3897,7 +4026,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 62.4,
   "commute_long_pct": 3.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 49863
  },
  {
   "name": "Val-des-Sources",
@@ -3927,7 +4057,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 50.2,
   "commute_long_pct": 5.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7303
  },
  {
   "name": "East Angus",
@@ -3957,7 +4088,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 38.0,
   "commute_long_pct": 3.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4261
  },
  {
   "name": "Valcourt",
@@ -3987,7 +4119,8 @@
   "commute_bike_pct": 2.4,
   "commute_short_pct": 63.5,
   "commute_long_pct": 3.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2203
  },
  {
   "name": "Windsor",
@@ -4017,7 +4150,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 40.0,
   "commute_long_pct": 3.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5368
  },
  {
   "name": "Richmond",
@@ -4047,7 +4181,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 46.3,
   "commute_long_pct": 3.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3419
  },
  {
   "name": "Sherbrooke",
@@ -4077,7 +4212,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 38.9,
   "commute_long_pct": 2.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 184135
  },
  {
   "name": "Stanstead",
@@ -4107,7 +4243,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 48.8,
   "commute_long_pct": 3.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2994
  },
  {
   "name": "Ayer's Cliff",
@@ -4137,7 +4274,8 @@
   "commute_bike_pct": 1.9,
   "commute_short_pct": 32.4,
   "commute_long_pct": 3.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1284
  },
  {
   "name": "North Hatley",
@@ -4167,7 +4305,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 36.1,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 775
  },
  {
   "name": "Magog",
@@ -4197,7 +4336,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 45.7,
   "commute_long_pct": 3.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 30764
  },
  {
   "name": "Bedford",
@@ -4227,7 +4367,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 49.2,
   "commute_long_pct": 4.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2845
  },
  {
   "name": "Cowansville",
@@ -4257,7 +4398,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 47.2,
   "commute_long_pct": 3.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17269
  },
  {
   "name": "Farnham",
@@ -4287,7 +4429,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 34.2,
   "commute_long_pct": 5.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11315
  },
  {
   "name": "Granby",
@@ -4317,7 +4460,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 51.9,
   "commute_long_pct": 4.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 72180
  },
  {
   "name": "Waterloo",
@@ -4347,7 +4491,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 34.2,
   "commute_long_pct": 4.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5714
  },
  {
   "name": "Roxton Falls",
@@ -4377,7 +4522,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 39.3,
   "commute_long_pct": 6.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1399
  },
  {
   "name": "Drummondville",
@@ -4407,7 +4553,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 53.9,
   "commute_long_pct": 3.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 85560
  },
  {
   "name": "Notre-Dame-du-Bon-Conseil",
@@ -4437,7 +4584,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 30.2,
   "commute_long_pct": 2.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1950
  },
  {
   "name": "Louiseville",
@@ -4467,7 +4615,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 54.4,
   "commute_long_pct": 4.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7570
  },
  {
   "name": "Lavaltrie",
@@ -4497,7 +4646,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 20.1,
   "commute_long_pct": 11.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15996
  },
  {
   "name": "Berthierville",
@@ -4527,7 +4677,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 51.1,
   "commute_long_pct": 7.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4591
  },
  {
   "name": "Saint-Gabriel",
@@ -4557,7 +4708,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 49.4,
   "commute_long_pct": 7.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3091
  },
  {
   "name": "Saint-Joseph-de-Sorel",
@@ -4587,7 +4739,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 56.6,
   "commute_long_pct": 6.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1602
  },
  {
   "name": "Sorel-Tracy",
@@ -4617,7 +4770,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 58.6,
   "commute_long_pct": 6.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 36537
  },
  {
   "name": "Sainte-Madeleine",
@@ -4647,7 +4801,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 30.0,
   "commute_long_pct": 2.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2387
  },
  {
   "name": "Saint-Hyacinthe",
@@ -4677,7 +4832,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 52.2,
   "commute_long_pct": 3.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 60874
  },
  {
   "name": "Marieville",
@@ -4707,7 +4863,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 30.6,
   "commute_long_pct": 7.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11910
  },
  {
   "name": "Richelieu",
@@ -4737,7 +4894,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 31.9,
   "commute_long_pct": 5.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6048
  },
  {
   "name": "Venise-en-Québec",
@@ -4767,7 +4925,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 20.7,
   "commute_long_pct": 12.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2252
  },
  {
   "name": "Saint-Jean-sur-Richelieu",
@@ -4797,7 +4956,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 39.4,
   "commute_long_pct": 5.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 100806
  },
  {
   "name": "Chambly",
@@ -4827,7 +4987,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 21.8,
   "commute_long_pct": 6.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 31870
  },
  {
   "name": "Carignan",
@@ -4857,7 +5018,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 15.7,
   "commute_long_pct": 6.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12618
  },
  {
   "name": "Saint-Basile-le-Grand",
@@ -4887,7 +5049,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 20.1,
   "commute_long_pct": 5.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17146
  },
  {
   "name": "McMasterville",
@@ -4917,7 +5080,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 25.1,
   "commute_long_pct": 8.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6114
  },
  {
   "name": "Otterburn Park",
@@ -4947,7 +5111,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 22.4,
   "commute_long_pct": 8.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9460
  },
  {
   "name": "Mont-Saint-Hilaire",
@@ -4977,7 +5142,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 26.6,
   "commute_long_pct": 6.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19447
  },
  {
   "name": "Beloeil",
@@ -5007,7 +5173,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 30.1,
   "commute_long_pct": 5.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 25240
  },
  {
   "name": "Brossard",
@@ -5037,7 +5204,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 21.5,
   "commute_long_pct": 6.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 97597
  },
  {
   "name": "Saint-Lambert",
@@ -5067,7 +5235,8 @@
   "commute_bike_pct": 3.6,
   "commute_short_pct": 23.3,
   "commute_long_pct": 4.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 23355
  },
  {
   "name": "Boucherville",
@@ -5097,7 +5266,8 @@
   "commute_bike_pct": 1.8,
   "commute_short_pct": 31.3,
   "commute_long_pct": 5.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 41910
  },
  {
   "name": "Saint-Bruno-de-Montarville",
@@ -5127,7 +5297,8 @@
   "commute_bike_pct": 2.2,
   "commute_short_pct": 28.1,
   "commute_long_pct": 5.6,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 26786
  },
  {
   "name": "Longueuil",
@@ -5157,7 +5328,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 23.0,
   "commute_long_pct": 6.8,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 268530
  },
  {
   "name": "Sainte-Julie",
@@ -5187,7 +5359,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 29.7,
   "commute_long_pct": 4.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 30981
  },
  {
   "name": "Saint-Amable",
@@ -5217,7 +5390,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 20.1,
   "commute_long_pct": 4.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14119
  },
  {
   "name": "Varennes",
@@ -5247,7 +5421,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 28.9,
   "commute_long_pct": 4.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 21490
  },
  {
   "name": "Contrecoeur",
@@ -5277,7 +5452,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 24.5,
   "commute_long_pct": 7.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10708
  },
  {
   "name": "Charlemagne",
@@ -5307,7 +5483,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 26.7,
   "commute_long_pct": 7.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6695
  },
  {
   "name": "Repentigny",
@@ -5337,7 +5514,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 23.4,
   "commute_long_pct": 10.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 91290
  },
  {
   "name": "L'Assomption",
@@ -5367,7 +5545,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 20.4,
   "commute_long_pct": 11.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 25126
  },
  {
   "name": "L'Épiphanie",
@@ -5397,7 +5576,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 21.6,
   "commute_long_pct": 10.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9254
  },
  {
   "name": "Saint-Paul",
@@ -5427,7 +5607,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 36.3,
   "commute_long_pct": 8.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7208
  },
  {
   "name": "Crabtree",
@@ -5457,7 +5638,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 30.5,
   "commute_long_pct": 8.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4237
  },
  {
   "name": "Joliette",
@@ -5487,7 +5669,8 @@
   "commute_bike_pct": 1.6,
   "commute_short_pct": 51.9,
   "commute_long_pct": 7.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 22408
  },
  {
   "name": "Notre-Dame-des-Prairies",
@@ -5517,7 +5700,8 @@
   "commute_bike_pct": 1.9,
   "commute_short_pct": 49.7,
   "commute_long_pct": 8.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9622
  },
  {
   "name": "Saint-Charles-Borromée",
@@ -5547,7 +5731,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 50.6,
   "commute_long_pct": 6.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 16904
  },
  {
   "name": "Saint-Lin--Laurentides",
@@ -5577,7 +5762,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 18.3,
   "commute_long_pct": 13.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 26673
  },
  {
   "name": "Sainte-Julienne",
@@ -5607,7 +5793,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 18.5,
   "commute_long_pct": 16.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12990
  },
  {
   "name": "Terrebonne",
@@ -5637,7 +5824,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 17.9,
   "commute_long_pct": 9.9,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 126872
  },
  {
   "name": "Mascouche",
@@ -5667,7 +5855,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 20.2,
   "commute_long_pct": 8.6,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 56897
  },
  {
   "name": "Laval",
@@ -5697,7 +5886,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 20.3,
   "commute_long_pct": 7.8,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 461509
  },
  {
   "name": "Montréal-Est",
@@ -5727,7 +5917,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 22.1,
   "commute_long_pct": 8.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5112
  },
  {
   "name": "Montréal",
@@ -5757,7 +5948,8 @@
   "commute_bike_pct": 3.4,
   "commute_short_pct": 17.9,
   "commute_long_pct": 9.0,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 1915366
  },
  {
   "name": "Westmount",
@@ -5787,7 +5979,8 @@
   "commute_bike_pct": 3.8,
   "commute_short_pct": 29.1,
   "commute_long_pct": 3.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20377
  },
  {
   "name": "Montréal-Ouest",
@@ -5817,7 +6010,8 @@
   "commute_bike_pct": 4.8,
   "commute_short_pct": 21.3,
   "commute_long_pct": 6.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5197
  },
  {
   "name": "Côte-Saint-Luc",
@@ -5847,7 +6041,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 19.6,
   "commute_long_pct": 7.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 37901
  },
  {
   "name": "Hampstead",
@@ -5877,7 +6072,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 24.0,
   "commute_long_pct": 3.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7464
  },
  {
   "name": "Mont-Royal",
@@ -5907,7 +6103,8 @@
   "commute_bike_pct": 2.7,
   "commute_short_pct": 19.6,
   "commute_long_pct": 2.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 22821
  },
  {
   "name": "Dorval",
@@ -5937,7 +6134,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 25.4,
   "commute_long_pct": 6.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 21062
  },
  {
   "name": "Pointe-Claire",
@@ -5967,7 +6165,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 32.2,
   "commute_long_pct": 5.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 37437
  },
  {
   "name": "Kirkland",
@@ -5997,7 +6196,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 29.1,
   "commute_long_pct": 6.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19696
  },
  {
   "name": "Beaconsfield",
@@ -6027,7 +6227,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 29.6,
   "commute_long_pct": 6.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19430
  },
  {
   "name": "Baie-D'Urfé",
@@ -6057,7 +6258,8 @@
   "commute_bike_pct": 4.1,
   "commute_short_pct": 24.5,
   "commute_long_pct": 6.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3706
  },
  {
   "name": "Sainte-Anne-de-Bellevue",
@@ -6087,7 +6289,8 @@
   "commute_bike_pct": 2.9,
   "commute_short_pct": 29.4,
   "commute_long_pct": 7.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5393
  },
  {
   "name": "Dollard-Des Ormeaux",
@@ -6117,7 +6320,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 25.5,
   "commute_long_pct": 6.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 50246
  },
  {
   "name": "Saint-Philippe",
@@ -6147,7 +6351,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 23.5,
   "commute_long_pct": 4.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8674
  },
  {
   "name": "La Prairie",
@@ -6177,7 +6382,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 26.6,
   "commute_long_pct": 5.6,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 27159
  },
  {
   "name": "Candiac",
@@ -6207,7 +6413,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 28.1,
   "commute_long_pct": 4.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 24920
  },
  {
   "name": "Delson",
@@ -6237,7 +6444,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 28.7,
   "commute_long_pct": 5.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8802
  },
  {
   "name": "Sainte-Catherine",
@@ -6267,7 +6475,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 27.5,
   "commute_long_pct": 4.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17782
  },
  {
   "name": "Saint-Constant",
@@ -6297,7 +6506,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 21.7,
   "commute_long_pct": 4.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 32124
  },
  {
   "name": "Mercier",
@@ -6327,7 +6537,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 25.4,
   "commute_long_pct": 6.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 16036
  },
  {
   "name": "Châteauguay",
@@ -6357,7 +6568,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 27.1,
   "commute_long_pct": 7.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 53508
  },
  {
   "name": "Léry",
@@ -6387,7 +6599,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 29.6,
   "commute_long_pct": 4.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2817
  },
  {
   "name": "Napierville",
@@ -6417,7 +6630,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 31.3,
   "commute_long_pct": 5.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4187
  },
  {
   "name": "Saint-Rémi",
@@ -6447,7 +6661,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 35.1,
   "commute_long_pct": 4.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9557
  },
  {
   "name": "Huntingdon",
@@ -6477,7 +6692,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 37.6,
   "commute_long_pct": 6.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3001
  },
  {
   "name": "Beauharnois",
@@ -6507,7 +6723,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 27.6,
   "commute_long_pct": 5.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15285
  },
  {
   "name": "Salaberry-de-Valleyfield",
@@ -6537,7 +6754,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 44.3,
   "commute_long_pct": 4.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 47002
  },
  {
   "name": "Rivière-Beaudette",
@@ -6567,7 +6785,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 15.4,
   "commute_long_pct": 7.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2806
  },
  {
   "name": "Saint-Zotique",
@@ -6597,7 +6816,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 23.7,
   "commute_long_pct": 6.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10445
  },
  {
   "name": "Les Coteaux",
@@ -6627,7 +6847,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 27.5,
   "commute_long_pct": 7.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6294
  },
  {
   "name": "Coteau-du-Lac",
@@ -6657,7 +6878,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 26.2,
   "commute_long_pct": 6.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7839
  },
  {
   "name": "Pointe-des-Cascades",
@@ -6687,7 +6909,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 19.5,
   "commute_long_pct": 7.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1867
  },
  {
   "name": "L'Île-Perrot",
@@ -6717,7 +6940,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 23.0,
   "commute_long_pct": 7.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11921
  },
  {
   "name": "Notre-Dame-de-l'Île-Perrot",
@@ -6747,7 +6971,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 16.8,
   "commute_long_pct": 7.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11716
  },
  {
   "name": "Pincourt",
@@ -6777,7 +7002,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 20.7,
   "commute_long_pct": 7.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15220
  },
  {
   "name": "Terrasse-Vaudreuil",
@@ -6807,7 +7033,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 24.0,
   "commute_long_pct": 7.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1883
  },
  {
   "name": "Vaudreuil-Dorion",
@@ -6837,7 +7064,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 27.0,
   "commute_long_pct": 7.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 46413
  },
  {
   "name": "Vaudreuil-sur-le-Lac",
@@ -6867,7 +7095,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 29.0,
   "commute_long_pct": 7.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1340
  },
  {
   "name": "Hudson",
@@ -6897,7 +7126,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 27.7,
   "commute_long_pct": 10.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5533
  },
  {
   "name": "Saint-Lazare",
@@ -6927,7 +7157,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 20.5,
   "commute_long_pct": 7.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 22895
  },
  {
   "name": "Saint-Eustache",
@@ -6957,7 +7188,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 27.5,
   "commute_long_pct": 5.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 47562
  },
  {
   "name": "Deux-Montagnes",
@@ -6987,7 +7219,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 23.4,
   "commute_long_pct": 10.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 18516
  },
  {
   "name": "Sainte-Marthe-sur-le-Lac",
@@ -7017,7 +7250,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 22.2,
   "commute_long_pct": 8.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 21949
  },
  {
   "name": "Pointe-Calumet",
@@ -7047,7 +7281,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 18.3,
   "commute_long_pct": 5.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6427
  },
  {
   "name": "Saint-Joseph-du-Lac",
@@ -7077,7 +7312,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 27.8,
   "commute_long_pct": 9.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7391
  },
  {
   "name": "Boisbriand",
@@ -7107,7 +7343,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 25.0,
   "commute_long_pct": 6.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 29830
  },
  {
   "name": "Sainte-Thérèse",
@@ -7137,7 +7374,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 29.4,
   "commute_long_pct": 6.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 27253
  },
  {
   "name": "Blainville",
@@ -7167,7 +7405,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 24.4,
   "commute_long_pct": 8.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 61739
  },
  {
   "name": "Rosemère",
@@ -7197,7 +7436,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 21.1,
   "commute_long_pct": 10.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14198
  },
  {
   "name": "Lorraine",
@@ -7227,7 +7467,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 16.1,
   "commute_long_pct": 8.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9721
  },
  {
   "name": "Bois-des-Filion",
@@ -7257,7 +7498,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 17.1,
   "commute_long_pct": 8.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10666
  },
  {
   "name": "Sainte-Anne-des-Plaines",
@@ -7287,7 +7529,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 19.8,
   "commute_long_pct": 11.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15904
  },
  {
   "name": "Mirabel",
@@ -7317,7 +7560,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 20.7,
   "commute_long_pct": 7.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 68471
  },
  {
   "name": "Saint-Colomban",
@@ -7347,7 +7591,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 12.7,
   "commute_long_pct": 10.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19080
  },
  {
   "name": "Saint-Jérôme",
@@ -7377,7 +7622,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 33.5,
   "commute_long_pct": 7.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 85160
  },
  {
   "name": "Sainte-Sophie",
@@ -7407,7 +7653,8 @@
   "commute_bike_pct": 0.1,
   "commute_short_pct": 13.6,
   "commute_long_pct": 12.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19467
  },
  {
   "name": "Prévost",
@@ -7437,7 +7684,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 23.0,
   "commute_long_pct": 8.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14275
  },
  {
   "name": "Lachute",
@@ -7467,7 +7715,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 45.0,
   "commute_long_pct": 9.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15469
  },
  {
   "name": "Grenville",
@@ -7497,7 +7746,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 49.0,
   "commute_long_pct": 11.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1889
  },
  {
   "name": "Sainte-Adèle",
@@ -7527,7 +7777,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 28.7,
   "commute_long_pct": 12.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15216
  },
  {
   "name": "Piedmont",
@@ -7557,7 +7808,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 31.1,
   "commute_long_pct": 13.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3667
  },
  {
   "name": "Sainte-Anne-des-Lacs",
@@ -7587,7 +7839,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 17.5,
   "commute_long_pct": 13.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4080
  },
  {
   "name": "Saint-Sauveur",
@@ -7617,7 +7870,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 30.8,
   "commute_long_pct": 11.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12112
  },
  {
   "name": "Val-David",
@@ -7647,7 +7901,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 30.6,
   "commute_long_pct": 7.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5920
  },
  {
   "name": "Mont-Tremblant",
@@ -7677,7 +7932,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 53.0,
   "commute_long_pct": 6.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11879
  },
  {
   "name": "Thurso",
@@ -7707,7 +7963,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 17.6,
   "commute_long_pct": 11.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3439
  },
  {
   "name": "Gatineau",
@@ -7737,7 +7994,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 28.1,
   "commute_long_pct": 5.3,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 306105
  },
  {
   "name": "Maniwaki",
@@ -7767,7 +8025,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 74.3,
   "commute_long_pct": 5.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3803
  },
  {
   "name": "Shawville",
@@ -7797,7 +8056,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 57.0,
   "commute_long_pct": 20.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1729
  },
  {
   "name": "Fort-Coulonge",
@@ -7827,7 +8087,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 45.3,
   "commute_long_pct": 19.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1293
  },
  {
   "name": "Ville-Marie",
@@ -7857,7 +8118,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 63.9,
   "commute_long_pct": 4.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2421
  },
  {
   "name": "Rouyn-Noranda",
@@ -7887,7 +8149,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 53.3,
   "commute_long_pct": 7.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 43270
  },
  {
   "name": "Val-d'Or",
@@ -7917,7 +8180,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 61.8,
   "commute_long_pct": 3.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 33353
  },
  {
   "name": "Alma",
@@ -7947,7 +8211,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 61.7,
   "commute_long_pct": 4.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 30659
  },
  {
   "name": "Saguenay",
@@ -7977,7 +8242,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 49.1,
   "commute_long_pct": 2.0,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 151972
  },
  {
   "name": "Chute-aux-Outardes",
@@ -8007,7 +8273,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 23.5,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1406
  },
  {
   "name": "Sept-Îles",
@@ -8037,7 +8304,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 61.8,
   "commute_long_pct": 1.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 24483
  },
  {
   "name": "Salluit",
@@ -8067,7 +8335,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 90.1,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1634
  },
  {
   "name": "Cornwall",
@@ -8097,7 +8366,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 59.7,
   "commute_long_pct": 5.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 54346
  },
  {
   "name": "Hawkesbury",
@@ -8127,7 +8397,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 59.0,
   "commute_long_pct": 8.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11451
  },
  {
   "name": "Casselman",
@@ -8157,7 +8428,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 32.0,
   "commute_long_pct": 6.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4535
  },
  {
   "name": "Ottawa",
@@ -8187,7 +8459,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 26.9,
   "commute_long_pct": 5.1,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 1188114
  },
  {
   "name": "Prescott",
@@ -8217,7 +8490,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 40.9,
   "commute_long_pct": 9.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4342
  },
  {
   "name": "Brockville",
@@ -8247,7 +8521,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 64.2,
   "commute_long_pct": 6.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 23720
  },
  {
   "name": "Gananoque",
@@ -8277,7 +8552,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 40.8,
   "commute_long_pct": 1.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5568
  },
  {
   "name": "Smiths Falls",
@@ -8307,7 +8583,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 49.4,
   "commute_long_pct": 11.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11093
  },
  {
   "name": "Perth",
@@ -8337,7 +8614,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 51.1,
   "commute_long_pct": 10.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6972
  },
  {
   "name": "Carleton Place",
@@ -8367,7 +8645,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 35.7,
   "commute_long_pct": 3.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14837
  },
  {
   "name": "Mississippi Mills",
@@ -8397,7 +8676,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 28.2,
   "commute_long_pct": 6.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 16073
  },
  {
   "name": "Kingston",
@@ -8427,7 +8707,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 42.8,
   "commute_long_pct": 2.8,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 149527
  },
  {
   "name": "Deseronto",
@@ -8457,7 +8738,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 28.4,
   "commute_long_pct": 3.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1844
  },
  {
   "name": "Belleville",
@@ -8487,7 +8769,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 49.4,
   "commute_long_pct": 4.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 62914
  },
  {
   "name": "Prince Edward County",
@@ -8517,7 +8800,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 33.5,
   "commute_long_pct": 6.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 27544
  },
  {
   "name": "Port Hope",
@@ -8547,7 +8831,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 35.6,
   "commute_long_pct": 11.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 18446
  },
  {
   "name": "Cobourg",
@@ -8577,7 +8862,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 54.4,
   "commute_long_pct": 7.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 22529
  },
  {
   "name": "Peterborough",
@@ -8607,7 +8893,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 51.8,
   "commute_long_pct": 6.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 97834
  },
  {
   "name": "Pickering",
@@ -8637,7 +8924,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 18.8,
   "commute_long_pct": 12.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 118378
  },
  {
   "name": "Ajax",
@@ -8667,7 +8955,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 21.6,
   "commute_long_pct": 15.1,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 141111
  },
  {
   "name": "Whitby",
@@ -8697,7 +8986,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 24.7,
   "commute_long_pct": 14.7,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 162413
  },
  {
   "name": "Oshawa",
@@ -8727,7 +9017,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 26.3,
   "commute_long_pct": 15.3,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 213592
  },
  {
   "name": "Clarington",
@@ -8757,7 +9048,8 @@
   "commute_bike_pct": 0.1,
   "commute_short_pct": 24.6,
   "commute_long_pct": 12.9,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 114180
  },
  {
   "name": "Vaughan",
@@ -8787,7 +9079,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 20.2,
   "commute_long_pct": 8.7,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 358535
  },
  {
   "name": "Markham",
@@ -8817,7 +9110,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 17.0,
   "commute_long_pct": 10.8,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 371504
  },
  {
   "name": "Richmond Hill",
@@ -8847,7 +9141,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 16.5,
   "commute_long_pct": 11.3,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 222031
  },
  {
   "name": "Whitchurch-Stouffville",
@@ -8877,7 +9172,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 21.6,
   "commute_long_pct": 12.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 58010
  },
  {
   "name": "Aurora",
@@ -8907,7 +9203,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 25.2,
   "commute_long_pct": 11.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 67385
  },
  {
   "name": "Newmarket",
@@ -8937,7 +9234,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 30.1,
   "commute_long_pct": 11.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 95763
  },
  {
   "name": "East Gwillimbury",
@@ -8967,7 +9265,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 19.1,
   "commute_long_pct": 13.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 42989
  },
  {
   "name": "Georgina",
@@ -8997,7 +9296,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 19.9,
   "commute_long_pct": 19.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 53630
  },
  {
   "name": "Toronto",
@@ -9027,7 +9327,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 16.5,
   "commute_long_pct": 12.5,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 3271830
  },
  {
   "name": "Mississauga",
@@ -9057,7 +9358,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 19.2,
   "commute_long_pct": 9.5,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 764597
  },
  {
   "name": "Brampton",
@@ -9087,7 +9389,8 @@
   "commute_bike_pct": 0.1,
   "commute_short_pct": 14.4,
   "commute_long_pct": 10.8,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 777759
  },
  {
   "name": "Caledon",
@@ -9117,7 +9420,8 @@
   "commute_bike_pct": 0.1,
   "commute_short_pct": 17.6,
   "commute_long_pct": 10.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 90201
  },
  {
   "name": "Orangeville",
@@ -9147,7 +9451,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 36.2,
   "commute_long_pct": 15.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 33070
  },
  {
   "name": "Shelburne",
@@ -9177,7 +9482,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 24.3,
   "commute_long_pct": 28.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10767
  },
  {
   "name": "Guelph",
@@ -9207,7 +9513,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 40.6,
   "commute_long_pct": 7.1,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 160760
  },
  {
   "name": "Centre Wellington",
@@ -9237,7 +9544,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 35.5,
   "commute_long_pct": 9.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 34565
  },
  {
   "name": "Oakville",
@@ -9267,7 +9575,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 27.4,
   "commute_long_pct": 8.9,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 243107
  },
  {
   "name": "Burlington",
@@ -9297,7 +9606,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 32.5,
   "commute_long_pct": 7.5,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 197737
  },
  {
   "name": "Milton",
@@ -9327,7 +9637,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 23.8,
   "commute_long_pct": 11.4,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 157345
  },
  {
   "name": "Halton Hills",
@@ -9357,7 +9668,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 27.3,
   "commute_long_pct": 9.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 68265
  },
  {
   "name": "Hamilton",
@@ -9387,7 +9699,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 25.2,
   "commute_long_pct": 8.5,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 640465
  },
  {
   "name": "Fort Erie",
@@ -9417,7 +9730,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 38.5,
   "commute_long_pct": 6.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 37226
  },
  {
   "name": "Port Colborne",
@@ -9447,7 +9761,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 37.6,
   "commute_long_pct": 7.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 21921
  },
  {
   "name": "Pelham",
@@ -9477,7 +9792,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 32.5,
   "commute_long_pct": 6.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19980
  },
  {
   "name": "Welland",
@@ -9507,7 +9823,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 34.6,
   "commute_long_pct": 5.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 66480
  },
  {
   "name": "Thorold",
@@ -9537,7 +9854,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 30.9,
   "commute_long_pct": 7.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 33844
  },
  {
   "name": "Niagara Falls",
@@ -9567,7 +9885,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 40.9,
   "commute_long_pct": 5.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 113983
  },
  {
   "name": "Niagara-on-the-Lake",
@@ -9597,7 +9916,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 39.6,
   "commute_long_pct": 7.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20080
  },
  {
   "name": "St. Catharines",
@@ -9627,7 +9947,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 41.4,
   "commute_long_pct": 5.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 153865
  },
  {
   "name": "Lincoln",
@@ -9657,7 +9978,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 33.9,
   "commute_long_pct": 7.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 28356
  },
  {
   "name": "Grimsby",
@@ -9687,7 +10009,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 28.9,
   "commute_long_pct": 8.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 31478
  },
  {
   "name": "Brantford",
@@ -9717,7 +10040,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 41.4,
   "commute_long_pct": 7.3,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 123521
  },
  {
   "name": "Cambridge",
@@ -9747,7 +10071,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 32.4,
   "commute_long_pct": 7.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 165354
  },
  {
   "name": "Kitchener",
@@ -9777,7 +10102,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 29.9,
   "commute_long_pct": 6.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 323917
  },
  {
   "name": "Waterloo",
@@ -9807,7 +10133,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 36.8,
   "commute_long_pct": 5.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 142450
  },
  {
   "name": "Stratford",
@@ -9837,7 +10164,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 62.6,
   "commute_long_pct": 4.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 36097
  },
  {
   "name": "St. Marys",
@@ -9867,7 +10195,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 53.1,
   "commute_long_pct": 3.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8203
  },
  {
   "name": "Tillsonburg",
@@ -9897,7 +10226,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 51.1,
   "commute_long_pct": 5.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 21450
  },
  {
   "name": "Ingersoll",
@@ -9927,7 +10257,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 33.4,
   "commute_long_pct": 5.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14911
  },
  {
   "name": "Woodstock",
@@ -9957,7 +10288,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 50.8,
   "commute_long_pct": 5.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 55572
  },
  {
   "name": "Aylmer",
@@ -9987,7 +10319,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 40.9,
   "commute_long_pct": 4.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8371
  },
  {
   "name": "St. Thomas",
@@ -10017,7 +10350,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 49.9,
   "commute_long_pct": 3.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 49388
  },
  {
   "name": "Leamington",
@@ -10047,7 +10381,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 55.8,
   "commute_long_pct": 2.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 34653
  },
  {
   "name": "Amherstburg",
@@ -10077,7 +10412,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 25.9,
   "commute_long_pct": 2.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 27509
  },
  {
   "name": "LaSalle",
@@ -10107,7 +10443,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 31.0,
   "commute_long_pct": 1.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 36452
  },
  {
   "name": "Windsor",
@@ -10137,7 +10474,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 40.0,
   "commute_long_pct": 2.5,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 269614
  },
  {
   "name": "Tecumseh",
@@ -10167,7 +10505,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 35.0,
   "commute_long_pct": 1.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 25554
  },
  {
   "name": "Petrolia",
@@ -10197,7 +10536,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 41.4,
   "commute_long_pct": 2.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6422
  },
  {
   "name": "Sarnia",
@@ -10227,7 +10567,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 55.5,
   "commute_long_pct": 2.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 80539
  },
  {
   "name": "Point Edward",
@@ -10257,7 +10598,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 66.4,
   "commute_long_pct": 3.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1989
  },
  {
   "name": "London",
@@ -10287,7 +10629,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 34.4,
   "commute_long_pct": 4.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 494785
  },
  {
   "name": "Bluewater",
@@ -10317,7 +10660,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 41.1,
   "commute_long_pct": 11.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8327
  },
  {
   "name": "Goderich",
@@ -10347,7 +10691,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 65.9,
   "commute_long_pct": 5.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8412
  },
  {
   "name": "Northern Bruce Peninsula",
@@ -10377,7 +10722,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 48.2,
   "commute_long_pct": 5.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5018
  },
  {
   "name": "Hanover",
@@ -10407,7 +10753,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 56.7,
   "commute_long_pct": 6.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8723
  },
  {
   "name": "Meaford",
@@ -10437,7 +10784,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 38.5,
   "commute_long_pct": 5.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12652
  },
  {
   "name": "Owen Sound",
@@ -10467,7 +10815,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 60.9,
   "commute_long_pct": 6.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 24075
  },
  {
   "name": "New Tecumseth",
@@ -10497,7 +10846,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 27.5,
   "commute_long_pct": 21.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 50739
  },
  {
   "name": "Bradford West Gwillimbury",
@@ -10527,7 +10877,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 21.5,
   "commute_long_pct": 15.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 51346
  },
  {
   "name": "Innisfil",
@@ -10557,7 +10908,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 17.2,
   "commute_long_pct": 25.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 50686
  },
  {
   "name": "Collingwood",
@@ -10587,7 +10939,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 54.7,
   "commute_long_pct": 8.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 28366
  },
  {
   "name": "Barrie",
@@ -10617,7 +10970,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 34.9,
   "commute_long_pct": 14.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 174469
  },
  {
   "name": "Orillia",
@@ -10647,7 +11001,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 51.6,
   "commute_long_pct": 8.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 37735
  },
  {
   "name": "Wasaga Beach",
@@ -10677,7 +11032,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 27.2,
   "commute_long_pct": 12.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 28736
  },
  {
   "name": "Penetanguishene",
@@ -10707,7 +11063,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 56.8,
   "commute_long_pct": 6.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11141
  },
  {
   "name": "Midland",
@@ -10737,7 +11094,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 58.7,
   "commute_long_pct": 8.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19305
  },
  {
   "name": "Bracebridge",
@@ -10767,7 +11125,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 44.0,
   "commute_long_pct": 6.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 18676
  },
  {
   "name": "Huntsville",
@@ -10797,7 +11156,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 41.9,
   "commute_long_pct": 6.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 23948
  },
  {
   "name": "Arnprior",
@@ -10827,7 +11187,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 38.7,
   "commute_long_pct": 8.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11459
  },
  {
   "name": "Renfrew",
@@ -10857,7 +11218,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 56.7,
   "commute_long_pct": 10.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8721
  },
  {
   "name": "Pembroke",
@@ -10887,7 +11249,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 55.2,
   "commute_long_pct": 3.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15479
  },
  {
   "name": "Petawawa",
@@ -10917,7 +11280,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 55.6,
   "commute_long_pct": 1.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19606
  },
  {
   "name": "Mattawa",
@@ -10947,7 +11311,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 71.6,
   "commute_long_pct": 4.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2193
  },
  {
   "name": "North Bay",
@@ -10977,7 +11342,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 60.0,
   "commute_long_pct": 3.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 62062
  },
  {
   "name": "Parry Sound",
@@ -11007,7 +11373,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 66.8,
   "commute_long_pct": 4.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7584
  },
  {
   "name": "South River",
@@ -11037,7 +11404,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 52.9,
   "commute_long_pct": 5.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1211
  },
  {
   "name": "Chapleau",
@@ -11067,7 +11435,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 85.6,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2044
  },
  {
   "name": "Greater Sudbury / Grand Sudbury",
@@ -11097,7 +11466,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 35.9,
   "commute_long_pct": 3.9,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 188504
  },
  {
   "name": "Englehart",
@@ -11127,7 +11497,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 50.5,
   "commute_long_pct": 6.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1559
  },
  {
   "name": "Timmins",
@@ -11157,7 +11528,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 52.4,
   "commute_long_pct": 5.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 45569
  },
  {
   "name": "Thessalon",
@@ -11187,7 +11559,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 76.8,
   "commute_long_pct": 4.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1363
  },
  {
   "name": "Sault Ste. Marie",
@@ -11217,7 +11590,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 65.5,
   "commute_long_pct": 1.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 81182
  },
  {
   "name": "Thunder Bay",
@@ -11247,7 +11621,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 53.1,
   "commute_long_pct": 2.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 117671
  },
  {
   "name": "Fort Frances",
@@ -11277,7 +11652,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 71.2,
   "commute_long_pct": 7.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7607
  },
  {
   "name": "Kenora",
@@ -11307,7 +11683,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 64.6,
   "commute_long_pct": 3.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15892
  },
  {
   "name": "Dryden",
@@ -11337,7 +11714,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 76.2,
   "commute_long_pct": 7.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7808
  },
  {
   "name": "Lac du Bonnet",
@@ -11367,7 +11745,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 64.1,
   "commute_long_pct": 5.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1136
  },
  {
   "name": "Powerview-Pine Falls",
@@ -11397,7 +11776,8 @@
   "commute_bike_pct": 4.0,
   "commute_short_pct": 60.0,
   "commute_long_pct": 12.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1311
  },
  {
   "name": "St-Pierre-Jolys",
@@ -11427,7 +11807,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 38.0,
   "commute_long_pct": 11.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1371
  },
  {
   "name": "Steinbach",
@@ -11457,7 +11838,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 58.1,
   "commute_long_pct": 7.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 21671
  },
  {
   "name": "Niverville",
@@ -11487,7 +11869,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 30.0,
   "commute_long_pct": 3.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7277
  },
  {
   "name": "Ste. Anne",
@@ -11517,7 +11900,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.7,
   "commute_long_pct": 7.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3587
  },
  {
   "name": "Altona",
@@ -11547,7 +11931,8 @@
   "commute_bike_pct": 6.1,
   "commute_short_pct": 71.6,
   "commute_long_pct": 2.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4989
  },
  {
   "name": "Winkler",
@@ -11577,7 +11962,8 @@
   "commute_bike_pct": 2.4,
   "commute_short_pct": 77.5,
   "commute_long_pct": 1.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 16156
  },
  {
   "name": "Morden",
@@ -11607,7 +11993,8 @@
   "commute_bike_pct": 1.6,
   "commute_short_pct": 62.0,
   "commute_long_pct": 3.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11578
  },
  {
   "name": "Morris",
@@ -11637,7 +12024,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 48.1,
   "commute_long_pct": 8.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2139
  },
  {
   "name": "Carman",
@@ -11667,7 +12055,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 60.3,
   "commute_long_pct": 9.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3547
  },
  {
   "name": "Melita",
@@ -11697,7 +12086,8 @@
   "commute_bike_pct": 2.2,
   "commute_short_pct": 70.8,
   "commute_long_pct": 2.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1081
  },
  {
   "name": "Virden",
@@ -11727,7 +12117,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 78.0,
   "commute_long_pct": 3.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3322
  },
  {
   "name": "Brandon",
@@ -11757,7 +12148,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 65.4,
   "commute_long_pct": 2.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 59444
  },
  {
   "name": "Carberry",
@@ -11787,7 +12179,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 57.9,
   "commute_long_pct": 2.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1950
  },
  {
   "name": "Portage la Prairie",
@@ -11817,7 +12210,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 73.4,
   "commute_long_pct": 4.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14738
  },
  {
   "name": "Winnipeg",
@@ -11847,7 +12241,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 27.0,
   "commute_long_pct": 3.6,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 850260
  },
  {
   "name": "Beausejour",
@@ -11877,7 +12272,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 43.2,
   "commute_long_pct": 12.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3565
  },
  {
   "name": "East St. Paul",
@@ -11907,7 +12303,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 19.6,
   "commute_long_pct": 3.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10321
  },
  {
   "name": "Selkirk",
@@ -11937,7 +12334,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 54.7,
   "commute_long_pct": 4.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11570
  },
  {
   "name": "Stonewall",
@@ -11967,7 +12365,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 33.3,
   "commute_long_pct": 2.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5443
  },
  {
   "name": "Teulon",
@@ -11997,7 +12396,8 @@
   "commute_bike_pct": 3.0,
   "commute_short_pct": 36.6,
   "commute_long_pct": 16.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1289
  },
  {
   "name": "Neepawa",
@@ -12027,7 +12427,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 86.3,
   "commute_long_pct": 1.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6328
  },
  {
   "name": "Minnedosa",
@@ -12057,7 +12458,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 54.1,
   "commute_long_pct": 3.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2859
  },
  {
   "name": "Dauphin",
@@ -12087,7 +12489,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 81.5,
   "commute_long_pct": 2.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8587
  },
  {
   "name": "Gimli",
@@ -12117,7 +12520,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 51.7,
   "commute_long_pct": 16.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6914
  },
  {
   "name": "Winnipeg Beach",
@@ -12147,7 +12551,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 26.5,
   "commute_long_pct": 24.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1480
  },
  {
   "name": "Arborg",
@@ -12177,7 +12582,8 @@
   "commute_bike_pct": 3.0,
   "commute_short_pct": 61.0,
   "commute_long_pct": 4.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1455
  },
  {
   "name": "Swan River",
@@ -12207,7 +12613,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 80.9,
   "commute_long_pct": 1.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4048
  },
  {
   "name": "The Pas",
@@ -12237,7 +12644,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 77.5,
   "commute_long_pct": 1.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5634
  },
  {
   "name": "Flin Flon (Part)",
@@ -12267,7 +12675,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 86.3,
   "commute_long_pct": 0.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4732
  },
  {
   "name": "Thompson",
@@ -12297,7 +12706,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 80.6,
   "commute_long_pct": 2.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12917
  },
  {
   "name": "Churchill",
@@ -12327,7 +12737,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 89.7,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 895
  },
  {
   "name": "Carnduff",
@@ -12357,7 +12768,8 @@
   "commute_bike_pct": 2.2,
   "commute_short_pct": 61.3,
   "commute_long_pct": 4.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1139
  },
  {
   "name": "Oxbow",
@@ -12387,7 +12799,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 58.8,
   "commute_long_pct": 10.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1290
  },
  {
   "name": "Estevan",
@@ -12417,7 +12830,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 73.1,
   "commute_long_pct": 3.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11391
  },
  {
   "name": "Redvers",
@@ -12447,7 +12861,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 60.3,
   "commute_long_pct": 9.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1068
  },
  {
   "name": "Carlyle",
@@ -12477,7 +12892,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 71.6,
   "commute_long_pct": 6.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1571
  },
  {
   "name": "Weyburn",
@@ -12507,7 +12923,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 72.5,
   "commute_long_pct": 7.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11871
  },
  {
   "name": "Assiniboia",
@@ -12537,7 +12954,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 75.0,
   "commute_long_pct": 6.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2431
  },
  {
   "name": "Shaunavon",
@@ -12567,7 +12985,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 75.8,
   "commute_long_pct": 4.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1939
  },
  {
   "name": "Maple Creek",
@@ -12597,7 +13016,8 @@
   "commute_bike_pct": 1.6,
   "commute_short_pct": 77.1,
   "commute_long_pct": 4.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2354
  },
  {
   "name": "Moosomin",
@@ -12627,7 +13047,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 63.8,
   "commute_long_pct": 2.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2906
  },
  {
   "name": "Kipling",
@@ -12657,7 +13078,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 59.6,
   "commute_long_pct": 4.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1091
  },
  {
   "name": "Grenfell",
@@ -12687,7 +13109,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 55.9,
   "commute_long_pct": 11.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1203
  },
  {
   "name": "Langenburg",
@@ -12717,7 +13140,8 @@
   "commute_bike_pct": 3.1,
   "commute_short_pct": 53.6,
   "commute_long_pct": 3.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1256
  },
  {
   "name": "Esterhazy",
@@ -12747,7 +13171,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 60.4,
   "commute_long_pct": 2.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2513
  },
  {
   "name": "Melville",
@@ -12777,7 +13202,8 @@
   "commute_bike_pct": 2.2,
   "commute_short_pct": 66.9,
   "commute_long_pct": 5.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4547
  },
  {
   "name": "Regina",
@@ -12807,7 +13233,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 41.8,
   "commute_long_pct": 2.1,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 263419
  },
  {
   "name": "White City",
@@ -12837,7 +13264,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 19.3,
   "commute_long_pct": 3.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4379
  },
  {
   "name": "Pilot Butte",
@@ -12867,7 +13295,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.8,
   "commute_long_pct": 4.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3255
  },
  {
   "name": "Balgonie",
@@ -12897,7 +13326,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 22.9,
   "commute_long_pct": 4.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2020
  },
  {
   "name": "Indian Head",
@@ -12927,7 +13357,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 58.5,
   "commute_long_pct": 7.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2201
  },
  {
   "name": "Fort Qu'Appelle",
@@ -12957,7 +13388,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 62.5,
   "commute_long_pct": 4.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2247
  },
  {
   "name": "Lumsden",
@@ -12987,7 +13419,8 @@
   "commute_bike_pct": 2.2,
   "commute_short_pct": 25.0,
   "commute_long_pct": 2.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2059
  },
  {
   "name": "Regina Beach",
@@ -13017,7 +13450,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 18.9,
   "commute_long_pct": 6.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1322
  },
  {
   "name": "Caronport",
@@ -13047,7 +13481,8 @@
   "commute_bike_pct": 4.6,
   "commute_short_pct": 67.7,
   "commute_long_pct": 7.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1029
  },
  {
   "name": "Moose Jaw",
@@ -13077,7 +13512,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 65.3,
   "commute_long_pct": 4.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 36337
  },
  {
   "name": "Swift Current",
@@ -13107,7 +13543,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 79.9,
   "commute_long_pct": 3.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 18154
  },
  {
   "name": "Yorkton",
@@ -13137,7 +13574,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 75.7,
   "commute_long_pct": 5.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17543
  },
  {
   "name": "Canora",
@@ -13167,7 +13605,8 @@
   "commute_bike_pct": 2.2,
   "commute_short_pct": 57.4,
   "commute_long_pct": 5.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2179
  },
  {
   "name": "Kamsack",
@@ -13197,7 +13636,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 71.4,
   "commute_long_pct": 7.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1849
  },
  {
   "name": "Preeceville",
@@ -13227,7 +13667,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 57.9,
   "commute_long_pct": 6.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1046
  },
  {
   "name": "Foam Lake",
@@ -13257,7 +13698,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 63.0,
   "commute_long_pct": 9.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1154
  },
  {
   "name": "Wynyard",
@@ -13287,7 +13729,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 75.0,
   "commute_long_pct": 2.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1827
  },
  {
   "name": "Wadena",
@@ -13317,7 +13760,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 78.2,
   "commute_long_pct": 5.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1278
  },
  {
   "name": "Davidson",
@@ -13347,7 +13791,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 76.1,
   "commute_long_pct": 4.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1164
  },
  {
   "name": "Outlook",
@@ -13377,7 +13822,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 70.1,
   "commute_long_pct": 8.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2629
  },
  {
   "name": "Lanigan",
@@ -13407,7 +13853,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 55.4,
   "commute_long_pct": 2.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1597
  },
  {
   "name": "Watrous",
@@ -13437,7 +13884,8 @@
   "commute_bike_pct": 2.6,
   "commute_short_pct": 75.8,
   "commute_long_pct": 6.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2154
  },
  {
   "name": "Saskatoon",
@@ -13467,7 +13915,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 38.6,
   "commute_long_pct": 2.7,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 318067
  },
  {
   "name": "Langham",
@@ -13497,7 +13946,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 16.7,
   "commute_long_pct": 6.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1793
  },
  {
   "name": "Warman",
@@ -13527,7 +13977,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 29.7,
   "commute_long_pct": 5.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14245
  },
  {
   "name": "Martensville",
@@ -13557,7 +14008,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 28.1,
   "commute_long_pct": 3.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11808
  },
  {
   "name": "Dalmeny",
@@ -13587,7 +14039,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 21.6,
   "commute_long_pct": 3.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1900
  },
  {
   "name": "Osler",
@@ -13617,7 +14070,8 @@
   "commute_bike_pct": 2.5,
   "commute_short_pct": 26.9,
   "commute_long_pct": 2.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1473
  },
  {
   "name": "Rosetown",
@@ -13647,7 +14101,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 77.4,
   "commute_long_pct": 3.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2600
  },
  {
   "name": "Biggar",
@@ -13677,7 +14132,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 72.9,
   "commute_long_pct": 10.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2337
  },
  {
   "name": "Delisle",
@@ -13707,7 +14163,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 23.8,
   "commute_long_pct": 7.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 994
  },
  {
   "name": "Battleford",
@@ -13737,7 +14194,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 65.4,
   "commute_long_pct": 4.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4657
  },
  {
   "name": "Kindersley",
@@ -13767,7 +14225,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 78.0,
   "commute_long_pct": 1.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4740
  },
  {
   "name": "Macklin",
@@ -13797,7 +14256,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 60.4,
   "commute_long_pct": 5.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1185
  },
  {
   "name": "Wilkie",
@@ -13827,7 +14287,8 @@
   "commute_bike_pct": 3.1,
   "commute_short_pct": 73.2,
   "commute_long_pct": 2.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1261
  },
  {
   "name": "Unity",
@@ -13857,7 +14318,8 @@
   "commute_bike_pct": 2.4,
   "commute_short_pct": 67.5,
   "commute_long_pct": 9.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2543
  },
  {
   "name": "Tisdale",
@@ -13887,7 +14349,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 75.9,
   "commute_long_pct": 2.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3052
  },
  {
   "name": "Melfort",
@@ -13917,7 +14380,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 73.4,
   "commute_long_pct": 2.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6028
  },
  {
   "name": "Nipawin",
@@ -13947,7 +14411,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 75.3,
   "commute_long_pct": 5.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5033
  },
  {
   "name": "Humboldt",
@@ -13977,7 +14442,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 69.8,
   "commute_long_pct": 4.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6551
  },
  {
   "name": "Waldheim",
@@ -14007,7 +14473,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 35.6,
   "commute_long_pct": 8.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1447
  },
  {
   "name": "Rosthern",
@@ -14037,7 +14504,8 @@
   "commute_bike_pct": 2.3,
   "commute_short_pct": 58.6,
   "commute_long_pct": 5.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1926
  },
  {
   "name": "Prince Albert",
@@ -14067,7 +14535,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 69.5,
   "commute_long_pct": 4.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 40728
  },
  {
   "name": "Birch Hills",
@@ -14097,7 +14566,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 23.9,
   "commute_long_pct": 9.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1093
  },
  {
   "name": "North Battleford",
@@ -14127,7 +14597,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 75.8,
   "commute_long_pct": 2.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14882
  },
  {
   "name": "Shellbrook",
@@ -14157,7 +14628,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 63.8,
   "commute_long_pct": 5.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1576
  },
  {
   "name": "Maidstone",
@@ -14187,7 +14659,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 58.4,
   "commute_long_pct": 5.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1222
  },
  {
   "name": "Lloydminster (Part)",
@@ -14217,7 +14690,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 63.1,
   "commute_long_pct": 4.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 13137
  },
  {
   "name": "Meadow Lake",
@@ -14247,7 +14721,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 70.7,
   "commute_long_pct": 3.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5667
  },
  {
   "name": "La Ronge",
@@ -14277,7 +14752,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 87.7,
   "commute_long_pct": 2.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2668
  },
  {
   "name": "Air Ronge",
@@ -14307,7 +14783,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 81.7,
   "commute_long_pct": 2.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1515
  },
  {
   "name": "Pinehouse",
@@ -14337,7 +14814,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 59.5,
   "commute_long_pct": 4.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1064
  },
  {
   "name": "La Loche",
@@ -14367,7 +14845,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 82.0,
   "commute_long_pct": 6.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3124
  },
  {
   "name": "Medicine Hat",
@@ -14397,7 +14876,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 56.4,
   "commute_long_pct": 5.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 68714
  },
  {
   "name": "Bow Island",
@@ -14427,7 +14907,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 72.4,
   "commute_long_pct": 5.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2310
  },
  {
   "name": "Redcliff",
@@ -14457,7 +14938,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 36.7,
   "commute_long_pct": 6.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5916
  },
  {
   "name": "Raymond",
@@ -14487,7 +14969,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 41.7,
   "commute_long_pct": 4.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4594
  },
  {
   "name": "Stirling",
@@ -14517,7 +15000,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 14.5,
   "commute_long_pct": 3.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1350
  },
  {
   "name": "Lethbridge",
@@ -14547,7 +15031,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 52.4,
   "commute_long_pct": 3.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 113671
  },
  {
   "name": "Coalhurst",
@@ -14577,7 +15062,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 28.3,
   "commute_long_pct": 6.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3244
  },
  {
   "name": "Nobleford",
@@ -14607,7 +15093,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 23.1,
   "commute_long_pct": 3.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1694
  },
  {
   "name": "Picture Butte",
@@ -14637,7 +15124,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 53.7,
   "commute_long_pct": 2.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2380
  },
  {
   "name": "Coaldale",
@@ -14667,7 +15155,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 35.0,
   "commute_long_pct": 3.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9644
  },
  {
   "name": "Taber",
@@ -14697,7 +15186,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 69.1,
   "commute_long_pct": 2.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10175
  },
  {
   "name": "Vauxhall",
@@ -14727,7 +15217,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 47.9,
   "commute_long_pct": 2.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1451
  },
  {
   "name": "Brooks",
@@ -14757,7 +15248,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 70.0,
   "commute_long_pct": 4.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17537
  },
  {
   "name": "Duchess",
@@ -14787,7 +15279,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 23.5,
   "commute_long_pct": 11.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1045
  },
  {
   "name": "Bassano",
@@ -14817,7 +15310,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 56.0,
   "commute_long_pct": 7.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1381
  },
  {
   "name": "Magrath",
@@ -14847,7 +15341,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 39.5,
   "commute_long_pct": 3.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2566
  },
  {
   "name": "Cardston",
@@ -14877,7 +15372,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 66.1,
   "commute_long_pct": 4.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3863
  },
  {
   "name": "Pincher Creek",
@@ -14907,7 +15403,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 67.6,
   "commute_long_pct": 8.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3890
  },
  {
   "name": "Fort Macleod",
@@ -14937,7 +15434,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 63.5,
   "commute_long_pct": 3.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3945
  },
  {
   "name": "Claresholm",
@@ -14967,7 +15465,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 76.0,
   "commute_long_pct": 5.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4242
  },
  {
   "name": "Nanton",
@@ -14997,7 +15496,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 49.7,
   "commute_long_pct": 13.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2522
  },
  {
   "name": "Hanna",
@@ -15027,7 +15527,8 @@
   "commute_bike_pct": 2.6,
   "commute_short_pct": 68.6,
   "commute_long_pct": 3.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2665
  },
  {
   "name": "Vulcan",
@@ -15057,7 +15558,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 70.7,
   "commute_long_pct": 8.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1922
  },
  {
   "name": "Strathmore",
@@ -15087,7 +15589,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 45.4,
   "commute_long_pct": 8.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 16416
  },
  {
   "name": "Three Hills",
@@ -15117,7 +15620,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 71.4,
   "commute_long_pct": 5.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3502
  },
  {
   "name": "High River",
@@ -15147,7 +15651,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 48.9,
   "commute_long_pct": 6.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15508
  },
  {
   "name": "Turner Valley",
@@ -15177,7 +15682,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 27.9,
   "commute_long_pct": 19.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2784
  },
  {
   "name": "Black Diamond",
@@ -15207,7 +15713,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.7,
   "commute_long_pct": 14.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2910
  },
  {
   "name": "Okotoks",
@@ -15237,7 +15744,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 33.7,
   "commute_long_pct": 5.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 33482
  },
  {
   "name": "Calgary",
@@ -15267,7 +15775,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 21.5,
   "commute_long_pct": 5.0,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 1612834
  },
  {
   "name": "Chestermere",
@@ -15297,7 +15806,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 16.4,
   "commute_long_pct": 3.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 31671
  },
  {
   "name": "Cochrane",
@@ -15327,7 +15837,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 35.6,
   "commute_long_pct": 8.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 39397
  },
  {
   "name": "Airdrie",
@@ -15357,7 +15868,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 29.2,
   "commute_long_pct": 4.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 92544
  },
  {
   "name": "Irricana",
@@ -15387,7 +15899,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 18.4,
   "commute_long_pct": 12.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1240
  },
  {
   "name": "Crossfield",
@@ -15417,7 +15930,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 19.7,
   "commute_long_pct": 7.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4075
  },
  {
   "name": "Carstairs",
@@ -15447,7 +15961,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 26.3,
   "commute_long_pct": 11.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5248
  },
  {
   "name": "Didsbury",
@@ -15477,7 +15992,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 43.4,
   "commute_long_pct": 11.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5185
  },
  {
   "name": "Olds",
@@ -15507,7 +16023,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 62.4,
   "commute_long_pct": 6.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9653
  },
  {
   "name": "Sundre",
@@ -15537,7 +16054,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 64.0,
   "commute_long_pct": 7.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2683
  },
  {
   "name": "Provost",
@@ -15567,7 +16085,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 77.0,
   "commute_long_pct": 4.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1875
  },
  {
   "name": "Stettler",
@@ -15597,7 +16116,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 75.8,
   "commute_long_pct": 3.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6035
  },
  {
   "name": "Wainwright",
@@ -15627,7 +16147,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 77.9,
   "commute_long_pct": 4.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6996
  },
  {
   "name": "Bowden",
@@ -15657,7 +16178,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 30.3,
   "commute_long_pct": 14.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1315
  },
  {
   "name": "Innisfail",
@@ -15687,7 +16209,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 54.3,
   "commute_long_pct": 6.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8736
  },
  {
   "name": "Penhold",
@@ -15717,7 +16240,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.6,
   "commute_long_pct": 6.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3812
  },
  {
   "name": "Red Deer",
@@ -15747,7 +16271,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 45.4,
   "commute_long_pct": 4.4,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 115409
  },
  {
   "name": "Sylvan Lake",
@@ -15777,7 +16302,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 31.7,
   "commute_long_pct": 9.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17897
  },
  {
   "name": "Eckville",
@@ -15807,7 +16333,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 31.7,
   "commute_long_pct": 7.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1088
  },
  {
   "name": "Bentley",
@@ -15837,7 +16364,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 31.6,
   "commute_long_pct": 6.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1153
  },
  {
   "name": "Blackfalds",
@@ -15867,7 +16395,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 27.4,
   "commute_long_pct": 7.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12258
  },
  {
   "name": "Lacombe",
@@ -15897,7 +16426,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 44.9,
   "commute_long_pct": 5.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14733
  },
  {
   "name": "Ponoka",
@@ -15927,7 +16457,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 61.7,
   "commute_long_pct": 6.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8212
  },
  {
   "name": "Rimbey",
@@ -15957,7 +16488,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 65.3,
   "commute_long_pct": 7.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2502
  },
  {
   "name": "Rocky Mountain House",
@@ -15987,7 +16519,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 68.4,
   "commute_long_pct": 7.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8144
  },
  {
   "name": "Camrose",
@@ -16017,7 +16550,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 67.1,
   "commute_long_pct": 7.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20800
  },
  {
   "name": "Tofield",
@@ -16047,7 +16581,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 42.4,
   "commute_long_pct": 11.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2122
  },
  {
   "name": "Vegreville",
@@ -16077,7 +16612,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 68.5,
   "commute_long_pct": 7.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6153
  },
  {
   "name": "Lloydminster (Part)",
@@ -16107,7 +16643,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 70.1,
   "commute_long_pct": 4.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 21267
  },
  {
   "name": "Vermilion",
@@ -16137,7 +16674,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 72.9,
   "commute_long_pct": 3.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4192
  },
  {
   "name": "Two Hills",
@@ -16167,7 +16705,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 58.2,
   "commute_long_pct": 11.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1698
  },
  {
   "name": "Lamont",
@@ -16197,7 +16736,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 38.6,
   "commute_long_pct": 12.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1856
  },
  {
   "name": "Bruderheim",
@@ -16227,7 +16767,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 27.7,
   "commute_long_pct": 12.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1439
  },
  {
   "name": "Wetaskiwin",
@@ -16257,7 +16798,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 63.1,
   "commute_long_pct": 7.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 13703
  },
  {
   "name": "Millet",
@@ -16287,7 +16829,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 18.5,
   "commute_long_pct": 8.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1967
  },
  {
   "name": "Beaumont",
@@ -16317,7 +16860,8 @@
   "commute_bike_pct": 0.1,
   "commute_short_pct": 21.6,
   "commute_long_pct": 5.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 26305
  },
  {
   "name": "Leduc",
@@ -16347,7 +16891,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 38.8,
   "commute_long_pct": 6.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 39966
  },
  {
   "name": "Devon",
@@ -16377,7 +16922,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 27.4,
   "commute_long_pct": 4.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6965
  },
  {
   "name": "Calmar",
@@ -16407,7 +16953,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 19.8,
   "commute_long_pct": 6.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2345
  },
  {
   "name": "Drayton Valley",
@@ -16437,7 +16984,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 71.7,
   "commute_long_pct": 9.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8047
  },
  {
   "name": "Stony Plain",
@@ -16467,7 +17015,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 32.6,
   "commute_long_pct": 7.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19662
  },
  {
   "name": "Spruce Grove",
@@ -16497,7 +17046,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 32.0,
   "commute_long_pct": 4.2,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 44575
  },
  {
   "name": "Fort Saskatchewan",
@@ -16527,7 +17077,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 34.6,
   "commute_long_pct": 3.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 30575
  },
  {
   "name": "Edmonton",
@@ -16557,7 +17108,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 22.7,
   "commute_long_pct": 4.7,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 1238295
  },
  {
   "name": "St. Albert",
@@ -16587,7 +17139,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 31.3,
   "commute_long_pct": 2.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 74621
  },
  {
   "name": "Gibbons",
@@ -16617,7 +17170,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 21.1,
   "commute_long_pct": 8.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3352
  },
  {
   "name": "Redwater",
@@ -16647,7 +17201,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 37.2,
   "commute_long_pct": 19.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2301
  },
  {
   "name": "Bon Accord",
@@ -16677,7 +17232,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 13.0,
   "commute_long_pct": 5.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1457
  },
  {
   "name": "Morinville",
@@ -16707,7 +17263,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 25.3,
   "commute_long_pct": 4.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10763
  },
  {
   "name": "Legal",
@@ -16737,7 +17294,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 19.1,
   "commute_long_pct": 11.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1253
  },
  {
   "name": "Cold Lake",
@@ -16767,7 +17325,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 52.0,
   "commute_long_pct": 6.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17798
  },
  {
   "name": "Bonnyville",
@@ -16797,7 +17356,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 65.2,
   "commute_long_pct": 4.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7366
  },
  {
   "name": "Elk Point",
@@ -16827,7 +17387,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 55.2,
   "commute_long_pct": 5.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1481
  },
  {
   "name": "St. Paul",
@@ -16857,7 +17418,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 67.8,
   "commute_long_pct": 4.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6218
  },
  {
   "name": "Smoky Lake",
@@ -16887,7 +17449,8 @@
   "commute_bike_pct": 3.4,
   "commute_short_pct": 65.5,
   "commute_long_pct": 5.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1159
  },
  {
   "name": "Mayerthorpe",
@@ -16917,7 +17480,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 50.5,
   "commute_long_pct": 6.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1419
  },
  {
   "name": "Barrhead",
@@ -16947,7 +17511,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 70.1,
   "commute_long_pct": 7.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4768
  },
  {
   "name": "Whitecourt",
@@ -16977,7 +17542,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 65.2,
   "commute_long_pct": 10.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10708
  },
  {
   "name": "Westlock",
@@ -17007,7 +17573,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 66.1,
   "commute_long_pct": 7.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5363
  },
  {
   "name": "Athabasca",
@@ -17037,7 +17604,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 66.8,
   "commute_long_pct": 5.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2887
  },
  {
   "name": "Hinton",
@@ -17067,7 +17635,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 70.0,
   "commute_long_pct": 6.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10124
  },
  {
   "name": "Edson",
@@ -17097,7 +17666,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 72.7,
   "commute_long_pct": 7.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8692
  },
  {
   "name": "Canmore",
@@ -17127,7 +17697,8 @@
   "commute_bike_pct": 6.7,
   "commute_short_pct": 55.9,
   "commute_long_pct": 7.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17341
  },
  {
   "name": "Jasper",
@@ -17157,7 +17728,8 @@
   "commute_bike_pct": 13.1,
   "commute_short_pct": 77.2,
   "commute_long_pct": 1.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4627
  },
  {
   "name": "Banff",
@@ -17187,7 +17759,8 @@
   "commute_bike_pct": 7.4,
   "commute_short_pct": 62.3,
   "commute_long_pct": 1.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11402
  },
  {
   "name": "High Prairie",
@@ -17217,7 +17790,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 76.6,
   "commute_long_pct": 4.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2607
  },
  {
   "name": "Slave Lake",
@@ -17247,7 +17821,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 65.8,
   "commute_long_pct": 4.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7334
  },
  {
   "name": "Manning",
@@ -17277,7 +17852,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 64.0,
   "commute_long_pct": 9.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1153
  },
  {
   "name": "High Level",
@@ -17307,7 +17883,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 82.9,
   "commute_long_pct": 2.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4390
  },
  {
   "name": "Fox Creek",
@@ -17337,7 +17914,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 67.5,
   "commute_long_pct": 3.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2013
  },
  {
   "name": "Valleyview",
@@ -17367,7 +17945,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 78.0,
   "commute_long_pct": 6.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1807
  },
  {
   "name": "Beaverlodge",
@@ -17397,7 +17976,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 46.9,
   "commute_long_pct": 9.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2454
  },
  {
   "name": "Wembley",
@@ -17427,7 +18007,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 11.9,
   "commute_long_pct": 5.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1516
  },
  {
   "name": "Grande Prairie",
@@ -17457,7 +18038,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 51.2,
   "commute_long_pct": 5.8,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 71160
  },
  {
   "name": "Sexsmith",
@@ -17487,7 +18069,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 24.7,
   "commute_long_pct": 6.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2561
  },
  {
   "name": "Peace River",
@@ -17517,7 +18100,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 66.3,
   "commute_long_pct": 4.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7220
  },
  {
   "name": "Falher",
@@ -17547,7 +18131,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 63.5,
   "commute_long_pct": 6.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1084
  },
  {
   "name": "Fairview",
@@ -17577,7 +18162,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 75.1,
   "commute_long_pct": 7.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2918
  },
  {
   "name": "Grimshaw",
@@ -17607,7 +18193,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 46.9,
   "commute_long_pct": 6.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2799
  },
  {
   "name": "Fernie",
@@ -17637,7 +18224,8 @@
   "commute_bike_pct": 7.5,
   "commute_short_pct": 58.6,
   "commute_long_pct": 10.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7086
  },
  {
   "name": "Cranbrook",
@@ -17667,7 +18255,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 67.9,
   "commute_long_pct": 7.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 22703
  },
  {
   "name": "Kimberley",
@@ -17697,7 +18286,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 40.5,
   "commute_long_pct": 7.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9037
  },
  {
   "name": "Invermere",
@@ -17727,7 +18317,8 @@
   "commute_bike_pct": 2.4,
   "commute_short_pct": 65.8,
   "commute_long_pct": 3.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4305
  },
  {
   "name": "Radium Hot Springs",
@@ -17757,7 +18348,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 42.5,
   "commute_long_pct": 4.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1489
  },
  {
   "name": "Creston",
@@ -17787,7 +18379,8 @@
   "commute_bike_pct": 2.7,
   "commute_short_pct": 76.2,
   "commute_long_pct": 4.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5976
  },
  {
   "name": "Salmo",
@@ -17817,7 +18410,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 36.4,
   "commute_long_pct": 2.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1310
  },
  {
   "name": "Nelson",
@@ -17847,7 +18441,8 @@
   "commute_bike_pct": 5.7,
   "commute_short_pct": 59.3,
   "commute_long_pct": 2.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12126
  },
  {
   "name": "Kaslo",
@@ -17877,7 +18472,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 70.1,
   "commute_long_pct": 6.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1141
  },
  {
   "name": "Castlegar",
@@ -17907,7 +18503,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 48.8,
   "commute_long_pct": 2.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9465
  },
  {
   "name": "Nakusp",
@@ -17937,7 +18534,8 @@
   "commute_bike_pct": 4.0,
   "commute_short_pct": 73.4,
   "commute_long_pct": 15.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1740
  },
  {
   "name": "Fruitvale",
@@ -17967,7 +18565,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 23.8,
   "commute_long_pct": 4.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2068
  },
  {
   "name": "Montrose",
@@ -17997,7 +18596,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 40.3,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1072
  },
  {
   "name": "Trail",
@@ -18027,7 +18627,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 68.0,
   "commute_long_pct": 2.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8539
  },
  {
   "name": "Warfield",
@@ -18057,7 +18658,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 60.4,
   "commute_long_pct": 3.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1729
  },
  {
   "name": "Grand Forks",
@@ -18087,7 +18689,8 @@
   "commute_bike_pct": 3.1,
   "commute_short_pct": 75.2,
   "commute_long_pct": 2.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4308
  },
  {
   "name": "Osoyoos",
@@ -18117,7 +18720,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 63.7,
   "commute_long_pct": 4.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5724
  },
  {
   "name": "Keremeos",
@@ -18147,7 +18751,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 51.2,
   "commute_long_pct": 7.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1779
  },
  {
   "name": "Oliver",
@@ -18177,7 +18782,8 @@
   "commute_bike_pct": 1.6,
   "commute_short_pct": 66.9,
   "commute_long_pct": 2.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5262
  },
  {
   "name": "Summerland",
@@ -18207,7 +18813,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 43.5,
   "commute_long_pct": 4.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12343
  },
  {
   "name": "Penticton",
@@ -18237,7 +18844,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 64.3,
   "commute_long_pct": 3.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 39068
  },
  {
   "name": "Hope",
@@ -18267,7 +18875,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 56.7,
   "commute_long_pct": 14.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7183
  },
  {
   "name": "Chilliwack",
@@ -18297,7 +18906,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 37.1,
   "commute_long_pct": 10.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 105520
  },
  {
   "name": "Harrison Hot Springs",
@@ -18327,7 +18937,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 34.7,
   "commute_long_pct": 11.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2148
  },
  {
   "name": "Abbotsford",
@@ -18357,7 +18968,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 36.1,
   "commute_long_pct": 8.4,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 175358
  },
  {
   "name": "Mission",
@@ -18387,7 +18999,8 @@
   "commute_bike_pct": 0.2,
   "commute_short_pct": 25.1,
   "commute_long_pct": 18.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 47280
  },
  {
   "name": "Langley (District)",
@@ -18417,7 +19030,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 24.4,
   "commute_long_pct": 8.0,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 163885
  },
  {
   "name": "Langley (City)",
@@ -18447,7 +19061,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 27.3,
   "commute_long_pct": 9.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 35444
  },
  {
   "name": "Surrey",
@@ -18477,7 +19092,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 17.7,
   "commute_long_pct": 10.9,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 703531
  },
  {
   "name": "White Rock",
@@ -18507,7 +19123,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 27.2,
   "commute_long_pct": 8.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 25057
  },
  {
   "name": "Delta",
@@ -18537,7 +19154,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 22.6,
   "commute_long_pct": 7.6,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 124670
  },
  {
   "name": "Richmond",
@@ -18567,7 +19185,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 24.5,
   "commute_long_pct": 5.9,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 239584
  },
  {
   "name": "Vancouver",
@@ -18597,7 +19216,8 @@
   "commute_bike_pct": 5.3,
   "commute_short_pct": 20.0,
   "commute_long_pct": 5.6,
-  "settlement_type": "big city"
+  "settlement_type": "big city",
+  "pop_2025": 740454
  },
  {
   "name": "Burnaby",
@@ -18627,7 +19247,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 16.3,
   "commute_long_pct": 7.3,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 299682
  },
  {
   "name": "New Westminster",
@@ -18657,7 +19278,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 16.7,
   "commute_long_pct": 8.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 92124
  },
  {
   "name": "Coquitlam",
@@ -18687,7 +19309,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 20.1,
   "commute_long_pct": 10.9,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 173599
  },
  {
   "name": "Port Coquitlam",
@@ -18717,7 +19340,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 24.6,
   "commute_long_pct": 10.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 67724
  },
  {
   "name": "Port Moody",
@@ -18747,7 +19371,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 19.5,
   "commute_long_pct": 8.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 38285
  },
  {
   "name": "North Vancouver (District)",
@@ -18777,7 +19402,8 @@
   "commute_bike_pct": 2.2,
   "commute_short_pct": 26.8,
   "commute_long_pct": 4.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 97845
  },
  {
   "name": "North Vancouver (City)",
@@ -18807,7 +19433,8 @@
   "commute_bike_pct": 2.4,
   "commute_short_pct": 31.1,
   "commute_long_pct": 5.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 66624
  },
  {
   "name": "West Vancouver",
@@ -18837,7 +19464,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 27.5,
   "commute_long_pct": 4.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 47929
  },
  {
   "name": "Lions Bay",
@@ -18867,7 +19495,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 13.8,
   "commute_long_pct": 8.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1375
  },
  {
   "name": "Pitt Meadows",
@@ -18897,7 +19526,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 24.1,
   "commute_long_pct": 9.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20892
  },
  {
   "name": "Maple Ridge",
@@ -18927,7 +19557,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 23.8,
   "commute_long_pct": 13.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 105925
  },
  {
   "name": "Tsawwassen",
@@ -18957,7 +19588,8 @@
   "commute_bike_pct": 1.9,
   "commute_short_pct": 28.5,
   "commute_long_pct": 5.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2629
  },
  {
   "name": "North Saanich",
@@ -18987,7 +19619,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 43.1,
   "commute_long_pct": 2.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12986
  },
  {
   "name": "Sidney",
@@ -19017,7 +19650,8 @@
   "commute_bike_pct": 3.8,
   "commute_short_pct": 48.5,
   "commute_long_pct": 2.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 13445
  },
  {
   "name": "Central Saanich",
@@ -19047,7 +19681,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 35.1,
   "commute_long_pct": 2.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 18184
  },
  {
   "name": "Saanich",
@@ -19077,7 +19712,8 @@
   "commute_bike_pct": 5.1,
   "commute_short_pct": 32.7,
   "commute_long_pct": 2.1,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 126011
  },
  {
   "name": "Saltspring Island",
@@ -19107,7 +19743,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 61.0,
   "commute_long_pct": 3.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12429
  },
  {
   "name": "Oak Bay",
@@ -19137,7 +19774,8 @@
   "commute_bike_pct": 11.3,
   "commute_short_pct": 38.7,
   "commute_long_pct": 2.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 18626
  },
  {
   "name": "Victoria",
@@ -19167,7 +19805,8 @@
   "commute_bike_pct": 9.6,
   "commute_short_pct": 37.6,
   "commute_long_pct": 2.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 103888
  },
  {
   "name": "Esquimalt",
@@ -19197,7 +19836,8 @@
   "commute_bike_pct": 7.5,
   "commute_short_pct": 35.8,
   "commute_long_pct": 3.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19512
  },
  {
   "name": "Colwood",
@@ -19227,7 +19867,8 @@
   "commute_bike_pct": 2.4,
   "commute_short_pct": 28.8,
   "commute_long_pct": 2.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 22794
  },
  {
   "name": "Langford",
@@ -19257,7 +19898,8 @@
   "commute_bike_pct": 2.2,
   "commute_short_pct": 30.3,
   "commute_long_pct": 2.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 59664
  },
  {
   "name": "View Royal",
@@ -19287,7 +19929,8 @@
   "commute_bike_pct": 4.1,
   "commute_short_pct": 32.7,
   "commute_long_pct": 2.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12795
  },
  {
   "name": "Sooke",
@@ -19317,7 +19960,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 26.2,
   "commute_long_pct": 13.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17248
  },
  {
   "name": "North Cowichan",
@@ -19347,7 +19991,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 44.7,
   "commute_long_pct": 7.3,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 34525
  },
  {
   "name": "Duncan",
@@ -19377,7 +20022,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 50.0,
   "commute_long_pct": 7.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5745
  },
  {
   "name": "Cowichan Valley D",
@@ -19407,7 +20053,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 38.8,
   "commute_long_pct": 7.4,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3713
  },
  {
   "name": "Lake Cowichan",
@@ -19437,7 +20084,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 30.8,
   "commute_long_pct": 11.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3757
  },
  {
   "name": "Ladysmith",
@@ -19467,7 +20115,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 36.9,
   "commute_long_pct": 5.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9926
  },
  {
   "name": "Cowichan Valley A",
@@ -19497,7 +20146,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 26.7,
   "commute_long_pct": 5.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5156
  },
  {
   "name": "Cowichan Valley C",
@@ -19527,7 +20177,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 28.9,
   "commute_long_pct": 9.1,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5074
  },
  {
   "name": "Nanaimo",
@@ -19557,7 +20208,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 45.9,
   "commute_long_pct": 4.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 111845
  },
  {
   "name": "Lantzville",
@@ -19587,7 +20239,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 31.6,
   "commute_long_pct": 4.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4276
  },
  {
   "name": "Nanaimo A",
@@ -19617,7 +20270,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 27.4,
   "commute_long_pct": 6.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7825
  },
  {
   "name": "Parksville",
@@ -19647,7 +20301,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 53.9,
   "commute_long_pct": 4.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15371
  },
  {
   "name": "Qualicum Beach",
@@ -19677,7 +20332,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 44.0,
   "commute_long_pct": 3.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9640
  },
  {
   "name": "Nanaimo G",
@@ -19707,7 +20363,8 @@
   "commute_bike_pct": 1.9,
   "commute_short_pct": 43.4,
   "commute_long_pct": 6.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8412
  },
  {
   "name": "Port Alberni",
@@ -19737,7 +20394,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 68.5,
   "commute_long_pct": 7.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 19671
  },
  {
   "name": "Ucluelet",
@@ -19767,7 +20425,8 @@
   "commute_bike_pct": 3.9,
   "commute_short_pct": 66.1,
   "commute_long_pct": 2.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2452
  },
  {
   "name": "Tofino",
@@ -19797,7 +20456,8 @@
   "commute_bike_pct": 11.0,
   "commute_short_pct": 75.9,
   "commute_long_pct": 3.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2772
  },
  {
   "name": "Alberni-Clayoquot E",
@@ -19827,7 +20487,8 @@
   "commute_bike_pct": 1.2,
   "commute_short_pct": 54.6,
   "commute_long_pct": 9.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3069
  },
  {
   "name": "Gold River",
@@ -19857,7 +20518,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 52.7,
   "commute_long_pct": 13.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1339
  },
  {
   "name": "Campbell River",
@@ -19887,7 +20549,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 53.7,
   "commute_long_pct": 8.1,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 38300
  },
  {
   "name": "Comox",
@@ -19917,7 +20580,8 @@
   "commute_bike_pct": 4.2,
   "commute_short_pct": 55.4,
   "commute_long_pct": 5.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15884
  },
  {
   "name": "Courtenay",
@@ -19947,7 +20611,8 @@
   "commute_bike_pct": 3.0,
   "commute_short_pct": 56.5,
   "commute_long_pct": 4.9,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 32869
  },
  {
   "name": "Cumberland",
@@ -19977,7 +20642,8 @@
   "commute_bike_pct": 3.4,
   "commute_short_pct": 36.4,
   "commute_long_pct": 5.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4974
  },
  {
   "name": "Comox Valley B (Lazo North)",
@@ -20007,7 +20673,8 @@
   "commute_bike_pct": 2.9,
   "commute_short_pct": 44.4,
   "commute_long_pct": 6.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7830
  },
  {
   "name": "Powell River",
@@ -20037,7 +20704,8 @@
   "commute_bike_pct": 2.1,
   "commute_short_pct": 71.7,
   "commute_long_pct": 3.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 14947
  },
  {
   "name": "Gibsons",
@@ -20067,7 +20735,8 @@
   "commute_bike_pct": 1.9,
   "commute_short_pct": 46.6,
   "commute_long_pct": 7.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 5090
  },
  {
   "name": "Sechelt",
@@ -20097,7 +20766,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 55.6,
   "commute_long_pct": 4.8,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11558
  },
  {
   "name": "Sunshine Coast E",
@@ -20127,7 +20797,8 @@
   "commute_bike_pct": 0.7,
   "commute_short_pct": 48.9,
   "commute_long_pct": 7.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4279
  },
  {
   "name": "Squamish",
@@ -20157,7 +20828,8 @@
   "commute_bike_pct": 4.4,
   "commute_short_pct": 47.9,
   "commute_long_pct": 13.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 28578
  },
  {
   "name": "Whistler",
@@ -20187,7 +20859,8 @@
   "commute_bike_pct": 7.5,
   "commute_short_pct": 56.5,
   "commute_long_pct": 3.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 15090
  },
  {
   "name": "Merritt",
@@ -20217,7 +20890,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 71.0,
   "commute_long_pct": 6.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 7190
  },
  {
   "name": "Kamloops",
@@ -20247,7 +20921,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 42.5,
   "commute_long_pct": 4.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 108793
  },
  {
   "name": "Chase",
@@ -20277,7 +20952,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 38.8,
   "commute_long_pct": 10.1,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2591
  },
  {
   "name": "Barriere",
@@ -20307,7 +20983,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 46.1,
   "commute_long_pct": 21.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1913
  },
  {
   "name": "Kelowna",
@@ -20337,7 +21014,8 @@
   "commute_bike_pct": 2.7,
   "commute_short_pct": 41.2,
   "commute_long_pct": 3.1,
-  "settlement_type": "mid city"
+  "settlement_type": "mid city",
+  "pop_2025": 167654
  },
  {
   "name": "Lake Country",
@@ -20367,7 +21045,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 29.5,
   "commute_long_pct": 3.6,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 17637
  },
  {
   "name": "Peachland",
@@ -20397,7 +21076,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 25.0,
   "commute_long_pct": 6.3,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 6302
  },
  {
   "name": "West Kelowna",
@@ -20427,7 +21107,8 @@
   "commute_bike_pct": 0.4,
   "commute_short_pct": 35.2,
   "commute_long_pct": 4.5,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 40274
  },
  {
   "name": "Lumby",
@@ -20457,7 +21138,8 @@
   "commute_bike_pct": 1.3,
   "commute_short_pct": 30.0,
   "commute_long_pct": 12.7,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2257
  },
  {
   "name": "Coldstream",
@@ -20487,7 +21169,8 @@
   "commute_bike_pct": 1.9,
   "commute_short_pct": 43.3,
   "commute_long_pct": 5.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11380
  },
  {
   "name": "Vernon",
@@ -20517,7 +21200,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 51.4,
   "commute_long_pct": 4.0,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 49527
  },
  {
   "name": "Armstrong",
@@ -20547,7 +21231,8 @@
   "commute_bike_pct": 1.7,
   "commute_short_pct": 43.2,
   "commute_long_pct": 5.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5643
  },
  {
   "name": "Enderby",
@@ -20577,7 +21262,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 33.5,
   "commute_long_pct": 4.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3292
  },
  {
   "name": "Golden",
@@ -20607,7 +21293,8 @@
   "commute_bike_pct": 5.7,
   "commute_short_pct": 75.8,
   "commute_long_pct": 4.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4433
  },
  {
   "name": "Revelstoke",
@@ -20637,7 +21324,8 @@
   "commute_bike_pct": 12.3,
   "commute_short_pct": 77.0,
   "commute_long_pct": 4.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 9464
  },
  {
   "name": "Salmon Arm",
@@ -20667,7 +21355,8 @@
   "commute_bike_pct": 1.5,
   "commute_short_pct": 64.0,
   "commute_long_pct": 4.9,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 20891
  },
  {
   "name": "Sicamous",
@@ -20697,7 +21386,8 @@
   "commute_bike_pct": 1.1,
   "commute_short_pct": 47.1,
   "commute_long_pct": 7.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2854
  },
  {
   "name": "Williams Lake",
@@ -20727,7 +21417,8 @@
   "commute_bike_pct": 1.0,
   "commute_short_pct": 73.5,
   "commute_long_pct": 5.0,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 11462
  },
  {
   "name": "Quesnel",
@@ -20757,7 +21448,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 71.7,
   "commute_long_pct": 3.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 10253
  },
  {
   "name": "Port McNeill",
@@ -20787,7 +21479,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 67.0,
   "commute_long_pct": 7.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2402
  },
  {
   "name": "Port Hardy",
@@ -20817,7 +21510,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 69.6,
   "commute_long_pct": 3.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4201
  },
  {
   "name": "Prince Rupert",
@@ -20847,7 +21541,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 71.8,
   "commute_long_pct": 1.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 12903
  },
  {
   "name": "Terrace",
@@ -20877,7 +21572,8 @@
   "commute_bike_pct": 1.4,
   "commute_short_pct": 73.9,
   "commute_long_pct": 5.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 13648
  },
  {
   "name": "Kitimat-Stikine E",
@@ -20907,7 +21603,8 @@
   "commute_bike_pct": 0.6,
   "commute_short_pct": 59.8,
   "commute_long_pct": 4.8,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 4153
  },
  {
   "name": "Burns Lake",
@@ -20937,7 +21634,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 72.1,
   "commute_long_pct": 5.2,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 2007
  },
  {
   "name": "Telkwa",
@@ -20967,7 +21665,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 26.0,
   "commute_long_pct": 10.6,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1544
  },
  {
   "name": "Smithers",
@@ -20997,7 +21696,8 @@
   "commute_bike_pct": 6.3,
   "commute_short_pct": 78.9,
   "commute_long_pct": 3.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 5627
  },
  {
   "name": "Valemount",
@@ -21027,7 +21727,8 @@
   "commute_bike_pct": 8.4,
   "commute_short_pct": 74.7,
   "commute_long_pct": 9.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1082
  },
  {
   "name": "Prince George",
@@ -21057,7 +21758,8 @@
   "commute_bike_pct": 0.8,
   "commute_short_pct": 49.3,
   "commute_long_pct": 3.7,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 85944
  },
  {
   "name": "Dawson Creek",
@@ -21087,7 +21789,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 69.0,
   "commute_long_pct": 5.5,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 13635
  },
  {
   "name": "Fort St. John",
@@ -21117,7 +21820,8 @@
   "commute_bike_pct": 0.5,
   "commute_short_pct": 67.0,
   "commute_long_pct": 6.2,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 24383
  },
  {
   "name": "Whitehorse",
@@ -21147,7 +21851,8 @@
   "commute_bike_pct": 2.7,
   "commute_short_pct": 51.4,
   "commute_long_pct": 1.4,
-  "settlement_type": "small city"
+  "settlement_type": "small city",
+  "pop_2025": 34129
  },
  {
   "name": "Dawson",
@@ -21177,7 +21882,8 @@
   "commute_bike_pct": 4.0,
   "commute_short_pct": 84.4,
   "commute_long_pct": 3.5,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1841
  },
  {
   "name": "Yellowknife",
@@ -21207,7 +21913,8 @@
   "commute_bike_pct": 2.0,
   "commute_short_pct": 72.1,
   "commute_long_pct": 2.4,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 22858
  },
  {
   "name": "Iqaluit",
@@ -21237,7 +21944,8 @@
   "commute_bike_pct": 0.3,
   "commute_short_pct": 85.0,
   "commute_long_pct": 0.7,
-  "settlement_type": "town"
+  "settlement_type": "town",
+  "pop_2025": 8612
  },
  {
   "name": "Cape Dorset",
@@ -21267,7 +21975,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 84.6,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1600
  },
  {
   "name": "Pangnirtung",
@@ -21297,7 +22006,8 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 86.7,
   "commute_long_pct": 5.3,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1603
  },
  {
   "name": "Rankin Inlet",
@@ -21327,7 +22037,8 @@
   "commute_bike_pct": 0.9,
   "commute_short_pct": 90.6,
   "commute_long_pct": 0.9,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 3336
  },
  {
   "name": "Kugaaruk",
@@ -21357,6 +22068,7 @@
   "commute_bike_pct": 0.0,
   "commute_short_pct": 95.2,
   "commute_long_pct": 0.0,
-  "settlement_type": "village"
+  "settlement_type": "village",
+  "pop_2025": 1250
  }
 ]

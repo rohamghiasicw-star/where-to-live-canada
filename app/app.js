@@ -501,7 +501,7 @@ function detailHTML(r) {
     </div>
     <div>
       <p class="dh">The place</p>
-      ${row('People', fmtNum(p.pop), '')}
+      ${row(p.pop_year === 2025 ? 'People (2025 estimate)' : 'People', fmtNum(p.pop), '')}
       ${row('Home, average value', p.cost && p.cost.home_price ? '$'+fmtNum(p.cost.home_price) : NA, '')}
       ${row('Rent and utilities', p.cost && p.cost.rent_2br ? '$'+Math.round(p.cost.rent_2br) : NA, '/mo')}
       ${row('Median household income', p.cost && p.cost.median_hh_income ? '$'+fmtNum(p.cost.median_hh_income) : NA, '')}
@@ -510,8 +510,7 @@ function detailHTML(r) {
         p.prox && p.prox.drive_min_to_big_city != null ? `${Math.round(p.prox.drive_min_to_big_city)}min` : '')}
       ${row('Riding', p.politics ? p.politics.riding : NA, '')}
       ${row('Lean', p.politics ? p.politics.lean_label : NA, '')}
-      <p class="prov-note">${p.csd ? `Census figures are for <em>${p.csd}</em>.` : ''} 2021 Census.
-        Home value is what owners estimated in 2021, not a market price.</p>
+      <p class="prov-note">${p.csd ? `Census figures are for <em>${p.csd}</em>.` : ''} Population is StatCan's July 2025 estimate; income, home value and the rest are 2021 Census. Home value is what owners estimated in 2021, not a market price.</p>
     </div>
     <div>
       <p class="dh">What residents say</p>
