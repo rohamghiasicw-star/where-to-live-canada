@@ -356,3 +356,30 @@ canvas#map { width: 100%; display: block; }
   color: var(--cool); cursor: pointer; text-decoration: underline;
 }
 .showall:hover { color: var(--ink); }
+
+/* how to use it. a real sequence, so it earns its numbers. */
+ol.how {
+  margin: 0.6rem 0 0; padding: 0 0 0 1.1rem;
+  max-width: 68ch; font-size: var(--t-xs); color: var(--ink-2);
+}
+ol.how li { margin-bottom: 0.18rem; padding-left: 0.15rem; }
+ol.how li::marker { color: var(--ink-3); font-weight: 600; }
+ol.how b { color: var(--ink); font-weight: 600; }
+.lede em { font-style: italic; color: var(--ink); }
+
+/* the weight control says what it does now */
+.wlab {
+  font-size: var(--t-xs); color: var(--ink-3); margin-right: 0.35rem;
+  min-width: 8.4ch; text-align: right;
+}
+.tick[aria-pressed="true"] ~ .wlab, .weight:hover .wlab { color: var(--ink-2); }
+
+/* when the answers contradict each other, say so */
+.v-warn {
+  font-size: var(--t-s); margin: 0.55rem 0 0; max-width: 66ch;
+  color: var(--ink-2); border-left: 2px solid var(--warm); padding-left: 0.6rem;
+}
+.v-warn b { color: var(--ink); font-weight: 600; }
+
+/* the column heads are hoverable, so say so */
+.plate-t thead th[title] { cursor: help; text-decoration: underline dotted var(--rule-2); text-underline-offset: 3px; }

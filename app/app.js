@@ -183,11 +183,38 @@ const Q = [
   },
 ];
 
+
+/* what each column of the plate actually is, in words, on hover and on the
+   help strip. an abbreviation nobody can expand is not a label. */
+const COLHELP = {
+  winter:  ['Average January temperature', '°C', 'Environment Canada normals 1981-2010'],
+  summer:  ['Average July temperature', '°C', 'Environment Canada normals 1981-2010'],
+  snow:    ['Snow that falls in a year', 'cm', 'Environment Canada normals 1981-2010'],
+  sun:     ['Hours of bright sunshine in a year', 'h', 'Environment Canada normals 1981-2010'],
+  smoke:   ['Wildfire smoke in the air, 12-year average', 'µg/m³ of fine particulate',
+            'ECCC FireWork, the model run with fires minus the run without'],
+  size:    ['People who live there', '', '2021 Census'],
+  prox:    ['Drive to the nearest city over 300,000', 'minutes', 'Routed on real roads'],
+  cost:    ['What an average home is worth', '', '2021 Census, what owners estimated in 2021'],
+  politics:['Political lean of the federal riding', '-100 left to +100 right',
+            'Elections Canada, 2025 result, vote-weighted'],
+  growth:  ['How much the population changed, 2016 to 2021', '%', '2021 Census'],
+  age:     ['Median age. Under 40 is a working town, over 55 a retirement one', 'years', '2021 Census'],
+  commute: ['Share of workers who get there in under 15 minutes', '%', '2021 Census'],
+  car:     ['Share who get to work by transit, foot or bike', '%', '2021 Census'],
+  jobs:    ['Unemployment rate', '%', '2021 Census'],
+  mix:     ['Share of residents who are immigrants', '%', '2021 Census'],
+  french:  ['Share whose first official language is French', '%', '2021 Census'],
+  mood:    ['How residents sound about the place, -2 to +2', '', 'Forums, local news and blogs. Only where researched.'],
+};
+
 const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'the sun',
   smoke:'clean air', size:'the size', prox:'the drive', cost:'the price',
   politics:'the politics', mood:'the mood', growth:'the growth', age:'the crowd',
   commute:'the short commute', car:'getting around without a car', jobs:'the job market',
   mix:'the mix of people', french:'the French' };
+const said = (q) => q.kind === 'range' ? q.fmt(state[q.id])
+  : (q.opts.find((o) => o[0] === state[q.id]) || ['',''])[1];
 const listify = (a) => a.length < 2 ? (a[0]||'') : a.slice(0,-1).join(', ') + ' and ' + a[a.length-1];
 function fmtNum(n) {
   if (n == null) return NA;
@@ -361,11 +388,32 @@ function verdict() {
   const against = r.bad && r.bad.s < 0.45 ? SHORT[r.bad.id] : null;
   const cf = confusion(r, ranked);
   const runners = ranked.filter((x)=>!x.excluded).slice(1,4);
+  // a low top score means the answers contradict each other. name the two that fight.
+  const live = ranked.filter((x) => !x.excluded).length;
+  const cut = ranked.length - live;
+  let conflict = null;
+  if (r.fit < 62) {
+    const worst = r.parts.filter((x) => x.s < 0.4).sort((a,b) => a.s - b.s).slice(0,2);
+    const Qof = (id) => Q.find((q) => q.id === id);
+    if (worst.length === 2) {
+      const a = Qof(worst[0].id), b = Qof(worst[1].id);
+      conflict = `Nowhere in Canada is both <b>${said(a).toLowerCase()}</b> (${a.label.toLowerCase()})
+        and <b>${said(b).toLowerCase()}</b> (${b.label.toLowerCase()}). ${p.name} is the closest compromise.`;
+    } else if (worst.length === 1) {
+      const a = Qof(worst[0].id);
+      conflict = `Nowhere that fits the rest of your answers is also <b>${said(a).toLowerCase()}</b>
+        (${a.label.toLowerCase()}). That is the one giving way.`;
+    }
+  }
+  const cutMsg = cut > ranked.length * 0.5
+    ? `Your dealbreakers rule out ${cut} of ${ranked.length} places.` : null;
   host.innerHTML = `
     <p class="v-lead">${shared ? 'They should live in' : 'You should live in'}</p>
     <h2 class="v-name">${p.name}<span class="pv">${p.prov}</span></h2>
     <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
       ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
+    ${conflict || cutMsg ? `<p class="v-warn">${[cutMsg, conflict].filter(Boolean).join(' ')}
+      <b>${Math.round(r.fit)} out of 100</b> is the best fit available, so something has to give.</p>` : ''}
     ${cf ? `<p class="v-catch">Nearly the same on your answers: <b>${cf.others.join(', ')}</b>.
       What separates them is <b>${SHORT[cf.splitter]}</b>.</p>` : ''}
     ${L.honest_downside ? `<p class="v-catch"><b>The catch, from people who live there.</b> ${L.honest_downside}</p>` : ''}
@@ -442,7 +490,14 @@ function detailHTML(r) {
    for a click and terrible for a slider drag, which fires per pixel. Coalesce to
    one render per frame. */
 let pending = false;
-function render() { if (pending) return; pending = true; requestAnimationFrame(() => { pending = false; draw(); }); }
+function render() {
+  if (pending) return;
+  // requestAnimationFrame never fires in a hidden tab, so a page opened in a
+  // background tab would sit blank until focused. Coalesce only when visible.
+  if (document.hidden) { draw(); return; }
+  pending = true;
+  requestAnimationFrame(() => { pending = false; draw(); });
+}
 function draw() {
   ranked = scoreAll();
   const live = ranked.filter((r) => !r.excluded);
@@ -455,7 +510,8 @@ function draw() {
 
   const cols = Q.filter((q) => q.col);
   $('#thead').innerHTML = `<tr><th></th><th class="l">Place</th><th>Fit</th>
-    ${cols.map((q) => `<th${weights[q.id] ? '' : ' style="opacity:.45"'}>${q.col}</th>`).join('')}
+    ${cols.map((q) => { const h = COLHELP[q.id] || [q.label,'',''];
+      return `<th${weights[q.id] ? '' : ' style="opacity:.45"'} title="${h[0]}${h[1] ? ' ('+h[1]+')' : ''}. ${h[2]}">${q.col}</th>`; }).join('')}
     <th title="Provenance"></th></tr>`;
 
   $('#tbody').innerHTML = ranked.slice(0, shown).map((r, i) => {
@@ -491,15 +547,21 @@ function buildSurvey() {
          <div class="scale-ends"><span>${q.ends[0]}</span><span>${q.ends[1]}</span></div>`
       : `<div class="opts">${q.opts.map(([v,l]) => `<button class="opt" data-q="${q.id}" data-v="${v}"
            aria-pressed="${state[q.id]===v}">${l}</button>`).join('')}</div>`;
+    const WL = ['off', 'matters a little', 'matters', 'matters a lot'];
     return head + `<div class="q"><div class="q-top"><p class="q-label">${q.label}</p>
-      <div class="weight" role="group" aria-label="${q.label} importance">
+      <div class="weight" role="group" aria-label="How much ${q.label} matters">
+        <span class="wlab" id="wl-${q.id}">${WL[weights[q.id]]}</span>
         ${[1,2,3].map((n) => `<button class="tick" data-w="${q.id}" data-n="${n}"
-          aria-label="${q.label}, importance ${n} of 3" aria-pressed="${weights[q.id]>=n}"></button>`).join('')}
+          title="${WL[n]}" aria-label="${q.label}, ${WL[n]}" aria-pressed="${weights[q.id]>=n}"></button>`).join('')}
       </div></div><p class="q-hint">${q.hint}</p>${body}</div>`;
   }).join('');
 }
-const syncTicks = () => document.querySelectorAll('.tick').forEach((t) =>
-  t.setAttribute('aria-pressed', weights[t.dataset.w] >= +t.dataset.n));
+const WLAB = ['off', 'matters a little', 'matters', 'matters a lot'];
+function syncTicks() {
+  document.querySelectorAll('.tick').forEach((t) =>
+    t.setAttribute('aria-pressed', weights[t.dataset.w] >= +t.dataset.n));
+  Q.forEach((q) => { const l = $('#wl-' + q.id); if (l) l.textContent = WLAB[weights[q.id]]; });
+}
 
 $('#qs').addEventListener('input', (e) => {
   if (e.target.type !== 'range') return;
@@ -576,4 +638,4 @@ if (shared) $('#lede').innerHTML = `Someone sent you their answers, so this is <
   Change anything on the left and it becomes yours.`;
 
 buildSurvey();
-render();
+draw();          // first paint is synchronous: never depend on a frame that may not come
