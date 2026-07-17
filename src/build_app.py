@@ -118,17 +118,19 @@ stats['vibe'] = merge('data/vibe.json', 'vibe', lambda r: {
 
 # lived experience: what residents actually say, from forums / local news / blogs
 lived = 0
+# Match on name AND province. Windsor exists in Ontario and Quebec, Stratford in
+# Ontario and PEI: on name alone the Ontario research attached to the Quebec and
+# PEI towns, because those sort first.
 byname = {}
-for p in places: byname.setdefault(p['name'].strip().lower(), p)
-# the research was done under the names the 129-place list used. the expansion
-# renamed places to their census names (Dawson City -> Dawson), so match the
-# alias too or the research silently detaches.
+for p in places: byname[(p['name'].strip().lower(), p['prov'])] = p
+# the research was done under the names the 129-place list used; the expansion
+# renamed places to their census names (Dawson City -> Dawson)
 for p in load('data/allplaces.json') or []:
     if p.get('alias'):
-        t = byname.get(p['name'].strip().lower())
-        if t: byname.setdefault(p['alias'].strip().lower(), t)
+        t = byname.get((p['name'].strip().lower(), p['prov']))
+        if t: byname.setdefault((p['alias'].strip().lower(), p['prov']), t)
 for r in (load('data/lived.json') or []):
-    p = byname.get((r.get('name') or '').strip().lower())
+    p = byname.get(((r.get('name') or '').strip().lower(), r.get('prov')))
     if not p: continue
     p['lived'] = {
         'loved': r.get('loved'), 'hated': r.get('hated'),

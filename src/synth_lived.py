@@ -4,12 +4,14 @@ this only organises them and refuses to invent anything they did not say."""
 import json,re
 from urllib.parse import urlparse
 raw=json.load(open('data/lived_raw.json'))
+# keyed 'Name|PROV': Windsor exists in ON and QC, Stratford in ON and PE
 SENT={'positive':1.0,'negative':-1.0,'mixed':0.0,'neutral':0.0}
 def host(u):
     try: return urlparse(u).hostname.replace('www.','')
     except Exception: return None
 out=[];rowsum=[]
-for name,d in raw.items():
+for key,d in raw.items():
+    name,prov=d['name'],d['prov']
     F=[f for f in d['findings'] if f.get('claim') and f.get('source_url')]
     if not F: continue
     # topic sentiment: mean of labelled sentiment, scaled to -2..+2, needs >=2 data points
@@ -49,7 +51,7 @@ for name,d in raw.items():
         downside=max(cand,key=lambda f:len(f['claim']))['claim']
     confs=[c for _,c,_ in d['lenses'] if c]
     conf='high' if confs.count('high')>=2 else 'low' if confs.count('low')>=2 else 'medium'
-    out.append({'name':name,'loved':loved,'hated':hated,'honest_downside':downside,
+    out.append({'name':name,'prov':prov,'loved':loved,'hated':hated,'honest_downside':downside,
                 'quotes':qs,'topic_sentiment':ts,'confidence':conf,
                 'evidence_count':len(F),'source_count':len(d['sources'])})
     rowsum.append((name,len(F),len(qs),conf))
