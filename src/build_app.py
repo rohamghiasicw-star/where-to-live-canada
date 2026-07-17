@@ -23,6 +23,23 @@ _drop = {(r.get('name'), r.get('prov')) for r in (load('data/census.json') or []
          if (_cd.get(r.get('code')) or {}).get('type') == 'TWL'}
 places = [p for p in places if (p.get('name'), p.get('prov')) not in _drop]
 
+# Border-split cities appear as two "(Part)" subdivisions at the same spot, so one
+# dot is unreachable and "(Part)" reads as a glitch. Keep the larger part, drop the
+# rest now, and rename to the plain city name AFTER the data joins (below), since
+# those still key on the original "(Part)" name. Lloydminster (SK+AB), Flin Flon.
+_partpop = {}
+for r in (load('data/census.json') or []):
+    if '(Part)' in (r.get('name') or ''):
+        base = r['name'].replace(' (Part)', '').strip()
+        _partpop.setdefault(base, []).append((r.get('pop') or 0, r['name'], r['prov']))
+RENAME_PART = {}          # (name,prov) -> clean base name, applied after merges
+_kill = set()
+for base, lst in _partpop.items():
+    lst.sort(reverse=True)
+    RENAME_PART[(lst[0][1], lst[0][2])] = base
+    for _, nm, pr in lst[1:]: _kill.add((nm, pr))
+places = [p for p in places if (p.get('name'), p.get('prov')) not in _kill]
+
 # ---- same Lambert projection the map sheet was built in
 P1, P2, LAT0, LON0 = map(math.radians, (49.0, 77.0, 63.390675, -91.866666666))
 def lcc(lon, lat):
@@ -103,6 +120,15 @@ for r in (load('data/census.json') or []):
         cw = [life.get('commute_transit_pct'), life.get('commute_walk_pct'), life.get('commute_bike_pct')]
         life['carfree_pct'] = round(sum(x for x in cw if x is not None), 1) if any(x is not None for x in cw) else None
         by[k]['life'] = life
+import re as _re
+for _p in places:
+    if _p.get('csd'):
+        _p['csd'] = _re.sub(r'\s*\(([A-Z]{1,3}|RGM|RDA|HAM)\)', '', _p['csd'])  # drop "Town (T)" codes
+# now that census/politics/prox/lived are attached under the original names, give
+# the kept border-split part its clean city name for display
+for _p in places:
+    _nk = RENAME_PART.get((_p.get('name'), _p.get('prov')))
+    if _nk: _p['name'] = _nk
 stats['census'] = sum(1 for p in places if p.get('pop') is not None)
 stats['life'] = sum(1 for p in places if p.get('life'))
 

@@ -350,7 +350,7 @@
  {
   "name": "Grand Bank",
   "prov": "NL",
-  "riding": "Terra Nova--The Peninsulas",
+  "riding": "Terra Nova—The Peninsulas",
   "lean": 17.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -364,7 +364,7 @@
  {
   "name": "Bonavista",
   "prov": "NL",
-  "riding": "Terra Nova--The Peninsulas",
+  "riding": "Terra Nova—The Peninsulas",
   "lean": 17.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -488,7 +488,7 @@
  {
   "name": "Yarmouth (District)",
   "prov": "NS",
-  "riding": "Acadie--Annapolis",
+  "riding": "Acadie—Annapolis",
   "lean": 17.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -504,7 +504,7 @@
  {
   "name": "Yarmouth (Town)",
   "prov": "NS",
-  "riding": "Acadie--Annapolis",
+  "riding": "Acadie—Annapolis",
   "lean": 17.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -520,7 +520,7 @@
  {
   "name": "Digby (District)",
   "prov": "NS",
-  "riding": "Acadie--Annapolis",
+  "riding": "Acadie—Annapolis",
   "lean": 17.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -536,7 +536,7 @@
  {
   "name": "Digby (Town)",
   "prov": "NS",
-  "riding": "Acadie--Annapolis",
+  "riding": "Acadie—Annapolis",
   "lean": 17.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -552,7 +552,7 @@
  {
   "name": "Annapolis Royal",
   "prov": "NS",
-  "riding": "Acadie--Annapolis",
+  "riding": "Acadie—Annapolis",
   "lean": 17.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -568,7 +568,7 @@
  {
   "name": "Middleton",
   "prov": "NS",
-  "riding": "Acadie--Annapolis",
+  "riding": "Acadie—Annapolis",
   "lean": 17.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -584,7 +584,7 @@
  {
   "name": "Antigonish (Subd. A, Subdivision of county municipality)",
   "prov": "NS",
-  "riding": "Cape Breton--Canso--Antigonish",
+  "riding": "Cape Breton—Canso—Antigonish",
   "lean": 14.6,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -599,7 +599,7 @@
  {
   "name": "Antigonish (Town)",
   "prov": "NS",
-  "riding": "Cape Breton--Canso--Antigonish",
+  "riding": "Cape Breton—Canso—Antigonish",
   "lean": 14.6,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -614,7 +614,7 @@
  {
   "name": "Port Hawkesbury",
   "prov": "NS",
-  "riding": "Cape Breton--Canso--Antigonish",
+  "riding": "Cape Breton—Canso—Antigonish",
   "lean": 14.6,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -709,7 +709,7 @@
  {
   "name": "Truro",
   "prov": "NS",
-  "riding": "Cumberland--Colchester",
+  "riding": "Cumberland—Colchester",
   "lean": 16.1,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -725,7 +725,7 @@
  {
   "name": "Amherst",
   "prov": "NS",
-  "riding": "Cumberland--Colchester",
+  "riding": "Cumberland—Colchester",
   "lean": 16.1,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -741,7 +741,7 @@
  {
   "name": "Oxford",
   "prov": "NS",
-  "riding": "Cumberland--Colchester",
+  "riding": "Cumberland—Colchester",
   "lean": 16.1,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -773,7 +773,7 @@
  {
   "name": "Berwick",
   "prov": "NS",
-  "riding": "Kings--Hants",
+  "riding": "Kings—Hants",
   "lean": 6.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -789,7 +789,7 @@
  {
   "name": "Kentville",
   "prov": "NS",
-  "riding": "Kings--Hants",
+  "riding": "Kings—Hants",
   "lean": 6.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -805,7 +805,7 @@
  {
   "name": "Wolfville",
   "prov": "NS",
-  "riding": "Kings--Hants",
+  "riding": "Kings—Hants",
   "lean": 6.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -821,7 +821,7 @@
  {
   "name": "Shelburne",
   "prov": "NS",
-  "riding": "South Shore--St. Margarets",
+  "riding": "South Shore—St. Margarets",
   "lean": 15.2,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -836,7 +836,7 @@
  {
   "name": "Lunenburg (District)",
   "prov": "NS",
-  "riding": "South Shore--St. Margarets",
+  "riding": "South Shore—St. Margarets",
   "lean": 15.2,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -851,7 +851,7 @@
  {
   "name": "Bridgewater",
   "prov": "NS",
-  "riding": "South Shore--St. Margarets",
+  "riding": "South Shore—St. Margarets",
   "lean": 15.2,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -866,7 +866,7 @@
  {
   "name": "Lunenburg (Town)",
   "prov": "NS",
-  "riding": "South Shore--St. Margarets",
+  "riding": "South Shore—St. Margarets",
   "lean": 15.2,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -881,7 +881,7 @@
  {
   "name": "Mahone Bay",
   "prov": "NS",
-  "riding": "South Shore--St. Margarets",
+  "riding": "South Shore—St. Margarets",
   "lean": 15.2,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -896,7 +896,7 @@
  {
   "name": "Chester",
   "prov": "NS",
-  "riding": "South Shore--St. Margarets",
+  "riding": "South Shore—St. Margarets",
   "lean": 15.2,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -911,7 +911,7 @@
  {
   "name": "Cape Breton",
   "prov": "NS",
-  "riding": "Sydney--Glace Bay",
+  "riding": "Sydney—Glace Bay",
   "lean": 11.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -926,7 +926,7 @@
  {
   "name": "Bathurst",
   "prov": "NB",
-  "riding": "Acadie--Bathurst",
+  "riding": "Acadie—Bathurst",
   "lean": 2.3,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -941,7 +941,7 @@
  {
   "name": "Petit-Rocher",
   "prov": "NB",
-  "riding": "Acadie--Bathurst",
+  "riding": "Acadie—Bathurst",
   "lean": 2.3,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -956,7 +956,7 @@
  {
   "name": "Beresford",
   "prov": "NB",
-  "riding": "Acadie--Bathurst",
+  "riding": "Acadie—Bathurst",
   "lean": 2.3,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -971,7 +971,7 @@
  {
   "name": "Shippagan",
   "prov": "NB",
-  "riding": "Acadie--Bathurst",
+  "riding": "Acadie—Bathurst",
   "lean": 2.3,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -986,7 +986,7 @@
  {
   "name": "Lamèque",
   "prov": "NB",
-  "riding": "Acadie--Bathurst",
+  "riding": "Acadie—Bathurst",
   "lean": 2.3,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1097,7 +1097,7 @@
  {
   "name": "Oromocto",
   "prov": "NB",
-  "riding": "Fredericton--Oromocto",
+  "riding": "Fredericton—Oromocto",
   "lean": 5.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1113,7 +1113,7 @@
  {
   "name": "New Maryland",
   "prov": "NB",
-  "riding": "Fredericton--Oromocto",
+  "riding": "Fredericton—Oromocto",
   "lean": 5.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1129,7 +1129,7 @@
  {
   "name": "Fredericton",
   "prov": "NB",
-  "riding": "Fredericton--Oromocto",
+  "riding": "Fredericton—Oromocto",
   "lean": 5.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1241,7 +1241,7 @@
  {
   "name": "Grand Falls / Grand-Sault",
   "prov": "NB",
-  "riding": "Madawaska--Restigouche",
+  "riding": "Madawaska—Restigouche",
   "lean": 13.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -1256,7 +1256,7 @@
  {
   "name": "Saint-Léonard",
   "prov": "NB",
-  "riding": "Madawaska--Restigouche",
+  "riding": "Madawaska—Restigouche",
   "lean": 13.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -1271,7 +1271,7 @@
  {
   "name": "Edmundston",
   "prov": "NB",
-  "riding": "Madawaska--Restigouche",
+  "riding": "Madawaska—Restigouche",
   "lean": 13.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -1286,7 +1286,7 @@
  {
   "name": "Campbellton",
   "prov": "NB",
-  "riding": "Madawaska--Restigouche",
+  "riding": "Madawaska—Restigouche",
   "lean": 13.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -1301,7 +1301,7 @@
  {
   "name": "Dalhousie",
   "prov": "NB",
-  "riding": "Madawaska--Restigouche",
+  "riding": "Madawaska—Restigouche",
   "lean": 13.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -1316,7 +1316,7 @@
  {
   "name": "Saint-Quentin",
   "prov": "NB",
-  "riding": "Madawaska--Restigouche",
+  "riding": "Madawaska—Restigouche",
   "lean": 13.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -1331,7 +1331,7 @@
  {
   "name": "Rogersville",
   "prov": "NB",
-  "riding": "Miramichi--Grand Lake",
+  "riding": "Miramichi—Grand Lake",
   "lean": 17.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1346,7 +1346,7 @@
  {
   "name": "Miramichi",
   "prov": "NB",
-  "riding": "Miramichi--Grand Lake",
+  "riding": "Miramichi—Grand Lake",
   "lean": 17.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1361,7 +1361,7 @@
  {
   "name": "Moncton",
   "prov": "NB",
-  "riding": "Moncton--Dieppe",
+  "riding": "Moncton—Dieppe",
   "lean": 3.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1376,7 +1376,7 @@
  {
   "name": "Dieppe",
   "prov": "NB",
-  "riding": "Moncton--Dieppe",
+  "riding": "Moncton—Dieppe",
   "lean": 3.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1391,7 +1391,7 @@
  {
   "name": "Saint John",
   "prov": "NB",
-  "riding": "Saint John--Kennebecasis",
+  "riding": "Saint John—Kennebecasis",
   "lean": 9.3,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1406,7 +1406,7 @@
  {
   "name": "Rothesay",
   "prov": "NB",
-  "riding": "Saint John--Kennebecasis",
+  "riding": "Saint John—Kennebecasis",
   "lean": 9.3,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1421,7 +1421,7 @@
  {
   "name": "Quispamsis",
   "prov": "NB",
-  "riding": "Saint John--Kennebecasis",
+  "riding": "Saint John—Kennebecasis",
   "lean": 9.3,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1436,7 +1436,7 @@
  {
   "name": "Saint Andrews",
   "prov": "NB",
-  "riding": "Saint John--St. Croix",
+  "riding": "Saint John—St. Croix",
   "lean": 21.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1451,7 +1451,7 @@
  {
   "name": "St. Stephen",
   "prov": "NB",
-  "riding": "Saint John--St. Croix",
+  "riding": "Saint John—St. Croix",
   "lean": 21.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1466,7 +1466,7 @@
  {
   "name": "Woodstock",
   "prov": "NB",
-  "riding": "Tobique--Mactaquac",
+  "riding": "Tobique—Mactaquac",
   "lean": 27.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1482,7 +1482,7 @@
  {
   "name": "Florenceville-Bristol",
   "prov": "NB",
-  "riding": "Tobique--Mactaquac",
+  "riding": "Tobique—Mactaquac",
   "lean": 27.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1498,7 +1498,7 @@
  {
   "name": "Perth-Andover",
   "prov": "NB",
-  "riding": "Tobique--Mactaquac",
+  "riding": "Tobique—Mactaquac",
   "lean": 27.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1514,7 +1514,7 @@
  {
   "name": "Plaster Rock",
   "prov": "NB",
-  "riding": "Tobique--Mactaquac",
+  "riding": "Tobique—Mactaquac",
   "lean": 27.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1530,7 +1530,7 @@
  {
   "name": "Val-d'Or",
   "prov": "QC",
-  "riding": "Abitibi--Baie-James--Nunavik--Eeyou",
+  "riding": "Abitibi—Baie-James—Nunavik—Eeyou",
   "lean": 1.6,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1545,7 +1545,7 @@
  {
   "name": "Salluit",
   "prov": "QC",
-  "riding": "Abitibi--Baie-James--Nunavik--Eeyou",
+  "riding": "Abitibi—Baie-James—Nunavik—Eeyou",
   "lean": 1.6,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1560,7 +1560,7 @@
  {
   "name": "Ville-Marie",
   "prov": "QC",
-  "riding": "Abitibi--Témiscamingue",
+  "riding": "Abitibi—Témiscamingue",
   "lean": 1.0,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1575,7 +1575,7 @@
  {
   "name": "Rouyn-Noranda",
   "prov": "QC",
-  "riding": "Abitibi--Témiscamingue",
+  "riding": "Abitibi—Témiscamingue",
   "lean": 1.0,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1590,7 +1590,7 @@
  {
   "name": "Lachute",
   "prov": "QC",
-  "riding": "Argenteuil--La Petite-Nation",
+  "riding": "Argenteuil—La Petite-Nation",
   "lean": 2.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1607,7 +1607,7 @@
  {
   "name": "Grenville",
   "prov": "QC",
-  "riding": "Argenteuil--La Petite-Nation",
+  "riding": "Argenteuil—La Petite-Nation",
   "lean": 2.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1624,7 +1624,7 @@
  {
   "name": "Thurso",
   "prov": "QC",
-  "riding": "Argenteuil--La Petite-Nation",
+  "riding": "Argenteuil—La Petite-Nation",
   "lean": 2.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -1673,7 +1673,7 @@
  {
   "name": "Huntingdon",
   "prov": "QC",
-  "riding": "Beauharnois--Salaberry--Soulanges--Huntingdon",
+  "riding": "Beauharnois—Salaberry—Soulanges—Huntingdon",
   "lean": 0.9,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1690,7 +1690,7 @@
  {
   "name": "Beauharnois",
   "prov": "QC",
-  "riding": "Beauharnois--Salaberry--Soulanges--Huntingdon",
+  "riding": "Beauharnois—Salaberry—Soulanges—Huntingdon",
   "lean": 0.9,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1707,7 +1707,7 @@
  {
   "name": "Salaberry-de-Valleyfield",
   "prov": "QC",
-  "riding": "Beauharnois--Salaberry--Soulanges--Huntingdon",
+  "riding": "Beauharnois—Salaberry—Soulanges—Huntingdon",
   "lean": 0.9,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1724,7 +1724,7 @@
  {
   "name": "Rivière-Beaudette",
   "prov": "QC",
-  "riding": "Beauharnois--Salaberry--Soulanges--Huntingdon",
+  "riding": "Beauharnois—Salaberry—Soulanges—Huntingdon",
   "lean": 0.9,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1741,7 +1741,7 @@
  {
   "name": "Saint-Zotique",
   "prov": "QC",
-  "riding": "Beauharnois--Salaberry--Soulanges--Huntingdon",
+  "riding": "Beauharnois—Salaberry—Soulanges—Huntingdon",
   "lean": 0.9,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1758,7 +1758,7 @@
  {
   "name": "Les Coteaux",
   "prov": "QC",
-  "riding": "Beauharnois--Salaberry--Soulanges--Huntingdon",
+  "riding": "Beauharnois—Salaberry—Soulanges—Huntingdon",
   "lean": 0.9,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1775,7 +1775,7 @@
  {
   "name": "Coteau-du-Lac",
   "prov": "QC",
-  "riding": "Beauharnois--Salaberry--Soulanges--Huntingdon",
+  "riding": "Beauharnois—Salaberry—Soulanges—Huntingdon",
   "lean": 0.9,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1792,7 +1792,7 @@
  {
   "name": "Pointe-des-Cascades",
   "prov": "QC",
-  "riding": "Beauharnois--Salaberry--Soulanges--Huntingdon",
+  "riding": "Beauharnois—Salaberry—Soulanges—Huntingdon",
   "lean": 0.9,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1809,7 +1809,7 @@
  {
   "name": "Saint-Joseph-de-Sorel",
   "prov": "QC",
-  "riding": "Bécancour--Nicolet--Saurel--Alnôbak",
+  "riding": "Bécancour—Nicolet—Saurel—Alnôbak",
   "lean": 2.8,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1826,7 +1826,7 @@
  {
   "name": "Sorel-Tracy",
   "prov": "QC",
-  "riding": "Bécancour--Nicolet--Saurel--Alnôbak",
+  "riding": "Bécancour—Nicolet—Saurel—Alnôbak",
   "lean": 2.8,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1843,7 +1843,7 @@
  {
   "name": "Lévis",
   "prov": "QC",
-  "riding": "Bellechasse--Les Etchemins--Lévis",
+  "riding": "Bellechasse—Les Etchemins—Lévis",
   "lean": 22.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -1859,7 +1859,7 @@
  {
   "name": "Marieville",
   "prov": "QC",
-  "riding": "Beloeil--Chambly",
+  "riding": "Beloeil—Chambly",
   "lean": -3.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1875,7 +1875,7 @@
  {
   "name": "Richelieu",
   "prov": "QC",
-  "riding": "Beloeil--Chambly",
+  "riding": "Beloeil—Chambly",
   "lean": -3.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1891,7 +1891,7 @@
  {
   "name": "Chambly",
   "prov": "QC",
-  "riding": "Beloeil--Chambly",
+  "riding": "Beloeil—Chambly",
   "lean": -3.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1907,7 +1907,7 @@
  {
   "name": "McMasterville",
   "prov": "QC",
-  "riding": "Beloeil--Chambly",
+  "riding": "Beloeil—Chambly",
   "lean": -3.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1923,7 +1923,7 @@
  {
   "name": "Otterburn Park",
   "prov": "QC",
-  "riding": "Beloeil--Chambly",
+  "riding": "Beloeil—Chambly",
   "lean": -3.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1939,7 +1939,7 @@
  {
   "name": "Mont-Saint-Hilaire",
   "prov": "QC",
-  "riding": "Beloeil--Chambly",
+  "riding": "Beloeil—Chambly",
   "lean": -3.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1955,7 +1955,7 @@
  {
   "name": "Beloeil",
   "prov": "QC",
-  "riding": "Beloeil--Chambly",
+  "riding": "Beloeil—Chambly",
   "lean": -3.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1971,7 +1971,7 @@
  {
   "name": "Louiseville",
   "prov": "QC",
-  "riding": "Berthier--Maskinongé",
+  "riding": "Berthier—Maskinongé",
   "lean": -11.3,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -1988,7 +1988,7 @@
  {
   "name": "Lavaltrie",
   "prov": "QC",
-  "riding": "Berthier--Maskinongé",
+  "riding": "Berthier—Maskinongé",
   "lean": -11.3,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2005,7 +2005,7 @@
  {
   "name": "Berthierville",
   "prov": "QC",
-  "riding": "Berthier--Maskinongé",
+  "riding": "Berthier—Maskinongé",
   "lean": -11.3,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2022,7 +2022,7 @@
  {
   "name": "Saint-Gabriel",
   "prov": "QC",
-  "riding": "Berthier--Maskinongé",
+  "riding": "Berthier—Maskinongé",
   "lean": -11.3,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2039,7 +2039,7 @@
  {
   "name": "Magog",
   "prov": "QC",
-  "riding": "Brome--Missisquoi",
+  "riding": "Brome—Missisquoi",
   "lean": -1.2,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2056,7 +2056,7 @@
  {
   "name": "Bedford",
   "prov": "QC",
-  "riding": "Brome--Missisquoi",
+  "riding": "Brome—Missisquoi",
   "lean": -1.2,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2073,7 +2073,7 @@
  {
   "name": "Cowansville",
   "prov": "QC",
-  "riding": "Brome--Missisquoi",
+  "riding": "Brome—Missisquoi",
   "lean": -1.2,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2090,7 +2090,7 @@
  {
   "name": "Farnham",
   "prov": "QC",
-  "riding": "Brome--Missisquoi",
+  "riding": "Brome—Missisquoi",
   "lean": -1.2,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2107,7 +2107,7 @@
  {
   "name": "Venise-en-Québec",
   "prov": "QC",
-  "riding": "Brome--Missisquoi",
+  "riding": "Brome—Missisquoi",
   "lean": -1.2,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2124,7 +2124,7 @@
  {
   "name": "Brossard",
   "prov": "QC",
-  "riding": "Brossard--Saint-Lambert",
+  "riding": "Brossard—Saint-Lambert",
   "lean": -3.5,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2141,7 +2141,7 @@
  {
   "name": "Saint-Lambert",
   "prov": "QC",
-  "riding": "Brossard--Saint-Lambert",
+  "riding": "Brossard—Saint-Lambert",
   "lean": -3.5,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2158,7 +2158,7 @@
  {
   "name": "Mercier",
   "prov": "QC",
-  "riding": "Châteauguay--Les Jardins-de-Napierville",
+  "riding": "Châteauguay—Les Jardins-de-Napierville",
   "lean": 1.0,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2175,7 +2175,7 @@
  {
   "name": "Châteauguay",
   "prov": "QC",
-  "riding": "Châteauguay--Les Jardins-de-Napierville",
+  "riding": "Châteauguay—Les Jardins-de-Napierville",
   "lean": 1.0,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2192,7 +2192,7 @@
  {
   "name": "Léry",
   "prov": "QC",
-  "riding": "Châteauguay--Les Jardins-de-Napierville",
+  "riding": "Châteauguay—Les Jardins-de-Napierville",
   "lean": 1.0,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2209,7 +2209,7 @@
  {
   "name": "Napierville",
   "prov": "QC",
-  "riding": "Châteauguay--Les Jardins-de-Napierville",
+  "riding": "Châteauguay—Les Jardins-de-Napierville",
   "lean": 1.0,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2226,7 +2226,7 @@
  {
   "name": "Saint-Rémi",
   "prov": "QC",
-  "riding": "Châteauguay--Les Jardins-de-Napierville",
+  "riding": "Châteauguay—Les Jardins-de-Napierville",
   "lean": 1.0,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2243,7 +2243,7 @@
  {
   "name": "Saguenay",
   "prov": "QC",
-  "riding": "Chicoutimi--Le Fjord",
+  "riding": "Chicoutimi—Le Fjord",
   "lean": 11.1,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -2260,7 +2260,7 @@
  {
   "name": "East Angus",
   "prov": "QC",
-  "riding": "Compton--Stanstead",
+  "riding": "Compton—Stanstead",
   "lean": 0.6,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2277,7 +2277,7 @@
  {
   "name": "Sherbrooke",
   "prov": "QC",
-  "riding": "Compton--Stanstead",
+  "riding": "Compton—Stanstead",
   "lean": 0.6,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2294,7 +2294,7 @@
  {
   "name": "Stanstead",
   "prov": "QC",
-  "riding": "Compton--Stanstead",
+  "riding": "Compton—Stanstead",
   "lean": 0.6,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2311,7 +2311,7 @@
  {
   "name": "Ayer's Cliff",
   "prov": "QC",
-  "riding": "Compton--Stanstead",
+  "riding": "Compton—Stanstead",
   "lean": 0.6,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2328,7 +2328,7 @@
  {
   "name": "North Hatley",
   "prov": "QC",
-  "riding": "Compton--Stanstead",
+  "riding": "Compton—Stanstead",
   "lean": 0.6,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2379,7 +2379,7 @@
  {
   "name": "Chute-aux-Outardes",
   "prov": "QC",
-  "riding": "Côte-Nord--Kawawachikamach--Nitassinan",
+  "riding": "Côte-Nord—Kawawachikamach—Nitassinan",
   "lean": 5.6,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2394,7 +2394,7 @@
  {
   "name": "Sept-Îles",
   "prov": "QC",
-  "riding": "Côte-Nord--Kawawachikamach--Nitassinan",
+  "riding": "Côte-Nord—Kawawachikamach—Nitassinan",
   "lean": 5.6,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2409,7 +2409,7 @@
  {
   "name": "Dorval",
   "prov": "QC",
-  "riding": "Dorval--Lachine--LaSalle",
+  "riding": "Dorval—Lachine—LaSalle",
   "lean": -2.2,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2458,7 +2458,7 @@
  {
   "name": "Gatineau",
   "prov": "QC",
-  "riding": "Hull--Aylmer",
+  "riding": "Hull—Aylmer",
   "lean": -6.4,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2475,7 +2475,7 @@
  {
   "name": "Saint-Paul",
   "prov": "QC",
-  "riding": "Joliette--Manawan",
+  "riding": "Joliette—Manawan",
   "lean": -3.0,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2491,7 +2491,7 @@
  {
   "name": "Crabtree",
   "prov": "QC",
-  "riding": "Joliette--Manawan",
+  "riding": "Joliette—Manawan",
   "lean": -3.0,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2507,7 +2507,7 @@
  {
   "name": "Joliette",
   "prov": "QC",
-  "riding": "Joliette--Manawan",
+  "riding": "Joliette—Manawan",
   "lean": -3.0,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2523,7 +2523,7 @@
  {
   "name": "Notre-Dame-des-Prairies",
   "prov": "QC",
-  "riding": "Joliette--Manawan",
+  "riding": "Joliette—Manawan",
   "lean": -3.0,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2539,7 +2539,7 @@
  {
   "name": "Saint-Charles-Borromée",
   "prov": "QC",
-  "riding": "Joliette--Manawan",
+  "riding": "Joliette—Manawan",
   "lean": -3.0,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2571,7 +2571,7 @@
  {
   "name": "Saint-Philippe",
   "prov": "QC",
-  "riding": "La Prairie--Atateken",
+  "riding": "La Prairie—Atateken",
   "lean": -2.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2588,7 +2588,7 @@
  {
   "name": "La Prairie",
   "prov": "QC",
-  "riding": "La Prairie--Atateken",
+  "riding": "La Prairie—Atateken",
   "lean": -2.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2605,7 +2605,7 @@
  {
   "name": "Candiac",
   "prov": "QC",
-  "riding": "La Prairie--Atateken",
+  "riding": "La Prairie—Atateken",
   "lean": -2.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2622,7 +2622,7 @@
  {
   "name": "Delson",
   "prov": "QC",
-  "riding": "La Prairie--Atateken",
+  "riding": "La Prairie—Atateken",
   "lean": -2.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2639,7 +2639,7 @@
  {
   "name": "Sainte-Catherine",
   "prov": "QC",
-  "riding": "La Prairie--Atateken",
+  "riding": "La Prairie—Atateken",
   "lean": -2.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2656,7 +2656,7 @@
  {
   "name": "Saint-Constant",
   "prov": "QC",
-  "riding": "La Prairie--Atateken",
+  "riding": "La Prairie—Atateken",
   "lean": -2.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2774,7 +2774,7 @@
  {
   "name": "Val-David",
   "prov": "QC",
-  "riding": "Laurentides--Labelle",
+  "riding": "Laurentides—Labelle",
   "lean": -2.3,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2791,7 +2791,7 @@
  {
   "name": "Mont-Tremblant",
   "prov": "QC",
-  "riding": "Laurentides--Labelle",
+  "riding": "Laurentides—Labelle",
   "lean": -2.3,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -2910,7 +2910,7 @@
  {
   "name": "Longueuil",
   "prov": "QC",
-  "riding": "Longueuil--Charles-LeMoyne",
+  "riding": "Longueuil—Charles-LeMoyne",
   "lean": -4.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -2926,7 +2926,7 @@
  {
   "name": "L'Ancienne-Lorette",
   "prov": "QC",
-  "riding": "Louis-Saint-Laurent--Akiawenhrahk",
+  "riding": "Louis-Saint-Laurent—Akiawenhrahk",
   "lean": 18.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -2957,7 +2957,7 @@
  {
   "name": "Lac-Mégantic",
   "prov": "QC",
-  "riding": "Mégantic--L'Érable--Lotbinière",
+  "riding": "Mégantic—L'Érable—Lotbinière",
   "lean": 30.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -2973,7 +2973,7 @@
  {
   "name": "Disraeli",
   "prov": "QC",
-  "riding": "Mégantic--L'Érable--Lotbinière",
+  "riding": "Mégantic—L'Érable—Lotbinière",
   "lean": 30.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -2989,7 +2989,7 @@
  {
   "name": "Thetford Mines",
   "prov": "QC",
-  "riding": "Mégantic--L'Érable--Lotbinière",
+  "riding": "Mégantic—L'Érable—Lotbinière",
   "lean": 30.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3005,7 +3005,7 @@
  {
   "name": "East Broughton",
   "prov": "QC",
-  "riding": "Mégantic--L'Érable--Lotbinière",
+  "riding": "Mégantic—L'Érable—Lotbinière",
   "lean": 30.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3021,7 +3021,7 @@
  {
   "name": "Plessisville",
   "prov": "QC",
-  "riding": "Mégantic--L'Érable--Lotbinière",
+  "riding": "Mégantic—L'Érable—Lotbinière",
   "lean": 30.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3037,7 +3037,7 @@
  {
   "name": "Laurier-Station",
   "prov": "QC",
-  "riding": "Mégantic--L'Érable--Lotbinière",
+  "riding": "Mégantic—L'Érable—Lotbinière",
   "lean": 30.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3166,7 +3166,7 @@
  {
   "name": "Carignan",
   "prov": "QC",
-  "riding": "Mont-Saint-Bruno--L'Acadie",
+  "riding": "Mont-Saint-Bruno—L'Acadie",
   "lean": -4.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3183,7 +3183,7 @@
  {
   "name": "Saint-Basile-le-Grand",
   "prov": "QC",
-  "riding": "Mont-Saint-Bruno--L'Acadie",
+  "riding": "Mont-Saint-Bruno—L'Acadie",
   "lean": -4.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3200,7 +3200,7 @@
  {
   "name": "Saint-Bruno-de-Montarville",
   "prov": "QC",
-  "riding": "Mont-Saint-Bruno--L'Acadie",
+  "riding": "Mont-Saint-Bruno—L'Acadie",
   "lean": -4.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3217,7 +3217,7 @@
  {
   "name": "Sainte-Julie",
   "prov": "QC",
-  "riding": "Mont-Saint-Bruno--L'Acadie",
+  "riding": "Mont-Saint-Bruno—L'Acadie",
   "lean": -4.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3294,7 +3294,7 @@
  {
   "name": "Baie-Saint-Paul",
   "prov": "QC",
-  "riding": "Montmorency--Charlevoix",
+  "riding": "Montmorency—Charlevoix",
   "lean": 11.8,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -3311,7 +3311,7 @@
  {
   "name": "Sainte-Pétronille",
   "prov": "QC",
-  "riding": "Montmorency--Charlevoix",
+  "riding": "Montmorency—Charlevoix",
   "lean": 11.8,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -3328,7 +3328,7 @@
  {
   "name": "Beaupré",
   "prov": "QC",
-  "riding": "Montmorency--Charlevoix",
+  "riding": "Montmorency—Charlevoix",
   "lean": 11.8,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -3345,7 +3345,7 @@
  {
   "name": "Boischatel",
   "prov": "QC",
-  "riding": "Montmorency--Charlevoix",
+  "riding": "Montmorency—Charlevoix",
   "lean": 11.8,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -3362,7 +3362,7 @@
  {
   "name": "Lac-Beauport",
   "prov": "QC",
-  "riding": "Montmorency--Charlevoix",
+  "riding": "Montmorency—Charlevoix",
   "lean": 11.8,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -3379,7 +3379,7 @@
  {
   "name": "Westmount",
   "prov": "QC",
-  "riding": "Notre-Dame-de-Grâce--Westmount",
+  "riding": "Notre-Dame-de-Grâce—Westmount",
   "lean": -6.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3396,7 +3396,7 @@
  {
   "name": "Montréal-Ouest",
   "prov": "QC",
-  "riding": "Notre-Dame-de-Grâce--Westmount",
+  "riding": "Notre-Dame-de-Grâce—Westmount",
   "lean": -6.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3413,7 +3413,7 @@
  {
   "name": "Boucherville",
   "prov": "QC",
-  "riding": "Pierre-Boucher--Les Patriotes--Verchères",
+  "riding": "Pierre-Boucher—Les Patriotes—Verchères",
   "lean": -4.6,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3429,7 +3429,7 @@
  {
   "name": "Saint-Amable",
   "prov": "QC",
-  "riding": "Pierre-Boucher--Les Patriotes--Verchères",
+  "riding": "Pierre-Boucher—Les Patriotes—Verchères",
   "lean": -4.6,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3445,7 +3445,7 @@
  {
   "name": "Varennes",
   "prov": "QC",
-  "riding": "Pierre-Boucher--Les Patriotes--Verchères",
+  "riding": "Pierre-Boucher—Les Patriotes—Verchères",
   "lean": -4.6,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3461,7 +3461,7 @@
  {
   "name": "Contrecoeur",
   "prov": "QC",
-  "riding": "Pierre-Boucher--Les Patriotes--Verchères",
+  "riding": "Pierre-Boucher—Les Patriotes—Verchères",
   "lean": -4.6,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3477,7 +3477,7 @@
  {
   "name": "Dollard-Des Ormeaux",
   "prov": "QC",
-  "riding": "Pierrefonds--Dollard",
+  "riding": "Pierrefonds—Dollard",
   "lean": 5.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3493,7 +3493,7 @@
  {
   "name": "Maniwaki",
   "prov": "QC",
-  "riding": "Pontiac--Kitigan Zibi",
+  "riding": "Pontiac—Kitigan Zibi",
   "lean": 2.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3510,7 +3510,7 @@
  {
   "name": "Shawville",
   "prov": "QC",
-  "riding": "Pontiac--Kitigan Zibi",
+  "riding": "Pontiac—Kitigan Zibi",
   "lean": 2.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3527,7 +3527,7 @@
  {
   "name": "Fort-Coulonge",
   "prov": "QC",
-  "riding": "Pontiac--Kitigan Zibi",
+  "riding": "Pontiac—Kitigan Zibi",
   "lean": 2.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -3544,7 +3544,7 @@
  {
   "name": "Fossambault-sur-le-Lac",
   "prov": "QC",
-  "riding": "Portneuf--Jacques-Cartier",
+  "riding": "Portneuf—Jacques-Cartier",
   "lean": 22.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3561,7 +3561,7 @@
  {
   "name": "Shannon",
   "prov": "QC",
-  "riding": "Portneuf--Jacques-Cartier",
+  "riding": "Portneuf—Jacques-Cartier",
   "lean": 22.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3578,7 +3578,7 @@
  {
   "name": "Saint-Augustin-de-Desmaures",
   "prov": "QC",
-  "riding": "Portneuf--Jacques-Cartier",
+  "riding": "Portneuf—Jacques-Cartier",
   "lean": 22.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3595,7 +3595,7 @@
  {
   "name": "Donnacona",
   "prov": "QC",
-  "riding": "Portneuf--Jacques-Cartier",
+  "riding": "Portneuf—Jacques-Cartier",
   "lean": 22.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3612,7 +3612,7 @@
  {
   "name": "Saint-Marc-des-Carrières",
   "prov": "QC",
-  "riding": "Portneuf--Jacques-Cartier",
+  "riding": "Portneuf—Jacques-Cartier",
   "lean": 22.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3692,7 +3692,7 @@
  {
   "name": "Victoriaville",
   "prov": "QC",
-  "riding": "Richmond--Arthabaska",
+  "riding": "Richmond—Arthabaska",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3708,7 +3708,7 @@
  {
   "name": "Val-des-Sources",
   "prov": "QC",
-  "riding": "Richmond--Arthabaska",
+  "riding": "Richmond—Arthabaska",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3724,7 +3724,7 @@
  {
   "name": "Windsor",
   "prov": "QC",
-  "riding": "Richmond--Arthabaska",
+  "riding": "Richmond—Arthabaska",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3740,7 +3740,7 @@
  {
   "name": "Richmond",
   "prov": "QC",
-  "riding": "Richmond--Arthabaska",
+  "riding": "Richmond—Arthabaska",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -3756,7 +3756,7 @@
  {
   "name": "Gaspé",
   "prov": "QC",
-  "riding": "Rimouski--La Matapédia",
+  "riding": "Rimouski—La Matapédia",
   "lean": -2.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3772,7 +3772,7 @@
  {
   "name": "Price",
   "prov": "QC",
-  "riding": "Rimouski--La Matapédia",
+  "riding": "Rimouski—La Matapédia",
   "lean": -2.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3788,7 +3788,7 @@
  {
   "name": "Mont-Joli",
   "prov": "QC",
-  "riding": "Rimouski--La Matapédia",
+  "riding": "Rimouski—La Matapédia",
   "lean": -2.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3804,7 +3804,7 @@
  {
   "name": "Rimouski",
   "prov": "QC",
-  "riding": "Rimouski--La Matapédia",
+  "riding": "Rimouski—La Matapédia",
   "lean": -2.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3820,7 +3820,7 @@
  {
   "name": "Trois-Pistoles",
   "prov": "QC",
-  "riding": "Rimouski--La Matapédia",
+  "riding": "Rimouski—La Matapédia",
   "lean": -2.7,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3949,7 +3949,7 @@
  {
   "name": "Roxton Falls",
   "prov": "QC",
-  "riding": "Saint-Hyacinthe--Bagot--Acton",
+  "riding": "Saint-Hyacinthe—Bagot—Acton",
   "lean": -0.5,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3966,7 +3966,7 @@
  {
   "name": "Sainte-Madeleine",
   "prov": "QC",
-  "riding": "Saint-Hyacinthe--Bagot--Acton",
+  "riding": "Saint-Hyacinthe—Bagot—Acton",
   "lean": -0.5,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -3983,7 +3983,7 @@
  {
   "name": "Saint-Hyacinthe",
   "prov": "QC",
-  "riding": "Saint-Hyacinthe--Bagot--Acton",
+  "riding": "Saint-Hyacinthe—Bagot—Acton",
   "lean": -0.5,
   "lean_label": "swing",
   "winner": "Bloc Québécois",
@@ -4299,7 +4299,7 @@
  {
   "name": "Montréal",
   "prov": "QC",
-  "riding": "Ville-Marie--Le Sud-Ouest--Île-des-Soeurs",
+  "riding": "Ville-Marie—Le Sud-Ouest—Île-des-Soeurs",
   "lean": -6.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -4330,7 +4330,7 @@
  {
   "name": "Arnprior",
   "prov": "ON",
-  "riding": "Algonquin--Renfrew--Pembroke",
+  "riding": "Algonquin—Renfrew—Pembroke",
   "lean": 24.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4345,7 +4345,7 @@
  {
   "name": "Renfrew",
   "prov": "ON",
-  "riding": "Algonquin--Renfrew--Pembroke",
+  "riding": "Algonquin—Renfrew—Pembroke",
   "lean": 24.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4360,7 +4360,7 @@
  {
   "name": "Pembroke",
   "prov": "ON",
-  "riding": "Algonquin--Renfrew--Pembroke",
+  "riding": "Algonquin—Renfrew—Pembroke",
   "lean": 24.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4375,7 +4375,7 @@
  {
   "name": "Petawawa",
   "prov": "ON",
-  "riding": "Algonquin--Renfrew--Pembroke",
+  "riding": "Algonquin—Renfrew—Pembroke",
   "lean": 24.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4390,7 +4390,7 @@
  {
   "name": "Aurora",
   "prov": "ON",
-  "riding": "Aurora--Oak Ridges--Richmond Hill",
+  "riding": "Aurora—Oak Ridges—Richmond Hill",
   "lean": 24.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4406,7 +4406,7 @@
  {
   "name": "Innisfil",
   "prov": "ON",
-  "riding": "Barrie South--Innisfil",
+  "riding": "Barrie South—Innisfil",
   "lean": 26.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4421,7 +4421,7 @@
  {
   "name": "Barrie",
   "prov": "ON",
-  "riding": "Barrie--Springwater--Oro-Medonte",
+  "riding": "Barrie—Springwater—Oro-Medonte",
   "lean": 20.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4467,7 +4467,7 @@
  {
   "name": "Brantford",
   "prov": "ON",
-  "riding": "Brantford--Brant South--Six Nations",
+  "riding": "Brantford—Brant South—Six Nations",
   "lean": 21.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4483,7 +4483,7 @@
  {
   "name": "Northern Bruce Peninsula",
   "prov": "ON",
-  "riding": "Bruce--Grey--Owen Sound",
+  "riding": "Bruce—Grey—Owen Sound",
   "lean": 22.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4499,7 +4499,7 @@
  {
   "name": "Hanover",
   "prov": "ON",
-  "riding": "Bruce--Grey--Owen Sound",
+  "riding": "Bruce—Grey—Owen Sound",
   "lean": 22.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4515,7 +4515,7 @@
  {
   "name": "Meaford",
   "prov": "ON",
-  "riding": "Bruce--Grey--Owen Sound",
+  "riding": "Bruce—Grey—Owen Sound",
   "lean": 22.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4531,7 +4531,7 @@
  {
   "name": "Owen Sound",
   "prov": "ON",
-  "riding": "Bruce--Grey--Owen Sound",
+  "riding": "Bruce—Grey—Owen Sound",
   "lean": 22.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4563,7 +4563,7 @@
  {
   "name": "Milton",
   "prov": "ON",
-  "riding": "Burlington North--Milton West",
+  "riding": "Burlington North—Milton West",
   "lean": 16.3,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -4593,7 +4593,7 @@
  {
   "name": "Leamington",
   "prov": "ON",
-  "riding": "Chatham-Kent--Leamington",
+  "riding": "Chatham-Kent—Leamington",
   "lean": 25.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4609,7 +4609,7 @@
  {
   "name": "Caledon",
   "prov": "ON",
-  "riding": "Dufferin--Caledon",
+  "riding": "Dufferin—Caledon",
   "lean": 28.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4625,7 +4625,7 @@
  {
   "name": "Orangeville",
   "prov": "ON",
-  "riding": "Dufferin--Caledon",
+  "riding": "Dufferin—Caledon",
   "lean": 28.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4641,7 +4641,7 @@
  {
   "name": "Shelburne",
   "prov": "ON",
-  "riding": "Dufferin--Caledon",
+  "riding": "Dufferin—Caledon",
   "lean": 28.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4657,7 +4657,7 @@
  {
   "name": "Aylmer",
   "prov": "ON",
-  "riding": "Elgin--St. Thomas--London South",
+  "riding": "Elgin—St. Thomas—London South",
   "lean": 20.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4672,7 +4672,7 @@
  {
   "name": "St. Thomas",
   "prov": "ON",
-  "riding": "Elgin--St. Thomas--London South",
+  "riding": "Elgin—St. Thomas—London South",
   "lean": 20.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4749,7 +4749,7 @@
  {
   "name": "Deseronto",
   "prov": "ON",
-  "riding": "Hastings--Lennox and Addington--Tyendinaga",
+  "riding": "Hastings—Lennox and Addington—Tyendinaga",
   "lean": 22.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4765,7 +4765,7 @@
  {
   "name": "Belleville",
   "prov": "ON",
-  "riding": "Hastings--Lennox and Addington--Tyendinaga",
+  "riding": "Hastings—Lennox and Addington—Tyendinaga",
   "lean": 22.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4781,7 +4781,7 @@
  {
   "name": "Bluewater",
   "prov": "ON",
-  "riding": "Huron--Bruce",
+  "riding": "Huron—Bruce",
   "lean": 21.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4796,7 +4796,7 @@
  {
   "name": "Goderich",
   "prov": "ON",
-  "riding": "Huron--Bruce",
+  "riding": "Huron—Bruce",
   "lean": 21.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4811,7 +4811,7 @@
  {
   "name": "Chapleau",
   "prov": "ON",
-  "riding": "Kapuskasing--Timmins--Mushkegowuk",
+  "riding": "Kapuskasing—Timmins—Mushkegowuk",
   "lean": 16.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4826,7 +4826,7 @@
  {
   "name": "Timmins",
   "prov": "ON",
-  "riding": "Kapuskasing--Timmins--Mushkegowuk",
+  "riding": "Kapuskasing—Timmins—Mushkegowuk",
   "lean": 16.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4841,7 +4841,7 @@
  {
   "name": "Kenora",
   "prov": "ON",
-  "riding": "Kenora--Kiiwetinoong",
+  "riding": "Kenora—Kiiwetinoong",
   "lean": 13.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4857,7 +4857,7 @@
  {
   "name": "Dryden",
   "prov": "ON",
-  "riding": "Kenora--Kiiwetinoong",
+  "riding": "Kenora—Kiiwetinoong",
   "lean": 13.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4920,7 +4920,7 @@
  {
   "name": "Smiths Falls",
   "prov": "ON",
-  "riding": "Lanark--Frontenac",
+  "riding": "Lanark—Frontenac",
   "lean": 19.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4935,7 +4935,7 @@
  {
   "name": "Perth",
   "prov": "ON",
-  "riding": "Lanark--Frontenac",
+  "riding": "Lanark—Frontenac",
   "lean": 19.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4950,7 +4950,7 @@
  {
   "name": "Carleton Place",
   "prov": "ON",
-  "riding": "Lanark--Frontenac",
+  "riding": "Lanark—Frontenac",
   "lean": 19.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4965,7 +4965,7 @@
  {
   "name": "Mississippi Mills",
   "prov": "ON",
-  "riding": "Lanark--Frontenac",
+  "riding": "Lanark—Frontenac",
   "lean": 19.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4980,7 +4980,7 @@
  {
   "name": "Prescott",
   "prov": "ON",
-  "riding": "Leeds--Grenville--Thousand Islands--Rideau Lakes",
+  "riding": "Leeds—Grenville—Thousand Islands—Rideau Lakes",
   "lean": 19.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -4996,7 +4996,7 @@
  {
   "name": "Brockville",
   "prov": "ON",
-  "riding": "Leeds--Grenville--Thousand Islands--Rideau Lakes",
+  "riding": "Leeds—Grenville—Thousand Islands—Rideau Lakes",
   "lean": 19.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5012,7 +5012,7 @@
  {
   "name": "Gananoque",
   "prov": "ON",
-  "riding": "Leeds--Grenville--Thousand Islands--Rideau Lakes",
+  "riding": "Leeds—Grenville—Thousand Islands—Rideau Lakes",
   "lean": 19.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5044,7 +5044,7 @@
  {
   "name": "Whitchurch-Stouffville",
   "prov": "ON",
-  "riding": "Markham--Stouffville",
+  "riding": "Markham—Stouffville",
   "lean": 16.9,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5060,7 +5060,7 @@
  {
   "name": "Markham",
   "prov": "ON",
-  "riding": "Markham--Unionville",
+  "riding": "Markham—Unionville",
   "lean": 20.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5075,7 +5075,7 @@
  {
   "name": "Halton Hills",
   "prov": "ON",
-  "riding": "Milton East--Halton Hills South",
+  "riding": "Milton East—Halton Hills South",
   "lean": 19.3,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5106,7 +5106,7 @@
  {
   "name": "Newmarket",
   "prov": "ON",
-  "riding": "Newmarket--Aurora",
+  "riding": "Newmarket—Aurora",
   "lean": 20.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5120,7 +5120,7 @@
  {
   "name": "East Gwillimbury",
   "prov": "ON",
-  "riding": "New Tecumseth--Gwillimbury",
+  "riding": "New Tecumseth—Gwillimbury",
   "lean": 27.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5136,7 +5136,7 @@
  {
   "name": "New Tecumseth",
   "prov": "ON",
-  "riding": "New Tecumseth--Gwillimbury",
+  "riding": "New Tecumseth—Gwillimbury",
   "lean": 27.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5152,7 +5152,7 @@
  {
   "name": "Bradford West Gwillimbury",
   "prov": "ON",
-  "riding": "New Tecumseth--Gwillimbury",
+  "riding": "New Tecumseth—Gwillimbury",
   "lean": 27.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5168,7 +5168,7 @@
  {
   "name": "Niagara Falls",
   "prov": "ON",
-  "riding": "Niagara Falls--Niagara-on-the-Lake",
+  "riding": "Niagara Falls—Niagara-on-the-Lake",
   "lean": 19.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5184,7 +5184,7 @@
  {
   "name": "Niagara-on-the-Lake",
   "prov": "ON",
-  "riding": "Niagara Falls--Niagara-on-the-Lake",
+  "riding": "Niagara Falls—Niagara-on-the-Lake",
   "lean": 19.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5309,7 +5309,7 @@
  {
   "name": "Mattawa",
   "prov": "ON",
-  "riding": "Nipissing--Timiskaming",
+  "riding": "Nipissing—Timiskaming",
   "lean": 14.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5325,7 +5325,7 @@
  {
   "name": "North Bay",
   "prov": "ON",
-  "riding": "Nipissing--Timiskaming",
+  "riding": "Nipissing—Timiskaming",
   "lean": 14.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5341,7 +5341,7 @@
  {
   "name": "Englehart",
   "prov": "ON",
-  "riding": "Nipissing--Timiskaming",
+  "riding": "Nipissing—Timiskaming",
   "lean": 14.5,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5357,7 +5357,7 @@
  {
   "name": "Port Hope",
   "prov": "ON",
-  "riding": "Northumberland--Clarke",
+  "riding": "Northumberland—Clarke",
   "lean": 19.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5373,7 +5373,7 @@
  {
   "name": "Cobourg",
   "prov": "ON",
-  "riding": "Northumberland--Clarke",
+  "riding": "Northumberland—Clarke",
   "lean": 19.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5389,7 +5389,7 @@
  {
   "name": "Clarington",
   "prov": "ON",
-  "riding": "Northumberland--Clarke",
+  "riding": "Northumberland—Clarke",
   "lean": 19.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5499,7 +5499,7 @@
  {
   "name": "Bracebridge",
   "prov": "ON",
-  "riding": "Parry Sound--Muskoka",
+  "riding": "Parry Sound—Muskoka",
   "lean": 22.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5514,7 +5514,7 @@
  {
   "name": "Huntsville",
   "prov": "ON",
-  "riding": "Parry Sound--Muskoka",
+  "riding": "Parry Sound—Muskoka",
   "lean": 22.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5529,7 +5529,7 @@
  {
   "name": "Parry Sound",
   "prov": "ON",
-  "riding": "Parry Sound--Muskoka",
+  "riding": "Parry Sound—Muskoka",
   "lean": 22.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5544,7 +5544,7 @@
  {
   "name": "South River",
   "prov": "ON",
-  "riding": "Parry Sound--Muskoka",
+  "riding": "Parry Sound—Muskoka",
   "lean": 22.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5559,7 +5559,7 @@
  {
   "name": "Stratford",
   "prov": "ON",
-  "riding": "Perth--Wellington",
+  "riding": "Perth—Wellington",
   "lean": 22.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5574,7 +5574,7 @@
  {
   "name": "St. Marys",
   "prov": "ON",
-  "riding": "Perth--Wellington",
+  "riding": "Perth—Wellington",
   "lean": 22.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5605,7 +5605,7 @@
  {
   "name": "Pickering",
   "prov": "ON",
-  "riding": "Pickering--Brooklin",
+  "riding": "Pickering—Brooklin",
   "lean": 13.6,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5621,7 +5621,7 @@
  {
   "name": "Hawkesbury",
   "prov": "ON",
-  "riding": "Prescott--Russell--Cumberland",
+  "riding": "Prescott—Russell—Cumberland",
   "lean": 13.0,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5637,7 +5637,7 @@
  {
   "name": "Casselman",
   "prov": "ON",
-  "riding": "Prescott--Russell--Cumberland",
+  "riding": "Prescott—Russell—Cumberland",
   "lean": 13.0,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5669,7 +5669,7 @@
  {
   "name": "Petrolia",
   "prov": "ON",
-  "riding": "Sarnia--Lambton--Bkejwanong",
+  "riding": "Sarnia—Lambton—Bkejwanong",
   "lean": 23.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5684,7 +5684,7 @@
  {
   "name": "Sarnia",
   "prov": "ON",
-  "riding": "Sarnia--Lambton--Bkejwanong",
+  "riding": "Sarnia—Lambton—Bkejwanong",
   "lean": 23.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5699,7 +5699,7 @@
  {
   "name": "Point Edward",
   "prov": "ON",
-  "riding": "Sarnia--Lambton--Bkejwanong",
+  "riding": "Sarnia—Lambton—Bkejwanong",
   "lean": 23.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5714,7 +5714,7 @@
  {
   "name": "Thessalon",
   "prov": "ON",
-  "riding": "Sault Ste. Marie--Algoma",
+  "riding": "Sault Ste. Marie—Algoma",
   "lean": 13.4,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5729,7 +5729,7 @@
  {
   "name": "Sault Ste. Marie",
   "prov": "ON",
-  "riding": "Sault Ste. Marie--Algoma",
+  "riding": "Sault Ste. Marie—Algoma",
   "lean": 13.4,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5744,7 +5744,7 @@
  {
   "name": "Collingwood",
   "prov": "ON",
-  "riding": "Simcoe--Grey",
+  "riding": "Simcoe—Grey",
   "lean": 21.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5760,7 +5760,7 @@
  {
   "name": "Wasaga Beach",
   "prov": "ON",
-  "riding": "Simcoe--Grey",
+  "riding": "Simcoe—Grey",
   "lean": 21.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5839,7 +5839,7 @@
  {
   "name": "Cornwall",
   "prov": "ON",
-  "riding": "Stormont--Dundas--Glengarry",
+  "riding": "Stormont—Dundas—Glengarry",
   "lean": 24.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5885,7 +5885,7 @@
  {
   "name": "Thunder Bay",
   "prov": "ON",
-  "riding": "Thunder Bay--Rainy River",
+  "riding": "Thunder Bay—Rainy River",
   "lean": 12.8,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5901,7 +5901,7 @@
  {
   "name": "Fort Frances",
   "prov": "ON",
-  "riding": "Thunder Bay--Rainy River",
+  "riding": "Thunder Bay—Rainy River",
   "lean": 12.8,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -5917,7 +5917,7 @@
  {
   "name": "Toronto",
   "prov": "ON",
-  "riding": "University--Rosedale",
+  "riding": "University—Rosedale",
   "lean": -5.1,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -5932,7 +5932,7 @@
  {
   "name": "Centre Wellington",
   "prov": "ON",
-  "riding": "Wellington--Halton Hills North",
+  "riding": "Wellington—Halton Hills North",
   "lean": 20.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5963,7 +5963,7 @@
  {
   "name": "Tecumseh",
   "prov": "ON",
-  "riding": "Windsor--Tecumseh--Lakeshore",
+  "riding": "Windsor—Tecumseh—Lakeshore",
   "lean": 15.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -5995,7 +5995,7 @@
  {
   "name": "Georgina",
   "prov": "ON",
-  "riding": "York--Durham",
+  "riding": "York—Durham",
   "lean": 24.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6011,7 +6011,7 @@
  {
   "name": "Melita",
   "prov": "MB",
-  "riding": "Brandon--Souris",
+  "riding": "Brandon—Souris",
   "lean": 23.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6025,7 +6025,7 @@
  {
   "name": "Virden",
   "prov": "MB",
-  "riding": "Brandon--Souris",
+  "riding": "Brandon—Souris",
   "lean": 23.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6039,7 +6039,7 @@
  {
   "name": "Brandon",
   "prov": "MB",
-  "riding": "Brandon--Souris",
+  "riding": "Brandon—Souris",
   "lean": 23.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6053,7 +6053,7 @@
  {
   "name": "The Pas",
   "prov": "MB",
-  "riding": "Churchill--Keewatinook Aski",
+  "riding": "Churchill—Keewatinook Aski",
   "lean": -11.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -6068,7 +6068,7 @@
  {
   "name": "Flin Flon (Part)",
   "prov": "MB",
-  "riding": "Churchill--Keewatinook Aski",
+  "riding": "Churchill—Keewatinook Aski",
   "lean": -11.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -6083,7 +6083,7 @@
  {
   "name": "Thompson",
   "prov": "MB",
-  "riding": "Churchill--Keewatinook Aski",
+  "riding": "Churchill—Keewatinook Aski",
   "lean": -11.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -6098,7 +6098,7 @@
  {
   "name": "Churchill",
   "prov": "MB",
-  "riding": "Churchill--Keewatinook Aski",
+  "riding": "Churchill—Keewatinook Aski",
   "lean": -11.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -6113,7 +6113,7 @@
  {
   "name": "East St. Paul",
   "prov": "MB",
-  "riding": "Kildonan--St. Paul",
+  "riding": "Kildonan—St. Paul",
   "lean": 16.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6128,7 +6128,7 @@
  {
   "name": "Altona",
   "prov": "MB",
-  "riding": "Portage--Lisgar",
+  "riding": "Portage—Lisgar",
   "lean": 35.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6144,7 +6144,7 @@
  {
   "name": "Winkler",
   "prov": "MB",
-  "riding": "Portage--Lisgar",
+  "riding": "Portage—Lisgar",
   "lean": 35.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6160,7 +6160,7 @@
  {
   "name": "Morden",
   "prov": "MB",
-  "riding": "Portage--Lisgar",
+  "riding": "Portage—Lisgar",
   "lean": 35.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6176,7 +6176,7 @@
  {
   "name": "Morris",
   "prov": "MB",
-  "riding": "Portage--Lisgar",
+  "riding": "Portage—Lisgar",
   "lean": 35.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6192,7 +6192,7 @@
  {
   "name": "Carman",
   "prov": "MB",
-  "riding": "Portage--Lisgar",
+  "riding": "Portage—Lisgar",
   "lean": 35.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6208,7 +6208,7 @@
  {
   "name": "Portage la Prairie",
   "prov": "MB",
-  "riding": "Portage--Lisgar",
+  "riding": "Portage—Lisgar",
   "lean": 35.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6368,7 +6368,7 @@
  {
   "name": "Lac du Bonnet",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6384,7 +6384,7 @@
  {
   "name": "Powerview-Pine Falls",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6400,7 +6400,7 @@
  {
   "name": "Beausejour",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6416,7 +6416,7 @@
  {
   "name": "Selkirk",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6432,7 +6432,7 @@
  {
   "name": "Stonewall",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6448,7 +6448,7 @@
  {
   "name": "Teulon",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6464,7 +6464,7 @@
  {
   "name": "Gimli",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6480,7 +6480,7 @@
  {
   "name": "Winnipeg Beach",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6496,7 +6496,7 @@
  {
   "name": "Arborg",
   "prov": "MB",
-  "riding": "Selkirk--Interlake--Eastman",
+  "riding": "Selkirk—Interlake—Eastman",
   "lean": 26.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6528,7 +6528,7 @@
  {
   "name": "Battleford",
   "prov": "SK",
-  "riding": "Battlefords--Lloydminster--Meadow Lake",
+  "riding": "Battlefords—Lloydminster—Meadow Lake",
   "lean": 39.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6542,7 +6542,7 @@
  {
   "name": "Wilkie",
   "prov": "SK",
-  "riding": "Battlefords--Lloydminster--Meadow Lake",
+  "riding": "Battlefords—Lloydminster—Meadow Lake",
   "lean": 39.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6556,7 +6556,7 @@
  {
   "name": "Unity",
   "prov": "SK",
-  "riding": "Battlefords--Lloydminster--Meadow Lake",
+  "riding": "Battlefords—Lloydminster—Meadow Lake",
   "lean": 39.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6570,7 +6570,7 @@
  {
   "name": "North Battleford",
   "prov": "SK",
-  "riding": "Battlefords--Lloydminster--Meadow Lake",
+  "riding": "Battlefords—Lloydminster—Meadow Lake",
   "lean": 39.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6584,7 +6584,7 @@
  {
   "name": "Maidstone",
   "prov": "SK",
-  "riding": "Battlefords--Lloydminster--Meadow Lake",
+  "riding": "Battlefords—Lloydminster—Meadow Lake",
   "lean": 39.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6598,7 +6598,7 @@
  {
   "name": "Lloydminster (Part)",
   "prov": "SK",
-  "riding": "Battlefords--Lloydminster--Meadow Lake",
+  "riding": "Battlefords—Lloydminster—Meadow Lake",
   "lean": 39.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6612,7 +6612,7 @@
  {
   "name": "Meadow Lake",
   "prov": "SK",
-  "riding": "Battlefords--Lloydminster--Meadow Lake",
+  "riding": "Battlefords—Lloydminster—Meadow Lake",
   "lean": 39.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6626,7 +6626,7 @@
  {
   "name": "Saskatoon",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6640,7 +6640,7 @@
  {
   "name": "Langham",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6654,7 +6654,7 @@
  {
   "name": "Warman",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6668,7 +6668,7 @@
  {
   "name": "Martensville",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6682,7 +6682,7 @@
  {
   "name": "Dalmeny",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6696,7 +6696,7 @@
  {
   "name": "Osler",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6710,7 +6710,7 @@
  {
   "name": "Delisle",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6724,7 +6724,7 @@
  {
   "name": "Humboldt",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6738,7 +6738,7 @@
  {
   "name": "Waldheim",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6752,7 +6752,7 @@
  {
   "name": "Rosthern",
   "prov": "SK",
-  "riding": "Carlton Trail--Eagle Creek",
+  "riding": "Carlton Trail—Eagle Creek",
   "lean": 39.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6766,7 +6766,7 @@
  {
   "name": "La Ronge",
   "prov": "SK",
-  "riding": "Desnethé--Missinippi--Churchill River",
+  "riding": "Desnethé—Missinippi—Churchill River",
   "lean": -2.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -6780,7 +6780,7 @@
  {
   "name": "Air Ronge",
   "prov": "SK",
-  "riding": "Desnethé--Missinippi--Churchill River",
+  "riding": "Desnethé—Missinippi—Churchill River",
   "lean": -2.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -6794,7 +6794,7 @@
  {
   "name": "Pinehouse",
   "prov": "SK",
-  "riding": "Desnethé--Missinippi--Churchill River",
+  "riding": "Desnethé—Missinippi—Churchill River",
   "lean": -2.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -6808,7 +6808,7 @@
  {
   "name": "La Loche",
   "prov": "SK",
-  "riding": "Desnethé--Missinippi--Churchill River",
+  "riding": "Desnethé—Missinippi—Churchill River",
   "lean": -2.8,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -6822,7 +6822,7 @@
  {
   "name": "Lumsden",
   "prov": "SK",
-  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "riding": "Moose Jaw—Lake Centre—Lanigan",
   "lean": 37.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6838,7 +6838,7 @@
  {
   "name": "Regina Beach",
   "prov": "SK",
-  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "riding": "Moose Jaw—Lake Centre—Lanigan",
   "lean": 37.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6854,7 +6854,7 @@
  {
   "name": "Caronport",
   "prov": "SK",
-  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "riding": "Moose Jaw—Lake Centre—Lanigan",
   "lean": 37.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6870,7 +6870,7 @@
  {
   "name": "Moose Jaw",
   "prov": "SK",
-  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "riding": "Moose Jaw—Lake Centre—Lanigan",
   "lean": 37.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6886,7 +6886,7 @@
  {
   "name": "Davidson",
   "prov": "SK",
-  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "riding": "Moose Jaw—Lake Centre—Lanigan",
   "lean": 37.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6902,7 +6902,7 @@
  {
   "name": "Outlook",
   "prov": "SK",
-  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "riding": "Moose Jaw—Lake Centre—Lanigan",
   "lean": 37.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6918,7 +6918,7 @@
  {
   "name": "Lanigan",
   "prov": "SK",
-  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "riding": "Moose Jaw—Lake Centre—Lanigan",
   "lean": 37.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -6934,7 +6934,7 @@
  {
   "name": "Watrous",
   "prov": "SK",
-  "riding": "Moose Jaw--Lake Centre--Lanigan",
+  "riding": "Moose Jaw—Lake Centre—Lanigan",
   "lean": 37.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7034,7 +7034,7 @@
  {
   "name": "White City",
   "prov": "SK",
-  "riding": "Regina--Qu'Appelle",
+  "riding": "Regina—Qu'Appelle",
   "lean": 28.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7049,7 +7049,7 @@
  {
   "name": "Pilot Butte",
   "prov": "SK",
-  "riding": "Regina--Qu'Appelle",
+  "riding": "Regina—Qu'Appelle",
   "lean": 28.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7064,7 +7064,7 @@
  {
   "name": "Balgonie",
   "prov": "SK",
-  "riding": "Regina--Qu'Appelle",
+  "riding": "Regina—Qu'Appelle",
   "lean": 28.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7079,7 +7079,7 @@
  {
   "name": "Indian Head",
   "prov": "SK",
-  "riding": "Regina--Qu'Appelle",
+  "riding": "Regina—Qu'Appelle",
   "lean": 28.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7094,7 +7094,7 @@
  {
   "name": "Fort Qu'Appelle",
   "prov": "SK",
-  "riding": "Regina--Qu'Appelle",
+  "riding": "Regina—Qu'Appelle",
   "lean": 28.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7109,7 +7109,7 @@
  {
   "name": "Wynyard",
   "prov": "SK",
-  "riding": "Regina--Qu'Appelle",
+  "riding": "Regina—Qu'Appelle",
   "lean": 28.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7124,7 +7124,7 @@
  {
   "name": "Regina",
   "prov": "SK",
-  "riding": "Regina--Wascana",
+  "riding": "Regina—Wascana",
   "lean": 19.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7140,7 +7140,7 @@
  {
   "name": "Carnduff",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7155,7 +7155,7 @@
  {
   "name": "Oxbow",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7170,7 +7170,7 @@
  {
   "name": "Estevan",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7185,7 +7185,7 @@
  {
   "name": "Redvers",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7200,7 +7200,7 @@
  {
   "name": "Carlyle",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7215,7 +7215,7 @@
  {
   "name": "Weyburn",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7230,7 +7230,7 @@
  {
   "name": "Assiniboia",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7245,7 +7245,7 @@
  {
   "name": "Moosomin",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7260,7 +7260,7 @@
  {
   "name": "Kipling",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7275,7 +7275,7 @@
  {
   "name": "Grenfell",
   "prov": "SK",
-  "riding": "Souris--Moose Mountain",
+  "riding": "Souris—Moose Mountain",
   "lean": 45.7,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7290,7 +7290,7 @@
  {
   "name": "Shaunavon",
   "prov": "SK",
-  "riding": "Swift Current--Grasslands--Kindersley",
+  "riding": "Swift Current—Grasslands—Kindersley",
   "lean": 43.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7304,7 +7304,7 @@
  {
   "name": "Maple Creek",
   "prov": "SK",
-  "riding": "Swift Current--Grasslands--Kindersley",
+  "riding": "Swift Current—Grasslands—Kindersley",
   "lean": 43.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7318,7 +7318,7 @@
  {
   "name": "Swift Current",
   "prov": "SK",
-  "riding": "Swift Current--Grasslands--Kindersley",
+  "riding": "Swift Current—Grasslands—Kindersley",
   "lean": 43.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7332,7 +7332,7 @@
  {
   "name": "Rosetown",
   "prov": "SK",
-  "riding": "Swift Current--Grasslands--Kindersley",
+  "riding": "Swift Current—Grasslands—Kindersley",
   "lean": 43.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7346,7 +7346,7 @@
  {
   "name": "Biggar",
   "prov": "SK",
-  "riding": "Swift Current--Grasslands--Kindersley",
+  "riding": "Swift Current—Grasslands—Kindersley",
   "lean": 43.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7360,7 +7360,7 @@
  {
   "name": "Kindersley",
   "prov": "SK",
-  "riding": "Swift Current--Grasslands--Kindersley",
+  "riding": "Swift Current—Grasslands—Kindersley",
   "lean": 43.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7374,7 +7374,7 @@
  {
   "name": "Macklin",
   "prov": "SK",
-  "riding": "Swift Current--Grasslands--Kindersley",
+  "riding": "Swift Current—Grasslands—Kindersley",
   "lean": 43.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7388,7 +7388,7 @@
  {
   "name": "Langenburg",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7403,7 +7403,7 @@
  {
   "name": "Esterhazy",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7418,7 +7418,7 @@
  {
   "name": "Melville",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7433,7 +7433,7 @@
  {
   "name": "Yorkton",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7448,7 +7448,7 @@
  {
   "name": "Canora",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7463,7 +7463,7 @@
  {
   "name": "Kamsack",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7478,7 +7478,7 @@
  {
   "name": "Preeceville",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7493,7 +7493,7 @@
  {
   "name": "Foam Lake",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7508,7 +7508,7 @@
  {
   "name": "Wadena",
   "prov": "SK",
-  "riding": "Yorkton--Melville",
+  "riding": "Yorkton—Melville",
   "lean": 39.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7523,7 +7523,7 @@
  {
   "name": "Cochrane",
   "prov": "AB",
-  "riding": "Airdrie--Cochrane",
+  "riding": "Airdrie—Cochrane",
   "lean": 36.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7537,7 +7537,7 @@
  {
   "name": "Airdrie",
   "prov": "AB",
-  "riding": "Airdrie--Cochrane",
+  "riding": "Airdrie—Cochrane",
   "lean": 36.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -7551,7 +7551,7 @@
  {
   "name": "Hanna",
   "prov": "AB",
-  "riding": "Battle River--Crowfoot",
+  "riding": "Battle River—Crowfoot",
   "lean": 46.4,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7567,7 +7567,7 @@
  {
   "name": "Three Hills",
   "prov": "AB",
-  "riding": "Battle River--Crowfoot",
+  "riding": "Battle River—Crowfoot",
   "lean": 46.4,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7583,7 +7583,7 @@
  {
   "name": "Provost",
   "prov": "AB",
-  "riding": "Battle River--Crowfoot",
+  "riding": "Battle River—Crowfoot",
   "lean": 46.4,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7599,7 +7599,7 @@
  {
   "name": "Stettler",
   "prov": "AB",
-  "riding": "Battle River--Crowfoot",
+  "riding": "Battle River—Crowfoot",
   "lean": 46.4,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7615,7 +7615,7 @@
  {
   "name": "Wainwright",
   "prov": "AB",
-  "riding": "Battle River--Crowfoot",
+  "riding": "Battle River—Crowfoot",
   "lean": 46.4,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7631,7 +7631,7 @@
  {
   "name": "Camrose",
   "prov": "AB",
-  "riding": "Battle River--Crowfoot",
+  "riding": "Battle River—Crowfoot",
   "lean": 46.4,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7647,7 +7647,7 @@
  {
   "name": "Tofield",
   "prov": "AB",
-  "riding": "Battle River--Crowfoot",
+  "riding": "Battle River—Crowfoot",
   "lean": 46.4,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -7950,7 +7950,7 @@
  {
   "name": "Cold Lake",
   "prov": "AB",
-  "riding": "Fort McMurray--Cold Lake",
+  "riding": "Fort McMurray—Cold Lake",
   "lean": 44.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8217,7 +8217,7 @@
  {
   "name": "Wetaskiwin",
   "prov": "AB",
-  "riding": "Leduc--Wetaskiwin",
+  "riding": "Leduc—Wetaskiwin",
   "lean": 38.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8232,7 +8232,7 @@
  {
   "name": "Millet",
   "prov": "AB",
-  "riding": "Leduc--Wetaskiwin",
+  "riding": "Leduc—Wetaskiwin",
   "lean": 38.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8247,7 +8247,7 @@
  {
   "name": "Beaumont",
   "prov": "AB",
-  "riding": "Leduc--Wetaskiwin",
+  "riding": "Leduc—Wetaskiwin",
   "lean": 38.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8262,7 +8262,7 @@
  {
   "name": "Leduc",
   "prov": "AB",
-  "riding": "Leduc--Wetaskiwin",
+  "riding": "Leduc—Wetaskiwin",
   "lean": 38.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8277,7 +8277,7 @@
  {
   "name": "Devon",
   "prov": "AB",
-  "riding": "Leduc--Wetaskiwin",
+  "riding": "Leduc—Wetaskiwin",
   "lean": 38.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8292,7 +8292,7 @@
  {
   "name": "Calmar",
   "prov": "AB",
-  "riding": "Leduc--Wetaskiwin",
+  "riding": "Leduc—Wetaskiwin",
   "lean": 38.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8387,7 +8387,7 @@
  {
   "name": "Medicine Hat",
   "prov": "AB",
-  "riding": "Medicine Hat--Cardston--Warner",
+  "riding": "Medicine Hat—Cardston—Warner",
   "lean": 39.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8402,7 +8402,7 @@
  {
   "name": "Bow Island",
   "prov": "AB",
-  "riding": "Medicine Hat--Cardston--Warner",
+  "riding": "Medicine Hat—Cardston—Warner",
   "lean": 39.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8417,7 +8417,7 @@
  {
   "name": "Redcliff",
   "prov": "AB",
-  "riding": "Medicine Hat--Cardston--Warner",
+  "riding": "Medicine Hat—Cardston—Warner",
   "lean": 39.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8432,7 +8432,7 @@
  {
   "name": "Raymond",
   "prov": "AB",
-  "riding": "Medicine Hat--Cardston--Warner",
+  "riding": "Medicine Hat—Cardston—Warner",
   "lean": 39.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8447,7 +8447,7 @@
  {
   "name": "Stirling",
   "prov": "AB",
-  "riding": "Medicine Hat--Cardston--Warner",
+  "riding": "Medicine Hat—Cardston—Warner",
   "lean": 39.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8462,7 +8462,7 @@
  {
   "name": "Magrath",
   "prov": "AB",
-  "riding": "Medicine Hat--Cardston--Warner",
+  "riding": "Medicine Hat—Cardston—Warner",
   "lean": 39.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8477,7 +8477,7 @@
  {
   "name": "Cardston",
   "prov": "AB",
-  "riding": "Medicine Hat--Cardston--Warner",
+  "riding": "Medicine Hat—Cardston—Warner",
   "lean": 39.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8556,7 +8556,7 @@
  {
   "name": "Barrhead",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8570,7 +8570,7 @@
  {
   "name": "Whitecourt",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8584,7 +8584,7 @@
  {
   "name": "Westlock",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8598,7 +8598,7 @@
  {
   "name": "High Prairie",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8612,7 +8612,7 @@
  {
   "name": "Slave Lake",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8626,7 +8626,7 @@
  {
   "name": "High Level",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8640,7 +8640,7 @@
  {
   "name": "Fox Creek",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8654,7 +8654,7 @@
  {
   "name": "Valleyview",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8668,7 +8668,7 @@
  {
   "name": "Peace River",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8682,7 +8682,7 @@
  {
   "name": "Falher",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8696,7 +8696,7 @@
  {
   "name": "Fairview",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8710,7 +8710,7 @@
  {
   "name": "Grimshaw",
   "prov": "AB",
-  "riding": "Peace River--Westlock",
+  "riding": "Peace River—Westlock",
   "lean": 42.9,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8724,7 +8724,7 @@
  {
   "name": "Didsbury",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8738,7 +8738,7 @@
  {
   "name": "Olds",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8752,7 +8752,7 @@
  {
   "name": "Bowden",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8766,7 +8766,7 @@
  {
   "name": "Innisfail",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8780,7 +8780,7 @@
  {
   "name": "Sylvan Lake",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8794,7 +8794,7 @@
  {
   "name": "Eckville",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8808,7 +8808,7 @@
  {
   "name": "Bentley",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8822,7 +8822,7 @@
  {
   "name": "Blackfalds",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8836,7 +8836,7 @@
  {
   "name": "Lacombe",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8850,7 +8850,7 @@
  {
   "name": "Ponoka",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8864,7 +8864,7 @@
  {
   "name": "Rimbey",
   "prov": "AB",
-  "riding": "Ponoka--Didsbury",
+  "riding": "Ponoka—Didsbury",
   "lean": 45.8,
   "lean_label": "solid right",
   "winner": "Conservative",
@@ -8910,7 +8910,7 @@
  {
   "name": "Fort Saskatchewan",
   "prov": "AB",
-  "riding": "Sherwood Park--Fort Saskatchewan",
+  "riding": "Sherwood Park—Fort Saskatchewan",
   "lean": 31.8,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8926,7 +8926,7 @@
  {
   "name": "St. Albert",
   "prov": "AB",
-  "riding": "St. Albert--Sturgeon River",
+  "riding": "St. Albert—Sturgeon River",
   "lean": 30.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8941,7 +8941,7 @@
  {
   "name": "Gibbons",
   "prov": "AB",
-  "riding": "St. Albert--Sturgeon River",
+  "riding": "St. Albert—Sturgeon River",
   "lean": 30.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8956,7 +8956,7 @@
  {
   "name": "Redwater",
   "prov": "AB",
-  "riding": "St. Albert--Sturgeon River",
+  "riding": "St. Albert—Sturgeon River",
   "lean": 30.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8971,7 +8971,7 @@
  {
   "name": "Bon Accord",
   "prov": "AB",
-  "riding": "St. Albert--Sturgeon River",
+  "riding": "St. Albert—Sturgeon River",
   "lean": 30.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -8986,7 +8986,7 @@
  {
   "name": "Morinville",
   "prov": "AB",
-  "riding": "St. Albert--Sturgeon River",
+  "riding": "St. Albert—Sturgeon River",
   "lean": 30.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9001,7 +9001,7 @@
  {
   "name": "Legal",
   "prov": "AB",
-  "riding": "St. Albert--Sturgeon River",
+  "riding": "St. Albert—Sturgeon River",
   "lean": 30.7,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9151,7 +9151,7 @@
  {
   "name": "Abbotsford",
   "prov": "BC",
-  "riding": "Abbotsford--South Langley",
+  "riding": "Abbotsford—South Langley",
   "lean": 21.0,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9182,7 +9182,7 @@
  {
   "name": "Williams Lake",
   "prov": "BC",
-  "riding": "Cariboo--Prince George",
+  "riding": "Cariboo—Prince George",
   "lean": 26.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9198,7 +9198,7 @@
  {
   "name": "Quesnel",
   "prov": "BC",
-  "riding": "Cariboo--Prince George",
+  "riding": "Cariboo—Prince George",
   "lean": 26.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9214,7 +9214,7 @@
  {
   "name": "Hope",
   "prov": "BC",
-  "riding": "Chilliwack--Hope",
+  "riding": "Chilliwack—Hope",
   "lean": 21.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9230,7 +9230,7 @@
  {
   "name": "Chilliwack",
   "prov": "BC",
-  "riding": "Chilliwack--Hope",
+  "riding": "Chilliwack—Hope",
   "lean": 21.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9246,7 +9246,7 @@
  {
   "name": "Langley (District)",
   "prov": "BC",
-  "riding": "Cloverdale--Langley City",
+  "riding": "Cloverdale—Langley City",
   "lean": 17.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9262,7 +9262,7 @@
  {
   "name": "Langley (City)",
   "prov": "BC",
-  "riding": "Cloverdale--Langley City",
+  "riding": "Cloverdale—Langley City",
   "lean": 17.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9278,7 +9278,7 @@
  {
   "name": "Fernie",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9294,7 +9294,7 @@
  {
   "name": "Cranbrook",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9310,7 +9310,7 @@
  {
   "name": "Kimberley",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9326,7 +9326,7 @@
  {
   "name": "Invermere",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9342,7 +9342,7 @@
  {
   "name": "Radium Hot Springs",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9358,7 +9358,7 @@
  {
   "name": "Creston",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9374,7 +9374,7 @@
  {
   "name": "Salmo",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9390,7 +9390,7 @@
  {
   "name": "Nelson",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9406,7 +9406,7 @@
  {
   "name": "Kaslo",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9422,7 +9422,7 @@
  {
   "name": "Fruitvale",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9438,7 +9438,7 @@
  {
   "name": "Montrose",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9454,7 +9454,7 @@
  {
   "name": "Trail",
   "prov": "BC",
-  "riding": "Columbia--Kootenay--Southern Rockies",
+  "riding": "Columbia—Kootenay—Southern Rockies",
   "lean": 12.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9470,7 +9470,7 @@
  {
   "name": "Coquitlam",
   "prov": "BC",
-  "riding": "Coquitlam--Port Coquitlam",
+  "riding": "Coquitlam—Port Coquitlam",
   "lean": 11.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -9485,7 +9485,7 @@
  {
   "name": "Port Coquitlam",
   "prov": "BC",
-  "riding": "Coquitlam--Port Coquitlam",
+  "riding": "Coquitlam—Port Coquitlam",
   "lean": 11.9,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -9500,7 +9500,7 @@
  {
   "name": "Lantzville",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9516,7 +9516,7 @@
  {
   "name": "Parksville",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9532,7 +9532,7 @@
  {
   "name": "Qualicum Beach",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9548,7 +9548,7 @@
  {
   "name": "Nanaimo G",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9564,7 +9564,7 @@
  {
   "name": "Port Alberni",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9580,7 +9580,7 @@
  {
   "name": "Ucluelet",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9596,7 +9596,7 @@
  {
   "name": "Tofino",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9612,7 +9612,7 @@
  {
   "name": "Alberni-Clayoquot E",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9628,7 +9628,7 @@
  {
   "name": "Courtenay",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9644,7 +9644,7 @@
  {
   "name": "Cumberland",
   "prov": "BC",
-  "riding": "Courtenay--Alberni",
+  "riding": "Courtenay—Alberni",
   "lean": -10.4,
   "lean_label": "swing",
   "winner": "NDP-New Democratic Party",
@@ -9660,7 +9660,7 @@
  {
   "name": "Langford",
   "prov": "BC",
-  "riding": "Cowichan--Malahat--Langford",
+  "riding": "Cowichan—Malahat—Langford",
   "lean": -5.9,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -9675,7 +9675,7 @@
  {
   "name": "North Cowichan",
   "prov": "BC",
-  "riding": "Cowichan--Malahat--Langford",
+  "riding": "Cowichan—Malahat—Langford",
   "lean": -5.9,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -9690,7 +9690,7 @@
  {
   "name": "Duncan",
   "prov": "BC",
-  "riding": "Cowichan--Malahat--Langford",
+  "riding": "Cowichan—Malahat—Langford",
   "lean": -5.9,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -9705,7 +9705,7 @@
  {
   "name": "Cowichan Valley D",
   "prov": "BC",
-  "riding": "Cowichan--Malahat--Langford",
+  "riding": "Cowichan—Malahat—Langford",
   "lean": -5.9,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -9720,7 +9720,7 @@
  {
   "name": "Lake Cowichan",
   "prov": "BC",
-  "riding": "Cowichan--Malahat--Langford",
+  "riding": "Cowichan—Malahat—Langford",
   "lean": -5.9,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -9735,7 +9735,7 @@
  {
   "name": "Cowichan Valley A",
   "prov": "BC",
-  "riding": "Cowichan--Malahat--Langford",
+  "riding": "Cowichan—Malahat—Langford",
   "lean": -5.9,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -9750,7 +9750,7 @@
  {
   "name": "Cowichan Valley C",
   "prov": "BC",
-  "riding": "Cowichan--Malahat--Langford",
+  "riding": "Cowichan—Malahat—Langford",
   "lean": -5.9,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -9795,7 +9795,7 @@
  {
   "name": "Saanich",
   "prov": "BC",
-  "riding": "Esquimalt--Saanich--Sooke",
+  "riding": "Esquimalt—Saanich—Sooke",
   "lean": -5.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -9810,7 +9810,7 @@
  {
   "name": "Esquimalt",
   "prov": "BC",
-  "riding": "Esquimalt--Saanich--Sooke",
+  "riding": "Esquimalt—Saanich—Sooke",
   "lean": -5.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -9825,7 +9825,7 @@
  {
   "name": "Colwood",
   "prov": "BC",
-  "riding": "Esquimalt--Saanich--Sooke",
+  "riding": "Esquimalt—Saanich—Sooke",
   "lean": -5.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -9840,7 +9840,7 @@
  {
   "name": "View Royal",
   "prov": "BC",
-  "riding": "Esquimalt--Saanich--Sooke",
+  "riding": "Esquimalt—Saanich—Sooke",
   "lean": -5.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -9855,7 +9855,7 @@
  {
   "name": "Sooke",
   "prov": "BC",
-  "riding": "Esquimalt--Saanich--Sooke",
+  "riding": "Esquimalt—Saanich—Sooke",
   "lean": -5.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -9870,7 +9870,7 @@
  {
   "name": "Chase",
   "prov": "BC",
-  "riding": "Kamloops--Shuswap--Central Rockies",
+  "riding": "Kamloops—Shuswap—Central Rockies",
   "lean": 20.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9886,7 +9886,7 @@
  {
   "name": "Armstrong",
   "prov": "BC",
-  "riding": "Kamloops--Shuswap--Central Rockies",
+  "riding": "Kamloops—Shuswap—Central Rockies",
   "lean": 20.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9902,7 +9902,7 @@
  {
   "name": "Enderby",
   "prov": "BC",
-  "riding": "Kamloops--Shuswap--Central Rockies",
+  "riding": "Kamloops—Shuswap—Central Rockies",
   "lean": 20.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9918,7 +9918,7 @@
  {
   "name": "Golden",
   "prov": "BC",
-  "riding": "Kamloops--Shuswap--Central Rockies",
+  "riding": "Kamloops—Shuswap—Central Rockies",
   "lean": 20.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9934,7 +9934,7 @@
  {
   "name": "Revelstoke",
   "prov": "BC",
-  "riding": "Kamloops--Shuswap--Central Rockies",
+  "riding": "Kamloops—Shuswap—Central Rockies",
   "lean": 20.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9950,7 +9950,7 @@
  {
   "name": "Salmon Arm",
   "prov": "BC",
-  "riding": "Kamloops--Shuswap--Central Rockies",
+  "riding": "Kamloops—Shuswap—Central Rockies",
   "lean": 20.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9966,7 +9966,7 @@
  {
   "name": "Sicamous",
   "prov": "BC",
-  "riding": "Kamloops--Shuswap--Central Rockies",
+  "riding": "Kamloops—Shuswap—Central Rockies",
   "lean": 20.1,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9982,7 +9982,7 @@
  {
   "name": "Merritt",
   "prov": "BC",
-  "riding": "Kamloops--Thompson--Nicola",
+  "riding": "Kamloops—Thompson—Nicola",
   "lean": 19.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -9998,7 +9998,7 @@
  {
   "name": "Kamloops",
   "prov": "BC",
-  "riding": "Kamloops--Thompson--Nicola",
+  "riding": "Kamloops—Thompson—Nicola",
   "lean": 19.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10014,7 +10014,7 @@
  {
   "name": "Barriere",
   "prov": "BC",
-  "riding": "Kamloops--Thompson--Nicola",
+  "riding": "Kamloops—Thompson—Nicola",
   "lean": 19.6,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10045,7 +10045,7 @@
  {
   "name": "Harrison Hot Springs",
   "prov": "BC",
-  "riding": "Mission--Matsqui--Abbotsford",
+  "riding": "Mission—Matsqui—Abbotsford",
   "lean": 24.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10061,7 +10061,7 @@
  {
   "name": "Mission",
   "prov": "BC",
-  "riding": "Mission--Matsqui--Abbotsford",
+  "riding": "Mission—Matsqui—Abbotsford",
   "lean": 24.4,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10077,7 +10077,7 @@
  {
   "name": "Ladysmith",
   "prov": "BC",
-  "riding": "Nanaimo--Ladysmith",
+  "riding": "Nanaimo—Ladysmith",
   "lean": -5.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10093,7 +10093,7 @@
  {
   "name": "Nanaimo",
   "prov": "BC",
-  "riding": "Nanaimo--Ladysmith",
+  "riding": "Nanaimo—Ladysmith",
   "lean": -5.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10109,7 +10109,7 @@
  {
   "name": "Nanaimo A",
   "prov": "BC",
-  "riding": "Nanaimo--Ladysmith",
+  "riding": "Nanaimo—Ladysmith",
   "lean": -5.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10125,7 +10125,7 @@
  {
   "name": "New Westminster",
   "prov": "BC",
-  "riding": "New Westminster--Burnaby--Maillardville",
+  "riding": "New Westminster—Burnaby—Maillardville",
   "lean": -9.6,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10140,7 +10140,7 @@
  {
   "name": "Gold River",
   "prov": "BC",
-  "riding": "North Island--Powell River",
+  "riding": "North Island—Powell River",
   "lean": -4.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10156,7 +10156,7 @@
  {
   "name": "Campbell River",
   "prov": "BC",
-  "riding": "North Island--Powell River",
+  "riding": "North Island—Powell River",
   "lean": -4.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10172,7 +10172,7 @@
  {
   "name": "Comox",
   "prov": "BC",
-  "riding": "North Island--Powell River",
+  "riding": "North Island—Powell River",
   "lean": -4.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10188,7 +10188,7 @@
  {
   "name": "Comox Valley B (Lazo North)",
   "prov": "BC",
-  "riding": "North Island--Powell River",
+  "riding": "North Island—Powell River",
   "lean": -4.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10204,7 +10204,7 @@
  {
   "name": "Powell River",
   "prov": "BC",
-  "riding": "North Island--Powell River",
+  "riding": "North Island—Powell River",
   "lean": -4.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10220,7 +10220,7 @@
  {
   "name": "Port McNeill",
   "prov": "BC",
-  "riding": "North Island--Powell River",
+  "riding": "North Island—Powell River",
   "lean": -4.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10236,7 +10236,7 @@
  {
   "name": "Port Hardy",
   "prov": "BC",
-  "riding": "North Island--Powell River",
+  "riding": "North Island—Powell River",
   "lean": -4.2,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10252,7 +10252,7 @@
  {
   "name": "North Vancouver (District)",
   "prov": "BC",
-  "riding": "North Vancouver--Capilano",
+  "riding": "North Vancouver—Capilano",
   "lean": 6.0,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10268,7 +10268,7 @@
  {
   "name": "North Vancouver (City)",
   "prov": "BC",
-  "riding": "North Vancouver--Capilano",
+  "riding": "North Vancouver—Capilano",
   "lean": 6.0,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10284,7 +10284,7 @@
  {
   "name": "West Vancouver",
   "prov": "BC",
-  "riding": "North Vancouver--Capilano",
+  "riding": "North Vancouver—Capilano",
   "lean": 6.0,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10300,7 +10300,7 @@
  {
   "name": "Summerland",
   "prov": "BC",
-  "riding": "Okanagan Lake West--South Kelowna",
+  "riding": "Okanagan Lake West—South Kelowna",
   "lean": 20.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10316,7 +10316,7 @@
  {
   "name": "Peachland",
   "prov": "BC",
-  "riding": "Okanagan Lake West--South Kelowna",
+  "riding": "Okanagan Lake West—South Kelowna",
   "lean": 20.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10332,7 +10332,7 @@
  {
   "name": "West Kelowna",
   "prov": "BC",
-  "riding": "Okanagan Lake West--South Kelowna",
+  "riding": "Okanagan Lake West—South Kelowna",
   "lean": 20.3,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10348,7 +10348,7 @@
  {
   "name": "Pitt Meadows",
   "prov": "BC",
-  "riding": "Pitt Meadows--Maple Ridge",
+  "riding": "Pitt Meadows—Maple Ridge",
   "lean": 16.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10363,7 +10363,7 @@
  {
   "name": "Maple Ridge",
   "prov": "BC",
-  "riding": "Pitt Meadows--Maple Ridge",
+  "riding": "Pitt Meadows—Maple Ridge",
   "lean": 16.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10378,7 +10378,7 @@
  {
   "name": "Port Moody",
   "prov": "BC",
-  "riding": "Port Moody--Coquitlam",
+  "riding": "Port Moody—Coquitlam",
   "lean": 5.7,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10393,7 +10393,7 @@
  {
   "name": "Valemount",
   "prov": "BC",
-  "riding": "Prince George--Peace River--Northern Rockies",
+  "riding": "Prince George—Peace River—Northern Rockies",
   "lean": 34.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10409,7 +10409,7 @@
  {
   "name": "Prince George",
   "prov": "BC",
-  "riding": "Prince George--Peace River--Northern Rockies",
+  "riding": "Prince George—Peace River—Northern Rockies",
   "lean": 34.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10425,7 +10425,7 @@
  {
   "name": "Dawson Creek",
   "prov": "BC",
-  "riding": "Prince George--Peace River--Northern Rockies",
+  "riding": "Prince George—Peace River—Northern Rockies",
   "lean": 34.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10441,7 +10441,7 @@
  {
   "name": "Fort St. John",
   "prov": "BC",
-  "riding": "Prince George--Peace River--Northern Rockies",
+  "riding": "Prince George—Peace River—Northern Rockies",
   "lean": 34.9,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10457,7 +10457,7 @@
  {
   "name": "Richmond",
   "prov": "BC",
-  "riding": "Richmond Centre--Marpole",
+  "riding": "Richmond Centre—Marpole",
   "lean": 18.5,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10473,7 +10473,7 @@
  {
   "name": "North Saanich",
   "prov": "BC",
-  "riding": "Saanich--Gulf Islands",
+  "riding": "Saanich—Gulf Islands",
   "lean": -13.7,
   "lean_label": "leans left",
   "winner": "Green Party",
@@ -10488,7 +10488,7 @@
  {
   "name": "Sidney",
   "prov": "BC",
-  "riding": "Saanich--Gulf Islands",
+  "riding": "Saanich—Gulf Islands",
   "lean": -13.7,
   "lean_label": "leans left",
   "winner": "Green Party",
@@ -10503,7 +10503,7 @@
  {
   "name": "Central Saanich",
   "prov": "BC",
-  "riding": "Saanich--Gulf Islands",
+  "riding": "Saanich—Gulf Islands",
   "lean": -13.7,
   "lean_label": "leans left",
   "winner": "Green Party",
@@ -10518,7 +10518,7 @@
  {
   "name": "Saltspring Island",
   "prov": "BC",
-  "riding": "Saanich--Gulf Islands",
+  "riding": "Saanich—Gulf Islands",
   "lean": -13.7,
   "lean_label": "leans left",
   "winner": "Green Party",
@@ -10533,7 +10533,7 @@
  {
   "name": "Castlegar",
   "prov": "BC",
-  "riding": "Similkameen--South Okanagan--West Kootenay",
+  "riding": "Similkameen—South Okanagan—West Kootenay",
   "lean": 8.7,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10549,7 +10549,7 @@
  {
   "name": "Warfield",
   "prov": "BC",
-  "riding": "Similkameen--South Okanagan--West Kootenay",
+  "riding": "Similkameen—South Okanagan—West Kootenay",
   "lean": 8.7,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10565,7 +10565,7 @@
  {
   "name": "Grand Forks",
   "prov": "BC",
-  "riding": "Similkameen--South Okanagan--West Kootenay",
+  "riding": "Similkameen—South Okanagan—West Kootenay",
   "lean": 8.7,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10581,7 +10581,7 @@
  {
   "name": "Osoyoos",
   "prov": "BC",
-  "riding": "Similkameen--South Okanagan--West Kootenay",
+  "riding": "Similkameen—South Okanagan—West Kootenay",
   "lean": 8.7,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10597,7 +10597,7 @@
  {
   "name": "Keremeos",
   "prov": "BC",
-  "riding": "Similkameen--South Okanagan--West Kootenay",
+  "riding": "Similkameen—South Okanagan—West Kootenay",
   "lean": 8.7,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10613,7 +10613,7 @@
  {
   "name": "Oliver",
   "prov": "BC",
-  "riding": "Similkameen--South Okanagan--West Kootenay",
+  "riding": "Similkameen—South Okanagan—West Kootenay",
   "lean": 8.7,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10629,7 +10629,7 @@
  {
   "name": "Penticton",
   "prov": "BC",
-  "riding": "Similkameen--South Okanagan--West Kootenay",
+  "riding": "Similkameen—South Okanagan—West Kootenay",
   "lean": 8.7,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10645,7 +10645,7 @@
  {
   "name": "Prince Rupert",
   "prov": "BC",
-  "riding": "Skeena--Bulkley Valley",
+  "riding": "Skeena—Bulkley Valley",
   "lean": -1.0,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10660,7 +10660,7 @@
  {
   "name": "Terrace",
   "prov": "BC",
-  "riding": "Skeena--Bulkley Valley",
+  "riding": "Skeena—Bulkley Valley",
   "lean": -1.0,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10675,7 +10675,7 @@
  {
   "name": "Kitimat-Stikine E",
   "prov": "BC",
-  "riding": "Skeena--Bulkley Valley",
+  "riding": "Skeena—Bulkley Valley",
   "lean": -1.0,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10690,7 +10690,7 @@
  {
   "name": "Burns Lake",
   "prov": "BC",
-  "riding": "Skeena--Bulkley Valley",
+  "riding": "Skeena—Bulkley Valley",
   "lean": -1.0,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10705,7 +10705,7 @@
  {
   "name": "Telkwa",
   "prov": "BC",
-  "riding": "Skeena--Bulkley Valley",
+  "riding": "Skeena—Bulkley Valley",
   "lean": -1.0,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10720,7 +10720,7 @@
  {
   "name": "Smithers",
   "prov": "BC",
-  "riding": "Skeena--Bulkley Valley",
+  "riding": "Skeena—Bulkley Valley",
   "lean": -1.0,
   "lean_label": "swing",
   "winner": "Conservative",
@@ -10735,7 +10735,7 @@
  {
   "name": "White Rock",
   "prov": "BC",
-  "riding": "South Surrey--White Rock",
+  "riding": "South Surrey—White Rock",
   "lean": 15.9,
   "lean_label": "leans right",
   "winner": "Liberal",
@@ -10781,7 +10781,7 @@
  {
   "name": "Nakusp",
   "prov": "BC",
-  "riding": "Vernon--Lake Country--Monashee",
+  "riding": "Vernon—Lake Country—Monashee",
   "lean": 18.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10796,7 +10796,7 @@
  {
   "name": "Lake Country",
   "prov": "BC",
-  "riding": "Vernon--Lake Country--Monashee",
+  "riding": "Vernon—Lake Country—Monashee",
   "lean": 18.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10811,7 +10811,7 @@
  {
   "name": "Lumby",
   "prov": "BC",
-  "riding": "Vernon--Lake Country--Monashee",
+  "riding": "Vernon—Lake Country—Monashee",
   "lean": 18.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10826,7 +10826,7 @@
  {
   "name": "Coldstream",
   "prov": "BC",
-  "riding": "Vernon--Lake Country--Monashee",
+  "riding": "Vernon—Lake Country—Monashee",
   "lean": 18.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10841,7 +10841,7 @@
  {
   "name": "Vernon",
   "prov": "BC",
-  "riding": "Vernon--Lake Country--Monashee",
+  "riding": "Vernon—Lake Country—Monashee",
   "lean": 18.2,
   "lean_label": "leans right",
   "winner": "Conservative",
@@ -10888,7 +10888,7 @@
  {
   "name": "Lions Bay",
   "prov": "BC",
-  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "riding": "West Vancouver—Sunshine Coast—Sea to Sky Country",
   "lean": 5.5,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10904,7 +10904,7 @@
  {
   "name": "Gibsons",
   "prov": "BC",
-  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "riding": "West Vancouver—Sunshine Coast—Sea to Sky Country",
   "lean": 5.5,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10920,7 +10920,7 @@
  {
   "name": "Sechelt",
   "prov": "BC",
-  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "riding": "West Vancouver—Sunshine Coast—Sea to Sky Country",
   "lean": 5.5,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10936,7 +10936,7 @@
  {
   "name": "Sunshine Coast E",
   "prov": "BC",
-  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "riding": "West Vancouver—Sunshine Coast—Sea to Sky Country",
   "lean": 5.5,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10952,7 +10952,7 @@
  {
   "name": "Squamish",
   "prov": "BC",
-  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "riding": "West Vancouver—Sunshine Coast—Sea to Sky Country",
   "lean": 5.5,
   "lean_label": "swing",
   "winner": "Liberal",
@@ -10968,7 +10968,7 @@
  {
   "name": "Whistler",
   "prov": "BC",
-  "riding": "West Vancouver--Sunshine Coast--Sea to Sky Country",
+  "riding": "West Vancouver—Sunshine Coast—Sea to Sky Country",
   "lean": 5.5,
   "lean_label": "swing",
   "winner": "Liberal",

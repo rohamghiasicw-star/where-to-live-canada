@@ -248,7 +248,12 @@ function decodeState(s) {
     return true;
   } catch (e) { return false; }
 }
-const shared = location.hash.length > 2 && decodeState(location.hash.slice(1));
+let shared = location.hash.length > 2 && decodeState(location.hash.slice(1));
+function ownIt() {   // the moment they change anything, the result is theirs, not the sender's
+  if (!shared) return;
+  shared = false;
+  const l = $('#lede'); if (l && ORIG_LEDE) l.innerHTML = ORIG_LEDE;
+}
 
 /* ---------- scoring ----------
    Two deliberate choices, both to stop the dimensions cancelling each other out.
@@ -674,7 +679,7 @@ $('#qs').addEventListener('input', (e) => {
   if (e.target.type !== 'range') return;
   const id = e.target.id.slice(2), q = Q.find((x) => x.id === id);
   state[id] = +e.target.value; $('#o-'+id).textContent = q.fmt(+e.target.value);
-  render();
+  ownIt(); render();
 });
 $('#qs').addEventListener('click', (e) => {
   // the +/- steppers: sliders were drag-only, which a touch user (or anyone on a
@@ -683,6 +688,7 @@ $('#qs').addEventListener('click', (e) => {
   if (st) {
     const id = st.dataset.step, q = Q.find((x) => x.id === id);
     state[id] = clamp(state[id] + (+st.dataset.dir) * q.step, q.min, q.max);
+    ownIt();
     const inp = $('#r-' + id), out = $('#o-' + id);
     if (inp) inp.value = state[id];
     if (out) out.textContent = q.fmt(state[id]);
@@ -690,6 +696,7 @@ $('#qs').addEventListener('click', (e) => {
     return;
   }
   const o = e.target.closest('.opt'), w = e.target.closest('.seg-b');
+  if (o || w) ownIt();
   if (o) {
     state[o.dataset.q] = o.dataset.v;
     o.closest('.opts').querySelectorAll('.opt').forEach((b) => b.setAttribute('aria-pressed', b === o));
@@ -769,6 +776,7 @@ cvs.addEventListener('click', () => {
 
 let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(render, 120); });
 
+const ORIG_LEDE = ($('#lede') || {}).innerHTML;   // captured before the shared override, restored on edit
 if (shared) $('#lede').innerHTML = `Someone sent you their answers, so this is <b>their</b> result.
   Change anything on the left and it becomes yours.`;
 
