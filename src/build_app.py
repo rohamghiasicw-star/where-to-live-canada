@@ -120,6 +120,13 @@ stats['vibe'] = merge('data/vibe.json', 'vibe', lambda r: {
 lived = 0
 byname = {}
 for p in places: byname.setdefault(p['name'].strip().lower(), p)
+# the research was done under the names the 129-place list used. the expansion
+# renamed places to their census names (Dawson City -> Dawson), so match the
+# alias too or the research silently detaches.
+for p in load('data/allplaces.json') or []:
+    if p.get('alias'):
+        t = byname.get(p['name'].strip().lower())
+        if t: byname.setdefault(p['alias'].strip().lower(), t)
 for r in (load('data/lived.json') or []):
     p = byname.get((r.get('name') or '').strip().lower())
     if not p: continue

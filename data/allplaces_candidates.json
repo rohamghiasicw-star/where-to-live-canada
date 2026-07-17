@@ -1,0 +1,5224 @@
+[
+ {
+  "geo": "Carbonear, Town (T)",
+  "code": "1001370",
+  "prov": "NL",
+  "pop": 4696.0,
+  "density": 377.4
+ },
+ {
+  "geo": "Upper Island Cove, Town (T)",
+  "code": "1001385",
+  "prov": "NL",
+  "pop": 1401.0,
+  "density": 179.2
+ },
+ {
+  "geo": "Bay Roberts, Town (T)",
+  "code": "1001409",
+  "prov": "NL",
+  "pop": 5974.0,
+  "density": 243.7
+ },
+ {
+  "geo": "Clarke's Beach, Town (T)",
+  "code": "1001429",
+  "prov": "NL",
+  "pop": 1400.0,
+  "density": 110.7
+ },
+ {
+  "geo": "Conception Bay South, Town (T)",
+  "code": "1001485",
+  "prov": "NL",
+  "pop": 27168.0,
+  "density": 454.9
+ },
+ {
+  "geo": "Wabana, Town (T)",
+  "code": "1001494",
+  "prov": "NL",
+  "pop": 1815.0,
+  "density": 125.3
+ },
+ {
+  "geo": "Portugal Cove-St. Philip's, Town (T)",
+  "code": "1001504",
+  "prov": "NL",
+  "pop": 8415.0,
+  "density": 146.1
+ },
+ {
+  "geo": "Torbay, Town (T)",
+  "code": "1001509",
+  "prov": "NL",
+  "pop": 7852.0,
+  "density": 225.0
+ },
+ {
+  "geo": "Logy Bay-Middle Cove-Outer Cove, Town (T)",
+  "code": "1001511",
+  "prov": "NL",
+  "pop": 2364.0,
+  "density": 139.1
+ },
+ {
+  "geo": "Paradise, Town (T)",
+  "code": "1001517",
+  "prov": "NL",
+  "pop": 22957.0,
+  "density": 773.8
+ },
+ {
+  "geo": "St. John's, City (CY)",
+  "code": "1001519",
+  "prov": "NL",
+  "pop": 110525.0,
+  "density": 247.8
+ },
+ {
+  "geo": "Mount Pearl, City (CY)",
+  "code": "1001542",
+  "prov": "NL",
+  "pop": 22477.0,
+  "density": 1436.2
+ },
+ {
+  "geo": "Grand Bank, Town (T)",
+  "code": "1002019",
+  "prov": "NL",
+  "pop": 2152.0,
+  "density": 127.9
+ },
+ {
+  "geo": "Harbour Breton, Town (T)",
+  "code": "1003008",
+  "prov": "NL",
+  "pop": 1477.0,
+  "density": 106.9
+ },
+ {
+  "geo": "Stephenville, Town (T)",
+  "code": "1004019",
+  "prov": "NL",
+  "pop": 6540.0,
+  "density": 185.4
+ },
+ {
+  "geo": "Kippens, Town (T)",
+  "code": "1004020",
+  "prov": "NL",
+  "pop": 1842.0,
+  "density": 129.4
+ },
+ {
+  "geo": "Massey Drive, Town (T)",
+  "code": "1005017",
+  "prov": "NL",
+  "pop": 1606.0,
+  "density": 655.1
+ },
+ {
+  "geo": "Corner Brook, City (CY)",
+  "code": "1005018",
+  "prov": "NL",
+  "pop": 19333.0,
+  "density": 130.7
+ },
+ {
+  "geo": "Irishtown-Summerside, Town (T)",
+  "code": "1005030",
+  "prov": "NL",
+  "pop": 1260.0,
+  "density": 106.0
+ },
+ {
+  "geo": "Gander, Town (T)",
+  "code": "1006009",
+  "prov": "NL",
+  "pop": 11880.0,
+  "density": 113.7
+ },
+ {
+  "geo": "Grand Falls-Windsor, Town (T)",
+  "code": "1006017",
+  "prov": "NL",
+  "pop": 13853.0,
+  "density": 252.6
+ },
+ {
+  "geo": "Bishop's Falls, Town (T)",
+  "code": "1006019",
+  "prov": "NL",
+  "pop": 3082.0,
+  "density": 116.8
+ },
+ {
+  "geo": "Botwood, Town (T)",
+  "code": "1006022",
+  "prov": "NL",
+  "pop": 2778.0,
+  "density": 190.8
+ },
+ {
+  "geo": "Bonavista, Town (T)",
+  "code": "1007023",
+  "prov": "NL",
+  "pop": 3190.0,
+  "density": 101.1
+ },
+ {
+  "geo": "Springdale, Town (T)",
+  "code": "1008061",
+  "prov": "NL",
+  "pop": 2965.0,
+  "density": 169.8
+ },
+ {
+  "geo": "Labrador City, Town (T)",
+  "code": "1010032",
+  "prov": "NL",
+  "pop": 7412.0,
+  "density": 217.3
+ },
+ {
+  "geo": "Sheshatshiu 3, Indian reserve (IRI)",
+  "code": "1010802",
+  "prov": "NL",
+  "pop": 1225.0,
+  "density": 144.5
+ },
+ {
+  "geo": "Souris, Town (T)",
+  "code": "1101036",
+  "prov": "PE",
+  "pop": 1079.0,
+  "density": 299.0
+ },
+ {
+  "geo": "Kensington, Town (T)",
+  "code": "1103014",
+  "prov": "PE",
+  "pop": 1812.0,
+  "density": 571.6
+ },
+ {
+  "geo": "Charlottetown, City (CY)",
+  "code": "1102075",
+  "prov": "PE",
+  "pop": 38809.0,
+  "density": 876.6
+ },
+ {
+  "geo": "Stratford, Town (T)",
+  "code": "1102080",
+  "prov": "PE",
+  "pop": 10927.0,
+  "density": 482.0
+ },
+ {
+  "geo": "Cornwall, Town (T)",
+  "code": "1102085",
+  "prov": "PE",
+  "pop": 6574.0,
+  "density": 233.0
+ },
+ {
+  "geo": "Summerside, City (CY)",
+  "code": "1103025",
+  "prov": "PE",
+  "pop": 16001.0,
+  "density": 567.2
+ },
+ {
+  "geo": "Alberton, Town (T)",
+  "code": "1103052",
+  "prov": "PE",
+  "pop": 1301.0,
+  "density": 277.0
+ },
+ {
+  "geo": "Shelburne, Town (T)",
+  "code": "1201008",
+  "prov": "NS",
+  "pop": 1644.0,
+  "density": 187.9
+ },
+ {
+  "geo": "Yarmouth, Municipal district (MD)",
+  "code": "1202004",
+  "prov": "NS",
+  "pop": 10067.0,
+  "density": 17.2
+ },
+ {
+  "geo": "Yarmouth, Town (T)",
+  "code": "1202006",
+  "prov": "NS",
+  "pop": 6829.0,
+  "density": 646.3
+ },
+ {
+  "geo": "Digby, Municipal district (MD)",
+  "code": "1203004",
+  "prov": "NS",
+  "pop": 7242.0,
+  "density": 4.4
+ },
+ {
+  "geo": "Digby, Town (T)",
+  "code": "1203006",
+  "prov": "NS",
+  "pop": 2001.0,
+  "density": 634.0
+ },
+ {
+  "geo": "Annapolis Royal, Town (T)",
+  "code": "1205008",
+  "prov": "NS",
+  "pop": 530.0,
+  "density": 268.3
+ },
+ {
+  "geo": "Middleton, Town (T)",
+  "code": "1205016",
+  "prov": "NS",
+  "pop": 1873.0,
+  "density": 337.3
+ },
+ {
+  "geo": "Lunenburg, Municipal district (MD)",
+  "code": "1206001",
+  "prov": "NS",
+  "pop": 25545.0,
+  "density": 14.5
+ },
+ {
+  "geo": "Lunenburg, Town (T)",
+  "code": "1206006",
+  "prov": "NS",
+  "pop": 2396.0,
+  "density": 593.3
+ },
+ {
+  "geo": "Bridgewater, Town (T)",
+  "code": "1206004",
+  "prov": "NS",
+  "pop": 8790.0,
+  "density": 644.9
+ },
+ {
+  "geo": "Mahone Bay, Town (T)",
+  "code": "1206008",
+  "prov": "NS",
+  "pop": 1064.0,
+  "density": 341.4
+ },
+ {
+  "geo": "Chester, Municipal district (MD)",
+  "code": "1206009",
+  "prov": "NS",
+  "pop": 10693.0,
+  "density": 9.5
+ },
+ {
+  "geo": "Berwick, Town (T)",
+  "code": "1207004",
+  "prov": "NS",
+  "pop": 2455.0,
+  "density": 375.8
+ },
+ {
+  "geo": "Kentville, Town (T)",
+  "code": "1207012",
+  "prov": "NS",
+  "pop": 6630.0,
+  "density": 388.2
+ },
+ {
+  "geo": "Wolfville, Town (T)",
+  "code": "1207024",
+  "prov": "NS",
+  "pop": 5057.0,
+  "density": 783.3
+ },
+ {
+  "geo": "Indian Brook 14, Indian reserve (IRI)",
+  "code": "1208014",
+  "prov": "NS",
+  "pop": 2739.0,
+  "density": 225.5
+ },
+ {
+  "geo": "Halifax, Regional municipality (RGM)",
+  "code": "1209034",
+  "prov": "NS",
+  "pop": 439819.0,
+  "density": 80.3
+ },
+ {
+  "geo": "Truro, Town (T)",
+  "code": "1210006",
+  "prov": "NS",
+  "pop": 12954.0,
+  "density": 345.3
+ },
+ {
+  "geo": "Amherst, Town (T)",
+  "code": "1211011",
+  "prov": "NS",
+  "pop": 9404.0,
+  "density": 779.4
+ },
+ {
+  "geo": "Oxford, Town (T)",
+  "code": "1211012",
+  "prov": "NS",
+  "pop": 1170.0,
+  "density": 109.6
+ },
+ {
+  "geo": "Pictou, Town (T)",
+  "code": "1212004",
+  "prov": "NS",
+  "pop": 3107.0,
+  "density": 388.7
+ },
+ {
+  "geo": "Westville, Town (T)",
+  "code": "1212008",
+  "prov": "NS",
+  "pop": 3540.0,
+  "density": 248.6
+ },
+ {
+  "geo": "Stellarton, Town (T)",
+  "code": "1212009",
+  "prov": "NS",
+  "pop": 4007.0,
+  "density": 445.6
+ },
+ {
+  "geo": "New Glasgow, Town (T)",
+  "code": "1212014",
+  "prov": "NS",
+  "pop": 9471.0,
+  "density": 951.3
+ },
+ {
+  "geo": "Trenton, Town (T)",
+  "code": "1212016",
+  "prov": "NS",
+  "pop": 2407.0,
+  "density": 396.7
+ },
+ {
+  "geo": "Antigonish, Subd. A, Subdivision of county municipality (SC)",
+  "code": "1214001",
+  "prov": "NS",
+  "pop": 8963.0,
+  "density": 9.7
+ },
+ {
+  "geo": "Antigonish, Town (T)",
+  "code": "1214002",
+  "prov": "NS",
+  "pop": 4656.0,
+  "density": 934.5
+ },
+ {
+  "geo": "Port Hawkesbury, Town (T)",
+  "code": "1215002",
+  "prov": "NS",
+  "pop": 3210.0,
+  "density": 396.3
+ },
+ {
+  "geo": "Membertou 28B, Indian reserve (IRI)",
+  "code": "1217008",
+  "prov": "NS",
+  "pop": 1103.0,
+  "density": 745.7
+ },
+ {
+  "geo": "Cape Breton, Regional municipality (RGM)",
+  "code": "1217030",
+  "prov": "NS",
+  "pop": 93694.0,
+  "density": 38.7
+ },
+ {
+  "geo": "Saint John, City (C)",
+  "code": "1301006",
+  "prov": "NB",
+  "pop": 69895.0,
+  "density": 221.5
+ },
+ {
+  "geo": "Saint Andrews, Town (TV)",
+  "code": "1302026",
+  "prov": "NB",
+  "pop": 2048.0,
+  "density": 245.3
+ },
+ {
+  "geo": "St. Stephen, Town (TV)",
+  "code": "1302037",
+  "prov": "NB",
+  "pop": 4510.0,
+  "density": 328.7
+ },
+ {
+  "geo": "Oromocto, Town (TV)",
+  "code": "1303012",
+  "prov": "NB",
+  "pop": 9045.0,
+  "density": 404.5
+ },
+ {
+  "geo": "Hampton, Town (TV)",
+  "code": "1305007",
+  "prov": "NB",
+  "pop": 4395.0,
+  "density": 209.6
+ },
+ {
+  "geo": "Rothesay, Town (TV)",
+  "code": "1305045",
+  "prov": "NB",
+  "pop": 11977.0,
+  "density": 346.2
+ },
+ {
+  "geo": "Sussex, Town (TV)",
+  "code": "1305022",
+  "prov": "NB",
+  "pop": 4440.0,
+  "density": 498.9
+ },
+ {
+  "geo": "Sussex Corner, Village (VL)",
+  "code": "1305023",
+  "prov": "NB",
+  "pop": 1458.0,
+  "density": 156.4
+ },
+ {
+  "geo": "Quispamsis, Town (TV)",
+  "code": "1305057",
+  "prov": "NB",
+  "pop": 18768.0,
+  "density": 329.4
+ },
+ {
+  "geo": "Hillsborough, Village (VL)",
+  "code": "1306025",
+  "prov": "NB",
+  "pop": 1348.0,
+  "density": 105.2
+ },
+ {
+  "geo": "Riverview, Town (TV)",
+  "code": "1306020",
+  "prov": "NB",
+  "pop": 20584.0,
+  "density": 603.7
+ },
+ {
+  "geo": "Cap-Pel\u00e9, Village (VL)",
+  "code": "1307007",
+  "prov": "NB",
+  "pop": 2441.0,
+  "density": 106.3
+ },
+ {
+  "geo": "Sackville, Town (TV)",
+  "code": "1307009",
+  "prov": "NB",
+  "pop": 6099.0,
+  "density": 82.5
+ },
+ {
+  "geo": "Shediac, Town (TV)",
+  "code": "1307052",
+  "prov": "NB",
+  "pop": 7535.0,
+  "density": 117.7
+ },
+ {
+  "geo": "Moncton, City (C)",
+  "code": "1307022",
+  "prov": "NB",
+  "pop": 79470.0,
+  "density": 564.9
+ },
+ {
+  "geo": "Salisbury, Village (VL)",
+  "code": "1307028",
+  "prov": "NB",
+  "pop": 2387.0,
+  "density": 176.1
+ },
+ {
+  "geo": "Dieppe, City (C)",
+  "code": "1307045",
+  "prov": "NB",
+  "pop": 28114.0,
+  "density": 365.0
+ },
+ {
+  "geo": "Bouctouche, Town (TV)",
+  "code": "1308005",
+  "prov": "NB",
+  "pop": 2513.0,
+  "density": 137.1
+ },
+ {
+  "geo": "Saint-Antoine, Village (VL)",
+  "code": "1308007",
+  "prov": "NB",
+  "pop": 1791.0,
+  "density": 283.6
+ },
+ {
+  "geo": "Richibucto 15, Indian reserve (IRI)",
+  "code": "1308015",
+  "prov": "NB",
+  "pop": 2062.0,
+  "density": 134.1
+ },
+ {
+  "geo": "Richibucto, Town (TV)",
+  "code": "1308018",
+  "prov": "NB",
+  "pop": 1411.0,
+  "density": 118.6
+ },
+ {
+  "geo": "Rogersville, Village (VL)",
+  "code": "1309017",
+  "prov": "NB",
+  "pop": 1193.0,
+  "density": 165.9
+ },
+ {
+  "geo": "Esgeno\u00f4petitj 14, Indian reserve (IRI)",
+  "code": "1309044",
+  "prov": "NB",
+  "pop": 1223.0,
+  "density": 128.0
+ },
+ {
+  "geo": "Miramichi, City (C)",
+  "code": "1309050",
+  "prov": "NB",
+  "pop": 17692.0,
+  "density": 98.8
+ },
+ {
+  "geo": "New Maryland, Village (VL)",
+  "code": "1310002",
+  "prov": "NB",
+  "pop": 4153.0,
+  "density": 195.4
+ },
+ {
+  "geo": "Fredericton, City (C)",
+  "code": "1310032",
+  "prov": "NB",
+  "pop": 63116.0,
+  "density": 471.3
+ },
+ {
+  "geo": "Devon 30, Indian reserve (IRI)",
+  "code": "1310034",
+  "prov": "NB",
+  "pop": 1070.0,
+  "density": 393.4
+ },
+ {
+  "geo": "Woodstock, Town (TV)",
+  "code": "1311006",
+  "prov": "NB",
+  "pop": 5553.0,
+  "density": 371.1
+ },
+ {
+  "geo": "Florenceville-Bristol, Town (TV)",
+  "code": "1311027",
+  "prov": "NB",
+  "pop": 1573.0,
+  "density": 100.0
+ },
+ {
+  "geo": "Perth-Andover, Village (VL)",
+  "code": "1312006",
+  "prov": "NB",
+  "pop": 1574.0,
+  "density": 175.6
+ },
+ {
+  "geo": "Plaster Rock, Village (VL)",
+  "code": "1312009",
+  "prov": "NB",
+  "pop": 1002.0,
+  "density": 332.9
+ },
+ {
+  "geo": "Grand Falls / Grand-Sault, Town (TV)",
+  "code": "1312019",
+  "prov": "NB",
+  "pop": 5220.0,
+  "density": 289.3
+ },
+ {
+  "geo": "Saint-L\u00e9onard, Town (TV)",
+  "code": "1313006",
+  "prov": "NB",
+  "pop": 1322.0,
+  "density": 247.8
+ },
+ {
+  "geo": "Edmundston, City (C)",
+  "code": "1313027",
+  "prov": "NB",
+  "pop": 16437.0,
+  "density": 153.8
+ },
+ {
+  "geo": "Dalhousie, Town (TV)",
+  "code": "1314017",
+  "prov": "NB",
+  "pop": 3223.0,
+  "density": 213.1
+ },
+ {
+  "geo": "Campbellton, City (C)",
+  "code": "1314014",
+  "prov": "NB",
+  "pop": 7047.0,
+  "density": 379.5
+ },
+ {
+  "geo": "Saint-Quentin, Town (TV)",
+  "code": "1314022",
+  "prov": "NB",
+  "pop": 2141.0,
+  "density": 504.7
+ },
+ {
+  "geo": "Bathurst, City (C)",
+  "code": "1315011",
+  "prov": "NB",
+  "pop": 12157.0,
+  "density": 132.7
+ },
+ {
+  "geo": "Beresford, Town (TV)",
+  "code": "1315015",
+  "prov": "NB",
+  "pop": 4294.0,
+  "density": 223.2
+ },
+ {
+  "geo": "Petit-Rocher, Village (VL)",
+  "code": "1315014",
+  "prov": "NB",
+  "pop": 1954.0,
+  "density": 432.2
+ },
+ {
+  "geo": "Shippagan, Town (TV)",
+  "code": "1315031",
+  "prov": "NB",
+  "pop": 2672.0,
+  "density": 268.3
+ },
+ {
+  "geo": "Lam\u00e8que, Town (TV)",
+  "code": "1315032",
+  "prov": "NB",
+  "pop": 1301.0,
+  "density": 104.9
+ },
+ {
+  "geo": "Gasp\u00e9, Ville (V)",
+  "code": "2403005",
+  "prov": "QC",
+  "pop": 15063.0,
+  "density": 13.5
+ },
+ {
+  "geo": "Price, Village (VL)",
+  "code": "2409065",
+  "prov": "QC",
+  "pop": 1729.0,
+  "density": 688.8
+ },
+ {
+  "geo": "Mont-Joli, Ville (V)",
+  "code": "2409077",
+  "prov": "QC",
+  "pop": 6384.0,
+  "density": 263.3
+ },
+ {
+  "geo": "Rimouski, Ville (V)",
+  "code": "2410043",
+  "prov": "QC",
+  "pop": 48935.0,
+  "density": 144.3
+ },
+ {
+  "geo": "Trois-Pistoles, Ville (V)",
+  "code": "2411040",
+  "prov": "QC",
+  "pop": 3115.0,
+  "density": 408.1
+ },
+ {
+  "geo": "Rivi\u00e8re-du-Loup, Ville (V)",
+  "code": "2412072",
+  "prov": "QC",
+  "pop": 20118.0,
+  "density": 240.2
+ },
+ {
+  "geo": "La Pocati\u00e8re, Ville (V)",
+  "code": "2414085",
+  "prov": "QC",
+  "pop": 4078.0,
+  "density": 192.5
+ },
+ {
+  "geo": "Baie-Saint-Paul, Ville (V)",
+  "code": "2416013",
+  "prov": "QC",
+  "pop": 7371.0,
+  "density": 13.5
+ },
+ {
+  "geo": "Sainte-P\u00e9tronille, Village (VL)",
+  "code": "2420030",
+  "prov": "QC",
+  "pop": 1055.0,
+  "density": 244.4
+ },
+ {
+  "geo": "Beaupr\u00e9, Ville (V)",
+  "code": "2421025",
+  "prov": "QC",
+  "pop": 4117.0,
+  "density": 179.2
+ },
+ {
+  "geo": "Boischatel, Municipalit\u00e9 (M\u00c9)",
+  "code": "2421045",
+  "prov": "QC",
+  "pop": 8231.0,
+  "density": 404.3
+ },
+ {
+  "geo": "Fossambault-sur-le-Lac, Ville (V)",
+  "code": "2422010",
+  "prov": "QC",
+  "pop": 2327.0,
+  "density": 202.6
+ },
+ {
+  "geo": "Shannon, Ville (V)",
+  "code": "2422020",
+  "prov": "QC",
+  "pop": 6432.0,
+  "density": 101.2
+ },
+ {
+  "geo": "Lac-Beauport, Municipalit\u00e9 (M\u00c9)",
+  "code": "2422040",
+  "prov": "QC",
+  "pop": 8164.0,
+  "density": 132.2
+ },
+ {
+  "geo": "Qu\u00e9bec, Ville (V)",
+  "code": "2423027",
+  "prov": "QC",
+  "pop": 549459.0,
+  "density": 1214.8
+ },
+ {
+  "geo": "L'Ancienne-Lorette, Ville (V)",
+  "code": "2423057",
+  "prov": "QC",
+  "pop": 16970.0,
+  "density": 2197.0
+ },
+ {
+  "geo": "Saint-Augustin-de-Desmaures, Ville (V)",
+  "code": "2423072",
+  "prov": "QC",
+  "pop": 19907.0,
+  "density": 232.0
+ },
+ {
+  "geo": "Wendake, Indian reserve (IRI)",
+  "code": "2423802",
+  "prov": "QC",
+  "pop": 2200.0,
+  "density": 1262.0
+ },
+ {
+  "geo": "L\u00e9vis, Ville (V)",
+  "code": "2425213",
+  "prov": "QC",
+  "pop": 149683.0,
+  "density": 334.1
+ },
+ {
+  "geo": "Sainte-Marie, Ville (V)",
+  "code": "2426030",
+  "prov": "QC",
+  "pop": 13134.0,
+  "density": 122.1
+ },
+ {
+  "geo": "Saint-Georges, Ville (V)",
+  "code": "2429073",
+  "prov": "QC",
+  "pop": 32935.0,
+  "density": 165.4
+ },
+ {
+  "geo": "Lac-M\u00e9gantic, Ville (V)",
+  "code": "2430030",
+  "prov": "QC",
+  "pop": 5747.0,
+  "density": 261.5
+ },
+ {
+  "geo": "Disraeli, Ville (V)",
+  "code": "2431015",
+  "prov": "QC",
+  "pop": 2360.0,
+  "density": 347.1
+ },
+ {
+  "geo": "Thetford Mines, Ville (V)",
+  "code": "2431084",
+  "prov": "QC",
+  "pop": 26072.0,
+  "density": 115.4
+ },
+ {
+  "geo": "East Broughton, Municipalit\u00e9 (M\u00c9)",
+  "code": "2431122",
+  "prov": "QC",
+  "pop": 2248.0,
+  "density": 253.9
+ },
+ {
+  "geo": "Plessisville, Ville (V)",
+  "code": "2432040",
+  "prov": "QC",
+  "pop": 6414.0,
+  "density": 1304.2
+ },
+ {
+  "geo": "Laurier-Station, Village (VL)",
+  "code": "2433060",
+  "prov": "QC",
+  "pop": 2570.0,
+  "density": 211.3
+ },
+ {
+  "geo": "Donnacona, Ville (V)",
+  "code": "2434025",
+  "prov": "QC",
+  "pop": 7436.0,
+  "density": 368.2
+ },
+ {
+  "geo": "Saint-Marc-des-Carri\u00e8res, Ville (V)",
+  "code": "2434065",
+  "prov": "QC",
+  "pop": 2901.0,
+  "density": 167.8
+ },
+ {
+  "geo": "Trois-Rivi\u00e8res, Ville (V)",
+  "code": "2437067",
+  "prov": "QC",
+  "pop": 139163.0,
+  "density": 482.1
+ },
+ {
+  "geo": "Victoriaville, Ville (V)",
+  "code": "2439062",
+  "prov": "QC",
+  "pop": 47760.0,
+  "density": 566.4
+ },
+ {
+  "geo": "Val-des-Sources, Ville (V)",
+  "code": "2440043",
+  "prov": "QC",
+  "pop": 7088.0,
+  "density": 234.3
+ },
+ {
+  "geo": "East Angus, Ville (V)",
+  "code": "2441060",
+  "prov": "QC",
+  "pop": 3840.0,
+  "density": 489.8
+ },
+ {
+  "geo": "Valcourt, Ville (V)",
+  "code": "2442055",
+  "prov": "QC",
+  "pop": 2139.0,
+  "density": 395.2
+ },
+ {
+  "geo": "Windsor, Ville (V)",
+  "code": "2442088",
+  "prov": "QC",
+  "pop": 5294.0,
+  "density": 364.3
+ },
+ {
+  "geo": "Richmond, Ville (V)",
+  "code": "2442098",
+  "prov": "QC",
+  "pop": 3259.0,
+  "density": 466.8
+ },
+ {
+  "geo": "Sherbrooke, Ville (V)",
+  "code": "2443027",
+  "prov": "QC",
+  "pop": 172950.0,
+  "density": 489.4
+ },
+ {
+  "geo": "Stanstead, Ville (V)",
+  "code": "2445008",
+  "prov": "QC",
+  "pop": 2824.0,
+  "density": 128.7
+ },
+ {
+  "geo": "Ayer's Cliff, Village (VL)",
+  "code": "2445035",
+  "prov": "QC",
+  "pop": 1180.0,
+  "density": 213.3
+ },
+ {
+  "geo": "North Hatley, Village (VL)",
+  "code": "2445050",
+  "prov": "QC",
+  "pop": 675.0,
+  "density": 201.5
+ },
+ {
+  "geo": "Magog, Ville (V)",
+  "code": "2445072",
+  "prov": "QC",
+  "pop": 28312.0,
+  "density": 196.3
+ },
+ {
+  "geo": "Bedford, Ville (V)",
+  "code": "2446035",
+  "prov": "QC",
+  "pop": 2558.0,
+  "density": 604.3
+ },
+ {
+  "geo": "Cowansville, Ville (V)",
+  "code": "2446080",
+  "prov": "QC",
+  "pop": 15234.0,
+  "density": 325.0
+ },
+ {
+  "geo": "Farnham, Ville (V)",
+  "code": "2446112",
+  "prov": "QC",
+  "pop": 10149.0,
+  "density": 110.2
+ },
+ {
+  "geo": "Granby, Ville (V)",
+  "code": "2447017",
+  "prov": "QC",
+  "pop": 69025.0,
+  "density": 452.1
+ },
+ {
+  "geo": "Waterloo, Ville (V)",
+  "code": "2447025",
+  "prov": "QC",
+  "pop": 4920.0,
+  "density": 402.2
+ },
+ {
+  "geo": "Roxton Falls, Village (VL)",
+  "code": "2448010",
+  "prov": "QC",
+  "pop": 1322.0,
+  "density": 267.7
+ },
+ {
+  "geo": "Drummondville, Ville (V)",
+  "code": "2449058",
+  "prov": "QC",
+  "pop": 79258.0,
+  "density": 320.7
+ },
+ {
+  "geo": "Notre-Dame-du-Bon-Conseil, Village (VL)",
+  "code": "2449075",
+  "prov": "QC",
+  "pop": 1708.0,
+  "density": 406.5
+ },
+ {
+  "geo": "Louiseville, Ville (V)",
+  "code": "2451015",
+  "prov": "QC",
+  "pop": 7340.0,
+  "density": 117.3
+ },
+ {
+  "geo": "Lavaltrie, Ville (V)",
+  "code": "2452007",
+  "prov": "QC",
+  "pop": 14425.0,
+  "density": 211.4
+ },
+ {
+  "geo": "Berthierville, Ville (V)",
+  "code": "2452035",
+  "prov": "QC",
+  "pop": 4386.0,
+  "density": 647.8
+ },
+ {
+  "geo": "Saint-Gabriel, Ville (V)",
+  "code": "2452080",
+  "prov": "QC",
+  "pop": 2803.0,
+  "density": 998.6
+ },
+ {
+  "geo": "Saint-Joseph-de-Sorel, Ville (V)",
+  "code": "2453050",
+  "prov": "QC",
+  "pop": 1581.0,
+  "density": 1164.5
+ },
+ {
+  "geo": "Sorel-Tracy, Ville (V)",
+  "code": "2453052",
+  "prov": "QC",
+  "pop": 35165.0,
+  "density": 614.0
+ },
+ {
+  "geo": "Sainte-Madeleine, Village (VL)",
+  "code": "2454025",
+  "prov": "QC",
+  "pop": 2268.0,
+  "density": 422.9
+ },
+ {
+  "geo": "Saint-Hyacinthe, Ville (V)",
+  "code": "2454048",
+  "prov": "QC",
+  "pop": 57239.0,
+  "density": 303.1
+ },
+ {
+  "geo": "Marieville, Ville (V)",
+  "code": "2455048",
+  "prov": "QC",
+  "pop": 11332.0,
+  "density": 179.2
+ },
+ {
+  "geo": "Richelieu, Ville (V)",
+  "code": "2455057",
+  "prov": "QC",
+  "pop": 5742.0,
+  "density": 185.4
+ },
+ {
+  "geo": "Venise-en-Qu\u00e9bec, Municipalit\u00e9 (M\u00c9)",
+  "code": "2456005",
+  "prov": "QC",
+  "pop": 1899.0,
+  "density": 144.7
+ },
+ {
+  "geo": "Saint-Jean-sur-Richelieu, Ville (V)",
+  "code": "2456083",
+  "prov": "QC",
+  "pop": 97873.0,
+  "density": 431.3
+ },
+ {
+  "geo": "Chambly, Ville (V)",
+  "code": "2457005",
+  "prov": "QC",
+  "pop": 31444.0,
+  "density": 1253.7
+ },
+ {
+  "geo": "Carignan, Ville (V)",
+  "code": "2457010",
+  "prov": "QC",
+  "pop": 11740.0,
+  "density": 189.1
+ },
+ {
+  "geo": "Saint-Basile-le-Grand, Ville (V)",
+  "code": "2457020",
+  "prov": "QC",
+  "pop": 17053.0,
+  "density": 475.8
+ },
+ {
+  "geo": "McMasterville, Municipalit\u00e9 (M\u00c9)",
+  "code": "2457025",
+  "prov": "QC",
+  "pop": 5936.0,
+  "density": 1904.0
+ },
+ {
+  "geo": "Otterburn Park, Ville (V)",
+  "code": "2457030",
+  "prov": "QC",
+  "pop": 8479.0,
+  "density": 1578.2
+ },
+ {
+  "geo": "Mont-Saint-Hilaire, Ville (V)",
+  "code": "2457035",
+  "prov": "QC",
+  "pop": 18859.0,
+  "density": 427.8
+ },
+ {
+  "geo": "Beloeil, Ville (V)",
+  "code": "2457040",
+  "prov": "QC",
+  "pop": 24104.0,
+  "density": 988.8
+ },
+ {
+  "geo": "Brossard, Ville (V)",
+  "code": "2458007",
+  "prov": "QC",
+  "pop": 91525.0,
+  "density": 2025.3
+ },
+ {
+  "geo": "Saint-Lambert, Ville (V)",
+  "code": "2458012",
+  "prov": "QC",
+  "pop": 22761.0,
+  "density": 3009.8
+ },
+ {
+  "geo": "Boucherville, Ville (V)",
+  "code": "2458033",
+  "prov": "QC",
+  "pop": 41743.0,
+  "density": 587.8
+ },
+ {
+  "geo": "Saint-Bruno-de-Montarville, Ville (V)",
+  "code": "2458037",
+  "prov": "QC",
+  "pop": 26273.0,
+  "density": 613.2
+ },
+ {
+  "geo": "Longueuil, Ville (V)",
+  "code": "2458227",
+  "prov": "QC",
+  "pop": 254483.0,
+  "density": 2198.2
+ },
+ {
+  "geo": "Sainte-Julie, Ville (V)",
+  "code": "2459010",
+  "prov": "QC",
+  "pop": 30045.0,
+  "density": 619.6
+ },
+ {
+  "geo": "Saint-Amable, Ville (V)",
+  "code": "2459015",
+  "prov": "QC",
+  "pop": 13322.0,
+  "density": 362.3
+ },
+ {
+  "geo": "Varennes, Ville (V)",
+  "code": "2459020",
+  "prov": "QC",
+  "pop": 21198.0,
+  "density": 223.6
+ },
+ {
+  "geo": "Contrecoeur, Ville (V)",
+  "code": "2459035",
+  "prov": "QC",
+  "pop": 9480.0,
+  "density": 152.4
+ },
+ {
+  "geo": "Charlemagne, Ville (V)",
+  "code": "2460005",
+  "prov": "QC",
+  "pop": 6302.0,
+  "density": 2906.2
+ },
+ {
+  "geo": "Repentigny, Ville (V)",
+  "code": "2460013",
+  "prov": "QC",
+  "pop": 86100.0,
+  "density": 1399.6
+ },
+ {
+  "geo": "L'Assomption, Ville (V)",
+  "code": "2460028",
+  "prov": "QC",
+  "pop": 23442.0,
+  "density": 237.4
+ },
+ {
+  "geo": "L'\u00c9piphanie, Ville (V)",
+  "code": "2460037",
+  "prov": "QC",
+  "pop": 8883.0,
+  "density": 157.0
+ },
+ {
+  "geo": "Saint-Paul, Municipalit\u00e9 (M\u00c9)",
+  "code": "2461005",
+  "prov": "QC",
+  "pop": 6566.0,
+  "density": 133.7
+ },
+ {
+  "geo": "Crabtree, Municipalit\u00e9 (M\u00c9)",
+  "code": "2461013",
+  "prov": "QC",
+  "pop": 4155.0,
+  "density": 165.8
+ },
+ {
+  "geo": "Joliette, Ville (V)",
+  "code": "2461025",
+  "prov": "QC",
+  "pop": 21384.0,
+  "density": 931.2
+ },
+ {
+  "geo": "Notre-Dame-des-Prairies, Ville (V)",
+  "code": "2461030",
+  "prov": "QC",
+  "pop": 9471.0,
+  "density": 523.2
+ },
+ {
+  "geo": "Saint-Charles-Borrom\u00e9e, Ville (V)",
+  "code": "2461035",
+  "prov": "QC",
+  "pop": 15285.0,
+  "density": 827.0
+ },
+ {
+  "geo": "Communaut\u00e9 Atikamekw de Manawan, Indian reserve (IRI)",
+  "code": "2462802",
+  "prov": "QC",
+  "pop": 2000.0,
+  "density": 249.2
+ },
+ {
+  "geo": "Saint-Lin--Laurentides, Ville (V)",
+  "code": "2463048",
+  "prov": "QC",
+  "pop": 24030.0,
+  "density": 203.2
+ },
+ {
+  "geo": "Sainte-Julienne, Municipalit\u00e9 (M\u00c9)",
+  "code": "2463060",
+  "prov": "QC",
+  "pop": 11173.0,
+  "density": 112.4
+ },
+ {
+  "geo": "Terrebonne, Ville (V)",
+  "code": "2464008",
+  "prov": "QC",
+  "pop": 119944.0,
+  "density": 780.1
+ },
+ {
+  "geo": "Mascouche, Ville (V)",
+  "code": "2464015",
+  "prov": "QC",
+  "pop": 51183.0,
+  "density": 478.8
+ },
+ {
+  "geo": "Laval, Ville (V)",
+  "code": "2465005",
+  "prov": "QC",
+  "pop": 438366.0,
+  "density": 1781.0
+ },
+ {
+  "geo": "Montr\u00e9al-Est, Ville (V)",
+  "code": "2466007",
+  "prov": "QC",
+  "pop": 4394.0,
+  "density": 361.6
+ },
+ {
+  "geo": "Montr\u00e9al, Ville (V)",
+  "code": "2466023",
+  "prov": "QC",
+  "pop": 1762949.0,
+  "density": 4833.5
+ },
+ {
+  "geo": "Westmount, Ville (V)",
+  "code": "2466032",
+  "prov": "QC",
+  "pop": 19658.0,
+  "density": 4860.9
+ },
+ {
+  "geo": "Montr\u00e9al-Ouest, Ville (V)",
+  "code": "2466047",
+  "prov": "QC",
+  "pop": 5115.0,
+  "density": 3737.9
+ },
+ {
+  "geo": "C\u00f4te-Saint-Luc, Ville (V)",
+  "code": "2466058",
+  "prov": "QC",
+  "pop": 34504.0,
+  "density": 4903.7
+ },
+ {
+  "geo": "Hampstead, Ville (V)",
+  "code": "2466062",
+  "prov": "QC",
+  "pop": 7037.0,
+  "density": 3922.1
+ },
+ {
+  "geo": "Mont-Royal, Ville (V)",
+  "code": "2466072",
+  "prov": "QC",
+  "pop": 20953.0,
+  "density": 2776.7
+ },
+ {
+  "geo": "Dorval, Ville (V)",
+  "code": "2466087",
+  "prov": "QC",
+  "pop": 19302.0,
+  "density": 923.0
+ },
+ {
+  "geo": "Pointe-Claire, Ville (V)",
+  "code": "2466097",
+  "prov": "QC",
+  "pop": 33488.0,
+  "density": 1770.9
+ },
+ {
+  "geo": "Kirkland, Ville (V)",
+  "code": "2466102",
+  "prov": "QC",
+  "pop": 19413.0,
+  "density": 2012.0
+ },
+ {
+  "geo": "Beaconsfield, Ville (V)",
+  "code": "2466107",
+  "prov": "QC",
+  "pop": 19277.0,
+  "density": 1747.5
+ },
+ {
+  "geo": "Baie-D'Urf\u00e9, Ville (V)",
+  "code": "2466112",
+  "prov": "QC",
+  "pop": 3764.0,
+  "density": 623.9
+ },
+ {
+  "geo": "Sainte-Anne-de-Bellevue, Ville (V)",
+  "code": "2466117",
+  "prov": "QC",
+  "pop": 5027.0,
+  "density": 480.8
+ },
+ {
+  "geo": "Dollard-Des Ormeaux, Ville (V)",
+  "code": "2466142",
+  "prov": "QC",
+  "pop": 48403.0,
+  "density": 3230.2
+ },
+ {
+  "geo": "Saint-Philippe, Ville (V)",
+  "code": "2467010",
+  "prov": "QC",
+  "pop": 7597.0,
+  "density": 122.6
+ },
+ {
+  "geo": "La Prairie, Ville (V)",
+  "code": "2467015",
+  "prov": "QC",
+  "pop": 26406.0,
+  "density": 607.4
+ },
+ {
+  "geo": "Candiac, Ville (V)",
+  "code": "2467020",
+  "prov": "QC",
+  "pop": 22997.0,
+  "density": 1331.3
+ },
+ {
+  "geo": "Delson, Ville (V)",
+  "code": "2467025",
+  "prov": "QC",
+  "pop": 8328.0,
+  "density": 1089.6
+ },
+ {
+  "geo": "Sainte-Catherine, Ville (V)",
+  "code": "2467030",
+  "prov": "QC",
+  "pop": 17347.0,
+  "density": 1851.4
+ },
+ {
+  "geo": "Saint-Constant, Ville (V)",
+  "code": "2467035",
+  "prov": "QC",
+  "pop": 29954.0,
+  "density": 524.9
+ },
+ {
+  "geo": "Mercier, Ville (V)",
+  "code": "2467045",
+  "prov": "QC",
+  "pop": 14626.0,
+  "density": 318.2
+ },
+ {
+  "geo": "Ch\u00e2teauguay, Ville (V)",
+  "code": "2467050",
+  "prov": "QC",
+  "pop": 50815.0,
+  "density": 1481.2
+ },
+ {
+  "geo": "L\u00e9ry, Ville (V)",
+  "code": "2467055",
+  "prov": "QC",
+  "pop": 2390.0,
+  "density": 230.7
+ },
+ {
+  "geo": "Napierville, Municipalit\u00e9 (M\u00c9)",
+  "code": "2468030",
+  "prov": "QC",
+  "pop": 4020.0,
+  "density": 893.3
+ },
+ {
+  "geo": "Saint-R\u00e9mi, Ville (V)",
+  "code": "2468055",
+  "prov": "QC",
+  "pop": 8957.0,
+  "density": 114.6
+ },
+ {
+  "geo": "Huntingdon, Ville (V)",
+  "code": "2469055",
+  "prov": "QC",
+  "pop": 2556.0,
+  "density": 924.2
+ },
+ {
+  "geo": "Beauharnois, Ville (V)",
+  "code": "2470022",
+  "prov": "QC",
+  "pop": 13638.0,
+  "density": 199.9
+ },
+ {
+  "geo": "Salaberry-de-Valleyfield, Ville (V)",
+  "code": "2470052",
+  "prov": "QC",
+  "pop": 42787.0,
+  "density": 394.1
+ },
+ {
+  "geo": "Rivi\u00e8re-Beaudette, Municipalit\u00e9 (M\u00c9)",
+  "code": "2471005",
+  "prov": "QC",
+  "pop": 2489.0,
+  "density": 134.7
+ },
+ {
+  "geo": "Saint-Zotique, Municipalit\u00e9 (M\u00c9)",
+  "code": "2471025",
+  "prov": "QC",
+  "pop": 9618.0,
+  "density": 384.0
+ },
+ {
+  "geo": "Les Coteaux, Municipalit\u00e9 (M\u00c9)",
+  "code": "2471033",
+  "prov": "QC",
+  "pop": 5643.0,
+  "density": 485.0
+ },
+ {
+  "geo": "Coteau-du-Lac, Ville (V)",
+  "code": "2471040",
+  "prov": "QC",
+  "pop": 7473.0,
+  "density": 159.4
+ },
+ {
+  "geo": "Pointe-des-Cascades, Village (VL)",
+  "code": "2471055",
+  "prov": "QC",
+  "pop": 1775.0,
+  "density": 646.8
+ },
+ {
+  "geo": "L'\u00cele-Perrot, Ville (V)",
+  "code": "2471060",
+  "prov": "QC",
+  "pop": 11638.0,
+  "density": 2130.1
+ },
+ {
+  "geo": "Notre-Dame-de-l'\u00cele-Perrot, Ville (V)",
+  "code": "2471065",
+  "prov": "QC",
+  "pop": 11427.0,
+  "density": 407.3
+ },
+ {
+  "geo": "Pincourt, Ville (V)",
+  "code": "2471070",
+  "prov": "QC",
+  "pop": 14751.0,
+  "density": 2078.0
+ },
+ {
+  "geo": "Terrasse-Vaudreuil, Municipalit\u00e9 (M\u00c9)",
+  "code": "2471075",
+  "prov": "QC",
+  "pop": 1887.0,
+  "density": 1782.4
+ },
+ {
+  "geo": "Vaudreuil-Dorion, Ville (V)",
+  "code": "2471083",
+  "prov": "QC",
+  "pop": 43268.0,
+  "density": 595.5
+ },
+ {
+  "geo": "Vaudreuil-sur-le-Lac, Village (VL)",
+  "code": "2471090",
+  "prov": "QC",
+  "pop": 1361.0,
+  "density": 983.0
+ },
+ {
+  "geo": "Hudson, Ville (V)",
+  "code": "2471100",
+  "prov": "QC",
+  "pop": 5411.0,
+  "density": 248.4
+ },
+ {
+  "geo": "Saint-Lazare, Ville (V)",
+  "code": "2471105",
+  "prov": "QC",
+  "pop": 22354.0,
+  "density": 334.3
+ },
+ {
+  "geo": "Saint-Eustache, Ville (V)",
+  "code": "2472005",
+  "prov": "QC",
+  "pop": 45276.0,
+  "density": 642.1
+ },
+ {
+  "geo": "Deux-Montagnes, Ville (V)",
+  "code": "2472010",
+  "prov": "QC",
+  "pop": 17915.0,
+  "density": 2947.8
+ },
+ {
+  "geo": "Sainte-Marthe-sur-le-Lac, Ville (V)",
+  "code": "2472015",
+  "prov": "QC",
+  "pop": 19797.0,
+  "density": 2267.4
+ },
+ {
+  "geo": "Pointe-Calumet, Municipalit\u00e9 (M\u00c9)",
+  "code": "2472020",
+  "prov": "QC",
+  "pop": 6281.0,
+  "density": 1367.7
+ },
+ {
+  "geo": "Saint-Joseph-du-Lac, Municipalit\u00e9 (M\u00c9)",
+  "code": "2472025",
+  "prov": "QC",
+  "pop": 7031.0,
+  "density": 170.6
+ },
+ {
+  "geo": "Boisbriand, Ville (V)",
+  "code": "2473005",
+  "prov": "QC",
+  "pop": 28308.0,
+  "density": 1022.9
+ },
+ {
+  "geo": "Sainte-Th\u00e9r\u00e8se, Ville (V)",
+  "code": "2473010",
+  "prov": "QC",
+  "pop": 26533.0,
+  "density": 2798.9
+ },
+ {
+  "geo": "Blainville, Ville (V)",
+  "code": "2473015",
+  "prov": "QC",
+  "pop": 59819.0,
+  "density": 1088.2
+ },
+ {
+  "geo": "Rosem\u00e8re, Ville (V)",
+  "code": "2473020",
+  "prov": "QC",
+  "pop": 14090.0,
+  "density": 1318.7
+ },
+ {
+  "geo": "Lorraine, Ville (V)",
+  "code": "2473025",
+  "prov": "QC",
+  "pop": 9502.0,
+  "density": 1609.9
+ },
+ {
+  "geo": "Bois-des-Filion, Ville (V)",
+  "code": "2473030",
+  "prov": "QC",
+  "pop": 10159.0,
+  "density": 2327.8
+ },
+ {
+  "geo": "Sainte-Anne-des-Plaines, Ville (V)",
+  "code": "2473035",
+  "prov": "QC",
+  "pop": 15221.0,
+  "density": 162.9
+ },
+ {
+  "geo": "Mirabel, Ville (V)",
+  "code": "2474005",
+  "prov": "QC",
+  "pop": 61108.0,
+  "density": 126.2
+ },
+ {
+  "geo": "Saint-Colomban, Ville (V)",
+  "code": "2475005",
+  "prov": "QC",
+  "pop": 17740.0,
+  "density": 191.4
+ },
+ {
+  "geo": "Saint-J\u00e9r\u00f4me, Ville (V)",
+  "code": "2475017",
+  "prov": "QC",
+  "pop": 80213.0,
+  "density": 889.5
+ },
+ {
+  "geo": "Sainte-Sophie, Municipalit\u00e9 (M\u00c9)",
+  "code": "2475028",
+  "prov": "QC",
+  "pop": 18080.0,
+  "density": 162.6
+ },
+ {
+  "geo": "Pr\u00e9vost, Ville (V)",
+  "code": "2475040",
+  "prov": "QC",
+  "pop": 13692.0,
+  "density": 399.3
+ },
+ {
+  "geo": "Lachute, Ville (V)",
+  "code": "2476020",
+  "prov": "QC",
+  "pop": 14100.0,
+  "density": 129.8
+ },
+ {
+  "geo": "Grenville, Village (VL)",
+  "code": "2476055",
+  "prov": "QC",
+  "pop": 1816.0,
+  "density": 644.6
+ },
+ {
+  "geo": "Sainte-Ad\u00e8le, Ville (V)",
+  "code": "2477022",
+  "prov": "QC",
+  "pop": 14010.0,
+  "density": 117.1
+ },
+ {
+  "geo": "Piedmont, Municipalit\u00e9 (M\u00c9)",
+  "code": "2477030",
+  "prov": "QC",
+  "pop": 3476.0,
+  "density": 142.7
+ },
+ {
+  "geo": "Sainte-Anne-des-Lacs, Paroisse (municipalit\u00e9 de) (PE)",
+  "code": "2477035",
+  "prov": "QC",
+  "pop": 3862.0,
+  "density": 156.7
+ },
+ {
+  "geo": "Saint-Sauveur, Ville (V)",
+  "code": "2477043",
+  "prov": "QC",
+  "pop": 11580.0,
+  "density": 243.2
+ },
+ {
+  "geo": "Val-David, Village (VL)",
+  "code": "2478010",
+  "prov": "QC",
+  "pop": 5558.0,
+  "density": 130.3
+ },
+ {
+  "geo": "Mont-Tremblant, Ville (V)",
+  "code": "2478102",
+  "prov": "QC",
+  "pop": 10992.0,
+  "density": 47.0
+ },
+ {
+  "geo": "Thurso, Ville (V)",
+  "code": "2480050",
+  "prov": "QC",
+  "pop": 3084.0,
+  "density": 463.8
+ },
+ {
+  "geo": "Lac Simon, Indian reserve (IRI)",
+  "code": "2489804",
+  "prov": "QC",
+  "pop": 1285.0,
+  "density": 409.2
+ },
+ {
+  "geo": "Gatineau, Ville (V)",
+  "code": "2481017",
+  "prov": "QC",
+  "pop": 291041.0,
+  "density": 851.4
+ },
+ {
+  "geo": "Maniwaki, Ville (V)",
+  "code": "2483065",
+  "prov": "QC",
+  "pop": 3757.0,
+  "density": 662.8
+ },
+ {
+  "geo": "Shawville, Municipalit\u00e9 (M\u00c9)",
+  "code": "2484010",
+  "prov": "QC",
+  "pop": 1668.0,
+  "density": 310.1
+ },
+ {
+  "geo": "Fort-Coulonge, Village (VL)",
+  "code": "2484060",
+  "prov": "QC",
+  "pop": 1312.0,
+  "density": 443.9
+ },
+ {
+  "geo": "Ville-Marie, Ville (V)",
+  "code": "2485025",
+  "prov": "QC",
+  "pop": 2464.0,
+  "density": 422.4
+ },
+ {
+  "geo": "Rouyn-Noranda, Ville (V)",
+  "code": "2486042",
+  "prov": "QC",
+  "pop": 42313.0,
+  "density": 7.1
+ },
+ {
+  "geo": "Val-d'Or, Ville (V)",
+  "code": "2489008",
+  "prov": "QC",
+  "pop": 32752.0,
+  "density": 9.3
+ },
+ {
+  "geo": "Obedjiwan 28, Indian reserve (IRI)",
+  "code": "2490804",
+  "prov": "QC",
+  "pop": 1991.0,
+  "density": 241.1
+ },
+ {
+  "geo": "Mashteuiatsh, Indian reserve (IRI)",
+  "code": "2491802",
+  "prov": "QC",
+  "pop": 2010.0,
+  "density": 139.3
+ },
+ {
+  "geo": "Alma, Ville (V)",
+  "code": "2493042",
+  "prov": "QC",
+  "pop": 30331.0,
+  "density": 155.6
+ },
+ {
+  "geo": "Saguenay, Ville (V)",
+  "code": "2494068",
+  "prov": "QC",
+  "pop": 144723.0,
+  "density": 128.7
+ },
+ {
+  "geo": "Chute-aux-Outardes, Village (VL)",
+  "code": "2496035",
+  "prov": "QC",
+  "pop": 1391.0,
+  "density": 185.3
+ },
+ {
+  "geo": "Sept-\u00celes, Ville (V)",
+  "code": "2497007",
+  "prov": "QC",
+  "pop": 24569.0,
+  "density": 14.1
+ },
+ {
+  "geo": "Uashat 27, Indian reserve (IRI)",
+  "code": "2497802",
+  "prov": "QC",
+  "pop": 1550.0,
+  "density": 657.2
+ },
+ {
+  "geo": "Maliotenam, Indian reserve (IRI)",
+  "code": "2497804",
+  "prov": "QC",
+  "pop": 1610.0,
+  "density": 309.7
+ },
+ {
+  "geo": "Salluit, Village nordique (VN)",
+  "code": "2499135",
+  "prov": "QC",
+  "pop": 1580.0,
+  "density": 104.8
+ },
+ {
+  "geo": "Cornwall, City (CY)",
+  "code": "3501012",
+  "prov": "ON",
+  "pop": 47845.0,
+  "density": 777.9
+ },
+ {
+  "geo": "Hawkesbury, Town (T)",
+  "code": "3502008",
+  "prov": "ON",
+  "pop": 10194.0,
+  "density": 1009.7
+ },
+ {
+  "geo": "Casselman, Village (VL)",
+  "code": "3502044",
+  "prov": "ON",
+  "pop": 3960.0,
+  "density": 772.2
+ },
+ {
+  "geo": "Ottawa, City (CV)",
+  "code": "3506008",
+  "prov": "ON",
+  "pop": 1017449.0,
+  "density": 364.9
+ },
+ {
+  "geo": "Prescott, Town (T)",
+  "code": "3507008",
+  "prov": "ON",
+  "pop": 4078.0,
+  "density": 826.0
+ },
+ {
+  "geo": "Brockville, City (CY)",
+  "code": "3507015",
+  "prov": "ON",
+  "pop": 22116.0,
+  "density": 1057.8
+ },
+ {
+  "geo": "Gananoque, Town (T)",
+  "code": "3507024",
+  "prov": "ON",
+  "pop": 5383.0,
+  "density": 768.4
+ },
+ {
+  "geo": "Smiths Falls, Town (T)",
+  "code": "3509004",
+  "prov": "ON",
+  "pop": 9254.0,
+  "density": 958.1
+ },
+ {
+  "geo": "Perth, Town (T)",
+  "code": "3509021",
+  "prov": "ON",
+  "pop": 6469.0,
+  "density": 529.8
+ },
+ {
+  "geo": "Carleton Place, Town (T)",
+  "code": "3509028",
+  "prov": "ON",
+  "pop": 12517.0,
+  "density": 1259.4
+ },
+ {
+  "geo": "Mississippi Mills, Town (T)",
+  "code": "3509030",
+  "prov": "ON",
+  "pop": 14740.0,
+  "density": 28.8
+ },
+ {
+  "geo": "Kingston, City (CY)",
+  "code": "3510010",
+  "prov": "ON",
+  "pop": 132485.0,
+  "density": 293.4
+ },
+ {
+  "geo": "Deseronto, Town (T)",
+  "code": "3512002",
+  "prov": "ON",
+  "pop": 1747.0,
+  "density": 693.5
+ },
+ {
+  "geo": "Belleville, City (CY)",
+  "code": "3512005",
+  "prov": "ON",
+  "pop": 55071.0,
+  "density": 222.8
+ },
+ {
+  "geo": "Prince Edward County, City (CY)",
+  "code": "3513020",
+  "prov": "ON",
+  "pop": 25704.0,
+  "density": 24.4
+ },
+ {
+  "geo": "Hamilton, City (C)",
+  "code": "3525005",
+  "prov": "ON",
+  "pop": 569353.0,
+  "density": 509.1
+ },
+ {
+  "geo": "Port Hope, Municipality (MU)",
+  "code": "3514020",
+  "prov": "ON",
+  "pop": 17294.0,
+  "density": 62.0
+ },
+ {
+  "geo": "Cobourg, Town (T)",
+  "code": "3514021",
+  "prov": "ON",
+  "pop": 20519.0,
+  "density": 915.7
+ },
+ {
+  "geo": "Peterborough, City (CY)",
+  "code": "3515014",
+  "prov": "ON",
+  "pop": 83651.0,
+  "density": 1291.8
+ },
+ {
+  "geo": "Curve Lake First Nation 35, Indian reserve (IRI)",
+  "code": "3515019",
+  "prov": "ON",
+  "pop": 1244.0,
+  "density": 187.4
+ },
+ {
+  "geo": "Pickering, City (CY)",
+  "code": "3518001",
+  "prov": "ON",
+  "pop": 99186.0,
+  "density": 429.2
+ },
+ {
+  "geo": "Ajax, Town (T)",
+  "code": "3518005",
+  "prov": "ON",
+  "pop": 126666.0,
+  "density": 1900.6
+ },
+ {
+  "geo": "Whitby, Town (T)",
+  "code": "3518009",
+  "prov": "ON",
+  "pop": 138501.0,
+  "density": 944.1
+ },
+ {
+  "geo": "Oshawa, City (CY)",
+  "code": "3518013",
+  "prov": "ON",
+  "pop": 175383.0,
+  "density": 1203.6
+ },
+ {
+  "geo": "Clarington, Municipality (MU)",
+  "code": "3518017",
+  "prov": "ON",
+  "pop": 101427.0,
+  "density": 166.0
+ },
+ {
+  "geo": "Vaughan, City (CY)",
+  "code": "3519028",
+  "prov": "ON",
+  "pop": 323103.0,
+  "density": 1185.9
+ },
+ {
+  "geo": "Markham, City (CY)",
+  "code": "3519036",
+  "prov": "ON",
+  "pop": 338503.0,
+  "density": 1604.8
+ },
+ {
+  "geo": "Richmond Hill, Town (T)",
+  "code": "3519038",
+  "prov": "ON",
+  "pop": 202022.0,
+  "density": 2004.4
+ },
+ {
+  "geo": "Whitchurch-Stouffville, Town (T)",
+  "code": "3519044",
+  "prov": "ON",
+  "pop": 49864.0,
+  "density": 241.6
+ },
+ {
+  "geo": "Aurora, Town (T)",
+  "code": "3519046",
+  "prov": "ON",
+  "pop": 62057.0,
+  "density": 1241.1
+ },
+ {
+  "geo": "Newmarket, Town (T)",
+  "code": "3519048",
+  "prov": "ON",
+  "pop": 87942.0,
+  "density": 2284.1
+ },
+ {
+  "geo": "East Gwillimbury, Town (T)",
+  "code": "3519054",
+  "prov": "ON",
+  "pop": 34637.0,
+  "density": 141.4
+ },
+ {
+  "geo": "Georgina, Town (T)",
+  "code": "3519070",
+  "prov": "ON",
+  "pop": 47642.0,
+  "density": 165.6
+ },
+ {
+  "geo": "Toronto, City (C)",
+  "code": "3520005",
+  "prov": "ON",
+  "pop": 2794356.0,
+  "density": 4427.8
+ },
+ {
+  "geo": "Mississauga, City (CY)",
+  "code": "3521005",
+  "prov": "ON",
+  "pop": 717961.0,
+  "density": 2452.5
+ },
+ {
+  "geo": "Brampton, City (CY)",
+  "code": "3521010",
+  "prov": "ON",
+  "pop": 656480.0,
+  "density": 2469.0
+ },
+ {
+  "geo": "Caledon, Town (T)",
+  "code": "3521024",
+  "prov": "ON",
+  "pop": 76581.0,
+  "density": 111.2
+ },
+ {
+  "geo": "Orangeville, Town (T)",
+  "code": "3522014",
+  "prov": "ON",
+  "pop": 30167.0,
+  "density": 1989.5
+ },
+ {
+  "geo": "Shelburne, Town (T)",
+  "code": "3522021",
+  "prov": "ON",
+  "pop": 8994.0,
+  "density": 1370.8
+ },
+ {
+  "geo": "Guelph, City (CY)",
+  "code": "3523008",
+  "prov": "ON",
+  "pop": 143740.0,
+  "density": 1644.1
+ },
+ {
+  "geo": "Centre Wellington, Township (TP)",
+  "code": "3523025",
+  "prov": "ON",
+  "pop": 31093.0,
+  "density": 75.9
+ },
+ {
+  "geo": "Oakville, Town (T)",
+  "code": "3524001",
+  "prov": "ON",
+  "pop": 213759.0,
+  "density": 1538.5
+ },
+ {
+  "geo": "Burlington, City (CY)",
+  "code": "3524002",
+  "prov": "ON",
+  "pop": 186948.0,
+  "density": 1004.4
+ },
+ {
+  "geo": "Milton, Town (T)",
+  "code": "3524009",
+  "prov": "ON",
+  "pop": 132979.0,
+  "density": 365.5
+ },
+ {
+  "geo": "Halton Hills, Town (T)",
+  "code": "3524015",
+  "prov": "ON",
+  "pop": 62951.0,
+  "density": 227.4
+ },
+ {
+  "geo": "Fort Erie, Town (T)",
+  "code": "3526003",
+  "prov": "ON",
+  "pop": 32901.0,
+  "density": 197.9
+ },
+ {
+  "geo": "Port Colborne, City (CY)",
+  "code": "3526011",
+  "prov": "ON",
+  "pop": 20033.0,
+  "density": 164.2
+ },
+ {
+  "geo": "Pelham, Town (T)",
+  "code": "3526028",
+  "prov": "ON",
+  "pop": 18192.0,
+  "density": 144.0
+ },
+ {
+  "geo": "Welland, City (CY)",
+  "code": "3526032",
+  "prov": "ON",
+  "pop": 55750.0,
+  "density": 686.9
+ },
+ {
+  "geo": "Thorold, City (CY)",
+  "code": "3526037",
+  "prov": "ON",
+  "pop": 23816.0,
+  "density": 285.9
+ },
+ {
+  "geo": "Niagara Falls, City (CY)",
+  "code": "3526043",
+  "prov": "ON",
+  "pop": 94415.0,
+  "density": 449.1
+ },
+ {
+  "geo": "Niagara-on-the-Lake, Town (T)",
+  "code": "3526047",
+  "prov": "ON",
+  "pop": 19088.0,
+  "density": 145.3
+ },
+ {
+  "geo": "St. Catharines, City (CY)",
+  "code": "3526053",
+  "prov": "ON",
+  "pop": 136803.0,
+  "density": 1422.1
+ },
+ {
+  "geo": "Lincoln, Town (T)",
+  "code": "3526057",
+  "prov": "ON",
+  "pop": 25719.0,
+  "density": 158.0
+ },
+ {
+  "geo": "Grimsby, Town (T)",
+  "code": "3526065",
+  "prov": "ON",
+  "pop": 28883.0,
+  "density": 420.4
+ },
+ {
+  "geo": "Brantford, City (CY)",
+  "code": "3529006",
+  "prov": "ON",
+  "pop": 104688.0,
+  "density": 1061.2
+ },
+ {
+  "geo": "Cambridge, City (CY)",
+  "code": "3530010",
+  "prov": "ON",
+  "pop": 138479.0,
+  "density": 1225.5
+ },
+ {
+  "geo": "Kitchener, City (CY)",
+  "code": "3530013",
+  "prov": "ON",
+  "pop": 256885.0,
+  "density": 1877.6
+ },
+ {
+  "geo": "Waterloo, City (CY)",
+  "code": "3530016",
+  "prov": "ON",
+  "pop": 121436.0,
+  "density": 1895.8
+ },
+ {
+  "geo": "Stratford, City (CY)",
+  "code": "3531011",
+  "prov": "ON",
+  "pop": 33232.0,
+  "density": 1107.0
+ },
+ {
+  "geo": "St. Marys, Town (T)",
+  "code": "3531016",
+  "prov": "ON",
+  "pop": 7386.0,
+  "density": 593.8
+ },
+ {
+  "geo": "Tillsonburg, Town (T)",
+  "code": "3532004",
+  "prov": "ON",
+  "pop": 18615.0,
+  "density": 838.6
+ },
+ {
+  "geo": "Ingersoll, Town (T)",
+  "code": "3532018",
+  "prov": "ON",
+  "pop": 13693.0,
+  "density": 1075.3
+ },
+ {
+  "geo": "Woodstock, City (CY)",
+  "code": "3532042",
+  "prov": "ON",
+  "pop": 46705.0,
+  "density": 827.2
+ },
+ {
+  "geo": "Aylmer, Town (T)",
+  "code": "3534011",
+  "prov": "ON",
+  "pop": 7699.0,
+  "density": 1208.6
+ },
+ {
+  "geo": "St. Thomas, City (CY)",
+  "code": "3534021",
+  "prov": "ON",
+  "pop": 42840.0,
+  "density": 1203.2
+ },
+ {
+  "geo": "Leamington, Municipality (MU)",
+  "code": "3537003",
+  "prov": "ON",
+  "pop": 29680.0,
+  "density": 113.6
+ },
+ {
+  "geo": "Amherstburg, Town (T)",
+  "code": "3537028",
+  "prov": "ON",
+  "pop": 23524.0,
+  "density": 128.0
+ },
+ {
+  "geo": "LaSalle, Town (T)",
+  "code": "3537034",
+  "prov": "ON",
+  "pop": 32721.0,
+  "density": 503.7
+ },
+ {
+  "geo": "Windsor, City (CY)",
+  "code": "3537039",
+  "prov": "ON",
+  "pop": 229660.0,
+  "density": 1572.8
+ },
+ {
+  "geo": "Tecumseh, Town (T)",
+  "code": "3537048",
+  "prov": "ON",
+  "pop": 23300.0,
+  "density": 246.3
+ },
+ {
+  "geo": "Petrolia, Town (T)",
+  "code": "3538019",
+  "prov": "ON",
+  "pop": 6013.0,
+  "density": 482.6
+ },
+ {
+  "geo": "Sarnia, City (CY)",
+  "code": "3538030",
+  "prov": "ON",
+  "pop": 72047.0,
+  "density": 439.6
+ },
+ {
+  "geo": "Point Edward, Village (VL)",
+  "code": "3538031",
+  "prov": "ON",
+  "pop": 1930.0,
+  "density": 585.0
+ },
+ {
+  "geo": "Kettle Point 44, Indian reserve (IRI)",
+  "code": "3538056",
+  "prov": "ON",
+  "pop": 1233.0,
+  "density": 132.3
+ },
+ {
+  "geo": "London, City (CY)",
+  "code": "3539036",
+  "prov": "ON",
+  "pop": 422324.0,
+  "density": 1004.3
+ },
+ {
+  "geo": "Bluewater, Municipality (MU)",
+  "code": "3540010",
+  "prov": "ON",
+  "pop": 7540.0,
+  "density": 18.1
+ },
+ {
+  "geo": "Goderich, Town (T)",
+  "code": "3540028",
+  "prov": "ON",
+  "pop": 7881.0,
+  "density": 923.1
+ },
+ {
+  "geo": "Northern Bruce Peninsula, Municipality (MU)",
+  "code": "3541069",
+  "prov": "ON",
+  "pop": 4404.0,
+  "density": 5.7
+ },
+ {
+  "geo": "Hanover, Town (T)",
+  "code": "3542029",
+  "prov": "ON",
+  "pop": 7967.0,
+  "density": 814.6
+ },
+ {
+  "geo": "Meaford, Municipality (MU)",
+  "code": "3542047",
+  "prov": "ON",
+  "pop": 11485.0,
+  "density": 19.5
+ },
+ {
+  "geo": "Owen Sound, City (CY)",
+  "code": "3542059",
+  "prov": "ON",
+  "pop": 21612.0,
+  "density": 892.6
+ },
+ {
+  "geo": "New Tecumseth, Town (T)",
+  "code": "3543007",
+  "prov": "ON",
+  "pop": 43948.0,
+  "density": 160.5
+ },
+ {
+  "geo": "Bradford West Gwillimbury, Town (T)",
+  "code": "3543014",
+  "prov": "ON",
+  "pop": 42880.0,
+  "density": 213.7
+ },
+ {
+  "geo": "Innisfil, Town (T)",
+  "code": "3543017",
+  "prov": "ON",
+  "pop": 43326.0,
+  "density": 165.1
+ },
+ {
+  "geo": "Collingwood, Town (T)",
+  "code": "3543031",
+  "prov": "ON",
+  "pop": 24811.0,
+  "density": 748.3
+ },
+ {
+  "geo": "Barrie, City (CY)",
+  "code": "3543042",
+  "prov": "ON",
+  "pop": 147829.0,
+  "density": 1493.1
+ },
+ {
+  "geo": "Orillia, City (CY)",
+  "code": "3543052",
+  "prov": "ON",
+  "pop": 33411.0,
+  "density": 1171.1
+ },
+ {
+  "geo": "Wasaga Beach, Town (T)",
+  "code": "3543064",
+  "prov": "ON",
+  "pop": 24862.0,
+  "density": 433.0
+ },
+ {
+  "geo": "Penetanguishene, Town (T)",
+  "code": "3543072",
+  "prov": "ON",
+  "pop": 10077.0,
+  "density": 396.4
+ },
+ {
+  "geo": "Midland, Town (T)",
+  "code": "3543074",
+  "prov": "ON",
+  "pop": 17817.0,
+  "density": 504.3
+ },
+ {
+  "geo": "Bracebridge, Town (T)",
+  "code": "3544018",
+  "prov": "ON",
+  "pop": 17305.0,
+  "density": 28.1
+ },
+ {
+  "geo": "Huntsville, Town (T)",
+  "code": "3544042",
+  "prov": "ON",
+  "pop": 21147.0,
+  "density": 30.0
+ },
+ {
+  "geo": "Arnprior, Town (T)",
+  "code": "3547002",
+  "prov": "ON",
+  "pop": 9629.0,
+  "density": 738.5
+ },
+ {
+  "geo": "Renfrew, Town (T)",
+  "code": "3547048",
+  "prov": "ON",
+  "pop": 8190.0,
+  "density": 639.3
+ },
+ {
+  "geo": "Pembroke, City (CY)",
+  "code": "3547064",
+  "prov": "ON",
+  "pop": 14364.0,
+  "density": 1002.8
+ },
+ {
+  "geo": "Petawawa, Town (T)",
+  "code": "3547076",
+  "prov": "ON",
+  "pop": 18160.0,
+  "density": 110.3
+ },
+ {
+  "geo": "Mattawa, Town (T)",
+  "code": "3548021",
+  "prov": "ON",
+  "pop": 1881.0,
+  "density": 513.1
+ },
+ {
+  "geo": "North Bay, City (CY)",
+  "code": "3548044",
+  "prov": "ON",
+  "pop": 52662.0,
+  "density": 166.9
+ },
+ {
+  "geo": "Parry Sound, Town (T)",
+  "code": "3549032",
+  "prov": "ON",
+  "pop": 6879.0,
+  "density": 524.9
+ },
+ {
+  "geo": "South River, Village (VL)",
+  "code": "3549056",
+  "prov": "ON",
+  "pop": 1101.0,
+  "density": 268.0
+ },
+ {
+  "geo": "Chapleau, Township (TP)",
+  "code": "3552092",
+  "prov": "ON",
+  "pop": 1942.0,
+  "density": 147.1
+ },
+ {
+  "geo": "Greater Sudbury / Grand Sudbury, City (CV)",
+  "code": "3553005",
+  "prov": "ON",
+  "pop": 166004.0,
+  "density": 52.1
+ },
+ {
+  "geo": "Englehart, Town (T)",
+  "code": "3554052",
+  "prov": "ON",
+  "pop": 1442.0,
+  "density": 494.2
+ },
+ {
+  "geo": "Timmins, City (CY)",
+  "code": "3556027",
+  "prov": "ON",
+  "pop": 41145.0,
+  "density": 13.9
+ },
+ {
+  "geo": "Factory Island 1, Indian reserve (IRI)",
+  "code": "3556094",
+  "prov": "ON",
+  "pop": 1376.0,
+  "density": 423.7
+ },
+ {
+  "geo": "Thessalon, Town (T)",
+  "code": "3557028",
+  "prov": "ON",
+  "pop": 1260.0,
+  "density": 287.5
+ },
+ {
+  "geo": "Sault Ste. Marie, City (CY)",
+  "code": "3557061",
+  "prov": "ON",
+  "pop": 72051.0,
+  "density": 324.6
+ },
+ {
+  "geo": "Thunder Bay, City (CY)",
+  "code": "3558004",
+  "prov": "ON",
+  "pop": 108843.0,
+  "density": 332.1
+ },
+ {
+  "geo": "Fort Frances, Town (T)",
+  "code": "3559012",
+  "prov": "ON",
+  "pop": 7466.0,
+  "density": 292.2
+ },
+ {
+  "geo": "Kenora, City (CY)",
+  "code": "3560010",
+  "prov": "ON",
+  "pop": 14967.0,
+  "density": 70.7
+ },
+ {
+  "geo": "Dryden, City (CY)",
+  "code": "3560027",
+  "prov": "ON",
+  "pop": 7388.0,
+  "density": 112.7
+ },
+ {
+  "geo": "Attawapiskat 91A, Indian reserve (IRI)",
+  "code": "3560051",
+  "prov": "ON",
+  "pop": 1586.0,
+  "density": 905.0
+ },
+ {
+  "geo": "Lac du Bonnet, Town (T)",
+  "code": "4601060",
+  "prov": "MB",
+  "pop": 1064.0,
+  "density": 470.7
+ },
+ {
+  "geo": "Powerview-Pine Falls, Town (T)",
+  "code": "4601075",
+  "prov": "MB",
+  "pop": 1239.0,
+  "density": 257.0
+ },
+ {
+  "geo": "St-Pierre-Jolys, Village (VL)",
+  "code": "4602037",
+  "prov": "MB",
+  "pop": 1305.0,
+  "density": 500.5
+ },
+ {
+  "geo": "Steinbach, City (CY)",
+  "code": "4602044",
+  "prov": "MB",
+  "pop": 17806.0,
+  "density": 474.1
+ },
+ {
+  "geo": "Niverville, Town (T)",
+  "code": "4602046",
+  "prov": "MB",
+  "pop": 5947.0,
+  "density": 683.7
+ },
+ {
+  "geo": "Ste. Anne, Town (T)",
+  "code": "4602061",
+  "prov": "MB",
+  "pop": 2891.0,
+  "density": 699.0
+ },
+ {
+  "geo": "Altona, Town (T)",
+  "code": "4603040",
+  "prov": "MB",
+  "pop": 4267.0,
+  "density": 456.3
+ },
+ {
+  "geo": "Winkler, City (CY)",
+  "code": "4603050",
+  "prov": "MB",
+  "pop": 13745.0,
+  "density": 663.1
+ },
+ {
+  "geo": "Morden, City (CY)",
+  "code": "4603053",
+  "prov": "MB",
+  "pop": 9929.0,
+  "density": 609.6
+ },
+ {
+  "geo": "Thompson, City (CY)",
+  "code": "4622026",
+  "prov": "MB",
+  "pop": 13035.0,
+  "density": 784.3
+ },
+ {
+  "geo": "Morris, Town (T)",
+  "code": "4603067",
+  "prov": "MB",
+  "pop": 1975.0,
+  "density": 334.1
+ },
+ {
+  "geo": "Carman, Town (T)",
+  "code": "4603074",
+  "prov": "MB",
+  "pop": 3114.0,
+  "density": 721.5
+ },
+ {
+  "geo": "Melita, Town (T)",
+  "code": "4605052",
+  "prov": "MB",
+  "pop": 1041.0,
+  "density": 326.4
+ },
+ {
+  "geo": "Virden, Town (T)",
+  "code": "4606034",
+  "prov": "MB",
+  "pop": 3118.0,
+  "density": 347.8
+ },
+ {
+  "geo": "Brandon, City (CY)",
+  "code": "4607062",
+  "prov": "MB",
+  "pop": 51313.0,
+  "density": 649.2
+ },
+ {
+  "geo": "Carberry, Town (T)",
+  "code": "4607068",
+  "prov": "MB",
+  "pop": 1818.0,
+  "density": 379.1
+ },
+ {
+  "geo": "Portage la Prairie, City (CY)",
+  "code": "4609029",
+  "prov": "MB",
+  "pop": 13270.0,
+  "density": 536.8
+ },
+ {
+  "geo": "Winnipeg, City (CY)",
+  "code": "4611040",
+  "prov": "MB",
+  "pop": 749607.0,
+  "density": 1623.3
+ },
+ {
+  "geo": "Beausejour, Town (T)",
+  "code": "4612056",
+  "prov": "MB",
+  "pop": 3307.0,
+  "density": 609.6
+ },
+ {
+  "geo": "East St. Paul, Rural municipality (RM)",
+  "code": "4613032",
+  "prov": "MB",
+  "pop": 9725.0,
+  "density": 232.7
+ },
+ {
+  "geo": "Selkirk, City (CY)",
+  "code": "4613047",
+  "prov": "MB",
+  "pop": 10504.0,
+  "density": 429.3
+ },
+ {
+  "geo": "Stonewall, Town (T)",
+  "code": "4614039",
+  "prov": "MB",
+  "pop": 5046.0,
+  "density": 846.4
+ },
+ {
+  "geo": "Teulon, Town (T)",
+  "code": "4614042",
+  "prov": "MB",
+  "pop": 1196.0,
+  "density": 370.3
+ },
+ {
+  "geo": "Neepawa, Town (T)",
+  "code": "4615020",
+  "prov": "MB",
+  "pop": 5685.0,
+  "density": 332.7
+ },
+ {
+  "geo": "Minnedosa, Town (T)",
+  "code": "4615075",
+  "prov": "MB",
+  "pop": 2741.0,
+  "density": 183.4
+ },
+ {
+  "geo": "Dauphin, City (CY)",
+  "code": "4617050",
+  "prov": "MB",
+  "pop": 8368.0,
+  "density": 660.5
+ },
+ {
+  "geo": "Gimli, Rural municipality (RM)",
+  "code": "4618031",
+  "prov": "MB",
+  "pop": 6569.0,
+  "density": 20.7
+ },
+ {
+  "geo": "Winnipeg Beach, Town (T)",
+  "code": "4618034",
+  "prov": "MB",
+  "pop": 1439.0,
+  "density": 367.7
+ },
+ {
+  "geo": "Arborg, Town (T)",
+  "code": "4618074",
+  "prov": "MB",
+  "pop": 1279.0,
+  "density": 576.6
+ },
+ {
+  "geo": "Swan River, Town (T)",
+  "code": "4620048",
+  "prov": "MB",
+  "pop": 4049.0,
+  "density": 595.0
+ },
+ {
+  "geo": "Chemawawin 2, Indian reserve (IRI)",
+  "code": "4621029",
+  "prov": "MB",
+  "pop": 1264.0,
+  "density": 503.4
+ },
+ {
+  "geo": "The Pas, Town (T)",
+  "code": "4621045",
+  "prov": "MB",
+  "pop": 5639.0,
+  "density": 126.2
+ },
+ {
+  "geo": "Flin Flon (Part), City (CY)",
+  "code": "4621064",
+  "prov": "MB",
+  "pop": 4940.0,
+  "density": 376.1
+ },
+ {
+  "geo": "Cross Lake 19A, Indian reserve (IRI)",
+  "code": "4622052",
+  "prov": "MB",
+  "pop": 2045.0,
+  "density": 338.1
+ },
+ {
+  "geo": "Nelson House 170, Indian reserve (IRI)",
+  "code": "4622059",
+  "prov": "MB",
+  "pop": 2397.0,
+  "density": 138.9
+ },
+ {
+  "geo": "Churchill, Town (T)",
+  "code": "4623056",
+  "prov": "MB",
+  "pop": 870.0,
+  "density": 17.1
+ },
+ {
+  "geo": "Carnduff, Town (T)",
+  "code": "4701008",
+  "prov": "SK",
+  "pop": 1150.0,
+  "density": 441.0
+ },
+ {
+  "geo": "Oxbow, Town (T)",
+  "code": "4701014",
+  "prov": "SK",
+  "pop": 1286.0,
+  "density": 386.6
+ },
+ {
+  "geo": "Estevan, City (CY)",
+  "code": "4701024",
+  "prov": "SK",
+  "pop": 10851.0,
+  "density": 592.9
+ },
+ {
+  "geo": "Redvers, Town (T)",
+  "code": "4701049",
+  "prov": "SK",
+  "pop": 1008.0,
+  "density": 348.2
+ },
+ {
+  "geo": "Carlyle, Town (T)",
+  "code": "4701056",
+  "prov": "SK",
+  "pop": 1524.0,
+  "density": 281.9
+ },
+ {
+  "geo": "Weyburn, City (CY)",
+  "code": "4702047",
+  "prov": "SK",
+  "pop": 11019.0,
+  "density": 579.1
+ },
+ {
+  "geo": "Assiniboia, Town (T)",
+  "code": "4703036",
+  "prov": "SK",
+  "pop": 2333.0,
+  "density": 633.6
+ },
+ {
+  "geo": "Shaunavon, Town (T)",
+  "code": "4704036",
+  "prov": "SK",
+  "pop": 1784.0,
+  "density": 371.7
+ },
+ {
+  "geo": "Maple Creek, Town (T)",
+  "code": "4704048",
+  "prov": "SK",
+  "pop": 2176.0,
+  "density": 500.0
+ },
+ {
+  "geo": "Moosomin, Town (T)",
+  "code": "4705004",
+  "prov": "SK",
+  "pop": 2657.0,
+  "density": 371.5
+ },
+ {
+  "geo": "Kipling, Town (T)",
+  "code": "4705016",
+  "prov": "SK",
+  "pop": 1076.0,
+  "density": 421.9
+ },
+ {
+  "geo": "Grenfell, Town (T)",
+  "code": "4705029",
+  "prov": "SK",
+  "pop": 1059.0,
+  "density": 337.2
+ },
+ {
+  "geo": "Langenburg, Town (T)",
+  "code": "4705048",
+  "prov": "SK",
+  "pop": 1228.0,
+  "density": 362.8
+ },
+ {
+  "geo": "Esterhazy, Town (T)",
+  "code": "4705052",
+  "prov": "SK",
+  "pop": 2345.0,
+  "density": 421.6
+ },
+ {
+  "geo": "Melville, City (CY)",
+  "code": "4705074",
+  "prov": "SK",
+  "pop": 4493.0,
+  "density": 304.0
+ },
+ {
+  "geo": "Regina, City (CY)",
+  "code": "4706027",
+  "prov": "SK",
+  "pop": 226404.0,
+  "density": 1266.2
+ },
+ {
+  "geo": "White City, Town (T)",
+  "code": "4706030",
+  "prov": "SK",
+  "pop": 3702.0,
+  "density": 489.7
+ },
+ {
+  "geo": "Pilot Butte, Town (T)",
+  "code": "4706031",
+  "prov": "SK",
+  "pop": 2638.0,
+  "density": 462.3
+ },
+ {
+  "geo": "Balgonie, Town (T)",
+  "code": "4706032",
+  "prov": "SK",
+  "pop": 1756.0,
+  "density": 369.2
+ },
+ {
+  "geo": "Indian Head, Town (T)",
+  "code": "4706039",
+  "prov": "SK",
+  "pop": 1902.0,
+  "density": 617.7
+ },
+ {
+  "geo": "Fort Qu'Appelle, Town (T)",
+  "code": "4706051",
+  "prov": "SK",
+  "pop": 1972.0,
+  "density": 387.2
+ },
+ {
+  "geo": "Lumsden, Town (T)",
+  "code": "4706056",
+  "prov": "SK",
+  "pop": 1800.0,
+  "density": 366.0
+ },
+ {
+  "geo": "Regina Beach, Town (T)",
+  "code": "4706058",
+  "prov": "SK",
+  "pop": 1292.0,
+  "density": 332.7
+ },
+ {
+  "geo": "Caronport, Village (VL)",
+  "code": "4707037",
+  "prov": "SK",
+  "pop": 1033.0,
+  "density": 566.3
+ },
+ {
+  "geo": "Moose Jaw, City (CY)",
+  "code": "4707039",
+  "prov": "SK",
+  "pop": 33665.0,
+  "density": 511.5
+ },
+ {
+  "geo": "Swift Current, City (CY)",
+  "code": "4708004",
+  "prov": "SK",
+  "pop": 16750.0,
+  "density": 571.6
+ },
+ {
+  "geo": "Yorkton, City (CY)",
+  "code": "4709012",
+  "prov": "SK",
+  "pop": 16280.0,
+  "density": 449.8
+ },
+ {
+  "geo": "Canora, Town (T)",
+  "code": "4709032",
+  "prov": "SK",
+  "pop": 2092.0,
+  "density": 284.7
+ },
+ {
+  "geo": "Kamsack, Town (T)",
+  "code": "4709039",
+  "prov": "SK",
+  "pop": 1779.0,
+  "density": 313.5
+ },
+ {
+  "geo": "Preeceville, Town (T)",
+  "code": "4709064",
+  "prov": "SK",
+  "pop": 1062.0,
+  "density": 371.8
+ },
+ {
+  "geo": "Foam Lake, Town (T)",
+  "code": "4710038",
+  "prov": "SK",
+  "pop": 1183.0,
+  "density": 196.0
+ },
+ {
+  "geo": "Wynyard, Town (T)",
+  "code": "4710047",
+  "prov": "SK",
+  "pop": 1724.0,
+  "density": 323.9
+ },
+ {
+  "geo": "Wadena, Town (T)",
+  "code": "4710068",
+  "prov": "SK",
+  "pop": 1269.0,
+  "density": 423.8
+ },
+ {
+  "geo": "Davidson, Town (T)",
+  "code": "4711014",
+  "prov": "SK",
+  "pop": 1044.0,
+  "density": 257.7
+ },
+ {
+  "geo": "Outlook, Town (T)",
+  "code": "4711027",
+  "prov": "SK",
+  "pop": 2336.0,
+  "density": 280.0
+ },
+ {
+  "geo": "Lanigan, Town (T)",
+  "code": "4711049",
+  "prov": "SK",
+  "pop": 1433.0,
+  "density": 176.1
+ },
+ {
+  "geo": "Watrous, Town (T)",
+  "code": "4711053",
+  "prov": "SK",
+  "pop": 1842.0,
+  "density": 163.1
+ },
+ {
+  "geo": "Saskatoon, City (CY)",
+  "code": "4711066",
+  "prov": "SK",
+  "pop": 266141.0,
+  "density": 1174.7
+ },
+ {
+  "geo": "Langham, Town (T)",
+  "code": "4711067",
+  "prov": "SK",
+  "pop": 1518.0,
+  "density": 355.1
+ },
+ {
+  "geo": "Warman, City (CY)",
+  "code": "4711068",
+  "prov": "SK",
+  "pop": 12419.0,
+  "density": 948.3
+ },
+ {
+  "geo": "Martensville, City (CY)",
+  "code": "4711070",
+  "prov": "SK",
+  "pop": 10549.0,
+  "density": 777.9
+ },
+ {
+  "geo": "Dalmeny, Town (T)",
+  "code": "4711073",
+  "prov": "SK",
+  "pop": 1766.0,
+  "density": 537.8
+ },
+ {
+  "geo": "Osler, Town (T)",
+  "code": "4711075",
+  "prov": "SK",
+  "pop": 1251.0,
+  "density": 771.7
+ },
+ {
+  "geo": "Rosetown, Town (T)",
+  "code": "4712006",
+  "prov": "SK",
+  "pop": 2507.0,
+  "density": 216.3
+ },
+ {
+  "geo": "Biggar, Town (T)",
+  "code": "4712046",
+  "prov": "SK",
+  "pop": 2133.0,
+  "density": 138.8
+ },
+ {
+  "geo": "Delisle, Town (T)",
+  "code": "4712056",
+  "prov": "SK",
+  "pop": 1024.0,
+  "density": 307.5
+ },
+ {
+  "geo": "Battleford, Town (T)",
+  "code": "4712079",
+  "prov": "SK",
+  "pop": 4400.0,
+  "density": 189.2
+ },
+ {
+  "geo": "Kindersley, Town (T)",
+  "code": "4713008",
+  "prov": "SK",
+  "pop": 4567.0,
+  "density": 353.7
+ },
+ {
+  "geo": "Macklin, Town (T)",
+  "code": "4713051",
+  "prov": "SK",
+  "pop": 1247.0,
+  "density": 409.2
+ },
+ {
+  "geo": "Wilkie, Town (T)",
+  "code": "4713069",
+  "prov": "SK",
+  "pop": 1195.0,
+  "density": 129.5
+ },
+ {
+  "geo": "Unity, Town (T)",
+  "code": "4713074",
+  "prov": "SK",
+  "pop": 2496.0,
+  "density": 257.3
+ },
+ {
+  "geo": "Tisdale, Town (T)",
+  "code": "4714044",
+  "prov": "SK",
+  "pop": 2962.0,
+  "density": 451.9
+ },
+ {
+  "geo": "Melfort, City (CY)",
+  "code": "4714051",
+  "prov": "SK",
+  "pop": 5955.0,
+  "density": 404.2
+ },
+ {
+  "geo": "Nipawin, Town (T)",
+  "code": "4714076",
+  "prov": "SK",
+  "pop": 4570.0,
+  "density": 512.0
+ },
+ {
+  "geo": "Humboldt, City (CY)",
+  "code": "4715008",
+  "prov": "SK",
+  "pop": 6033.0,
+  "density": 453.5
+ },
+ {
+  "geo": "Waldheim, Town (T)",
+  "code": "4715028",
+  "prov": "SK",
+  "pop": 1237.0,
+  "density": 628.1
+ },
+ {
+  "geo": "Rosthern, Town (T)",
+  "code": "4715032",
+  "prov": "SK",
+  "pop": 1602.0,
+  "density": 386.9
+ },
+ {
+  "geo": "Prince Albert, City (CY)",
+  "code": "4715066",
+  "prov": "SK",
+  "pop": 37756.0,
+  "density": 562.1
+ },
+ {
+  "geo": "Birch Hills, Town (T)",
+  "code": "4715068",
+  "prov": "SK",
+  "pop": 1066.0,
+  "density": 446.6
+ },
+ {
+  "geo": "North Battleford, City (CY)",
+  "code": "4716029",
+  "prov": "SK",
+  "pop": 13836.0,
+  "density": 412.4
+ },
+ {
+  "geo": "Shellbrook, Town (T)",
+  "code": "4716047",
+  "prov": "SK",
+  "pop": 1510.0,
+  "density": 384.2
+ },
+ {
+  "geo": "Maidstone, Town (T)",
+  "code": "4717018",
+  "prov": "SK",
+  "pop": 1209.0,
+  "density": 275.1
+ },
+ {
+  "geo": "Lloydminster (Part), City (CY)",
+  "code": "4717029",
+  "prov": "SK",
+  "pop": 11843.0,
+  "density": 655.8
+ },
+ {
+  "geo": "Meadow Lake, City (CY)",
+  "code": "4717052",
+  "prov": "SK",
+  "pop": 5322.0,
+  "density": 430.2
+ },
+ {
+  "geo": "La Ronge, Town (T)",
+  "code": "4718041",
+  "prov": "SK",
+  "pop": 2521.0,
+  "density": 150.9
+ },
+ {
+  "geo": "Air Ronge, Northern village (NV)",
+  "code": "4718042",
+  "prov": "SK",
+  "pop": 1365.0,
+  "density": 227.5
+ },
+ {
+  "geo": "Pinehouse, Northern village (NV)",
+  "code": "4718065",
+  "prov": "SK",
+  "pop": 1013.0,
+  "density": 149.6
+ },
+ {
+  "geo": "La Loche, Northern village (NV)",
+  "code": "4718074",
+  "prov": "SK",
+  "pop": 2514.0,
+  "density": 162.5
+ },
+ {
+  "geo": "Stanley 157, Indian reserve (IRI)",
+  "code": "4718803",
+  "prov": "SK",
+  "pop": 1883.0,
+  "density": 782.5
+ },
+ {
+  "geo": "Lac La Ronge 156, Indian reserve (IRI)",
+  "code": "4718809",
+  "prov": "SK",
+  "pop": 1349.0,
+  "density": 230.4
+ },
+ {
+  "geo": "Pelican Narrows 184B, Indian reserve (IRI)",
+  "code": "4718820",
+  "prov": "SK",
+  "pop": 1837.0,
+  "density": 348.9
+ },
+ {
+  "geo": "Medicine Hat, City (CY)",
+  "code": "4801006",
+  "prov": "AB",
+  "pop": 63271.0,
+  "density": 565.1
+ },
+ {
+  "geo": "Bow Island, Town (T)",
+  "code": "4801014",
+  "prov": "AB",
+  "pop": 2036.0,
+  "density": 358.5
+ },
+ {
+  "geo": "Redcliff, Town (T)",
+  "code": "4801018",
+  "prov": "AB",
+  "pop": 5581.0,
+  "density": 345.5
+ },
+ {
+  "geo": "Raymond, Town (T)",
+  "code": "4802008",
+  "prov": "AB",
+  "pop": 4199.0,
+  "density": 550.2
+ },
+ {
+  "geo": "Stirling, Village (VL)",
+  "code": "4802009",
+  "prov": "AB",
+  "pop": 1164.0,
+  "density": 431.8
+ },
+ {
+  "geo": "Lethbridge, City (CY)",
+  "code": "4802012",
+  "prov": "AB",
+  "pop": 98406.0,
+  "density": 812.5
+ },
+ {
+  "geo": "Coalhurst, Town (T)",
+  "code": "4802013",
+  "prov": "AB",
+  "pop": 2869.0,
+  "density": 931.3
+ },
+ {
+  "geo": "Nobleford, Town (T)",
+  "code": "4802014",
+  "prov": "AB",
+  "pop": 1438.0,
+  "density": 848.6
+ },
+ {
+  "geo": "Picture Butte, Town (T)",
+  "code": "4802018",
+  "prov": "AB",
+  "pop": 1930.0,
+  "density": 639.7
+ },
+ {
+  "geo": "Coaldale, Town (T)",
+  "code": "4802019",
+  "prov": "AB",
+  "pop": 8771.0,
+  "density": 645.9
+ },
+ {
+  "geo": "Taber, Town (T)",
+  "code": "4802022",
+  "prov": "AB",
+  "pop": 8862.0,
+  "density": 458.6
+ },
+ {
+  "geo": "Vauxhall, Town (T)",
+  "code": "4802029",
+  "prov": "AB",
+  "pop": 1286.0,
+  "density": 474.7
+ },
+ {
+  "geo": "Brooks, City (CY)",
+  "code": "4802034",
+  "prov": "AB",
+  "pop": 14924.0,
+  "density": 819.8
+ },
+ {
+  "geo": "Duchess, Village (VL)",
+  "code": "4802036",
+  "prov": "AB",
+  "pop": 1053.0,
+  "density": 545.9
+ },
+ {
+  "geo": "Bassano, Town (T)",
+  "code": "4802039",
+  "prov": "AB",
+  "pop": 1216.0,
+  "density": 232.5
+ },
+ {
+  "geo": "Magrath, Town (T)",
+  "code": "4803002",
+  "prov": "AB",
+  "pop": 2481.0,
+  "density": 422.0
+ },
+ {
+  "geo": "Cardston, Town (T)",
+  "code": "4803004",
+  "prov": "AB",
+  "pop": 3724.0,
+  "density": 434.1
+ },
+ {
+  "geo": "Pincher Creek, Town (T)",
+  "code": "4803014",
+  "prov": "AB",
+  "pop": 3622.0,
+  "density": 367.1
+ },
+ {
+  "geo": "Fort Macleod, Town (T)",
+  "code": "4803019",
+  "prov": "AB",
+  "pop": 3297.0,
+  "density": 146.2
+ },
+ {
+  "geo": "Claresholm, Town (T)",
+  "code": "4803022",
+  "prov": "AB",
+  "pop": 3804.0,
+  "density": 362.1
+ },
+ {
+  "geo": "Nanton, Town (T)",
+  "code": "4803026",
+  "prov": "AB",
+  "pop": 2167.0,
+  "density": 423.9
+ },
+ {
+  "geo": "Hanna, Town (T)",
+  "code": "4804011",
+  "prov": "AB",
+  "pop": 2394.0,
+  "density": 285.1
+ },
+ {
+  "geo": "Vulcan, Town (T)",
+  "code": "4805006",
+  "prov": "AB",
+  "pop": 1769.0,
+  "density": 281.8
+ },
+ {
+  "geo": "Strathmore, Town (T)",
+  "code": "4805018",
+  "prov": "AB",
+  "pop": 14339.0,
+  "density": 531.5
+ },
+ {
+  "geo": "Three Hills, Town (T)",
+  "code": "4805048",
+  "prov": "AB",
+  "pop": 3042.0,
+  "density": 451.2
+ },
+ {
+  "geo": "High River, Town (T)",
+  "code": "4806006",
+  "prov": "AB",
+  "pop": 14324.0,
+  "density": 645.4
+ },
+ {
+  "geo": "Turner Valley, Town (T)",
+  "code": "4806009",
+  "prov": "AB",
+  "pop": 2611.0,
+  "density": 453.7
+ },
+ {
+  "geo": "Black Diamond, Town (T)",
+  "code": "4806011",
+  "prov": "AB",
+  "pop": 2730.0,
+  "density": 400.4
+ },
+ {
+  "geo": "Okotoks, Town (T)",
+  "code": "4806012",
+  "prov": "AB",
+  "pop": 30405.0,
+  "density": 788.7
+ },
+ {
+  "geo": "Calgary, City (CY)",
+  "code": "4806016",
+  "prov": "AB",
+  "pop": 1306784.0,
+  "density": 1592.4
+ },
+ {
+  "geo": "Chestermere, City (CY)",
+  "code": "4806017",
+  "prov": "AB",
+  "pop": 22163.0,
+  "density": 675.0
+ },
+ {
+  "geo": "Cochrane, Town (T)",
+  "code": "4806019",
+  "prov": "AB",
+  "pop": 32199.0,
+  "density": 1019.5
+ },
+ {
+  "geo": "Airdrie, City (CY)",
+  "code": "4806021",
+  "prov": "AB",
+  "pop": 74100.0,
+  "density": 878.1
+ },
+ {
+  "geo": "Irricana, Town (T)",
+  "code": "4806022",
+  "prov": "AB",
+  "pop": 1179.0,
+  "density": 364.6
+ },
+ {
+  "geo": "Crossfield, Town (T)",
+  "code": "4806026",
+  "prov": "AB",
+  "pop": 3599.0,
+  "density": 302.7
+ },
+ {
+  "geo": "Carstairs, Town (T)",
+  "code": "4806029",
+  "prov": "AB",
+  "pop": 4898.0,
+  "density": 416.2
+ },
+ {
+  "geo": "Didsbury, Town (T)",
+  "code": "4806032",
+  "prov": "AB",
+  "pop": 5070.0,
+  "density": 314.5
+ },
+ {
+  "geo": "Olds, Town (T)",
+  "code": "4806034",
+  "prov": "AB",
+  "pop": 9209.0,
+  "density": 617.3
+ },
+ {
+  "geo": "Sundre, Town (T)",
+  "code": "4806036",
+  "prov": "AB",
+  "pop": 2672.0,
+  "density": 246.4
+ },
+ {
+  "geo": "Provost, Town (T)",
+  "code": "4807002",
+  "prov": "AB",
+  "pop": 1900.0,
+  "density": 400.1
+ },
+ {
+  "geo": "Stettler, Town (T)",
+  "code": "4807026",
+  "prov": "AB",
+  "pop": 5695.0,
+  "density": 431.9
+ },
+ {
+  "geo": "Wainwright, Town (T)",
+  "code": "4807054",
+  "prov": "AB",
+  "pop": 6606.0,
+  "density": 543.0
+ },
+ {
+  "geo": "Bowden, Town (T)",
+  "code": "4808006",
+  "prov": "AB",
+  "pop": 1280.0,
+  "density": 370.2
+ },
+ {
+  "geo": "Innisfail, Town (T)",
+  "code": "4808008",
+  "prov": "AB",
+  "pop": 7985.0,
+  "density": 411.7
+ },
+ {
+  "geo": "Penhold, Town (T)",
+  "code": "4808009",
+  "prov": "AB",
+  "pop": 3484.0,
+  "density": 311.0
+ },
+ {
+  "geo": "Red Deer, City (CY)",
+  "code": "4808011",
+  "prov": "AB",
+  "pop": 100844.0,
+  "density": 966.5
+ },
+ {
+  "geo": "Sylvan Lake, Town (T)",
+  "code": "4808012",
+  "prov": "AB",
+  "pop": 15995.0,
+  "density": 692.8
+ },
+ {
+  "geo": "Eckville, Town (T)",
+  "code": "4808024",
+  "prov": "AB",
+  "pop": 1014.0,
+  "density": 629.5
+ },
+ {
+  "geo": "Bentley, Town (T)",
+  "code": "4808026",
+  "prov": "AB",
+  "pop": 1042.0,
+  "density": 464.4
+ },
+ {
+  "geo": "Blackfalds, Town (T)",
+  "code": "4808029",
+  "prov": "AB",
+  "pop": 10470.0,
+  "density": 631.4
+ },
+ {
+  "geo": "Lacombe, City (CY)",
+  "code": "4808031",
+  "prov": "AB",
+  "pop": 13396.0,
+  "density": 650.8
+ },
+ {
+  "geo": "Ponoka, Town (T)",
+  "code": "4808039",
+  "prov": "AB",
+  "pop": 7331.0,
+  "density": 425.8
+ },
+ {
+  "geo": "Rimbey, Town (T)",
+  "code": "4808044",
+  "prov": "AB",
+  "pop": 2470.0,
+  "density": 217.1
+ },
+ {
+  "geo": "Rocky Mountain House, Town (T)",
+  "code": "4809015",
+  "prov": "AB",
+  "pop": 6765.0,
+  "density": 518.3
+ },
+ {
+  "geo": "Camrose, City (CY)",
+  "code": "4810011",
+  "prov": "AB",
+  "pop": 18772.0,
+  "density": 450.5
+ },
+ {
+  "geo": "Tofield, Town (T)",
+  "code": "4810018",
+  "prov": "AB",
+  "pop": 2045.0,
+  "density": 249.2
+ },
+ {
+  "geo": "Vegreville, Town (T)",
+  "code": "4810028",
+  "prov": "AB",
+  "pop": 5689.0,
+  "density": 404.0
+ },
+ {
+  "geo": "Lloydminster (Part), City (CY)",
+  "code": "4810039",
+  "prov": "AB",
+  "pop": 19739.0,
+  "density": 823.1
+ },
+ {
+  "geo": "Vermilion, Town (T)",
+  "code": "4810042",
+  "prov": "AB",
+  "pop": 3948.0,
+  "density": 310.4
+ },
+ {
+  "geo": "Two Hills, Town (T)",
+  "code": "4810052",
+  "prov": "AB",
+  "pop": 1416.0,
+  "density": 454.7
+ },
+ {
+  "geo": "Lamont, Town (T)",
+  "code": "4810064",
+  "prov": "AB",
+  "pop": 1744.0,
+  "density": 190.9
+ },
+ {
+  "geo": "Bruderheim, Town (T)",
+  "code": "4810066",
+  "prov": "AB",
+  "pop": 1329.0,
+  "density": 143.2
+ },
+ {
+  "geo": "Wetaskiwin, City (CY)",
+  "code": "4811002",
+  "prov": "AB",
+  "pop": 12594.0,
+  "density": 671.6
+ },
+ {
+  "geo": "Millet, Town (T)",
+  "code": "4811011",
+  "prov": "AB",
+  "pop": 1890.0,
+  "density": 285.3
+ },
+ {
+  "geo": "Beaumont, City (CY)",
+  "code": "4811013",
+  "prov": "AB",
+  "pop": 20888.0,
+  "density": 845.6
+ },
+ {
+  "geo": "Leduc, City (CY)",
+  "code": "4811016",
+  "prov": "AB",
+  "pop": 34094.0,
+  "density": 806.9
+ },
+ {
+  "geo": "Devon, Town (T)",
+  "code": "4811018",
+  "prov": "AB",
+  "pop": 6545.0,
+  "density": 459.1
+ },
+ {
+  "geo": "Calmar, Town (T)",
+  "code": "4811019",
+  "prov": "AB",
+  "pop": 2183.0,
+  "density": 467.6
+ },
+ {
+  "geo": "Drayton Valley, Town (T)",
+  "code": "4811031",
+  "prov": "AB",
+  "pop": 7291.0,
+  "density": 236.0
+ },
+ {
+  "geo": "Stony Plain, Town (T)",
+  "code": "4811048",
+  "prov": "AB",
+  "pop": 17993.0,
+  "density": 507.6
+ },
+ {
+  "geo": "Spruce Grove, City (CY)",
+  "code": "4811049",
+  "prov": "AB",
+  "pop": 37645.0,
+  "density": 1003.3
+ },
+ {
+  "geo": "Fort Saskatchewan, City (CY)",
+  "code": "4811056",
+  "prov": "AB",
+  "pop": 27088.0,
+  "density": 479.4
+ },
+ {
+  "geo": "Edmonton, City (CY)",
+  "code": "4811061",
+  "prov": "AB",
+  "pop": 1010899.0,
+  "density": 1320.4
+ },
+ {
+  "geo": "St. Albert, City (CY)",
+  "code": "4811062",
+  "prov": "AB",
+  "pop": 68232.0,
+  "density": 1426.4
+ },
+ {
+  "geo": "Gibbons, Town (T)",
+  "code": "4811064",
+  "prov": "AB",
+  "pop": 3218.0,
+  "density": 340.1
+ },
+ {
+  "geo": "Redwater, Town (T)",
+  "code": "4811065",
+  "prov": "AB",
+  "pop": 2115.0,
+  "density": 106.1
+ },
+ {
+  "geo": "Bon Accord, Town (T)",
+  "code": "4811066",
+  "prov": "AB",
+  "pop": 1461.0,
+  "density": 366.4
+ },
+ {
+  "geo": "Morinville, Town (T)",
+  "code": "4811068",
+  "prov": "AB",
+  "pop": 10385.0,
+  "density": 931.0
+ },
+ {
+  "geo": "Legal, Town (T)",
+  "code": "4811069",
+  "prov": "AB",
+  "pop": 1232.0,
+  "density": 387.9
+ },
+ {
+  "geo": "Cold Lake, City (CY)",
+  "code": "4812002",
+  "prov": "AB",
+  "pop": 15661.0,
+  "density": 235.1
+ },
+ {
+  "geo": "Bonnyville, Town (T)",
+  "code": "4812009",
+  "prov": "AB",
+  "pop": 6404.0,
+  "density": 452.1
+ },
+ {
+  "geo": "Elk Point, Town (T)",
+  "code": "4812016",
+  "prov": "AB",
+  "pop": 1399.0,
+  "density": 284.7
+ },
+ {
+  "geo": "St. Paul, Town (T)",
+  "code": "4812018",
+  "prov": "AB",
+  "pop": 5863.0,
+  "density": 678.7
+ },
+ {
+  "geo": "Smoky Lake, Town (T)",
+  "code": "4812029",
+  "prov": "AB",
+  "pop": 1127.0,
+  "density": 264.4
+ },
+ {
+  "geo": "Mayerthorpe, Town (T)",
+  "code": "4813002",
+  "prov": "AB",
+  "pop": 1259.0,
+  "density": 286.6
+ },
+ {
+  "geo": "Barrhead, Town (T)",
+  "code": "4813019",
+  "prov": "AB",
+  "pop": 4320.0,
+  "density": 527.1
+ },
+ {
+  "geo": "Whitecourt, Town (T)",
+  "code": "4813030",
+  "prov": "AB",
+  "pop": 9927.0,
+  "density": 336.4
+ },
+ {
+  "geo": "Westlock, Town (T)",
+  "code": "4813031",
+  "prov": "AB",
+  "pop": 4921.0,
+  "density": 368.0
+ },
+ {
+  "geo": "Athabasca, Town (T)",
+  "code": "4813048",
+  "prov": "AB",
+  "pop": 2759.0,
+  "density": 155.1
+ },
+ {
+  "geo": "Hinton, Town (T)",
+  "code": "4814019",
+  "prov": "AB",
+  "pop": 9817.0,
+  "density": 294.6
+ },
+ {
+  "geo": "Edson, Town (T)",
+  "code": "4814024",
+  "prov": "AB",
+  "pop": 8374.0,
+  "density": 284.5
+ },
+ {
+  "geo": "Canmore, Town (T)",
+  "code": "4815023",
+  "prov": "AB",
+  "pop": 15990.0,
+  "density": 233.5
+ },
+ {
+  "geo": "Jasper, Specialized municipality (SM)",
+  "code": "4815033",
+  "prov": "AB",
+  "pop": 4738.0,
+  "density": 5.1
+ },
+ {
+  "geo": "Banff, Town (T)",
+  "code": "4815035",
+  "prov": "AB",
+  "pop": 8305.0,
+  "density": 2033.8
+ },
+ {
+  "geo": "High Prairie, Town (T)",
+  "code": "4817021",
+  "prov": "AB",
+  "pop": 2380.0,
+  "density": 339.5
+ },
+ {
+  "geo": "Slave Lake, Town (T)",
+  "code": "4817029",
+  "prov": "AB",
+  "pop": 6836.0,
+  "density": 477.7
+ },
+ {
+  "geo": "Manning, Town (T)",
+  "code": "4817078",
+  "prov": "AB",
+  "pop": 1126.0,
+  "density": 303.1
+ },
+ {
+  "geo": "High Level, Town (T)",
+  "code": "4817093",
+  "prov": "AB",
+  "pop": 3922.0,
+  "density": 136.7
+ },
+ {
+  "geo": "Fox Creek, Town (T)",
+  "code": "4818002",
+  "prov": "AB",
+  "pop": 1639.0,
+  "density": 133.6
+ },
+ {
+  "geo": "Valleyview, Town (T)",
+  "code": "4818018",
+  "prov": "AB",
+  "pop": 1673.0,
+  "density": 182.4
+ },
+ {
+  "geo": "Beaverlodge, Town (T)",
+  "code": "4819009",
+  "prov": "AB",
+  "pop": 2271.0,
+  "density": 421.9
+ },
+ {
+  "geo": "Wembley, Town (T)",
+  "code": "4819011",
+  "prov": "AB",
+  "pop": 1432.0,
+  "density": 302.1
+ },
+ {
+  "geo": "Grande Prairie, City (CY)",
+  "code": "4819012",
+  "prov": "AB",
+  "pop": 64141.0,
+  "density": 483.3
+ },
+ {
+  "geo": "Sexsmith, Town (T)",
+  "code": "4819014",
+  "prov": "AB",
+  "pop": 2427.0,
+  "density": 186.5
+ },
+ {
+  "geo": "Peace River, Town (T)",
+  "code": "4819038",
+  "prov": "AB",
+  "pop": 6619.0,
+  "density": 261.2
+ },
+ {
+  "geo": "Falher, Town (T)",
+  "code": "4819046",
+  "prov": "AB",
+  "pop": 1001.0,
+  "density": 354.1
+ },
+ {
+  "geo": "Fairview, Town (T)",
+  "code": "4819068",
+  "prov": "AB",
+  "pop": 2817.0,
+  "density": 263.9
+ },
+ {
+  "geo": "Grimshaw, Town (T)",
+  "code": "4819074",
+  "prov": "AB",
+  "pop": 2601.0,
+  "density": 367.2
+ },
+ {
+  "geo": "Fernie, City (CY)",
+  "code": "5901012",
+  "prov": "BC",
+  "pop": 6320.0,
+  "density": 418.3
+ },
+ {
+  "geo": "Cranbrook, City (CY)",
+  "code": "5901022",
+  "prov": "BC",
+  "pop": 20499.0,
+  "density": 641.2
+ },
+ {
+  "geo": "Kimberley, City (CY)",
+  "code": "5901028",
+  "prov": "BC",
+  "pop": 8115.0,
+  "density": 134.1
+ },
+ {
+  "geo": "Invermere, District municipality (DM)",
+  "code": "5901039",
+  "prov": "BC",
+  "pop": 3917.0,
+  "density": 364.4
+ },
+ {
+  "geo": "Radium Hot Springs, Village (VL)",
+  "code": "5901040",
+  "prov": "BC",
+  "pop": 1339.0,
+  "density": 211.3
+ },
+ {
+  "geo": "Creston, Town (T)",
+  "code": "5903004",
+  "prov": "BC",
+  "pop": 5583.0,
+  "density": 664.2
+ },
+ {
+  "geo": "Salmo, Village (VL)",
+  "code": "5903011",
+  "prov": "BC",
+  "pop": 1140.0,
+  "density": 466.4
+ },
+ {
+  "geo": "Nelson, City (CY)",
+  "code": "5903015",
+  "prov": "BC",
+  "pop": 11106.0,
+  "density": 930.6
+ },
+ {
+  "geo": "Kaslo, Village (VL)",
+  "code": "5903023",
+  "prov": "BC",
+  "pop": 1049.0,
+  "density": 348.7
+ },
+ {
+  "geo": "Castlegar, City (CY)",
+  "code": "5903045",
+  "prov": "BC",
+  "pop": 8338.0,
+  "density": 419.6
+ },
+ {
+  "geo": "Nakusp, Village (VL)",
+  "code": "5903050",
+  "prov": "BC",
+  "pop": 1589.0,
+  "density": 197.7
+ },
+ {
+  "geo": "Fruitvale, Village (VL)",
+  "code": "5905005",
+  "prov": "BC",
+  "pop": 1958.0,
+  "density": 724.7
+ },
+ {
+  "geo": "Montrose, Village (VL)",
+  "code": "5905009",
+  "prov": "BC",
+  "pop": 1013.0,
+  "density": 693.1
+ },
+ {
+  "geo": "Trail, City (CY)",
+  "code": "5905014",
+  "prov": "BC",
+  "pop": 7920.0,
+  "density": 226.9
+ },
+ {
+  "geo": "Warfield, Village (VL)",
+  "code": "5905018",
+  "prov": "BC",
+  "pop": 1753.0,
+  "density": 929.3
+ },
+ {
+  "geo": "Grand Forks, City (CY)",
+  "code": "5905032",
+  "prov": "BC",
+  "pop": 4112.0,
+  "density": 396.4
+ },
+ {
+  "geo": "Osoyoos, Town (T)",
+  "code": "5907005",
+  "prov": "BC",
+  "pop": 5556.0,
+  "density": 660.7
+ },
+ {
+  "geo": "Keremeos, Village (VL)",
+  "code": "5907009",
+  "prov": "BC",
+  "pop": 1608.0,
+  "density": 768.3
+ },
+ {
+  "geo": "Oliver, Town (T)",
+  "code": "5907014",
+  "prov": "BC",
+  "pop": 5094.0,
+  "density": 927.9
+ },
+ {
+  "geo": "Summerland, District municipality (DM)",
+  "code": "5907035",
+  "prov": "BC",
+  "pop": 12042.0,
+  "density": 162.6
+ },
+ {
+  "geo": "Penticton, City (CY)",
+  "code": "5907041",
+  "prov": "BC",
+  "pop": 36885.0,
+  "density": 857.3
+ },
+ {
+  "geo": "Hope, District municipality (DM)",
+  "code": "5909009",
+  "prov": "BC",
+  "pop": 6686.0,
+  "density": 163.6
+ },
+ {
+  "geo": "Chilliwack, City (CY)",
+  "code": "5909020",
+  "prov": "BC",
+  "pop": 93203.0,
+  "density": 356.6
+ },
+ {
+  "geo": "Harrison Hot Springs, Village (VL)",
+  "code": "5909027",
+  "prov": "BC",
+  "pop": 1905.0,
+  "density": 347.3
+ },
+ {
+  "geo": "Abbotsford, City (CY)",
+  "code": "5909052",
+  "prov": "BC",
+  "pop": 153524.0,
+  "density": 409.0
+ },
+ {
+  "geo": "Mission, District municipality (DM)",
+  "code": "5909056",
+  "prov": "BC",
+  "pop": 41519.0,
+  "density": 182.9
+ },
+ {
+  "geo": "Tzeachten 13, Indian reserve (IRI)",
+  "code": "5909830",
+  "prov": "BC",
+  "pop": 3089.0,
+  "density": 1168.6
+ },
+ {
+  "geo": "Langley, District municipality (DM)",
+  "code": "5915001",
+  "prov": "BC",
+  "pop": 132603.0,
+  "density": 431.6
+ },
+ {
+  "geo": "Langley, City (CY)",
+  "code": "5915002",
+  "prov": "BC",
+  "pop": 28963.0,
+  "density": 2845.2
+ },
+ {
+  "geo": "Surrey, City (CY)",
+  "code": "5915004",
+  "prov": "BC",
+  "pop": 568322.0,
+  "density": 1797.9
+ },
+ {
+  "geo": "White Rock, City (CY)",
+  "code": "5915007",
+  "prov": "BC",
+  "pop": 21939.0,
+  "density": 4240.6
+ },
+ {
+  "geo": "Delta, City (CY)",
+  "code": "5915011",
+  "prov": "BC",
+  "pop": 108455.0,
+  "density": 603.7
+ },
+ {
+  "geo": "Richmond, City (CY)",
+  "code": "5915015",
+  "prov": "BC",
+  "pop": 209937.0,
+  "density": 1629.0
+ },
+ {
+  "geo": "Vancouver, City (CY)",
+  "code": "5915022",
+  "prov": "BC",
+  "pop": 662248.0,
+  "density": 5749.9
+ },
+ {
+  "geo": "Burnaby, City (CY)",
+  "code": "5915025",
+  "prov": "BC",
+  "pop": 249125.0,
+  "density": 2750.7
+ },
+ {
+  "geo": "New Westminster, City (CY)",
+  "code": "5915029",
+  "prov": "BC",
+  "pop": 78916.0,
+  "density": 5052.4
+ },
+ {
+  "geo": "Coquitlam, City (CY)",
+  "code": "5915034",
+  "prov": "BC",
+  "pop": 148625.0,
+  "density": 1216.7
+ },
+ {
+  "geo": "Port Coquitlam, City (CY)",
+  "code": "5915039",
+  "prov": "BC",
+  "pop": 61498.0,
+  "density": 2108.7
+ },
+ {
+  "geo": "Port Moody, City (CY)",
+  "code": "5915043",
+  "prov": "BC",
+  "pop": 33535.0,
+  "density": 1297.3
+ },
+ {
+  "geo": "North Vancouver, District municipality (DM)",
+  "code": "5915046",
+  "prov": "BC",
+  "pop": 88168.0,
+  "density": 548.8
+ },
+ {
+  "geo": "North Vancouver, City (CY)",
+  "code": "5915051",
+  "prov": "BC",
+  "pop": 58120.0,
+  "density": 4913.0
+ },
+ {
+  "geo": "West Vancouver, District municipality (DM)",
+  "code": "5915055",
+  "prov": "BC",
+  "pop": 44122.0,
+  "density": 506.1
+ },
+ {
+  "geo": "Lions Bay, Village (VL)",
+  "code": "5915065",
+  "prov": "BC",
+  "pop": 1390.0,
+  "density": 549.0
+ },
+ {
+  "geo": "Pitt Meadows, City (CY)",
+  "code": "5915070",
+  "prov": "BC",
+  "pop": 19146.0,
+  "density": 221.7
+ },
+ {
+  "geo": "Maple Ridge, City (CY)",
+  "code": "5915075",
+  "prov": "BC",
+  "pop": 90990.0,
+  "density": 339.7
+ },
+ {
+  "geo": "Tsawwassen, Tsawwassen Lands (TWL)",
+  "code": "5915802",
+  "prov": "BC",
+  "pop": 2256.0,
+  "density": 343.3
+ },
+ {
+  "geo": "Musqueam 2, Indian reserve (IRI)",
+  "code": "5915803",
+  "prov": "BC",
+  "pop": 1646.0,
+  "density": 894.7
+ },
+ {
+  "geo": "Burrard Inlet 3, Indian reserve (IRI)",
+  "code": "5915806",
+  "prov": "BC",
+  "pop": 2373.0,
+  "density": 2123.3
+ },
+ {
+  "geo": "Capilano 5, Indian reserve (IRI)",
+  "code": "5915808",
+  "prov": "BC",
+  "pop": 2899.0,
+  "density": 1689.1
+ },
+ {
+  "geo": "North Saanich, District municipality (DM)",
+  "code": "5917005",
+  "prov": "BC",
+  "pop": 12235.0,
+  "density": 329.2
+ },
+ {
+  "geo": "Sidney, Town (T)",
+  "code": "5917010",
+  "prov": "BC",
+  "pop": 12318.0,
+  "density": 2412.8
+ },
+ {
+  "geo": "Central Saanich, District municipality (DM)",
+  "code": "5917015",
+  "prov": "BC",
+  "pop": 17385.0,
+  "density": 421.9
+ },
+ {
+  "geo": "Saanich, District municipality (DM)",
+  "code": "5917021",
+  "prov": "BC",
+  "pop": 117735.0,
+  "density": 1136.6
+ },
+ {
+  "geo": "Saltspring Island, Regional district electoral area (RDA)",
+  "code": "5917027",
+  "prov": "BC",
+  "pop": 11635.0,
+  "density": 63.6
+ },
+ {
+  "geo": "Oak Bay, District municipality (DM)",
+  "code": "5917030",
+  "prov": "BC",
+  "pop": 17990.0,
+  "density": 1710.1
+ },
+ {
+  "geo": "Victoria, City (CY)",
+  "code": "5917034",
+  "prov": "BC",
+  "pop": 91867.0,
+  "density": 4722.3
+ },
+ {
+  "geo": "Esquimalt, District municipality (DM)",
+  "code": "5917040",
+  "prov": "BC",
+  "pop": 17533.0,
+  "density": 2476.7
+ },
+ {
+  "geo": "Colwood, City (CY)",
+  "code": "5917041",
+  "prov": "BC",
+  "pop": 18961.0,
+  "density": 1073.6
+ },
+ {
+  "geo": "Langford, City (CY)",
+  "code": "5917044",
+  "prov": "BC",
+  "pop": 46584.0,
+  "density": 1124.4
+ },
+ {
+  "geo": "View Royal, Town (T)",
+  "code": "5917047",
+  "prov": "BC",
+  "pop": 11575.0,
+  "density": 807.6
+ },
+ {
+  "geo": "Sooke, District municipality (DM)",
+  "code": "5917052",
+  "prov": "BC",
+  "pop": 15086.0,
+  "density": 266.6
+ },
+ {
+  "geo": "East Saanich 2, Indian reserve (IRI)",
+  "code": "5917803",
+  "prov": "BC",
+  "pop": 1790.0,
+  "density": 687.5
+ },
+ {
+  "geo": "New Songhees 1A, Indian reserve (IRI)",
+  "code": "5917812",
+  "prov": "BC",
+  "pop": 1839.0,
+  "density": 2590.1
+ },
+ {
+  "geo": "North Cowichan, District municipality (DM)",
+  "code": "5919008",
+  "prov": "BC",
+  "pop": 31990.0,
+  "density": 163.7
+ },
+ {
+  "geo": "Duncan, City (CY)",
+  "code": "5919012",
+  "prov": "BC",
+  "pop": 5047.0,
+  "density": 2444.5
+ },
+ {
+  "geo": "Cowichan Valley D, Regional district electoral area (RDA)",
+  "code": "5919013",
+  "prov": "BC",
+  "pop": 3530.0,
+  "density": 227.3
+ },
+ {
+  "geo": "Lake Cowichan, Town (T)",
+  "code": "5919016",
+  "prov": "BC",
+  "pop": 3325.0,
+  "density": 403.5
+ },
+ {
+  "geo": "Ladysmith, Town (T)",
+  "code": "5919021",
+  "prov": "BC",
+  "pop": 8990.0,
+  "density": 746.5
+ },
+ {
+  "geo": "Cowichan Valley A, Regional district electoral area (RDA)",
+  "code": "5919043",
+  "prov": "BC",
+  "pop": 4949.0,
+  "density": 100.6
+ },
+ {
+  "geo": "Cowichan Valley C, Regional district electoral area (RDA)",
+  "code": "5919049",
+  "prov": "BC",
+  "pop": 5046.0,
+  "density": 223.6
+ },
+ {
+  "geo": "Cowichan, Indian reserve (IRI)",
+  "code": "5919822",
+  "prov": "BC",
+  "pop": 2420.0,
+  "density": 104.5
+ },
+ {
+  "geo": "Nanaimo, City (CY)",
+  "code": "5921007",
+  "prov": "BC",
+  "pop": 99863.0,
+  "density": 1104.1
+ },
+ {
+  "geo": "Lantzville, District municipality (DM)",
+  "code": "5921008",
+  "prov": "BC",
+  "pop": 3817.0,
+  "density": 137.9
+ },
+ {
+  "geo": "Nanaimo A, Regional district electoral area (RDA)",
+  "code": "5921010",
+  "prov": "BC",
+  "pop": 7481.0,
+  "density": 124.3
+ },
+ {
+  "geo": "Parksville, City (CY)",
+  "code": "5921018",
+  "prov": "BC",
+  "pop": 13642.0,
+  "density": 939.5
+ },
+ {
+  "geo": "Qualicum Beach, Town (T)",
+  "code": "5921023",
+  "prov": "BC",
+  "pop": 9303.0,
+  "density": 517.5
+ },
+ {
+  "geo": "Nanaimo G, Regional district electoral area (RDA)",
+  "code": "5921034",
+  "prov": "BC",
+  "pop": 8109.0,
+  "density": 164.4
+ },
+ {
+  "geo": "Port Alberni, City (CY)",
+  "code": "5923008",
+  "prov": "BC",
+  "pop": 18259.0,
+  "density": 928.9
+ },
+ {
+  "geo": "Ucluelet, District municipality (DM)",
+  "code": "5923019",
+  "prov": "BC",
+  "pop": 2066.0,
+  "density": 318.8
+ },
+ {
+  "geo": "Tofino, District municipality (DM)",
+  "code": "5923025",
+  "prov": "BC",
+  "pop": 2516.0,
+  "density": 238.3
+ },
+ {
+  "geo": "Alberni-Clayoquot E, Regional district electoral area (RDA)",
+  "code": "5923037",
+  "prov": "BC",
+  "pop": 2946.0,
+  "density": 134.4
+ },
+ {
+  "geo": "Gold River, Village (VL)",
+  "code": "5924025",
+  "prov": "BC",
+  "pop": 1246.0,
+  "density": 114.2
+ },
+ {
+  "geo": "Campbell River, City (CY)",
+  "code": "5924034",
+  "prov": "BC",
+  "pop": 35519.0,
+  "density": 246.0
+ },
+ {
+  "geo": "Comox, Town (T)",
+  "code": "5926005",
+  "prov": "BC",
+  "pop": 14806.0,
+  "density": 877.7
+ },
+ {
+  "geo": "Courtenay, City (CY)",
+  "code": "5926010",
+  "prov": "BC",
+  "pop": 28420.0,
+  "density": 876.7
+ },
+ {
+  "geo": "Cumberland, Village (VL)",
+  "code": "5926014",
+  "prov": "BC",
+  "pop": 4447.0,
+  "density": 153.1
+ },
+ {
+  "geo": "Comox Valley B (Lazo North), Regional district electoral area (RDA)",
+  "code": "5926022",
+  "prov": "BC",
+  "pop": 7392.0,
+  "density": 136.7
+ },
+ {
+  "geo": "Powell River, City (CY)",
+  "code": "5927008",
+  "prov": "BC",
+  "pop": 13943.0,
+  "density": 482.4
+ },
+ {
+  "geo": "Sechelt, District municipality (DM)",
+  "code": "5929011",
+  "prov": "BC",
+  "pop": 10847.0,
+  "density": 278.0
+ },
+ {
+  "geo": "Gibsons, Town (T)",
+  "code": "5929005",
+  "prov": "BC",
+  "pop": 4758.0,
+  "density": 1103.2
+ },
+ {
+  "geo": "Sunshine Coast E, Regional district electoral area (RDA)",
+  "code": "5929026",
+  "prov": "BC",
+  "pop": 3883.0,
+  "density": 179.7
+ },
+ {
+  "geo": "Squamish, District municipality (DM)",
+  "code": "5931006",
+  "prov": "BC",
+  "pop": 23819.0,
+  "density": 227.5
+ },
+ {
+  "geo": "Whistler, District municipality (DM)",
+  "code": "5931020",
+  "prov": "BC",
+  "pop": 13982.0,
+  "density": 58.3
+ },
+ {
+  "geo": "Merritt, City (CY)",
+  "code": "5933006",
+  "prov": "BC",
+  "pop": 7051.0,
+  "density": 270.7
+ },
+ {
+  "geo": "Kamloops, City (CY)",
+  "code": "5933042",
+  "prov": "BC",
+  "pop": 97902.0,
+  "density": 328.6
+ },
+ {
+  "geo": "Chase, Village (VL)",
+  "code": "5933054",
+  "prov": "BC",
+  "pop": 2399.0,
+  "density": 639.3
+ },
+ {
+  "geo": "Barriere, District municipality (DM)",
+  "code": "5933074",
+  "prov": "BC",
+  "pop": 1765.0,
+  "density": 164.5
+ },
+ {
+  "geo": "Kelowna, City (CY)",
+  "code": "5935010",
+  "prov": "BC",
+  "pop": 144576.0,
+  "density": 682.4
+ },
+ {
+  "geo": "Lake Country, District municipality (DM)",
+  "code": "5935016",
+  "prov": "BC",
+  "pop": 15817.0,
+  "density": 129.5
+ },
+ {
+  "geo": "Peachland, District municipality (DM)",
+  "code": "5935018",
+  "prov": "BC",
+  "pop": 5789.0,
+  "density": 359.6
+ },
+ {
+  "geo": "West Kelowna, City (CY)",
+  "code": "5935029",
+  "prov": "BC",
+  "pop": 36078.0,
+  "density": 295.5
+ },
+ {
+  "geo": "Duck Lake 7, Indian reserve (IRI)",
+  "code": "5935801",
+  "prov": "BC",
+  "pop": 1847.0,
+  "density": 918.8
+ },
+ {
+  "geo": "Tsinstikeptum 9, Indian reserve (IRI)",
+  "code": "5935802",
+  "prov": "BC",
+  "pop": 9134.0,
+  "density": 1351.7
+ },
+ {
+  "geo": "Tsinstikeptum 10, Indian reserve (IRI)",
+  "code": "5935803",
+  "prov": "BC",
+  "pop": 1766.0,
+  "density": 533.9
+ },
+ {
+  "geo": "Lumby, Village (VL)",
+  "code": "5937005",
+  "prov": "BC",
+  "pop": 2063.0,
+  "density": 347.7
+ },
+ {
+  "geo": "Coldstream, District municipality (DM)",
+  "code": "5937010",
+  "prov": "BC",
+  "pop": 11171.0,
+  "density": 167.8
+ },
+ {
+  "geo": "Vernon, City (CY)",
+  "code": "5937014",
+  "prov": "BC",
+  "pop": 44519.0,
+  "density": 461.7
+ },
+ {
+  "geo": "Armstrong, City (CY)",
+  "code": "5937028",
+  "prov": "BC",
+  "pop": 5323.0,
+  "density": 1020.0
+ },
+ {
+  "geo": "Enderby, City (CY)",
+  "code": "5937033",
+  "prov": "BC",
+  "pop": 3028.0,
+  "density": 710.4
+ },
+ {
+  "geo": "Golden, Town (T)",
+  "code": "5939007",
+  "prov": "BC",
+  "pop": 3986.0,
+  "density": 351.9
+ },
+ {
+  "geo": "Revelstoke, City (CY)",
+  "code": "5939019",
+  "prov": "BC",
+  "pop": 8275.0,
+  "density": 200.5
+ },
+ {
+  "geo": "Salmon Arm, City (CY)",
+  "code": "5939032",
+  "prov": "BC",
+  "pop": 19432.0,
+  "density": 125.2
+ },
+ {
+  "geo": "Sicamous, District municipality (DM)",
+  "code": "5939045",
+  "prov": "BC",
+  "pop": 2613.0,
+  "density": 204.2
+ },
+ {
+  "geo": "Williams Lake, City (CY)",
+  "code": "5941009",
+  "prov": "BC",
+  "pop": 10947.0,
+  "density": 330.5
+ },
+ {
+  "geo": "Quesnel, City (CY)",
+  "code": "5941013",
+  "prov": "BC",
+  "pop": 9889.0,
+  "density": 279.8
+ },
+ {
+  "geo": "Port McNeill, Town (T)",
+  "code": "5943012",
+  "prov": "BC",
+  "pop": 2356.0,
+  "density": 171.1
+ },
+ {
+  "geo": "Port Hardy, District municipality (DM)",
+  "code": "5943023",
+  "prov": "BC",
+  "pop": 3902.0,
+  "density": 101.2
+ },
+ {
+  "geo": "Bella Bella 1, Indian reserve (IRI)",
+  "code": "5945801",
+  "prov": "BC",
+  "pop": 1193.0,
+  "density": 204.5
+ },
+ {
+  "geo": "Prince Rupert, City (CY)",
+  "code": "5947012",
+  "prov": "BC",
+  "pop": 12300.0,
+  "density": 186.4
+ },
+ {
+  "geo": "Terrace, City (CY)",
+  "code": "5949011",
+  "prov": "BC",
+  "pop": 12017.0,
+  "density": 209.6
+ },
+ {
+  "geo": "Kitimat-Stikine E, Regional district electoral area (RDA)",
+  "code": "5949018",
+  "prov": "BC",
+  "pop": 3932.0,
+  "density": 238.5
+ },
+ {
+  "geo": "Burns Lake, Village (VL)",
+  "code": "5951022",
+  "prov": "BC",
+  "pop": 1659.0,
+  "density": 253.7
+ },
+ {
+  "geo": "Telkwa, Village (VL)",
+  "code": "5951038",
+  "prov": "BC",
+  "pop": 1474.0,
+  "density": 209.5
+ },
+ {
+  "geo": "Smithers, Town (T)",
+  "code": "5951043",
+  "prov": "BC",
+  "pop": 5378.0,
+  "density": 352.4
+ },
+ {
+  "geo": "Valemount, Village (VL)",
+  "code": "5953007",
+  "prov": "BC",
+  "pop": 1052.0,
+  "density": 203.8
+ },
+ {
+  "geo": "Prince George, City (CY)",
+  "code": "5953023",
+  "prov": "BC",
+  "pop": 76708.0,
+  "density": 242.2
+ },
+ {
+  "geo": "Dawson Creek, City (CY)",
+  "code": "5955014",
+  "prov": "BC",
+  "pop": 12323.0,
+  "density": 461.1
+ },
+ {
+  "geo": "Fort St. John, City (CY)",
+  "code": "5955034",
+  "prov": "BC",
+  "pop": 21465.0,
+  "density": 656.9
+ },
+ {
+  "geo": "Whitehorse, City (CY)",
+  "code": "6001009",
+  "prov": "YT",
+  "pop": 28201.0,
+  "density": 68.1
+ },
+ {
+  "geo": "Dawson, Town (T)",
+  "code": "6001029",
+  "prov": "YT",
+  "pop": 1577.0,
+  "density": 51.0
+ },
+ {
+  "geo": "Yellowknife, City (CY)",
+  "code": "6106023",
+  "prov": "NT",
+  "pop": 20340.0,
+  "density": 196.8
+ },
+ {
+  "geo": "Iqaluit, City (CY)",
+  "code": "6204003",
+  "prov": "NU",
+  "pop": 7429.0,
+  "density": 144.0
+ },
+ {
+  "geo": "Cape Dorset, Hamlet (HAM)",
+  "code": "6204007",
+  "prov": "NU",
+  "pop": 1396.0,
+  "density": 141.2
+ },
+ {
+  "geo": "Pangnirtung, Hamlet (HAM)",
+  "code": "6204009",
+  "prov": "NU",
+  "pop": 1504.0,
+  "density": 188.5
+ },
+ {
+  "geo": "Rankin Inlet, Hamlet (HAM)",
+  "code": "6205017",
+  "prov": "NU",
+  "pop": 2975.0,
+  "density": 148.5
+ },
+ {
+  "geo": "Kugaaruk, Hamlet (HAM)",
+  "code": "6208047",
+  "prov": "NU",
+  "pop": 1033.0,
+  "density": 204.2
+ }
+]

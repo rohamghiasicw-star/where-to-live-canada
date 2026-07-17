@@ -61,6 +61,7 @@ for i in range(0,len(places),B):
 json.dump(out,open('data/proximity.json','w'),indent=1)
 ok=sum(1 for r in out if r.get('drive_min_to_big_city') is not None)
 print(f"\nrouted {ok}/129")
-for n in ["Goderich","Tofino","Iqaluit","Churchill","Toronto","Halifax","Dawson City"]:
-    r=next(x for x in out if x['name']==n)
+for n in ["Goderich","Tofino","Iqaluit","Churchill","Toronto","Halifax","Dawson"]:
+    r=next((x for x in out if x['name']==n),None)
+    if not r: continue
     print(f"  {n:12s} -> {str(r['nearest_big_city']):18s} {str(r.get('drive_min_to_big_city')):>7s}min {str(r.get('km_to_big_city')):>7s}km routed={r.get('routed')}")

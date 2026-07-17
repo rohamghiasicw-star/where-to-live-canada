@@ -200,6 +200,8 @@ function fmtNum(n) {
 const state = {}, weights = {};
 Q.forEach((q) => { state[q.id] = q.def; weights[q.id] = q.w; });
 let selected = null;
+let showAll = false;
+const PLATE_N = 60;   // a plate shows the confusion set, not the whole book
 
 const OPTKEY = '0123456789abcdefghij';
 const encodeState = () => Q.map((q) => (q.kind === 'range' ? String(state[q.id])
@@ -444,7 +446,10 @@ function render() { if (pending) return; pending = true; requestAnimationFrame((
 function draw() {
   ranked = scoreAll();
   const live = ranked.filter((r) => !r.excluded);
-  $('#count').textContent = `${live.length} of ${DATA.length} clear your dealbreakers`;
+  const shown = showAll ? ranked.length : Math.min(PLATE_N, ranked.length);
+  $('#count').innerHTML = `${live.length} of ${DATA.length} clear your dealbreakers` +
+    (ranked.length > PLATE_N ? ` &nbsp;<button class="showall" id="showall">${
+      showAll ? 'show the top 60' : `show all ${ranked.length}`}</button>` : '');
   verdict();
   history.replaceState(null, '', '#' + encodeState());
 
@@ -453,7 +458,7 @@ function draw() {
     ${cols.map((q) => `<th${weights[q.id] ? '' : ' style="opacity:.45"'}>${q.col}</th>`).join('')}
     <th title="Provenance"></th></tr>`;
 
-  $('#tbody').innerHTML = ranked.map((r, i) => {
+  $('#tbody').innerHTML = ranked.slice(0, shown).map((r, i) => {
     const p = r.p, key = p.name + p.prov, cf = !r.excluded ? confusion(r, ranked) : null;
     // width axis carries settlement size: a big city sets wide, a village narrow
     const wd = p.pop ? clamp(75 + (Math.log10(Math.max(p.pop,300)) - 2.5) / 4 * 25, 75, 100) : 88;
@@ -515,6 +520,10 @@ $('#qs').addEventListener('click', (e) => {
     weights[id] = weights[id] === n ? n-1 : n;
     syncTicks(); render();
   }
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#showall')) return;
+  showAll = !showAll; render();
 });
 $('#tbody').addEventListener('click', (e) => {
   const b = e.target.closest('button[data-i]'); if (!b) return;

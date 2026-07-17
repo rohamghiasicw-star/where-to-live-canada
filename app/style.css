@@ -348,3 +348,11 @@ canvas#map { width: 100%; display: block; }
   background: var(--sink); border-bottom: 1px solid var(--rule);
   position: sticky; top: 0; z-index: 1;
 }
+
+/* 746 rows is 23,000px of table nobody scrolls. Show the plate you would
+   actually read, and let the map carry the whole country. */
+.showall {
+  font: inherit; font-size: var(--t-xs); background: none; border: 0; padding: 0;
+  color: var(--cool); cursor: pointer; text-decoration: underline;
+}
+.showall:hover { color: var(--ink); }
