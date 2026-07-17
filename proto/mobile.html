@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Where to live / Canada — mobile prototype</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mobile-layout prototype of the where-to-live-in-Canada ranking tool. Three screens: Answer, Map, List.">
+<style>
+/* ============================================================
+   WHERE TO LIVE / CANADA — MOBILE PROTOTYPE
+   Field-guide plate, rebuilt for a 375px phone as three screens.
+   Same ink, paper, and teal fit-ramp as the desktop plate.
+   System sans stands in for Radio Canada in the prototype.
+   ============================================================ */
+:root{
+  --paper:#F7F7F4; --page:#FFFFFF; --sink:#EFEFEA;
+  --ink:#17191D; --ink-2:#585D65; --ink-3:#8B9098;
+  --rule:#DEDFDA; --rule-2:#C7C9C2;
+  --warm:#DD8525; --cool:#426BC1; --check:#564189;
+  --fit-0:#F4F5F2; --fit-1:#E4EDE9; --fit-2:#CBE0D9; --fit-3:#A8CEC3; --fit-4:#7FB8AA; --fit-ink:#0A4F47;
+  --tabbar:60px;
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;overflow-x:hidden;}
+html{background:var(--sink);}
+body{
+  background:var(--sink); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.5;
+  font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+}
+.tnum{font-variant-numeric:tabular-nums;}
+
+/* the phone column. on desktop this centres so the design lead can judge
+   the mobile layout; on a real phone it fills the screen. */
+.app{
+  position:relative;
+  max-width:430px; margin:0 auto;
+  min-height:100vh; min-height:100dvh;
+  background:var(--paper);
+  border-left:1px solid var(--rule); border-right:1px solid var(--rule);
+  overflow:hidden;
+}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:30;
+  background:var(--paper);
+  border-bottom:2px solid var(--ink);
+  padding:.55rem 1rem .5rem;
+  display:flex; align-items:baseline; justify-content:space-between; gap:.5rem;
+}
+.topbar h1{
+  font-size:1.06rem; font-weight:700; margin:0; letter-spacing:-.01em; line-height:1;
+}
+.topbar h1 i{font-style:normal; color:var(--ink-3); font-weight:400;}
+.topbar .meta{font-size:.72rem; color:var(--ink-3); white-space:nowrap;}
+
+/* ---------- screens ---------- */
+.screen{display:none;}
+.screen.on{display:block;}
+/* leave room for the fixed tab bar */
+.pad-bottom{padding-bottom:calc(var(--tabbar) + var(--safe-b) + 1rem);}
+
+/* ================= ANSWER SCREEN ================= */
+/* running result, pinned so the survey is always answering something */
+.toppick{
+  position:sticky; top:0; z-index:20;
+  width:100%; text-align:left; cursor:pointer;
+  display:grid; grid-template-columns:1fr auto; align-items:center; gap:.75rem;
+  padding:.6rem 1rem; min-height:56px;
+  background:var(--page); border:0; border-bottom:1px solid var(--rule);
+  font:inherit; color:inherit;
+}
+.toppick .tp-k{font-size:.72rem; color:var(--ink-3); display:block;}
+.toppick .tp-name{font-size:1.15rem; font-weight:700; letter-spacing:-.01em; line-height:1.1;}
+.toppick .tp-name i{font-style:normal; color:var(--ink-3); font-weight:400; font-size:.8em; margin-left:.25rem;}
+.toppick .tp-why{font-size:.76rem; color:var(--ink-2); display:block; margin-top:.1rem;}
+.toppick .tp-fit{
+  min-width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  font-size:1.15rem; font-weight:700; color:var(--fit-ink); border:1px solid rgba(10,79,71,.18);
+}
+.toppick .tp-arrow{font-size:.72rem; color:var(--ink-3); margin-top:.15rem; display:block;}
+
+.survey-intro{padding:.85rem 1rem .5rem; border-bottom:1px solid var(--rule);}
+.survey-intro p{margin:0; font-size:.82rem; color:var(--ink-2);}
+
+.qgroup{
+  position:sticky; top:56px; z-index:10;
+  margin:0; padding:.5rem 1rem .45rem;
+  font-size:.74rem; font-weight:700; letter-spacing:.01em; color:var(--ink);
+  background:var(--sink); border-bottom:1px solid var(--rule);
+}
+.q{padding:1rem 1rem 1.15rem; border-bottom:1px solid var(--rule); background:var(--paper);}
+.q.off{background:var(--paper);}
+.q-head{display:flex; align-items:baseline; justify-content:space-between; gap:.6rem;}
+.q-label{font-size:1rem; font-weight:600; margin:0;}
+.q-say{font-size:.82rem; font-weight:600; color:var(--ink-2); text-align:right; white-space:nowrap;}
+.q.off .q-say{color:var(--ink-3); font-weight:400;}
+.q-hint{margin:.15rem 0 .7rem; font-size:.78rem; color:var(--ink-3);}
+
+/* answer control dims when the question is set to Skip */
+.answer{transition:opacity .18s;}
+.q.off .answer{opacity:.4; pointer-events:none;}
+
+/* chips */
+.opts{display:flex; flex-wrap:wrap; gap:6px;}
+.opt{
+  font:inherit; font-size:15px; line-height:1.1;
+  min-height:44px; padding:.55rem .8rem; cursor:pointer; border-radius:0;
+  border:1px solid var(--rule-2); background:var(--page); color:var(--ink-2);
+  display:inline-flex; align-items:center;
+}
+.opt[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+.opt:focus-visible{outline:2px solid var(--warm); outline-offset:1px;}
+
+/* slider */
+.slider-row{display:flex; align-items:center; gap:.7rem; min-height:44px;}
+input[type=range]{
+  flex:1; -webkit-appearance:none; appearance:none; background:transparent;
+  height:44px; margin:0; cursor:pointer;
+}
+input[type=range]::-webkit-slider-runnable-track{height:2px; background:var(--rule-2);}
+input[type=range]::-moz-range-track{height:2px; background:var(--rule-2);}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; width:22px; height:34px; margin-top:-16px;
+  background:var(--page); border:2px solid var(--ink); border-radius:0;
+}
+input[type=range]::-moz-range-thumb{width:22px; height:34px; background:var(--page); border:2px solid var(--ink); border-radius:0;}
+input[type=range]:focus-visible{outline:2px solid var(--warm); outline-offset:3px;}
+.readout{font-size:.9rem; font-weight:700; min-width:5ch; text-align:right;}
+.scale-ends{display:flex; justify-content:space-between; font-size:.74rem; color:var(--ink-3); margin-top:.15rem;}
+
+/* the importance control: four big labelled stops, not three 26px squares */
+.imp{margin-top:.85rem;}
+.imp-lab{font-size:.74rem; color:var(--ink-3); display:block; margin-bottom:.3rem;}
+.seg{display:flex; gap:0; border:1px solid var(--rule-2); background:var(--page);}
+.seg-b{
+  flex:1 1 0; min-width:0; min-height:46px;
+  font:inherit; font-size:14px; font-weight:600; color:var(--ink-3);
+  background:transparent; border:0; border-left:1px solid var(--rule-2);
+  cursor:pointer; padding:.3rem .2rem; white-space:nowrap;
+}
+.seg-b:first-child{border-left:0;}
+.seg-b[aria-pressed="true"]{background:var(--ink); color:var(--paper);}
+.seg-b.skip[aria-pressed="true"]{background:var(--sink); color:var(--ink-2);}
+.seg-b:focus-visible{outline:2px solid var(--warm); outline-offset:-2px; position:relative; z-index:1;}
+
+.survey-foot{padding:1rem; text-align:left;}
+.reset{
+  font:inherit; font-size:.82rem; background:none; border:1px solid var(--rule-2);
+  color:var(--ink-2); padding:.6rem .9rem; min-height:44px; cursor:pointer; border-radius:0;
+}
+
+/* ================= MAP SCREEN ================= */
+#screen-map{position:relative;}
+.maparea{
+  position:relative;
+  height:calc(100vh - 42px - var(--tabbar) - var(--safe-b));
+  height:calc(100dvh - 42px - var(--tabbar) - var(--safe-b));
+  overflow:hidden;
+  background:var(--paper);
+}
+canvas#map{position:absolute; inset:0; width:100%; height:100%; display:block; touch-action:none;}
+.map-legend{
+  position:absolute; top:.6rem; left:.7rem; z-index:2;
+  background:rgba(247,247,244,.9); border:1px solid var(--rule);
+  padding:.4rem .55rem; font-size:.7rem; color:var(--ink-2);
+  display:flex; flex-direction:column; gap:.25rem; pointer-events:none;
+}
+.map-legend .row{display:flex; align-items:center; gap:.35rem;}
+.map-legend i{width:12px; height:12px; display:inline-block; border:1px solid var(--fit-ink);}
+
+/* draggable bottom sheet over the map (Zillow / Airbnb pattern) */
+.sheet{
+  position:absolute; left:0; right:0; top:0; height:100%;
+  background:var(--page); border-top:1px solid var(--rule);
+  box-shadow:0 -8px 24px rgba(23,25,29,.09);
+  display:flex; flex-direction:column;
+  transform:translateY(80%);
+  will-change:transform; touch-action:none;
+  z-index:3;
+}
+.sheet.animate{transition:transform .28s cubic-bezier(.22,.61,.36,1);}
+.sheet-grip{
+  flex:0 0 auto; padding:.5rem 1rem .3rem; cursor:grab; user-select:none;
+}
+.grip-bar{width:38px; height:5px; border-radius:3px; background:var(--rule-2); margin:.15rem auto .5rem;}
+.sheet-head{display:flex; align-items:baseline; justify-content:space-between; gap:.5rem;}
+.sheet-head h2{font-size:1rem; font-weight:700; margin:0;}
+.sheet-head .n{font-size:.76rem; color:var(--ink-3);}
+.sheet-scroll{flex:1 1 auto; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;}
+
+/* ================= LIST SCREEN ================= */
+.list-head{padding:.9rem 1rem .7rem; border-bottom:1px solid var(--rule);}
+.list-head h2{font-size:1.15rem; font-weight:700; margin:0;}
+.list-head p{margin:.2rem 0 0; font-size:.78rem; color:var(--ink-3);}
+
+/* stacked card: rank, name, fit, and only the 3-4 stats that moved the ranking */
+.card{
+  width:100%; text-align:left; font:inherit; color:inherit; cursor:pointer;
+  display:grid; grid-template-columns:2.2rem 1fr; gap:.6rem;
+  padding:.85rem 1rem; background:var(--paper);
+  border:0; border-bottom:1px solid var(--rule);
+}
+.card:active{background:var(--sink);}
+.card .rank{font-size:1rem; font-weight:700; color:var(--ink-3); padding-top:.15rem; text-align:right;}
+.card-main{min-width:0;}
+.card-top{display:flex; align-items:center; justify-content:space-between; gap:.6rem;}
+.cname{font-size:1.06rem; font-weight:700; letter-spacing:-.01em;}
+.cname i{font-style:normal; color:var(--ink-3); font-weight:400; font-size:.78em; margin-left:.25rem;}
+.prov-dot{display:inline-block; width:6px; height:6px; margin-left:.35rem; vertical-align:middle; background:var(--check);}
+.fit-chip{
+  flex:0 0 auto; min-width:40px; height:34px; padding:0 .5rem;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.98rem; font-weight:700; color:var(--fit-ink);
+}
+.stats{display:flex; flex-wrap:wrap; gap:.15rem .9rem; margin-top:.45rem;}
+.stat{font-size:.8rem; color:var(--ink-2); white-space:nowrap;}
+.stat b{font-weight:700; color:var(--ink);}
+.stat i{font-style:normal; color:var(--ink-3);}
+.card.cut{opacity:.72;}
+.card.cut .fit-chip{color:var(--ink-3); background:var(--sink)!important;}
+.cut-note{font-size:.8rem; color:var(--warm); margin-top:.45rem;}
+.cut-divider{
+  padding:.6rem 1rem; font-size:.74rem; color:var(--ink-3);
+  background:var(--sink); border-bottom:1px solid var(--rule); border-top:1px solid var(--rule);
+}
+
+/* ================= DETAIL SHEET (global) ================= */
+.scrim{
+  position:fixed; inset:0; z-index:40; background:rgba(23,25,29,.32);
+  opacity:0; pointer-events:none; transition:opacity .24s;
+}
+.scrim.on{opacity:1; pointer-events:auto;}
+.detail{
+  position:fixed; left:0; right:0; bottom:0; z-index:41;
+  max-width:430px; margin:0 auto;
+  height:92vh; height:92dvh;
+  background:var(--page); border-top:2px solid var(--ink);
+  display:flex; flex-direction:column;
+  transform:translateY(100%);
+  will-change:transform; touch-action:none;
+}
+.detail.animate{transition:transform .3s cubic-bezier(.22,.61,.36,1);}
+.detail-grip{flex:0 0 auto; padding:.5rem 1rem 0; cursor:grab;}
+.detail-grip .grip-bar{margin:.1rem auto .4rem;}
+.detail-head{
+  flex:0 0 auto; display:flex; align-items:flex-start; justify-content:space-between; gap:.6rem;
+  padding:.2rem 1rem .7rem; border-bottom:1px solid var(--rule);
+}
+.detail-head .dh-name{font-size:1.5rem; font-weight:700; letter-spacing:-.02em; line-height:1;}
+.detail-head .dh-name i{font-style:normal; color:var(--ink-3); font-weight:400; font-size:.5em; margin-left:.35rem;}
+.detail-head .dh-sub{font-size:.78rem; color:var(--ink-2); margin-top:.3rem;}
+.detail-head .dh-fit{
+  flex:0 0 auto; text-align:center; padding:.35rem .5rem; min-width:56px;
+  color:var(--fit-ink);
+}
+.detail-head .dh-fit b{font-size:1.5rem; font-weight:700; display:block; line-height:1;}
+.detail-head .dh-fit span{font-size:.66rem; color:var(--ink-3);}
+.dclose{
+  position:absolute; top:.5rem; right:.6rem;
+  width:44px; height:44px; border:0; background:transparent; cursor:pointer;
+  font-size:1.4rem; color:var(--ink-3); line-height:1;
+}
+.detail-scroll{flex:1 1 auto; overflow-y:auto; -webkit-overflow-scrolling:touch; padding:0 1rem 2rem;}
+
+.dsec{padding:.9rem 0 .3rem;}
+.dsec h3{
+  font-size:.76rem; font-weight:700; color:var(--ink); margin:0 0 .5rem;
+  padding-bottom:.25rem; border-bottom:1px solid var(--rule-2);
+}
+/* why it ranks: each active dimension, your ask vs this place, and the sub-score bar */
+.wrow{padding:.5rem 0; border-bottom:1px solid var(--rule);}
+.wrow-top{display:flex; align-items:baseline; justify-content:space-between; gap:.6rem;}
+.wrow-lab{font-size:.86rem; font-weight:600;}
+.wrow-val{font-size:.86rem; font-weight:700; text-align:right; white-space:nowrap;}
+.wrow-ask{font-size:.74rem; color:var(--ink-3); margin-top:.1rem;}
+.wbar{height:8px; background:var(--sink); margin-top:.4rem; position:relative;}
+.wbar i{position:absolute; left:0; top:0; bottom:0; display:block;}
+.wrow.dim{opacity:.5;}
+.wrow .wtag{font-size:.68rem; color:var(--ink-3); font-weight:600;}
+
+.dgrid{display:grid; grid-template-columns:1fr 1fr; gap:.1rem .9rem;}
+.drow{display:flex; justify-content:space-between; gap:.6rem; padding:.32rem 0; border-bottom:1px solid var(--rule); font-size:.82rem;}
+.drow span{color:var(--ink-3);}
+.drow b{font-weight:700;}
+.prov-note{font-size:.76rem; color:var(--ink-3); margin:.7rem 0 0; line-height:1.5;}
+.prov-note em{font-style:normal; color:var(--check); font-weight:700;}
+.dwarn{
+  font-size:.82rem; color:var(--ink-2); margin:.6rem 0 0;
+  border-left:2px solid var(--warm); padding-left:.6rem;
+}
+.dwarn b{color:var(--ink);}
+
+/* ================= TAB BAR ================= */
+.tabbar{
+  position:fixed; left:0; right:0; bottom:0; z-index:50;
+  max-width:430px; margin:0 auto;
+  height:calc(var(--tabbar) + var(--safe-b));
+  padding-bottom:var(--safe-b);
+  display:grid; grid-template-columns:repeat(3,1fr);
+  background:var(--page); border-top:1px solid var(--ink);
+}
+.tab{
+  font:inherit; background:transparent; border:0; cursor:pointer;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.15rem;
+  color:var(--ink-3); font-size:.72rem; min-height:44px;
+  border-top:2px solid transparent; margin-top:-1px;
+}
+.tab .ic{width:22px; height:22px; display:block;}
+.tab .ic svg{width:22px; height:22px; display:block; fill:none; stroke:currentColor; stroke-width:1.6;}
+.tab[aria-selected="true"]{color:var(--ink); border-top-color:var(--ink);}
+.tab:focus-visible{outline:2px solid var(--warm); outline-offset:-2px;}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important; animation:none!important;}
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="topbar">
+    <h1>Where to live <i>in Canada</i></h1>
+    <span class="meta tnum">30-place slice</span>
+  </header>
+
+  <!-- ============ ANSWER ============ -->
+  <section class="screen on pad-bottom" id="screen-answer" role="tabpanel" aria-label="Answer">
+    <button class="toppick" id="toppick" type="button" aria-label="Your top pick so far, tap to see the full ranking">
+      <span>
+        <span class="tp-k">Your top pick so far</span>
+        <span class="tp-name" id="tp-name">—</span>
+        <span class="tp-why" id="tp-why"></span>
+      </span>
+      <span>
+        <span class="tp-fit tnum" id="tp-fit">–</span>
+        <span class="tp-arrow">see list ›</span>
+      </span>
+    </button>
+    <div class="survey-intro">
+      <p>Set each one, then say how much it matters. The importance you set is the whole point — one thing you really care about can outrank everything else.</p>
+    </div>
+    <div id="qs"></div>
+    <div class="survey-foot"><button class="reset" id="reset" type="button">Start over</button></div>
+  </section>
+
+  <!-- ============ MAP ============ -->
+  <section class="screen pad-bottom" id="screen-map" role="tabpanel" aria-label="Map" hidden>
+    <div class="maparea" id="maparea">
+      <canvas id="map" role="img" aria-label="Map of Canada, places shaded by how well they fit your answers"></canvas>
+      <div class="map-legend">
+        <div class="row"><i style="background:var(--fit-4)"></i>Fits you</div>
+        <div class="row"><i style="background:var(--fit-1)"></i>Does not</div>
+        <div class="row"><i style="background:var(--rule-2);border-color:var(--rule-2)"></i>Ruled out</div>
+      </div>
+      <div class="sheet" id="mapsheet">
+        <div class="sheet-grip" id="mapgrip">
+          <div class="grip-bar"></div>
+          <div class="sheet-head">
+            <h2>Best matches</h2>
+            <span class="n" id="mapcount"></span>
+          </div>
+        </div>
+        <div class="sheet-scroll" id="mapsheet-scroll"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIST ============ -->
+  <section class="screen pad-bottom" id="screen-list" role="tabpanel" aria-label="List" hidden>
+    <div class="list-head">
+      <h2>Your ranking</h2>
+      <p id="list-sub"></p>
+    </div>
+    <div id="cards"></div>
+  </section>
+
+  <!-- tab bar -->
+  <nav class="tabbar" role="tablist" aria-label="Screens">
+    <button class="tab" id="tab-answer" role="tab" aria-selected="true" data-screen="answer">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+      Answer
+    </button>
+    <button class="tab" id="tab-map" role="tab" aria-selected="false" data-screen="map">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span>
+      Map
+    </button>
+    <button class="tab" id="tab-list" role="tab" aria-selected="false" data-screen="list">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>
+      List
+    </button>
+  </nav>
+</div>
+
+<!-- detail sheet -->
+<div class="scrim" id="scrim"></div>
+<div class="detail" id="detail" role="dialog" aria-modal="true" aria-label="Place detail">
+  <div class="detail-grip" id="detailgrip"><div class="grip-bar"></div></div>
+  <button class="dclose" id="dclose" aria-label="Close">×</button>
+  <div class="detail-head" id="detail-head"></div>
+  <div class="detail-scroll" id="detail-scroll"></div>
+</div>
+
+<script>
+/* ---------- the 30-place slice (real numbers), inlined ---------- */
+const DATA = [
+{"name":"Toronto","prov":"ON","jan":-3.74,"jul":22.34,"snow":121.51,"smoke":0.435,"pop":2794356,"home":1131000,"lean":-5.1,"drive":0.0,"lived":true},
+{"name":"Montréal","prov":"QC","jan":-10.35,"jul":20.58,"snow":209.07,"smoke":0.392,"pop":1762949,"home":584500,"lean":-6.1,"drive":1.5,"lived":true},
+{"name":"Calgary","prov":"AB","jan":-7.09,"jul":16.51,"snow":128.81,"smoke":1.287,"pop":1306784,"home":519500,"lean":20.3,"drive":0.0,"lived":true},
+{"name":"Ottawa","prov":"ON","jan":-10.16,"jul":21.16,"snow":175.4,"smoke":0.468,"pop":1017449,"home":672000,"lean":-16.0,"drive":0.0,"lived":true},
+{"name":"Edmonton","prov":"AB","jan":-10.42,"jul":17.71,"snow":123.54,"smoke":1.343,"pop":1010899,"home":419600,"lean":5.0,"drive":0.0,"lived":true},
+{"name":"Winnipeg","prov":"MB","jan":-16.39,"jul":19.69,"snow":113.71,"smoke":0.917,"pop":749607,"home":364000,"lean":-19.6,"drive":0.0,"lived":true},
+{"name":"Mississauga","prov":"ON","jan":-5.49,"jul":21.45,"snow":108.46,"smoke":0.426,"pop":717961,"home":999000,"lean":14.5,"drive":30.3,"lived":true},
+{"name":"Vancouver","prov":"BC","jan":4.13,"jul":17.96,"snow":38.06,"smoke":0.938,"pop":662248,"home":1728000,"lean":0.1,"drive":0.0,"lived":true},
+{"name":"Brampton","prov":"ON","jan":-5.49,"jul":21.45,"snow":108.46,"smoke":0.408,"pop":656480,"home":967000,"lean":17.6,"drive":41.1,"lived":true},
+{"name":"Hamilton","prov":"ON","jan":-5.5,"jul":20.85,"snow":156.54,"smoke":0.409,"pop":569353,"home":752000,"lean":-8.5,"drive":0.0,"lived":true},
+{"name":"Surrey","prov":"BC","jan":3.61,"jul":16.97,"snow":89.3,"smoke":0.905,"pop":568322,"home":1102000,"lean":12.7,"drive":38.9,"lived":true},
+{"name":"Québec","prov":"QC","jan":-12.82,"jul":19.28,"snow":303.35,"smoke":0.31,"pop":549459,"home":326800,"lean":-13.2,"drive":0.1,"lived":true},
+{"name":"Halifax","prov":"NS","jan":-4.14,"jul":18.76,"snow":154.19,"smoke":0.108,"pop":439819,"home":403600,"lean":-11.2,"drive":0.0,"lived":true},
+{"name":"Laval","prov":"QC","jan":-10.87,"jul":20.31,"snow":178.3,"smoke":0.398,"pop":438366,"home":451600,"lean":-1.3,"drive":32.7,"lived":true},
+{"name":"London","prov":"ON","jan":-5.55,"jul":20.77,"snow":194.33,"smoke":0.363,"pop":422324,"home":583500,"lean":1.8,"drive":0.0,"lived":true},
+{"name":"Markham","prov":"ON","jan":-6.21,"jul":21.39,"snow":150.56,"smoke":0.425,"pop":338503,"home":1208000,"lean":20.5,"drive":31.5,"lived":true},
+{"name":"Vaughan","prov":"ON","jan":-6.21,"jul":21.39,"snow":150.56,"smoke":0.417,"pop":323103,"home":1282000,"lean":33.6,"drive":33.1,"lived":true},
+{"name":"Gatineau","prov":"QC","jan":-10.16,"jul":21.16,"snow":175.4,"smoke":0.468,"pop":291041,"home":360400,"lean":-6.4,"drive":5.9,"lived":true},
+{"name":"Saskatoon","prov":"SK","jan":-15.45,"jul":18.46,"snow":91.31,"smoke":1.015,"pop":266141,"home":393600,"lean":39.6,"drive":0.0,"lived":true},
+{"name":"Kitchener","prov":"ON","jan":-6.47,"jul":20.03,"snow":159.71,"smoke":0.38,"pop":256885,"home":701000,"lean":-3.1,"drive":0.3,"lived":true},
+{"name":"Longueuil","prov":"QC","jan":-10.35,"jul":20.58,"snow":209.07,"smoke":0.392,"pop":254483,"home":399200,"lean":-4.1,"drive":19.2,"lived":true},
+{"name":"Burnaby","prov":"BC","jan":3.61,"jul":16.97,"snow":89.3,"smoke":0.987,"pop":249125,"home":1175000,"lean":4.0,"drive":21.8,"lived":true},
+{"name":"Windsor","prov":"ON","jan":-3.82,"jul":22.99,"snow":129.34,"smoke":0.381,"pop":229660,"home":410000,"lean":-0.6,"drive":0.0,"lived":true},
+{"name":"Regina","prov":"SK","jan":-14.68,"jul":18.91,"snow":100.15,"smoke":0.889,"pop":226404,"home":361600,"lean":19.2,"drive":188.1,"lived":true},
+{"name":"Oakville","prov":"ON","jan":-5.49,"jul":21.45,"snow":108.46,"smoke":0.423,"pop":213759,"home":1388000,"lean":16.0,"drive":30.0,"lived":false},
+{"name":"Richmond","prov":"BC","jan":4.13,"jul":17.96,"snow":38.06,"smoke":0.865,"pop":209937,"home":1178000,"lean":18.5,"drive":25.6,"lived":false},
+{"name":"Richmond Hill","prov":"ON","jan":-6.21,"jul":21.39,"snow":150.56,"smoke":0.425,"pop":202022,"home":1344000,"lean":22.1,"drive":36.6,"lived":false},
+{"name":"Burlington","prov":"ON","jan":-5.5,"jul":20.85,"snow":156.54,"smoke":0.409,"pop":186948,"home":1024000,"lean":13.1,"drive":17.3,"lived":false},
+{"name":"Oshawa","prov":"ON","jan":-4.76,"jul":20.55,"snow":105.79,"smoke":0.424,"pop":175383,"home":705000,"lean":15.3,"drive":0.0,"lived":false},
+{"name":"Sherbrooke","prov":"QC","jan":-10.64,"jul":19.61,"snow":206.65,"smoke":0.302,"pop":172950,"home":292000,"lean":0.6,"drive":124.0,"lived":false}
+];
+
+/* approximate lat/lng for the map (real geography; dots need not be pixel-perfect) */
+const COORD = {
+"Toronto":[43.65,-79.38],"Montréal":[45.50,-73.57],"Calgary":[51.05,-114.07],"Ottawa":[45.42,-75.70],
+"Edmonton":[53.55,-113.49],"Winnipeg":[49.90,-97.14],"Mississauga":[43.59,-79.64],"Vancouver":[49.28,-123.12],
+"Brampton":[43.73,-79.76],"Hamilton":[43.26,-79.87],"Surrey":[49.19,-122.85],"Québec":[46.81,-71.21],
+"Halifax":[44.65,-63.58],"Laval":[45.60,-73.71],"London":[42.98,-81.25],"Markham":[43.86,-79.34],
+"Vaughan":[43.84,-79.50],"Gatineau":[45.48,-75.70],"Saskatoon":[52.13,-106.67],"Kitchener":[43.45,-80.49],
+"Longueuil":[45.53,-73.51],"Burnaby":[49.25,-122.98],"Windsor":[42.31,-83.04],"Regina":[50.45,-104.62],
+"Oakville":[43.47,-79.69],"Richmond":[49.17,-123.14],"Richmond Hill":[43.88,-79.44],"Burlington":[43.32,-79.80],
+"Oshawa":[43.90,-78.85],"Sherbrooke":[45.40,-71.89]
+};
+DATA.forEach(p=>{const c=COORD[p.name]; p.lat=c[0]; p.lng=c[1];});
+
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const near=(x,t,tol)=> x==null?null:clamp(1-Math.abs(x-t)/tol,0,1);
+function fmtNum(n){
+  if(n==null) return '..';
+  if(n>=1e6) return (n/1e6).toFixed(2)+'M';
+  if(n>=1e3) return (n/1e3).toFixed(n>=1e4?0:1)+'k';
+  return String(Math.round(n));
+}
+const RAMP=['#F4F5F2','#E4EDE9','#CBE0D9','#A8CEC3','#7FB8AA'];
+const rampFit=(f)=>RAMP[clamp(Math.floor(f/100*RAMP.length),0,RAMP.length-1)];
+const ramp01=(s)=>RAMP[clamp(Math.floor(s*RAMP.length),0,RAMP.length-1)];
+
+/* ---------- the dimensions (the 8 the slice can score, faithful to the desktop model) ---------- */
+const Q=[
+ {id:'winter',g:'Climate',label:'Winter',hint:'The January you want to wake up in.',
+  kind:'range',min:-26,max:6,step:1,def:-5,w:2, fmt:v=>`${v>0?'+':''}${v}°`,ends:['Deep freeze','No winter'],
+  score:(p,v)=>near(p.jan,v,16), show:p=>[p.jan.toFixed(1),'°']},
+ {id:'summer',g:'Climate',label:'Summer',hint:'And the July.',
+  kind:'range',min:12,max:24,step:1,def:20,w:1, fmt:v=>`${v}°`,ends:['Cool','Hot'],
+  score:(p,v)=>near(p.jul,v,7), show:p=>[p.jul.toFixed(1),'°']},
+ {id:'snow',g:'Climate',label:'Snow',hint:'How much shovelling.',
+  kind:'opts',def:'some',w:1, opts:[['none','As little as possible'],['some','Some is fine'],['lots','Bring it on']],
+  score:(p,v)=>{const s=p.snow; if(v==='none')return clamp(1-s/250,0,1); if(v==='lots')return clamp(s/400,0,1); return clamp(1-Math.abs(s-170)/220,0,1);},
+  show:p=>[Math.round(p.snow),'cm']},
+ {id:'smoke',g:'Climate',label:'Wildfire smoke',hint:'Modelled smoke from fire only, 12-year average.',
+  kind:'opts',def:'less',w:2, opts:[['deal','Dealbreaker'],['less','Prefer less'],['meh','Not fussed']],
+  score:(p,v)=>{const s=p.smoke; if(v==='meh')return null; return clamp(1-s/2.6,0,1);},
+  hard:(p,v)=>v==='deal'&&p.smoke>1.5, hardWhy:'the smoke', show:p=>[p.smoke.toFixed(2),'']},
+ {id:'size',g:'The place',label:'Size',hint:'How big a place.',
+  kind:'opts',def:'small',w:2, opts:[['village','Village'],['town','Town'],['small','Small city'],['mid','Mid city'],['big','Big city']],
+  score:(p,v)=>{const t={village:3.4,town:4.1,small:4.8,mid:5.4,big:6.2}[v]; return near(Math.log10(Math.max(p.pop,300)),t,1.5);},
+  show:p=>[fmtNum(p.pop),'']},
+ {id:'prox',g:'The place',label:'Near a big city',hint:'Drive to the nearest metro over 300,000.',
+  kind:'opts',def:'hour',w:2, opts:[['in','In one'],['hour','Within an hour'],['half','Half a day is fine'],['far','As far as possible']],
+  score:(p,v)=>{const d=p.drive; if(v==='in')return near(d,0,70); if(v==='hour')return near(d,45,110); if(v==='half')return near(d,180,260); return clamp(d/420,0,1);},
+  show:p=>[p.drive===0?'here':Math.round(p.drive),p.drive===0?'':'m']},
+ {id:'cost',g:'The place',label:'Housing budget',hint:'What an average home is worth vs what you can pay.',
+  kind:'range',min:200,max:1400,step:25,def:600,w:2, fmt:v=>`$${v}k`,ends:['$200k','$1.4M'],
+  score:(p,v)=>{const h=p.home,b=v*1000; return h<=b?clamp(0.6+0.4*(1-h/b),0,1):clamp(0.6*(1-(h-b)/b),0,0.6);},
+  hard:(p,v)=>p.home>v*1000*1.6, hardWhy:'the price', show:p=>['$'+fmtNum(p.home),'']},
+ {id:'politics',g:'The place',label:'Politics',hint:'Vote-weighted lean of the federal riding, 2025.',
+  kind:'opts',def:'meh',w:1, opts:[['left','Left'],['centre','Centre'],['right','Right'],['meh','Not fussed']],
+  score:(p,v)=>{const l=p.lean; if(v==='meh')return null; return near(l,{left:-55,centre:0,right:55}[v],95);},
+  show:p=>[(p.lean>0?'+':'')+p.lean.toFixed(0),'']},
+];
+const SHORT={winter:'the winter',summer:'the summer',snow:'the snow',smoke:'clean air',size:'the size',prox:'the location',cost:'the price',politics:'the politics'};
+const said=(q)=> q.kind==='range'? q.fmt(state[q.id]) : (q.opts.find(o=>o[0]===state[q.id])||['',''])[1];
+const listify=(a)=> a.length<2 ? (a[0]||'') : a.slice(0,-1).join(', ')+' and '+a[a.length-1];
+
+/* ---------- state ---------- */
+const state={}, weights={};
+Q.forEach(q=>{state[q.id]=q.def; weights[q.id]=q.w;});
+let ranked=[], selectedKey=null;
+
+/* ---------- scoring: weighted power mean, weights 1/3/9, p=0.5 (faithful to desktop) ---------- */
+const WEIGHT_SCALE=[0,1,3,9];
+const P_MEAN=0.5;
+const wOf=(id)=>WEIGHT_SCALE[weights[id]]||0;
+function scoreAll(){
+  const out=DATA.map(p=>{
+    let num=0,den=0; const parts=[]; let excluded=null; const cells={};
+    for(const q of Q){
+      const s=q.score(p,state[q.id]); cells[q.id]=s;
+      const w=wOf(q.id); if(!w) continue;
+      if(q.hard&&q.hard(p,state[q.id])) excluded=q.hardWhy;
+      if(s==null) continue;
+      num+=w*Math.pow(s,P_MEAN); den+=w;
+      parts.push({id:q.id,s,w,pull:w*(s-0.5)});
+    }
+    parts.sort((a,b)=>b.pull-a.pull);
+    return {p, fit: den?Math.pow(num/den,1/P_MEAN)*100:0, parts, cells, excluded,
+      good: parts.filter(x=>x.s>0.62).slice(0,2),
+      bad: parts.length?parts[parts.length-1]:null};
+  });
+  out.sort((a,b)=>(a.excluded?1:0)-(b.excluded?1:0) || b.fit-a.fit);
+  return out;
+}
+const keyOf=(r)=>r.p.name+'|'+r.p.prov;
+
+/* ---------- ANSWER: build survey ---------- */
+const WL=['Skip','A little','Matters','A lot'];
+function buildSurvey(){
+  let lastG=null;
+  $('#qs').innerHTML=Q.map(q=>{
+    const head=q.g!==lastG?`<h3 class="qgroup">${q.g}</h3>`:''; lastG=q.g;
+    const body=q.kind==='range'
+      ? `<div class="answer"><div class="slider-row">
+           <input type="range" id="r-${q.id}" min="${q.min}" max="${q.max}" step="${q.step}" value="${state[q.id]}" aria-label="${q.label}">
+           <span class="readout tnum" id="o-${q.id}">${q.fmt(state[q.id])}</span></div>
+           <div class="scale-ends"><span>${q.ends[0]}</span><span>${q.ends[1]}</span></div></div>`
+      : `<div class="answer"><div class="opts">${q.opts.map(([v,l])=>`<button class="opt" type="button" data-q="${q.id}" data-v="${v}" aria-pressed="${state[q.id]===v}">${l}</button>`).join('')}</div></div>`;
+    const seg=[0,1,2,3].map(n=>`<button class="seg-b${n===0?' skip':''}" type="button" data-w="${q.id}" data-n="${n}" aria-pressed="${weights[q.id]===n}">${WL[n]}</button>`).join('');
+    return head+`<div class="q${weights[q.id]===0?' off':''}" id="q-${q.id}">
+      <div class="q-head"><p class="q-label">${q.label}</p><span class="q-say" id="say-${q.id}">${said(q)}</span></div>
+      <p class="q-hint">${q.hint}</p>
+      ${body}
+      <div class="imp"><span class="imp-lab">How much this matters</span>
+        <div class="seg" role="group" aria-label="How much ${q.label} matters">${seg}</div></div>
+    </div>`;
+  }).join('');
+}
+function syncQuestion(id){
+  const q=Q.find(x=>x.id===id);
+  $('#say-'+id).textContent=said(q);
+  const qc=$('#q-'+id); qc.classList.toggle('off',weights[id]===0);
+  qc.querySelectorAll('.seg-b').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.n===weights[id]));
+  qc.querySelectorAll('.opt').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===state[id]));
+}
+
+$('#qs').addEventListener('input',e=>{
+  if(e.target.type!=='range') return;
+  const id=e.target.id.slice(2), q=Q.find(x=>x.id===id);
+  state[id]=+e.target.value; $('#o-'+id).textContent=q.fmt(+e.target.value); $('#say-'+id).textContent=said(q);
+  recompute();
+});
+$('#qs').addEventListener('click',e=>{
+  const o=e.target.closest('.opt'), w=e.target.closest('.seg-b');
+  if(o){
+    const id=o.dataset.q; state[id]=o.dataset.v;
+    if(weights[id]===0) weights[id]=1;   // choosing an answer turns it on
+    syncQuestion(id); recompute();
+  }
+  if(w){
+    const id=w.dataset.w; weights[id]=+w.dataset.n;
+    syncQuestion(id); recompute();
+  }
+});
+$('#reset').addEventListener('click',()=>{
+  Q.forEach(q=>{state[q.id]=q.def; weights[q.id]=q.w;});
+  buildSurvey(); recompute();
+});
+
+/* ---------- ANSWER: running top pick ---------- */
+function renderTopPick(){
+  const r=ranked.find(x=>!x.excluded);
+  if(!r){ $('#tp-name').textContent='Nothing clears your dealbreakers'; $('#tp-why').textContent='Loosen a dealbreaker.'; $('#tp-fit').textContent='–'; $('#tp-fit').style.background='var(--sink)'; return; }
+  const reasons=r.good.map(g=>SHORT[g.id]);
+  $('#tp-name').innerHTML=`${r.p.name}<i>${r.p.prov}</i>`;
+  $('#tp-why').textContent=reasons.length?`Gets you ${listify(reasons)}.`:'Closest to what you asked for.';
+  $('#tp-fit').textContent=Math.round(r.fit);
+  $('#tp-fit').style.background=rampFit(r.fit);
+}
+
+/* ---------- LIST: cards ---------- */
+function relevantStats(r){
+  // the 3-4 stats that actually moved this ranking: active dims by weight, then by how far from neutral
+  return r.parts.slice().sort((a,b)=> b.w-a.w || Math.abs(b.s-0.5)-Math.abs(a.s-0.5)).slice(0,4);
+}
+function statHTML(id,p){
+  const q=Q.find(x=>x.id===id); const v=q.show(p);
+  const lab={winter:'Jan',summer:'Jul',snow:'Snow',smoke:'Smoke',size:'People',prox:'Drive',cost:'Home',politics:'Lean'}[id];
+  return `<span class="stat"><b>${v[0]}${v[1]?'<i>'+v[1]+'</i>':''}</b> <i>${lab}</i></span>`;
+}
+function renderList(){
+  const live=ranked.filter(r=>!r.excluded);
+  $('#list-sub').textContent=`${live.length} of ${DATA.length} clear your dealbreakers · tap a place for everything`;
+  let cutShown=false;
+  $('#cards').innerHTML=ranked.map((r,i)=>{
+    const p=r.p, divider=(r.excluded&&!cutShown)?(cutShown=true,`<div class="cut-divider">Ruled out by a dealbreaker</div>`):'';
+    const stats = r.excluded
+      ? `<div class="cut-note">Ruled out on ${r.excluded}.</div>`
+      : `<div class="stats">${relevantStats(r).map(pt=>statHTML(pt.id,p)).join('')}</div>`;
+    return divider+`<button class="card${r.excluded?' cut':''}" type="button" data-key="${keyOf(r)}">
+      <span class="rank tnum">${r.excluded?'':i+1}</span>
+      <span class="card-main">
+        <span class="card-top">
+          <span class="cname">${p.name}<i>${p.prov}</i>${p.lived?'<span class="prov-dot" title="Residents researched"></span>':''}</span>
+          <span class="fit-chip tnum" style="background:${r.excluded?'var(--sink)':rampFit(r.fit)}">${r.excluded?'—':Math.round(r.fit)}</span>
+        </span>
+        ${stats}
+      </span>
+    </button>`;
+  }).join('');
+}
+$('#cards').addEventListener('click',e=>{
+  const c=e.target.closest('.card'); if(!c) return;
+  openDetail(c.dataset.key);
+});
+
+/* ---------- MAP: results sheet list ---------- */
+function renderMapSheet(){
+  const live=ranked.filter(r=>!r.excluded);
+  $('#mapcount').textContent=`${live.length} places`;
+  $('#mapsheet-scroll').innerHTML=live.map((r,i)=>{
+    const p=r.p;
+    return `<button class="card" type="button" data-key="${keyOf(r)}">
+      <span class="rank tnum">${i+1}</span>
+      <span class="card-main">
+        <span class="card-top">
+          <span class="cname">${p.name}<i>${p.prov}</i></span>
+          <span class="fit-chip tnum" style="background:${rampFit(r.fit)}">${Math.round(r.fit)}</span>
+        </span>
+        <div class="stats">${relevantStats(r).slice(0,3).map(pt=>statHTML(pt.id,p)).join('')}</div>
+      </span>
+    </button>`;
+  }).join('');
+}
+$('#mapsheet-scroll').addEventListener('click',e=>{
+  const c=e.target.closest('.card'); if(!c) return;
+  openDetail(c.dataset.key);
+});
+
+/* ---------- MAP: canvas ---------- */
+const cvs=$('#map'), ctx=cvs.getContext('2d');
+let mapPts=[];
+// stylized Canada silhouette in a 1000 x 620 space (recognizable, not survey-grade)
+const LAND=[
+ [150,140],[300,120],[470,120],[500,152],[520,300],[575,338],[625,300],[650,152],[700,132],
+ [820,176],[872,262],[860,360],[884,430],[848,472],[800,456],[818,508],[892,506],[868,544],
+ [836,552],[792,516],[758,486],[720,548],[672,562],[610,545],[598,476],[470,470],[250,462],
+ [150,472],[124,382],[146,300],[120,220],[150,140]
+];
+const NFLD=[[905,392],[930,378],[934,408],[912,420],[898,404]];
+const VANI=[[104,432],[122,412],[132,452],[112,470]];
+function projLL(lng,lat){ // -> 1000x620 space
+  const x=120+(lng+125)/62*760;
+  const y=560-(lat-42)/12*230;
+  return [x,y];
+}
+function drawMap(){
+  const rect=cvs.getBoundingClientRect();
+  const W=Math.round(rect.width)||360, H=Math.round(rect.height)||480;
+  if(W<2||H<2) return;
+  const dpr=window.devicePixelRatio||1;
+  cvs.width=W*dpr; cvs.height=H*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
+  // fit the 1000x620 art into the canvas, top-biased so land sits above the sheet
+  const k=Math.min(W/1000,H/700);
+  const ox=(W-1000*k)/2, oy=8;
+  const T=(x,y)=>[ox+x*k, oy+y*k];
+  ctx.lineJoin='round';
+  const fillPoly=(pts)=>{ ctx.beginPath(); pts.forEach(([x,y],i)=>{const[a,b]=T(x,y); i?ctx.lineTo(a,b):ctx.moveTo(a,b);}); ctx.closePath();
+    ctx.fillStyle='#EFEFEA'; ctx.fill(); ctx.strokeStyle='#C7C9C2'; ctx.lineWidth=1; ctx.stroke(); };
+  fillPoly(LAND); fillPoly(NFLD); fillPoly(VANI);
+  // dots, low fit first so high-fit sit on top
+  mapPts=[];
+  const order=ranked.slice().reverse();
+  for(const r of order){
+    const [px,py]=projLL(r.p.lng,r.p.lat); const [x,y]=T(px,py);
+    const rad=r.excluded?2.6:3.4+(r.fit/100)**2*7;
+    ctx.beginPath(); ctx.arc(x,y,rad,0,6.2832);
+    if(r.excluded){ ctx.fillStyle='#C7C9C2'; ctx.fill(); }
+    else{ ctx.fillStyle=rampFit(r.fit); ctx.fill(); ctx.strokeStyle='#0A4F47'; ctx.lineWidth=0.9; ctx.stroke(); }
+    mapPts.push({x,y,r:Math.max(rad,11),rec:r});
+  }
+  // label the top few
+  const top=ranked.filter(r=>!r.excluded).slice(0,5);
+  ctx.font=`600 12px -apple-system,system-ui,sans-serif`; ctx.textBaseline='middle';
+  const placed=[];
+  const hits=a=>placed.some(b=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y);
+  for(const r of top){
+    const [px,py]=projLL(r.p.lng,r.p.lat); const [x,y]=T(px,py);
+    const t=r.p.name, w=ctx.measureText(t).width, h=13;
+    let spot=null;
+    for(const [tx,ty] of [[x+9,y],[x-9-w,y],[x-w/2,y-h],[x-w/2,y+h]]){
+      if(tx<2||tx+w>W-2) continue;
+      const box={x:tx-2,y:ty-h/2-1,w:w+4,h:h+2};
+      if(!hits(box)){ spot=[tx,ty,box]; break; }
+    }
+    if(!spot) continue; placed.push(spot[2]);
+    ctx.fillStyle='rgba(247,247,244,.85)'; ctx.fillRect(spot[2].x,spot[2].y,spot[2].w,spot[2].h);
+    ctx.fillStyle='#17191D'; ctx.fillText(t,spot[0],spot[1]);
+  }
+}
+function mapHit(mx,my){
+  let best=null,bd=1e9;
+  for(const q of mapPts){ const d=Math.hypot(q.x-mx,q.y-my); if(d<q.r&&d<bd){bd=d; best=q;} }
+  return best;
+}
+cvs.addEventListener('click',e=>{
+  const b=cvs.getBoundingClientRect();
+  const hit=mapHit(e.clientX-b.left,e.clientY-b.top);
+  if(hit) openDetail(keyOf(hit.rec));
+});
+
+/* ---------- DETAIL sheet ---------- */
+function openDetail(key){
+  const r=ranked.find(x=>keyOf(x)===key); if(!r) return;
+  selectedKey=key;
+  renderDetail(r);
+  $('#scrim').classList.add('on');
+  const d=$('#detail'); d.classList.add('animate');
+  requestAnimationFrame(()=>{ d.style.transform='translateY(0)'; });
+}
+function closeDetail(){
+  selectedKey=null;
+  $('#scrim').classList.remove('on');
+  const d=$('#detail'); d.classList.add('animate'); d.style.transform='translateY(100%)';
+}
+function renderDetail(r){
+  const p=r.p;
+  $('#detail-head').innerHTML=`
+    <div><div class="dh-name">${p.name}<i>${p.prov}</i></div>
+      <div class="dh-sub">${r.excluded?`Ruled out on ${r.excluded}`:`Rank ${ranked.filter(x=>!x.excluded).indexOf(r)+1} of ${ranked.filter(x=>!x.excluded).length}`} · ${p.lived?'residents researched':'not researched'}</div></div>
+    <div class="dh-fit" style="background:${r.excluded?'var(--sink)':rampFit(r.fit)}"><b>${r.excluded?'—':Math.round(r.fit)}</b><span>fit</span></div>`;
+
+  const active=Q.filter(q=>wOf(q.id));
+  const why=r.parts.length? r.parts.map(pt=>{
+    const q=Q.find(x=>x.id===pt.id); const v=q.show(p);
+    return `<div class="wrow">
+      <div class="wrow-top"><span class="wrow-lab">${q.label} <span class="wtag">×${pt.w}</span></span>
+        <span class="wrow-val tnum">${v[0]}${v[1]?'<i style="color:var(--ink-3);font-style:normal"> '+v[1]+'</i>':''}</span></div>
+      <div class="wrow-ask">you asked: ${said(q).toLowerCase()}</div>
+      <div class="wbar"><i style="width:${Math.round(pt.s*100)}%;background:${ramp01(pt.s)}"></i></div>
+    </div>`;
+  }).join('') : `<p class="prov-note">Every dimension is set to Skip. Turn some on to see why places rank.</p>`;
+
+  // dimensions the place couldn't be scored on / set to skip
+  const skipped=active.length<Q.length?`<p class="prov-note">${Q.length-active.length} of ${Q.length} dimensions are set to Skip and don't count.</p>`:'';
+
+  const row=(k,v)=>`<div class="drow"><span>${k}</span><b class="tnum">${v}</b></div>`;
+  const facts=`
+    <div class="dgrid">
+      ${row('January',p.jan.toFixed(1)+'°')}
+      ${row('July',p.jul.toFixed(1)+'°')}
+      ${row('Snow',Math.round(p.snow)+' cm')}
+      ${row('Wildfire smoke',p.smoke.toFixed(2))}
+      ${row('People',fmtNum(p.pop))}
+      ${row('Home, avg',' $'+fmtNum(p.home))}
+      ${row('Nearest big city',p.drive===0?'here':Math.round(p.drive)+' min')}
+      ${row('Political lean',(p.lean>0?'+':'')+p.lean.toFixed(0))}
+    </div>`;
+
+  $('#detail-scroll').innerHTML=`
+    ${r.excluded?`<p class="dwarn"><b>Ruled out.</b> This place fails a dealbreaker you set (${r.excluded}), so it is scored but parked below the ranking.</p>`:''}
+    <div class="dsec"><h3>Why it ranks</h3>${why}${skipped}</div>
+    <div class="dsec"><h3>Everything about ${p.name}</h3>${facts}
+      <p class="prov-note">${p.lived?'<em>Researched.</em> Resident findings exist for this place.':'<em>Not researched.</em> Scored on measured data only.'} Climate 1981-2010 · Smoke 2013-2024 · Census 2021 · Votes 2025.</p>
+    </div>`;
+}
+$('#dclose').addEventListener('click',closeDetail);
+$('#scrim').addEventListener('click',closeDetail);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&selectedKey) closeDetail(); });
+
+/* ---------- draggable bottom sheets (touch + mouse via pointer events) ---------- */
+function attachSheet(sheet, getSnaps, opts={}){
+  const scroll=opts.scroll? sheet.querySelector(opts.scroll):null;
+  let startY=0, startT=0, cur=0, dragging=false, moved=false, pid=null;
+  const setT=(y)=>{ cur=y; sheet.style.transform=`translateY(${y}px)`; };
+  function snapTo(y){
+    const snaps=getSnaps();
+    let best=snaps[0]; for(const s of snaps) if(Math.abs(s-y)<Math.abs(best-y)) best=s;
+    sheet.classList.add('animate'); setT(best);
+  }
+  function fromGrip(e){ return !scroll || !scroll.contains(e.target); }
+  function down(e){
+    const snaps=getSnaps();
+    const grip=fromGrip(e);
+    // if dragging from the scroll body, only take over when at the top and pulling down
+    if(!grip){
+      const atTop=scroll.scrollTop<=0;
+      const isFull=Math.abs(cur-Math.min(...snaps))<2;
+      if(!(atTop||!isFull)) return;          // let it scroll
+      if(isFull && !atTop) return;
+    }
+    dragging=true; moved=false; pid=e.pointerId; startY=e.clientY; startT=cur;
+    sheet.classList.remove('animate');
+    try{ sheet.setPointerCapture(pid); }catch(_){}
+  }
+  function move(e){
+    if(!dragging) return;
+    const snaps=getSnaps(), min=Math.min(...snaps), max=Math.max(...snaps);
+    let y=startT+(e.clientY-startY);
+    // if pulling down from inside the scroll, only allow when at top
+    if(scroll && scroll.contains(e.target) && scroll.scrollTop>0 && y>startT){ }
+    y=clamp(y,min-20,max+40);
+    if(Math.abs(e.clientY-startY)>3) moved=true;
+    if(moved){ e.preventDefault(); setT(y); }
+  }
+  function up(e){
+    if(!dragging) return; dragging=false;
+    try{ sheet.releasePointerCapture(pid); }catch(_){}
+    if(moved){ snapTo(cur); }
+  }
+  sheet.addEventListener('pointerdown',down);
+  sheet.addEventListener('pointermove',move,{passive:false});
+  sheet.addEventListener('pointerup',up);
+  sheet.addEventListener('pointercancel',up);
+  return { set:setT, snapTo, snapIndex:(i)=>{ const s=getSnaps(); sheet.classList.add('animate'); setT(s[i]); } };
+}
+
+/* map results sheet: peek / half / full */
+let mapSheetCtl;
+function mapSnaps(){
+  const area=$('#maparea').clientHeight||480;
+  const peek=132, half=Math.round(area*0.5), full=Math.round(area*0.9);
+  return [area-peek, area-half, area-full]; // [peek, half, full] as translateY
+}
+mapSheetCtl=attachSheet($('#mapsheet'), mapSnaps, {scroll:'#mapsheet-scroll'});
+
+/* detail sheet drag-to-dismiss (snap: open at 0, or dismiss) */
+(function(){
+  const sheet=$('#detail'), scroll=$('#detail-scroll');
+  let startY=0, cur=0, dragging=false, moved=false, pid=null, fromGrip=false;
+  const H=()=>sheet.getBoundingClientRect().height;
+  function down(e){
+    fromGrip = $('#detailgrip').contains(e.target) || $('#detail-head').contains(e.target);
+    if(!fromGrip){ if(scroll.scrollTop>0) return; }
+    dragging=true; moved=false; pid=e.pointerId; startY=e.clientY; cur=0;
+    sheet.classList.remove('animate');
+    try{ sheet.setPointerCapture(pid);}catch(_){}
+  }
+  function move(e){
+    if(!dragging) return;
+    let dy=e.clientY-startY; if(dy<0) dy=0;
+    if(Math.abs(e.clientY-startY)>3) moved=true;
+    if(moved){ e.preventDefault(); cur=dy; sheet.style.transform=`translateY(${dy}px)`; }
+  }
+  function up(){
+    if(!dragging) return; dragging=false;
+    try{ sheet.releasePointerCapture(pid);}catch(_){}
+    sheet.classList.add('animate');
+    if(cur>H()*0.28){ closeDetail(); } else { sheet.style.transform='translateY(0)'; }
+  }
+  sheet.addEventListener('pointerdown',down);
+  sheet.addEventListener('pointermove',move,{passive:false});
+  sheet.addEventListener('pointerup',up);
+  sheet.addEventListener('pointercancel',up);
+})();
+
+/* ---------- tabs ---------- */
+const SCREENS=['answer','map','list'];
+let currentScreen='answer';
+function showScreen(name){
+  currentScreen=name;
+  SCREENS.forEach(s=>{
+    const sec=$('#screen-'+s), tab=$('#tab-'+s);
+    const on=s===name; sec.classList.toggle('on',on); sec.hidden=!on;
+    tab.setAttribute('aria-selected',on?'true':'false');
+  });
+  if(name==='map'){
+    // canvas has real size only once the screen is shown
+    requestAnimationFrame(()=>{ drawMap(); mapSheetCtl.snapIndex(0); });
+  }
+}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>showScreen(t.dataset.screen)));
+$('#toppick').addEventListener('click',()=>showScreen('list'));
+
+/* ---------- recompute + render ---------- */
+function recompute(){
+  ranked=scoreAll();
+  renderTopPick();
+  renderList();
+  renderMapSheet();
+  if(currentScreen==='map') drawMap();
+  if(selectedKey){ const r=ranked.find(x=>keyOf(x)===selectedKey); if(r) renderDetail(r); }
+}
+
+let rt; addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(()=>{ if(currentScreen==='map'){ drawMap(); mapSheetCtl.snapTo(mapSnaps()[0]); } },140); });
+
+/* ---------- init ---------- */
+buildSurvey();
+recompute();
+</script>
+</body>
+</html>

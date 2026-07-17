@@ -524,6 +524,9 @@ function draw() {
   history.replaceState(null, '', '#' + encodeState());
 
   const cols = Q.filter((q) => q.col);
+
+  if (MOBILE.matches) { drawCards(); drawMap(); return; }   // phone: cards, not the 15k-cell plate
+
   $('#thead').innerHTML = `<tr><th></th><th class="l">Place</th><th>Fit</th>
     ${cols.map((q) => { const h = COLHELP[q.id] || [q.label,'',''];
       return `<th${wOf(q.id) ? '' : ' style="opacity:.45"'} title="${h[0]}${h[1] ? ' ('+h[1]+')' : ''}. ${h[2]}">${q.col}</th>`; }).join('')}
@@ -548,6 +551,72 @@ function draw() {
   if (rib) { const r = ranked.find((x) => x.p.name + x.p.prov === selected); if (r) ribbon(rib, r.p); }
   drawMap();
 }
+
+/* ---------- mobile: ranked cards + detail sheet ----------
+   Each card is a place with the 2-3 stats that decided it, per the mobile
+   research: a comparison table only helps at <=5 items, so 712 places on a
+   phone are a ranked list, not a grid. Tapping opens the full record in a sheet. */
+const MOBILE = matchMedia('(max-width: 760px)');
+
+function drawCards() {
+  const shown = showAll ? ranked.length : Math.min(80, ranked.length);
+  const live = ranked.filter((r) => !r.excluded).length;
+  const head = `<li class="cards-head">${live} of ${DATA.length} clear your dealbreakers` +
+    (ranked.length > 80 ? ` · <button class="showall" id="showall">${showAll ? 'top 80' : 'show all'}</button>` : '') + `</li>`;
+  $('#cards').innerHTML = head + ranked.slice(0, shown).map((r, i) => {
+    const p = r.p;
+    // the 2-3 dimensions the user weighted most, with this place's actual value
+    const chips = r.parts.slice(0, 3).map((pt) => {
+      const q = Q.find((x) => x.id === pt.id); const v = q.show(p);
+      return v ? `<span class="chip">${q.col} <b>${v[0]}${v[1]}</b></span>` : '';
+    }).filter(Boolean).join('');
+    const why = r.excluded
+      ? `<span class="cut">Ruled out on ${r.excluded}</span>`
+      : (r.good.length ? `Gets you ${listify(r.good.map((g) => SHORT[g.id]))}` : 'the closest to what you asked');
+    return `<li><button class="pcard ${r.excluded ? 'excl' : ''}" data-i="${i}">
+      <span class="pr">${r.excluded ? '—' : i + 1}</span>
+      <span class="pn">${p.name}<span class="pv">${p.prov}</span></span>
+      <span class="pf" style="background:${r.excluded ? 'var(--sink)' : rampOf(r.fit)}">${r.excluded ? '—' : Math.round(r.fit)}</span>
+      <span class="pwhy">${why}</span>
+      <span class="chips">${chips}</span>
+    </button></li>`;
+  }).join('');
+}
+
+function openSheet(r) {
+  $('#sheetBody').innerHTML = `<div class="sheet-name">${r.p.name}<span class="pv">${r.p.prov}</span></div>` + detailHTML(r);
+  const sh = $('#sheet'); sh.hidden = false;
+  const rib = sh.querySelector('[data-rib]'); if (rib) ribbon(rib, r.p);
+  if (!history.state || !history.state.sheet)
+    history.pushState({ sheet: true }, '', location.href);   // back-button closes it, hash stays put
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet(pop) {
+  const sh = $('#sheet'); if (sh.hidden) return;
+  sh.hidden = true; document.body.style.overflow = '';
+  if (!pop && history.state && history.state.sheet) history.back();
+}
+$('#sheetClose').addEventListener('click', () => closeSheet());
+$('#sheetScrim').addEventListener('click', () => closeSheet());
+addEventListener('popstate', () => closeSheet(true));
+
+$('#cards').addEventListener('click', (e) => {
+  const b = e.target.closest('.pcard'); if (!b) return;
+  openSheet(ranked[+b.dataset.i]);
+});
+
+/* bottom tab bar: switch the visible screen. Ephemeral, never in the URL. */
+const field = $('.field');
+$('#tabbar').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-tab]'); if (!b) return;
+  field.dataset.view = b.dataset.tab;
+  $('#tabbar').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x === b));
+  if (b.dataset.tab === 'map') drawMap();   // canvas needs a redraw once its tab is visible
+  scrollTo(0, 0);
+});
+
+// re-render when crossing the desktop/mobile boundary so the right structure builds
+MOBILE.addEventListener('change', () => { selected = null; render(); });
 
 /* ---------- survey ---------- */
 function buildSurvey() {
@@ -639,9 +708,26 @@ cvs.addEventListener('mousemove', (e) => {
   drawMap();
 });
 cvs.addEventListener('mouseleave', () => { hot = -1; tip.classList.remove('on'); drawMap(); });
+
+// touch: tap the nearest dot to a finger and open its record. The map was
+// mouse-only, so a phone could not read or select a place.
+function pickAt(clientX, clientY, slop) {
+  const b = cvs.getBoundingClientRect(), mx = clientX - b.left, my = clientY - b.top;
+  let best = null, bd = 1e9;
+  for (const q of pts) { const d = Math.hypot(q.x - mx, q.y - my); if (d < q.r + slop && d < bd) { bd = d; best = q; } }
+  return best;
+}
+cvs.addEventListener('touchend', (e) => {
+  const t = e.changedTouches && e.changedTouches[0]; if (!t) return;
+  const hit = pickAt(t.clientX, t.clientY, 14);   // fat-finger slop
+  if (hit) { e.preventDefault(); openSheet(hit.rec); }
+}, { passive: false });
+
 cvs.addEventListener('click', () => {
   if (hot < 0) return;
-  const r = ranked[hot], key = r.p.name + r.p.prov;
+  const r = ranked[hot];
+  if (MOBILE.matches) { openSheet(r); return; }
+  const key = r.p.name + r.p.prov;
   selected = selected === key ? null : key; render();
   const el = $(`button[data-i="${ranked.indexOf(r)}"]`);
   if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });

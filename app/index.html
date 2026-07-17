@@ -17,8 +17,9 @@
             three for a lot, click again to switch it off. The steps are steep on purpose.
             <em>Matters a lot</em> counts nine times <em>matters a little</em>, so one thing you
             really care about can outrank everything else put together.</li>
-        <li><b>Read your answer</b> at the top, and the table for why. Hover any column heading
-            to see what it means and where the number came from.</li>
+        <li><b>Read your answer</b> at the top. <span class="only-wide">Read the table for why, and
+            hover any column heading to see what it means.</span><span class="only-narrow">Tap
+            <b>List</b> for the ranking, or any place for its full record.</span></li>
       </ol>
     </div>
     <div class="headnote">
@@ -30,7 +31,7 @@
     </div>
   </header>
 
-  <div class="field">
+  <div class="field" data-view="answer">
     <section class="survey">
       <div class="survey-head">
         <h2>What you want</h2>
@@ -47,6 +48,8 @@
         <canvas id="map" role="img" aria-label="Map of Canada, each place shaded by how well it fits your answers"></canvas>
         <div class="tip" id="tip"></div>
       </div>
+
+      <ol class="cards" id="cards" aria-label="Places ranked for you"></ol>
 
       <div class="plate-head">
         <h2>All 712</h2>
@@ -112,6 +115,20 @@
       </div>
     </div>
   </footer>
+
+  <nav class="tabbar" id="tabbar" aria-label="Views">
+    <button data-tab="answer" aria-pressed="true"><span class="ti">Answer</span></button>
+    <button data-tab="list" aria-pressed="false"><span class="ti">List</span></button>
+    <button data-tab="map" aria-pressed="false"><span class="ti">Map</span></button>
+  </nav>
+
+  <div class="sheet-overlay" id="sheet" hidden>
+    <div class="sheet-scrim" id="sheetScrim"></div>
+    <div class="sheet-card" role="dialog" aria-modal="true" aria-label="Place detail">
+      <button class="sheet-close" id="sheetClose" aria-label="Close">Close</button>
+      <div id="sheetBody"></div>
+    </div>
+  </div>
 </div>
 
 <script>const DATA=/*__DATA__*/;const MAPGEO=/*__MAP__*/;</script>

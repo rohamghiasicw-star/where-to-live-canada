@@ -384,3 +384,124 @@ ol.how b { color: var(--ink); font-weight: 600; }
 
 /* the column heads are hoverable, so say so */
 .plate-t thead th[title] { cursor: help; text-decoration: underline dotted var(--rule-2); text-underline-offset: 3px; }
+
+/* ============================================================
+   MOBILE. Below 760px this stops being a desktop plate and
+   becomes a rank-and-compare tool, per NN/g: a comparison table
+   only helps decisions at <=5 items, and there are 712 here. So
+   the phone gets a ranked list of cards, a detail sheet, and a
+   map, switched by a bottom tab bar. The 21-column plate is
+   desktop-only. Answers still live in the URL hash exactly as
+   before; the tab is ephemeral, never in the URL.
+   ============================================================ */
+
+/* device-specific copy */
+.only-narrow { display: none; }
+
+.cards { display: none; }              /* desktop: the table does this job */
+.tabbar { display: none; }
+.sheet-overlay { display: none; }
+
+@media (max-width: 760px) {
+  :root { --gut: 1rem; }
+  .only-wide { display: none; }
+  .only-narrow { display: inline; }
+  .field { grid-template-columns: 1fr; }
+  .survey { border-right: 0; position: static; padding-bottom: 5rem; }
+
+  /* one screen at a time, chosen by the tab bar */
+  .field[data-view="answer"] .plate,
+  .field[data-view="list"] .survey,
+  .field[data-view="map"] .survey { display: none; }
+  .field[data-view="list"] .map-wrap,
+  .field[data-view="list"] .plate-head,
+  .field[data-view="list"] .plate-scroll { display: none; }
+  .field[data-view="map"] .cards,
+  .field[data-view="map"] .plate-scroll,
+  .field[data-view="map"] .plate-head { display: none; }
+  .field[data-view="answer"] { display: block; }
+
+  /* the plate table never shows on a phone; the cards do */
+  .plate-scroll { display: none; }
+  .cards { display: block; list-style: none; margin: 0; padding: 0 0 5rem; }
+
+  /* the verdict is the answer, so it sits at the very top of List and Map */
+  .verdict { padding-bottom: 1rem; }
+
+  /* bottom tab bar, thumb zone, three tabs is NN/g's sweet spot */
+  .tabbar {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    background: var(--page); border-top: 1px solid var(--rule);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .tabbar button {
+    font: inherit; font-size: var(--t-s); font-weight: 600;
+    background: none; border: 0; color: var(--ink-3);
+    padding: 0.9rem 0; min-height: 48px; cursor: pointer;
+    border-top: 2px solid transparent; margin-top: -1px;
+  }
+  .tabbar button[aria-pressed="true"] { color: var(--ink); border-top-color: var(--ink); }
+
+  /* the cards: rank, name, fit, and the 2-3 stats that decided it */
+  .pcard {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem 0.8rem;
+    align-items: baseline; padding: 0.9rem var(--gut);
+    border-bottom: 1px solid var(--rule); width: 100%; text-align: left;
+    background: none; border-left: 0; border-right: 0; border-top: 0; font: inherit;
+    color: inherit; cursor: pointer;
+  }
+  .pcard:active { background: var(--sink); }
+  .pcard .pr { color: var(--ink-3); font-size: var(--t-s); font-variant-numeric: tabular-nums; }
+  .pcard .pn { font-family: 'Radio Canada Big', Georgia, serif; font-weight: 700;
+    font-size: 1.25rem; line-height: 1; }
+  .pcard .pn .pv { color: var(--ink-3); font-weight: 400; font-size: 0.7rem; margin-left: 0.3rem; }
+  .pcard .pf { font-weight: 700; color: var(--fit-ink); font-size: 1.1rem;
+    padding: 0.15rem 0.45rem; }
+  .pcard .pwhy { grid-column: 2 / 4; font-size: var(--t-xs); color: var(--ink-2); margin-top: 0.1rem; }
+  .pcard .pwhy .cut { color: var(--warm); }
+  .pcard.excl .pf { color: var(--ink-3); background: var(--sink); }
+  .pcard .chips { grid-column: 1 / 4; display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.3rem; }
+  .pcard .chip { font-size: var(--t-xs); border: 1px solid var(--rule-2); padding: 0.2rem 0.45rem; color: var(--ink-2); }
+  .pcard .chip b { font-weight: 600; color: var(--ink); }
+
+  .cards-head { padding: 0.7rem var(--gut); font-size: var(--t-xs); color: var(--ink-3);
+    border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--paper); z-index: 1; }
+
+  /* fatter controls: 44px minimum, per Apple and Material */
+  .tick { width: 44px; height: 44px; }
+  .opt { padding: 0.7rem 0.9rem; font-size: var(--t-m); }
+  input[type=range] { height: 44px; }
+  input[type=range]::-webkit-slider-thumb { width: 20px; height: 32px; margin-top: -15.5px; }
+  input[type=range]::-moz-range-thumb { width: 20px; height: 32px; }
+  .reset { padding: 0.7rem 1rem; font-size: var(--t-s); }
+  .q { padding: 1.1rem var(--gut); }
+  .q-label { font-size: var(--t-m); }
+  .wlab { min-width: 6.5ch; }
+
+  /* map fills the screen on its own tab */
+  .field[data-view="map"] .map-wrap { padding-bottom: 5rem; }
+  .field[data-view="map"] canvas#map { min-height: 60vh; }
+
+  /* footer only clutters the phone; keep it for the desktop plate */
+  .foot { padding-bottom: 6rem; }
+
+  /* the detail sheet: full place record, slides up, back-button closes it */
+  .sheet-overlay { display: block; position: fixed; inset: 0; z-index: 50; }
+  .sheet-overlay[hidden] { display: none; }
+  .sheet-scrim { position: absolute; inset: 0; background: rgba(20,22,18,0.4); }
+  .sheet-card {
+    position: absolute; left: 0; right: 0; bottom: 0; max-height: 92vh; overflow-y: auto;
+    background: var(--page); border-top: 3px solid var(--ink);
+    padding: 0.5rem 0 calc(2rem + env(safe-area-inset-bottom, 0));
+    animation: sheetup 0.22s ease;
+  }
+  @keyframes sheetup { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .sheet-close { position: sticky; top: 0; float: right; font: inherit; font-size: var(--t-s);
+    background: var(--page); border: 0; color: var(--ink-2); padding: 0.6rem 1rem; cursor: pointer; z-index: 2; }
+  .sheet-card .dgrid { grid-template-columns: 1fr; padding: 0 var(--gut); }
+  .sheet-name { font-family: 'Radio Canada Big', Georgia, serif; font-weight: 700;
+    font-size: 1.8rem; padding: 0.3rem var(--gut) 0; line-height: 1; }
+  .sheet-name .pv { color: var(--ink-3); font-weight: 400; font-size: 0.9rem; margin-left: 0.4rem; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet-card { animation: none; } }
