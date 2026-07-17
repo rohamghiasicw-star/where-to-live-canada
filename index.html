@@ -981,24 +981,35 @@ function drawMap() {
       ctx.strokeStyle = css('--rule-2'); ctx.lineWidth = 0.6; ctx.stroke();
     }
   }
+  // 712 dots sized by fit turn the populated corridors into overlapping blobs.
+  // Draw the field as small, faint dots so density reads as density, and let
+  // only the top matches stand out: bigger, opaque, ringed, and labelled.
+  const small = MOBILE.matches;
+  const NTOP = small ? 6 : 12;
+  const topRecs = ranked.filter((r) => !r.excluded).slice(0, NTOP);
+  const topSet = new Set(topRecs.map((r) => r.p));
   pts = [];
   for (const r of ranked.slice().reverse()) {
-    const x = r.p.x*k, y = r.p.y*k;
-    const rad = r.excluded ? 1.6 : 2.4 + (r.fit/100)**2 * 5;
-    ctx.beginPath(); ctx.arc(x,y,rad,0,6.284);
-    if (r.excluded) { ctx.fillStyle = css('--rule-2'); ctx.fill(); }
-    else { ctx.fillStyle = rampOf(r.fit); ctx.fill();
-      ctx.strokeStyle = css('--fit-ink'); ctx.lineWidth = 0.7; ctx.stroke(); }
-    pts.push({ x, y, r: Math.max(rad,5), rec: r });
+    const x = r.p.x*k, y = r.p.y*k, isTop = topSet.has(r.p);
+    let rad;
+    if (r.excluded) rad = small ? 1 : 1.3;
+    else if (isTop) rad = small ? 4.5 : 5.5;
+    else rad = (small ? 1.4 : 1.8) + (r.fit/100) * (small ? 1.2 : 2);
+    ctx.globalAlpha = r.excluded ? 0.35 : (isTop ? 1 : 0.62);
+    ctx.beginPath(); ctx.arc(x, y, rad, 0, 6.284);
+    ctx.fillStyle = r.excluded ? css('--rule-2') : rampOf(r.fit); ctx.fill();
+    if (isTop) { ctx.globalAlpha = 1; ctx.strokeStyle = css('--fit-ink'); ctx.lineWidth = 1.3; ctx.stroke(); }
+    ctx.globalAlpha = 1;
+    pts.push({ x, y, r: Math.max(rad, isTop ? 9 : 5), rec: r });
   }
-  const top = ranked.filter((r)=>!r.excluded).slice(0,8);
-  ctx.font = `600 ${Math.max(9, k*12)}px 'Radio Canada', sans-serif`;
+  const top = topRecs;
+  ctx.font = `600 ${Math.max(10, k*13)}px 'Radio Canada', sans-serif`;
   ctx.textBaseline = 'middle';
   const placed = [];
   const hits = (a) => placed.some((b) => a.x < b.x+b.w && a.x+a.w > b.x && a.y < b.y+b.h && a.y+a.h > b.y);
   for (const r of top) {
     const x = r.p.x*k, y = r.p.y*k, t = r.p.name;
-    const w = ctx.measureText(t).width, h = 11;
+    const w = ctx.measureText(t).width, h = 13;
     let spot = null;
     for (const [tx,ty] of [[x+7,y],[x-7-w,y],[x-w/2,y-h],[x-w/2,y+h]]) {
       if (tx < 2 || tx+w > W-2) continue;
