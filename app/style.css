@@ -136,7 +136,9 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
   letter-spacing: -0.015em; word-spacing: -0.1em;
 }
 .survey-head { padding: 0.9rem var(--gut) 0.7rem; border-bottom: 1px solid var(--rule); }
-.survey-head p { margin: 0.25rem 0 0; font-size: var(--t-xs); color: var(--ink-2); }
+.survey-head p { margin: 0.25rem 0 0; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.5; }
+.survey-head p b { color: var(--ink); font-weight: 600; }
+.survey-head p em { font-style: italic; color: var(--ink); }
 
 .q { padding: 1rem var(--gut); border-bottom: 1px solid var(--rule); }
 .q-label { font-size: var(--t-s); font-weight: 600; margin: 0; }
@@ -530,3 +532,18 @@ ol.how b { color: var(--ink); font-weight: 600; }
   .sheet-name .pv { color: var(--ink-3); font-weight: 400; font-size: 0.9rem; margin-left: 0.4rem; }
 }
 @media (prefers-reduced-motion: reduce) { .sheet-card { animation: none; } }
+
+/* find-a-place search. Above the list on both layouts. */
+.findbar { padding: 0.7rem var(--gut); border-bottom: 1px solid var(--rule); background: var(--page); }
+#search {
+  width: 100%; font: inherit; font-size: var(--t-s); color: var(--ink);
+  padding: 0.55rem 0.7rem; border: 1px solid var(--rule-2); border-radius: 0;
+  background: var(--paper); box-sizing: border-box;
+}
+#search:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
+#search::placeholder { color: var(--ink-3); }
+.plate-head input { display: none; }
+@media (max-width: 760px) {
+  #search { font-size: var(--t-m); padding: 0.7rem 0.8rem; }   /* >=16px so iOS does not zoom */
+  .field[data-view="answer"] .findbar, .field[data-view="map"] .findbar { display: none; }
+}

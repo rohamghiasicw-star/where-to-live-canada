@@ -231,6 +231,7 @@ let selected = null;
 let showAll = false;
 const PLATE_N = 60;   // a plate shows the confusion set, not the whole book
 
+let query = '';   // the "find a place" filter. keeps each place's true rank.
 const OPTKEY = '0123456789abcdefghij';
 const encodeState = () => Q.map((q) => (q.kind === 'range' ? String(state[q.id])
   : OPTKEY[q.opts.findIndex((o) => o[0] === state[q.id])]) + '.' + weights[q.id]).join('_');
@@ -539,13 +540,29 @@ function render() {
   pending = true;
   requestAnimationFrame(() => { pending = false; draw(); });
 }
+// which places to list, each carrying its TRUE rank in the full ranking. When
+// searching, show every name match (not just the top slice) so "Goderich" is
+// findable at rank 334 without scrolling.
+function displayList() {
+  if (query) {
+    const q = query.toLowerCase();
+    return ranked.map((r, i) => ({ r, rank: i })).filter((x) => x.r.p.name.toLowerCase().includes(q));
+  }
+  const shown = showAll ? ranked.length : Math.min(PLATE_N, ranked.length);
+  return ranked.slice(0, shown).map((r, i) => ({ r, rank: i }));
+}
+
 function draw() {
   ranked = scoreAll();
   const live = ranked.filter((r) => !r.excluded);
-  const shown = showAll ? ranked.length : Math.min(PLATE_N, ranked.length);
-  $('#count').innerHTML = `${live.length} of ${DATA.length} clear your dealbreakers` +
-    (ranked.length > PLATE_N ? ` &nbsp;<button class="showall" id="showall">${
-      showAll ? 'show the top 60' : `show all ${ranked.length}`}</button>` : '');
+  const list = displayList();
+  $('#total').textContent = DATA.length;
+  $('#count').innerHTML = query
+    ? `${list.length} match${list.length === 1 ? '' : 'es'} for “${query}”` +
+      ` &nbsp;<button class="showall" id="clearsearch">clear</button>`
+    : `${live.length} of ${DATA.length} clear your dealbreakers` +
+      (ranked.length > PLATE_N ? ` &nbsp;<button class="showall" id="showall">${
+        showAll ? 'show the top 60' : `show all ${ranked.length}`}</button>` : '');
   verdict();
   history.replaceState(null, '', '#' + encodeState());
 
@@ -558,13 +575,13 @@ function draw() {
       return `<th${wOf(q.id) ? '' : ' style="opacity:.45"'} title="${h[0]}${h[1] ? ' ('+h[1]+')' : ''}. ${h[2]}">${q.col}</th>`; }).join('')}
     <th title="Provenance"></th></tr>`;
 
-  $('#tbody').innerHTML = ranked.slice(0, shown).map((r, i) => {
+  $('#tbody').innerHTML = list.map(({ r, rank }) => {
     const p = r.p, key = p.name + p.prov, cf = !r.excluded ? confusion(r, ranked) : null;
     // width axis carries settlement size: a big city sets wide, a village narrow
     const wd = p.pop ? clamp(75 + (Math.log10(Math.max(p.pop,300)) - 2.5) / 4 * 25, 75, 100) : 88;
     return `<tr class="${r.excluded ? 'cut' : ''}">
-      <td class="rank">${r.excluded ? '' : i+1}</td>
-      <td class="pname" style="--w:${wd.toFixed(0)}%"><button data-i="${i}">${p.name}<span class="pv">${p.prov}</span></button></td>
+      <td class="rank">${r.excluded ? '' : rank+1}</td>
+      <td class="pname" style="--w:${wd.toFixed(0)}%"><button data-i="${rank}">${p.name}<span class="pv">${p.prov}</span></button></td>
       <td class="fit"><span class="b" style="background:${r.excluded ? css('--sink') : rampOf(r.fit)}">${
         r.excluded ? '—' : Math.round(r.fit)}</span></td>
       ${cols.map((q) => `<td class="${cf && cf.splitter === q.id ? 'split' : ''}">${cellHTML(q, r)}</td>`).join('')}
@@ -585,11 +602,13 @@ function draw() {
 const MOBILE = matchMedia('(max-width: 760px)');
 
 function drawCards() {
-  const shown = showAll ? ranked.length : Math.min(80, ranked.length);
+  const list = displayList();
   const live = ranked.filter((r) => !r.excluded).length;
-  const head = `<li class="cards-head">${live} of ${DATA.length} clear your dealbreakers` +
-    (ranked.length > 80 ? ` · <button class="showall" id="showall">${showAll ? 'top 80' : 'show all'}</button>` : '') + `</li>`;
-  $('#cards').innerHTML = head + ranked.slice(0, shown).map((r, i) => {
+  const head = `<li class="cards-head">` + (query
+    ? `${list.length} match${list.length === 1 ? '' : 'es'} for “${query}” · <button class="showall" id="clearsearch">clear</button>`
+    : `${live} of ${DATA.length} clear your dealbreakers` +
+      (ranked.length > 80 ? ` · <button class="showall" id="showall">${showAll ? 'top 80' : 'show all'}</button>` : '')) + `</li>`;
+  $('#cards').innerHTML = head + (list.length ? list.map(({ r, rank }) => {
     const p = r.p;
     // the 2-3 dimensions the user weighted most, with this place's actual value
     const chips = r.parts.slice(0, 3).map((pt) => {
@@ -599,14 +618,14 @@ function drawCards() {
     const why = r.excluded
       ? `<span class="cut">Ruled out on ${r.excluded}</span>`
       : (r.good.length ? `Gets you ${listify(r.good.map((g) => SHORT[g.id]))}` : 'the closest to what you asked');
-    return `<li><button class="pcard ${r.excluded ? 'excl' : ''}" data-i="${i}">
-      <span class="pr">${r.excluded ? '—' : i + 1}</span>
+    return `<li><button class="pcard ${r.excluded ? 'excl' : ''}" data-i="${rank}">
+      <span class="pr">${r.excluded ? '—' : rank + 1}</span>
       <span class="pn">${p.name}<span class="pv">${p.prov}</span></span>
       <span class="pf" style="background:${r.excluded ? 'var(--sink)' : rampOf(r.fit)}">${r.excluded ? '—' : Math.round(r.fit)}</span>
       <span class="pwhy">${why}</span>
       <span class="chips">${chips}</span>
     </button></li>`;
-  }).join('');
+  }).join('') : `<li class="cards-head" style="color:var(--ink-3)">No place named “${query}”. Try part of the name.</li>`);
 }
 
 function openSheet(r) {
@@ -709,8 +728,18 @@ $('#qs').addEventListener('click', (e) => {
   }
 });
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('#showall')) return;
-  showAll = !showAll; render();
+  if (e.target.closest('#showall')) { showAll = !showAll; render(); return; }
+  if (e.target.closest('#clearsearch')) { query = ''; const s = $('#search'); if (s) s.value = ''; render(); }
+});
+
+// "find a place" search. On a phone, jump to the List so results are visible.
+$('#search').addEventListener('input', (e) => {
+  query = e.target.value.trim();
+  if (query && MOBILE.matches && field.dataset.view !== 'list') {
+    field.dataset.view = 'list';
+    $('#tabbar').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.tab === 'list'));
+  }
+  render();
 });
 $('#tbody').addEventListener('click', (e) => {
   const b = e.target.closest('button[data-i]'); if (!b) return;
