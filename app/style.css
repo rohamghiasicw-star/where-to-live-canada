@@ -46,18 +46,18 @@
   /* the quantitative ramp the old palette never had. a ranking tool
      with no score ramp can label but cannot encode. teal-shifted,
      the way real cartographic greens are; olive reads military. */
-  --fit-0:   #EDEFEC;
-  --fit-1:   #CBDCD5;
-  --fit-2:   #95BFB4;
-  --fit-3:   #529C8E;
-  --fit-4:   #0D6E63;
+  --fit-0:   #F4F5F2;
+  --fit-1:   #E4EDE9;
+  --fit-2:   #CBE0D9;
+  --fit-3:   #A8CEC3;
+  --fit-4:   #7FB8AA;
   --fit-ink: #0A4F47;
 
   /* five sizes. The Pudding ships five. the old build had twenty,
      seven of them crammed between 0.72 and 0.82rem. */
-  --t-xs: 0.75rem;
-  --t-s:  0.875rem;
-  --t-m:  1rem;
+  --t-xs: 0.8125rem;
+  --t-s:  0.9375rem;
+  --t-m:  1.0625rem;
   --t-l:  1.5rem;
   --t-xl: clamp(2.2rem, 4.5vw, 3.2rem);
 
@@ -138,7 +138,7 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
 .survey-head { padding: 0.9rem var(--gut) 0.7rem; border-bottom: 1px solid var(--rule); }
 .survey-head p { margin: 0.25rem 0 0; font-size: var(--t-xs); color: var(--ink-2); }
 
-.q { padding: 0.75rem var(--gut); border-bottom: 1px solid var(--rule); }
+.q { padding: 1rem var(--gut); border-bottom: 1px solid var(--rule); }
 .q-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
 .q-label { font-size: var(--t-s); font-weight: 600; margin: 0; }
 .q-hint { font-size: var(--t-xs); color: var(--ink-3); margin: 0.1rem 0 0.5rem; }
@@ -147,17 +147,17 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
    with the score ramp for meaning. */
 .weight { display: flex; gap: 3px; align-items: center; }
 .tick {
-  width: 20px; height: 14px; padding: 0; cursor: pointer; border-radius: 0;
+  width: 26px; height: 22px; padding: 0; cursor: pointer; border-radius: 0;
   border: 1px solid var(--rule-2); background: transparent;
 }
 .tick:hover { border-color: var(--ink-2); }
 .tick[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); }
 .tick:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
 
-.opts { display: flex; flex-wrap: wrap; gap: 3px; }
+.opts { display: flex; flex-wrap: wrap; gap: 5px; }
 .opt {
-  font: inherit; font-size: var(--t-xs); line-height: 1;
-  padding: 0.4rem 0.55rem; cursor: pointer; border-radius: 0;
+  font: inherit; font-size: var(--t-s); line-height: 1.15;
+  padding: 0.55rem 0.75rem; cursor: pointer; border-radius: 0;
   border: 1px solid var(--rule-2); background: var(--page); color: var(--ink-2);
 }
 .opt:hover { border-color: var(--ink-2); color: var(--ink); }
@@ -167,15 +167,15 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
 .slider-row { display: flex; align-items: center; gap: 0.6rem; }
 input[type=range] {
   flex: 1; -webkit-appearance: none; appearance: none; background: transparent;
-  height: 18px; margin: 0; cursor: pointer;
+  height: 26px; margin: 0; cursor: pointer;
 }
 input[type=range]::-webkit-slider-runnable-track { height: 1px; background: var(--rule-2); }
 input[type=range]::-moz-range-track { height: 1px; background: var(--rule-2); }
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 3px; height: 15px; margin-top: -7px;
-  background: var(--ink); border: 0; border-radius: 0;
+  -webkit-appearance: none; width: 12px; height: 24px; margin-top: -11.5px;
+  background: var(--page); border: 2px solid var(--ink); border-radius: 0;
 }
-input[type=range]::-moz-range-thumb { width: 3px; height: 15px; background: var(--ink); border: 0; border-radius: 0; }
+input[type=range]::-moz-range-thumb { width: 12px; height: 24px; background: var(--page); border: 2px solid var(--ink); border-radius: 0; }
 input[type=range]:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 .readout { font-size: var(--t-xs); font-weight: 600; min-width: 7ch; text-align: right; }
 .scale-ends { display: flex; justify-content: space-between; font-size: var(--t-xs); color: var(--ink-3); }
@@ -222,6 +222,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--warm); outline-offset
 
 .plate-scroll { overflow-x: auto; }
 table.plate-t { border-collapse: collapse; width: 100%; font-size: var(--t-xs); }
+.plate-t tbody tr:nth-child(4n+1) td { box-shadow: inset 0 1px 0 var(--rule); }
 .plate-t thead th {
   position: sticky; top: 0; z-index: 2; background: var(--paper);
   font-weight: 400; font-size: var(--t-xs); color: var(--ink-3);
@@ -230,7 +231,7 @@ table.plate-t { border-collapse: collapse; width: 100%; font-size: var(--t-xs); 
 }
 .plate-t thead th.l { text-align: left; }
 .plate-t tbody td {
-  padding: 0; border-bottom: 1px solid var(--rule); text-align: right;
+  padding: 0; border-bottom: 1px solid var(--rule-soft, #EDEEE9); text-align: right;
   white-space: nowrap;
 }
 .plate-t tbody tr:hover td { background: var(--sink); }
@@ -238,16 +239,16 @@ table.plate-t { border-collapse: collapse; width: 100%; font-size: var(--t-xs); 
 
 /* the self-legending cell, MLS 1985: tiny light label welded to a bold
    value. most web tables get this contrast backwards. */
-.cell { display: block; padding: 0.42rem 0.4rem; }
+.cell { display: block; padding: 0.6rem 0.5rem; }
 .cell .v { font-weight: 600; color: var(--ink); }
 .cell .u { color: var(--ink-3); font-weight: 400; }
 /* not available. StatCan's published symbol, not an invented dash. */
 .cell .na { color: var(--ink-3); font-weight: 400; letter-spacing: 0.08em; }
 
-.rank { color: var(--ink-3); padding: 0.42rem 0.4rem; text-align: right; width: 3ch; }
+.rank { color: var(--ink-3); padding: 0.6rem 0.5rem; text-align: right; width: 3ch; }
 .pname {
-  text-align: left; padding: 0.42rem 0.4rem;
-  font-weight: 600; color: var(--ink);
+  text-align: left; padding: 0.6rem 0.5rem;
+  font-weight: 600; color: var(--ink); font-size: var(--t-s);
   /* width axis carries settlement size: a big city is set wide, a village
      narrow. type doing the work of a column. */
   font-stretch: var(--w, 100%);
@@ -259,7 +260,7 @@ table.plate-t { border-collapse: collapse; width: 100%; font-size: var(--t-xs); 
 /* score: the ramp. the only place a filled block appears, so it reads
    as the answer rather than as chrome. */
 .fit { width: 3.2rem; }
-.fit .b { display: block; padding: 0.42rem 0.4rem; font-weight: 700; color: var(--fit-ink); }
+.fit .b { display: block; padding: 0.6rem 0.5rem; font-weight: 700; color: var(--fit-ink); }
 
 /* Peterson's arrow, rationed. it marks the dimension that separates this
    place from the ones it is confusable with. mute on purpose: it says
@@ -310,7 +311,7 @@ ul.pts li { font-size: var(--t-xs); color: var(--ink-2); margin-bottom: 0.2rem; 
 .rib-k { display: flex; justify-content: space-between; font-size: var(--t-xs); color: var(--ink-3); }
 
 /* ---------- map ---------- */
-.map-wrap { position: relative; padding: 0.8rem var(--gut) 1rem; border-bottom: 1px solid var(--rule); }
+.map-wrap { position: relative; padding: 1rem var(--gut) 1.2rem; border-bottom: 1px solid var(--rule); background: var(--page); }
 canvas#map { width: 100%; display: block; }
 .tip {
   position: absolute; pointer-events: none; z-index: 5; background: var(--ink); color: var(--paper);

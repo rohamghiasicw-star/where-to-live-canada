@@ -1,0 +1,240 @@
+[
+ {
+  "name": "Sheshatshiu 3",
+  "prov": "NL",
+  "code": "1010802",
+  "type": "IRI",
+  "pop": 1225.0
+ },
+ {
+  "name": "Indian Brook 14",
+  "prov": "NS",
+  "code": "1208014",
+  "type": "IRI",
+  "pop": 2739.0
+ },
+ {
+  "name": "Membertou 28B",
+  "prov": "NS",
+  "code": "1217008",
+  "type": "IRI",
+  "pop": 1103.0
+ },
+ {
+  "name": "Richibucto 15",
+  "prov": "NB",
+  "code": "1308015",
+  "type": "IRI",
+  "pop": 2062.0
+ },
+ {
+  "name": "Esgenoôpetitj 14",
+  "prov": "NB",
+  "code": "1309044",
+  "type": "IRI",
+  "pop": 1223.0
+ },
+ {
+  "name": "Devon 30",
+  "prov": "NB",
+  "code": "1310034",
+  "type": "IRI",
+  "pop": 1070.0
+ },
+ {
+  "name": "Wendake",
+  "prov": "QC",
+  "code": "2423802",
+  "type": "IRI",
+  "pop": 2200.0
+ },
+ {
+  "name": "Communauté Atikamekw de Manawan",
+  "prov": "QC",
+  "code": "2462802",
+  "type": "IRI",
+  "pop": 2000.0
+ },
+ {
+  "name": "Lac Simon",
+  "prov": "QC",
+  "code": "2489804",
+  "type": "IRI",
+  "pop": 1285.0
+ },
+ {
+  "name": "Obedjiwan 28",
+  "prov": "QC",
+  "code": "2490804",
+  "type": "IRI",
+  "pop": 1991.0
+ },
+ {
+  "name": "Mashteuiatsh",
+  "prov": "QC",
+  "code": "2491802",
+  "type": "IRI",
+  "pop": 2010.0
+ },
+ {
+  "name": "Uashat 27",
+  "prov": "QC",
+  "code": "2497802",
+  "type": "IRI",
+  "pop": 1550.0
+ },
+ {
+  "name": "Maliotenam",
+  "prov": "QC",
+  "code": "2497804",
+  "type": "IRI",
+  "pop": 1610.0
+ },
+ {
+  "name": "Curve Lake First Nation 35",
+  "prov": "ON",
+  "code": "3515019",
+  "type": "IRI",
+  "pop": 1244.0
+ },
+ {
+  "name": "Kettle Point 44",
+  "prov": "ON",
+  "code": "3538056",
+  "type": "IRI",
+  "pop": 1233.0
+ },
+ {
+  "name": "Factory Island 1",
+  "prov": "ON",
+  "code": "3556094",
+  "type": "IRI",
+  "pop": 1376.0
+ },
+ {
+  "name": "Attawapiskat 91A",
+  "prov": "ON",
+  "code": "3560051",
+  "type": "IRI",
+  "pop": 1586.0
+ },
+ {
+  "name": "Chemawawin 2",
+  "prov": "MB",
+  "code": "4621029",
+  "type": "IRI",
+  "pop": 1264.0
+ },
+ {
+  "name": "Cross Lake 19A",
+  "prov": "MB",
+  "code": "4622052",
+  "type": "IRI",
+  "pop": 2045.0
+ },
+ {
+  "name": "Nelson House 170",
+  "prov": "MB",
+  "code": "4622059",
+  "type": "IRI",
+  "pop": 2397.0
+ },
+ {
+  "name": "Stanley 157",
+  "prov": "SK",
+  "code": "4718803",
+  "type": "IRI",
+  "pop": 1883.0
+ },
+ {
+  "name": "Lac La Ronge 156",
+  "prov": "SK",
+  "code": "4718809",
+  "type": "IRI",
+  "pop": 1349.0
+ },
+ {
+  "name": "Pelican Narrows 184B",
+  "prov": "SK",
+  "code": "4718820",
+  "type": "IRI",
+  "pop": 1837.0
+ },
+ {
+  "name": "Tzeachten 13",
+  "prov": "BC",
+  "code": "5909830",
+  "type": "IRI",
+  "pop": 3089.0
+ },
+ {
+  "name": "Musqueam 2",
+  "prov": "BC",
+  "code": "5915803",
+  "type": "IRI",
+  "pop": 1646.0
+ },
+ {
+  "name": "Burrard Inlet 3",
+  "prov": "BC",
+  "code": "5915806",
+  "type": "IRI",
+  "pop": 2373.0
+ },
+ {
+  "name": "Capilano 5",
+  "prov": "BC",
+  "code": "5915808",
+  "type": "IRI",
+  "pop": 2899.0
+ },
+ {
+  "name": "East Saanich 2",
+  "prov": "BC",
+  "code": "5917803",
+  "type": "IRI",
+  "pop": 1790.0
+ },
+ {
+  "name": "New Songhees 1A",
+  "prov": "BC",
+  "code": "5917812",
+  "type": "IRI",
+  "pop": 1839.0
+ },
+ {
+  "name": "Cowichan",
+  "prov": "BC",
+  "code": "5919822",
+  "type": "IRI",
+  "pop": 2420.0
+ },
+ {
+  "name": "Duck Lake 7",
+  "prov": "BC",
+  "code": "5935801",
+  "type": "IRI",
+  "pop": 1847.0
+ },
+ {
+  "name": "Tsinstikeptum 9",
+  "prov": "BC",
+  "code": "5935802",
+  "type": "IRI",
+  "pop": 9134.0
+ },
+ {
+  "name": "Tsinstikeptum 10",
+  "prov": "BC",
+  "code": "5935803",
+  "type": "IRI",
+  "pop": 1766.0
+ },
+ {
+  "name": "Bella Bella 1",
+  "prov": "BC",
+  "code": "5945801",
+  "type": "IRI",
+  "pop": 1193.0
+ }
+]

@@ -326,11 +326,11 @@ function drawMap() {
   pts = [];
   for (const r of ranked.slice().reverse()) {
     const x = r.p.x*k, y = r.p.y*k;
-    const rad = r.excluded ? 1.5 : 2 + (r.fit/100)**2 * 4;
+    const rad = r.excluded ? 1.6 : 2.4 + (r.fit/100)**2 * 5;
     ctx.beginPath(); ctx.arc(x,y,rad,0,6.284);
     if (r.excluded) { ctx.fillStyle = css('--rule-2'); ctx.fill(); }
     else { ctx.fillStyle = rampOf(r.fit); ctx.fill();
-      ctx.strokeStyle = css('--fit-ink'); ctx.lineWidth = 0.5; ctx.stroke(); }
+      ctx.strokeStyle = css('--fit-ink'); ctx.lineWidth = 0.7; ctx.stroke(); }
     pts.push({ x, y, r: Math.max(rad,5), rec: r });
   }
   const top = ranked.filter((r)=>!r.excluded).slice(0,8);

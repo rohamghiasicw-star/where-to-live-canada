@@ -312,18 +312,6 @@
   "coord_src": "csd centroid"
  },
  {
-  "name": "Sheshatshiu 3",
-  "prov": "NL",
-  "code": "1010802",
-  "csd": "Sheshatshiu 3, Indian reserve (IRI)",
-  "pop": 1225.0,
-  "density": 144.5,
-  "land_km2": 8.4781,
-  "lat": 53.51068,
-  "lon": -60.15871,
-  "coord_src": "csd centroid"
- },
- {
   "name": "Souris",
   "prov": "PE",
   "code": "1101036",
@@ -588,18 +576,6 @@
   "coord_src": "audited"
  },
  {
-  "name": "Indian Brook 14",
-  "prov": "NS",
-  "code": "1208014",
-  "csd": "Indian Brook 14, Indian reserve (IRI)",
-  "pop": 2739.0,
-  "density": 225.5,
-  "land_km2": 12.1483,
-  "lat": 45.09003,
-  "lon": -63.49027,
-  "coord_src": "csd centroid"
- },
- {
   "name": "Halifax",
   "prov": "NS",
   "code": "1209034",
@@ -741,18 +717,6 @@
   "land_km2": 8.0998,
   "lat": 45.62318,
   "lon": -61.35334,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Membertou 28B",
-  "prov": "NS",
-  "code": "1217008",
-  "csd": "Membertou 28B, Indian reserve (IRI)",
-  "pop": 1103.0,
-  "density": 745.7,
-  "land_km2": 1.4792,
-  "lat": 46.11365,
-  "lon": -60.18833,
   "coord_src": "csd centroid"
  },
  {
@@ -1001,18 +965,6 @@
   "coord_src": "csd centroid"
  },
  {
-  "name": "Richibucto 15",
-  "prov": "NB",
-  "code": "1308015",
-  "csd": "Richibucto 15, Indian reserve (IRI)",
-  "pop": 2062.0,
-  "density": 134.1,
-  "land_km2": 15.3805,
-  "lat": 46.592,
-  "lon": -64.99389,
-  "coord_src": "csd centroid"
- },
- {
   "name": "Richibucto",
   "prov": "NB",
   "code": "1308018",
@@ -1034,18 +986,6 @@
   "land_km2": 7.1925,
   "lat": 46.73474,
   "lon": -65.42842,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Esgenoôpetitj 14",
-  "prov": "NB",
-  "code": "1309044",
-  "csd": "Esgenoôpetitj 14, Indian reserve (IRI)",
-  "pop": 1223.0,
-  "density": 128.0,
-  "land_km2": 9.5531,
-  "lat": 47.22537,
-  "lon": -65.13258,
   "coord_src": "csd centroid"
  },
  {
@@ -1083,18 +1023,6 @@
   "lat": 45.9488278,
   "lon": -66.6291827,
   "coord_src": "audited"
- },
- {
-  "name": "Devon 30",
-  "prov": "NB",
-  "code": "1310034",
-  "csd": "Devon 30, Indian reserve (IRI)",
-  "pop": 1070.0,
-  "density": 393.4,
-  "land_km2": 2.7198,
-  "lat": 46.01345,
-  "lon": -66.60269,
-  "coord_src": "csd centroid"
  },
  {
   "name": "Woodstock",
@@ -1488,18 +1416,6 @@
   "lon": -71.4569733,
   "coord_src": "nominatim",
   "osm": "Saint-Augustin-de-Desmaures, Agglomération de Québec, Capitale-Nationale, Québec, Canada"
- },
- {
-  "name": "Wendake",
-  "prov": "QC",
-  "code": "2423802",
-  "csd": "Wendake, Indian reserve (IRI)",
-  "pop": 2200.0,
-  "density": 1262.0,
-  "land_km2": 1.7433,
-  "lat": 46.87064,
-  "lon": -71.36395,
-  "coord_src": "csd centroid"
  },
  {
   "name": "Lévis",
@@ -2335,18 +2251,6 @@
   "land_km2": 18.4831,
   "lat": 46.04629,
   "lon": -73.48129,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Communauté Atikamekw de Manawan",
-  "prov": "QC",
-  "code": "2462802",
-  "csd": "Communauté Atikamekw de Manawan, Indian reserve (IRI)",
-  "pop": 2000.0,
-  "density": 249.2,
-  "land_km2": 8.0262,
-  "lat": 47.20897,
-  "lon": -74.38305,
   "coord_src": "csd centroid"
  },
  {
@@ -3319,42 +3223,6 @@
   "coord_src": "audited"
  },
  {
-  "name": "Lac Simon",
-  "prov": "QC",
-  "code": "2489804",
-  "csd": "Lac Simon, Indian reserve (IRI)",
-  "pop": 1285.0,
-  "density": 409.2,
-  "land_km2": 3.1405,
-  "lat": 48.06109,
-  "lon": -77.35214,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Obedjiwan 28",
-  "prov": "QC",
-  "code": "2490804",
-  "csd": "Obedjiwan 28, Indian reserve (IRI)",
-  "pop": 1991.0,
-  "density": 241.1,
-  "land_km2": 8.2577,
-  "lat": 48.66896,
-  "lon": -74.92859,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Mashteuiatsh",
-  "prov": "QC",
-  "code": "2491802",
-  "csd": "Mashteuiatsh, Indian reserve (IRI)",
-  "pop": 2010.0,
-  "density": 139.3,
-  "land_km2": 14.4293,
-  "lat": 48.56897,
-  "lon": -72.24951,
-  "coord_src": "csd centroid"
- },
- {
   "name": "Alma",
   "prov": "QC",
   "code": "2493042",
@@ -3404,30 +3272,6 @@
   "coord_src": "audited",
   "osm": "Sept-Îles, Sept-Rivières, Côte-Nord, Québec, Canada",
   "alias": "Sept-Iles"
- },
- {
-  "name": "Uashat 27",
-  "prov": "QC",
-  "code": "2497802",
-  "csd": "Uashat 27, Indian reserve (IRI)",
-  "pop": 1550.0,
-  "density": 657.2,
-  "land_km2": 2.3584,
-  "lat": 50.24497,
-  "lon": -66.38678,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Maliotenam",
-  "prov": "QC",
-  "code": "2497804",
-  "csd": "Maliotenam, Indian reserve (IRI)",
-  "pop": 1610.0,
-  "density": 309.7,
-  "land_km2": 5.1979,
-  "lat": 50.21176,
-  "lon": -66.19118,
-  "coord_src": "csd centroid"
  },
  {
   "name": "Salluit",
@@ -3661,18 +3505,6 @@
   "lat": 44.3048009,
   "lon": -78.3199496,
   "coord_src": "audited"
- },
- {
-  "name": "Curve Lake First Nation 35",
-  "prov": "ON",
-  "code": "3515019",
-  "csd": "Curve Lake First Nation 35, Indian reserve (IRI)",
-  "pop": 1244.0,
-  "density": 187.4,
-  "land_km2": 6.6369,
-  "lat": 44.48134,
-  "lon": -78.35888,
-  "coord_src": "csd centroid"
  },
  {
   "name": "Pickering",
@@ -4372,18 +4204,6 @@
   "coord_src": "csd centroid"
  },
  {
-  "name": "Kettle Point 44",
-  "prov": "ON",
-  "code": "3538056",
-  "csd": "Kettle Point 44, Indian reserve (IRI)",
-  "pop": 1233.0,
-  "density": 132.3,
-  "land_km2": 9.322,
-  "lat": 43.19308,
-  "lon": -82.0043,
-  "coord_src": "csd centroid"
- },
- {
   "name": "London",
   "prov": "ON",
   "code": "3539036",
@@ -4753,18 +4573,6 @@
   "coord_src": "audited"
  },
  {
-  "name": "Factory Island 1",
-  "prov": "ON",
-  "code": "3556094",
-  "csd": "Factory Island 1, Indian reserve (IRI)",
-  "pop": 1376.0,
-  "density": 423.7,
-  "land_km2": 3.2477,
-  "lat": 51.26632,
-  "lon": -80.5944,
-  "coord_src": "csd centroid"
- },
- {
   "name": "Thessalon",
   "prov": "ON",
   "code": "3557028",
@@ -4836,18 +4644,6 @@
   "lon": -92.835846,
   "coord_src": "nominatim",
   "osm": "Dryden, Kenora District, Northwestern Ontario, Ontario, Canada"
- },
- {
-  "name": "Attawapiskat 91A",
-  "prov": "ON",
-  "code": "3560051",
-  "csd": "Attawapiskat 91A, Indian reserve (IRI)",
-  "pop": 1586.0,
-  "density": 905.0,
-  "land_km2": 1.7524,
-  "lat": 52.9253,
-  "lon": -82.42952,
-  "coord_src": "csd centroid"
  },
  {
   "name": "Lac du Bonnet",
@@ -5198,18 +4994,6 @@
   "coord_src": "csd centroid"
  },
  {
-  "name": "Chemawawin 2",
-  "prov": "MB",
-  "code": "4621029",
-  "csd": "Chemawawin 2, Indian reserve (IRI)",
-  "pop": 1264.0,
-  "density": 503.4,
-  "land_km2": 2.5108,
-  "lat": 53.10351,
-  "lon": -99.80217,
-  "coord_src": "csd centroid"
- },
- {
   "name": "The Pas",
   "prov": "MB",
   "code": "4621045",
@@ -5243,30 +5027,6 @@
   "land_km2": 16.6199,
   "lat": 55.75689,
   "lon": -97.84578,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Cross Lake 19A",
-  "prov": "MB",
-  "code": "4622052",
-  "csd": "Cross Lake 19A, Indian reserve (IRI)",
-  "pop": 2045.0,
-  "density": 338.1,
-  "land_km2": 6.048,
-  "lat": 54.65097,
-  "lon": -97.76237,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Nelson House 170",
-  "prov": "MB",
-  "code": "4622059",
-  "csd": "Nelson House 170, Indian reserve (IRI)",
-  "pop": 2397.0,
-  "density": 138.9,
-  "land_km2": 17.251,
-  "lat": 55.80729,
-  "lon": -98.88401,
   "coord_src": "csd centroid"
  },
  {
@@ -6095,42 +5855,6 @@
   "land_km2": 15.4718,
   "lat": 56.48814,
   "lon": -109.41865,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Stanley 157",
-  "prov": "SK",
-  "code": "4718803",
-  "csd": "Stanley 157, Indian reserve (IRI)",
-  "pop": 1883.0,
-  "density": 782.5,
-  "land_km2": 2.4063,
-  "lat": 55.40322,
-  "lon": -104.57079,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Lac La Ronge 156",
-  "prov": "SK",
-  "code": "4718809",
-  "csd": "Lac La Ronge 156, Indian reserve (IRI)",
-  "pop": 1349.0,
-  "density": 230.4,
-  "land_km2": 5.8545,
-  "lat": 55.06998,
-  "lon": -105.30969,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Pelican Narrows 184B",
-  "prov": "SK",
-  "code": "4718820",
-  "csd": "Pelican Narrows 184B, Indian reserve (IRI)",
-  "pop": 1837.0,
-  "density": 348.9,
-  "land_km2": 5.2651,
-  "lat": 55.17497,
-  "lon": -102.9091,
   "coord_src": "csd centroid"
  },
  {
@@ -7747,18 +7471,6 @@
   "osm": "Mission, Fraser Valley Regional District, British Columbia, Canada"
  },
  {
-  "name": "Tzeachten 13",
-  "prov": "BC",
-  "code": "5909830",
-  "csd": "Tzeachten 13, Indian reserve (IRI)",
-  "pop": 3089.0,
-  "density": 1168.6,
-  "land_km2": 2.6434,
-  "lat": 49.11304,
-  "lon": -121.94564,
-  "coord_src": "csd centroid"
- },
- {
   "name": "Langley (District)",
   "prov": "BC",
   "code": "5915001",
@@ -7997,42 +7709,6 @@
   "coord_src": "csd centroid"
  },
  {
-  "name": "Musqueam 2",
-  "prov": "BC",
-  "code": "5915803",
-  "csd": "Musqueam 2, Indian reserve (IRI)",
-  "pop": 1646.0,
-  "density": 894.7,
-  "land_km2": 1.8398,
-  "lat": 49.23013,
-  "lon": -123.20291,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Burrard Inlet 3",
-  "prov": "BC",
-  "code": "5915806",
-  "csd": "Burrard Inlet 3, Indian reserve (IRI)",
-  "pop": 2373.0,
-  "density": 2123.3,
-  "land_km2": 1.1176,
-  "lat": 49.3094,
-  "lon": -122.97874,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Capilano 5",
-  "prov": "BC",
-  "code": "5915808",
-  "csd": "Capilano 5, Indian reserve (IRI)",
-  "pop": 2899.0,
-  "density": 1689.1,
-  "land_km2": 1.7163,
-  "lat": 49.32161,
-  "lon": -123.13191,
-  "coord_src": "csd centroid"
- },
- {
   "name": "North Saanich",
   "prov": "BC",
   "code": "5917005",
@@ -8180,30 +7856,6 @@
   "coord_src": "csd centroid"
  },
  {
-  "name": "East Saanich 2",
-  "prov": "BC",
-  "code": "5917803",
-  "csd": "East Saanich 2, Indian reserve (IRI)",
-  "pop": 1790.0,
-  "density": 687.5,
-  "land_km2": 2.6038,
-  "lat": 48.58802,
-  "lon": -123.38806,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "New Songhees 1A",
-  "prov": "BC",
-  "code": "5917812",
-  "csd": "New Songhees 1A, Indian reserve (IRI)",
-  "pop": 1839.0,
-  "density": 2590.1,
-  "land_km2": 0.71,
-  "lat": 48.44533,
-  "lon": -123.42365,
-  "coord_src": "csd centroid"
- },
- {
   "name": "North Cowichan",
   "prov": "BC",
   "code": "5919008",
@@ -8286,18 +7938,6 @@
   "land_km2": 22.5668,
   "lat": 48.69747,
   "lon": -123.57954,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Cowichan",
-  "prov": "BC",
-  "code": "5919822",
-  "csd": "Cowichan, Indian reserve (IRI)",
-  "pop": 2420.0,
-  "density": 104.5,
-  "land_km2": 23.1509,
-  "lat": 48.76694,
-  "lon": -123.65669,
   "coord_src": "csd centroid"
  },
  {
@@ -8665,42 +8305,6 @@
   "osm": "West Kelowna, Regional District of Central Okanagan, British Columbia, Canada"
  },
  {
-  "name": "Duck Lake 7",
-  "prov": "BC",
-  "code": "5935801",
-  "csd": "Duck Lake 7, Indian reserve (IRI)",
-  "pop": 1847.0,
-  "density": 918.8,
-  "land_km2": 2.0103,
-  "lat": 50.00941,
-  "lon": -119.39603,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Tsinstikeptum 9",
-  "prov": "BC",
-  "code": "5935802",
-  "csd": "Tsinstikeptum 9, Indian reserve (IRI)",
-  "pop": 9134.0,
-  "density": 1351.7,
-  "land_km2": 6.7576,
-  "lat": 49.83961,
-  "lon": -119.60505,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Tsinstikeptum 10",
-  "prov": "BC",
-  "code": "5935803",
-  "csd": "Tsinstikeptum 10, Indian reserve (IRI)",
-  "pop": 1766.0,
-  "density": 533.9,
-  "land_km2": 3.3078,
-  "lat": 49.883,
-  "lon": -119.53614,
-  "coord_src": "csd centroid"
- },
- {
   "name": "Lumby",
   "prov": "BC",
   "code": "5937005",
@@ -8856,18 +8460,6 @@
   "land_km2": 38.5522,
   "lat": 50.69849,
   "lon": -127.43892,
-  "coord_src": "csd centroid"
- },
- {
-  "name": "Bella Bella 1",
-  "prov": "BC",
-  "code": "5945801",
-  "csd": "Bella Bella 1, Indian reserve (IRI)",
-  "pop": 1193.0,
-  "density": 204.5,
-  "land_km2": 5.8328,
-  "lat": 52.15777,
-  "lon": -128.15417,
   "coord_src": "csd centroid"
  },
  {

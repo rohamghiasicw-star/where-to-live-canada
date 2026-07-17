@@ -208,14 +208,6 @@
   "routed": true
  },
  {
-  "name": "Sheshatshiu 3",
-  "prov": "NL",
-  "nearest_big_city": "Quebec City",
-  "drive_min_to_big_city": 1299.2,
-  "km_to_big_city": 1552.6,
-  "routed": true
- },
- {
   "name": "Souris",
   "prov": "PE",
   "nearest_big_city": "Halifax",
@@ -392,14 +384,6 @@
   "routed": true
  },
  {
-  "name": "Indian Brook 14",
-  "prov": "NS",
-  "nearest_big_city": "Halifax",
-  "drive_min_to_big_city": 63.6,
-  "km_to_big_city": 65.9,
-  "routed": true
- },
- {
   "name": "Halifax",
   "prov": "NS",
   "nearest_big_city": "Halifax",
@@ -493,14 +477,6 @@
   "nearest_big_city": "Halifax",
   "drive_min_to_big_city": 202.5,
   "km_to_big_city": 270.8,
-  "routed": true
- },
- {
-  "name": "Membertou 28B",
-  "prov": "NS",
-  "nearest_big_city": "Halifax",
-  "drive_min_to_big_city": 322.3,
-  "km_to_big_city": 400.5,
   "routed": true
  },
  {
@@ -600,7 +576,7 @@
   "routed": true
  },
  {
-  "name": "Cap-Pel\u00e9",
+  "name": "Cap-Pelé",
   "prov": "NB",
   "nearest_big_city": "Halifax",
   "drive_min_to_big_city": 189.7,
@@ -664,14 +640,6 @@
   "routed": true
  },
  {
-  "name": "Richibucto 15",
-  "prov": "NB",
-  "nearest_big_city": "Halifax",
-  "drive_min_to_big_city": 248.2,
-  "km_to_big_city": 334.2,
-  "routed": true
- },
- {
   "name": "Richibucto",
   "prov": "NB",
   "nearest_big_city": "Halifax",
@@ -685,14 +653,6 @@
   "nearest_big_city": "Halifax",
   "drive_min_to_big_city": 268.1,
   "km_to_big_city": 349.0,
-  "routed": true
- },
- {
-  "name": "Esgeno\u00f4petitj 14",
-  "prov": "NB",
-  "nearest_big_city": "Halifax",
-  "drive_min_to_big_city": 322.5,
-  "km_to_big_city": 423.7,
   "routed": true
  },
  {
@@ -717,14 +677,6 @@
   "nearest_big_city": "Halifax",
   "drive_min_to_big_city": 309.0,
   "km_to_big_city": 436.4,
-  "routed": true
- },
- {
-  "name": "Devon 30",
-  "prov": "NB",
-  "nearest_big_city": "Halifax",
-  "drive_min_to_big_city": 334.5,
-  "km_to_big_city": 437.3,
   "routed": true
  },
  {
@@ -768,7 +720,7 @@
   "routed": true
  },
  {
-  "name": "Saint-L\u00e9onard",
+  "name": "Saint-Léonard",
   "prov": "NB",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 290.8,
@@ -840,7 +792,7 @@
   "routed": true
  },
  {
-  "name": "Lam\u00e8que",
+  "name": "Lamèque",
   "prov": "NB",
   "nearest_big_city": "Halifax",
   "drive_min_to_big_city": 404.6,
@@ -848,7 +800,7 @@
   "routed": true
  },
  {
-  "name": "Gasp\u00e9",
+  "name": "Gaspé",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 597.9,
@@ -888,7 +840,7 @@
   "routed": true
  },
  {
-  "name": "Rivi\u00e8re-du-Loup",
+  "name": "Rivière-du-Loup",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 171.7,
@@ -896,7 +848,7 @@
   "routed": true
  },
  {
-  "name": "La Pocati\u00e8re",
+  "name": "La Pocatière",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 120.0,
@@ -912,7 +864,7 @@
   "routed": true
  },
  {
-  "name": "Sainte-P\u00e9tronille",
+  "name": "Sainte-Pétronille",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 21.5,
@@ -920,7 +872,7 @@
   "routed": true
  },
  {
-  "name": "Beaupr\u00e9",
+  "name": "Beaupré",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 40.8,
@@ -960,7 +912,7 @@
   "routed": true
  },
  {
-  "name": "Qu\u00e9bec",
+  "name": "Québec",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 0.1,
@@ -984,15 +936,7 @@
   "routed": true
  },
  {
-  "name": "Wendake",
-  "prov": "QC",
-  "nearest_big_city": "Quebec City",
-  "drive_min_to_big_city": 21.9,
-  "km_to_big_city": 18.0,
-  "routed": true
- },
- {
-  "name": "L\u00e9vis",
+  "name": "Lévis",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 28.0,
@@ -1016,7 +960,7 @@
   "routed": true
  },
  {
-  "name": "Lac-M\u00e9gantic",
+  "name": "Lac-Mégantic",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 161.3,
@@ -1072,7 +1016,7 @@
   "routed": true
  },
  {
-  "name": "Saint-Marc-des-Carri\u00e8res",
+  "name": "Saint-Marc-des-Carrières",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 62.7,
@@ -1080,7 +1024,7 @@
   "routed": true
  },
  {
-  "name": "Trois-Rivi\u00e8res",
+  "name": "Trois-Rivières",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 104.1,
@@ -1320,7 +1264,7 @@
   "routed": true
  },
  {
-  "name": "Venise-en-Qu\u00e9bec",
+  "name": "Venise-en-Québec",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 62.8,
@@ -1488,7 +1432,7 @@
   "routed": true
  },
  {
-  "name": "L'\u00c9piphanie",
+  "name": "L'Épiphanie",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 50.4,
@@ -1528,19 +1472,11 @@
   "routed": true
  },
  {
-  "name": "Saint-Charles-Borrom\u00e9e",
+  "name": "Saint-Charles-Borromée",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 74.5,
   "km_to_big_city": 75.0,
-  "routed": true
- },
- {
-  "name": "Communaut\u00e9 Atikamekw de Manawan",
-  "prov": "QC",
-  "nearest_big_city": "Montreal",
-  "drive_min_to_big_city": 285.4,
-  "km_to_big_city": 252.1,
   "routed": true
  },
  {
@@ -1584,7 +1520,7 @@
   "routed": true
  },
  {
-  "name": "Montr\u00e9al-Est",
+  "name": "Montréal-Est",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 25.2,
@@ -1592,7 +1528,7 @@
   "routed": true
  },
  {
-  "name": "Montr\u00e9al",
+  "name": "Montréal",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 1.5,
@@ -1608,7 +1544,7 @@
   "routed": true
  },
  {
-  "name": "Montr\u00e9al-Ouest",
+  "name": "Montréal-Ouest",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 16.2,
@@ -1616,7 +1552,7 @@
   "routed": true
  },
  {
-  "name": "C\u00f4te-Saint-Luc",
+  "name": "Côte-Saint-Luc",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 17.2,
@@ -1672,7 +1608,7 @@
   "routed": true
  },
  {
-  "name": "Baie-D'Urf\u00e9",
+  "name": "Baie-D'Urfé",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 31.0,
@@ -1752,7 +1688,7 @@
   "routed": true
  },
  {
-  "name": "Ch\u00e2teauguay",
+  "name": "Châteauguay",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 31.0,
@@ -1760,7 +1696,7 @@
   "routed": true
  },
  {
-  "name": "L\u00e9ry",
+  "name": "Léry",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 36.5,
@@ -1776,7 +1712,7 @@
   "routed": true
  },
  {
-  "name": "Saint-R\u00e9mi",
+  "name": "Saint-Rémi",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 36.4,
@@ -1808,7 +1744,7 @@
   "routed": true
  },
  {
-  "name": "Rivi\u00e8re-Beaudette",
+  "name": "Rivière-Beaudette",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 68.2,
@@ -1848,7 +1784,7 @@
   "routed": true
  },
  {
-  "name": "L'\u00cele-Perrot",
+  "name": "L'Île-Perrot",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 35.8,
@@ -1856,7 +1792,7 @@
   "routed": true
  },
  {
-  "name": "Notre-Dame-de-l'\u00cele-Perrot",
+  "name": "Notre-Dame-de-l'Île-Perrot",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 41.4,
@@ -1960,7 +1896,7 @@
   "routed": true
  },
  {
-  "name": "Sainte-Th\u00e9r\u00e8se",
+  "name": "Sainte-Thérèse",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 38.0,
@@ -1976,7 +1912,7 @@
   "routed": true
  },
  {
-  "name": "Rosem\u00e8re",
+  "name": "Rosemère",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 39.2,
@@ -2024,7 +1960,7 @@
   "routed": true
  },
  {
-  "name": "Saint-J\u00e9r\u00f4me",
+  "name": "Saint-Jérôme",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 52.5,
@@ -2040,7 +1976,7 @@
   "routed": true
  },
  {
-  "name": "Pr\u00e9vost",
+  "name": "Prévost",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 59.8,
@@ -2064,7 +2000,7 @@
   "routed": true
  },
  {
-  "name": "Sainte-Ad\u00e8le",
+  "name": "Sainte-Adèle",
   "prov": "QC",
   "nearest_big_city": "Montreal",
   "drive_min_to_big_city": 69.5,
@@ -2176,30 +2112,6 @@
   "routed": true
  },
  {
-  "name": "Lac Simon",
-  "prov": "QC",
-  "nearest_big_city": "Ottawa",
-  "drive_min_to_big_city": 336.3,
-  "km_to_big_city": 383.3,
-  "routed": true
- },
- {
-  "name": "Obedjiwan 28",
-  "prov": "QC",
-  "nearest_big_city": "Quebec City",
-  "drive_min_to_big_city": 559.4,
-  "km_to_big_city": 528.4,
-  "routed": true
- },
- {
-  "name": "Mashteuiatsh",
-  "prov": "QC",
-  "nearest_big_city": "Quebec City",
-  "drive_min_to_big_city": 224.6,
-  "km_to_big_city": 266.4,
-  "routed": true
- },
- {
   "name": "Alma",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
@@ -2224,27 +2136,11 @@
   "routed": true
  },
  {
-  "name": "Sept-\u00celes",
+  "name": "Sept-Îles",
   "prov": "QC",
   "nearest_big_city": "Quebec City",
   "drive_min_to_big_city": 512.8,
   "km_to_big_city": 641.6,
-  "routed": true
- },
- {
-  "name": "Uashat 27",
-  "prov": "QC",
-  "nearest_big_city": "Quebec City",
-  "drive_min_to_big_city": 513.4,
-  "km_to_big_city": 640.6,
-  "routed": true
- },
- {
-  "name": "Maliotenam",
-  "prov": "QC",
-  "nearest_big_city": "Quebec City",
-  "drive_min_to_big_city": 524.7,
-  "km_to_big_city": 655.7,
   "routed": true
  },
  {
@@ -2398,14 +2294,6 @@
   "nearest_big_city": "Oshawa",
   "drive_min_to_big_city": 64.6,
   "km_to_big_city": 72.8,
-  "routed": true
- },
- {
-  "name": "Curve Lake First Nation 35",
-  "prov": "ON",
-  "nearest_big_city": "Oshawa",
-  "drive_min_to_big_city": 100.7,
-  "km_to_big_city": 107.6,
   "routed": true
  },
  {
@@ -2849,14 +2737,6 @@
   "routed": true
  },
  {
-  "name": "Kettle Point 44",
-  "prov": "ON",
-  "nearest_big_city": "London",
-  "drive_min_to_big_city": 84.6,
-  "km_to_big_city": 75.8,
-  "routed": true
- },
- {
   "name": "London",
   "prov": "ON",
   "nearest_big_city": "London",
@@ -3097,14 +2977,6 @@
   "routed": true
  },
  {
-  "name": "Factory Island 1",
-  "prov": "ON",
-  "nearest_big_city": "Oshawa",
-  "drive_min_to_big_city": 1207.0,
-  "km_to_big_city": 1041.2,
-  "routed": true
- },
- {
   "name": "Thessalon",
   "prov": "ON",
   "nearest_big_city": "Windsor",
@@ -3150,14 +3022,6 @@
   "nearest_big_city": "Winnipeg",
   "drive_min_to_big_city": 288.5,
   "km_to_big_city": 351.0,
-  "routed": true
- },
- {
-  "name": "Attawapiskat 91A",
-  "prov": "ON",
-  "nearest_big_city": "Oshawa",
-  "drive_min_to_big_city": 1835.9,
-  "km_to_big_city": 1302.2,
   "routed": true
  },
  {
@@ -3393,14 +3257,6 @@
   "routed": true
  },
  {
-  "name": "Chemawawin 2",
-  "prov": "MB",
-  "nearest_big_city": "Winnipeg",
-  "drive_min_to_big_city": 367.7,
-  "km_to_big_city": 462.8,
-  "routed": true
- },
- {
   "name": "The Pas",
   "prov": "MB",
   "nearest_big_city": "Saskatoon",
@@ -3422,22 +3278,6 @@
   "nearest_big_city": "Winnipeg",
   "drive_min_to_big_city": 558.0,
   "km_to_big_city": 763.6,
-  "routed": true
- },
- {
-  "name": "Cross Lake 19A",
-  "prov": "MB",
-  "nearest_big_city": "Winnipeg",
-  "drive_min_to_big_city": 630.2,
-  "km_to_big_city": 773.8,
-  "routed": true
- },
- {
-  "name": "Nelson House 170",
-  "prov": "MB",
-  "nearest_big_city": "Winnipeg",
-  "drive_min_to_big_city": 640.9,
-  "km_to_big_city": 848.7,
   "routed": true
  },
  {
@@ -3991,30 +3831,6 @@
   "nearest_big_city": "Saskatoon",
   "drive_min_to_big_city": 506.3,
   "km_to_big_city": 587.6,
-  "routed": true
- },
- {
-  "name": "Stanley 157",
-  "prov": "SK",
-  "nearest_big_city": "Saskatoon",
-  "drive_min_to_big_city": 357.8,
-  "km_to_big_city": 459.3,
-  "routed": true
- },
- {
-  "name": "Lac La Ronge 156",
-  "prov": "SK",
-  "nearest_big_city": "Saskatoon",
-  "drive_min_to_big_city": 281.5,
-  "km_to_big_city": 376.5,
-  "routed": true
- },
- {
-  "name": "Pelican Narrows 184B",
-  "prov": "SK",
-  "nearest_big_city": "Saskatoon",
-  "drive_min_to_big_city": 439.0,
-  "km_to_big_city": 510.8,
   "routed": true
  },
  {
@@ -5090,14 +4906,6 @@
   "routed": true
  },
  {
-  "name": "Tzeachten 13",
-  "prov": "BC",
-  "nearest_big_city": "Vancouver",
-  "drive_min_to_big_city": 94.0,
-  "km_to_big_city": 106.3,
-  "routed": true
- },
- {
   "name": "Langley (District)",
   "prov": "BC",
   "nearest_big_city": "Vancouver",
@@ -5250,30 +5058,6 @@
   "routed": true
  },
  {
-  "name": "Musqueam 2",
-  "prov": "BC",
-  "nearest_big_city": "Vancouver",
-  "drive_min_to_big_city": 21.1,
-  "km_to_big_city": 11.8,
-  "routed": true
- },
- {
-  "name": "Burrard Inlet 3",
-  "prov": "BC",
-  "nearest_big_city": "Vancouver",
-  "drive_min_to_big_city": 23.1,
-  "km_to_big_city": 15.0,
-  "routed": true
- },
- {
-  "name": "Capilano 5",
-  "prov": "BC",
-  "nearest_big_city": "Vancouver",
-  "drive_min_to_big_city": 11.0,
-  "km_to_big_city": 7.3,
-  "routed": true
- },
- {
   "name": "North Saanich",
   "prov": "BC",
   "nearest_big_city": "Victoria",
@@ -5370,22 +5154,6 @@
   "routed": true
  },
  {
-  "name": "East Saanich 2",
-  "prov": "BC",
-  "nearest_big_city": "Victoria",
-  "drive_min_to_big_city": 25.9,
-  "km_to_big_city": 21.0,
-  "routed": true
- },
- {
-  "name": "New Songhees 1A",
-  "prov": "BC",
-  "nearest_big_city": "Victoria",
-  "drive_min_to_big_city": 13.2,
-  "km_to_big_city": 8.0,
-  "routed": true
- },
- {
   "name": "North Cowichan",
   "prov": "BC",
   "nearest_big_city": "Victoria",
@@ -5439,14 +5207,6 @@
   "nearest_big_city": "Victoria",
   "drive_min_to_big_city": 49.4,
   "km_to_big_city": 48.1,
-  "routed": true
- },
- {
-  "name": "Cowichan",
-  "prov": "BC",
-  "nearest_big_city": "Victoria",
-  "drive_min_to_big_city": 63.7,
-  "km_to_big_city": 62.6,
   "routed": true
  },
  {
@@ -5690,30 +5450,6 @@
   "routed": true
  },
  {
-  "name": "Duck Lake 7",
-  "prov": "BC",
-  "nearest_big_city": "Vancouver",
-  "drive_min_to_big_city": 313.3,
-  "km_to_big_city": 412.2,
-  "routed": true
- },
- {
-  "name": "Tsinstikeptum 9",
-  "prov": "BC",
-  "nearest_big_city": "Vancouver",
-  "drive_min_to_big_city": 277.8,
-  "km_to_big_city": 379.3,
-  "routed": true
- },
- {
-  "name": "Tsinstikeptum 10",
-  "prov": "BC",
-  "nearest_big_city": "Vancouver",
-  "drive_min_to_big_city": 287.3,
-  "km_to_big_city": 387.6,
-  "routed": true
- },
- {
   "name": "Lumby",
   "prov": "BC",
   "nearest_big_city": "Vancouver",
@@ -5815,14 +5551,6 @@
   "nearest_big_city": "Victoria",
   "drive_min_to_big_city": 408.5,
   "km_to_big_city": 494.7,
-  "routed": true
- },
- {
-  "name": "Bella Bella 1",
-  "prov": "BC",
-  "nearest_big_city": "Victoria",
-  "drive_min_to_big_city": 833.4,
-  "km_to_big_city": 682.1,
   "routed": true
  },
  {
