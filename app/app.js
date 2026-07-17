@@ -249,7 +249,22 @@ function decodeState(s) {
 }
 const shared = location.hash.length > 2 && decodeState(location.hash.slice(1));
 
-/* ---------- scoring ---------- */
+/* ---------- scoring ----------
+   Two deliberate choices, both to stop the dimensions cancelling each other out.
+
+   1. Weights are 1 / 3 / 9, not 1 / 2 / 3. With seventeen dimensions live, a
+      linear 3 is still only about a seventh of the total, so "matters a lot"
+      bought almost nothing. Ask for a +6 January on the old scale and it
+      returned Cape Breton (-5.4) and Saint John (-7.9) in the top two.
+
+   2. The fit is a weighted power mean with p<1, not a plain average. A plain
+      average is fully compensatory: a place can fail the one thing you care
+      most about and still win by being mediocre on everything else. p=0.5
+      makes a bad score on a heavy dimension bite instead of averaging out.  */
+const WEIGHT_SCALE = [0, 1, 3, 9];
+const P_MEAN = 0.5;
+const wOf = (id) => WEIGHT_SCALE[weights[id]] || 0;
+
 function scoreAll() {
   const out = DATA.map((p) => {
     let num = 0, den = 0;
@@ -259,15 +274,15 @@ function scoreAll() {
     for (const q of Q) {
       const s = q.score(p, state[q.id]);
       cells[q.id] = s;
-      const w = weights[q.id];
+      const w = wOf(q.id);
       if (!w) continue;
       if (q.hard && q.hard(p, state[q.id])) excluded = q.hardWhy;
       if (s == null) continue;
-      num += w * s; den += w;
+      num += w * Math.pow(s, P_MEAN); den += w;
       parts.push({ id: q.id, s, w, pull: w * (s - 0.5) });
     }
     parts.sort((a, b) => b.pull - a.pull);
-    return { p, fit: den ? (num/den)*100 : 0, parts, cells, excluded,
+    return { p, fit: den ? Math.pow(num/den, 1/P_MEAN)*100 : 0, parts, cells, excluded,
       good: parts.filter((x) => x.s > 0.62).slice(0, 2),
       bad: parts.length ? parts[parts.length-1] : null };
   });
@@ -287,7 +302,7 @@ function confusion(r, ranked) {
   if (near_.length < 1) return null;
   let best = null;
   for (const q of Q) {
-    if (!weights[q.id]) continue;
+    if (!wOf(q.id)) continue;
     const mine = r.cells[q.id];
     if (mine == null) continue;
     let spread = 0, n = 0;
@@ -427,7 +442,7 @@ function cellHTML(q, r) {
   const v = q.show(r.p);
   if (!v) return `<span class="cell"><span class="na">${NA}</span></span>`;
   const s = r.cells[q.id];
-  const tint = (s != null && weights[q.id]) ? `background:${rampOf(s*100)}` : '';
+  const tint = (s != null && wOf(q.id)) ? `background:${rampOf(s*100)}` : '';
   return `<span class="cell" style="${tint}"><span class="v">${v[0]}</span><span class="u">${v[1]}</span></span>`;
 }
 
@@ -511,7 +526,7 @@ function draw() {
   const cols = Q.filter((q) => q.col);
   $('#thead').innerHTML = `<tr><th></th><th class="l">Place</th><th>Fit</th>
     ${cols.map((q) => { const h = COLHELP[q.id] || [q.label,'',''];
-      return `<th${weights[q.id] ? '' : ' style="opacity:.45"'} title="${h[0]}${h[1] ? ' ('+h[1]+')' : ''}. ${h[2]}">${q.col}</th>`; }).join('')}
+      return `<th${wOf(q.id) ? '' : ' style="opacity:.45"'} title="${h[0]}${h[1] ? ' ('+h[1]+')' : ''}. ${h[2]}">${q.col}</th>`; }).join('')}
     <th title="Provenance"></th></tr>`;
 
   $('#tbody').innerHTML = ranked.slice(0, shown).map((r, i) => {
