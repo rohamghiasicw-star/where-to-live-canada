@@ -15,6 +15,14 @@ def load(p, default=None):
 # ---- base: climate carries name/prov/lat/lon/elev/climate/stations_used/smoke
 places = load('data/climate.json')
 
+# Drop treaty settlement lands (CSDTYPE "TWL") the way reserves were dropped:
+# Tsawwassen Lands is First Nation treaty land, not a normal move-to place, and
+# its +176.5% growth on a missing home value was gaming the ranking.
+_cd = load('data/csd_coords.json') or {}
+_drop = {(r.get('name'), r.get('prov')) for r in (load('data/census.json') or [])
+         if (_cd.get(r.get('code')) or {}).get('type') == 'TWL'}
+places = [p for p in places if (p.get('name'), p.get('prov')) not in _drop]
+
 # ---- same Lambert projection the map sheet was built in
 P1, P2, LAT0, LON0 = map(math.radians, (49.0, 77.0, 63.390675, -91.866666666))
 def lcc(lon, lat):

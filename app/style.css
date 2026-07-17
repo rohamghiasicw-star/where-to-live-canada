@@ -167,7 +167,19 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
 .opt[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .opt:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
 
-.slider-row { display: flex; align-items: center; gap: 0.6rem; }
+
+/* +/- steppers flanking the slider. the slider alone was drag-only, unusable by
+   touch: a real showstopper for the two most important questions. */
+.step {
+  flex: 0 0 auto; width: 34px; height: 34px; padding: 0; border-radius: 0; cursor: pointer;
+  font: inherit; font-size: 1.2rem; line-height: 1; font-weight: 600;
+  border: 1px solid var(--rule-2); background: var(--page); color: var(--ink-2);
+}
+.step:hover { border-color: var(--ink); color: var(--ink); }
+.step:active { background: var(--ink); color: var(--paper); }
+.step:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
+
+.slider-row { display: flex; align-items: center; gap: 0.5rem; }
 input[type=range] {
   flex: 1; -webkit-appearance: none; appearance: none; background: transparent;
   height: 26px; margin: 0; cursor: pointer;
@@ -285,8 +297,15 @@ table.plate-t { border-collapse: collapse; width: 100%; font-size: var(--t-xs); 
 
 /* ---------- detail ---------- */
 .detail td { padding: 0 !important; }
-.dwrap { padding: 0.9rem var(--gut) 1.1rem; background: var(--page); border-bottom: 1px solid var(--rule); }
+/* the desktop detail row sits inside the 21-column table, so it inherited the
+   table's huge width and its right third scrolled off-screen. Pin it to the
+   left of the scroll viewport and bound it to the visible plate width. */
+.detail td { position: sticky; left: 0; }
+.dwrap { padding: 0.9rem var(--gut) 1.1rem; background: var(--page); border-bottom: 1px solid var(--rule);
+  position: sticky; left: 0; box-sizing: border-box;
+  width: calc(min(100vw, var(--maxw)) - 302px); max-width: 100vw; }
 .dgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4rem; }
+.drow b { text-align: right; }
 .dh { font-size: var(--t-xs); font-weight: 600; color: var(--ink); margin: 0 0 0.35rem;
   padding-bottom: 0.2rem; border-bottom: 1px solid var(--rule-2); }
 .drow { display: flex; justify-content: space-between; gap: 1rem; font-size: var(--t-xs); padding: 0.14rem 0; }
@@ -476,6 +495,9 @@ ol.how b { color: var(--ink); font-weight: 600; }
   .opt { padding: 0.7rem 0.9rem; font-size: var(--t-m); }
   .seg-b { min-height: 48px; font-size: var(--t-s); }
   input[type=range] { height: 44px; }
+  .step { width: 44px; height: 44px; font-size: 1.4rem; }
+  .slider-row { flex-wrap: wrap; }
+  .slider-row .readout { flex: 1 0 100%; text-align: left; margin-top: 0.2rem; }
   input[type=range]::-webkit-slider-thumb { width: 20px; height: 32px; margin-top: -15.5px; }
   input[type=range]::-moz-range-thumb { width: 20px; height: 32px; }
   .reset { padding: 0.7rem 1rem; font-size: var(--t-s); }

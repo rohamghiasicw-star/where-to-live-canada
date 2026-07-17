@@ -7,6 +7,7 @@ const M = ['J','F','M','A','M','J','J','A','S','O','N','D'];
 const cv = (p, el, m = '13') => (p.climate && p.climate[el]) ? p.climate[el][m] : null;
 const NA = '..';   // StatCan's published symbol for "not available", not an invented dash
 const near = (x, t, tol) => x == null ? null : clamp(1 - Math.abs(x - t) / tol, 0, 1);
+const LIVED_N = DATA.filter((p) => p.lived).length;   // researched places, live count
 
 /* ---------- the dimensions ----------
    Each is one column of the plate, in a fixed order that never changes.
@@ -169,7 +170,7 @@ const Q = [
   },
   {
     id: 'mood', label: 'What residents say', col: 'Mood', g: 'Life there',
-    hint: 'Only 28 of 129 places are researched, so this is off by default.',
+    hint: `Only ${LIVED_N} of ${DATA.length} places are researched, so this is off by default.`,
     kind: 'opts', def: 'meh', w: 0, opts: [['yes','Count it'],['meh','Ignore it']],
     score: (p, v) => { if (v === 'meh' || !p.lived || !p.lived.sentiment) return null;
       const x = Object.values(p.lived.sentiment).filter((n) => n != null);
@@ -271,18 +272,27 @@ function scoreAll() {
     const parts = [];
     let excluded = null;
     const cells = {};
+    let wantW = 0;               // total weight the user asked for
     for (const q of Q) {
       const s = q.score(p, state[q.id]);
       cells[q.id] = s;
       const w = wOf(q.id);
       if (!w) continue;
       if (q.hard && q.hard(p, state[q.id])) excluded = q.hardWhy;
-      if (s == null) continue;
+      wantW += w;
+      if (s == null) continue;   // missing data
       num += w * Math.pow(s, P_MEAN); den += w;
       parts.push({ id: q.id, s, w, pull: w * (s - 0.5) });
     }
+    // coverage: a place missing a dimension you weighted heavily used to get a
+    // free pass (dropped from the average) and could float to the top on the
+    // criterion it lacked. Dock the fit by how much of your weighted preference
+    // it actually has data for, so missing your #1 priority hurts.
+    const coverage = wantW ? den / wantW : 1;
+    const raw = den ? Math.pow(num / den, 1 / P_MEAN) * 100 : 0;
+    const missing = Q.filter((q) => wOf(q.id) && cells[q.id] == null && q.col);
     parts.sort((a, b) => b.pull - a.pull);
-    return { p, fit: den ? Math.pow(num/den, 1/P_MEAN)*100 : 0, parts, cells, excluded,
+    return { p, fit: raw * (0.55 + 0.45 * coverage), parts, cells, excluded, coverage, missing,
       good: parts.filter((x) => x.s > 0.62).slice(0, 2),
       bad: parts.length ? parts[parts.length-1] : null };
   });
@@ -506,7 +516,7 @@ function detailHTML(r) {
         ${quotes ? `<p class="dh" style="margin-top:.7rem">In their words</p>${quotes}` : ''}
         <p class="prov-note"><em>Researched.</em> ${L.evidence_count} findings from ${L.source_count} pages.</p>`
         : `<p class="prov-note"><em>Not researched.</em> Nobody has read what residents say about
-           ${p.name} yet, so this column is empty rather than guessed. 28 of 129 places are done.
+           ${p.name} yet, so this column is empty rather than guessed. ${LIVED_N} of ${DATA.length} places are done.
            This place is scored on measured data only.</p>`}
     </div>
   </div></div>`;
@@ -636,8 +646,11 @@ function buildSurvey() {
     const head = q.g !== lastG ? `<p class="qgroup">${q.g}</p>` : '';
     lastG = q.g;
     const body = q.kind === 'range'
-      ? `<div class="slider-row"><input type="range" id="r-${q.id}" min="${q.min}" max="${q.max}"
-           step="${q.step}" value="${state[q.id]}" aria-label="${q.label}">
+      ? `<div class="slider-row">
+           <button class="step" type="button" data-step="${q.id}" data-dir="-1" aria-label="Lower ${q.label}">&minus;</button>
+           <input type="range" id="r-${q.id}" min="${q.min}" max="${q.max}"
+             step="${q.step}" value="${state[q.id]}" aria-label="${q.label}">
+           <button class="step" type="button" data-step="${q.id}" data-dir="1" aria-label="Raise ${q.label}">+</button>
            <span class="readout" id="o-${q.id}">${q.fmt(state[q.id])}</span></div>
          <div class="scale-ends"><span>${q.ends[0]}</span><span>${q.ends[1]}</span></div>`
       : `<div class="opts">${q.opts.map(([v,l]) => `<button class="opt" data-q="${q.id}" data-v="${v}"
@@ -664,6 +677,18 @@ $('#qs').addEventListener('input', (e) => {
   render();
 });
 $('#qs').addEventListener('click', (e) => {
+  // the +/- steppers: sliders were drag-only, which a touch user (or anyone on a
+  // phone) could not operate. these let you tap to set the value.
+  const st = e.target.closest('.step');
+  if (st) {
+    const id = st.dataset.step, q = Q.find((x) => x.id === id);
+    state[id] = clamp(state[id] + (+st.dataset.dir) * q.step, q.min, q.max);
+    const inp = $('#r-' + id), out = $('#o-' + id);
+    if (inp) inp.value = state[id];
+    if (out) out.textContent = q.fmt(state[id]);
+    render();
+    return;
+  }
   const o = e.target.closest('.opt'), w = e.target.closest('.seg-b');
   if (o) {
     state[o.dataset.q] = o.dataset.v;
