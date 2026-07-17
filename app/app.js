@@ -713,6 +713,7 @@ function buildSurvey() {
         data-w="${q.id}" data-n="${n}" aria-label="${q.label}, ${lab}" aria-pressed="${weights[q.id] === n}">${lab}</button>`).join('');
     return head + `<div class="q${collapsible ? ' q-life' : ''}"><p class="q-label">${q.label}</p>
       <p class="q-hint">${q.hint}</p>${body}
+      <p class="seg-q">How much does ${q.label.toLowerCase()} matter to you?</p>
       <div class="seg" role="group" aria-label="How much ${q.label} matters">${seg}</div></div>`;
   }).join('');
   // wire the collapse toggle (default collapsed on a phone)
@@ -723,7 +724,7 @@ function buildSurvey() {
     tog.querySelector('.qg-more').innerHTML = open ? 'hide &rsaquo;' : '8 more things &rsaquo;';
   });
 }
-const WLAB = ['Skip', 'A little', 'Matters', 'A lot'];
+const WLAB = ['Not at all', 'A little', 'A lot', 'A ton'];
 function syncTicks() {
   document.querySelectorAll('.seg-b').forEach((b) =>
     b.setAttribute('aria-pressed', weights[b.dataset.w] === +b.dataset.n));

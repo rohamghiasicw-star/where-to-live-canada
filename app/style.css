@@ -142,8 +142,11 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
 .q-hint { font-size: var(--t-xs); color: var(--ink-3); margin: 0.1rem 0 0.5rem; }
 
 /* importance as a labelled segmented bar, full width under the choice. one
-   thing you care about should be unmistakable, not three tiny squares. */
-.seg { display: flex; gap: 0; border: 1px solid var(--rule-2); background: var(--page); margin-top: 0.55rem; }
+   thing you care about should be unmistakable, not three tiny squares. the
+   question sits right above the bar so the two-step flow (answer, then weight)
+   reads without a manual. */
+.seg-q { font-size: var(--t-xs); color: var(--ink-3); margin: 0.7rem 0 0; }
+.seg { display: flex; gap: 0; border: 1px solid var(--rule-2); background: var(--page); margin-top: 0.3rem; }
 .seg-b {
   flex: 1 1 0; min-width: 0; min-height: 42px;
   font: inherit; font-size: var(--t-xs); font-weight: 600; color: var(--ink-3);
