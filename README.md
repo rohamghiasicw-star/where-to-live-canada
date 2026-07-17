@@ -28,8 +28,9 @@ The Goderich line checks out, by the way. Routed on real roads it is 98.6km and 
 | Wildfire smoke | ECCC FireWork RAQDPS-FW Cumulative Effects, 2013-2024 |
 | Population, income, home values, rent | Statistics Canada, 2021 Census Profile |
 | Political lean | Elections Canada, 45th General Election, April 2025 |
+| Growth, age, commute, car dependence, jobs, diversity, French | Statistics Canada, 2021 Census Profile |
 | Drive to the nearest real city | OSRM routed on OpenStreetMap roads |
-| What residents say | Reddit, local news, forums, personal blogs (28 places so far) |
+| What residents say | Reddit, local news, forums, personal blogs (59 places so far) |
 
 ## How it decides
 
@@ -55,7 +56,7 @@ Worth stating, because the whole point is that the numbers are real.
 
 ## Honesty
 
-Resident research covers 28 of 129 places. The rest are scored on measured data only and say so. Every quote links to the page it came from, so you can check it.
+Resident research covers 59 of 129 places, and is missing Quebec and Atlantic Canada. The rest are scored on measured data only and say so. Every quote links to the page it came from, so you can check it.
 
 Small towns have thin data. Where a number is missing it is left blank rather than guessed at.
 
@@ -73,8 +74,23 @@ python3 src/build_app.py     # reassemble index.html from data/
 
 The other scripts in `src/` regenerate each dataset from its source. They document the exact endpoints. Some need large downloads (the census profile is a 2.6GB CSV).
 
-## Credits
+## The design
 
-Map geometry from Natural Earth, projected to Statistics Canada Lambert (EPSG:3347), the projection Canada is actually drawn in. Type is League Gothic and IBM Plex.
+It is built as a field guide, not a dashboard. Seventeen dimensions across 129 places is the problem Peterson and Sibley solved for birds: here are many similar things, help me tell mine apart.
+
+The rule everything is checked against: **a graphical move is convincing when it is a function of the data, and costume when it is a layer over the data.** Test any mark by asking whether its value could have come out different. A compass rose always points north, so it carries no information. A magnetic declination diagram looks like its cousin but carries a real angle stamped with an epoch, because it decays.
+
+What that produced:
+
+- **Positional constancy.** The column order never changes, so the eye can detect difference. Read down a column to compare one thing across the country, across a row to read one place.
+- **Missing values keep their slot** and read `..`, which is StatCan's own published symbol for "not available". An MLS card leaves `Taxes` blank rather than deleting the cell. The empty slot is information.
+- **Provenance has its own ink.** USGS and NRCan each spend a scarce plate saying how much of the sheet was field checked. 59 of 129 places have resident research and the rest do not, and they must not render identically.
+- **One arrow, rationed.** It marks the single dimension that separates a place from the ones it ties with. It points at what *distinguishes*, not at what is good.
+- **No dark mode.** There is no dark-mode paper.
+- **No monospace.** The 1985 MLS book was a proportional grotesque. The inheritance from that tradition is tabular figures, not typewriter cosplay.
+
+Type is **Radio Canada** by Coppers and Brasses of Montréal, commissioned for CBC/Radio-Canada, OFL. Chosen for fit rather than novelty, and because it ships real tabular figures. The previous stack declared `font-variant-numeric: tabular-nums` while shipping no font that had the feature, so the incantation did nothing. Its width axis carries data: a big city sets wide, a village narrow.
+
+Map geometry from Natural Earth, projected to Statistics Canada Lambert (EPSG:3347), the projection Canada is actually drawn in.
 
 Idea by a guy in a change room who was right.

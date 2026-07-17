@@ -80,12 +80,23 @@ for r in (load('data/census.json') or []):
         'home_price_median': r.get('dwell_median'),
         'rent_2br': r.get('rent_median'),
         'median_hh_income': r.get('median_hh_income'),
-        'unemployment': r.get('unemployment'),
         'source': '2021 Census, census subdivision',
     }
     if any(v is not None for k2, v in cost.items() if k2 != 'source'):
         by[k]['cost'] = cost
+    # what living there is actually like, all from the same census profile
+    life = {f: r.get(f) for f in (
+        'pop_change','median_age','unemployment','tenant_burden','owner_burden',
+        'major_repairs_pct','immigrants_pct','visible_minority_pct','french_pct','bilingual_pct',
+        'commute_car_pct','commute_transit_pct','commute_walk_pct','commute_bike_pct',
+        'commute_short_pct','commute_long_pct')}
+    if any(v is not None for v in life.values()):
+        # one derived field: everything that is not a car
+        cw = [life.get('commute_transit_pct'), life.get('commute_walk_pct'), life.get('commute_bike_pct')]
+        life['carfree_pct'] = round(sum(x for x in cw if x is not None), 1) if any(x is not None for x in cw) else None
+        by[k]['life'] = life
 stats['census'] = sum(1 for p in places if p.get('pop') is not None)
+stats['life'] = sum(1 for p in places if p.get('life'))
 
 stats['politics'] = merge('data/politics.json', 'politics', lambda r: {
     'lean': r.get('lean'), 'lean_label': r.get('lean_label'),

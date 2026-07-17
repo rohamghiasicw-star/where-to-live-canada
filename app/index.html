@@ -1,91 +1,101 @@
 <meta charset="utf-8">
 <title>Where To Live / Canada</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Rank 129 Canadian cities and towns against what you actually want. Built on Environment Canada climate normals, wildfire smoke modelling, census data, and what residents say.">
+<meta name="description" content="Rank 129 Canadian cities and towns against what you actually want. Environment Canada climate normals, wildfire smoke modelling, 2021 Census, 2025 election results, and what residents say.">
 <style>/*__FONTS__*/</style>
 <style>/*__CSS__*/</style>
 
 <div class="sheet">
-  <header class="collar">
+  <header class="head">
     <div>
-      <h1><span class="sub">A survey of 129 Canadian places</span>Where to live</h1>
-      <p class="lede" id="lede">Every list of best places to live picks the weights for you. This one asks
-      what you actually want, then re-ranks the whole country. Answer on the left. The
-      <em>map</em> and the index below re-sort as you go.</p>
+      <h1>Where to live <i>in Canada</i></h1>
+      <p class="lede" id="lede">Every best-places-to-live list picks the weights for you.
+      This one asks what you want, then re-ranks all <b>129 places</b> against it.
+      Answer on the left. Read down a column to compare one thing across the country,
+      across a row to read one place.</p>
     </div>
-    <div class="collar-id">
-      <span>Sheet <b>1</b> of 1</span>
-      <span>Proj. <b>Lambert Conformal Conic</b></span>
-      <span>Places <b>129</b></span>
-      <button class="theme-btn" id="theme">Invert</button>
+    <div class="headnote">
+      129 cities and towns<br>
+      Toronto down to <b>Bayfield, Ontario</b>, pop. 1,100<br>
+      Climate <b>1981-2010</b> · Smoke <b>2013-2024</b><br>
+      Census <b>2021</b> · Votes <b>2025</b>
     </div>
   </header>
 
   <div class="field">
     <section class="survey">
       <div class="survey-head">
-        <h2>The survey</h2>
-        <p>Set what you want and how much each one matters.</p>
+        <h2>What you want</h2>
+        <p>Set each one, and how much it matters.</p>
       </div>
       <div id="qs"></div>
-      <div class="survey-foot"><button class="reset" id="reset">Reset survey</button></div>
+      <div class="survey-foot"><button class="reset" id="reset">Start over</button></div>
     </section>
 
     <section class="plate">
       <div class="verdict" id="verdict"></div>
 
-      <div class="plate-head">
-        <h2>The field</h2>
-        <div class="legend">
-          <span><i style="background:var(--survey)"></i>Your top ten</span>
-          <span><i style="border:1px solid var(--contour)"></i>Scored, sized by fit</span>
-          <span><i style="border:1px solid var(--rule)"></i>Ruled out</span>
-        </div>
-      </div>
       <div class="map-wrap">
-        <canvas id="map" role="img" aria-label="Map of Canada showing 129 places ranked against your answers"></canvas>
+        <canvas id="map" role="img" aria-label="Map of Canada, each place shaded by how well it fits your answers"></canvas>
         <div class="tip" id="tip"></div>
       </div>
 
-      <div class="index-head">
-        <h2>The index</h2>
+      <div class="plate-head">
+        <h2>All 129</h2>
         <span class="note" id="count"></span>
       </div>
-      <ol class="index" id="index"></ol>
+      <div class="plate-scroll">
+        <table class="plate-t">
+          <thead id="thead"></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
     </section>
   </div>
 
   <footer class="foot">
+    <div class="legend">
+      <span><i style="background:var(--fit-4)"></i>Fits you</span>
+      <span><i style="background:var(--fit-1)"></i>Does not</span>
+      <span><i style="background:var(--check)"></i>Residents researched</span>
+      <span><i style="background:repeating-linear-gradient(0deg,var(--thin) 0 2px,transparent 2px 5px)"></i>Not researched</span>
+      <span><i style="border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);transform:rotate(45deg)"></i>What splits it from its neighbours</span>
+      <span>&nbsp;<b>..</b>&nbsp; Not available</span>
+    </div>
     <div class="foot-grid">
       <div>
         <h3>Climate</h3>
         Environment and Climate Change Canada, Canadian Climate Normals 1981-2010, via the
-        <a href="https://api.weather.gc.ca" target="_blank" rel="noopener">GeoMet-OGC API</a>.
-        Each place is matched to the nearest station at a comparable elevation. The station
-        and its distance are shown on every place, because a station 40km inland and 900m up
-        is not your winter. Nine places have no published normals nearby; their figures are
-        computed from raw ECCC monthly observations and labelled as such.
+        <a href="https://api.weather.gc.ca" target="_blank" rel="noopener">GeoMet API</a>.
+        Each place is matched to the nearest station at a comparable elevation, and every place
+        shows which station and how far off it is. Revelstoke's nearest published station is 43km
+        away and 1,431m up a mountain, reporting 1,388cm of snow. That is the alpine snowpack,
+        not the town. Nine places have no published normals nearby; theirs are computed from raw
+        monthly observations and say so.
       </div>
       <div>
         <h3>Wildfire smoke</h3>
         ECCC <a href="https://eccc-msc.github.io/open-data/msc-data/nwp_raqdps-fw/readme_raqdps-fw-datamart_en/" target="_blank" rel="noopener">FireWork RAQDPS-FW Cumulative Effects</a>,
-        yearly average wildfire contribution to surface fine particulate, 2013-2024 mean on a
-        10km grid. This is the model run with fires differenced against the run without, so it
-        is smoke from fire only, not traffic or wood stoves. A 12-year mean, so 2023 counts once.
+        the air quality model run with fires differenced against the run without, so it is smoke
+        from fire only and not traffic or wood stoves. 2013-2024 mean, 10km grid.
+        The obvious Environment Canada field, "days with smoke or haze", is negatively correlated
+        with real wildfire smoke and is not used here.
       </div>
       <div>
-        <h3>Everything else</h3>
-        Population and income from the 2021 Census. Political lean computed from federal riding
-        results. Home prices and rents from real estate boards and CMHC. Drive times routed on
-        real roads. Resident quotes come from pages actually opened and are linked so you can
-        check them.
+        <h3>The rest</h3>
+        Population, income, dwelling values and rent from the 2021 Census, at census subdivision
+        level. Home value is what owners estimated their own home was worth in 2021, not a market
+        price. Political lean is computed from Elections Canada's 45th General Election results,
+        with each place located inside its riding. Drive times are routed on real roads.
       </div>
       <div>
-        <h3>Honesty</h3>
-        Small towns have thin data. Where a number is missing it is left blank and dropped from
-        the score rather than guessed at. Nothing here is a recommendation. It is a way to
-        argue with a list.
-        <br><br>Map geometry: Natural Earth. Built for a conversation that started in a gym change room.
+        <h3>What is missing</h3>
+        Residents have been researched for 28 of 129 places, marked in the last column.
+        The other 101 are scored on measured data only and their column says so.
+        Where a number is missing it reads <b>..</b> and is dropped from the score rather than
+        guessed at. Nothing here is a recommendation. It is a way to argue with a list.
+        <br><br><a href="https://github.com/rohamghiasicw-star/where-to-live-canada" target="_blank" rel="noopener">Source and data</a>.
+        Map from Natural Earth. Type is Radio Canada, by Coppers and Brasses.
       </div>
     </div>
   </footer>

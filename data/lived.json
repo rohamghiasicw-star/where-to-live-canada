@@ -1030,18 +1030,18 @@
  {
   "name": "Whistler",
   "loved": [
+   "Remote work is viable. Telus committed $27 million to connect more than 90% of homes and businesses in Whistler and Squamish to fibre to the premises with gigabit speeds and symmetrical uploads.",
    "Snow conditions are the actual daily conversation topic among residents, ahead of news or current events.",
    "Violent crime is falling, down 7 percent overall with assaults down 9 percent in 2024.",
-   "There is relief coming on housing specifically. 104 new WHA rental units at 1475 Mount Fee Road open in summer 2026, the largest single release of employee housing to date, and the authority expects wait times to move.",
-   "The permanent population is around 10,000 and small enough that you run into people you know on a routine grocery run."
+   "There is relief coming on housing specifically. 104 new WHA rental units at 1475 Mount Fee Road open in summer 2026, the largest single release of employee housing to date, and the authority expects wait times to move."
   ],
   "hated": [
    "There is still a waitlist for a family doctor and the clinic will not estimate how long it is or when you will be attached.",
-   "BC's headline short-term-rental crackdown does not apply here. Whistler is specifically exempt from the provincial principal-residence requirement that reins in Airbnb elsewhere in BC.",
-   "The childcare centre will not even tell you your position on the list because turnover is so low.",
-   "The municipality openly acknowledges its economy is one industry deep and that this creates more revenue risk than a diversified town faces."
+   "Whistler's economy is officially classified by the municipality itself as a tourism based economy, and its workforce indicator is measured by counting winter season full-time equivalents because winter is the peak. That is the definition of a one-industry town.",
+   "Whistler is exempt from BC's principal-residence short-term rental rule, so the province's main lever against Airbnb pressure does not apply here. Whistler controls it through zoning instead.",
+   "The childcare centre will not even tell you your position on the list because turnover is so low."
   ],
-  "honest_downside": "Outside opinion on a Canada relocation forum frames Whistler as a tourist town rather than a practical place to base a career, suggesting living in Vancouver and commuting up for winter activities instead.",
+  "honest_downside": "Groceries are a real shock. One resident account reports $20 for seven tomatoes and about $10 for a chicken breast, and estimates roughly $5,000 upfront just to land here with rent, deposits, pass and gear.",
   "quotes": [
    {
     "quote": "Whistler 360 Health cannot say when new practitioners will start and when a specific person will be attached to the clinic, but will use this list to contact new patients when capacity increases.",
@@ -1049,32 +1049,32 @@
     "context": "healthcare"
    },
    {
-    "quote": "the requirement that limits short-term rentals to the host's principal residents and one secondary suite or accessory dwelling unit on the same property does not apply to Whistler",
-    "source_url": "https://www.whistler.ca/business-development/land-use-and-development/provincial-legislation/how-b-c-s-new-short-term-rental-rules-affect-whistler/",
-    "context": "housing"
+    "quote": "provides an estimate of the number of full time equivalent employees (FTE) in Whistler during the winter season. The winter season is currently the season with the greatest number of employees.",
+    "source_url": "https://performance.whistler.ca/community-monitoring/workforce-total/",
+    "context": "jobs"
    },
    {
-    "quote": "Due to the high volume of applicants and low turnover of spaces we are unable to predict placement on the list, or respond to questions regarding where your child is on the list.",
-    "source_url": "https://www.whistlerchildren.com/waitlist-and-registration",
-    "context": "schools"
+    "quote": "No, the requirement that limits short-term rentals to the host's principal residents and one secondary suite or accessory dwelling unit on the same property does not apply to Whistler.",
+    "source_url": "https://www.whistler.ca/business-development/land-use-and-development/provincial-legislation/how-b-c-s-new-short-term-rental-rules-affect-whistler/",
+    "context": "housing"
    }
   ],
   "topic_sentiment": {
    "weather": null,
-   "cost": -1.33,
-   "housing": -1.23,
-   "jobs": -0.67,
-   "healthcare": 0.0,
-   "transit": 0.5,
-   "community": 0.33,
-   "culture": null,
+   "cost": -1.82,
+   "housing": -1.17,
+   "jobs": -0.6,
+   "healthcare": -0.55,
+   "transit": 0.0,
+   "community": 0.0,
+   "culture": -0.67,
    "outdoors": null,
-   "safety": 0.0,
+   "safety": -0.86,
    "isolation": null
   },
-  "confidence": "medium",
-  "evidence_count": 49,
-  "source_count": 24
+  "confidence": "high",
+  "evidence_count": 99,
+  "source_count": 47
  },
  {
   "name": "Calgary",
@@ -1082,7 +1082,7 @@
    "Acreage living within commuting distance is a real option people actually use. Locals name Springbank and the Crowchild Trail NW corridor toward Cochrane, plus Priddis, the greater Southlands area, and Airdrie, with park and ride at Crowfoot station.",
    "The same Inglewood resident says buses, not trains, are what actually works day to day, counting at least 15 buses through his neighbourhood in the 7 to 8 AM hour.",
    "A recent arrival says the outdoor access is the whole point, and that they traded money for it deliberately.",
-   "Someone who left Calgary and moved somewhere smaller says what she misses is the sheer amount of public, non-private space and the fact that people were around to do things with."
+   "Strangers say hi in public. A transplant from London found the ambient friendliness a real departure from big-city norms."
   ],
   "hated": [
    "An Inglewood resident tears into the C-Train specifically, saying rush hour can mean waiting for two or three trains to board, and that trains share the road with downtown traffic.",
@@ -1090,7 +1090,7 @@
    "A resident planning to leave says the weather is in constant flux and that he cannot see himself there long term, using the local nickname Cow Town.",
    "Geographic isolation is real and gets raised as a downside. The nearest major city, Vancouver, is over ten hours by car."
   ],
-  "honest_downside": "The shortage is structural, not just a headcount gap. Between 2004 and 2020 Alberta family physicians went from seeing 23 patients a day to 20, and from 167 working days a year to 156, while the number of adults with five or more chronic conditions nearly doubled. Adding doctors alone does not fix it.",
+  "honest_downside": "The thing newcomers discover after moving: hail. The August 2024 storm caused about $2.8 billion in damage and over 130,000 claims. One Cornerstone homeowner's premium went from $180 to over $500 per month, and insurers began refusing entire postal codes.",
   "quotes": [
    {
     "quote": "It's a poorly planned, over-crowded, 3rd world banana republic excuse of a mass transit system. It's all well and good to think about living in one of the neighbourhoods just outside the core and taking the train into downtown, but in rush hour, you could be looking at a 2 or 3 train wait to get onboard. And the system interacts with traffic downtown, so during rush hour, trains get backed up, and it can take 30 minutes to go 2 stops.",
@@ -1109,37 +1109,37 @@
    }
   ],
   "topic_sentiment": {
-   "weather": -1.0,
-   "cost": -1.14,
-   "housing": 1.2,
-   "jobs": 0.0,
-   "healthcare": -2.0,
-   "transit": -1.2,
-   "community": 0.5,
-   "culture": -1.2,
+   "weather": -0.63,
+   "cost": -1.5,
+   "housing": 0.44,
+   "jobs": -0.43,
+   "healthcare": -1.4,
+   "transit": -1.0,
+   "community": 0.29,
+   "culture": -0.63,
    "outdoors": 2.0,
    "safety": -1.0,
    "isolation": null
   },
-  "confidence": "medium",
-  "evidence_count": 70,
-  "source_count": 45
+  "confidence": "high",
+  "evidence_count": 146,
+  "source_count": 79
  },
  {
   "name": "Edmonton",
   "loved": [
+   "An Australian who arrived alone says friendly street-level interaction is genuinely the norm.",
    "Housing inventory is genuinely available, which is rare in Canada. Edmonton opened 2026 with inventory 32.7% higher than a year earlier, an average selling price of $448,761, and homes averaging 59 days on market. It is a buyer's market by Canadian standards.",
-   "It is cheap relative to the rest of urban Canada, and residents state this flatly rather than defensively.",
-   "Whyte Avenue and downtown are the two places people actually go out. A five-year resident describes Whyte as somewhere you run into people you know rather than a destination you drive to.",
-   "Drivers stopping for pedestrians and everyday kindness surprised a transplant who expected Alberta to be harder-edged."
+   "Whyte Avenue (82nd Ave) is the main street people actually orbit. One resident treats a specific pub there as his local and starts every night out at it, even though closer bars exist.",
+   "The North Saskatchewan river valley is the outdoor asset residents name unprompted, used year-round rather than just in summer."
   ],
   "hated": [
    "14% of Albertans report having no family doctor and another 31% report difficult access to the one they have, meaning close to half the province has a primary-care access problem. Access has gotten worse over the past decade.",
-   "Edmonton is the outlier on Canada's overdose crisis. Deaths are falling nationally but Edmonton hit 764 drug deaths in 2025, its deadliest year ever, up 12 percent from 2024. The local supply is dominated by carfentanil in a way Calgary's is not.",
-   "Extreme cold is real and rated by wind chill, not air temperature. Alberta issues extreme cold warnings at -40 wind chill, at which point exposed skin freezes in five to ten minutes. Edmonton regularly sits just under that threshold in deep winter.",
-   "Transit exists and is well used, but it is capacity-capped. Peak service is maxed out, no new service hours are being added in 2026, and any improvement has to be paid for by cutting somewhere else. New buses are not due until 2027 and replacement trains not before 2028."
+   "Winter has a real mood cost. A student describes the pull to go straight home and stay in bed, and had to force exercise to counter it.",
+   "The same person concluded the work on offer skews to trades and manual labour, not office roles.",
+   "Rentals closer in are not proportionally cheap, and one transplant felt the discount did not cover what she gave up."
   ],
-  "honest_downside": "14% of Albertans report having no family doctor and another 31% report difficult access to the one they have, meaning close to half the province has a primary-care access problem. Access has gotten worse over the past decade.",
+  "honest_downside": "Edmonton is far from everything. It is roughly 3 hours to Calgary, 3.5 to Jasper, and the international airport has a thin route network that usually forces a connection for transatlantic travel.",
   "quotes": [
    {
     "quote": "Albertans (14% no family doctor, 31% difficult access to current doctor) and Manitobans (15%, 33%) are comparatively well-positioned by this metric but have worse access to family doctors than they did 10 years ago.",
@@ -1147,45 +1147,46 @@
     "context": "healthcare"
    },
    {
-    "quote": "Depending on your area, availability of family doctors or nurse practitioners accepting new patients may be limited. There may be a delay in contacting you.",
-    "source_url": "https://albertafindaprovider.ca/find-a-doc/help-me-find-a-doctor",
-    "context": "healthcare"
+    "quote": "It's very easy to feel a little sad and overwhelmed when it starts to get too cold, the winter made me want to go straight home after my classes so I could sit in my bed with a blanket and be warm.",
+    "source_url": "https://www.ualberta.ca/en/youalberta/2019/11/how-to-survive-your-first-winter-in-canada.html",
+    "context": "weather"
    },
    {
-    "quote": "carfentanil was involved in 69 per cent of fatalities in the region. For comparison, it was linked to just 16 per cent of deaths in Calgary.",
-    "source_url": "https://www.theglobeandmail.com/canada/article-edmonton-drug-overdose-rates-opioid-death-data/",
-    "context": "safety"
+    "quote": "Eventually I realized that most of Alberta's ads are for manual labourers and skilled tradespeople. If you work any kind of corporate job—like I do—the money and opportunity is back east.",
+    "source_url": "https://torontolife.com/city/i-moved-to-alberta-and-hated-everything-about-it-after-three-months-i-came-back-to-toronto/",
+    "context": "jobs"
    }
   ],
   "topic_sentiment": {
-   "weather": -1.33,
+   "weather": -1.4,
    "cost": -0.67,
-   "housing": 1.0,
-   "jobs": 0.5,
-   "healthcare": -2.0,
-   "transit": -2.0,
-   "community": 2.0,
-   "culture": 1.0,
+   "housing": 0.67,
+   "jobs": -0.67,
+   "healthcare": -1.73,
+   "transit": -1.62,
+   "community": 1.67,
+   "culture": 0.36,
    "outdoors": null,
-   "safety": -1.56,
-   "isolation": null
+   "safety": -1.6,
+   "isolation": -2.0
   },
   "confidence": "medium",
-  "evidence_count": 54,
-  "source_count": 41
+  "evidence_count": 131,
+  "source_count": 68
  },
  {
   "name": "Canmore",
   "loved": [
-   "Main Street has a walk-to bagel shop with outdoor seating that the writer's household prefers over the other location, a small marker of everyday downtown routine.",
-   "Local transit within Canmore is genuinely free on three routes: 5C Cougar Creek, 5T Three Sisters, and Route 12 Grassi Lakes.",
-   "There is a real 24/7 emergency department in town. Canmore General Hospital at 1100 Hospital Place runs 24 hour emergency service, plus day surgery, diagnostic imaging including CT, lab, endoscopy, and the Bow Valley Community Cancer Centre. No closure notices appeared on the AHS facility page I opened."
+   "Recent transplants report knowing their neighbours and a small-town social fabric, plus a sharp increase in visiting houseguests compared to city life.",
+   "A 25-year resident describes a car-optional daily routine, biking downtown for groceries and coffee. Source is the Calgary real-estate board, so this is promotional framing.",
+   "Ski hills are close enough for casual after-work trips: roughly 20 minutes to Norquay, 30 to Sunshine, 50 to Lake Louise.",
+   "Main Street has a walk-to bagel shop with outdoor seating that the writer's household prefers over the other location, a small marker of everyday downtown routine."
   ],
   "hated": [
    "A sitting town councillor describes housing as an active crisis that every property in town has an obligation to help solve.",
-   "There is a doctor shortage, and newcomers in particular can wait a long time to get registered with one.",
-   "Letting fruit sit on your own tree is a fineable offence, and the fines escalate hard if a bear actually gets into it: $1,000 first offence, $5,000 second, $10,000 third. Ordinary attractant violations run $250, $500, $1,000.",
-   "Residents' own quality of life is sliding fast. In the Town's Ipsos phone survey of 400 residents, 52% said quality of life had worsened over the past three years, up from 38% in 2021 and 26% in 2017. Ratings of 'very good' collapsed from 70% in 2017 to 64% in 2021 to 49% in 2023."
+   "Provincial fee changes hit Canmore doctors hard enough to push at least one out. A Canmore physician relocated her practice to Calgary, citing fee cuts of up to 40 percent against high overhead and recruitment problems.",
+   "The mayor frames the risk bluntly: without workers who can live there, the town loses its school and professional sector and hollows out.",
+   "A starter home is effectively out of reach. Median assessed value for a single-detached house is over $1.48 million, and even condos start around $800,000."
   ],
   "honest_downside": "Cost of living is the single biggest reason residents say life got worse. Among the 210 residents who said quality of life declined, 36% blamed cost of living, up from 14% in 2021. Growth and development was 26%, housing affordability and availability another 10%.",
   "quotes": [
@@ -1195,46 +1196,46 @@
     "context": "housing"
    },
    {
-    "quote": "The town is suffering from a shortage of doctors. We were lucky enough to move here before this became an issue, but it can take time for newcomers to find a doctor to register with.",
-    "source_url": "https://thebanffguide.com/living-in-canmore-alberta-a-guide-to-mountain-life/",
+    "quote": "A doctor in Canmore announced that she was relocating her medical practice to Calgary. She claimed fee cuts could run as high as 40% for some doctors in Alberta, which made it hard for her to manage her high overhead and deal with recruitment challenges.",
+    "source_url": "https://albertaworker.ca/news/a-list-of-alberta-communities-losing-doctor-care/",
     "context": "healthcare"
    },
    {
-    "quote": "many of the people who stock our shelves, brew our coffee, or teach at our schools cannot access housing and are commuting long-distances or giving up on Canmore altogether",
-    "source_url": "https://www.canmore.ca/your-government/projects/housing-action",
-    "context": "housing"
+    "quote": "The town is suffering from a shortage of doctors. We were lucky enough to move here before this became an issue, but it can take time for newcomers to find a doctor to register with.",
+    "source_url": "https://thebanffguide.com/living-in-canmore-alberta-a-guide-to-mountain-life/",
+    "context": "healthcare"
    }
   ],
   "topic_sentiment": {
-   "weather": null,
-   "cost": -2.0,
-   "housing": -1.56,
+   "weather": 0.33,
+   "cost": -1.8,
+   "housing": -1.51,
    "jobs": -0.67,
-   "healthcare": -0.5,
-   "transit": 0.4,
-   "community": -1.33,
-   "culture": 0.0,
-   "outdoors": null,
-   "safety": null,
+   "healthcare": -0.57,
+   "transit": 0.55,
+   "community": -0.22,
+   "culture": 0.4,
+   "outdoors": 1.0,
+   "safety": 1.0,
    "isolation": null
   },
   "confidence": "medium",
-  "evidence_count": 49,
-  "source_count": 23
+  "evidence_count": 124,
+  "source_count": 48
  },
  {
   "name": "Banff",
   "loved": [
-   "There is a structured weeknight social calendar. A Tuesday night has an actual thing to do.",
-   "Airbnb is banned inside the park, which is the town protecting its own worker housing stock.",
-   "Happy hour culture is a real feature of the town, per a 2023 arrival.",
-   "Transit is genuinely usable in town and free for residents. Roam's Banff resident pass is funded by the visitor paid parking program and covers local routes including Sulphur Mountain, Tunnel Mountain, and seasonal Cave & Basin, Lake Minnewanka, and Fenlands. The regional Canmore route 3 is excluded."
+   "Locals go out on Sunday, not Saturday, because that is when the Calgary weekenders clear out and residents get their own bars back.",
+   "Yes, people know each other. The town is small enough that one job plugs you into the whole social network.",
+   "The scenery does not wear off for people who stay. A resident says it still lands after living there.",
+   "Airbnb is banned inside the park, which is the town protecting its own worker housing stock."
   ],
   "hated": [
    "Buying a home in Banff sits at the 'severely unaffordable' threshold at 8.2 times household income, and subsidized builds have not moved the vacancy rate off near zero.",
-   "Locals absorb the overtourism costs directly: congestion, noise, vehicle pollution, and safety issues from tourist behaviour.",
-   "Residents themselves flag tourism as a threat to their own health and wellbeing, not just an inconvenience.",
-   "Employers openly describe the trap: workers need enough hours to afford Banff but then have no time for the mountains they moved for, and resentment sets in fast."
+   "A resident guide warns newcomers directly about heavy partying and drug use as a default social norm in town.",
+   "Wildfire smoke is a recurring summer condition serious enough that the town designates a public building as a free indoor air refuge.",
+   "Locals absorb the overtourism costs directly: congestion, noise, vehicle pollution, and safety issues from tourist behaviour."
   ],
   "honest_downside": "After tax, rent and groceries on minimum wage, a Banff worker is left with roughly CAD 450 a month for utilities, phone, internet and everything else. Staff accommodation at CAD 350 to 600 is the only thing making the math work at all.",
   "quotes": [
@@ -1244,32 +1245,32 @@
     "context": "cost"
    },
    {
+    "quote": "The party lifestyle is prevalent in Banff and there's massive drug use here. It's easy to get swept up in this lifestyle – so keep reminding yourself that the constant partying and drug use is 'not normal.'",
+    "source_url": "https://theholisticbackpacker.com/everything-you-need-to-know-about-living-in-banff-national-park/",
+    "context": "safety"
+   },
+   {
     "quote": "residents experience negative impacts on their quality of life, including traffic congestion, noise, and vehicle pollution, and increased safety concerns due to tourists' misdemeanours.",
     "source_url": "https://thestarfish.ca/journal/2024/08/gone-with-the-crowds-overtourism-in-banff-national-park",
     "context": "traffic"
-   },
-   {
-    "quote": "need enough hours to survive and few enough to enjoy the reasons they came to Banff in the first place so that they don't resent working here. This sentiment creeps up very quickly.",
-    "source_url": "https://tiac-aitc.ca/_Library/TIAC_Publications/Banff_Lake_Louise_Labour_Shortage_Study_-_FINAL_Dec14.pdf",
-    "context": "jobs"
    }
   ],
   "topic_sentiment": {
-   "weather": -0.5,
+   "weather": -0.67,
    "cost": -2.0,
-   "housing": -1.18,
-   "jobs": -2.0,
-   "healthcare": 0.0,
-   "transit": 0.33,
-   "community": -0.18,
-   "culture": -0.5,
-   "outdoors": -1.0,
-   "safety": -0.67,
+   "housing": -1.35,
+   "jobs": -1.53,
+   "healthcare": 0.57,
+   "transit": 0.8,
+   "community": -0.3,
+   "culture": -0.22,
+   "outdoors": 0.33,
+   "safety": -1.0,
    "isolation": null
   },
   "confidence": "medium",
-  "evidence_count": 79,
-  "source_count": 30
+  "evidence_count": 160,
+  "source_count": 47
  },
  {
   "name": "Lethbridge",
@@ -1285,7 +1286,7 @@
    "A resident writes that the redesigned bus system stranded an elderly friend who relied on it, cutting routes and leaving unreliable arrivals.",
    "A Toronto poster reads the racism complaint as casual use of slurs in everyday conversation rather than overt hostility."
   ],
-  "honest_downside": "Lethbridge's Crime Severity Index sits far above the national average. In 2024 it was 105.5 versus 77.9 for Canada, with a crime rate of 7,692 per 100,000 versus 5,672 nationally. Even after a 19 percent drop it stays in the upper tier of Canadian metro areas, and it held the worst CSI in the country for several years running.",
+  "honest_downside": "Headline physician counts hide a flat reality. Lethbridge had 316 physician registrations in Q1 2026, only back to end-of-2019 levels, while the population grew. The physician-to-resident ratio worsened from one per 342.72 residents in July 2019 to one per 365.5 in July 2025.",
   "quotes": [
    {
     "quote": "As the work becomes more physically and mentally exhausting, some of our doctors have had to cut back their hours, just being unable to manage that load for as many shifts in a month because of the load on their mental health and their own well-being. It gets us into a bit of a vicious cycle.",
@@ -1304,37 +1305,37 @@
    }
   ],
   "topic_sentiment": {
-   "weather": -0.75,
-   "cost": -1.33,
-   "housing": 0.0,
-   "jobs": 0.5,
-   "healthcare": -1.56,
-   "transit": -1.2,
-   "community": -0.62,
-   "culture": -0.67,
-   "outdoors": 1.33,
-   "safety": -1.6,
+   "weather": -0.78,
+   "cost": -1.5,
+   "housing": -0.25,
+   "jobs": -0.73,
+   "healthcare": -1.58,
+   "transit": -0.5,
+   "community": -0.5,
+   "culture": -0.5,
+   "outdoors": 1.6,
+   "safety": -1.45,
    "isolation": null
   },
   "confidence": "medium",
-  "evidence_count": 67,
-  "source_count": 29
+  "evidence_count": 138,
+  "source_count": 55
  },
  {
   "name": "Red Deer",
   "loved": [
    "By September 2025 the same region had the lowest unemployment rate in Alberta at 4.8 percent, beating Calgary at 8.1 and Edmonton at 8.7. The swing within one year is enormous.",
    "The trend is genuinely improving, not just spin. CSI fell 20 percent from 147.8 to 118.7 between 2023 and 2024, the second largest drop in Canada, driven by fewer break and enters, assaults, and thefts under $5,000.",
-   "A $1.8 billion hospital redevelopment is underway, the largest in Alberta's history. It adds 200 beds, taking the hospital from 370 to 570, plus six operating rooms. Relief is real but years away, with full commissioning around 2031.",
-   "Getting a family doctor in Red Deer has genuinely improved. As of late 2025 more than 15 physicians were accepting new patients, largely internationally trained doctors from England and African countries."
+   "What residents who like the place actually name: the parks and wildlife, the Ross Street patio downtown, and being within reach of Calgary and Edmonton. The location between two big cities is a top-cited draw rather than the city itself.",
+   "Getting a family doctor in Red Deer went from near impossible to genuinely plausible over the past year, with more than 15 physicians accepting new patients, many of them internationally trained doctors from England and African countries."
   ],
   "hated": [
    "Six department chiefs at Red Deer Regional Hospital publicly said the facility was on the brink of collapse and warned they may be unable to keep providing surgical care to the roughly 500,000 Central Albertans who depend on it.",
-   "Red Deer had the fourth highest Crime Severity Index among Canadian metro areas in 2024 and the second highest raw crime rate in the country at 10,650 incidents per 100,000 people. This is the single most important negative a newcomer should understand.",
-   "Homelessness is the single biggest thing residents contact the mayor and council about, and it is described as producing complaints and despair rather than solutions.",
-   "Winter driving on the QEII, the highway connecting Red Deer to Calgary and Edmonton, produces mass pileups. An 80 to 100 vehicle chain reaction crash closed it in both directions in December 2025."
+   "A Red Deer man who used the overdose prevention site sued the province over its closure, saying losing it would kill him and others.",
+   "As of June 2026 Red Deer still had the worst unemployment rate in Alberta at 7.4 percent, worse than Calgary, Edmonton and Lethbridge. This is a persistent pattern, not a one-off bad month.",
+   "Shelter demand is high and turnover is fast. In one three month stretch 635 different people stayed at the Hope Mission shelter, averaging 136 a night, more than half for three nights or less, with 11 people moved into housing over the 90 days. A City official cautions the point in time count understates the problem."
   ],
-  "honest_downside": "Red Deer's Downtown Business Association shut down after more than 40 years, saying it could not operate sustainably. Its wind-down notice names safety, social disorder, cleanliness and vacancy as the downtown's actual problems, and says a levy increase would crush already struggling businesses.",
+  "honest_downside": "Winter is long and genuinely harsh. The cold season runs about 3.5 months from November 19 to March 4, with January averaging a high of -5C and a low of -15C. Locals say snow can arrive by Halloween and linger to March.",
   "quotes": [
    {
     "quote": "If urgent action is not taken to rectify the shortage that we are facing, we will be unable to continue caring for the nearly 500,000 Central Alberta residents who depend on our center for surgical care.",
@@ -1342,31 +1343,1540 @@
     "context": "healthcare"
    },
    {
-    "quote": "About 35 patients were stuck in Red Deer's emergency department beds waiting to access a hospital ward for surgery or treatment on Tuesday morning.",
-    "source_url": "https://stettlerindependent.com/2026/01/14/overcrowded-edmonton-hospitals-refuse-patients-from-red-deer-hospital/",
+    "quote": "Albertans are not questioning the skill of health care providers or the quality of the care they provide. They are questioning whether they can reach that care when it matters most,",
+    "source_url": "https://reddeeradvocate.com/2026/06/23/delays-to-specialists-a-top-concern-for-central-albertans/",
     "context": "healthcare"
    },
    {
-    "quote": "Issues around homelessness in Red Deer top the concerns of people in the city, according to those who reach out to mayor and council.",
-    "source_url": "https://reddeeradvocate.com/2025/12/21/addressing-homelessness-a-top-priority-in-2026-in-red-deer-mayor/",
-    "context": "community"
+    "quote": "It is terrifying to imagine what my life will become once the Red Deer OPS closes. It will essentially be a death sentence for me and the many others who use the facility.",
+    "source_url": "https://www.theglobeandmail.com/canada/article-alberta-supervised-consumption-site/",
+    "context": "safety"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -2.0,
+   "cost": null,
+   "housing": -0.44,
+   "jobs": -0.77,
+   "healthcare": -1.0,
+   "transit": 1.0,
+   "community": -1.78,
+   "culture": null,
+   "outdoors": null,
+   "safety": -1.47,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 91,
+  "source_count": 47
+ },
+ {
+  "name": "Medicine Hat",
+  "loved": [
+   "The counter-view comes from a lifer, who lists outdoor and casual options and describes socializing as happening in a Tim Hortons parking lot rather than a downtown venue.",
+   "Residents quoted comparing downtown to Victoria and Nelson BC, citing the historical brick buildings. Caveat: this is from the city-backed 'Move to Medicine Hat' recruitment campaign funded by the Government of Canada and the Province, so treat it as a recruitment pitch, not a neutral account.",
+   "A newcomer says local healthcare felt personal in a way a bigger city's did not, and that deer on the lawn and the coulees were part of the appeal. Caveat: this is a testimonial published by the City of Medicine Hat's own engagement site, so it is selected marketing material.",
+   "Household energy is a real and unusual financial advantage. Medicine Hat is the only Canadian city that owns its own gas production, gas distribution, electric generation and electric distribution utilities, so it sits outside Alberta's deregulated energy market. Residential electricity is capped between $0.07 and $0.11 per kWh with a single rate and no contract."
+  ],
+  "hated": [
+   "The police chief acknowledges the community is frustrated because visible progress on street disorder is slow.",
+   "Transit is minimal and you should assume you need a car. Sunday-level service runs only 8:15 a.m. to 7:15 p.m. Service on statutory holidays did not exist at all until a 2026 pilot added it for just three holidays, and whether it continues depends on ridership justifying the cost.",
+   "The school division has been running deficits off reserves to absorb reduced enrolment and funding, cutting 3.66 FTE in the 2025-26 budget. Reserve-funded deficits are not indefinitely sustainable, so a newcomer should expect continued budget pressure.",
+   "The thing a newcomer discovers late: Medicine Hat's famous reputation as the first Canadian city to end chronic homelessness no longer matches the ground. The Mustard Seed's day centre closed, and the city could not site a permanent shelter. The Mustard Seed withdrew its rezoning application for 2055 Saamis Drive NW on September 25, 2025, cancelling the public hearing, and no decision has been finalized. Over 100 public location suggestions came in. Several city-owned sites were ruled out, the Arena for $5M-plus reconnection costs, Marshall Yard for floodway restrictions, and 770 1st Street SE over abandoned gas wells. Shelter siting is a live and contentious local political fight."
+  ],
+  "honest_downside": "The thing a newcomer discovers late: Medicine Hat's famous reputation as the first Canadian city to end chronic homelessness no longer matches the ground. The Mustard Seed's day centre closed, and the city could not site a permanent shelter. The Mustard Seed withdrew its rezoning application for 2055 Saamis Drive NW on September 25, 2025, cancelling the public hearing, and no decision has been finalized. Over 100 public location suggestions came in. Several city-owned sites were ruled out, the Arena for $5M-plus reconnection costs, Marshall Yard for floodway restrictions, and 770 1st Street SE over abandoned gas wells. Shelter siting is a live and contentious local political fight.",
+  "quotes": [
+   {
+    "quote": "I think we're going the right way and we're doing the right things, (but) it's slow and that's what I feel, and that's where I get frustrated and that's why our community gets frustrated, because it looks like nothing is being done.",
+    "source_url": "https://globalnews.ca/news/10705543/medicine-hat-residents-homeless-concern/",
+    "context": "safety"
+   },
+   {
+    "quote": "Having played a key role in launching this pilot through their feedback, riders now have the opportunity to influence the long-term approach to statutory holiday transit service through their usage,",
+    "source_url": "https://chatnewstoday.ca/2026/01/22/city-of-medicine-hat-to-offer-transit-services-on-three-statutory-holidays-during-pilot-project/",
+    "context": "transit"
+   },
+   {
+    "quote": "In the past 3 years we have experienced planned deficits, using reserves over multiple years to help soften the impact of reduced enrolment and funding challenges.",
+    "source_url": "https://www.mhpsd.ca/news/2025-2026-spring-budget-release-20250530190248",
+    "context": "schools"
    }
   ],
   "topic_sentiment": {
    "weather": null,
    "cost": null,
-   "housing": -0.67,
-   "jobs": -0.67,
-   "healthcare": -1.0,
+   "housing": -1.0,
+   "jobs": -1.14,
+   "healthcare": -0.57,
    "transit": null,
-   "community": -1.67,
+   "community": -1.4,
+   "culture": 0.0,
+   "outdoors": null,
+   "safety": -1.4,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 54,
+  "source_count": 32
+ },
+ {
+  "name": "Jasper",
+  "loved": [
+   "The people who stay say the trade is worth it for the outdoor access, with eyes open about the downside.",
+   "The town is compact enough that the mayor bike commutes year-round, which suggests you can live without driving inside the townsite even if you need a car to leave it.",
+   "Staff accommodation for seasonal hospitality workers runs about 7 to 9 dollars a day deducted from pay, which is why the seasonal economy functions at all.",
+   "Contrary to the pattern in many small Canadian towns, the Seton Jasper Healthcare Centre emergency department is listed by Alberta Health Services as 24 hour service, with lab, X-ray, pharmacy, mental health and home care on site. I found no evidence of rotating ER closures."
+  ],
+  "hated": [
+   "CN Rail, the largest non-tourism employer, moved its crew change terminal about 100 km east to the Hinton area effective September 2025, affecting roughly 200 employees. The rail union said it would cripple the community. This removes the main year-round, non-seasonal employment base.",
+   "Rebuilding is slow and emotionally heavy, not a simple construction job. Development permits averaged 24 business days over six months, but over half of affected homeowners had only started permitting by March 2026.",
+   "The mayor publicly complained that the political response to the disaster turned into finger pointing and misinformation.",
+   "Nearly two thirds of survey respondents reported stress or mental health problems in their household. Insured losses neared $1.3 billion, the second costliest fire in Canadian history."
+  ],
+  "honest_downside": "You legally cannot just move to Jasper. It sits inside a national park, and residential leases restrict occupancy to \"eligible residents\": essentially you must work in the park, run a business there, be a student, a spouse, a qualifying retiree, or a legacy resident. Running a home-based business does not qualify you.",
+  "quotes": [
+   {
+    "quote": "This is another devastating blow to the town of Jasper, after this year's catastrophic wildfires. Rail is one of the largest industries in Jasper, after tourism, and CN's move will cripple this community even further.",
+    "source_url": "https://globalnews.ca/news/10764867/cn-rail-jasper-hinton/",
+    "context": "jobs"
+   },
+   {
+    "quote": "Many people have never contemplated building their home, and now they are forced to do so, they have to go through the difficult process of deciding what they want to build.",
+    "source_url": "https://www.jasperlocal.com/2026/03/05/recovery-update-interim-housing-insurance-deadlines-reopened-trails/",
+    "context": "housing"
+   },
+   {
+    "quote": "Securing a mortgage for a leasehold in Jasper is more complex than a typical mortgage because the lender is securing a loan against a lease and not the land.",
+    "source_url": "https://kahanelaw.com/leasehold-purchase-agreements-in-jasper-national-park/",
+    "context": "housing"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": null,
+   "cost": -1.14,
+   "housing": -1.77,
+   "jobs": -1.67,
+   "healthcare": 1.0,
+   "transit": 1.33,
+   "community": -1.0,
+   "culture": -1.0,
+   "outdoors": 1.0,
+   "safety": -1.0,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 74,
+  "source_count": 40
+ },
+ {
+  "name": "Grande Prairie",
+  "loved": [
+   "A 10-year resident's summary: crime exists everywhere, it is quieter than the big cities, and the city rewards effort. The recurring local phrase is that GP is what you make of it.",
+   "Despite the tax complaints, affordability plus wages is the core case for the city.",
+   "The main hospital ER in Grande Prairie itself is 24 hour and full service, including a cancer centre, ICU, obstetrics and pediatrics. It is a genuine regional hospital, not a small-town outpost.",
+   "For a weeknight, residents point to specific named venues: Card's Board Game Cafe, Strange Ideas, Wonderland Toy and Hobby, the Centre for Creative Arts, and The Next Chapter bookstore. The claim is that nerds have the easiest time making friends here."
+  ],
+  "hated": [
+   "You need a car. Residents describe the city as built around vehicles and actively hostile to walking, citing missing sidewalks, crosswalk timing, and unshovelled walks in winter.",
+   "The city has a hostile pedestrian environment. Residents report being screamed at and having objects thrown at them from trucks while walking, and describe the street design itself as anti-pedestrian.",
+   "Homophobic street harassment happens. One resident was yelled slurs at while hugging their mother, who was mistaken for a girlfriend.",
+   "The division projects Charles Spencer at 99 percent capacity utilization by 2025-26 under a modest 2 percent growth assumption, with a new southwest K-8 school not opening until an estimated September 2029."
+  ],
+  "honest_downside": "The drug crisis is measurable, not anecdotal. Accidental drug poisoning killed 12 people in Grande Prairie in a seven-month span (May to November 2025), mostly from non-pharmaceutical opioids, in a city of roughly 63,000. Provincial data showed 22 opioid overdoses in the area from January to November.",
+  "quotes": [
+   {
+    "quote": "GP is systemically unfriendly to pedestrians I've noticed the lack of sidewalks, narrow sidewalks, the programming/timing of the crosswalks, and lax enforcement of sidewalk shoveling in the winter. Follow that with the drivers attitudes like not yielding/watching for pedestrians and generally abusive behavior. Yeah GP is not built for pedestrians.",
+    "source_url": "https://www.reddit.com/r/GrandePrairie/comments/mkedz6/getting_harassed_as_a_pedestrian_in_downtown_gp/",
+    "context": "transit"
+   },
+   {
+    "quote": "The enrolment projection illustrated in the table above shows with an achievable annual growth of 2% the school will be at maximum capacity with no more room to add modular classrooms on the site.",
+    "source_url": "https://www.gppsd.ab.ca/download/435492",
+    "context": "schools"
+   },
+   {
+    "quote": "No on-site physician from 8:00 p.m. Monday, Jan. 5, until 8:00 a.m. Tuesday, Jan. 6, and again from 8:00 p.m. Wednesday, Jan. 7, until 8:00 a.m. Thursday, Jan. 8.",
+    "source_url": "https://everythinggp.com/2026/01/05/no-on-site-physician-at-beaverlodge-municipal-hospital-ed-jan-57/",
+    "context": "healthcare"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": 0.0,
+   "cost": 0.5,
+   "housing": -0.67,
+   "jobs": 0.0,
+   "healthcare": -1.27,
+   "transit": -0.57,
+   "community": -0.17,
+   "culture": 0.0,
+   "outdoors": null,
+   "safety": -1.82,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 87,
+  "source_count": 41
+ },
+ {
+  "name": "Camrose",
+  "loved": [
+   "Employment is spread across agriculture, manufacturing, construction, transportation, retail, and healthcare, so the town is not one employer deep. Agriculture is heavily overweighted versus the provincial norm.",
+   "Winter evenings revolve around outdoor ice. Mirror Lake has large flooded rinks in the centre of the city, plus 13 more public outdoor rinks in residential parks, and the Nordic Centre runs loops up to 18 km. This is regional tourism copy, not a resident account.",
+   "Rent is cheap by Canadian standards and rising modestly, not spiking. A two-bedroom averages $1,351.",
+   "St. Mary's Hospital in Camrose runs a 24/7 emergency department and is a genuine regional hospital, not a stripped-down rural site. It has surgery, obstetrics for low-risk deliveries, a heart care unit, a community cancer centre, inpatient mental health, and endoscopy. No evidence of the rotating ER closures that plague many small Alberta towns."
+  ],
+  "hated": [
+   "Only 16 percent of surveyed residents think Camrose has enough accessible and affordable housing. Nearly three times as many say it does not.",
+   "The transportation gap is severe enough that people hitchhike to reach basic services. Nearly one in five residents needing services resorted to it.",
+   "Camrose is not the cheap small-town escape it is marketed as. A commissioned community report puts local cost of living above the national average and level with Alberta as a whole, so you take the small-town tradeoffs without the discount.",
+   "Health services residents say are missing include a medical detox facility, substance use supports, mental health services, and specialized medical and psychological care. These were named directly when residents were asked what they want more of."
+  ],
+  "honest_downside": "Winters are long and cold, and the record low is -47.8C. Highway 13 runs straight through the city centre, so winter highway driving is part of ordinary life here, not an edge case.",
+  "quotes": [
+   {
+    "quote": "Of note in Table 10 is the significant discrepancy in respondents who believe there is enough accessible and affordable housing in Camrose (16%) versus the number of respondents who believe more accessible and affordable housing is needed (47%) and the number of respondents who are not sure if there is enough accessible and affordable housing (37%).",
+    "source_url": "https://ruraldevelopment.ca/wp-content/uploads/2024/08/City-and-County-of-Camrose.pdf",
+    "context": "housing"
+   },
+   {
+    "quote": "The 2025 residential vacancy rate in Camrose was 1.60%. Residential vacancy in Camrose greatly increased 45.5% year-over-year, and decreased -75.0% in the last five years.",
+    "source_url": "https://regionaldashboard.alberta.ca/region/camrose/residential-vacancy",
+    "context": "housing"
+   },
+   {
+    "quote": "removing some land uses from Main Street that may not contribute to an active, pedestrian-friendly business district",
+    "source_url": "https://www.camrose.ca/news/posts/council-meeting-highlights-june-22-2026/",
+    "context": "other"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -2.0,
+   "cost": -0.8,
+   "housing": -1.56,
+   "jobs": 0.8,
+   "healthcare": 0.0,
+   "transit": -1.5,
+   "community": -0.57,
+   "culture": -0.67,
+   "outdoors": null,
+   "safety": -0.86,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 60,
+  "source_count": 27
+ },
+ {
+  "name": "Okotoks",
+  "loved": [
+   "A 5-year resident described the older Woodhaven area across the river as mature and green, with 1980s housing and river walks, in contrast to the new subdivisions.",
+   "A resident of 3.5 years rated it highly for kids because schools are within walking distance in the newer areas, naming Crystal Shores and Drake Landing.",
+   "Local industry is diversified rather than dominated by one employer, spanning food and beverage manufacturing, technology, and professional services, across 744 storefronts and 805 home occupations. The high home-occupation count suggests remote and self-employed work is a big part of the local economy.",
+   "In the 2025 Community Priorities Survey, satisfaction is high in the aggregate: 99% rated quality of life good, very good or acceptable, against an 82% provincial benchmark. Note 'acceptable' is folded into that number."
+  ],
+  "hated": [
+   "The Highway 2A and 306 Avenue intersection is described by locals as one of the most dangerous around, with high-speed collisions and street racing. Highway 2 out of Calgary is called brutal, with multiple fatalities witnessed.",
+   "On the question of what there is to do on a weeknight, a childless couple who lived there found the town did not cater to eating out or going out in the evening.",
+   "An ex-resident who lived there a year left for Calgary and named transit, gas cost, taxes and services as the reason it did not add up for a two-Calgary-income household.",
+   "A long-serving former councillor warns services chronically lag behind population, and the new plan targets tripling the town to roughly 96,000 by 2049."
+  ],
+  "honest_downside": "Asked what concerns them about living in Okotoks, 674 residents answered. Safety issues like speeding and vandalism led at 34 percent, infrastructure problems at 28 percent, and traffic at 20 percent.",
+  "quotes": [
+   {
+    "quote": "The volume of all traffic in study area is extremely high. Dangerous intersections and high\nspeed. Those roads are not designed for that volume and speed. Commercial traffic at all time\nhigh. We all drive that road 2-3 times a day and scary. Highway 2 coming out of Calgary is\nbrutal. I personally have seen multiple fatalities there and worry about my family safety.",
+    "source_url": "https://www.foothillscountyab.ca/sites/default/files/2022-08/What%20We%20Heard%20-%20306%20Ave%20and%2032%20St_0.pdf",
+    "context": "traffic"
+   },
+   {
+    "quote": "When we lived there 3 years ago, there was very little to do there. There seems to be alot more now though. We don't have young kids, and like to eat out at fairly decent restaurants (not Boston Pizza!) and go out in the evenings every now and then. We found that Okotoks didn't cater for that.",
+    "source_url": "https://britishexpats.com/forum/canada-56/anyone-moved-moving-okotoks-742986/page2/",
+    "context": "culture"
+   },
+   {
+    "quote": "We have so many people that we're outstripping our services, and then you build more services, and money is precious, so you don't build your services that much ahead of your need, but you just build it, and then the population grows.",
+    "source_url": "https://www.cbc.ca/news/canada/calgary/okotoks-foothills-water-growth-1.7573272",
+    "context": "community"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -0.5,
+   "cost": -0.67,
+   "housing": -1.0,
+   "jobs": 0.0,
+   "healthcare": -0.67,
+   "transit": -0.89,
+   "community": -0.33,
+   "culture": -0.67,
+   "outdoors": null,
+   "safety": -1.33,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 63,
+  "source_count": 35
+ },
+ {
+  "name": "Saskatoon",
+  "loved": [
+   "Summer life is outdoors and river-centred: the riverbank, the Forestry Farm, the farmers market, playgrounds.",
+   "The friendliness is explained structurally: much of the adult population grew up in small Saskatchewan towns and brought small-town habits into the city.",
+   "Against that, residents report a steady cultural calendar rather than a dead city, anchored by restaurants and multiple post-secondary institutions.",
+   "Renting is the opposite story. Purpose-built vacancy rose to 3.3% in 2025 from 2.0% in 2024 as new supply landed, so rentals are findable and some landlords offer concessions."
+  ],
+  "hated": [
+   "Public transit is bad enough that a car is effectively mandatory. Major stores and industrial areas are barely serviced at all.",
+   "Saskatchewan is the worst province in Canada for family doctor access. 63% of Saskatchewan respondents either have no family doctor or struggle to access the one they have.",
+   "Saskatoon's crime severity index for 2024 was 106.7, placing it tied for seventh out of 41 Canadian census metropolitan areas.",
+   "Record snow can blow the city's budget and leave side streets unplowed. Roughly 115 cm stayed on the ground until March and drove a projected $3.5-million snow and ice deficit, with many residents saying they were left stranded in residential areas."
+  ],
+  "honest_downside": "Saskatoon firefighters say overdose calls have overwhelmed them and pushed them into social work they are not trained for. Saskatchewan EMS logged 1,707 opioid overdose calls in 2025, up more than 550 year over year.",
+  "quotes": [
+   {
+    "quote": "public transit is terrible, and it easily takes 1–2 hours to get across 5 -10 km if you aren’t lucky enough to be going from one end to another of the same bus route. Many major stores, industrial areas, etc are basically not serviced by public transit. You have to have a car",
+    "source_url": "https://www.quora.com/What-are-some-potential-drawbacks-of-living-in-Saskatoon-Saskatchewan-What-should-people-be-aware-of-before-moving-there-permanently-or-temporarily-for-work-study-purposes-etc",
+    "context": "transit"
+   },
+   {
+    "quote": "Saskatchewan is the most affected region, with 63 per cent of the total respondents reporting being either without a family doctor (22 per cent) or struggling to find or having difficulty accessing a family doctor (41 per cent).",
+    "source_url": "https://panow.com/2026/02/06/half-of-canadians-struggle-to-see-family-doctor-saskatchewan-reports-highest-difficulty-study/",
+    "context": "healthcare"
+   },
+   {
+    "quote": "Out of 41 locations in the country Saskatoon is tied for seventh in the top 10 census metropolitan areas in Canada with the highest Crime Severity Indexes for 2024. Saskatoon and Nanaimo, BC came in at 106.7.",
+    "source_url": "https://www.98cool.ca/2025/07/22/saskatoon-makes-top-five-for-most-homicides-while-prince-albert-sees-a-significant-drop-in-the-crime-severity-index/",
+    "context": "safety"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.56,
+   "cost": null,
+   "housing": -0.91,
+   "jobs": -1.14,
+   "healthcare": -1.64,
+   "transit": -1.14,
+   "community": 0.25,
+   "culture": 0.0,
+   "outdoors": 2.0,
+   "safety": -1.78,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 83,
+  "source_count": 42
+ },
+ {
+  "name": "Regina",
+  "loved": [
+   "A resident frames apartment living as a winter strategy rather than a lifestyle preference, since it removes shovelling and cuts heating costs at similar price.",
+   "A newcomer blogger found the city more ethnically diverse than she expected before arriving.",
+   "Because Starbucks is restricted in the city, the coffee scene is unusually independent. A resident lists this plus local brewpubs and a growing comedy scene as what there actually is to do.",
+   "Short commutes are named as the best single thing about the city by a resident on an immigration board."
+  ],
+  "hated": [
+   "A long-time resident's goodbye post lists the stack of reasons people quit Regina: taxes, failing services, endless road construction, crumbling infrastructure, city council, and provincial politics. They describe being pitied when they tell people where they are from.",
+   "Locals themselves describe the standing complaint set as no jobs, a stagnating city, and a struggling local economy, though this poster argues residents also block the projects that would change it.",
+   "You need a car. The City's own transit plan says so in as many words: many routes run at low frequency and residents cannot rely on the bus as a primary means of transportation. The network is radial and downtown-centred, with 15 of 21 fixed routes funnelling through 11th Avenue, so a non-downtown to non-downtown trip means extra time and transfers.",
+   "The thing newcomers discover after they buy: Regina sits on expansive bentonite clay locally called Regina gumbo, which swells and shrinks with moisture and wrecks foundations. Cracked and wet foundation walls, standing water on basement floors, and sagging corners are a routine local homeownership expense, not an edge case. Budget for it and get a foundation inspection."
+  ],
+  "honest_downside": "You need a car. The City's own transit plan says so in as many words: many routes run at low frequency and residents cannot rely on the bus as a primary means of transportation. The network is radial and downtown-centred, with 15 of 21 fixed routes funnelling through 11th Avenue, so a non-downtown to non-downtown trip means extra time and transfers.",
+  "quotes": [
+   {
+    "quote": "It's been a frustrating few years. Between the rising taxes and failing services, endless uncoordinated road construction, crumbling infrastructure, the circus that is city council, the bigoted anti 2LGBTQ legislation coming from the Sask Party and the inability for the NDP to gain any political traction",
+    "source_url": "https://www.reddit.com/r/regina/comments/16jgf4x/im_moving_away/",
+    "context": "politics"
+   },
+   {
+    "quote": "Many routes operate at low frequencies. This means Regina residents cannot fully rely on public transit as their primary means of transportation and may be discouraged from using the service if they have alternative options.",
+    "source_url": "https://www.regina.ca/export/sites/Regina.ca/transportation-roads-parking/transit/.galleries/Transit-Route-PDF/Regina-Transit-Master-Plan.pdf",
+    "context": "transit"
+   },
+   {
+    "quote": "for a city where it is nearly -40 C for months at a time, and where one often has to wait half an hour for the next bus, there are just not enough heated and/or covered bus shelters.",
+    "source_url": "https://carillonregina.com/public-transit-in-regina-a-rant/",
+    "context": "transit"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -0.57,
+   "cost": -1.2,
+   "housing": -1.0,
+   "jobs": -0.4,
+   "healthcare": -1.5,
+   "transit": -2.0,
+   "community": 0.5,
+   "culture": -0.29,
+   "outdoors": 1.0,
+   "safety": -1.5,
+   "isolation": null
+  },
+  "confidence": "high",
+  "evidence_count": 65,
+  "source_count": 39
+ },
+ {
+  "name": "Prince Albert",
+  "loved": [
+   "There is a functioning newcomer support network. The Association of Nigerians in Northern Saskatchewan runs welcome events and shares food and supplies to give arrivals what its president calls a soft landing.",
+   "Counterpoint worth knowing: crime is actually improving. Prince Albert's Crime Severity Index dropped over 19 percent from 2023 to 2024, far outpacing the national 4 percent decline. It is still a high-crime city, but the trend line is down, not up.",
+   "Rentals are genuinely findable here, unusually so for Canada. Prince Albert's vacancy rate was 5.6 per cent in 2024, up from 5.4, roughly double the provincial average of 2.7 per cent and well above Saskatoon at 2.4 per cent.",
+   "Remote work is viable on the connectivity front. Prince Albert is on SaskTel's infiNET fibre-to-the-premises list of connected communities, though availability still varies by exact address."
+  ],
+  "hated": [
+   "Tap water runs discoloured in the older, lower-lying neighbourhoods. Some water infrastructure is about 100 years old, with pipes dating to 1900. Complaints cluster in the East Flat, West Flat and downtown, and are rarer in the newer hill areas. Where you buy in this city determines your water.",
+   "A union president says overcapacity at Victoria Hospital is driven partly by people who used to get community mental health support now going straight to the ER, pushing everyone else's wait out by hours.",
+   "Do not count on the mill. It has been announced and re-announced for years. A 2021 version of the same project promised over 700 forestry jobs with construction starting 2022 and startup in 2023 at $250 million. None of that happened on schedule.",
+   "Discarded needles are concentrated enough in the downtown core that the city built an app to track them, and bylaw officers were called out 424 times in 2024 for encampment-related issues alone."
+  ],
+  "honest_downside": "You need a car. Transit runs six regular routes plus express, weekdays 6:45 am to 10:15 pm, Saturdays only 9:45 am to 5:15 pm, and there is no service at all on Sundays or statutory holidays.",
+  "quotes": [
+   {
+    "quote": "If people have got a dark colour, or something that's concerning and it's literally visible, that's more to do with some infrastructure and some old piping, especially in the flats of the city,",
+    "source_url": "https://paherald.sk.ca/river-conditions-aging-pipes-blamed-for-discoloured-water/",
+    "context": "housing"
+   },
+   {
+    "quote": "Overcapacity is a big problem at Victoria Hospital and people who used to go elsewhere in the community for mental health supports are now going straight to the emergency room.",
+    "source_url": "https://panow.com/2026/01/12/healthcare-union-says-hospital-safety-concerns-connected-to-staffing-and-capacity-challenges/",
+    "context": "healthcare"
+   },
+   {
+    "quote": "Prince Albert has been hit hard, with 252 smoke hours logged so far, smashing its previous record for this time of the year.",
+    "source_url": "https://sasknow.com/2025/07/24/prince-albert-and-saskatoon-experiencing-smokiest-summer-to-date-regina-and-la-ronge-close-behind/",
+    "context": "weather"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.43,
+   "cost": null,
+   "housing": -1.0,
+   "jobs": -1.67,
+   "healthcare": -1.14,
+   "transit": -2.0,
+   "community": 0.0,
    "culture": null,
+   "outdoors": null,
+   "safety": -1.08,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 52,
+  "source_count": 33
+ },
+ {
+  "name": "Moose Jaw",
+  "loved": [
+   "Affordability is why people come back. A 24-year-old returning from Victoria BC framed it as the only way to own property.",
+   "Housing is the main draw. A local realtor gives concrete numbers: buy in the 200k to 300k range, rent 1200 to 1500 a month.",
+   "Violent crime is genuinely rare. A local realtor contrasts it favourably with Saskatoon and Regina.",
+   "Ridership is actually growing, from 148,450 trips in 2022 to a projected 217,108 in 2025, and students plus low-income residents and seniors are the core users. The bus is a real service for people without cars, just a limited one."
+  ],
+  "hated": [
+   "You effectively need a car. Transit runs one direction every 40 minutes, has no Saturday service, and the last bus leaves downtown before 6 pm.",
+   "A couple who moved in 2011 say making friends as mid-career adults has been genuinely hard, and that programming is built for young families and seniors, not working adults.",
+   "The practical winter problem is not the cold, it is that streets go uncleared. A family who moved from Vancouver Island in October found their car unusable for four months.",
+   "Not everyone agrees housing is cheap. Someone working in banking argues the housing stock is old and overpriced relative to Saskatoon."
+  ],
+  "honest_downside": "The town shuts down early. A resident who has lived across many SK towns says nightlife effectively ends around 7 or 8 pm and winter is especially dead.",
+  "quotes": [
+   {
+    "quote": "Moose Jaw is an extremely difficult place to get around without a vehicle! It is so sad. Lack of good public transportation & our terrible weather half of the year (with often impassable or icy sidewalks and dangerous road conditions for drivers) make it a high barrier for lower income, disabled, elderly, people looking out for the environment, etc to get around reliably or efficiently.",
+    "source_url": "https://www.reddit.com/r/moosejaw/comments/112gjc5/moose_jaw_transit/",
+    "context": "transit"
+   },
+   {
+    "quote": "During the past three years, 29.99 per cent said life had improved greatly, slightly improved or stayed the same, while 67.58 per cent said life had become slightly worse or much worse.",
+    "source_url": "https://www.moosejawtoday.com/local-news/drugs-crime-potholes-some-main-issues-for-moose-jaw-residents-9976877",
+    "context": "other"
+   },
+   {
+    "quote": "We did phone around earlier this week to all the clinics in Moose Jaw and asked them if they were taking on new patients and not one of them said yes.",
+    "source_url": "https://discovermoosejaw.com/articles/moose-jaw-could-lose-up-to-10-doctors-by-year-end-ndp-warns",
+    "context": "healthcare"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -2.0,
+   "cost": -0.4,
+   "housing": -1.25,
+   "jobs": -0.86,
+   "healthcare": -1.0,
+   "transit": -1.14,
+   "community": -1.43,
+   "culture": -2.0,
+   "outdoors": null,
+   "safety": -0.36,
+   "isolation": null
+  },
+  "confidence": "high",
+  "evidence_count": 75,
+  "source_count": 33
+ },
+ {
+  "name": "Winnipeg",
+  "loved": [
+   "The core draw for remote workers is that the same income buys far more life than anywhere else in Canada, including a house plus a cottage an hour out.",
+   "Newcomers should know the walkable pockets are specific and small. Residents repeatedly name Osborne Village, Corydon, and South Osborne (Riverview and Lord Roberts) as the areas where daily life without a car actually works.",
+   "The named places residents actually send newcomers to live near downtown are Wolseley and Osborne Village, character houses where people rent out rooms. For cheaper rent with a reasonable commute, East, North or West Kildonan.",
+   "The summer social geography is specific: patio drinks on the Corydon strip, Jets at the arena, Bombers at the football stadium, Assiniboine Park, and Grand Beach an hour up Highway 59."
+  ],
+  "hated": [
+   "The transit cuts landed hardest on the poorest neighbourhoods. Downtown East, Point Douglas South, Inkster East and Elmwood all lost above-average numbers of stops despite relying on transit most.",
+   "Because of its dead-centre continental position, residents say the airport will always have good North American connections but little direct service to Europe or Asia. You connect through Minneapolis, Toronto or Calgary.",
+   "A former resident of 22 years describes a background assumption that nothing outdoors is safe to leave unattended, even in good neighbourhoods.",
+   "A Winnipegger pushes back on outsiders rating the climate well, arguing the city's own late-February verdict would be overwhelmingly negative."
+  ],
+  "honest_downside": "Manitoba ER waits are the worst in Canada for discharged patients. 90% of ER visits for discharged patients were completed within roughly 13 to 19 hours, the longest in the country, up from 7 to 11 hours five years earlier. For admitted patients, 90% of visits took up to 59 hours, third-longest nationally.",
+  "quotes": [
+   {
+    "quote": "families in Downtown East, Point Douglas South, Inkster East and River East South (Elmwood) are more likely to rely on transit for daily commuting and more likely to fall below low-income thresholds. All four of those neighbourhoods saw above-average stop losses.",
+    "source_url": "https://thenarwhal.ca/winnipeg-transit-overhaul-analysis/",
+    "context": "transit"
+   },
+   {
+    "quote": "Because of Winnipeg's location it will always have a lot of direct flights to major North American cities, but it will never have many direct flights to Europe or. It is almost dead center on the North American continent and it just wouldn't make sense.",
+    "source_url": "https://www.city-data.com/forum/canada/344936-winnipeg-should-we-move-not.html",
+    "context": "isolation"
+   },
+   {
+    "quote": "High crime and in general never feeling like it was safe to leave anything lying around or unlocked. A few months ago someone stole my buddies hose out of his yard in a nice neighborhood. I wasn't even that surprised.",
+    "source_url": "https://www.quora.com/What-is-it-like-living-in-Winnipeg-Manitoba",
+    "context": "safety"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.0,
+   "cost": 0.0,
+   "housing": 2.0,
+   "jobs": 0.5,
+   "healthcare": -1.78,
+   "transit": -1.6,
+   "community": 1.14,
+   "culture": -0.5,
+   "outdoors": null,
+   "safety": -0.46,
+   "isolation": -1.0
+  },
+  "confidence": "medium",
+  "evidence_count": 79,
+  "source_count": 38
+ },
+ {
+  "name": "Swift Current",
+  "loved": [
+   "The fibre build was funded long ago and covers the whole city, not just new subdivisions, under a $670 million provincial fibre-to-the-premises program with completion targeted around mid-2016.",
+   "Newcomers report that locals actively go out of their way. Beatrice Agbonavbare's church found the family a home, fixed things for them, moved their belongings, and gave them furniture. This is a first-person account, not a city marketing line.",
+   "School enrolment is actually growing, which is a real signal of in-migration. Chinook School Division hit roughly 6,052 students in 2024, up 111 in a year, the largest jump in a decade, with the director attributing 40 to 50 percent of it to immigration.",
+   "Prices are low by Canadian standards. A benchmark home around $285,000 is a fraction of major-metro pricing, which is the main practical draw, though prices have been climbing at double-digit rates."
+  ],
+  "hated": [
+   "The city's growth ambitions badly overshot reality. In 2018 it targeted 25,000 people by 2025 and adding 1,000 residents a year, but the 2021 census recorded 16,750, up just 146 people from 2016.",
+   "Winter ice is bad enough that the mayor publicly told people not to walk anywhere, describing having to shuffle back to his truck after taking out the garbage. City crews cannot clear ice, they can only sand, and sanding does not reach everywhere.",
+   "Crime got materially worse recently. Swift Current's Crime Severity Index hit 112.12 in 2023, up 20 percent in one year and the highest since 2012, with violent CSI up 26 percent to 87.52.",
+   "Cypress Regional Hospital, the regional hospital serving Swift Current and all of southwest Saskatchewan, runs with one anesthesiologist when the position count is three. When that single person is away, surgeries, epidurals, higher-risk obstetrics and C-sections get disrupted. The MLA saying this is Everett Hindley, who is also the provincial Minister of Rural and Remote Health, so the health minister's own city is the one short-staffed."
+  ],
+  "honest_downside": "Cypress Regional Hospital, the regional hospital serving Swift Current and all of southwest Saskatchewan, runs with one anesthesiologist when the position count is three. When that single person is away, surgeries, epidurals, higher-risk obstetrics and C-sections get disrupted. The MLA saying this is Everett Hindley, who is also the provincial Minister of Rural and Remote Health, so the health minister's own city is the one short-staffed.",
+  "quotes": [
+   {
+    "quote": "Last week Statistics Canada released their figures from the 2021 Census, showing Saskatchewan's fifth-largest city was home to 16,750 people last year - an increase of 146 residents since 2016.",
+    "source_url": "https://swiftcurrentonline.com/articles/swift-current-reaches-alltime-high-in-population",
+    "context": "other"
+   },
+   {
+    "quote": "Low commute scores could be due to limited access to public transit in this area, as well as longer-than-average work commute times for residents.",
+    "source_url": "https://www.areavibes.com/swift+current-sk/livability/",
+    "context": "transit"
+   },
+   {
+    "quote": "The birth was an emergency situation now. It wasn't a normal birth. It was very distressing, very traumatic.",
+    "source_url": "https://www.cjwwradio.com/2025/12/05/238089/",
+    "context": "healthcare"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -2.0,
+   "cost": null,
+   "housing": -0.8,
+   "jobs": null,
+   "healthcare": -2.0,
+   "transit": -1.5,
+   "community": 2.0,
+   "culture": -1.0,
+   "outdoors": null,
+   "safety": -1.43,
+   "isolation": 0.0
+  },
+  "confidence": "medium",
+  "evidence_count": 48,
+  "source_count": 41
+ },
+ {
+  "name": "Brandon",
+  "loved": [
+   "A 15 minute drive out to Alexander saves roughly $75,000 on the same house with a large yard, and residents treat the commute as decompression time rather than a chore.",
+   "The counterview from a transplant: Brandon is still among the cheapest places in Canada to buy, and someone moving from Saskatchewan in 2012 bought twice the house for the same money.",
+   "Brandon has a real Latin American food scene concentrated on Rosser Avenue and 10th Street, with Salvadorian, Honduran and Mexican grocers alongside several Asian markets.",
+   "Brandon is far more immigrant than outsiders expect. One in five residents is an immigrant or non-permanent resident, and over 10,000 newcomers arrived in the past decade, with settlement infrastructure like Westman Immigrant Services built around it."
+  ],
+  "hated": [
+   "House rentals have effectively vanished in favour of apartments. A decade ago you could pick between 3 bedroom houses with a yard at $1200.",
+   "City winter road maintenance is a running complaint. Residents ask for sanding trucks and describe crews sanding a street then grading the sand away hours later.",
+   "A former Manitoban answering whether Brandon is a good place to live said no, citing climate, crime, and meth, and advised living outside the city limits if you must be near Brandon.",
+   "Winter whiteouts start as early as October and turn rural commuters back before they reach Brandon. Residents hear about it on local radio CKLQ."
+  ],
+  "honest_downside": "Demand on homelessness services more than quadrupled in recent years. Safe and Warm Shelter usage went from 168 users in 2019 to 475, and HIFIS service clients rose by over 500 people between 2019 and 2022.",
+  "quotes": [
+   {
+    "quote": "Less than 10 years ago prices weren't as bad as today, I know everything increases but you could find a decent house with 3 bedrooms and a yard for $1200 I remember you had the chance to even choose which house you were going to rent, now there are not houses to rent anymore only overpriced apartments that will increase the rent every single year.",
+    "source_url": "https://ebrandon.ca/messagethread.aspx?message_id=1098770&cat_id=3",
+    "context": "housing"
+   },
+   {
+    "quote": "Manitoba in general is not the best place to live. Harsh climate, bad education system, poverty and LOTS of crime. Brandon, Winnipeg, Selkirk, Portage La Prairie have horrible problems with gangs and hard drugs lately, especially crystal meth users.",
+    "source_url": "https://www.quora.com/Is-Brandon-Manitoba-a-good-place-to-live-in-Canada",
+    "context": "safety"
+   },
+   {
+    "quote": "The Doctors Manitoba report also notes that in the next three years an estimated 688 physicians, about 20 per cent of Manitoba's active physician workforce, are considering retiring, relocating, or reducing their clinical hours.",
+    "source_url": "https://www.theregional.com/brandon-retreat-underscores-growing-physician-shortage-in-rural-manitoba/",
+    "context": "healthcare"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.6,
+   "cost": -1.25,
+   "housing": -1.2,
+   "jobs": -1.0,
+   "healthcare": -1.33,
+   "transit": -1.5,
+   "community": 0.67,
+   "culture": null,
+   "outdoors": null,
+   "safety": -1.78,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 82,
+  "source_count": 46
+ },
+ {
+  "name": "Gimli",
+  "loved": [
+   "Diageo is spending on the Gimli distillery rather than winding it down. Manitoba Hydro is building a 20km line to electrify the plant, with construction finishing in 2027, and the plant workforce is unionized under UFCW 832.",
+   "For a town this size the medical footprint is real: ER, ambulance, dialysis, chemo, palliative and acute care all on site at Johnson Memorial",
+   "Residents joke about how empty the roads are on the drive to Winnipeg",
+   "Retirees who moved there say housing costs far less than BC or Winnipeg, which is the main draw"
+  ],
+  "hated": [
+   "E. coli at Gimli spikes predictably when lake levels are high and north winds blow, which is exactly the summer weather pattern, so the contamination is structural rather than a freak event. In the reported case other Lake Winnipeg beaches tested fine and Gimli was the outlier.",
+   "Short-term rentals became enough of a neighbourhood problem that the municipality built a licensing regime explicitly to contain their effect on neighbours, charging operators a $200 annual licence fee and running a formal complaint channel through the municipality.",
+   "Lakefront property near Gimli gets destroyed by storms. A 2022 storm tore apart entire sections of the Willow Island seawall, stripped more than a metre of unprotected shoreline, downed trees, and a resident watched a neighbour's whole deck float past after waves unmoored it.",
+   "Rural Manitoba ER coverage is unreliable generally, with only about a quarter of rural and northern hospitals keeping ERs open 24/7 and 28 health centre ERs fully closed in a single month. Gimli is a rural Interlake community subject to this pattern, though this article does not name it."
+  ],
+  "honest_downside": "You need a car. Area guide poll respondents scored public transit accessible at 0% and streets have sidewalks at 0%, and the commute grade is F. Caveat: only 2 survey responses, so treat as directional not statistical",
+  "quotes": [
+   {
+    "quote": "On Lake Winnipeg, bathers should minimize water contact if lake levels are high and strong winds are blowing from the north... Research shows E. coli counts tend to be elevated during these conditions as they are washed out of the wet beach sand and into the bathing area.",
+    "source_url": "https://globalnews.ca/news/3584874/e-coli-concerns-at-gimli-beach/",
+    "context": "outdoors"
+   },
+   {
+    "quote": "ensure safe operation and occupancy, minimize negative impacts on neighbors and neighborhoods, support the tourism industry and local businesses, ensure cost recovery through licensing fees, and achieve high levels of voluntary compliance.",
+    "source_url": "https://www.gimli.ca/p/short-term-rentals",
+    "context": "housing"
+   },
+   {
+    "quote": "Entire sections of the wooden seawall on the lakefront side of Willow Island were ripped apart by wave action on Tuesday, when strong north winds drove the water level in Lake Winnipeg's southern basin up by roughly two feet.",
+    "source_url": "https://theweathernetwork.com/ca/news/article/lake-winnipeg-storm-rips-apart-seawall-protecting-gimli-area-residential-neighbourhood",
+    "context": "other"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": null,
+   "cost": 1.0,
+   "housing": -0.57,
+   "jobs": -1.14,
+   "healthcare": -1.08,
+   "transit": -1.5,
+   "community": 1.14,
+   "culture": 0.0,
+   "outdoors": -0.67,
+   "safety": -1.0,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 61,
+  "source_count": 33
+ },
+ {
+  "name": "Steinbach",
+  "loved": [
+   "A competing resident view, upvoted higher, frames the town as increasingly multicultural and says the negativity comes from an insular church-centred older set.",
+   "People move to the Steinbach area specifically for the Hanover School Division, and commutes from surrounding villages are measured in single-digit minutes.",
+   "Bethesda is a real regional hospital, not a nursing station. It runs 73 in-patient beds in a 226,821 sq ft facility with surgery and diagnostics, serving a Southern Health region of about 212,000 people that grew by 14,000 in five years.",
+   "Construction is keeping up better than most Canadian towns. Steinbach approved 365 dwelling units in 2025 on $118M in total building permits, after a record 343 units in 2024 that were mostly multi-family (255 of them)."
+  ],
+  "hated": [
+   "A family moved to Steinbach and left within roughly a year over the political atmosphere on their own residential street, counting eight PPC signs visible from their yard.",
+   "The no-car reality is severe enough that a woman walked 9 km each way from a neighbouring village to Steinbach year-round, through Manitoba winters, to keep a minimum-wage job.",
+   "The doctor shortage has no fast fix. Expanded medical school seats will not produce new physicians until roughly 2029 to 2031, so the gap persists for years.",
+   "Newcomer kids can land in school without the English support they need, which settlement workers flag specifically for the Ukrainian arrivals."
+  ],
+  "honest_downside": "You need a car. Manitoba's third-largest city has no municipal public transit at all. The city's own transportation page lists only a call-ahead accessible ride service for seniors 55+ and people with mobility disabilities, and nothing else.",
+  "quotes": [
+   {
+    "quote": "We moved to Steinbach last year and moved back by this spring. Just so much hatred everywhere. Standing on the corner of our yard, we could easily see eight houses with PPC signs. Lots of fuck Trudeau signs and upside down Canadian flags. Just so much hatred. We had to get out of there.",
+    "source_url": "https://www.reddit.com/r/steinbach/comments/ww4kzn/maybe_moving_winnipeg_to_steinbach_my_fam_is/",
+    "context": "community"
+   },
+   {
+    "quote": "We had a story of a young woman from Blumenort, who walked [nine kilometres] from Blumenort to Steinbach every day, all year, to work a minimum-wage job because she was so determined she wasn't going to go on [Employment and Income Assistance],",
+    "source_url": "https://www.cbc.ca/news/canada/manitoba/steinbach-no-transit-service-1.6832183",
+    "context": "transit"
+   },
+   {
+    "quote": "People have decided that after three difficult years it's time to retire, move on, or reduce the days and hours that they would have worked historically, so that they have a better work life balance.",
+    "source_url": "https://steinbachonline.com/articles/why-are-there-6000-people-in-steinbach--area-with-no-family-doctor-",
+    "context": "healthcare"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.6,
+   "cost": null,
+   "housing": 0.5,
+   "jobs": 2.0,
+   "healthcare": -1.4,
+   "transit": -1.75,
+   "community": -1.23,
+   "culture": -0.25,
    "outdoors": null,
    "safety": -1.2,
    "isolation": null
   },
   "confidence": "medium",
-  "evidence_count": 37,
-  "source_count": 28
+  "evidence_count": 69,
+  "source_count": 38
+ },
+ {
+  "name": "Churchill",
+  "loved": [
+   "A newcomer discovers the town is built around one connected indoor complex. The Town Centre Complex physically links the school to the health centre and holds the pool, movie theatre, hockey arena, curling rink and fitness centre, which is how the place stays functional through eight months of cold.",
+   "Fibre was a deliberate 2016 Bell/MTS build for Churchill specifically, promising gigabit service, not a generic rural wireless workaround.",
+   "Healthcare is unusually strong for a town of under 900. The health centre has real doctors on staff and a 24-hour ER, so the family-doctor drought common elsewhere in Canada is not the local story.",
+   "The school runs a Cree language and culture program K-12 and formed a Circle of Relatives with Elders from the four local Indigenous cultural groups, Cree, Dene, Inuit and Métis."
+  ],
+  "hated": [
+   "A local tourism operator born and raised in Churchill said as of 2025 roughly half the town is unemployed because the port never recovered its old scale.",
+   "Passenger rail to Winnipeg runs only twice a week, so trips out of town are scheduled events, not spontaneous ones.",
+   "A 16-year resident said publicly she was starting to consider leaving. This is about as close to a why-I-left statement as exists on the record.",
+   "When the only rail line closed, residents could not afford to fly out. Isolation, not cost, was what people named as the worst part."
+  ],
+  "honest_downside": "Groceries are brutal. A resident watched Northern Store prices climb to roughly $12 for four litres of milk and nearly $80 for a 2.2 kg prime rib roast, and she and others started eating at the hospital cafeteria two or three times a week because it was cheaper.",
+  "quotes": [
+   {
+    "quote": "Half the town currently is unemployed, and the reason for that is because the port's not the booming place that it used to be where the majority of the people in town came up here to work there. And a lot of these families relied on it for their income, and now with nowhere to work people are left in, you know, rough places,",
+    "source_url": "https://www.cbc.ca/news/canada/manitoba/churchill-port-expansion-1.7641619",
+    "context": "jobs"
+   },
+   {
+    "quote": "The Winnipeg–Churchill train, operated by Via Rail, provides passenger service between Churchill station in downtown Churchill and Union Station in downtown Winnipeg twice per week.",
+    "source_url": "https://en.wikipedia.org/wiki/Churchill,_Manitoba",
+    "context": "transit"
+   },
+   {
+    "quote": "When I started at the Health Centre, I felt like I was living from paycheck to paycheck. Eleven years later, I still feel the same way.",
+    "source_url": "https://www.mgeu.ca/news-and-resources/the-latest/news/631/article-631",
+    "context": "cost"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.0,
+   "cost": -2.0,
+   "housing": null,
+   "jobs": -1.11,
+   "healthcare": 0.5,
+   "transit": -1.43,
+   "community": 0.0,
+   "culture": 0.0,
+   "outdoors": null,
+   "safety": -0.25,
+   "isolation": -2.0
+  },
+  "confidence": "medium",
+  "evidence_count": 67,
+  "source_count": 31
+ },
+ {
+  "name": "Toronto",
+  "loved": [
+   "The rent softness is expected to persist through 2026 because of the supply glut plus a weak economy and lower immigration. Even the usual summer rent bump failed to appear.",
+   "What people actually do on weeknights, per a thread asking exactly that: heavily structured signups. TDSB Learn4Life adult night classes come up repeatedly, with residents listing pottery, sewing, auto mechanics and pattern drafting, alongside Meetup and museum memberships.",
+   "The opposite camp insists Toronto winter is mild by Canadian standards and that complaints are overblown. Same thread, directly contradicting.",
+   "Someone who moved from Sudbury to raise a family reports the opposite, describing a materially better quality of life and far more available for kids, giving walking distance to a children's robot coding class as the example."
+  ],
+  "hated": [
+   "A producer who moved to Montreal said Toronto's affordability was abusive, and that what buys a house elsewhere buys almost nothing in Toronto.",
+   "Flooding is a real and worsening risk. The July 15-16, 2024 flash floods caused over $940 million in insured damage across Toronto and southern Ontario, and basement flooding needs separate optional coverage most policies do not include by default.",
+   "An Australian resident describes snowstorms as occasionally immobilizing, with cars boxed in and downtown delays, rather than merely cold.",
+   "A performer who moved to Berlin described returning to Toronto as physically constricting and depressing."
+  ],
+  "honest_downside": "Cost of living dominates how residents feel, and the mood is bleak. In an RBC poll, 80 percent of Ontarians named cost of living as the top barrier to financial success and nearly half think they will never feel financially secure.",
+  "quotes": [
+   {
+    "quote": "I didn't realize how abusive Toronto was around affordability. Every day me and my partner share links of [a Montreal] walk-up or detached house for under 450k. That buys you a storage unit in Toronto.",
+    "source_url": "https://www.vice.com/en/article/people-who-left-toronto-on-how-their-lives-got-better/",
+    "context": "cost"
+   },
+   {
+    "quote": "Intense flash flooding that occurred in Toronto and other parts of southern Ontario between July 15-16, 2024, is estimated to have caused over $940 million in insured damage.",
+    "source_url": "https://www.ibc.ca/news-insights/news/july-flash-floods-in-toronto-and-southern-ontario-caused-over-940-million-in-insured-damage",
+    "context": "other"
+   },
+   {
+    "quote": "When a snowstorm hits, it often makes it very hard to leave your home; the roads are covered in snow and sometimes your car is even boxed in under inches of thick white.",
+    "source_url": "https://www.spendlifetraveling.com/living-in-toronto-canada/",
+    "context": "weather"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -0.75,
+   "cost": -2.0,
+   "housing": -0.25,
+   "jobs": -1.6,
+   "healthcare": -2.0,
+   "transit": -0.4,
+   "community": -0.4,
+   "culture": 0.22,
+   "outdoors": null,
+   "safety": -1.33,
+   "isolation": -2.0
+  },
+  "confidence": "high",
+  "evidence_count": 73,
+  "source_count": 27
+ },
+ {
+  "name": "Ottawa",
+  "loved": [
+   "Central neighbourhoods each have their own main drag. Somerset West is Chinatown, Bank Street serves Centretown and the Glebe, plus Wellington West and Westboro.",
+   "Immigrants do not cluster into ethnic enclaves the way they do in Toronto, which one expat frames as a genuine upside.",
+   "Winter is walkable if you gear up properly. A resident routinely did 10km walks at -25C.",
+   "Contradicting the common transit complaint, one resident rates the bus network highly. Accounts genuinely split on this."
+  ],
+  "hated": [
+   "The government monoculture shapes your social life. A non-government resident reports roughly 80% of her friends work for the government and feels like an outsider at dinner.",
+   "Ottawa is colder and snowier than Moscow, a comparison residents make themselves.",
+   "Orleans, Kanata and the southern suburbs are described by residents as generic bungalow tracts built around the car.",
+   "Low-urgency patients who are not admitted spend far longer than the 4-hour provincial target. At the Ottawa Hospital General Campus the average stay was 6.4 hours and only 33 percent of patients finished within the target."
+  ],
+  "honest_downside": "Low-urgency patients who are not admitted spend far longer than the 4-hour provincial target. At the Ottawa Hospital General Campus the average stay was 6.4 hours and only 33 percent of patients finished within the target.",
+  "quotes": [
+   {
+    "quote": "Of my friends in Ottawa, about 80% work for the government in some capacity. This doesn’t mean they all work together – in fact, most never have any dealings with the others due to the various branches of government and non-profits. But it does mean that when we have dinner, they all have people to talk about that I don’t know anything about.",
+    "source_url": "https://ninaoutandabout.ca/pros-and-cons-of-living-in-ottawa/",
+    "context": "community"
+   },
+   {
+    "quote": "Ottawa actually has lower average temperatures and more snowfall. So, take Moscow, make it worse in winter, then you get Ottawa. In fact, Ottawa is the snowiest capital city on the planet, and is second in lowest temperature after Ulaanbataar, Mongolia.",
+    "source_url": "https://www.quora.com/What-are-some-common-complaints-or-dislikes-about-living-in-Ottawa-Ontario-Canada-among-Canadians",
+    "context": "weather"
+   },
+   {
+    "quote": "as you start drifting out to the suburbs toward Orleans to the East or Kanata to the west or Manotic to the south it becomes rather generic vast tracts of bungalows interspersed with shopping centers usually anchored by a big box store (Walmart)",
+    "source_url": "https://www.city-data.com/forum/ottawa-gatineau/1654906-what-ottawa-neighborhoods-like.html",
+    "context": "housing"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.4,
+   "cost": -1.6,
+   "housing": -0.83,
+   "jobs": -1.25,
+   "healthcare": -1.75,
+   "transit": -1.23,
+   "community": -1.25,
+   "culture": -0.6,
+   "outdoors": null,
+   "safety": -1.6,
+   "isolation": null
+  },
+  "confidence": "high",
+  "evidence_count": 94,
+  "source_count": 34
+ },
+ {
+  "name": "Hamilton",
+  "loved": [
+   "You can live car-light in the right part of Hamilton. A transplant from Toronto lists walkability, cycling, a decent bus system, and everything being 15-20 minutes away by car as the things that work, even while disliking other aspects of the move.",
+   "A tongue-in-cheek answer frames the real weekend pattern: Torontonians drive in for waterfalls and live music, and Hamilton venues are small enough that you get a seat.",
+   "People are described as friendlier and less status-driven than in wealthier neighbouring towns. A former Burlington resident points to strangers being kind to his kids.",
+   "There is active provincial money going into the problem. A $4.94 million provincial investment in the Hamilton Family Health Team is meant to attach over 10,000 more people to primary care, so the situation is being worked on rather than ignored."
+  ],
+  "hated": [
+   "A churn problem compounds the friend problem: transplants tend to befriend other transplants, who then leave after a few years, so the social rebuild repeats.",
+   "The soot problem is spreading beyond the traditional industrial north end. The Ward 4 councillor called complaint volumes 'unusually high' and said people near the escarpment, far from the mills, are reporting it for the first time. The city passed a motion in March 2025 to study it rather than rely on provincial testing.",
+   "Hamilton's family doctor shortage is severe and was projected to get worse: between 55,000 and 60,000 people in the city already lacked a family doctor as of late 2023, with roughly 100,000 projected to be without one by 2026. Doctors are retiring and few graduates are entering family medicine.",
+   "A long-time resident who walks everywhere describes street homelessness as unavoidable in daily life in the lower city, and says two neighbours moved back to Toronto and Oakville, one of them after getting scared walking a few blocks. Newcomers should expect visible poverty and public drug use in the core."
+  ],
+  "honest_downside": "Hamilton rents kept climbing while the rest of Canada softened. Average rent hit $2,170 in March 2026, with two-bedrooms up 14.3% year over year, and Hamilton was one of only four cities in the top 25 to post a year-over-year increase.",
+  "quotes": [
+   {
+    "quote": "I moved to Hamilton from the maritimes and have a similar experience. Most friends that I make here are other out-of-province transplants, and they end up moving away after a few years. It’s tiring to make new friends every few years, or to sometimes go long periods without any.",
+    "source_url": "https://www.reddit.com/r/Hamilton/comments/1scngyu/has_anyone_moved_to_hamilton_from_elsewhere_and/",
+    "context": "community"
+   },
+   {
+    "quote": "\"Residents are telling us that it's been like this for about two months but that it's gotten worse in the last week,\" she said. \"We're hearing from residents all across Ward 4; from those living near the industrial north to those who live near the escarpment.\"",
+    "source_url": "https://www.cbc.ca/news/canada/hamilton/soot-in-hamilton-9.7264388",
+    "context": "other"
+   },
+   {
+    "quote": "Well, if you stay out of the Plastimet fire area & moldy houses, which is much of lower Hamilton near Barton, from Cathcart to as far as Rosemont & stay south or west or downtown you'll be allright.",
+    "source_url": "https://www.quora.com/Whats-it-like-living-in-Hamilton-Ontario",
+    "context": "housing"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": null,
+   "cost": -2.0,
+   "housing": -1.33,
+   "jobs": -0.8,
+   "healthcare": -1.0,
+   "transit": 1.0,
+   "community": 0.18,
+   "culture": 1.33,
+   "outdoors": 0.67,
+   "safety": -0.8,
+   "isolation": null
+  },
+  "confidence": "high",
+  "evidence_count": 69,
+  "source_count": 37
+ },
+ {
+  "name": "London",
+  "loved": [
+   "The Forest City nickname is backed up by residents. One who lives near downtown says the evenings feel rural despite being walkable to the core.",
+   "Detroit is as close as Toronto, and residents actually use it for cheap US flights and nights out.",
+   "The scale is the main selling point for long-timers: big enough for amenities, small enough to drive across.",
+   "London is the healthcare hub for southwestern Ontario, which is the clearest reason people relocate there for work."
+  ],
+  "hated": [
+   "London has the worst unemployment of Canada's 20 largest metro areas, at 9.1% in March 2026, up from about 6% a year earlier.",
+   "A former resident reports routine passive-aggressive racism and open far-right displays, and says locals were cold even with each other. This is the harshest account found and it is worth not sanitizing.",
+   "Highway 402, the London-to-Sarnia link, closes in winter. In December 2010 an 80 km stretch shut for several days, the military sent helicopters and a Hercules for search and rescue, and one motorist died of hypothermia.",
+   "The Ontario College of Family Physicians estimated 84,000 people in the London region have no family doctor, and the shortage is projected to roughly double to over 163,000 in London and Middlesex if unaddressed."
+  ],
+  "honest_downside": "Snow squalls are localized and sudden, so conditions can be clear at home and near-zero visibility ten minutes down the road. This is the specific driving hazard newcomers underestimate.",
+  "quotes": [
+   {
+    "quote": "Among Canada's 20 largest census metropolitan areas (CMAs), the 5 highest unemployment rates in March were in London (9.1%), Kitchener–Cambridge–Waterloo (8.6%), Windsor (8.5%), Barrie (8.5%) and Toronto (8.1%)",
+    "source_url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260410/dq260410a-eng.htm",
+    "context": "jobs"
+   },
+   {
+    "quote": "Lots of passive-aggressive racism except for the one or two people with Nazi SS stickers on the back of their Chevy Trailbazer or Confederate flag on their yard, in which case it was displayed openly.",
+    "source_url": "https://www.quora.com/Is-London-Ontario-a-nice-city-to-live-in",
+    "context": "community"
+   },
+   {
+    "quote": "The exceptional conditions at that time were caused by a snow squall which remained stationary over several days, dropping up to two metres (6 ft) of snow in some parts of the area.",
+    "source_url": "https://en.wikipedia.org/wiki/Ontario_Highway_402",
+    "context": "transit"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.67,
+   "cost": null,
+   "housing": 1.33,
+   "jobs": -0.89,
+   "healthcare": -1.0,
+   "transit": -1.6,
+   "community": -1.33,
+   "culture": 0.0,
+   "outdoors": 2.0,
+   "safety": -1.14,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 55,
+  "source_count": 30
+ },
+ {
+  "name": "Kingston",
+  "loved": [
+   "It reads as a small town that happens to have big-city amenities, without the traffic. Several residents came for Queen's and simply never left.",
+   "Day to day there are weekly and thrice-weekly markets, lots of sports leagues, and downtown wandering. That is the texture of an ordinary week.",
+   "Living slightly outside the city is a real option residents suggest, including Wolfe Island, served year-round by a free car ferry.",
+   "The lake keeps summers cooler than Ottawa and Montreal, so there are few genuinely hot days."
+  ],
+  "hated": [
+   "Ontario's Human Rights Commission publicly called out Kingston, warning that forcing encampment residents to take down shelters and haul belongings around each day worsens their marginalization.",
+   "Neighbours report drug paraphernalia scattered through a public park where kids and pets go, plus rampant theft from homes and businesses including generators taken from the fire department.",
+   "Kingston has become one of Canada's most expensive rental markets, with one-bedroom rents up 11 percent year over year, the highest increase of any market measured, ahead of Montreal and Quebec City.",
+   "Kingston struggles to keep the graduates it produces. Even the city's own boosterish economic-development coverage admits the problem is watching Queen's grads leave for Toronto, Ottawa, or the US."
+  ],
+  "honest_downside": "The regional hospital is over capacity as a normal state, not a crisis spike. It hit a record 630 admitted inpatients against 570 beds, and has converted gyms, sun rooms and classrooms into patient space. The hospital president attributes it to aging population and regional growth, not flu season, meaning it is structural.",
+  "quotes": [
+   {
+    "quote": "requiring encampment residents to remove their shelter and belongings during the day exacerbates their marginalization and makes it more difficult to achieve this essential goal.",
+    "source_url": "https://www.ohrc.on.ca/en/ohrc-letter-city-kingston-regarding-encampments",
+    "context": "politics"
+   },
+   {
+    "quote": "Theft is rampant from neighbouring homes and businesses – from generators stolen from the fire department to bicycles, tools, bbq's, extension cords, backpacks etc.",
+    "source_url": "https://www.friendsofinnerharbour.com/the-neighbourhood-is-suffering/",
+    "context": "safety"
+   },
+   {
+    "quote": "Many who are released from local prisons stay in town. Many continue drug use. I was surprised to see a needle disposal box in a doughnut shop.",
+    "source_url": "https://www.quora.com/What-do-people-not-like-about-living-in-Kingston-Ontario",
+    "context": "safety"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -0.4,
+   "cost": -1.33,
+   "housing": -0.55,
+   "jobs": -0.5,
+   "healthcare": -1.8,
+   "transit": -0.8,
+   "community": 0.0,
+   "culture": 1.0,
+   "outdoors": null,
+   "safety": -1.27,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 64,
+  "source_count": 34
+ },
+ {
+  "name": "Guelph",
+  "loved": [
+   "A resident says people who arrive intending to stay briefly end up staying, citing independent restaurants, community, the farmers market and trails.",
+   "For students, a Tuesday night means trivia at the campus pub. An exchange student's week ran trivia Tuesday, going out Thursday, farmers market Saturday morning.",
+   "The market building dates to 1911 and runs year-round, with some vendors staying outdoors through the cold. It has added a Thursday evening session, which gives downtown a weeknight draw.",
+   "A Guelph resident said he pays a real premium over neighbouring Kitchener and considers it worth it."
+  ],
+  "hated": [
+   "Residents describe Guelph as a town split between students and seniors with little nightlife or entertainment in between, and too small to draw decent acts.",
+   "Guelph's unemployment rate jumped 2.1 points in 2025, from 5.0 to 7.1 percent, three times the Ontario average increase of 0.7 points. The FAO ties it to exposure to US tariff-hit export industries.",
+   "Residents blame the university for chronic housing scarcity: students absorb the cheap stock, then stay after graduating and push up the rest.",
+   "The city itself admits transit is slower than driving even for short crosstown hops, in a compact city where most trips are short. That effectively forces car ownership."
+  ],
+  "honest_downside": "A downtown diner owner says people inject drugs in his restaurant washrooms and that police and paramedic visits drive customers away. He also says a late-2024 police crackdown noticeably reduced incidents outside his door.",
+  "quotes": [
+   {
+    "quote": "It's too small to attract any kind of attractive or upbeat entertainers and night life. It's a student or seniors town. If you don't want to drink to exhaustion with the students or lawn bowl with the seniors there is little else going on.",
+    "source_url": "https://www.quora.com/Why-is-Guelph-such-a-boring-city",
+    "context": "culture"
+   },
+   {
+    "quote": "Guelph (+2.1 percentage points; from 5.0 to 7.1 per cent), Oshawa (+1.9 per cent points; from 6.8 to 8.7 per cent) and Windsor (+1.4 percentage points; from 8.3 to 9.7 per cent) all increased at a faster pace than the Ontario average",
+    "source_url": "https://fao-on.org/wp-content/uploads/report/labour-market-2026/2025-Labour-Market-Report-EN.pdf",
+    "context": "jobs"
+   },
+   {
+    "quote": "Travel times between nearby neighbourhoods in Guelph today are often significantly longer for transit than for cars, despite Guelph being a compact city and most trips in Guelph being quite short.",
+    "source_url": "https://guelph.ca/wp-content/uploads/Guelph-TMP-Problems-and-Opportunities-Alternatives-FINAL.pdf",
+    "context": "transit"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.33,
+   "cost": -0.67,
+   "housing": -0.89,
+   "jobs": -0.33,
+   "healthcare": -1.14,
+   "transit": -0.89,
+   "community": 1.33,
+   "culture": 0.22,
+   "outdoors": null,
+   "safety": -1.71,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 61,
+  "source_count": 34
+ },
+ {
+  "name": "Kitchener-Waterloo",
+  "loved": [
+   "A 20-year KW resident, 12 of them in downtown Kitchener, describes a genuinely mixed-income walkable core with schools and LRT as the spine.",
+   "You can genuinely live here car-free if you're near the core. One lifelong resident who moved from downtown Toronto didn't learn to drive until 23 and says transit covered him.",
+   "Jobs: if you're in tech, residents say the two universities plus the company density make it easy. Traffic is light because the city is small.",
+   "A Brit living in a village just outside Waterloo gives the straightforward positive: housing, work and restaurants all work, and Toronto is close enough for occasional trips."
+  ],
+  "hated": [
+   "A Waterloo resident's harsh read on nightlife: it's a family town, the bars are for students, and the rest splits into wannabe clubs and country bars.",
+   "Counter-view from an IT professional who lived in Waterloo four years: the tech-hub branding didn't match his lived experience, and he told the asker not to move there.",
+   "The region ran out of water capacity. The Region of Waterloo confirmed a constraint in the Mannheim Service Area serving Kitchener, Waterloo and parts of Cambridge, and new development approvals now need new infrastructure first. It is a quantity problem, not a quality one.",
+   "Same resident's cost complaint is property taxes and water rates, not house prices."
+  ],
+  "honest_downside": "A Waterloo resident since 1975 attributes the price spike to GTA in-migration, and says the area is less safe than it was because the GTA is now easy to get in and out of.",
+  "quotes": [
+   {
+    "quote": "The entire area sucks for young singles -- it's a family oriented place. There are some bars for the 18-25 yo student crowd in Waterloo but nightlife otherwise consist of thug wannabe clubs (white boys who dress like Eminem) or country rednecky hockey hoser type places.",
+    "source_url": "http://www.city-data.com/forum/toronto/1064610-weather-ontario-waterloo-kitchener.html",
+    "context": "culture"
+   },
+   {
+    "quote": "Regions of Southern Ontario continued to experience challenging labour market conditions and elevated unemployment rates, in a context that includes ongoing economic uncertainty related to tariffs on exports to the United States.",
+    "source_url": "https://www.seekyoursounds.com/news/kitchener/regions-unemployment-remains-1-9-per-cent-higher-than-national-average",
+    "context": "jobs"
+   },
+   {
+    "quote": "New infrastructure will be required for the Region to be able to support the approval of development applications or enter into any new service agreements that create additional demand on the Mannheim Service Area water system.",
+    "source_url": "https://www.regionofwaterloo.ca/news-public-notices-and-council-info/posts/water-capacity-constraint-confirmed-region-of-waterloo-adopting-revised-water-supply-methodology/",
+    "context": "other"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.2,
+   "cost": -2.0,
+   "housing": -0.4,
+   "jobs": -0.83,
+   "healthcare": -1.6,
+   "transit": -1.14,
+   "community": 0.0,
+   "culture": -1.67,
+   "outdoors": null,
+   "safety": -1.5,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 67,
+  "source_count": 37
+ },
+ {
+  "name": "Windsor",
+  "loved": [
+   "The city is laid out on a grid with a cross-town expressway, so driving around is easy and traffic is not a major daily issue.",
+   "The riverfront and the old French grid road system come up as the physical things people actually like.",
+   "Remote work is viable on infrastructure grounds. Bell advertises Fibe fibre in Windsor with speeds up to 1.5 Gbps and unlimited usage, though availability is address-specific.",
+   "Rentals are findable. The vacancy rate hit 3.7 per cent, above the Ontario and national averages, driven by fewer international students and temporary workers. Average two-bedroom rent was $1,454 in 2025."
+  ],
+  "hated": [
+   "During the July 2026 smoke event Windsor's air quality index read 597 (Hazardous), with PM2.5 at roughly 74.8 times the WHO annual guideline. Windsor also absorbs cross-border industrial pollution from Michigan and Ohio.",
+   "Nights end early and there is little to do sober after hours, per a resident who moved back for grad studies.",
+   "Even a born-and-raised Windsorite who still lives there concedes the city cannot compete with Toronto on culture or opportunity, and warns that a trailing spouse will struggle to find work.",
+   "Getting a family doctor means joining the provincial Health Care Connect queue, and even the region's main family health team routes all new patients through it with no guarantee of placement."
+  ],
+  "honest_downside": "The auto plant that anchors the local economy goes dark on short notice and idles thousands at once. A single tariff decision shut Windsor Assembly for two weeks and stopped local suppliers too.",
+  "quotes": [
+   {
+    "quote": "locations such as New York, Michigan and Ohio are suspected to be creating large clouds of smoke and haze from their own heavily industrialized areas, which then subsequently makes its way into the atmosphere and gets blown over to Windsor.",
+    "source_url": "https://www.iqair.com/ca/air-quality/canada/ontario/windsor",
+    "context": "other"
+   },
+   {
+    "quote": "That being said, there isn't a whole lot to do here that involves being sober at night, a lot of things close rather early, so unless you like hanging out in a Tim Hortons or going to bed before 2am, there's not much to do.",
+    "source_url": "https://www.city-data.com/forum/canada/1342735-windsor-ontario-nice-place-live-2.html",
+    "context": "culture"
+   },
+   {
+    "quote": "But Windsor objectively isn't anywhere close to Toronto, both culturally or even in terms of opportunity. If your job moves to Windsor, imagine the difficulty of your spouse having to find a job here.",
+    "source_url": "https://www.reddit.com/r/windsorontario/comments/1nb0a34/ministry_of_labour_employees_thought_relocation_to/",
+    "context": "jobs"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -0.8,
+   "cost": null,
+   "housing": 0.29,
+   "jobs": -1.5,
+   "healthcare": -1.0,
+   "transit": 0.4,
+   "community": -0.29,
+   "culture": -0.4,
+   "outdoors": null,
+   "safety": -0.5,
+   "isolation": null
+  },
+  "confidence": "high",
+  "evidence_count": 65,
+  "source_count": 46
+ },
+ {
+  "name": "Greater Sudbury",
+  "loved": [
+   "The organized activity that does exist is overwhelmingly outdoors and club-based: around 300 lakes inside city limits, fishing, hunting, snowmobiles, running and cycling clubs, a rock climbing gym, disc golf, hockey, downhill and cross country skiing.",
+   "Experience of safety splits sharply by neighbourhood. A south end resident of 20-plus years with a kid says she has always felt safe and names Gatchell pool and Bell Park as regular spots, while explicitly flagging her own privilege.",
+   "The standard local remedy for winter isolation is to take up a winter sport rather than wait it out. Cross country ski trails and three outdoor skating tracks get named specifically.",
+   "People who moved from other Ontario cities cite the same three things: slower pace, less traffic, and more house for the money."
+  ],
+  "hated": [
+   "A born-and-raised resident who moved away and came back says he would not have returned except for family. He cites some of the highest property taxes in Ontario with nothing to show for it, bad services, worse roads, and a job market limited to mining or healthcare.",
+   "There is real friction around language and recent immigration. A thread about staff speaking Punjabi at a Tim Hortons drew heavily upvoted replies invoking Canada's two official languages, which in Sudbury means English and French.",
+   "A 25-year-old who moved from Toronto describes the first winter as isolating: seasonal depression, no friends yet, and staying home all the time. This is the most direct account of what the dark months actually do to a newcomer.",
+   "Police reported crime in Sudbury ran well above provincial levels and was rising while the rest of the country fell. Note this is 2018 data and overall crime severity has reportedly dropped since, so treat it as historical trend rather than current conditions."
+  ],
+  "honest_downside": "The ER at Health Sciences North has degraded sharply. The wait for a doctor's assessment rose 169 percent in five years, from 2.6 hours in 2020/21 to seven hours in 2024/25, against an Ontario average of about 4.5 hours. Waits for an actual admission are far worse: 90 percent of patients waited 51.1 hours, up from 27.",
+  "quotes": [
+   {
+    "quote": "Property taxes are among the highest in Ontario, but there’s nothing to show for it. The city’s services are terrible, and the roads are even worse. The cost of living keeps rising despite the lack of improvements. The job market is limited unless you work in mining or healthcare, and there’s little investment in other industries.",
+    "source_url": "https://www.reddit.com/r/Sudbury/comments/1jkliq3/hi_is_it_worth_moving_to_sudbury/",
+    "context": "jobs"
+   },
+   {
+    "quote": "Greater Sudbury police reported an overall crime rate of 5,677 incidents per 100,000 population, 38% higher than in Ontario (4,113) and 3% higher than in Canada (5,488).",
+    "source_url": "https://www150.statcan.gc.ca/n1/pub/85-002-x/2020001/article/00001/gr-sudbury-eng.htm",
+    "context": "safety"
+   },
+   {
+    "quote": "Is it OK if I say that I hate the new name Greater Sudbury? The bilingual name Greater/Grand Sudbury is even worse. Sudbury is Sudbury. Point final.",
+    "source_url": "https://www.city-data.com/forum/canada/872610-greater-sudbury-ontario.html",
+    "context": "culture"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -0.57,
+   "cost": -1.0,
+   "housing": -1.2,
+   "jobs": -0.86,
+   "healthcare": -1.33,
+   "transit": -1.0,
+   "community": 0.0,
+   "culture": -0.86,
+   "outdoors": 0.8,
+   "safety": -0.75,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 62,
+  "source_count": 39
+ },
+ {
+  "name": "Thunder Bay",
+  "loved": [
+   "Fibre has been actively pushed into rural Thunder Bay, not just the urban area. Funded builds cover more than 2,300 rural addresses including Loch Lomond Road, Highway 61 and Government Road, plus 2,697 addresses across the surrounding township coalition.",
+   "The job market is the opposite of most of Canada. Unemployment was 5.2% in July 2025 while Ontario sat at 7.9%, Canada at 6.9%, and Toronto at 9.0%. Employers compete for workers, not the reverse.",
+   "A Lakehead University alum who lived there 1998 to 2002 frames it as a trade: community and winter sports yes, career growth no.",
+   "Primary care attachment is genuinely improving as of 2026. Port Arthur Health Centre signed up more than 8,000 patients since August 2025 against a target of 2,850, and five local teams connected over 11,000 people, hitting 121% of targets."
+  ],
+  "hated": [
+   "Newcomers to Ontario wait about three months for an OHIP health card and are advised to buy private insurance to cover the gap.",
+   "Violent crime is roughly 72 percent above the Ontario rate. In 2018 there were 1,545 violent crime incidents per 100,000, and violent crime severity rose 37 percent over a decade while it fell nationally.",
+   "Even moderate earners are now falling into core housing need, which is a shift. The city says housing costs are outpacing incomes across the continuum.",
+   "The city's industrial base has been gutted. Roughly 60 percent of it is gone, and the grain trade collapsed with the loss of transport subsidies and European markets."
+  ],
+  "honest_downside": "Renters earn roughly half what owners do. Median tenant household income is $46,800 against $97,000 for owners, and 22.9% of tenant households are in subsidized housing. The affordability picture splits sharply by tenure.",
+  "quotes": [
+   {
+    "quote": "Until you find a doctor, take advantage of local walk-in clinics and public health units. If you require urgent medical attention, please visit the Emergency department of your local hospital.",
+    "source_url": "https://www.movetonwontario.ca/en/find-a-doctor.aspx",
+    "context": "healthcare"
+   },
+   {
+    "quote": "In 2018, there were 1,545 incidents of violent crime per 100,000 population reported by police in Thunder Bay, 72% higher than Ontario (899) and 35% higher than Canada overall (1,143).",
+    "source_url": "https://www150.statcan.gc.ca/n1/pub/85-002-x/2020001/article/00001/thunder-bay-eng.htm",
+    "context": "safety"
+   },
+   {
+    "quote": "Housing costs are outpacing income levels, and supply across the housing continuum is not being delivered to match the financial needs of moderate, low and very low income earners.",
+    "source_url": "https://www.thunderbay.ca/en/business/resources/OSDS/HNA-ThunderBay-Report-2025-03-28---Final---acc.pdf",
+    "context": "cost"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.2,
+   "cost": -2.0,
+   "housing": -0.6,
+   "jobs": -1.23,
+   "healthcare": -1.25,
+   "transit": -1.75,
+   "community": -0.44,
+   "culture": -1.33,
+   "outdoors": null,
+   "safety": -1.91,
+   "isolation": -1.43
+  },
+  "confidence": "medium",
+  "evidence_count": 114,
+  "source_count": 34
+ },
+ {
+  "name": "Barrie",
+  "loved": [
+   "Someone a year into living there rates it well while conceding the downtown problem, saying there is plenty to do year round.",
+   "Ski hills, Muskoka cottage country, Toronto and the airport are all within about an hour, which is the main argument residents make for the location.",
+   "Reported crime in the local paper struck a British observer as minor and sparse compared to what he was used to at home.",
+   "The GO train handles winter without much trouble, contrary to what new arrivals expect."
+  ],
+  "hated": [
+   "Barrie sits in the snow belt and gets lake effect snow, with whiteout conditions on Highway 400 frequent enough that the southbound highway sometimes shuts down entirely after a crash.",
+   "Outside the town proper, winter life empties out. Unless you play hockey you need to be right up against Barrie itself to have anything to do.",
+   "The big cheap subdivision houses draw scepticism about build quality, lot spacing, distance from anywhere walkable, and basement flooding.",
+   "A lifelong resident lists Barrie's cons as a homeless problem the city ignores, an economy with no industry where most jobs are retail, factory or restaurant work unless you commute, cottage-country weekend traffic, and overpriced houses."
+  ],
+  "honest_downside": "Wages do not cover Barrie rents even for the employed. A 44-year-old who finally landed a job after six months of searching kept his apartment in Bancroft because he could not afford to live in Barrie, facing a three-hour commute each way or sleeping on a friend's couch.",
+  "quotes": [
+   {
+    "quote": "Barrie is in whats known as the 'snow belt' and you will know that once your living there. People actually commute to Toronto from barrie (1.5 hours) in the winter and the highway experiences white out conditions fairly frequent and sometimes the entire southbound highway will get shutdown because of a large accident.",
+    "source_url": "https://britishexpats.com/forum/canada-56/keswick-ontario-v-barrie-ontario-626454/page2/",
+    "context": "weather"
+   },
+   {
+    "quote": "Cons: seems like more and more house less that the city doesnt really seem to care about. Not a lot of industry, majority of jobs are either retail, factory or restaurant unless you want to commute 30+ minutes.",
+    "source_url": "https://www.reddit.com/r/barrie/comments/sawho7/thinking_about_moving_our_family_to_barrie_what/",
+    "context": "jobs"
+   },
+   {
+    "quote": "all CWELCC-funded child care spaces allocated to the County of Simcoe for the 2025-2026 cycle have now been fully committed. As a result, no additional applications can be accepted at this time.",
+    "source_url": "https://simcoe.ca/residents/children-services/early-learning-child-care-poster/canada-wide-early-learning-and-child-care-directed-growth/",
+    "context": "schools"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.2,
+   "cost": -2.0,
+   "housing": -0.44,
+   "jobs": -0.91,
+   "healthcare": -0.67,
+   "transit": -0.33,
+   "community": 0.8,
+   "culture": -0.4,
+   "outdoors": 0.0,
+   "safety": -1.4,
+   "isolation": null
+  },
+  "confidence": "high",
+  "evidence_count": 72,
+  "source_count": 31
+ },
+ {
+  "name": "Peterborough",
+  "loved": [
+   "The seasonal rhythm is the selling point for recent movers: hiking in fall, skating and Christmas markets in winter, farmers markets in spring, paddling and beaches in summer.",
+   "The named good neighbourhoods are consistent: East City, Old West End, The Avenues, north of downtown, or the surrounding villages.",
+   "Community exists but you have to go find it, typically through volunteering and volunteer-run events.",
+   "You can live without a car if you live centrally, and some people have done it for decades. The city is small enough to walk across."
+  ],
+  "hated": [
+   "A routine errand that would be a 30 minute round trip by car can eat most of an afternoon on the bus because of hourly frequencies.",
+   "Rents rose sharply. A returning resident tracked a comparable house going from about $2,000 to $2,700 or $3,000.",
+   "Some lifelong residents flatly say the city has gone downhill and reject the it-is-the-same-everywhere framing.",
+   "Small-city limits show up as lack of choice in services, not just entertainment. One or two options for any given repair or cuisine."
+  ],
+  "honest_downside": "The province cut funding for Peterborough's supervised consumption site in March 2026, closing it within 90 days. It had logged over 15,000 visits and reversed 104 drug poisonings with zero deaths, and 896 people used it in December 2025 alone. Harm reduction groups noted Toronto overdoses rose 50 percent after similar closures.",
+  "quotes": [
+   {
+    "quote": "I live near downtown and bus or walk most places, which works well for me most of the time…. Except when I have to run an errand up on Lansdowne and what would have been a 30-35 min roundtrip with a car is a 40 min bus ride, then a race to get everything done before the next bus comes in 30 mins or end up waiting an hour to then take another 40 minute bus home.",
+    "source_url": "https://www.reddit.com/r/Peterborough/comments/1tyy5i0/any_tips_for_living_without_a_car_in_peterborough/",
+    "context": "transit"
+   },
+   {
+    "quote": "Peterborough's apartment vacancy rate dropped to 1.0 percent in 2023, according to new data released by the Canada Mortgage and Housing Corporation last month.",
+    "source_url": "https://peterboroughcurrents.ca/housing/peterborough-rental-market-2023/",
+    "context": "housing"
+   },
+   {
+    "quote": "The Peterborough area needs family doctors and family doctors care deeply for patients, but things cannot continue as they are.",
+    "source_url": "https://globalnews.ca/news/10323892/peterborough-residents-family-doctor/",
+    "context": "healthcare"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": 0.0,
+   "cost": null,
+   "housing": -1.08,
+   "jobs": -0.89,
+   "healthcare": -1.78,
+   "transit": -1.64,
+   "community": -0.36,
+   "culture": -1.0,
+   "outdoors": 2.0,
+   "safety": -1.4,
+   "isolation": null
+  },
+  "confidence": "high",
+  "evidence_count": 85,
+  "source_count": 40
+ },
+ {
+  "name": "Collingwood",
+  "loved": [
+   "People do meet neighbours, mainly through volunteering, the library and art fairs. Multiple transplants call locals exceptionally friendly.",
+   "Teen jobs are plentiful at Blue Mountain and in restaurants, and school and friends are close by.",
+   "You drive everywhere, but there is no traffic and everything is inside a ten minute radius. Government services have no lineups.",
+   "Daily life is organized around outdoor activity by season. If you do not take up the outdoors you will feel the smallness."
+  ],
+  "hated": [
+   "A lifelong resident says the town is now built for tourists and retirees, with amenities aimed at adults and very little for teenagers.",
+   "Getting tradespeople to actually show up or quote reasonably is a persistent frustration, and the town bureaucracy is slow.",
+   "The Collingwood to Owen Sound highway run is a known winter hazard with whiteouts and ice.",
+   "Collingwood already lost its anchor industry once. Shipbuilding employed up to 10% of the labour force and died in September 1986, which is why the town pivoted to tourism."
+  ],
+  "honest_downside": "The town's own affordability math shows the gap. It pegs an affordable purchase for a moderate-income household earning $74,000 to $109,000 at roughly $248,000 to $366,000, and affordable rent for households earning $47,000 to $68,000 at $1,200 to $1,700 a month. Those are the targets, not the market.",
+  "quotes": [
+   {
+    "quote": "As someone who's lived here all my life, Collingwood is mainly a tourist/retirement town now, has been for a good while, so a lot of the amenities are aimed towards adults, bars, breweries, overpriced food and shops, etc. There are a few child based things to do, and most of the events are focused on children, but for teens, theres not much, a tiny \"skatepark\" that barely qualifies for the title, a couple pools, a few playgrounds, sunset point and its park, the library and way too many soccer fields/baseball diamonds.",
+    "source_url": "https://www.reddit.com/r/Collingwood/comments/1kjn3t1/moving_to_collingwoodwhat_is_collingwood_like_for/",
+    "context": "culture"
+   },
+   {
+    "quote": "Shipbuilding was one of the principal industries in the town, employing as much as 10% of the total labour force. However, overseas competition and overcapacity in shipbuilding in Canada led to the demise of shipbuilding in Collingwood in September 1986.",
+    "source_url": "https://en.wikipedia.org/wiki/Collingwood,_Ontario",
+    "context": "jobs"
+   },
+   {
+    "quote": "The rationale behind the ban is weak at best. Reclaiming roughly 14 parking spaces is not a meaningful gain, particularly while the town continues to offer free street parking on weekends.",
+    "source_url": "https://www.collingwoodtoday.ca/letters-to-the-editor/letter-patio-decision-disregards-residents-restaurant-owners-11928582",
+    "context": "politics"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -2.0,
+   "cost": -2.0,
+   "housing": -1.56,
+   "jobs": -0.75,
+   "healthcare": -1.33,
+   "transit": -1.33,
+   "community": 0.0,
+   "culture": -1.2,
+   "outdoors": null,
+   "safety": null,
+   "isolation": -2.0
+  },
+  "confidence": "medium",
+  "evidence_count": 66,
+  "source_count": 33
+ },
+ {
+  "name": "Goderich",
+  "loved": [
+   "A resident who grew up in Goderich as the only non-white kid in his grade reports no racism over six years there.",
+   "Parents rate the outdoors highly. Named local spots are Maitland Woods, the Millennium trail along the river, the pedestrian Menesetung bridge and the Goderich to Guelph rail trail.",
+   "Fibre internet from local provider HuronTel covers most of Goderich, so remote work is viable in town, though outlying pockets like Huron Haven are not served.",
+   "Summers are the payoff. Lake moderation keeps temperatures around 20 to 25 degrees and rarely above 30, unlike inland Ontario. Winter wind off the lake is much stronger."
+  ],
+  "hated": [
+   "Surrounding Huron County is described as worse than Goderich itself on race. A resident 30 minutes out reports open racist remarks from strangers.",
+   "Skilled trades are hard to hire. Residents say you should be handy, and some drive to London even for a seasonal tire change.",
+   "The family who started the most detailed best-and-worst thread ultimately decided against moving to Goderich after researching schools and extracurriculars, and factoring in an aging parent.",
+   "Homelessness is real here, not just an urban problem. In the year to March 31 2025, 161 households entered the county by-name list, 72 of them chronically homeless, and only 61 exited to housing while 10 returned to homelessness."
+  ],
+  "honest_downside": "At least one resident is openly miserable there and disputes the town's own marketing slogan, citing winter boredom.",
+  "quotes": [
+   {
+    "quote": "I now live 30 minutes outside Goderich and the racism in this small town is unbelievable. It's not Goderich but I can't believe some of the remarks I hear come from some of the white people in the community and how comfortable they are saying it around people they don't even know.",
+    "source_url": "https://www.reddit.com/r/Goderich/comments/1sa8nxu/what_kind_of_life_would_my_mixed_race_child_have/",
+    "context": "community"
+   },
+   {
+    "quote": "From the establishment of our steering committee in 2014, to the launch of coordinated access in 2024, every year has added new systems, new partnerships, and new hope.",
+    "source_url": "https://www.bayshorebroadcasting.ca/2025/05/26/huron-county-receives-update-on-homeless-initiatives/",
+    "context": "housing"
+   },
+   {
+    "quote": "This could make for some extremely hazardous and difficult travel along Highway 21, with gusty winds and heavy snow expected from Goderich to the Bruce Peninsula.",
+    "source_url": "https://www.theweathernetwork.com/en/news/weather/forecasts/blizzard-warnings-highway-closures-continue-in-snow-squall-stricken-parts-of-ontario?_guid_iss_=1",
+    "context": "weather"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -0.86,
+   "cost": null,
+   "housing": -1.0,
+   "jobs": -1.82,
+   "healthcare": -0.29,
+   "transit": -2.0,
+   "community": 0.44,
+   "culture": -0.5,
+   "outdoors": null,
+   "safety": null,
+   "isolation": -2.0
+  },
+  "confidence": "medium",
+  "evidence_count": 68,
+  "source_count": 32
+ },
+ {
+  "name": "Stratford",
+  "loved": [
+   "An 11-year resident rates it as a family town and a better daily lifestyle than the GTA, while still saying it needs improvement.",
+   "Residents rate the town as walkable, with shopping and entertainment reachable without a long trip.",
+   "Winter here is something you have to actively go out into. Residents name the cemetery for walks and TJ Dolan trail for snowshoeing and skiing.",
+   "Stratford General Hospital's ER is open around the clock and is the regional referral ER for emergency, stroke, cancer, maternity and critical care. Unlike many small Ontario towns, the main ER here is not the one that closes."
+  ],
+  "hated": [
+   "Winter here is a genuine hazard, not an inconvenience. Perth County's emergency management guide lists snow squalls and white-outs as capable of life-threatening conditions, and tells residents to obey advisories to stay off the road entirely.",
+   "Getting to Toronto without your own car is a real problem, especially for seniors. A resident asked in December 2025 for someone to start a private driving service to fill the gap.",
+   "An Unattached Care Clinic staffed by nurse practitioners operates in Stratford for people with no family doctor, but the program lead says plainly it cannot attach everyone who needs a provider. Treat it as a stopgap, not a replacement for a family doctor.",
+   "Parents say there is not enough indoor stuff for school age kids in winter, and what exists costs money."
+  ],
+  "honest_downside": "Stratford wages do not stretch far against local rent. Median after-tax pay is about $2,768 a month while a one-bedroom apartment in the city centre runs about $1,196, so rent alone eats roughly 43 percent of a median take-home cheque. Rent and utilities are the single largest line in a one-person budget at about $1,042.",
+  "quotes": [
+   {
+    "quote": "Freezing rain, ice pellets, snow squalls, white-outs, heavy snow, and high winds can cause extensive delays and inconvenience but they can also bring with them damage, power outages and life-threatening conditions.",
+    "source_url": "https://www.pertheast.ca/wp-content/uploads/2025/04/Perth-County-Winter-Severe-Weather-Guide.pdf",
+    "context": "weather"
+   },
+   {
+    "quote": "Now that there is precious little transport for seniors wanting to travel from Stratford to Toronto and back - at reasonable times - it would be fabulous if someone started a concierge driving business ...",
+    "source_url": "https://www.facebook.com/groups/stratfordconnect/posts/3298956943611986/",
+    "context": "transit"
+   },
+   {
+    "quote": "We're not going to be able to attach every resident of Huron and Perth county who doesn't have a family doctor to a nurse practitioner to this program, but it's at least a step in the right direction.",
+    "source_url": "https://www.granthaven.com/post/don-t-have-a-family-doctor-new-clinic-aims-to-connect-locals-with-primary-care",
+    "context": "healthcare"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": -1.33,
+   "cost": -2.0,
+   "housing": -2.0,
+   "jobs": 0.0,
+   "healthcare": -1.5,
+   "transit": -0.33,
+   "community": 2.0,
+   "culture": -1.0,
+   "outdoors": null,
+   "safety": -1.33,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 47,
+  "source_count": 31
+ },
+ {
+  "name": "Niagara-on-the-Lake",
+  "loved": [
+   "Roughly 80 per cent of residents say tourism is important to the town's character and 90 per cent recognize its role, so the anti-tourism voices in letters pages are not the majority position.",
+   "Residents in the Chautauqua neighbourhood say they genuinely know everyone on their street, and it functions like a smaller community inside the town.",
+   "Not everyone agrees parking is bad. A Queen Street business owner says he can always find spots, which suggests the complaint is shift-dependent rather than universal.",
+   "The Lord Mayor says the top reason seniors pick the town is the climate, followed by services like the community centre and library."
+  ],
+  "hated": [
+   "There is almost no apartment inventory, so the small-unit rental market that exists in most towns basically does not exist here.",
+   "Actual rental listings a resident encountered: a two-bedroom basement apartment at $2,000, then another basement unit at $2,700 a month.",
+   "A local doctor says diagnostic imaging waits are brutal, with CT scans booking more than a year out locally.",
+   "Residents report that young people who grow up in town leave for university and do not come back."
+  ],
+  "honest_downside": "Short-term rentals are heavily concentrated in the historic Old Town: 190 of the town's 290 licensed short-term rentals sit there, about 10.7 per cent of all homes in the district. The 2021 census counted 721 properties in town with no permanent residents.",
+  "quotes": [
+   {
+    "quote": "There aren't many apartment buildings in town to begin with and the buildings that do exist are mainly premium-priced condos",
+    "source_url": "https://niagaranow.com/news.phtml/special-report-one-bedrooms-dont-really-exist-in-notl-says-realtor/",
+    "context": "housing"
+   }
+  ],
+  "topic_sentiment": {
+   "weather": null,
+   "cost": -1.33,
+   "housing": -2.0,
+   "jobs": null,
+   "healthcare": null,
+   "transit": null,
+   "community": 0.29,
+   "culture": 0.0,
+   "outdoors": null,
+   "safety": null,
+   "isolation": null
+  },
+  "confidence": "medium",
+  "evidence_count": 23,
+  "source_count": 12
  }
 ]

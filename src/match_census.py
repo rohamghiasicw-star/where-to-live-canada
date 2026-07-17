@@ -48,18 +48,19 @@ for p in places:
         miss.append(f"{n},{pr}"); out.append({"name":n,"prov":pr}); continue
     if len(hits)==1:
         h=hits[0]
-        rec={"name":n,"prov":pr,"csd":h['geo'],"pop":h.get('pop'),"density":h.get('density'),
-             "area_km2":h.get('area_km2'),"median_hh_income":h.get('median_hh_income'),
-             "dwell_avg":h.get('dwell_avg'),"dwell_median":h.get('dwell_median'),
-             "rent_median":h.get('rent_median'),"unemployment":h.get('unemployment')}
+        rec={"name":n,"prov":pr,"csd":h["geo"]}
+        for f in ['pop','density','area_km2','median_hh_income','dwell_avg','dwell_median','rent_median','unemployment','pop_change','median_age','owner_burden','tenant_burden','bilingual_pct','french_pct','major_repairs_pct','immigrants_pct','visible_minority_pct','commute_car_pct','commute_transit_pct','commute_walk_pct','commute_bike_pct','commute_short_pct','commute_long_pct']: rec[f]=h.get(f)
     else:  # merge two CSDs into one place (Kitchener-Waterloo)
         tp=sum(h.get('pop') or 0 for h in hits)
-        wavg=lambda f: (sum((h.get(f) or 0)*(h.get('pop') or 0) for h in hits)/tp) if tp else None
+        def wavg(f):
+            vals=[(h.get(f),h.get('pop') or 0) for h in hits if h.get(f) is not None]
+            tot=sum(w for _,w in vals)
+            return round(sum(v*w for v,w in vals)/tot,1) if tot else None
         rec={"name":n,"prov":pr,"csd":" + ".join(h['geo'] for h in hits),"pop":tp,
-             "density":wavg('density'),"area_km2":sum(h.get('area_km2') or 0 for h in hits),
-             "median_hh_income":round(wavg('median_hh_income')),"dwell_avg":round(wavg('dwell_avg')),
-             "dwell_median":round(wavg('dwell_median')),"rent_median":round(wavg('rent_median')),
-             "unemployment":round(wavg('unemployment'),1)}
+             "area_km2":sum(h.get('area_km2') or 0 for h in hits)}
+        for f in ['pop','density','area_km2','median_hh_income','dwell_avg','dwell_median','rent_median','unemployment','pop_change','median_age','owner_burden','tenant_burden','bilingual_pct','french_pct','major_repairs_pct','immigrants_pct','visible_minority_pct','commute_car_pct','commute_transit_pct','commute_walk_pct','commute_bike_pct','commute_short_pct','commute_long_pct']:
+            if f in ("pop","area_km2"): continue
+            rec[f]=wavg(f)
     pp=rec.get('pop') or 0
     rec['settlement_type']=('big city' if pp>=500000 else 'mid city' if pp>=100000 else
         'small city' if pp>=25000 else 'town' if pp>=5000 else 'village')

@@ -1,464 +1,350 @@
 /* ============================================================
    WHERE TO LIVE / CANADA
-   Design: National Topographic System map sheet.
-   Ink taken from real NTS sheets: contour brown, hydrography
-   blue, woodland green, one survey red. Neutral is a sage-grey
-   paper, not a default mid-grey.
+   A field-guide plate, not a dashboard.
+
+   The rule this is built on: a graphical move is convincing when
+   it is a function of the data, and costume when it is a layer
+   over the data. Test each mark: could its value have come out
+   different? If no, it is decoration and it is gone.
+
+   Structure from Golden (1949/1966): everything resolves on the
+   page, no page turn, no drawer. Positional constancy from
+   Peterson and Sibley: the frame never moves, so the eye can
+   detect difference. Missing values keep their slot, the way an
+   MLS card leaves Taxes blank rather than deleting the cell.
+
+   Colour: the only palette in the research worth trusting is
+   Sibley's own born-digital range-map key, because it shipped as
+   a file rather than as a scan with a cast. Opposed states get
+   opposed colour temperature (Golden 1966: summer orange vs
+   winter cyan), never neighbouring hues. Provenance gets its own
+   ink, because USGS and NRCan each spent a scarce plate on it.
+
+   No dark mode. There is no dark-mode paper.
+   No monospace. The 1985 MLS book was a proportional grotesque;
+   the inheritance is tabular figures, not typewriter cosplay.
    ============================================================ */
 
 :root {
-  --paper:      #E7E9E1;
-  --sheet:      #F2F3EE;
-  --sheet-2:    #DDE0D6;
-  --ink:        #14180F;
-  --ink-2:      #4C5346;
-  --ink-3:      #7C8375;
-  --rule:       #C3C8B8;
-  --rule-soft:  #D5D9CC;
-  --contour:    #8A5A33;
-  --water:      #2F6B87;
-  --relief:     #6E7D52;
-  --survey:     #B33A1E;
-  --land:       #DCE0D2;
-  --land-edge:  #A9B096;
+  /* ground: a cool off-white. deliberately not cream: cream plus a
+     rusty accent is now the "tasteful AI" costume. */
+  --paper:   #F7F7F4;
+  --page:    #FFFFFF;
+  --sink:    #EFEFEA;
+  --ink:     #17191D;   /* true near-black, faintly blue. the old one was green. */
+  --ink-2:   #585D65;
+  --ink-3:   #8B9098;
+  --rule:    #DEDFDA;
+  --rule-2:  #C7C9C2;
 
-  --ok:      #4F7A3C;
-  --warn:    #A8761C;
-  --bad:     #A33A22;
+  /* Sibley range-map key, sampled from his own published file */
+  --warm:    #DD8525;   /* summer.  runs hot: over budget, too hot, too far */
+  --cool:    #426BC1;   /* winter.  runs cold: too cold, too small, too quiet */
+  --check:   #564189;   /* provenance ink. what we did and did not verify. */
+  --thin:    #A6A78E;   /* thin evidence */
 
-  --f-display: 'League Gothic', 'Haettenschweiler', 'Arial Narrow', sans-serif;
-  --f-body:    'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-  --f-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+  /* the quantitative ramp the old palette never had. a ranking tool
+     with no score ramp can label but cannot encode. teal-shifted,
+     the way real cartographic greens are; olive reads military. */
+  --fit-0:   #EDEFEC;
+  --fit-1:   #CBDCD5;
+  --fit-2:   #95BFB4;
+  --fit-3:   #529C8E;
+  --fit-4:   #0D6E63;
+  --fit-ink: #0A4F47;
 
-  --collar: 1.5rem;
-  --maxw: 1440px;
-}
+  /* five sizes. The Pudding ships five. the old build had twenty,
+     seven of them crammed between 0.72 and 0.82rem. */
+  --t-xs: 0.75rem;
+  --t-s:  0.875rem;
+  --t-m:  1rem;
+  --t-l:  1.5rem;
+  --t-xl: clamp(2.2rem, 4.5vw, 3.2rem);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper:     #101309;
-    --sheet:     #191D14;
-    --sheet-2:   #232819;
-    --ink:       #E6E9DC;
-    --ink-2:     #A2A995;
-    --ink-3:     #767D69;
-    --rule:      #363D2A;
-    --rule-soft: #2A3020;
-    --contour:   #C88B52;
-    --water:     #5FA3C4;
-    --relief:    #93A76F;
-    --survey:    #E2603C;
-    --land:      #222719;
-    --land-edge: #3E4630;
-    --ok:        #7FB25F;
-    --warn:      #D4A23F;
-    --bad:       #E07050;
-  }
-}
-:root[data-theme="dark"] {
-  --paper:#101309; --sheet:#191D14; --sheet-2:#232819;
-  --ink:#E6E9DC; --ink-2:#A2A995; --ink-3:#767D69;
-  --rule:#363D2A; --rule-soft:#2A3020;
-  --contour:#C88B52; --water:#5FA3C4; --relief:#93A76F; --survey:#E2603C;
-  --land:#222719; --land-edge:#3E4630;
-  --ok:#7FB25F; --warn:#D4A23F; --bad:#E07050;
-}
-:root[data-theme="light"] {
-  --paper:#E7E9E1; --sheet:#F2F3EE; --sheet-2:#DDE0D6;
-  --ink:#14180F; --ink-2:#4C5346; --ink-3:#7C8375;
-  --rule:#C3C8B8; --rule-soft:#D5D9CC;
-  --contour:#8A5A33; --water:#2F6B87; --relief:#6E7D52; --survey:#B33A1E;
-  --land:#DCE0D2; --land-edge:#A9B096;
-  --ok:#4F7A3C; --warn:#A8761C; --bad:#A33A22;
+  --gut: 1.5rem;
+  --maxw: 1500px;
 }
 
 * { box-sizing: border-box; }
+
+html { background: var(--sink); }
 
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--f-body);
-  font-size: 15px;
+  font-family: 'Radio Canada', ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--t-m);
   line-height: 1.5;
+  font-variant-numeric: tabular-nums;   /* the face actually ships tnum now */
   -webkit-font-smoothing: antialiased;
 }
 
-/* the sheet sits on the paper with a printed collar */
 .sheet {
   max-width: var(--maxw);
   margin: 0 auto;
+  background: var(--paper);
   min-height: 100vh;
-  background: var(--sheet);
-  border-left: 1px solid var(--rule);
-  border-right: 1px solid var(--rule);
 }
 
-/* ---------- collar ---------- */
-.collar {
+/* ---------- head ---------- */
+.head {
+  padding: 1.4rem var(--gut) 1.1rem;
   border-bottom: 2px solid var(--ink);
-  padding: 1.1rem var(--collar) 0.9rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 1.5rem;
-  flex-wrap: wrap;
+  align-items: end;
 }
-.collar-id {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  display: flex;
-  gap: 1.1rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.collar-id b { color: var(--ink-2); font-weight: 500; }
-
 h1 {
-  font-family: var(--f-display);
-  font-weight: 400;
-  font-size: clamp(2.6rem, 7vw, 4.6rem);
-  line-height: 0.84;
-  letter-spacing: 0.005em;
-  margin: 0.1rem 0 0;
-  text-transform: uppercase;
+  font-family: 'Radio Canada Big', Georgia, serif;
+  font-weight: 700;
+  font-size: var(--t-xl);
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -0.02em;
+  /* Radio Canada Big is drawn with a generous word space for broadcast captions.
+     At display size that reads as a gap, so pull it back. */
+  word-spacing: -0.12em;
   text-wrap: balance;
 }
-h1 .sub {
-  display: block;
-  font-family: var(--f-body);
-  font-weight: 400;
-  font-size: 0.82rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--contour);
-  margin-bottom: 0.45rem;
-  line-height: 1;
-}
+h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
 .lede {
-  font-size: 0.95rem;
+  font-size: var(--t-s);
   color: var(--ink-2);
-  max-width: 56ch;
-  margin: 0.55rem 0 0;
+  max-width: 62ch;
+  margin: 0.5rem 0 0;
 }
-.lede em { font-style: italic; color: var(--water); }
+.lede b { color: var(--ink); font-weight: 600; }
+.headnote {
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+  text-align: right;
+  line-height: 1.45;
+}
+.headnote b { color: var(--ink-2); font-weight: 600; }
 
-.theme-btn {
-  font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em;
-  text-transform: uppercase; background: none; color: var(--ink-3);
-  border: 1px solid var(--rule); padding: 0.3rem 0.55rem; cursor: pointer;
-  border-radius: 0;
-}
-.theme-btn:hover { color: var(--ink); border-color: var(--ink-2); }
-.theme-btn:focus-visible { outline: 2px solid var(--survey); outline-offset: 2px; }
-
-/* ---------- main grid ---------- */
-.field {
-  display: grid;
-  grid-template-columns: minmax(330px, 380px) 1fr;
-  align-items: start;
-}
-.survey {
-  border-right: 1px solid var(--rule);
-  padding: 0 0 3rem;
-}
+/* ---------- body grid ---------- */
+.field { display: grid; grid-template-columns: 300px 1fr; align-items: start; }
+.survey { border-right: 1px solid var(--rule); padding-bottom: 2rem; position: sticky; top: 0; }
 .plate { min-width: 0; }
 
 /* ---------- survey ---------- */
-.survey-head {
-  padding: 0.9rem var(--collar) 0.75rem;
-  border-bottom: 1px solid var(--rule);
-  background: var(--sheet-2);
+.survey h2, .plate h2 {
+  font-family: 'Radio Canada Big', Georgia, serif;
+  font-weight: 700; font-size: var(--t-l); margin: 0; line-height: 1;
+  letter-spacing: -0.015em; word-spacing: -0.1em;
 }
-.survey-head h2 {
-  font-family: var(--f-display); font-weight: 400; text-transform: uppercase;
-  font-size: 1.5rem; margin: 0; line-height: 1; letter-spacing: 0.02em;
-}
-.survey-head p {
-  margin: 0.3rem 0 0; font-size: 0.78rem; color: var(--ink-2);
-}
+.survey-head { padding: 0.9rem var(--gut) 0.7rem; border-bottom: 1px solid var(--rule); }
+.survey-head p { margin: 0.25rem 0 0; font-size: var(--t-xs); color: var(--ink-2); }
 
-.q {
-  padding: 0.95rem var(--collar);
-  border-bottom: 1px solid var(--rule-soft);
-}
-.q-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem; }
-.q-label {
-  font-size: 0.9rem; font-weight: 500; margin: 0; color: var(--ink);
-}
-.q-hint {
-  font-size: 0.74rem; color: var(--ink-3); margin: 0.15rem 0 0.55rem;
-}
-/* hydrography convention: water features in italic */
-.q-hint.water, .wname { font-style: italic; color: var(--water); }
+.q { padding: 0.75rem var(--gut); border-bottom: 1px solid var(--rule); }
+.q-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+.q-label { font-size: var(--t-s); font-weight: 600; margin: 0; }
+.q-hint { font-size: var(--t-xs); color: var(--ink-3); margin: 0.1rem 0 0.5rem; }
 
-/* importance: three survey ticks, not a slider */
-.weight { display: flex; gap: 2px; align-items: center; }
-.weight-lab {
-  font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--ink-3); margin-right: 0.3rem;
-}
+/* importance. three states, weight not colour, so it never competes
+   with the score ramp for meaning. */
+.weight { display: flex; gap: 3px; align-items: center; }
 .tick {
-  width: 15px; height: 15px; padding: 0; cursor: pointer;
-  border: 1px solid var(--rule); background: transparent; border-radius: 0;
+  width: 20px; height: 14px; padding: 0; cursor: pointer; border-radius: 0;
+  border: 1px solid var(--rule-2); background: transparent;
 }
-.tick:hover { border-color: var(--contour); }
-.tick[aria-pressed="true"] { background: var(--contour); border-color: var(--contour); }
-.tick:focus-visible { outline: 2px solid var(--survey); outline-offset: 1px; }
+.tick:hover { border-color: var(--ink-2); }
+.tick[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); }
+.tick:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
 
-/* choice chips */
-.opts { display: flex; flex-wrap: wrap; gap: 4px; }
+.opts { display: flex; flex-wrap: wrap; gap: 3px; }
 .opt {
-  font-family: var(--f-body); font-size: 0.79rem; line-height: 1;
-  padding: 0.42rem 0.6rem; cursor: pointer; border-radius: 0;
-  border: 1px solid var(--rule); background: var(--sheet); color: var(--ink-2);
-  transition: none;
+  font: inherit; font-size: var(--t-xs); line-height: 1;
+  padding: 0.4rem 0.55rem; cursor: pointer; border-radius: 0;
+  border: 1px solid var(--rule-2); background: var(--page); color: var(--ink-2);
 }
 .opt:hover { border-color: var(--ink-2); color: var(--ink); }
-.opt[aria-pressed="true"] {
-  background: var(--ink); color: var(--sheet); border-color: var(--ink);
-}
-.opt:focus-visible { outline: 2px solid var(--survey); outline-offset: 1px; }
+.opt[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.opt:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
 
-/* slider */
 .slider-row { display: flex; align-items: center; gap: 0.6rem; }
 input[type=range] {
-  flex: 1; -webkit-appearance: none; appearance: none;
-  background: transparent; height: 20px; margin: 0; cursor: pointer;
+  flex: 1; -webkit-appearance: none; appearance: none; background: transparent;
+  height: 18px; margin: 0; cursor: pointer;
 }
-input[type=range]::-webkit-slider-runnable-track {
-  height: 2px; background: var(--rule);
-}
-input[type=range]::-moz-range-track { height: 2px; background: var(--rule); }
+input[type=range]::-webkit-slider-runnable-track { height: 1px; background: var(--rule-2); }
+input[type=range]::-moz-range-track { height: 1px; background: var(--rule-2); }
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 13px; height: 13px; margin-top: -5.5px;
-  background: var(--survey); border: none; border-radius: 0;
-  transform: rotate(45deg);
+  -webkit-appearance: none; width: 3px; height: 15px; margin-top: -7px;
+  background: var(--ink); border: 0; border-radius: 0;
 }
-input[type=range]::-moz-range-thumb {
-  width: 11px; height: 11px; background: var(--survey);
-  border: none; border-radius: 0;
-}
-input[type=range]:focus-visible { outline: 2px solid var(--survey); outline-offset: 3px; }
-.readout {
-  font-family: var(--f-mono); font-size: 0.76rem; font-variant-numeric: tabular-nums;
-  color: var(--ink); min-width: 8.5ch; text-align: right;
-}
-.scale-ends {
-  display: flex; justify-content: space-between;
-  font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.06em;
-  color: var(--ink-3); text-transform: uppercase; margin-top: 0.1rem;
-}
+input[type=range]::-moz-range-thumb { width: 3px; height: 15px; background: var(--ink); border: 0; border-radius: 0; }
+input[type=range]:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
+.readout { font-size: var(--t-xs); font-weight: 600; min-width: 7ch; text-align: right; }
+.scale-ends { display: flex; justify-content: space-between; font-size: var(--t-xs); color: var(--ink-3); }
 
-.survey-foot { padding: 0.9rem var(--collar); }
+.survey-foot { padding: 0.8rem var(--gut); }
 .reset {
-  font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em;
-  text-transform: uppercase; background: none; border: 1px solid var(--rule);
-  color: var(--ink-3); padding: 0.4rem 0.7rem; cursor: pointer; border-radius: 0;
+  font: inherit; font-size: var(--t-xs); background: none; border: 1px solid var(--rule-2);
+  color: var(--ink-2); padding: 0.35rem 0.6rem; cursor: pointer; border-radius: 0;
 }
-.reset:hover { color: var(--survey); border-color: var(--survey); }
-.reset:focus-visible { outline: 2px solid var(--survey); outline-offset: 2px; }
+.reset:hover { border-color: var(--ink); color: var(--ink); }
 
-/* ---------- the verdict: the bit someone screenshots ---------- */
-.verdict {
-  padding: 1.15rem var(--collar) 1.05rem;
-  border-bottom: 1px solid var(--rule);
-  background:
-    repeating-linear-gradient(90deg, transparent 0 26px, var(--rule-soft) 26px 26.5px),
-    repeating-linear-gradient(0deg, transparent 0 26px, var(--rule-soft) 26px 26.5px),
-    var(--sheet);
-}
-.v-eyebrow {
-  font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--contour); margin: 0;
-}
+/* ---------- the verdict ----------
+   Grid-as-democracy versus one-number-escapes. The plate below gives
+   every place an identical cell. Here exactly one thing escapes. */
+.verdict { padding: 1.2rem var(--gut) 1.1rem; border-bottom: 1px solid var(--rule); background: var(--page); }
+.v-lead { font-size: var(--t-s); color: var(--ink-2); margin: 0; }
 .v-name {
-  font-family: var(--f-display); font-weight: 400; text-transform: uppercase;
-  font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 0.86; margin: 0.15rem 0 0;
-  letter-spacing: 0.01em; text-wrap: balance;
+  font-family: 'Radio Canada Big', Georgia, serif;
+  font-weight: 700; font-size: var(--t-xl); line-height: 1;
+  margin: 0.1rem 0 0; letter-spacing: -0.025em; word-spacing: -0.1em;
 }
-.v-pv {
-  font-family: var(--f-mono); font-size: 0.8rem; letter-spacing: 0.12em;
-  color: var(--survey); margin-left: 0.5rem; vertical-align: super;
-}
-.v-line { font-size: 0.95rem; margin: 0.45rem 0 0; max-width: 60ch; color: var(--ink); }
-.v-but { color: var(--survey); }
-.v-facts {
-  display: flex; flex-wrap: wrap; gap: 0 1.3rem; margin-top: 0.6rem;
-  font-family: var(--f-mono); font-size: 0.72rem; color: var(--ink-3);
-}
-.v-facts b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
-.v-catch {
-  font-size: 0.8rem; color: var(--ink-2); margin: 0.7rem 0 0; max-width: 68ch;
-  border-left: 2px solid var(--survey); padding-left: 0.6rem;
-}
-.v-catch b { color: var(--ink); font-weight: 500; }
-.v-foot { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.85rem; }
+.v-name .pv { color: var(--ink-3); font-weight: 400; font-size: 0.42em; margin-left: 0.4rem; }
+.v-line { font-size: var(--t-m); margin: 0.5rem 0 0; max-width: 62ch; }
+.v-line .cut { color: var(--warm); }
+.v-catch { font-size: var(--t-s); color: var(--ink-2); margin: 0.6rem 0 0; max-width: 68ch; }
+.v-catch b { color: var(--ink); font-weight: 600; }
+.v-foot { display: flex; gap: 0.7rem; align-items: center; flex-wrap: wrap; margin-top: 0.85rem; }
 .v-share {
-  font-family: var(--f-body); font-size: 0.82rem; cursor: pointer; border-radius: 0;
-  background: var(--survey); color: #fff; border: 1px solid var(--survey);
-  padding: 0.5rem 0.85rem;
+  font: inherit; font-size: var(--t-s); font-weight: 600; cursor: pointer; border-radius: 0;
+  background: var(--ink); color: var(--paper); border: 1px solid var(--ink); padding: 0.45rem 0.8rem;
 }
-.v-share:hover { background: var(--ink); border-color: var(--ink); }
-.v-share:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-.v-next { font-family: var(--f-mono); font-size: 0.68rem; color: var(--ink-3); }
+.v-share:hover { background: var(--fit-ink); border-color: var(--fit-ink); }
+.v-next { font-size: var(--t-xs); color: var(--ink-3); }
 
-/* ---------- map plate ---------- */
+/* ---------- the plate ----------
+   Sibley's matrix. Rows are places, columns are dimensions, and the
+   column order never changes. Down a column compares one dimension
+   across places. Across a row is one place. */
 .plate-head {
-  padding: 0.9rem var(--collar) 0.75rem;
-  border-bottom: 1px solid var(--rule);
-  display: flex; justify-content: space-between; align-items: baseline;
-  gap: 1rem; flex-wrap: wrap;
-  background: var(--sheet-2);
+  padding: 0.85rem var(--gut) 0.7rem; border-bottom: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap;
 }
-.plate-head h2 {
-  font-family: var(--f-display); font-weight: 400; text-transform: uppercase;
-  font-size: 1.5rem; margin: 0; line-height: 1; letter-spacing: 0.02em;
-}
-.legend {
-  display: flex; gap: 0.85rem; align-items: center; flex-wrap: wrap;
-  font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--ink-3);
-}
-.legend i { width: 8px; height: 8px; display: inline-block; margin-right: 4px;
-  transform: rotate(45deg); vertical-align: -1px; }
+.plate-head .note { font-size: var(--t-xs); color: var(--ink-3); }
 
-.map-wrap { position: relative; padding: var(--collar); }
-canvas#map { width: 100%; height: auto; display: block; cursor: crosshair; }
+.plate-scroll { overflow-x: auto; }
+table.plate-t { border-collapse: collapse; width: 100%; font-size: var(--t-xs); }
+.plate-t thead th {
+  position: sticky; top: 0; z-index: 2; background: var(--paper);
+  font-weight: 400; font-size: var(--t-xs); color: var(--ink-3);
+  text-align: right; padding: 0.5rem 0.4rem; border-bottom: 1px solid var(--ink);
+  white-space: nowrap;
+}
+.plate-t thead th.l { text-align: left; }
+.plate-t tbody td {
+  padding: 0; border-bottom: 1px solid var(--rule); text-align: right;
+  white-space: nowrap;
+}
+.plate-t tbody tr:hover td { background: var(--sink); }
+.plate-t tbody tr.cut td { opacity: 0.42; }
 
-.tip {
-  position: absolute; pointer-events: none; z-index: 5;
-  background: var(--ink); color: var(--sheet);
-  padding: 0.4rem 0.55rem; font-size: 0.74rem; line-height: 1.35;
-  max-width: 230px; opacity: 0; transition: opacity 0.08s linear;
-}
-.tip.on { opacity: 1; }
-.tip b { font-family: var(--f-display); font-size: 1.05rem; font-weight: 400;
-  text-transform: uppercase; letter-spacing: 0.02em; display: block; }
-.tip .m { font-family: var(--f-mono); font-size: 0.68rem; color: var(--land-edge); }
+/* the self-legending cell, MLS 1985: tiny light label welded to a bold
+   value. most web tables get this contrast backwards. */
+.cell { display: block; padding: 0.42rem 0.4rem; }
+.cell .v { font-weight: 600; color: var(--ink); }
+.cell .u { color: var(--ink-3); font-weight: 400; }
+/* not available. StatCan's published symbol, not an invented dash. */
+.cell .na { color: var(--ink-3); font-weight: 400; letter-spacing: 0.08em; }
 
-/* ---------- index ---------- */
-.index-head {
-  padding: 0.85rem var(--collar) 0.7rem;
-  border-top: 1px solid var(--rule); border-bottom: 2px solid var(--ink);
-  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
-  flex-wrap: wrap;
+.rank { color: var(--ink-3); padding: 0.42rem 0.4rem; text-align: right; width: 3ch; }
+.pname {
+  text-align: left; padding: 0.42rem 0.4rem;
+  font-weight: 600; color: var(--ink);
+  /* width axis carries settlement size: a big city is set wide, a village
+     narrow. type doing the work of a column. */
+  font-stretch: var(--w, 100%);
 }
-.index-head h2 {
-  font-family: var(--f-display); font-weight: 400; text-transform: uppercase;
-  font-size: 1.5rem; margin: 0; line-height: 1; letter-spacing: 0.02em;
-}
-.index-head .note { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--ink-3); }
+.pname .pv { color: var(--ink-3); font-weight: 400; margin-left: 0.3rem; }
+.pname button { all: unset; cursor: pointer; }
+.pname button:focus-visible { outline: 2px solid var(--warm); }
 
-ol.index { list-style: none; margin: 0; padding: 0; }
-.row {
-  display: grid;
-  grid-template-columns: 2.6rem 1fr auto;
-  gap: 0.7rem;
-  align-items: baseline;
-  padding: 0.6rem var(--collar);
-  border-bottom: 1px solid var(--rule-soft);
-  cursor: pointer;
-  width: 100%; text-align: left; background: none; border-left: 0; border-right: 0; border-top: 0;
-  font: inherit; color: inherit;
-}
-.row:hover { background: var(--sheet-2); }
-.row:focus-visible { outline: 2px solid var(--survey); outline-offset: -2px; }
-.row.lit { background: var(--sheet-2); }
-.rank {
-  font-family: var(--f-mono); font-size: 0.72rem; font-variant-numeric: tabular-nums;
-  color: var(--ink-3); text-align: right;
-}
-.rname {
-  font-family: var(--f-display); font-weight: 400; font-size: 1.35rem;
-  text-transform: uppercase; letter-spacing: 0.015em; line-height: 1;
-}
-.rname .pv { color: var(--ink-3); font-size: 0.78rem; margin-left: 0.3rem; letter-spacing: 0.08em; }
-.rwhy { font-size: 0.76rem; color: var(--ink-2); margin-top: 0.18rem; }
-.rwhy .against { color: var(--survey); }
-.rwhy .sep { color: var(--ink-3); margin: 0 0.3rem; }
+/* score: the ramp. the only place a filled block appears, so it reads
+   as the answer rather than as chrome. */
+.fit { width: 3.2rem; }
+.fit .b { display: block; padding: 0.42rem 0.4rem; font-weight: 700; color: var(--fit-ink); }
 
-/* fit meter: a contour bar, not a rounded pill */
-.fit { display: flex; align-items: center; gap: 0.5rem; }
-.fitnum {
-  font-family: var(--f-mono); font-size: 0.82rem; font-variant-numeric: tabular-nums;
-  color: var(--ink); min-width: 3ch; text-align: right;
+/* Peterson's arrow, rationed. it marks the dimension that separates this
+   place from the ones it is confusable with. mute on purpose: it says
+   "this is what differs", not "this is good". */
+.split { position: relative; }
+.split::after {
+  content: ""; position: absolute; left: 1px; top: 50%; width: 5px; height: 5px;
+  transform: translateY(-50%) rotate(45deg);
+  border-left: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
 }
-.fitbar { width: 54px; height: 8px; background: var(--sheet-2); border: 1px solid var(--rule); position: relative; }
-.fitbar i { position: absolute; inset: 0 auto 0 0; background: var(--relief); display: block; }
+
+/* provenance ink. USGS and NRCan each spend a scarce plate saying how
+   much to trust the sheet. 28 of 129 places have resident research and
+   the rest do not, and they must not render identically. */
+.prov { width: 1.1rem; padding: 0 !important; }
+.prov i { display: block; width: 3px; height: 100%; min-height: 1.6rem; }
+.prov i.full { background: var(--check); }
+.prov i.none { background: repeating-linear-gradient(0deg, var(--thin) 0 2px, transparent 2px 5px); }
 
 /* ---------- detail ---------- */
-.detail { padding: 0 var(--collar) 1.1rem; background: var(--sheet-2);
-  border-bottom: 1px solid var(--rule); }
-.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; padding-top: 0.9rem; }
-.dh { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--ink-3); margin: 0 0 0.4rem;
-  border-bottom: 1px solid var(--rule); padding-bottom: 0.25rem; }
-.stat { display: flex; justify-content: space-between; gap: 1rem;
-  font-size: 0.79rem; padding: 0.16rem 0; }
-.stat b { font-family: var(--f-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
-.stat .u { color: var(--ink-3); font-size: 0.72rem; }
-.prov-note { font-family: var(--f-mono); font-size: 9px; color: var(--ink-3);
-  margin-top: 0.5rem; line-height: 1.5; }
-.quote { border-left: 2px solid var(--contour); padding: 0.1rem 0 0.1rem 0.6rem;
-  margin: 0 0 0.6rem; font-size: 0.8rem; color: var(--ink-2); }
-.quote cite { display: block; font-style: normal; font-family: var(--f-mono);
-  font-size: 9px; color: var(--ink-3); margin-top: 0.25rem; }
-.quote cite a { color: var(--water); }
-.taglist { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 0.3rem; }
-.tag { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.06em;
-  text-transform: uppercase; border: 1px solid var(--rule); padding: 0.16rem 0.32rem;
-  color: var(--ink-2); }
-.tag.neg { border-color: var(--survey); color: var(--survey); }
+.detail td { padding: 0 !important; }
+.dwrap { padding: 0.9rem var(--gut) 1.1rem; background: var(--page); border-bottom: 1px solid var(--rule); }
+.dgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4rem; }
+.dh { font-size: var(--t-xs); font-weight: 600; color: var(--ink); margin: 0 0 0.35rem;
+  padding-bottom: 0.2rem; border-bottom: 1px solid var(--rule-2); }
+.drow { display: flex; justify-content: space-between; gap: 1rem; font-size: var(--t-xs); padding: 0.14rem 0; }
+.drow span { color: var(--ink-3); }
+.drow b { font-weight: 600; }
+.prov-note { font-size: var(--t-xs); color: var(--ink-3); margin-top: 0.5rem; line-height: 1.5; }
+.prov-note em { font-style: normal; color: var(--check); font-weight: 600; }
+.quote { margin: 0 0 0.5rem; font-size: var(--t-xs); color: var(--ink-2); }
+.quote cite { display: block; font-style: normal; color: var(--ink-3); margin-top: 0.15rem; }
+.quote cite a { color: var(--cool); }
+ul.pts { margin: 0.2rem 0 0; padding-left: 1rem; }
+ul.pts li { font-size: var(--t-xs); color: var(--ink-2); margin-bottom: 0.2rem; }
 
-/* resident sentiment, diverging about a centre rule */
-.sent { display: flex; flex-direction: column; gap: 2px; margin: 0.3rem 0 0.15rem; }
-.sr { display: grid; grid-template-columns: 5.6rem 1fr 2.2rem; gap: 0.4rem; align-items: center; }
-.sk { font-size: 0.72rem; color: var(--ink-2); }
-.st { position: relative; height: 9px; background: var(--sheet); border: 1px solid var(--rule); }
-.st::before { content: ""; position: absolute; left: 50%; top: -1px; bottom: -1px;
-  border-left: 1px solid var(--ink-3); }
+/* resident sentiment. opposed states get opposed colour temperature,
+   Golden 1966, never two neighbouring hues. */
+.sent { display: flex; flex-direction: column; gap: 2px; }
+.sr { display: grid; grid-template-columns: 5rem 1fr 2rem; gap: 0.35rem; align-items: center; font-size: var(--t-xs); }
+.sk { color: var(--ink-3); }
+.st { position: relative; height: 7px; background: var(--sink); }
+.st::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1px solid var(--rule-2); }
 .st i { position: absolute; top: 0; bottom: 0; display: block; }
-.sv { font-family: var(--f-mono); font-size: 0.68rem; font-variant-numeric: tabular-nums;
-  color: var(--ink-3); text-align: right; }
+.sv { color: var(--ink-3); text-align: right; }
 
-/* resident points */
-ul.pts { margin: 0.2rem 0 0; padding-left: 0.9rem; }
-ul.pts li { font-size: 0.78rem; color: var(--ink-2); margin-bottom: 0.22rem; line-height: 1.45; }
-ul.pts.neg li::marker { color: var(--survey); }
-ul.pts li::marker { color: var(--relief); }
+.ribbon { width: 100%; height: 42px; display: block; }
+.rib-k { display: flex; justify-content: space-between; font-size: var(--t-xs); color: var(--ink-3); }
 
-/* climate ribbon */
-.ribbon { width: 100%; height: 46px; display: block; margin: 0.25rem 0 0.1rem; }
-.ribbon-key { display: flex; justify-content: space-between;
-  font-family: var(--f-mono); font-size: 8px; color: var(--ink-3); letter-spacing: 0.05em; }
+/* ---------- map ---------- */
+.map-wrap { position: relative; padding: 0.8rem var(--gut) 1rem; border-bottom: 1px solid var(--rule); }
+canvas#map { width: 100%; display: block; }
+.tip {
+  position: absolute; pointer-events: none; z-index: 5; background: var(--ink); color: var(--paper);
+  padding: 0.35rem 0.5rem; font-size: var(--t-xs); line-height: 1.35; max-width: 230px; opacity: 0;
+}
+.tip.on { opacity: 1; }
+.tip b { font-weight: 700; display: block; }
 
 /* ---------- foot ---------- */
-.foot {
-  border-top: 2px solid var(--ink); padding: 1rem var(--collar) 2.2rem;
-  font-family: var(--f-mono); font-size: 10px; line-height: 1.7;
-  color: var(--ink-3); letter-spacing: 0.03em;
-}
-.foot a { color: var(--water); }
-.foot h3 { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--ink-2); margin: 0 0 0.3rem; }
-.foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 1.2rem; }
+.foot { border-top: 2px solid var(--ink); padding: 1rem var(--gut) 2.5rem; font-size: var(--t-xs);
+  color: var(--ink-3); line-height: 1.6; }
+.foot a { color: var(--cool); }
+.foot h3 { font-size: var(--t-xs); color: var(--ink); margin: 0 0 0.25rem; font-weight: 600; }
+.foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
+.legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.9rem; font-size: var(--t-xs); }
+.legend span { display: flex; align-items: center; gap: 0.3rem; color: var(--ink-2); }
+.legend i { width: 10px; height: 10px; display: inline-block; }
 
-.empty { padding: 2rem var(--collar); color: var(--ink-3); font-size: 0.85rem; }
+.empty { padding: 1.5rem var(--gut); color: var(--ink-3); font-size: var(--t-s); }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .field { grid-template-columns: 1fr; }
-  .survey { border-right: 0; border-bottom: 2px solid var(--ink); padding-bottom: 0; }
-  .detail-grid { grid-template-columns: 1fr; gap: 0.9rem; }
-  .row { grid-template-columns: 2rem 1fr; }
-  .fit { grid-column: 2; margin-top: 0.25rem; }
+  .survey { border-right: 0; border-bottom: 2px solid var(--ink); position: static; }
+  .dgrid { grid-template-columns: 1fr; gap: 1rem; }
+  .head { grid-template-columns: 1fr; }
+  .headnote { text-align: left; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* survey sections. seventeen dimensions only scan if they are grouped. */
+.qgroup {
+  margin: 0; padding: 0.55rem var(--gut) 0.3rem;
+  font-size: var(--t-xs); font-weight: 600; color: var(--ink);
+  background: var(--sink); border-bottom: 1px solid var(--rule);
+  position: sticky; top: 0; z-index: 1;
 }
