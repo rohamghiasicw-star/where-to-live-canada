@@ -589,11 +589,12 @@ ol.how b { color: var(--ink); font-weight: 600; }
   #qs:not(.life-open) .q-life { display: none; }   /* collapsed by default */
 }
 
-/* Radio Canada Big ships a very wide word space (it is a broadcast caption face),
-   so every multi-word title set in it read like it had double spaces. One
-   consistent tightening everywhere the display face is used. */
+/* Radio Canada Big's word space measures 0.182em - already on the tight side of
+   normal, not the wide broadcast space we assumed. The old -0.2em "fix" subtracted
+   MORE than the whole space, so titles collapsed to "Wheretolive" with no gaps at
+   all (worst on iOS, where the space is even narrower). Leave the natural space be. */
 h1, .survey h2, .plate h2, .v-name, .sheet-name, .pcard .pn, .lp-name {
-  word-spacing: -0.2em;
+  word-spacing: normal;
 }
 </style>
 
