@@ -446,9 +446,9 @@ ol.how b { color: var(--ink); font-weight: 600; }
   .field[data-view="list"] .map-wrap,
   .field[data-view="list"] .plate-head,
   .field[data-view="list"] .plate-scroll { display: none; }
-  .field[data-view="map"] .cards,
   .field[data-view="map"] .plate-scroll,
-  .field[data-view="map"] .plate-head { display: none; }
+  .field[data-view="map"] .plate-head,
+  .field[data-view="map"] .verdict { display: none; }   /* the map leads; the ranked cards fill in below it */
   .field[data-view="answer"] { display: block; }
 
   /* the plate table never shows on a phone; the cards do */
@@ -512,8 +512,8 @@ ol.how b { color: var(--ink); font-weight: 600; }
   .q-label { font-size: var(--t-m); }
   
   /* map fills the screen on its own tab */
-  .field[data-view="map"] .map-wrap { padding-bottom: 5rem; }
-  .field[data-view="map"] canvas#map { min-height: 60vh; }
+  /* no min-height on the canvas: it draws at a fixed aspect and its height is set
+     in JS. forcing 60vh stretched Canada vertically and wrecked the map. */
 
   /* footer only clutters the phone; keep it for the desktop plate */
   .foot { padding-bottom: 6rem; }
