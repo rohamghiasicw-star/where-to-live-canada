@@ -108,9 +108,6 @@ h1 {
   line-height: 0.95;
   margin: 0;
   letter-spacing: -0.02em;
-  /* Radio Canada Big is drawn with a generous word space for broadcast captions.
-     At display size that reads as a gap, so pull it back. */
-  word-spacing: -0.12em;
   text-wrap: balance;
 }
 h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
@@ -138,7 +135,7 @@ h1 i { font-style: normal; color: var(--ink-3); font-weight: 400; }
 .survey h2, .plate h2 {
   font-family: 'Radio Canada Big', Georgia, serif;
   font-weight: 700; font-size: var(--t-l); margin: 0; line-height: 1;
-  letter-spacing: -0.015em; word-spacing: -0.1em;
+  letter-spacing: -0.015em;
 }
 .survey-head { padding: 0.9rem var(--gut) 0.7rem; border-bottom: 1px solid var(--rule); }
 .survey-head p { margin: 0.25rem 0 0; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.5; }
@@ -217,7 +214,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--warm); outline-offset
 .v-name {
   font-family: 'Radio Canada Big', Georgia, serif;
   font-weight: 700; font-size: var(--t-xl); line-height: 1;
-  margin: 0.1rem 0 0; letter-spacing: -0.025em; word-spacing: -0.1em;
+  margin: 0.1rem 0 0; letter-spacing: -0.025em;
 }
 .v-name .pv { color: var(--ink-3); font-weight: 400; font-size: 0.42em; margin-left: 0.4rem; }
 .v-line { font-size: var(--t-m); margin: 0.5rem 0 0; max-width: 62ch; }
@@ -583,6 +580,13 @@ ol.how b { color: var(--ink); font-weight: 600; }
   .qgroup-toggle { display: flex; justify-content: space-between; align-items: center; }
   .qg-more { display: inline; font-size: var(--t-xs); font-weight: 600; color: var(--cool); }
   #qs:not(.life-open) .q-life { display: none; }   /* collapsed by default */
+}
+
+/* Radio Canada Big ships a very wide word space (it is a broadcast caption face),
+   so every multi-word title set in it read like it had double spaces. One
+   consistent tightening everywhere the display face is used. */
+h1, .survey h2, .plate h2, .v-name, .sheet-name, .pcard .pn, .lp-name {
+  word-spacing: -0.2em;
 }
 </style>
 
