@@ -701,3 +701,16 @@ h1, .step-head h2, .plate h2, .v-name, .sheet-name, .pcard .pn {
   .ab-main { flex: 0 0 auto; min-width: 300px; }
   .ab-back { min-width: 160px; }
 }
+
+/* ---------- country switch ----------
+   Two self-contained pages rather than one file carrying both countries: the US
+   list is several times longer and a single build would be a multi-megabyte
+   download on a phone. So this is a plain link, which also means each country
+   still works opened straight off disk. */
+.cswitch {
+  display: block; padding: 0.6rem var(--gut);
+  border-bottom: 1px solid var(--rule); background: var(--sink);
+  font-size: var(--t-xs); color: var(--ink-2); text-decoration: none;
+}
+.cswitch b { color: var(--ink); font-weight: 600; }
+.cswitch:hover { background: var(--page); color: var(--ink); }

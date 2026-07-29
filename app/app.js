@@ -16,7 +16,7 @@ const LIVED_N = DATA.filter((p) => p.lived).length;   // researched places, live
 /* ---------- the dimensions ----------
    Each is one column of the plate, in a fixed order that never changes.
    `show` renders the value; a place with no data still gets its cell. */
-const Q = [
+const Q_ALL = [
   {
     id: 'winter', g: 'Climate', label: 'Winter', col: 'Jan', hint: 'The January you want to wake up in.',
     kind: 'range', min: -26, max: 6, step: 1, nudge: 2, def: -5, w: 2,
@@ -157,7 +157,7 @@ const Q = [
     show: (p) => (p.cost && p.cost.home_price) ? [fmtNum(p.cost.home_price), ''] : null,
   },
   {
-    id: 'politics', g: 'The place', label: 'Politics', col: 'Lean', hint: 'Vote-weighted lean of the federal riding, 2025.',
+    id: 'politics', g: 'The place', label: 'Politics', col: 'Lean', hint: `Vote-weighted lean of the ${CFG.sources.politics_unit}, ${CFG.vote_year}.`,
     kind: 'opts', def: 'centre', w: 0,
     opts: [['left','Left'],['centre','Centre'],['right','Right']],
     score: (p, v) => { const l = p.politics ? p.politics.lean : null;
@@ -222,7 +222,7 @@ const Q = [
     show: (p) => p.life && p.life.immigrants_pct != null ? [p.life.immigrants_pct.toFixed(0), '%'] : null,
   },
   {
-    id: 'french', label: 'French', col: 'French', g: 'Life there',
+    id: 'french', cc: ['CA'], label: 'French', col: 'French', g: 'Life there',
     hint: 'Share whose first official language is French.',
     kind: 'opts', def: 'yes', w: 0,
     opts: [['yes','I want to live in French'],['some','Some is nice']],
@@ -299,38 +299,40 @@ const Q = [
 ];
 
 
+/* a question tagged with `cc` exists only in those countries: French is a
+   Canadian question, and the US census does not ask about religion at all. */
+const Q = Q_ALL.filter((q) => !q.cc || q.cc.includes(CFG.cc));
+
 /* what each column of the plate actually is, in words, on hover and on the
    help strip. an abbreviation nobody can expand is not a label. */
 const COLHELP = {
-  winter:  ['Average January temperature', '°C', 'Environment Canada normals 1981-2010'],
-  summer:  ['Average July temperature', '°C', 'Environment Canada normals 1981-2010'],
-  swing:   ['How far the year swings, July mean minus January mean', '°C',
-            'Environment Canada normals 1981-2010'],
-  rain:    ['Total precipitation in a year', 'mm', 'Environment Canada normals 1981-2010'],
-  snow:    ['Snow that falls in a year', 'cm', 'Environment Canada normals 1981-2010'],
-  sun:     ['Hours of bright sunshine in a year', 'h', 'Environment Canada normals 1981-2010'],
+  winter:  ['Average January temperature', '°C', CFG.sources.climate],
+  summer:  ['Average July temperature', '°C', CFG.sources.climate],
+  swing:   ['How far the year swings, July mean minus January mean', '°C', CFG.sources.climate],
+  rain:    ['Total precipitation in a year', 'mm', CFG.sources.climate],
+  snow:    ['Snow that falls in a year', 'cm', CFG.sources.climate],
+  sun:     ['Hours of bright sunshine in a year', 'h', CFG.sources.climate],
   smoke:   ['Wildfire smoke in the air, 12-year average', 'µg/m³ of fine particulate',
-            'ECCC FireWork, the model run with fires minus the run without'],
-  size:    ['People who live there', '', '2021 Census'],
+            CFG.sources.smoke],
+  size:    ['People who live there', '', CFG.sources.pop],
   prox:    ['Drive to the nearest city over 300,000', 'minutes', 'Routed on real roads'],
   cost:    ['What an average home is worth', '', '2021 Census, what owners estimated in 2021'],
-  politics:['Political lean of the federal riding', '-100 left to +100 right',
-            'Elections Canada, 2025 result, vote-weighted'],
-  growth:  ['How much the population changed, 2016 to 2021', '%', '2021 Census'],
-  age:     ['Median age. Under 40 is a working town, over 55 a retirement one', 'years', '2021 Census'],
-  commute: ['Share of workers who get there in under 15 minutes', '%', '2021 Census'],
-  car:     ['Share who get to work by transit, foot or bike', '%', '2021 Census'],
-  jobs:    ['Unemployment rate', '%', '2021 Census'],
-  mix:     ['Share of residents who are immigrants', '%', '2021 Census'],
-  french:  ['Share whose first official language is French', '%', '2021 Census'],
+  politics:[`Political lean of the ${CFG.sources.politics_unit}`, '-100 left to +100 right', CFG.sources.politics],
+  growth:  ['How much the population changed, 2016 to 2021', '%', CFG.sources.census],
+  age:     ['Median age. Under 40 is a working town, over 55 a retirement one', 'years', CFG.sources.census],
+  commute: ['Share of workers who get there in under 15 minutes', '%', CFG.sources.census],
+  car:     ['Share who get to work by transit, foot or bike', '%', CFG.sources.census],
+  jobs:    ['Unemployment rate', '%', CFG.sources.census],
+  mix:     ['Share of residents who are immigrants', '%', CFG.sources.census],
+  french:  ['Share whose first official language is French', '%', CFG.sources.census],
   water:   ['Distance to the ocean or a big lake', 'km', 'Natural Earth shoreline geometry'],
   pitches: ['Soccer pitches within a 15km drive', '', 'OpenStreetMap'],
   sports:  ['Top-tier pro leagues playing there', '', 'League and team sources, verified 2026'],
   transit: ['Rapid transit serving the place', '', 'Transit authority and line sources, verified 2026'],
-  kids:    ['Share of the population under 15', '%', '2021 Census'],
-  single:  ['Share of adults who have never married', '%', '2021 Census'],
-  gender:  ['Men per 100 women', '', '2021 Census'],
-  faith:   ['Share of residents in the community you picked', '%', '2021 Census, religion (25% sample)'],
+  kids:    ['Share of the population under 15', '%', CFG.sources.census],
+  single:  ['Share of adults who have never married', '%', CFG.sources.census],
+  gender:  ['Men per 100 women', '', CFG.sources.census],
+  faith:   ['Share of residents in the community you picked', '%', CFG.sources.religion],
   mood:    ['How residents sound about the place, -2 to +2', '', 'Forums, local news and blogs. Only where researched.'],
 };
 
@@ -594,7 +596,7 @@ function verdict() {
     const Qof = (id) => Q.find((q) => q.id === id);
     if (worst.length === 2) {
       const a = Qof(worst[0].id), b = Qof(worst[1].id);
-      conflict = `Nowhere in Canada is both <b>${said(a).toLowerCase()}</b> (${a.label.toLowerCase()})
+      conflict = `Nowhere in ${CFG.country} is both <b>${said(a).toLowerCase()}</b> (${a.label.toLowerCase()})
         and <b>${said(b).toLowerCase()}</b> (${b.label.toLowerCase()}). ${p.name} is the closest compromise.`;
     } else if (worst.length === 1) {
       const a = Qof(worst[0].id);
@@ -659,10 +661,8 @@ function verdict() {
       <button class="v-share" id="share">Send this to someone</button>
       <button class="v-again" id="vagain">Start over</button>
     </div>
-    <p class="v-prov">Climate from Environment Canada normals. Smoke from the ECCC FireWork model,
-      fires differenced out. Population, income, housing, age and religion from the 2021 Census and
-      StatCan's 2025 estimate. Politics from the 2025 federal result. Nothing here is a
-      recommendation, and where a number is missing it is dropped rather than guessed at.</p>`;
+    <p class="v-prov">${CFG.prov_line} Nothing here is a recommendation, and where a number
+      is missing it is dropped rather than guessed at.</p>`;
 }
 
 function cellHTML(q, r) {
@@ -708,9 +708,9 @@ function detailHTML(r) {
       ${row('Unemployment', p.cost && p.cost.unemployment != null ? p.cost.unemployment : NA, '%')}
       ${row('Nearest city over 300k', p.prox ? p.prox.nearest_big_city : NA,
         p.prox && p.prox.drive_min_to_big_city != null ? `${Math.round(p.prox.drive_min_to_big_city)}min` : '')}
-      ${row('Riding', p.politics ? p.politics.riding : NA, '')}
+      ${row(CFG.riding_label, p.politics ? p.politics.riding : NA, '')}
       ${row('Lean', p.politics ? p.politics.lean_label : NA, '')}
-      <p class="prov-note">${p.csd ? `Census figures are for <em>${p.csd}</em>.` : ''} Population is StatCan's July 2025 estimate; income, home value and the rest are 2021 Census. Home value is what owners estimated in 2021, not a market price.</p>
+      <p class="prov-note">${p.csd ? `Census figures are for <em>${p.csd}</em>.` : ''} ${CFG.detail_note}</p>
     </div>
     <div>
       <p class="dh">What residents say</p>

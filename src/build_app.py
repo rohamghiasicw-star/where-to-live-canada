@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Assemble the single-file app: data + map + fonts + css + js -> livable.html
 Agent data files are optional; whatever has landed gets merged, the rest stays null."""
-import json, math, os, re, glob
+import json, math, os, re, glob, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from countries import CA as CFG, other as other_country
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root, this file lives in src/
 D = lambda *p: os.path.join(ROOT, *p)
@@ -248,6 +251,16 @@ for p in places:
 # ---- assemble
 html = open(D('app/index.html')).read()
 
+# country-specific prose and tokens. Anything naming a country, an agency, a
+# statistical geography or a projection comes from src/countries.py, never from app/.
+html = html.replace('<!--__HEADNOTE__-->', open(D('app/head.%s.html' % CFG['cc'].lower())).read())
+html = html.replace('<!--__FOOT__-->', open(D('app/foot.%s.html' % CFG['cc'].lower())).read())
+html = html.replace('__COUNTRY__', CFG['country'])
+_o = other_country(CFG['cc'])
+html = html.replace('<!--__SWITCH__-->',
+    '  <a class="cswitch" href="%s">Looking at <b>%s</b>. Switch to <b>%s</b> &rsaquo;</a>'
+    % (_o['href'], CFG['country'], _o['label']))
+
 # self-healing counts: these drifted stale ("71 of 712") as the place list changed.
 # compute them from the actual data so they can never go wrong again.
 N = len(places)
@@ -268,6 +281,10 @@ def put(marker, payload):
     i = html.index(marker)
     html = html[:i] + payload + html[i+len(marker):]
 
+put('/*__CFG__*/', json.dumps({k: v for k, v in CFG.items()
+    if k in ('cc','country','adjective','unit','riding_label','sources',
+             'prov_line','detail_note','climate_period','pop_year','census_year','vote_year')},
+    separators=(',', ':'), ensure_ascii=False))
 put('/*__DATA__*/', json.dumps(places, separators=(',', ':'), ensure_ascii=False))
 put('/*__MAP__*/',  json.dumps(mapgeo, separators=(',', ':')))
 put('/*__FONTS__*/', fonts)
@@ -276,7 +293,7 @@ put('/*__JS__*/', js)
 
 # index.html so GitHub Pages serves it at the repo root; the file is fully self-contained
 # (fonts, data and map all inlined) so it also works opened straight off disk.
-out = D('index.html')
+out = D(CFG['out'])
 open(out, 'w').write(html)
 kb = os.path.getsize(out) / 1024
 print(f"built {out}  {kb:.0f}KB")

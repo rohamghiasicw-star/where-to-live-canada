@@ -1,0 +1,43 @@
+      <div>
+        <h3>Climate</h3>
+        Environment and Climate Change Canada, Canadian Climate Normals 1981-2010, via the
+        <a href="https://api.weather.gc.ca" target="_blank" rel="noopener">GeoMet API</a>.
+        Each place gets one home station: the nearest with a complete record, weighed on distance,
+        elevation, and how many years the normal was actually computed from. Every place shows which
+        station and how far off it is. Revelstoke's nearest published-normals station is 43km away
+        and 1,431m up a mountain; using it would report 1,388cm of alpine snowpack, so Revelstoke
+        instead draws on its own airport station 4km away, at 425cm. Some places have no published
+        normals nearby; theirs are computed from raw monthly observations and say so.
+      </div>
+      <div>
+        <h3>Wildfire smoke</h3>
+        ECCC <a href="https://eccc-msc.github.io/open-data/msc-data/nwp_raqdps-fw/readme_raqdps-fw-datamart_en/" target="_blank" rel="noopener">FireWork RAQDPS-FW Cumulative Effects</a>,
+        the air quality model run with fires differenced against the run without, so it is smoke
+        from fire only and not traffic or wood stoves. 2013-2024 mean, 10km grid.
+        The obvious Environment Canada field, "days with smoke or haze", is negatively correlated
+        with real wildfire smoke and is not used here.
+      </div>
+      <div>
+        <h3>The rest</h3>
+        Population is StatCan's July 2025 estimate. Income, dwelling values, rent, age, marital
+        status and religion are from the 2021 Census at census subdivision level. Home value is what
+        owners estimated their own home was worth in 2021, not a market price. Political lean is
+        computed from Elections Canada's 45th General Election results, with each place located
+        inside its riding. Drive times are routed on real roads. Shoreline distance is measured to
+        Natural Earth coast and lake geometry. Soccer pitches, rinks and places of worship are
+        counted within a 15km drive from OpenStreetMap. Pro teams and rapid transit were each
+        checked against league and transit-authority sources in 2026.
+      </div>
+      <div>
+        <h3>What is missing</h3>
+        <b>Indian reserves are not in this list.</b> 34 were caught by the population filter and
+        removed. They are real communities, but they are not places you can decide to move to, so
+        ranking them as options would be both wrong and disrespectful.
+        <br><br>Residents have been researched for 71 of 712 places, marked in the last column.
+        The rest are scored on measured data only and their column says so.
+        Where a number is missing it reads <b>..</b> and is dropped from the score rather than
+        guessed at. The fit is a weighted power mean, not a plain average, so a place cannot fail
+        the thing you care most about and win anyway by being mediocre everywhere else. Nothing here is a recommendation. It is a way to argue with a list.
+        <br><br><a href="https://github.com/rohamghiasicw-star/where-to-live-canada" target="_blank" rel="noopener">Source and data</a>.
+        Map from Natural Earth. Type is Radio Canada, by Coppers and Brasses.
+      </div>
