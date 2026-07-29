@@ -1,0 +1,1285 @@
+[
+  {
+    "name": "Halifax",
+    "prov": "NS",
+    "has_pro_team": true,
+    "pro_league_count": 1,
+    "teams": [
+      {
+        "name": "HFX Wanderers FC",
+        "league": "CPL"
+      }
+    ],
+    "rapid_transit": false,
+    "transit_type": null,
+    "transit_name": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/HFX_Wanderers_FC"
+    ]
+  },
+  {
+    "name": "Saint-Basile-le-Grand",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mont-Saint-Hilaire_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "McMasterville",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mont-Saint-Hilaire_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Mont-Saint-Hilaire",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mont-Saint-Hilaire_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Brossard",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "REM",
+    "sources": [
+      "https://en.wikipedia.org/wiki/R%C3%A9seau_express_m%C3%A9tropolitain",
+      "https://en.wikipedia.org/wiki/Panama_station"
+    ]
+  },
+  {
+    "name": "Saint-Lambert",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mont-Saint-Hilaire_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Saint-Bruno-de-Montarville",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mont-Saint-Hilaire_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Longueuil",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "subway",
+    "transit_name": "Montréal Métro",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Montreal_Metro",
+      "https://en.wikipedia.org/wiki/List_of_Montreal_Metro_stations",
+      "https://en.wikipedia.org/wiki/Mont-Saint-Hilaire_line"
+    ]
+  },
+  {
+    "name": "Repentigny",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mascouche_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Terrebonne",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mascouche_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Mascouche",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mascouche_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Laval",
+    "prov": "QC",
+    "has_pro_team": true,
+    "pro_league_count": 2,
+    "teams": [
+      {
+        "name": "Montréal Victoire",
+        "league": "PWHL"
+      },
+      {
+        "name": "FC Supra du Québec",
+        "league": "CPL"
+      }
+    ],
+    "rapid_transit": true,
+    "transit_type": "subway",
+    "transit_name": "Montréal Métro",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Montreal_Victoire",
+      "https://en.wikipedia.org/wiki/Place_Bell",
+      "https://en.wikipedia.org/wiki/FC_Supra_du_Qu%C3%A9bec",
+      "https://en.wikipedia.org/wiki/Montreal_Metro",
+      "https://en.wikipedia.org/wiki/List_of_Montreal_Metro_stations",
+      "https://en.wikipedia.org/wiki/Montmorency_station",
+      "https://en.wikipedia.org/wiki/R%C3%A9seau_express_m%C3%A9tropolitain",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Montréal",
+    "prov": "QC",
+    "has_pro_team": true,
+    "pro_league_count": 3,
+    "teams": [
+      {
+        "name": "Montreal Canadiens",
+        "league": "NHL"
+      },
+      {
+        "name": "CF Montréal",
+        "league": "MLS"
+      },
+      {
+        "name": "Montreal Alouettes",
+        "league": "CFL"
+      }
+    ],
+    "rapid_transit": true,
+    "transit_type": "subway",
+    "transit_name": "Montréal Métro",
+    "sources": [
+      "https://en.wikipedia.org/wiki/National_Hockey_League",
+      "https://en.wikipedia.org/wiki/Saputo_Stadium",
+      "https://en.wikipedia.org/wiki/Percival_Molson_Memorial_Stadium",
+      "https://en.wikipedia.org/wiki/Montreal_Metro",
+      "https://en.wikipedia.org/wiki/List_of_Montreal_Metro_stations",
+      "https://en.wikipedia.org/wiki/R%C3%A9seau_express_m%C3%A9tropolitain",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Montréal-Ouest",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Mont-Royal",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "REM",
+    "sources": [
+      "https://en.wikipedia.org/wiki/R%C3%A9seau_express_m%C3%A9tropolitain",
+      "https://en.wikipedia.org/wiki/Ville-de-Mont-Royal_station"
+    ]
+  },
+  {
+    "name": "Dorval",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Pointe-Claire",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "REM",
+    "sources": [
+      "https://en.wikipedia.org/wiki/R%C3%A9seau_express_m%C3%A9tropolitain",
+      "https://en.wikipedia.org/wiki/Fairview%E2%80%93Pointe-Claire_station",
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line"
+    ]
+  },
+  {
+    "name": "Kirkland",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "REM",
+    "sources": [
+      "https://en.wikipedia.org/wiki/R%C3%A9seau_express_m%C3%A9tropolitain",
+      "https://en.wikipedia.org/wiki/Kirkland_station",
+      "https://rem.info/en/news/may-18-2026-scheduled-opening-date-anse-lorme-branch"
+    ]
+  },
+  {
+    "name": "Beaconsfield",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Baie-D'Urfé",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Sainte-Anne-de-Bellevue",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "REM",
+    "sources": [
+      "https://en.wikipedia.org/wiki/R%C3%A9seau_express_m%C3%A9tropolitain",
+      "https://en.wikipedia.org/wiki/Anse-%C3%A0-l%27Orme_station",
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line"
+    ]
+  },
+  {
+    "name": "Candiac",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Candiac_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Delson",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Candiac_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Saint-Constant",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Sainte-Catherine_station_(Exo)",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "L'Île-Perrot",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Terrasse-Vaudreuil",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Pincourt%E2%80%93Terrasse-Vaudreuil_station",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Vaudreuil-Dorion",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Hudson",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vaudreuil%E2%80%93Hudson_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Deux-Montagnes",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "REM",
+    "sources": [
+      "https://en.wikipedia.org/wiki/R%C3%A9seau_express_m%C3%A9tropolitain",
+      "https://en.wikipedia.org/wiki/Deux-Montagnes_station"
+    ]
+  },
+  {
+    "name": "Sainte-Thérèse",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Saint-J%C3%A9r%C3%B4me_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Blainville",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Saint-J%C3%A9r%C3%B4me_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Rosemère",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Saint-J%C3%A9r%C3%B4me_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Mirabel",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mirabel_station",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Saint-Jérôme",
+    "prov": "QC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "exo",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Saint-J%C3%A9r%C3%B4me_line",
+      "https://en.wikipedia.org/wiki/Exo_commuter_rail"
+    ]
+  },
+  {
+    "name": "Ottawa",
+    "prov": "ON",
+    "has_pro_team": true,
+    "pro_league_count": 4,
+    "teams": [
+      {
+        "name": "Ottawa Senators",
+        "league": "NHL"
+      },
+      {
+        "name": "Ottawa Redblacks",
+        "league": "CFL"
+      },
+      {
+        "name": "Ottawa Charge",
+        "league": "PWHL"
+      },
+      {
+        "name": "Atlético Ottawa",
+        "league": "CPL"
+      }
+    ],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "O-Train",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Canadian_Tire_Centre",
+      "https://en.wikipedia.org/wiki/TD_Place_Stadium",
+      "https://en.wikipedia.org/wiki/Ottawa_Charge",
+      "https://en.wikipedia.org/wiki/Atl%C3%A9tico_Ottawa",
+      "https://en.wikipedia.org/wiki/O-Train"
+    ]
+  },
+  {
+    "name": "Pickering",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lakeshore_East_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Ajax",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lakeshore_East_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Whitby",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lakeshore_East_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Oshawa",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lakeshore_East_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Vaughan",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "subway",
+    "transit_name": "TTC subway",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vaughan_Metropolitan_Centre_station",
+      "https://en.wikipedia.org/wiki/Highway_407_station",
+      "https://en.wikipedia.org/wiki/Toronto%E2%80%93York_Spadina_Subway_Extension",
+      "https://en.wikipedia.org/wiki/Barrie_line"
+    ]
+  },
+  {
+    "name": "Markham",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Stouffville_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Richmond Hill",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Richmond_Hill_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Whitchurch-Stouffville",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Stouffville_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Aurora",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Barrie_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Newmarket",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Barrie_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "East Gwillimbury",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Barrie_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Toronto",
+    "prov": "ON",
+    "has_pro_team": true,
+    "pro_league_count": 8,
+    "teams": [
+      {
+        "name": "Toronto Maple Leafs",
+        "league": "NHL"
+      },
+      {
+        "name": "Toronto Raptors",
+        "league": "NBA"
+      },
+      {
+        "name": "Toronto Tempo",
+        "league": "WNBA"
+      },
+      {
+        "name": "Toronto Blue Jays",
+        "league": "MLB"
+      },
+      {
+        "name": "Toronto FC",
+        "league": "MLS"
+      },
+      {
+        "name": "Toronto Argonauts",
+        "league": "CFL"
+      },
+      {
+        "name": "Toronto Sceptres",
+        "league": "PWHL"
+      },
+      {
+        "name": "Inter Toronto FC",
+        "league": "CPL"
+      }
+    ],
+    "rapid_transit": true,
+    "transit_type": "subway",
+    "transit_name": "TTC subway",
+    "sources": [
+      "https://en.wikipedia.org/wiki/National_Hockey_League",
+      "https://en.wikipedia.org/wiki/Toronto_Raptors",
+      "https://en.wikipedia.org/wiki/Toronto_Tempo",
+      "https://en.wikipedia.org/wiki/Toronto_Blue_Jays",
+      "https://en.wikipedia.org/wiki/BMO_Field",
+      "https://en.wikipedia.org/wiki/Canadian_Football_League",
+      "https://en.wikipedia.org/wiki/Coca-Cola_Coliseum",
+      "https://en.wikipedia.org/wiki/York_United_FC",
+      "https://en.wikipedia.org/wiki/Toronto_subway",
+      "https://en.wikipedia.org/wiki/Line_5_Eglinton",
+      "https://en.wikipedia.org/wiki/Line_6_Finch_West",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Mississauga",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Milton_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Brampton",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kitchener_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Guelph",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Guelph_Central_Station",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Oakville",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lakeshore_West_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Burlington",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Aldershot_GO_Station",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Milton",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Milton_GO_Station",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Halton Hills",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Georgetown_GO_Station",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Hamilton",
+    "prov": "ON",
+    "has_pro_team": true,
+    "pro_league_count": 2,
+    "teams": [
+      {
+        "name": "Hamilton Tiger-Cats",
+        "league": "CFL"
+      },
+      {
+        "name": "Forge FC",
+        "league": "CPL"
+      }
+    ],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Hamilton_Stadium",
+      "https://en.wikipedia.org/wiki/Forge_FC",
+      "https://en.wikipedia.org/wiki/Confederation_GO_Station",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Niagara Falls",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lakeshore_West_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "St. Catharines",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/St._Catharines_railway_station",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Kitchener",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "ION",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Ion_rapid_transit",
+      "https://en.wikipedia.org/wiki/Kitchener_line"
+    ]
+  },
+  {
+    "name": "Waterloo",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "ION",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Ion_rapid_transit"
+    ]
+  },
+  {
+    "name": "Stratford",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://www.gotransit.com/en/find-a-station-or-stop/sf/stratford-go",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Bradford West Gwillimbury",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Barrie_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Barrie",
+    "prov": "ON",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "GO Transit",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Barrie_line",
+      "https://en.wikipedia.org/wiki/List_of_GO_Transit_stations"
+    ]
+  },
+  {
+    "name": "Winnipeg",
+    "prov": "MB",
+    "has_pro_team": true,
+    "pro_league_count": 2,
+    "teams": [
+      {
+        "name": "Winnipeg Jets",
+        "league": "NHL"
+      },
+      {
+        "name": "Winnipeg Blue Bombers",
+        "league": "CFL"
+      }
+    ],
+    "rapid_transit": false,
+    "transit_type": null,
+    "transit_name": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/National_Hockey_League",
+      "https://en.wikipedia.org/wiki/Princess_Auto_Stadium",
+      "https://en.wikipedia.org/wiki/Valour_FC"
+    ]
+  },
+  {
+    "name": "Regina",
+    "prov": "SK",
+    "has_pro_team": true,
+    "pro_league_count": 1,
+    "teams": [
+      {
+        "name": "Saskatchewan Roughriders",
+        "league": "CFL"
+      }
+    ],
+    "rapid_transit": false,
+    "transit_type": null,
+    "transit_name": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mosaic_Stadium"
+    ]
+  },
+  {
+    "name": "Calgary",
+    "prov": "AB",
+    "has_pro_team": true,
+    "pro_league_count": 2,
+    "teams": [
+      {
+        "name": "Calgary Flames",
+        "league": "NHL"
+      },
+      {
+        "name": "Calgary Stampeders",
+        "league": "CFL"
+      }
+    ],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "CTrain",
+    "sources": [
+      "https://en.wikipedia.org/wiki/National_Hockey_League",
+      "https://en.wikipedia.org/wiki/McMahon_Stadium",
+      "https://en.wikipedia.org/wiki/CTrain"
+    ]
+  },
+  {
+    "name": "Edmonton",
+    "prov": "AB",
+    "has_pro_team": true,
+    "pro_league_count": 2,
+    "teams": [
+      {
+        "name": "Edmonton Oilers",
+        "league": "NHL"
+      },
+      {
+        "name": "Edmonton Elks",
+        "league": "CFL"
+      }
+    ],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "Edmonton LRT",
+    "sources": [
+      "https://en.wikipedia.org/wiki/National_Hockey_League",
+      "https://en.wikipedia.org/wiki/Commonwealth_Stadium_(Edmonton)",
+      "https://en.wikipedia.org/wiki/Edmonton_Light_Rail_Transit",
+      "https://www.edmonton.ca/projects_plans/transit/valley-line-west"
+    ]
+  },
+  {
+    "name": "Mission",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "West Coast Express",
+    "sources": [
+      "https://en.wikipedia.org/wiki/West_Coast_Express"
+    ]
+  },
+  {
+    "name": "Langley (District)",
+    "prov": "BC",
+    "has_pro_team": true,
+    "pro_league_count": 1,
+    "teams": [
+      {
+        "name": "Vancouver FC",
+        "league": "CPL"
+      }
+    ],
+    "rapid_transit": false,
+    "transit_type": null,
+    "transit_name": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vancouver_FC",
+      "https://en.wikipedia.org/wiki/Langley_Events_Centre"
+    ]
+  },
+  {
+    "name": "Surrey",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "SkyTrain",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Expo_Line_(SkyTrain)"
+    ]
+  },
+  {
+    "name": "Richmond",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "SkyTrain",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Canada_Line"
+    ]
+  },
+  {
+    "name": "Vancouver",
+    "prov": "BC",
+    "has_pro_team": true,
+    "pro_league_count": 4,
+    "teams": [
+      {
+        "name": "Vancouver Canucks",
+        "league": "NHL"
+      },
+      {
+        "name": "Vancouver Whitecaps FC",
+        "league": "MLS"
+      },
+      {
+        "name": "BC Lions",
+        "league": "CFL"
+      },
+      {
+        "name": "Vancouver Goldeneyes",
+        "league": "PWHL"
+      }
+    ],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "SkyTrain",
+    "sources": [
+      "https://en.wikipedia.org/wiki/National_Hockey_League",
+      "https://en.wikipedia.org/wiki/BC_Place",
+      "https://en.wikipedia.org/wiki/Pacific_Coliseum",
+      "https://en.wikipedia.org/wiki/Vancouver_Goldeneyes",
+      "https://en.wikipedia.org/wiki/Expo_Line_(SkyTrain)",
+      "https://en.wikipedia.org/wiki/Millennium_Line",
+      "https://en.wikipedia.org/wiki/Canada_Line",
+      "https://en.wikipedia.org/wiki/West_Coast_Express"
+    ]
+  },
+  {
+    "name": "Burnaby",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "SkyTrain",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Expo_Line_(SkyTrain)",
+      "https://en.wikipedia.org/wiki/Millennium_Line",
+      "https://en.wikipedia.org/wiki/Canada_Line"
+    ]
+  },
+  {
+    "name": "New Westminster",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "SkyTrain",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Expo_Line_(SkyTrain)"
+    ]
+  },
+  {
+    "name": "Coquitlam",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "SkyTrain",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Millennium_Line",
+      "https://en.wikipedia.org/wiki/West_Coast_Express"
+    ]
+  },
+  {
+    "name": "Port Coquitlam",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "West Coast Express",
+    "sources": [
+      "https://en.wikipedia.org/wiki/West_Coast_Express"
+    ]
+  },
+  {
+    "name": "Port Moody",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "light rail",
+    "transit_name": "SkyTrain",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Millennium_Line",
+      "https://en.wikipedia.org/wiki/West_Coast_Express"
+    ]
+  },
+  {
+    "name": "Pitt Meadows",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "West Coast Express",
+    "sources": [
+      "https://en.wikipedia.org/wiki/West_Coast_Express"
+    ]
+  },
+  {
+    "name": "Maple Ridge",
+    "prov": "BC",
+    "has_pro_team": false,
+    "pro_league_count": 0,
+    "teams": [],
+    "rapid_transit": true,
+    "transit_type": "commuter rail",
+    "transit_name": "West Coast Express",
+    "sources": [
+      "https://en.wikipedia.org/wiki/West_Coast_Express"
+    ]
+  },
+  {
+    "name": "Langford",
+    "prov": "BC",
+    "has_pro_team": true,
+    "pro_league_count": 1,
+    "teams": [
+      {
+        "name": "Pacific FC",
+        "league": "CPL"
+      }
+    ],
+    "rapid_transit": false,
+    "transit_type": null,
+    "transit_name": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Pacific_FC"
+    ]
+  }
+]

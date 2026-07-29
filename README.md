@@ -1,6 +1,6 @@
-# Where To Live / Canada
+# Where U Belong
 
-Answer what you actually want out of a place. It re-ranks all 129 Canadian cities and towns against it, on a map, and tells you what each one costs you.
+Pick up to five things that matter to you and rank them by the order you pick. It re-ranks all 710 Canadian cities and towns against your answer, tells you why, and tells you what it costs you.
 
 **Live: https://rohamghiasicw-star.github.io/where-to-live-canada/**
 
@@ -20,7 +20,7 @@ The Goderich line checks out, by the way. Routed on real roads it is 98.6km and 
 
 ## What is in it
 
-129 places, from Toronto down to Bayfield, Ontario (population 1,100). Real towns, not just metros.
+710 places, from Toronto down to Annapolis Royal, Nova Scotia (population 580). Real towns, not just metros.
 
 | Dimension | Source |
 |---|---|
@@ -30,11 +30,19 @@ The Goderich line checks out, by the way. Routed on real roads it is 98.6km and 
 | Political lean | Elections Canada, 45th General Election, April 2025 |
 | Growth, age, commute, car dependence, jobs, diversity, French | Statistics Canada, 2021 Census Profile |
 | Drive to the nearest real city | OSRM routed on OpenStreetMap roads |
-| What residents say | Reddit, local news, forums, personal blogs (59 places so far) |
+| Age, sex ratio, marital status, religion | Statistics Canada, 2021 Census Profile |
+| Distance to ocean or a big lake | Natural Earth coast and lake geometry, measured to the shoreline |
+| Soccer pitches, ice rinks, places of worship | OpenStreetMap, counted within a 15km drive |
+| Pro sports teams, rapid transit | League and transit-authority sources, verified 2026 |
+| What residents say | Reddit, local news, forums, personal blogs (71 places so far) |
 
 ## How it decides
 
-Each question sets a target and how much it matters. A place scores 0 to 1 per dimension, then a weighted mean gives the fit.
+You pick up to five of the 26 dimensions. **The order you pick is the ranking**: with five picks your first counts five times your fifth. Anything you did not pick is not scored at all.
+
+That replaced an importance dial on every dimension. The dial was unreadable, and worse, it let seventeen lukewarm answers outvote the one thing someone actually cared about. Five ranked picks say the same thing in a fifth of the taps.
+
+A place scores 0 to 1 per dimension, then a weighted power mean gives the fit.
 
 Temperature, size, and drive time use distance to your ideal, so wanting a `-5°C` January does not mean colder is always worse. Cost is one-sided: under budget is good and cheaper is better, over budget falls away fast. Two questions can rule a place out completely rather than let a high score elsewhere paper over it, because "too expensive" and "the air is full of smoke" are not things a nice main street compensates for.
 
@@ -50,13 +58,13 @@ Worth stating, because the whole point is that the numbers are real.
 
 **Nine places had no published normals nearby.** Their figures are computed from raw ECCC monthly observations and labelled as computed, with the year count. Iqaluit has no published normals at all; it uses 13 years of its own station's observations.
 
-**Two of 129 geocodes were wrong.** Kenora resolved to Kenora *District* (54.0°N, hundreds of km off) and Perth to Perth *County*. Both silently poison every distance and climate lookup downstream. Caught by checking each result against its province.
+**Two geocodes were wrong.** Kenora resolved to Kenora *District* (54.0°N, hundreds of km off) and Perth to Perth *County*. Both silently poison every distance and climate lookup downstream. Caught by checking each result against its province.
 
 **Statistics Canada ships that file as latin-1.** Read as UTF-8 with error replacement, "Montréal" quietly becomes `montral` and every accented Quebec place fails to match while the script reports no error.
 
 ## Honesty
 
-Resident research covers 59 of 129 places, and is missing Quebec and Atlantic Canada. The rest are scored on measured data only and say so. Every quote links to the page it came from, so you can check it.
+Resident research covers 71 of 710 places, and is missing much of Quebec and Atlantic Canada. Because it covers 10% of the list and its scores barely spread, it is **not** offered as something to rank on: it is a column and a note on the record, not a criterion. A dimension that is nearly flat across the list adds a decision without adding a distinction. The rest are scored on measured data only and say so. Every quote links to the page it came from, so you can check it.
 
 Small towns have thin data. Where a number is missing it is left blank rather than guessed at.
 
@@ -76,15 +84,18 @@ The other scripts in `src/` regenerate each dataset from its source. They docume
 
 ## The design
 
-It is built as a field guide, not a dashboard. Seventeen dimensions across 129 places is the problem Peterson and Sibley solved for birds: here are many similar things, help me tell mine apart.
+It is built as a field guide, not a dashboard. Twenty-six dimensions across 710 places is the problem Peterson and Sibley solved for birds: here are many similar things, help me tell mine apart.
+
+The flow is one thing at a time: pick what matters, answer one question per screen, get a result. Everything used to be on a single scroll (picker, answers, verdict, search, map, cards and a 27-column table) and that is what made it unreadable. Only the table is behind a click now. The verdict, the reasoning answer by answer, the tradeoff, the runner-up and the provenance all arrive without being asked for, on Datawrapper's rule quoting the NYT's Archie Tse: if the content is hidden, readers will not see it.
 
 The rule everything is checked against: **a graphical move is convincing when it is a function of the data, and costume when it is a layer over the data.** Test any mark by asking whether its value could have come out different. A compass rose always points north, so it carries no information. A magnetic declination diagram looks like its cousin but carries a real angle stamped with an epoch, because it decays.
 
 What that produced:
 
 - **Positional constancy.** The column order never changes, so the eye can detect difference. Read down a column to compare one thing across the country, across a row to read one place.
+- **The reasoning is a check-answers list.** Each of your picks, what you asked for, what the winner actually scores, and a link back to change it. It is a boring government form pattern (GOV.UK), which is exactly why it does not read as generated.
 - **Missing values keep their slot** and read `..`, which is StatCan's own published symbol for "not available". An MLS card leaves `Taxes` blank rather than deleting the cell. The empty slot is information.
-- **Provenance has its own ink.** USGS and NRCan each spend a scarce plate saying how much of the sheet was field checked. 59 of 129 places have resident research and the rest do not, and they must not render identically.
+- **Provenance has its own ink.** USGS and NRCan each spend a scarce plate saying how much of the sheet was field checked. 71 of 710 places have resident research and the rest do not, and they must not render identically.
 - **One arrow, rationed.** It marks the single dimension that separates a place from the ones it ties with. It points at what *distinguishes*, not at what is good.
 - **No dark mode.** There is no dark-mode paper.
 - **No monospace.** The 1985 MLS book was a proportional grotesque. The inheritance from that tradition is tabular figures, not typewriter cosplay.
@@ -92,5 +103,11 @@ What that produced:
 Type is **Radio Canada** by Coppers and Brasses of Montréal, commissioned for CBC/Radio-Canada, OFL. Chosen for fit rather than novelty, and because it ships real tabular figures. The previous stack declared `font-variant-numeric: tabular-nums` while shipping no font that had the feature, so the incantation did nothing. Its width axis carries data: a big city sets wide, a village narrow.
 
 Map geometry from Natural Earth, projected to Statistics Canada Lambert (EPSG:3347), the projection Canada is actually drawn in.
+
+## Things that were quietly broken
+
+**The Jobs question never worked.** It read `unemployment` off `p.cost`, where it is never stored (it lives on `p.life`). Because `p.cost` is truthy for almost every place, the ternary took that branch, read an undefined field, and returned null for all 710 places. It scored nothing, silently, for as long as it existed. Caught by measuring each dimension's discriminative power rather than by reading the code.
+
+**Staging served a stale build for several commits.** `make_staging.py` anchored on the exact string `<div class="sheet">`. The root div gained attributes, the anchor stopped matching, the script raised, and the parent build reported success anyway because it never checked the subprocess. It now anchors on a regex and the build fails loudly.
 
 Idea by a guy in a change room who was right.

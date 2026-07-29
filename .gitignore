@@ -1,3 +1,5 @@
 # local preview server logs and scratch
 *.log
 .DS_Store
+__pycache__/
+*.pyc

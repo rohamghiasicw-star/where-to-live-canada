@@ -141,6 +141,53 @@ for _p in places:
 stats['census'] = sum(1 for p in places if p.get('pop') is not None)
 stats['life'] = sum(1 for p in places if p.get('life'))
 
+# age structure, sex ratio, marital status and religion: same 2021 Census Profile,
+# joined on the CSD code rather than the name so accented Quebec names cannot drift.
+_bycode = {}
+for r in (load('data/census.json') or []):
+    k = key(r.get('name',''), r.get('prov',''))
+    if k in by and r.get('code'): _bycode[str(r['code'])] = by[k]
+_demo_fields = ('children_pct','working_age_pct','seniors_pct','males_per_100_females',
+                'never_married_pct','not_in_couple_pct','no_religion_pct','christian_pct',
+                'muslim_pct','jewish_pct','sikh_pct','hindu_pct','buddhist_pct')
+for r in (load('data/demographics.json') or []):
+    p = _bycode.get(str(r.get('code')))
+    if not p: continue
+    d = {f: r.get(f) for f in _demo_fields if r.get(f) is not None}
+    if d: p['demo'] = d
+stats['demo'] = sum(1 for p in places if p.get('demo'))
+
+# pro sports and rapid transit. Only the places that have either are in the file;
+# absent means none, which is the honest default for the other 630-odd.
+for r in (load('data/civic.json') or []):
+    k = key(r.get('name',''), r.get('prov',''))
+    if k not in by: continue
+    c = {f: r.get(f) for f in ('has_pro_team','pro_league_count','teams',
+                               'rapid_transit','transit_type','transit_name')
+         if r.get(f) is not None}
+    if c: by[k]['civic'] = c
+stats['civic'] = sum(1 for p in places if p.get('civic'))
+
+# distance to ocean / large lake, computed off Natural Earth polygon boundaries
+for r in (load('data/water.json') or []):
+    k = key(r.get('name',''), r.get('prov',''))
+    if k not in by or r.get('km_to_water') is None: continue
+    by[k]['water'] = {f: r.get(f) for f in
+        ('km_to_water','km_to_ocean','km_to_lake','nearest_water_name','nearest_water_type','on_water')}
+stats['water'] = sum(1 for p in places if p.get('water'))
+
+# OpenStreetMap amenity counts within a 15km drive of the place. The overlapping
+# radius column is the right one here: "is there a synagogue within driving
+# distance" is a question about what you can reach, not about who owns it.
+for r in (load('data/osm.json') or []):
+    k = key(r.get('name',''), r.get('prov',''))
+    if k not in by: continue
+    a = {f: r.get(f) for f in ('soccer_pitches','churches','mosques','synagogues',
+         'gurdwaras','temples_hindu','temples_buddhist','worship_total','ice_rinks')
+         if r.get(f) is not None}
+    if a: a['radius_km'] = r.get('radius_km'); by[k]['osm'] = a
+stats['osm'] = sum(1 for p in places if p.get('osm'))
+
 stats['politics'] = merge('data/politics.json', 'politics', lambda r: {
     'lean': r.get('lean'), 'lean_label': r.get('lean_label'),
     'riding': r.get('riding'), 'winner': r.get('riding_2021_winner'),
@@ -240,6 +287,8 @@ for k, v in stats.items():
 missing = [k for k, v in stats.items() if v == 0]
 if missing: print(f"  NOT YET LANDED: {', '.join(missing)}")
 
-# keep the staging copy in lockstep with every build
+# keep the staging copy in lockstep with every build. check=True on purpose: a
+# staging build that fails quietly is worse than no staging build, because it
+# keeps serving the previous version and looks like the change did not work.
 import subprocess
-subprocess.run(['python3', os.path.join(os.path.dirname(__file__), 'make_staging.py')])
+subprocess.run(['python3', os.path.join(os.path.dirname(__file__), 'make_staging.py')], check=True)

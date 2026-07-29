@@ -1,25 +1,16 @@
 <meta charset="utf-8">
-<title>Where To Live / Canada</title>
+<title>Where U Belong</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Rank every Canadian city and town against what you actually want. Environment Canada climate normals, wildfire smoke modelling, 2021 Census, 2025 election results, and what residents say.">
+<meta name="description" content="Pick the five things that matter to you, rank them, and every Canadian city and town re-sorts against your answer. Environment Canada climate normals, wildfire smoke modelling, 2021 Census, 2025 election results, and what residents say.">
 <style>/*__FONTS__*/</style>
 <style>/*__CSS__*/</style>
 
-<div class="sheet">
+<div class="sheet" id="sheetRoot" data-screen="pick">
   <header class="head">
-    <div>
-      <h1>Where to live <i>in Canada</i></h1>
+    <div class="head-main">
+      <h1>Where <i>U</i> Belong</h1>
       <p class="lede" id="lede">Every best-places-to-live list picks the weights for you.
       This one asks what <em>you</em> want, then re-ranks all <b>712 places in Canada</b> against it.</p>
-      <ol class="how">
-        <li><b>Say what you want</b> on the left. Winter, size, budget, politics, and eleven more.</li>
-        <li><b>Say how much each one matters</b> on the <em>Not at all · A little · A lot · A ton</em>
-            bar under it. The steps are steep on purpose: <em>A ton</em> counts nine times
-            <em>A little</em>, so one thing you really care about can outrank everything else together.</li>
-        <li><b>Read your answer</b> at the top. <span class="only-wide">Read the table for why, and
-            hover any column heading to see what it means.</span><span class="only-narrow">Tap
-            <b>List</b> for the ranking, or any place for its full record.</span></li>
-      </ol>
     </div>
     <div class="headnote">
       <b>712</b> cities and towns, every one in Canada<br>
@@ -30,43 +21,71 @@
     </div>
   </header>
 
-  <div class="field" data-view="answer">
-    <section class="survey">
-      <button class="livepick" id="livepick" type="button" aria-label="Your best match so far, tap to see the full list"></button>
-      <div class="survey-head">
-        <h2>What you want</h2>
-        <p>Two steps per question. <b>Pick your answer</b>, then say <b>how much it matters</b>, from <em>Not at all</em> to <em>A ton</em>.<span class="only-wide"> <em>A ton</em> counts nine times <em>A little</em>, so the one thing you can't live without can win on its own.</span></p>
+  <main class="flow">
+
+    <!-- 1. what matters. nothing else on screen. -->
+    <section class="scr" data-scr="pick">
+      <div class="step-head">
+        <h2>What matters to you?</h2>
+        <p class="step-sub" id="pkcount"></p>
+      </div>
+      <div class="picker" id="picker"></div>
+      <p class="pk-why">Pick in the order you care. Your first pick counts most, and
+        anything you leave out is not scored at all.</p>
+    </section>
+
+    <!-- 2. one question per screen, only the ones they picked -->
+    <section class="scr" data-scr="ask">
+      <div class="step-head">
+        <p class="step-n" id="askProg"></p>
+        <h2 id="askTitle">Your answers</h2>
       </div>
       <div id="qs"></div>
-      <div class="survey-foot"><button class="reset" id="reset">Start over</button></div>
+      <div class="askdots" id="askdots"></div>
     </section>
 
-    <section class="plate">
+    <!-- 3. the payoff -->
+    <section class="scr" data-scr="result">
       <div class="verdict" id="verdict"></div>
+    </section>
 
-      <div class="findbar">
-        <input type="search" id="search" placeholder="Find a place, like Goderich…" aria-label="Find a place by name" autocomplete="off">
+    <!-- 4. the field guide, for anyone who wants the raw numbers -->
+    <section class="scr" data-scr="explore">
+      <div class="explore-bar">
+        <div class="findbar">
+          <input type="search" id="search" placeholder="Find a place, like Goderich…" aria-label="Find a place by name" autocomplete="off">
+        </div>
+        <div class="vswitch" id="vswitch" role="group" aria-label="How to show the places">
+          <button data-view="list" aria-pressed="true">Ranked</button>
+          <button data-view="map" aria-pressed="false">Map</button>
+          <button data-view="table" aria-pressed="false">Table</button>
+        </div>
       </div>
 
-      <div class="map-wrap">
-        <canvas id="map" role="img" aria-label="Map of Canada, each place shaded by how well it fits your answers"></canvas>
-        <div class="tip" id="tip"></div>
-      </div>
+      <div class="plate" data-view="list">
+        <div class="map-wrap">
+          <canvas id="map" role="img" aria-label="Map of Canada, each place shaded by how well it fits your answers"></canvas>
+          <div class="tip" id="tip"></div>
+        </div>
 
-      <ol class="cards" id="cards" aria-label="Places ranked for you"></ol>
+        <ol class="cards" id="cards" aria-label="Places ranked for you"></ol>
 
-      <div class="plate-head">
-        <h2>All <span id="total"></span></h2>
-        <span class="note" id="count"></span>
-      </div>
-      <div class="plate-scroll">
-        <table class="plate-t">
-          <thead id="thead"></thead>
-          <tbody id="tbody"></tbody>
-        </table>
+        <div class="plate-head">
+          <h2>All <span id="total"></span></h2>
+          <span class="note" id="count"></span>
+        </div>
+        <div class="plate-scroll">
+          <table class="plate-t">
+            <thead id="thead"></thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
       </div>
     </section>
-  </div>
+
+  </main>
+
+  <div class="actionbar" id="actionbar"></div>
 
   <footer class="foot">
     <div class="legend">
@@ -99,10 +118,14 @@
       </div>
       <div>
         <h3>The rest</h3>
-        Population is StatCan's July 2025 estimate. Income, dwelling values and rent are from the 2021
-        Census at census subdivision level. Home value is what owners estimated their own home was worth in 2021, not a market
-        price. Political lean is computed from Elections Canada's 45th General Election results,
-        with each place located inside its riding. Drive times are routed on real roads.
+        Population is StatCan's July 2025 estimate. Income, dwelling values, rent, age, marital
+        status and religion are from the 2021 Census at census subdivision level. Home value is what
+        owners estimated their own home was worth in 2021, not a market price. Political lean is
+        computed from Elections Canada's 45th General Election results, with each place located
+        inside its riding. Drive times are routed on real roads. Shoreline distance is measured to
+        Natural Earth coast and lake geometry. Soccer pitches, rinks and places of worship are
+        counted within a 15km drive from OpenStreetMap. Pro teams and rapid transit were each
+        checked against league and transit-authority sources in 2026.
       </div>
       <div>
         <h3>What is missing</h3>
@@ -119,12 +142,6 @@
       </div>
     </div>
   </footer>
-
-  <nav class="tabbar" id="tabbar" aria-label="Views">
-    <button data-tab="answer" aria-pressed="true"><span class="ti">Answer</span></button>
-    <button data-tab="list" aria-pressed="false"><span class="ti">List</span></button>
-    <button data-tab="map" aria-pressed="false"><span class="ti">Map</span></button>
-  </nav>
 
   <div class="sheet-overlay" id="sheet" hidden>
     <div class="sheet-scrim" id="sheetScrim"></div>

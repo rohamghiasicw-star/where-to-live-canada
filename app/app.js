@@ -7,6 +7,10 @@ const M = ['J','F','M','A','M','J','J','A','S','O','N','D'];
 const cv = (p, el, m = '13') => (p.climate && p.climate[el]) ? p.climate[el][m] : null;
 const NA = '..';   // StatCan's published symbol for "not available", not an invented dash
 const near = (x, t, tol) => x == null ? null : clamp(1 - Math.abs(x - t) / tol, 0, 1);
+/* how far the year swings, July mean minus January mean. Doug's "seasonality
+   1-5": Ottawa lands at 31 degrees of swing, Victoria at 10. */
+const swingOf = (p) => { const a = cv(p, 'tmean', '7'), b = cv(p, 'tmean', '1');
+  return (a == null || b == null) ? null : a - b; };
 const LIVED_N = DATA.filter((p) => p.lived).length;   // researched places, live count
 
 /* ---------- the dimensions ----------
@@ -28,6 +32,25 @@ const Q = [
     show: (p) => { const x = cv(p, 'tmean', '7'); return x == null ? null : [x.toFixed(1), '°']; },
   },
   {
+    id: 'swing', g: 'Climate', label: 'Seasons', col: 'Swing',
+    hint: 'The gap between January and July. Ottawa swings 31°, Victoria 10°.',
+    kind: 'opts', def: 'big', w: 1,
+    opts: [['big','Four real seasons'],['mid','Some change'],['mild','Much the same all year']],
+    score: (p, v) => { const s = swingOf(p); if (s == null) return null;
+      return near(s, { big: 34, mid: 24, mild: 11 }[v], 15); },
+    show: (p) => { const s = swingOf(p); return s == null ? null : [s.toFixed(0), '°']; },
+  },
+  {
+    id: 'rain', g: 'Climate', label: 'Rain', col: 'Rain', hint: 'Total precipitation in a year.',
+    kind: 'opts', def: 'dry', w: 0,
+    opts: [['dry','Keep it dry'],['mid','In between'],['wet','I like the rain']],
+    score: (p, v) => { const r = cv(p, 'precip'); if (r == null) return null;
+      if (v === 'dry') return clamp(1 - (r - 300) / 900, 0, 1);
+      if (v === 'wet') return clamp((r - 400) / 900, 0, 1);
+      return near(r, 800, 500); },
+    show: (p) => { const r = cv(p, 'precip'); return r == null ? null : [Math.round(r), 'mm']; },
+  },
+  {
     id: 'snow', g: 'Climate', label: 'Snow', col: 'Snow', hint: 'How much shovelling.',
     kind: 'opts', def: 'some', w: 1,
     opts: [['none','As little as possible'],['some','Some is fine'],['lots','Bring it on']],
@@ -41,18 +64,19 @@ const Q = [
   },
   {
     id: 'sun', g: 'Climate', label: 'Sun', col: 'Sun', hint: 'Hours of it a year.',
-    kind: 'opts', def: 'yes', w: 1, opts: [['yes','I need sun'],['meh','Not fussed']],
-    score: (p, v) => { const s = cv(p, 'sun'); if (s == null || v === 'meh') return null;
-      return clamp((s - 1500) / 1000, 0, 1); },
+    kind: 'opts', def: 'yes', w: 1,
+    opts: [['yes','I need sun'],['grey','Grey suits me fine']],
+    score: (p, v) => { const s = cv(p, 'sun'); if (s == null) return null;
+      return v === 'grey' ? clamp(1 - (s - 1500) / 1000, 0, 1) : clamp((s - 1500) / 1000, 0, 1); },
     show: (p) => { const x = cv(p, 'sun'); return x == null ? null : [Math.round(x), 'h']; },
   },
   {
     id: 'smoke', g: 'Climate', label: 'Wildfire smoke', col: 'Smoke',
     hint: 'Modelled smoke from fire only, 12-year average.',
     kind: 'opts', def: 'less', w: 2,
-    opts: [['deal','Dealbreaker'],['less','Prefer less'],['meh','Not fussed']],
+    opts: [['deal','Dealbreaker'],['less','Prefer less']],
     score: (p, v) => { const s = p.smoke ? p.smoke.mean_ugm3 : null;
-      if (s == null || v === 'meh') return null; return clamp(1 - s / 2.6, 0, 1); },
+      if (s == null) return null; return clamp(1 - s / 2.6, 0, 1); },
     hard: (p, v) => v === 'deal' && p.smoke && p.smoke.mean_ugm3 > 1.5,
     hardWhy: 'the smoke',
     show: (p) => p.smoke ? [p.smoke.mean_ugm3.toFixed(2), ''] : null,
@@ -79,6 +103,49 @@ const Q = [
       return d == null ? null : (d === 0 ? ['here', ''] : [Math.round(d), 'm']); },
   },
   {
+    id: 'water', g: 'The place', label: 'Near water', col: 'Water',
+    hint: 'Distance to the ocean or a big lake, measured to the shoreline.',
+    kind: 'opts', def: 'any', w: 0,
+    opts: [['ocean','On the ocean'],['lake','On a lake'],['any','Either will do']],
+    score: (p, v) => { const W = p.water; if (!W) return null;
+      const km = v === 'ocean' ? W.km_to_ocean : v === 'lake' ? W.km_to_lake : W.km_to_water;
+      if (km == null) return null;
+      return clamp(1 - km / 25, 0, 1); },   // on the shore is 1, a 25km drive is 0
+    show: (p) => { const W = p.water; if (!W || W.km_to_water == null) return null;
+      return [W.km_to_water < 1 ? '0' : Math.round(W.km_to_water), 'km']; },
+  },
+  {
+    id: 'pitches', g: 'The place', label: 'Soccer pitches', col: 'Pitch',
+    hint: 'Pitches within a 15km drive, counted off OpenStreetMap.',
+    kind: 'flag', def: 1, w: 0, want: 'Somewhere I can actually get a game',
+    score: (p) => { const n = p.osm ? p.osm.soccer_pitches : null;
+      if (n == null) return null;
+      return clamp(Math.sqrt(n / 50), 0, 1); },   // 50 within a drive is plenty
+    show: (p) => p.osm && p.osm.soccer_pitches != null ? [p.osm.soccer_pitches, ''] : null,
+  },
+  {
+    id: 'sports', g: 'The place', label: 'Pro sports', col: 'Pro',
+    hint: 'A top-tier team that actually plays there. NHL, CFL, MLS, MLB, NBA, WNBA, PWHL, CPL.',
+    kind: 'flag', def: 1, w: 0, want: 'A pro team to go and watch',
+    // absence is verified, not missing, so it scores zero rather than dropping out
+    score: (p) => { const c = p.civic;
+      if (!c || !c.has_pro_team) return 0;
+      return clamp(0.6 + (c.pro_league_count || 1) / 8 * 0.4, 0, 1); },
+    show: (p) => (p.civic && p.civic.pro_league_count)
+      ? [p.civic.pro_league_count, ''] : ['0', ''],
+  },
+  {
+    id: 'transit', g: 'The place', label: 'Rapid transit', col: 'Rail',
+    hint: 'A subway, light rail or commuter train serving the place.',
+    kind: 'flag', def: 1, w: 0, want: 'Rail I can actually use',
+    score: (p) => { const c = p.civic;
+      if (!c || !c.rapid_transit) return 0;
+      return { subway: 1, 'light rail': 0.9, 'commuter rail': 0.5 }[c.transit_type] || 0.5; },
+    show: (p) => { const c = p.civic;
+      if (!c || !c.rapid_transit) return ['no', ''];
+      return [{ subway: 'metro', 'light rail': 'LRT', 'commuter rail': 'GO' }[c.transit_type] || 'yes', '']; },
+  },
+  {
     id: 'cost', g: 'The place', label: 'Housing budget', col: 'Home', hint: 'What you can pay.',
     kind: 'range', min: 200, max: 1400, step: 25, nudge: 100, def: 600, w: 2,
     fmt: (v) => `$${v}k`, ends: ['$200k', '$1.4M'],
@@ -91,10 +158,10 @@ const Q = [
   },
   {
     id: 'politics', g: 'The place', label: 'Politics', col: 'Lean', hint: 'Vote-weighted lean of the federal riding, 2025.',
-    kind: 'opts', def: 'meh', w: 1,
-    opts: [['left','Left'],['centre','Centre'],['right','Right'],['meh','Not fussed']],
+    kind: 'opts', def: 'centre', w: 0,
+    opts: [['left','Left'],['centre','Centre'],['right','Right']],
     score: (p, v) => { const l = p.politics ? p.politics.lean : null;
-      if (l == null || v === 'meh') return null;
+      if (l == null) return null;
       return near(l, { left:-55, centre:0, right:55 }[v], 95); },
     show: (p) => p.politics && p.politics.lean != null
       ? [(p.politics.lean > 0 ? '+' : '') + p.politics.lean.toFixed(0), ''] : null,
@@ -103,10 +170,10 @@ const Q = [
   {
     id: 'growth', label: 'Growing or emptying', col: 'Growth', g: 'Life there',
     hint: 'Population change 2016 to 2021. Some of these towns are shrinking.',
-    kind: 'opts', def: 'meh', w: 1,
-    opts: [['grow','Somewhere on the way up'],['steady','Steady is fine'],['meh','Not fussed']],
+    kind: 'opts', def: 'grow', w: 0,
+    opts: [['grow','On the way up'],['steady','Steady suits me']],
     score: (p, v) => { const x = p.life ? p.life.pop_change : null;
-      if (x == null || v === 'meh') return null;
+      if (x == null) return null;
       return v === 'grow' ? clamp((x + 5) / 20, 0, 1) : near(x, 3, 12); },
     show: (p) => p.life && p.life.pop_change != null
       ? [(p.life.pop_change > 0 ? '+' : '') + p.life.pop_change.toFixed(1), '%'] : null,
@@ -114,65 +181,112 @@ const Q = [
   {
     id: 'age', label: 'Who lives there', col: 'Age', g: 'Life there',
     hint: 'Median age. Under 40 is a working town, over 55 is a retirement one.',
-    kind: 'opts', def: 'meh', w: 1,
-    opts: [['young','Younger crowd'],['mixed','A mix'],['older','Older and quieter'],['meh','Not fussed']],
+    kind: 'opts', def: 'mixed', w: 0,
+    opts: [['young','Younger crowd'],['mixed','A mix'],['older','Older and quieter']],
     score: (p, v) => { const x = p.life ? p.life.median_age : null;
-      if (x == null || v === 'meh') return null;
+      if (x == null) return null;
       return near(x, { young: 36, mixed: 43, older: 56 }[v], 14); },
     show: (p) => p.life && p.life.median_age != null ? [p.life.median_age.toFixed(0), ''] : null,
   },
   {
     id: 'commute', label: 'The commute', col: 'Short', g: 'Life there',
     hint: 'Share of workers who get there in under 15 minutes.',
-    kind: 'opts', def: 'short', w: 1,
-    opts: [['short','I want it short'],['meh','Not fussed']],
-    score: (p, v) => { const x = p.life ? p.life.commute_short_pct : null;
-      if (x == null || v === 'meh') return null; return clamp(x / 80, 0, 1); },
+    kind: 'flag', def: 1, w: 0, want: 'A short commute',
+    score: (p) => { const x = p.life ? p.life.commute_short_pct : null;
+      if (x == null) return null; return clamp(x / 80, 0, 1); },
     show: (p) => p.life && p.life.commute_short_pct != null ? [p.life.commute_short_pct.toFixed(0), '%'] : null,
   },
   {
     id: 'car', label: 'Life without a car', col: 'Carfree', g: 'Life there',
     hint: 'Share who get to work by transit, foot or bike.',
-    kind: 'opts', def: 'meh', w: 0,
-    opts: [['need','I want to manage without one'],['meh','I will drive']],
-    score: (p, v) => { const x = p.life ? p.life.carfree_pct : null;
-      if (x == null || v === 'meh') return null; return clamp(x / 40, 0, 1); },
+    kind: 'flag', def: 1, w: 0, want: 'To manage without a car',
+    score: (p) => { const x = p.life ? p.life.carfree_pct : null;
+      if (x == null) return null; return clamp(x / 40, 0, 1); },
     show: (p) => p.life && p.life.carfree_pct != null ? [p.life.carfree_pct.toFixed(0), '%'] : null,
   },
   {
     id: 'jobs', label: 'The job market', col: 'Unemp', g: 'Life there',
     hint: 'Unemployment rate, 2021.',
-    kind: 'opts', def: 'meh', w: 0,
-    opts: [['need','I need to find work there'],['meh','I bring my own work']],
-    score: (p, v) => { const x = p.cost ? p.cost.unemployment : (p.life ? p.life.unemployment : null);
-      if (x == null || v === 'meh') return null; return clamp(1 - (x - 4) / 14, 0, 1); },
+    kind: 'flag', def: 1, w: 0, want: 'To find work there',
+    score: (p) => { const x = p.life ? p.life.unemployment : null;
+      if (x == null) return null; return clamp(1 - (x - 4) / 14, 0, 1); },
     show: (p) => { const x = p.life ? p.life.unemployment : null;
       return x == null ? null : [x.toFixed(1), '%']; },
   },
   {
     id: 'mix', label: 'Mix of people', col: 'Diverse', g: 'Life there',
     hint: 'Share of residents who are immigrants.',
-    kind: 'opts', def: 'meh', w: 0,
-    opts: [['yes','Somewhere mixed'],['meh','Not fussed']],
-    score: (p, v) => { const x = p.life ? p.life.immigrants_pct : null;
-      if (x == null || v === 'meh') return null; return clamp(x / 35, 0, 1); },
+    kind: 'flag', def: 1, w: 0, want: 'A mixed, diverse place',
+    score: (p) => { const x = p.life ? p.life.immigrants_pct : null;
+      if (x == null) return null; return clamp(x / 35, 0, 1); },
     show: (p) => p.life && p.life.immigrants_pct != null ? [p.life.immigrants_pct.toFixed(0), '%'] : null,
   },
   {
     id: 'french', label: 'French', col: 'French', g: 'Life there',
     hint: 'Share whose first official language is French.',
-    kind: 'opts', def: 'meh', w: 0,
-    opts: [['yes','I want to live in French'],['some','Some is nice'],['meh','Not fussed']],
+    kind: 'opts', def: 'yes', w: 0,
+    opts: [['yes','I want to live in French'],['some','Some is nice']],
     score: (p, v) => { const x = p.life ? p.life.french_pct : null;
-      if (x == null || v === 'meh') return null;
+      if (x == null) return null;
       return v === 'yes' ? clamp(x / 70, 0, 1) : near(x, 25, 45); },
     show: (p) => p.life && p.life.french_pct != null ? [p.life.french_pct.toFixed(0), '%'] : null,
   },
   {
+    id: 'kids', label: 'Kids around', col: 'Kids', g: 'Life there',
+    hint: 'Share of the population under 15. The median place is 16%.',
+    kind: 'opts', def: 'many', w: 0,
+    opts: [['many','Lots of young families'],['few','Not many children']],
+    score: (p, v) => { const x = p.demo ? p.demo.children_pct : null;
+      if (x == null) return null;
+      return v === 'many' ? clamp((x - 8) / 14, 0, 1) : clamp(1 - (x - 8) / 14, 0, 1); },
+    show: (p) => p.demo && p.demo.children_pct != null ? [p.demo.children_pct.toFixed(0), '%'] : null,
+  },
+  {
+    id: 'single', label: 'Single people', col: 'Single', g: 'Life there',
+    hint: 'Share of adults who have never married. The median place is 26%.',
+    kind: 'opts', def: 'single', w: 0,
+    opts: [['single','A lot of single people'],['settled','Mostly settled couples']],
+    score: (p, v) => { const x = p.demo ? p.demo.never_married_pct : null;
+      if (x == null) return null;
+      return v === 'single' ? clamp((x - 15) / 25, 0, 1) : clamp(1 - (x - 15) / 25, 0, 1); },
+    show: (p) => p.demo && p.demo.never_married_pct != null
+      ? [p.demo.never_married_pct.toFixed(0), '%'] : null,
+  },
+  {
+    id: 'gender', label: 'Gender balance', col: 'M/100F', g: 'Life there',
+    hint: 'Men per 100 women. Resource towns run high, retirement towns low.',
+    kind: 'opts', def: 'even', w: 0,
+    opts: [['women','More women than men'],['even','About even'],['men','More men than women']],
+    score: (p, v) => { const x = p.demo ? p.demo.males_per_100_females : null;
+      if (x == null) return null;
+      return near(x, { women: 88, even: 100, men: 112 }[v], 16); },
+    show: (p) => p.demo && p.demo.males_per_100_females != null
+      ? [p.demo.males_per_100_females.toFixed(0), ''] : null,
+  },
+  {
+    id: 'faith', label: 'Faith community', col: 'Faith', g: 'Life there',
+    hint: 'Somewhere your own community is actually present.',
+    kind: 'opts', def: 'none', w: 0,
+    opts: [['christian','Christian'],['muslim','Muslim'],['jewish','Jewish'],['sikh','Sikh'],
+           ['hindu','Hindu'],['buddhist','Buddhist'],['none','Somewhere secular']],
+    score: (p, v) => {
+      const d = p.demo; if (!d) return null;
+      const x = d[v === 'none' ? 'no_religion_pct' : v + '_pct'];
+      if (x == null) return null;
+      // a community is "present" well below a majority: 10% of a city is a lot of
+      // people and plenty of institutions, so the curve saturates early.
+      return v === 'none' || v === 'christian' ? clamp(x / 70, 0, 1) : clamp(x / 10, 0, 1);
+    },
+    show: (p) => { const d = p.demo; if (!d) return null;
+      const v = state.faith, x = d[v === 'none' ? 'no_religion_pct' : v + '_pct'];
+      return x == null ? null : [x.toFixed(x < 10 ? 1 : 0), '%']; },
+  },
+  {
     id: 'mood', label: 'What residents say', col: 'Mood', g: 'Life there',
-    hint: `Only ${LIVED_N} of ${DATA.length} places are researched, so this is off by default.`,
-    kind: 'opts', def: 'meh', w: 0, opts: [['yes','Count it'],['meh','Ignore it']],
-    score: (p, v) => { if (v === 'meh' || !p.lived || !p.lived.sentiment) return null;
+    hint: `Only ${LIVED_N} of ${DATA.length} places are researched.`,
+    kind: 'flag', def: 1, w: 0, want: 'Somewhere residents speak well of',
+    noPick: true,   // shown as a column, not offered as something to rank on
+    score: (p) => { if (!p.lived || !p.lived.sentiment) return null;
       const x = Object.values(p.lived.sentiment).filter((n) => n != null);
       if (!x.length) return null;
       return clamp((x.reduce((a,b)=>a+b,0) / x.length + 2) / 4, 0, 1); },
@@ -190,6 +304,9 @@ const Q = [
 const COLHELP = {
   winter:  ['Average January temperature', '°C', 'Environment Canada normals 1981-2010'],
   summer:  ['Average July temperature', '°C', 'Environment Canada normals 1981-2010'],
+  swing:   ['How far the year swings, July mean minus January mean', '°C',
+            'Environment Canada normals 1981-2010'],
+  rain:    ['Total precipitation in a year', 'mm', 'Environment Canada normals 1981-2010'],
   snow:    ['Snow that falls in a year', 'cm', 'Environment Canada normals 1981-2010'],
   sun:     ['Hours of bright sunshine in a year', 'h', 'Environment Canada normals 1981-2010'],
   smoke:   ['Wildfire smoke in the air, 12-year average', 'µg/m³ of fine particulate',
@@ -206,16 +323,37 @@ const COLHELP = {
   jobs:    ['Unemployment rate', '%', '2021 Census'],
   mix:     ['Share of residents who are immigrants', '%', '2021 Census'],
   french:  ['Share whose first official language is French', '%', '2021 Census'],
+  water:   ['Distance to the ocean or a big lake', 'km', 'Natural Earth shoreline geometry'],
+  pitches: ['Soccer pitches within a 15km drive', '', 'OpenStreetMap'],
+  sports:  ['Top-tier pro leagues playing there', '', 'League and team sources, verified 2026'],
+  transit: ['Rapid transit serving the place', '', 'Transit authority and line sources, verified 2026'],
+  kids:    ['Share of the population under 15', '%', '2021 Census'],
+  single:  ['Share of adults who have never married', '%', '2021 Census'],
+  gender:  ['Men per 100 women', '', '2021 Census'],
+  faith:   ['Share of residents in the community you picked', '%', '2021 Census, religion (25% sample)'],
   mood:    ['How residents sound about the place, -2 to +2', '', 'Forums, local news and blogs. Only where researched.'],
 };
 
 const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'the sun',
+  swing:'the seasons', rain:'the rain',
   smoke:'clean air', size:'the size', prox:'the drive', cost:'the price',
   politics:'the politics', mood:'the mood', growth:'the growth', age:'the crowd',
   commute:'the short commute', car:'getting around without a car', jobs:'the job market',
-  mix:'the mix of people', french:'the French' };
+  mix:'the mix of people', french:'the French', kids:'the young families',
+  single:'the single crowd', gender:'the gender balance', faith:'your community',
+  water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train' };
 const said = (q) => q.kind === 'range' ? q.fmt(state[q.id])
+  : q.kind === 'flag' ? q.want.toLowerCase()
   : (q.opts.find((o) => o[0] === state[q.id]) || ['',''])[1];
+/* short name for the picker tile. the survey label is a sentence heading;
+   a tile needs two or three words that read at a glance. */
+const PICKLABEL = { winter:'Winter', summer:'Summer', swing:'Seasons', rain:'Rain',
+  snow:'Snow', sun:'Sun', smoke:'Clean air', size:'Size of place', prox:'Near a city',
+  cost:'Housing cost', politics:'Politics', growth:'Growing', age:'Who lives there',
+  commute:'Short commute', car:'Life without a car', jobs:'Jobs', mix:'Diverse',
+  french:'French', mood:'What locals say', kids:'Kids around', single:'Single people',
+  gender:'Gender balance', faith:'Faith community', water:'Near water',
+  pitches:'Soccer pitches', sports:'Pro sports', transit:'Rapid transit' };
 const listify = (a) => a.length < 2 ? (a[0]||'') : a.slice(0,-1).join(', ') + ' and ' + a[a.length-1];
 function fmtNum(n) {
   if (n == null) return NA;
@@ -224,28 +362,49 @@ function fmtNum(n) {
   return String(Math.round(n));
 }
 
-/* ---------- state, and the shareable link ---------- */
-const state = {}, weights = {};
-Q.forEach((q) => { state[q.id] = q.def; weights[q.id] = q.w; });
+/* ---------- state, and the shareable link ----------
+   You PICK up to five things that matter and RANK them by the order you pick.
+   Everything you did not pick is not scored at all.
+
+   This replaced an importance dial on all nineteen dimensions. That dial was
+   unreadable ("how much does winter matter" nineteen times), and worse, it let
+   seventeen lukewarm answers outvote the one thing someone actually cared
+   about. Five ranked picks say the same thing in a fifth of the taps. */
+const MAX_PICKS = 5;
+const state = {};
+let picks = [];
+Q.forEach((q) => { state[q.id] = q.def; });
 let selected = null;
 let showAll = false;
 const PLATE_N = 60;   // a plate shows the confusion set, not the whole book
 
 let query = '';   // the "find a place" filter. keeps each place's true rank.
-const OPTKEY = '0123456789abcdefghij';
-const encodeState = () => Q.map((q) => (q.kind === 'range' ? String(state[q.id])
-  : OPTKEY[q.opts.findIndex((o) => o[0] === state[q.id])]) + '.' + weights[q.id]).join('_');
+/* the link carries the picks in rank order, each as questionIndex.value */
+const encodeState = () => picks.map((id) => {
+  const q = Q.find((x) => x.id === id);
+  const v = q.kind === 'range' ? String(state[id])
+          : q.kind === 'flag' ? '0'
+          : String(q.opts.findIndex((o) => o[0] === state[id]));
+  return Q.indexOf(q) + '.' + v;
+}).join('_');
 function decodeState(s) {
-  const parts = (s || '').split('_');
-  if (parts.length !== Q.length) return false;
+  const parts = (s || '').split('_').filter(Boolean);
+  if (!parts.length || parts.length > MAX_PICKS) return false;
+  const next = [];
   try {
-    Q.forEach((q, i) => {
-      const [val, w] = parts[i].split('.');
-      if (q.kind === 'range') { const n = +val; if (!Number.isFinite(n)) throw 0;
-        state[q.id] = clamp(n, q.min, q.max); }
-      else { const o = q.opts[OPTKEY.indexOf(val)]; if (!o) throw 0; state[q.id] = o[0]; }
-      weights[q.id] = clamp(+w || 0, 0, 3);
-    });
+    for (const part of parts) {
+      const [qi, val] = part.split('.');
+      const q = Q[+qi];
+      if (!q || next.includes(q.id)) throw 0;
+      if (q.kind === 'range') {
+        const n = +val; if (!Number.isFinite(n)) throw 0;
+        state[q.id] = clamp(n, q.min, q.max);
+      } else if (q.kind === 'opts') {
+        const o = q.opts[+val]; if (!o) throw 0; state[q.id] = o[0];
+      }
+      next.push(q.id);
+    }
+    picks = next;
     return true;
   } catch (e) { return false; }
 }
@@ -257,20 +416,16 @@ function ownIt() {   // the moment they change anything, the result is theirs, n
 }
 
 /* ---------- scoring ----------
-   Two deliberate choices, both to stop the dimensions cancelling each other out.
-
-   1. Weights are 1 / 3 / 9, not 1 / 2 / 3. With seventeen dimensions live, a
-      linear 3 is still only about a seventh of the total, so "matters a lot"
-      bought almost nothing. Ask for a +6 January on the old scale and it
-      returned Cape Breton (-5.4) and Saint John (-7.9) in the top two.
+   1. Weight comes from your ranking. With n picks, your first counts n and your
+      last counts 1, so a full five reads 5-4-3-2-1. It is stated on the page in
+      those words, because a weighting nobody can explain is a black box.
 
    2. The fit is a weighted power mean with p<1, not a plain average. A plain
       average is fully compensatory: a place can fail the one thing you care
       most about and still win by being mediocre on everything else. p=0.5
       makes a bad score on a heavy dimension bite instead of averaging out.  */
-const WEIGHT_SCALE = [0, 1, 3, 9];
 const P_MEAN = 0.5;
-const wOf = (id) => WEIGHT_SCALE[weights[id]] || 0;
+const wOf = (id) => { const i = picks.indexOf(id); return i < 0 ? 0 : picks.length - i; };
 
 function scoreAll() {
   const out = DATA.map((p) => {
@@ -420,20 +575,6 @@ function ribbon(el, p) {
   t.forEach((v,i) => c.fillText(M[i], i*bw+bw/2-3, h-1));
 }
 
-/* the live result pinned to the top of the Answer tab on a phone, so you see
-   your best match update as you tune instead of tab-switching to check. */
-function livepick() {
-  const el = $('#livepick'); if (!el) return;
-  const r = ranked.find((x) => !x.excluded);
-  if (!r) { el.innerHTML = `<span class="lp-lead">No match</span><span class="lp-name">Loosen a dealbreaker</span>`; return; }
-  const p = r.p;
-  el.innerHTML =
-    `<span class="lp-lead">Best match so far</span>
-     <span class="lp-name">${p.name}<span class="lp-pv">${p.prov}</span></span>
-     <span class="lp-fit" style="background:${rampOf(r.fit)}">${Math.round(r.fit)}</span>
-     <span class="lp-go">see all ${ranked.filter((x)=>!x.excluded).length} &rsaquo;</span>`;
-}
-
 /* ---------- render ---------- */
 function verdict() {
   const r = ranked.find((x) => !x.excluded);
@@ -461,22 +602,67 @@ function verdict() {
         (${a.label.toLowerCase()}). That is the one giving way.`;
     }
   }
+  /* The point of ranking 710 places rather than the famous 30 is that the answer
+     can be somewhere you have never heard of. Find the best-scoring small place
+     that is not already in the top three, and say so out loud. */
+  const wild = ranked.find((x) => !x.excluded && x !== r
+    && ranked.filter((y) => !y.excluded).indexOf(x) > 2
+    && (x.p.pop || 0) < 30000 && x.fit > r.fit - 12);
+
   const cutMsg = cut > ranked.length * 0.5
     ? `Your dealbreakers rule out ${cut} of ${ranked.length} places.` : null;
+
+  /* Your five answers, each with what this place actually scored on it, and a link
+     back to change it. This is the GOV.UK check-answers pattern: it is the "why",
+     the decomposition and the edit affordance in one boring, legible component.
+     It is deliberately NOT hidden behind a click - the whole argument for the
+     result screen is that the reasoning arrives without being asked for. */
+  const rows = picks.map((id, i) => {
+    const q = Q.find((x) => x.id === id);
+    const sc = r.cells[id], val = q.show(p);
+    const bar = sc == null ? '' :
+      `<span class="ca-bar"><i style="width:${Math.round(sc*100)}%;background:${rampOf(sc*100)}"></i></span>`;
+    return `<div class="ca-row">
+      <span class="ca-k"><span class="q-rank">${i + 1}</span>${q.label}</span>
+      <span class="ca-v">${said(q)}</span>
+      <span class="ca-got">${val ? `${p.name} is <b>${val[0]}${val[1]}</b>` :
+        `<span class="na">not recorded here</span>`}${bar}</span>
+      <button class="ca-ch" data-goq="${i}">Change</button>
+    </div>`;
+  }).join('');
+
   host.innerHTML = `
-    <p class="v-lead">${shared ? 'They should live in' : 'You should live in'}</p>
-    <h2 class="v-name">${p.name}<span class="pv">${p.prov}</span></h2>
-    <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
-      ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
-    ${conflict || cutMsg ? `<p class="v-warn">${[cutMsg, conflict].filter(Boolean).join(' ')}
-      <b>${Math.round(r.fit)} out of 100</b> is the best fit available, so something has to give.</p>` : ''}
+    <div class="v-hero">
+      <p class="v-lead">${shared ? 'They belong in' : 'You belong in'}</p>
+      <h2 class="v-name">${p.name}<span class="pv">${p.prov}</span></h2>
+      <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
+        ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
+      <p class="v-score">Fit <b>${Math.round(r.fit)}</b> out of 100${
+        r.coverage < 0.999 ? `, on the ${Math.round(r.coverage*100)}% of your answers it has data for` : ''}</p>
+    </div>
+
+    <div class="checkans">
+      <p class="ca-head">Why, answer by answer</p>
+      ${rows}
+    </div>
+
+    ${conflict || cutMsg ? `<p class="v-warn">${[cutMsg, conflict].filter(Boolean).join(' ')}</p>` : ''}
     ${cf ? `<p class="v-catch">Nearly the same on your answers: <b>${cf.others.join(', ')}</b>.
       What separates them is <b>${SHORT[cf.splitter]}</b>.</p>` : ''}
     ${L.honest_downside ? `<p class="v-catch"><b>The catch, from people who live there.</b> ${L.honest_downside}</p>` : ''}
+    ${wild ? `<p class="v-wild"><b>One you were probably not thinking of.</b>
+      <span class="v-wn">${wild.p.name}<span class="pv">${wild.p.prov}</span></span>
+      population ${fmtNum(wild.p.pop)}, and it scores ${Math.round(wild.fit)} on the same answers.</p>` : ''}
+
+    ${runners.length ? `<p class="v-next">Then <b>${runners.map((x)=>x.p.name).join('</b>, <b>')}</b>.</p>` : ''}
     <div class="v-foot">
       <button class="v-share" id="share">Send this to someone</button>
-      <span class="v-next">Then ${runners.map((x)=>x.p.name).join(', ')}</span>
-    </div>`;
+      <button class="v-again" id="vagain">Start over</button>
+    </div>
+    <p class="v-prov">Climate from Environment Canada normals. Smoke from the ECCC FireWork model,
+      fires differenced out. Population, income, housing, age and religion from the 2021 Census and
+      StatCan's 2025 estimate. Politics from the 2025 federal result. Nothing here is a
+      recommendation, and where a number is missing it is dropped rather than guessed at.</p>`;
 }
 
 function cellHTML(q, r) {
@@ -567,8 +753,18 @@ function displayList() {
 
 function draw() {
   ranked = scoreAll();
+  history.replaceState(null, '', picks.length ? '#' + encodeState() : location.pathname);
+  // only the screen on show gets built. The table is 710 rows by 27 columns and
+  // there is no reason to pay for it while someone is still picking.
+  if (screen === 'result') { verdict(); return; }
+  if (screen !== 'explore') return;
+  drawExplore();
+}
+
+function drawExplore() {
   const live = ranked.filter((r) => !r.excluded);
   const list = displayList();
+  $('.plate').dataset.view = exView;
   $('#total').textContent = DATA.length;
   $('#count').innerHTML = query
     ? `${list.length} match${list.length === 1 ? '' : 'es'} for “${query}”` +
@@ -576,14 +772,14 @@ function draw() {
     : `${live.length} of ${DATA.length} clear your dealbreakers` +
       (ranked.length > PLATE_N ? ` &nbsp;<button class="showall" id="showall">${
         showAll ? 'show the top 60' : `show all ${ranked.length}`}</button>` : '');
-  verdict();
-  livepick();
-  history.replaceState(null, '', '#' + encodeState());
+  if (exView === 'list') { drawCards(); return; }
+  if (exView === 'map')  { drawMap(); return; }
+  drawTable();
+}
 
+function drawTable() {
+  const list = displayList();
   const cols = Q.filter((q) => q.col);
-
-  if (MOBILE.matches) { drawCards(); drawMap(); return; }   // phone: cards, not the 15k-cell plate
-
   $('#thead').innerHTML = `<tr><th></th><th class="l">Place</th><th>Fit</th>
     ${cols.map((q) => { const h = COLHELP[q.id] || [q.label,'',''];
       return `<th${wOf(q.id) ? '' : ' style="opacity:.45"'} title="${h[0]}${h[1] ? ' ('+h[1]+')' : ''}. ${h[2]}">${q.col}</th>`; }).join('')}
@@ -606,7 +802,6 @@ function draw() {
 
   const rib = $('[data-rib]');
   if (rib) { const r = ranked.find((x) => x.p.name + x.p.prov === selected); if (r) ribbon(rib, r.p); }
-  drawMap();
 }
 
 /* ---------- mobile: ranked cards + detail sheet ----------
@@ -664,72 +859,144 @@ $('#cards').addEventListener('click', (e) => {
   openSheet(ranked[+b.dataset.i]);
 });
 
-/* bottom tab bar: switch the visible screen. Ephemeral, never in the URL. */
-const field = $('.field');
+/* ---------- screens ----------
+   One thing at a time. Everything used to be on a single scroll: the picker, the
+   answers, the verdict, a search box, a map, cards and a 27-column table. That is
+   what made it unreadable. Now: pick, answer one question at a time, get a result,
+   and the field guide waits behind one button for anyone who wants the numbers. */
+const root = $('#sheetRoot');
+let screen = 'pick';        // pick | ask | result | explore
+let askIdx = 0;
+let exView = 'list';        // list | map | table
 
-// tapping the live-pick bar jumps to the full list
-$('#livepick').addEventListener('click', () => {
-  field.dataset.view = 'list';
-  $('#tabbar').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.tab === 'list'));
+function goTo(s) {
+  screen = s;
+  root.dataset.screen = s;
+  if (s === 'ask') {
+    if (!picks.length) { screen = 'pick'; root.dataset.screen = 'pick'; }
+    else askIdx = clamp(askIdx, 0, picks.length - 1);
+  }
+  if (screen === 'pick') buildPicker();
+  if (screen === 'ask') buildAsk();
+  actionbar();
+  render();
   scrollTo(0, 0);
+}
+
+function actionbar() {
+  const bar = $('#actionbar'), n = picks.length;
+  if (screen === 'pick') {
+    bar.innerHTML = `<button class="ab-main" id="abGo"${n ? '' : ' disabled'}>${
+      n ? `Answer ${n} question${n > 1 ? 's' : ''}` : 'Pick at least one thing'}</button>`;
+  } else if (screen === 'ask') {
+    bar.innerHTML = `<button class="ab-back" id="abBack">Back</button>
+      <button class="ab-main" id="abGo">${
+        askIdx >= n - 1 ? 'Where do I belong?' : 'Next'}</button>`;
+  } else if (screen === 'result') {
+    bar.innerHTML = `<button class="ab-back" id="abEdit">Change answers</button>
+      <button class="ab-main" id="abExplore">See all ${DATA.length}</button>`;
+  } else {
+    // on the field guide the way back to your answer is the primary move, not editing
+    bar.innerHTML = `<button class="ab-back" id="abEdit">Change answers</button>
+      <button class="ab-main" id="abResult">Back to my result</button>`;
+  }
+}
+
+$('#actionbar').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b || b.disabled) return;
+  if (b.id === 'abGo' && screen === 'pick') { askIdx = 0; goTo('ask'); return; }
+  if (b.id === 'abGo' && screen === 'ask') {
+    if (askIdx >= picks.length - 1) goTo('result');
+    else { askIdx++; buildAsk(); actionbar(); scrollTo(0, 0); }
+    return;
+  }
+  if (b.id === 'abBack') {
+    if (askIdx > 0) { askIdx--; buildAsk(); actionbar(); scrollTo(0, 0); }
+    else goTo('pick');
+    return;
+  }
+  if (b.id === 'abEdit') goTo('pick');
+  if (b.id === 'abExplore') goTo('explore');
+  if (b.id === 'abResult') goTo('result');
 });
-$('#tabbar').addEventListener('click', (e) => {
-  const b = e.target.closest('button[data-tab]'); if (!b) return;
-  field.dataset.view = b.dataset.tab;
-  $('#tabbar').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x === b));
-  if (b.dataset.tab === 'map') drawMap();   // canvas needs a redraw once its tab is visible
-  scrollTo(0, 0);
+
+// the three ways to read the same ranking
+$('#vswitch').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-view]'); if (!b) return;
+  exView = b.dataset.view;
+  $('#vswitch').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x === b));
+  render();
 });
 
 // re-render when crossing the desktop/mobile boundary so the right structure builds
 MOBILE.addEventListener('change', () => { selected = null; render(); });
 
-/* ---------- survey ---------- */
-function buildSurvey() {
+/* ---------- survey ----------
+   Two parts. The picker is every dimension as a tile; tapping one adds it to
+   your ranking and stamps it with its number. Below it, only the things you
+   picked ask you anything. Pick nothing and you are asked nothing. */
+const PICKABLE = Q.filter((q) => !q.noPick);
+function buildPicker() {
+  const qt = $('#qtotal'); if (qt) qt.textContent = PICKABLE.length;   // never let the copy go stale
   let lastG = null;
-  $('#qs').innerHTML = Q.map((q) => {
-    // "Life there" (the eight mostly-off census questions) collapses on a phone so
-    // the survey opens at ~9 questions instead of a 17-question wall.
-    const collapsible = q.g === 'Life there';
-    const head = q.g !== lastG
-      ? (collapsible
-          ? `<button class="qgroup qgroup-toggle" id="lifetoggle" type="button" aria-expanded="false">${q.g}<span class="qg-more">8 more things &rsaquo;</span></button>`
-          : `<p class="qgroup">${q.g}</p>`)
-      : '';
+  const host = $('#picker');
+  host.innerHTML = PICKABLE.map((q) => {
+    const head = q.g !== lastG ? `<p class="pk-g">${q.g}</p>` : '';
     lastG = q.g;
-    const body = q.kind === 'range'
-      ? `<div class="slider-row">
-           <button class="step" type="button" data-step="${q.id}" data-dir="-1" aria-label="Lower ${q.label}">&minus;</button>
-           <input type="range" id="r-${q.id}" min="${q.min}" max="${q.max}"
-             step="${q.step}" value="${state[q.id]}" aria-label="${q.label}">
-           <button class="step" type="button" data-step="${q.id}" data-dir="1" aria-label="Raise ${q.label}">+</button>
-           <span class="readout" id="o-${q.id}">${q.fmt(state[q.id])}</span></div>
-         <div class="scale-ends"><span>${q.ends[0]}</span><span>${q.ends[1]}</span></div>`
-      : `<div class="opts">${q.opts.map(([v,l]) => `<button class="opt" data-q="${q.id}" data-v="${v}"
-           aria-pressed="${state[q.id]===v}">${l}</button>`).join('')}</div>`;
-    // importance as a four-stop word bar, not three unlabelled squares. Skip is
-    // explicit, so "off" no longer means "click the same box again".
-    const seg = WLAB.map((lab, n) => `<button class="seg-b${n === 0 ? ' skip' : ''}" type="button"
-        data-w="${q.id}" data-n="${n}" aria-label="${q.label}, ${lab}" aria-pressed="${weights[q.id] === n}">${lab}</button>`).join('');
-    return head + `<div class="q${collapsible ? ' q-life' : ''}"><p class="q-label">${q.label}</p>
-      <p class="q-hint">${q.hint}</p>${body}
-      <p class="seg-q">How much does ${q.label.toLowerCase()} matter to you?</p>
-      <div class="seg" role="group" aria-label="How much ${q.label} matters">${seg}</div></div>`;
+    const i = picks.indexOf(q.id);
+    return head + `<button class="pk${i >= 0 ? ' on' : ''}" type="button" data-pick="${q.id}"
+      aria-pressed="${i >= 0}" aria-label="${PICKLABEL[q.id] || q.label}${i >= 0 ? `, ranked ${i+1}` : ''}"
+      >${i >= 0 ? `<span class="pk-n">${i + 1}</span>` : ''}${PICKLABEL[q.id] || q.label}</button>`;
   }).join('');
-  // wire the collapse toggle (default collapsed on a phone)
-  const tog = $('#lifetoggle');
-  if (tog) tog.addEventListener('click', () => {
-    const open = $('#qs').classList.toggle('life-open');
-    tog.setAttribute('aria-expanded', open);
-    tog.querySelector('.qg-more').innerHTML = open ? 'hide &rsaquo;' : '8 more things &rsaquo;';
-  });
-}
-const WLAB = ['Not at all', 'A little', 'A lot', 'A ton'];
-function syncTicks() {
-  document.querySelectorAll('.seg-b').forEach((b) =>
-    b.setAttribute('aria-pressed', weights[b.dataset.w] === +b.dataset.n));
+  host.classList.toggle('full', picks.length >= MAX_PICKS);
+  const n = picks.length;
+  $('#pkcount').innerHTML = n === 0
+    ? `Tap up to ${MAX_PICKS}. The order you tap is the order they count.`
+    : n >= MAX_PICKS
+      ? `That is your ${MAX_PICKS}. Tap one again to swap it out.`
+      : `<b>${n} of ${MAX_PICKS}</b> picked. ${n === 1 ? 'Pick another, or stop here.' : 'Keep going, or stop here.'}`;
 }
 
+/* the control for one question. Shared by the solo ask screen. */
+function controlHTML(q) {
+  if (q.kind === 'range') return `<div class="slider-row">
+      <button class="step" type="button" data-step="${q.id}" data-dir="-1" aria-label="Lower ${q.label}">&minus;</button>
+      <input type="range" id="r-${q.id}" min="${q.min}" max="${q.max}"
+        step="${q.step}" value="${state[q.id]}" aria-label="${q.label}">
+      <button class="step" type="button" data-step="${q.id}" data-dir="1" aria-label="Raise ${q.label}">+</button>
+      <span class="readout" id="o-${q.id}">${q.fmt(state[q.id])}</span></div>
+    <div class="scale-ends"><span>${q.ends[0]}</span><span>${q.ends[1]}</span></div>`;
+  if (q.kind === 'flag') return `<p class="q-flag">${q.want}.</p>
+    <p class="q-flagnote">Nothing to set here. You picked it, so it counts.</p>`;
+  return `<div class="opts opts-big">${q.opts.map(([v,l]) => `<button class="opt" data-q="${q.id}" data-v="${v}"
+      aria-pressed="${state[q.id]===v}">${l}</button>`).join('')}</div>`;
+}
+
+/* one question, filling the screen, in rank order. */
+function buildAsk() {
+  const id = picks[askIdx]; if (!id) return;
+  const q = Q.find((x) => x.id === id);
+  const nth = ['your top priority','your second priority','your third priority',
+               'your fourth priority','your fifth priority'][askIdx] || 'a priority';
+  $('#askProg').textContent = `Question ${askIdx + 1} of ${picks.length}`;
+  $('#askTitle').textContent = q.label;
+  $('#qs').innerHTML = `<div class="q q-solo">
+      <p class="q-rankline"><span class="q-rank">${askIdx + 1}</span>This is ${nth}</p>
+      <p class="q-hint">${q.hint}</p>
+      ${controlHTML(q)}
+    </div>`;
+  $('#askdots').innerHTML = picks.map((_, i) =>
+    `<span class="dot${i === askIdx ? ' on' : i < askIdx ? ' done' : ''}"></span>`).join('');
+}
+
+$('#picker').addEventListener('click', (e) => {
+  const b = e.target.closest('.pk'); if (!b) return;
+  const id = b.dataset.pick, i = picks.indexOf(id);
+  if (i >= 0) picks.splice(i, 1);                       // tap again to drop, the rest renumber
+  else if (picks.length >= MAX_PICKS) return;           // full: the tiles are visibly dimmed
+  else picks.push(id);
+  ownIt(); buildPicker(); actionbar(); render();
+});
 $('#qs').addEventListener('input', (e) => {
   if (e.target.type !== 'range') return;
   const id = e.target.id.slice(2), q = Q.find((x) => x.id === id);
@@ -750,20 +1017,18 @@ $('#qs').addEventListener('click', (e) => {
     render();
     return;
   }
-  const o = e.target.closest('.opt'), w = e.target.closest('.seg-b');
-  if (o || w) ownIt();
+  const o = e.target.closest('.opt');
   if (o) {
+    ownIt();
     state[o.dataset.q] = o.dataset.v;
     o.closest('.opts').querySelectorAll('.opt').forEach((b) => b.setAttribute('aria-pressed', b === o));
-    if (!weights[o.dataset.q]) { weights[o.dataset.q] = 2; syncTicks(); }   // touching a dead question wakes it
     render();
-  }
-  if (w) {
-    weights[w.dataset.w] = +w.dataset.n;      // set the importance directly
-    syncTicks(); render();
   }
 });
 document.addEventListener('click', (e) => {
+  const ch = e.target.closest('.ca-ch');
+  if (ch) { askIdx = +ch.dataset.goq; goTo('ask'); return; }
+  if (e.target.closest('#vagain')) { startOver(); return; }
   if (e.target.closest('#showall')) { showAll = !showAll; render(); return; }
   if (e.target.closest('#clearsearch')) { query = ''; const s = $('#search'); if (s) s.value = ''; render(); }
 });
@@ -771,9 +1036,10 @@ document.addEventListener('click', (e) => {
 // "find a place" search. On a phone, jump to the List so results are visible.
 $('#search').addEventListener('input', (e) => {
   query = e.target.value.trim();
-  if (query && MOBILE.matches && field.dataset.view !== 'list') {
-    field.dataset.view = 'list';
-    $('#tabbar').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.tab === 'list'));
+  if (query && exView !== 'list') {   // a search you cannot see the results of is a dead end
+    exView = 'list';
+    $('#vswitch').querySelectorAll('button').forEach((x) =>
+      x.setAttribute('aria-pressed', x.dataset.view === 'list'));
   }
   render();
 });
@@ -782,17 +1048,23 @@ $('#tbody').addEventListener('click', (e) => {
   const r = ranked[+b.dataset.i], key = r.p.name + r.p.prov;
   selected = selected === key ? null : key; render();
 });
-$('#reset').addEventListener('click', () => {
-  Q.forEach((q) => { state[q.id] = q.def; weights[q.id] = q.w; });
-  selected = null; history.replaceState(null, '', location.pathname);
-  buildSurvey(); render();
-});
+function startOver() {
+  Q.forEach((q) => { state[q.id] = q.def; });
+  picks = []; askIdx = 0; selected = null; query = '';
+  history.replaceState(null, '', location.pathname);
+  goTo('pick');
+}
 document.addEventListener('click', async (e) => {
   const b = e.target.closest('#share'); if (!b) return;
   const top = ranked.find((r) => !r.excluded);
-  const text = top ? `Apparently I should live in ${top.p.name}, ${top.p.prov}.` : 'Where should I live in Canada?';
+  const mine = picks.length
+    ? ` I ranked ${listify(picks.slice(0, 3).map((id) => SHORT[id]))} and got ${Math.round(top.fit)} out of 100.`
+    : '';
+  const text = top
+    ? `Apparently I belong in ${top.p.name}, ${top.p.prov}.${mine} Where do you belong?`
+    : 'Where do you belong in Canada?';
   try {
-    if (navigator.share) { await navigator.share({ title: 'Where To Live / Canada', text, url: location.href }); return; }
+    if (navigator.share) { await navigator.share({ title: 'Where U Belong', text, url: location.href }); return; }
     await navigator.clipboard.writeText(`${text} ${location.href}`);
     b.textContent = 'Copied, with your answers in it';
     setTimeout(() => { b.textContent = 'Send this to someone'; }, 2600);
@@ -843,7 +1115,11 @@ let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(ren
 
 const ORIG_LEDE = ($('#lede') || {}).innerHTML;   // captured before the shared override, restored on edit
 if (shared) $('#lede').innerHTML = `Someone sent you their answers, so this is <b>their</b> result.
-  Change anything on the left and it becomes yours.`;
+  Change anything and it becomes yours.`;
 
-buildSurvey();
+/* a shared link lands straight on the sender's result, which is the whole point
+   of sharing one. Everyone else starts at the picker. */
+buildPicker();
+if (shared && picks.length) { screen = 'result'; root.dataset.screen = 'result'; }
+actionbar();
 draw();          // first paint is synchronous: never depend on a frame that may not come
