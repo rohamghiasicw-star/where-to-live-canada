@@ -27,9 +27,9 @@ so it is an annual-average concentration in ug/m3, the same construct as
 FireWork CE's "yearly average of wildfire contribution: surface PM2.5", and one
 extreme fire year (2020 in the US, 2023 in Canada) counts once, not once over.
 
-Coverage: contiguous US only. The source dataset does not exist for Alaska or
-Hawaii, so AK and HI are emitted as null. Alaska genuinely burns; a null is
-honest and a zero would be a lie.
+Coverage: contiguous US only. The source dataset does not exist for Alaska,
+Hawaii or Puerto Rico, so those are emitted as null. Alaska genuinely burns; a
+null is honest and a zero would be a lie.
 
 Requires: numpy, pandas. No GDAL/rasterio/geopandas - the shapefile is parsed
 with struct. Downloads ~1.8 GB on first run into WORK (resumable via curl -C -).
@@ -62,11 +62,11 @@ MAX_ID  = 221556                # 10 km raster index space (grid IDs run to 2215
 
 # Output grid. 0.1 deg ~ 11.1 km N-S and 8.5-10.3 km E-W across CONUS, i.e. the
 # same order as the 10 km source, so resampling neither invents nor loses detail.
-# The box deliberately spans Alaska and Hawaii even though both are null there,
-# so that a nearest-neighbour sample for Anchorage or Honolulu lands on a null
-# cell instead of being clamped to the nearest CONUS value.
+# The box deliberately spans Alaska, Hawaii and Puerto Rico even though all three
+# are null, so that a nearest-neighbour sample for Anchorage, Honolulu or San Juan
+# lands on a null cell instead of being clamped to the nearest CONUS value.
 LAT0, LON0, DLAT, DLON = 18.0, -180.0, 0.1, 0.1
-NLAT, NLON = 541, 1141          # 18.0..72.0 N, -180.0..-66.0 E
+NLAT, NLON = 541, 1161          # 18.0..72.0 N, -180.0..-64.0 E
 
 R_EARTH  = 6371.0088            # km
 MAX_KM   = 7.1                  # half-diagonal of a 10 km cell = 7.07 km.
@@ -268,13 +268,13 @@ def main():
                  "Cumulative Effects values in data/smoke.json. "
                  "values[i][j] is at lat = lat0 + i*dlat, lon = lon0 + j*dlon; "
                  "row 0 is the southernmost. null = no data. The source is "
-                 "contiguous-US only, so ALASKA AND HAWAII ARE null, not zero, "
-                 "and so is everything outside the CONUS land/coastal domain. "
-                 "Do not fill them; Alaska burns and a zero there would be "
-                 "wrong. The grid box spans AK and HI on purpose so a "
-                 "nearest-neighbour lookup there returns null instead of being "
-                 "clamped to a CONUS value. Modelled, not measured: spatial "
-                 "out-of-sample R2 = 0.67."
+                 "contiguous-US only, so ALASKA, HAWAII AND PUERTO RICO ARE "
+                 "null, not zero, and so is everything outside the CONUS "
+                 "land/coastal domain. Do not fill them; Alaska burns and a zero "
+                 "there would be wrong. The grid box spans AK, HI and PR on "
+                 "purpose so a nearest-neighbour lookup there returns null "
+                 "instead of being clamped to a CONUS value. Modelled, not "
+                 "measured: spatial out-of-sample R2 = 0.67."
                  % (Y0, Y1, NDAYS, NDAYS)),
         "lat0": LAT0, "lon0": LON0, "dlat": DLAT, "dlon": DLON,
         "nlat": NLAT, "nlon": NLON,
@@ -343,13 +343,38 @@ def main():
         print("\n--- validation: data/us/places.json coverage ---")
         print("  %d/%d places resolve; %d null, states: %s"
               % (len(places) - len(miss), len(places), len(miss), ",".join(states)))
-        bad = [p for p in miss if p["state"] not in ("AK", "HI")]
+        bad = [p for p in miss if p["state"] not in ("AK", "HI", "PR")]
         for p in bad[:20]:
             print("    unexpected null: %s, %s (%.4f, %.4f)"
                   % (p["name"], p["state"], p["lat"], p["lon"]))
-        hi_ak = [p for p in places if p["state"] in ("AK", "HI")
+        hi_ak = [p for p in places if p["state"] in ("AK", "HI", "PR")
                  and sample(p["lat"], p["lon"]) is not None]
-        print("  AK/HI places with a non-null value (must be 0): %d" % len(hi_ak))
+        print("  AK/HI/PR places with a non-null value (must be 0): %d" % len(hi_ak))
+
+        by_state = {}
+        for p in places:
+            v = sample(p["lat"], p["lon"])
+            if v is not None:
+                by_state.setdefault(p["state"], []).append(v)
+        rank = sorted(((s, float(np.mean(v)), len(v)) for s, v in by_state.items()
+                       if len(v) >= 5), key=lambda t: -t[1])
+        print("\n--- validation: state means at real places (>=5 places) ---")
+        print("  smokiest 10:")
+        for s, m, k in rank[:10]:
+            print("    %-4s %.3f  (n=%d)" % (s, m, k))
+        print("  cleanest 10:")
+        for s, m, k in rank[-10:]:
+            print("    %-4s %.3f  (n=%d)" % (s, m, k))
+        top = sorted(((sample(p["lat"], p["lon"]) or -1, p) for p in places),
+                     key=lambda t: -t[0])[:12]
+        print("  smokiest 12 individual places:")
+        for v, p in top:
+            print("    %-22s %-3s %.3f" % (p["name"][:22], p["state"], v))
+
+    i, j = np.unravel_index(np.nanargmax(grid), grid.shape)
+    print("\n--- validation: grid maximum ---")
+    print("  %.3f ug/m3 at lat %.2f lon %.2f" % (grid[i, j], LAT0 + i * DLAT,
+                                                 LON0 + j * DLON))
 
 
 if __name__ == "__main__":

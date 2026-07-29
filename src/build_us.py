@@ -50,7 +50,11 @@ places = [p for p in places if p.get('state') not in TERRITORIES]
 # Two places carry a Census parenthetical that reads as a glitch on a result card.
 # The Canadian build does the same thing for border-split "(Part)" names.
 ALIAS = {'San Buenaventura (Ventura)': 'Ventura',
-         'El Paso de Robles (Paso Robles)': 'Paso Robles'}
+         'El Paso de Robles (Paso Robles)': 'Paso Robles',
+         'Urban Honolulu': 'Honolulu',
+         'Nashville-Davidson': 'Nashville',
+         'Louisville/Jefferson County': 'Louisville',
+         'Athens-Clarke County': 'Athens'}
 for p in places:
     if p['name'] in ALIAS:
         p['name'] = ALIAS[p['name']]
@@ -137,7 +141,17 @@ def hav(a, b, c, d):
 
 
 ELEMS = ('tmean', 'tmax', 'tmin', 'precip', 'snow')
-stations = load('data/us/noaa_stations.json') or []
+_st = load('data/us/noaa_stations.json') or []
+# the file is {meta, stations}; meta records the units, the missing-value policy and
+# that the US normals publish no bright-sunshine element, so there is no `sun` column
+stations = _st.get('stations', []) if isinstance(_st, dict) else _st
+# true place elevations if that step has landed; otherwise the local-profile guard
+# below carries the job on its own
+_elev = load('data/us/elevation.json') or {}
+for p in places:
+    e = _elev.get(str(p.get('geoid')))
+    if e is not None:
+        p['elev_m'] = e
 if stations:
     # bucket stations by rounded degree so this is not 3000 x 10000 comparisons
     grid = {}
@@ -158,18 +172,48 @@ if stations:
         cands = near_stations(p['lat'], p['lon'])
         if not cands:
             cands = near_stations(p['lat'], p['lon'], 3)
+        # What elevation should this place's climate be at? If the true place
+        # elevation is known, use it. Otherwise take the median of the nearby
+        # stations, which is the whole point: a valley town surrounded by eight
+        # stations at 200-400 m and one at 1,900 m should not take the outlier.
+        # Without this the Revelstoke failure recurs, and it recurs silently,
+        # because an alpine snowfall figure looks like a real number.
+        if p.get('elev_m') is not None:
+            ref_elev = p['elev_m']           # true elevation, once that step lands
+        else:
+            # Proxy, and a biased one in exactly the terrain that matters: in
+            # mountains the median of nearby stations is dragged upward by the
+            # mountain stations, so Indio (genuinely 6 m BELOW sea level) reads a
+            # local profile of 602 m because San Jacinto rises 3,300 m beside it.
+            # Taking the nearest handful rather than everything within 60 km keeps
+            # the reference closer to the valley floor the town actually sits on.
+            withz = [(hav(p['lat'], p['lon'], c['lat'], c['lon']), c['elev_m'])
+                     for c in cands if c.get('elev_m') is not None]
+            withz.sort()
+            near = [z for km_, z in withz[:5] if km_ <= 40] or [z for _, z in withz[:3]]
+            if near:
+                ev = sorted(near)
+                ref_elev = ev[len(ev) // 2]
+            else:
+                ref_elev = None
+
         best, best_cost = None, None
         for s in cands:
             km = hav(p['lat'], p['lon'], s['lat'], s['lon'])
             if km > 120:
                 continue
-            # 100 m of elevation is penalised like 8 km of ground distance. Without
-            # this, Revelstoke takes an alpine station and reports the snowpack.
-            dz = abs((s.get('elev_m') or 0) - (p.get('elev_m') or s.get('elev_m') or 0))
             comp = (s.get('completeness') or {}).get('tmean', 0)
             if comp < 6:              # a half-empty record is not a climate
                 continue
-            cost = km + dz / 100.0 * 8.0 + (12 - comp) * 4.0
+            # 100 m of elevation costs the same as 8 km of ground distance
+            dz = 0.0 if (ref_elev is None or s.get('elev_m') is None) \
+                else abs(s['elev_m'] - ref_elev)
+            cs = s.get('completeness') or {}
+            # a station with no precipitation record is nearly useless here, and one
+            # with no snow record is a real loss in most of the country. Priced in
+            # kilometres so it trades off against distance rather than overriding it.
+            gap = (0 if cs.get('precip', 0) >= 6 else 45) + (0 if cs.get('snow', 0) >= 6 else 20)
+            cost = km + dz / 100.0 * 8.0 + (12 - comp) * 4.0 + gap
             if best_cost is None or cost < best_cost:
                 best, best_cost = s, cost
         if not best:
@@ -179,6 +223,7 @@ if stations:
             'id': best.get('id'), 'name': best.get('name'),
             'km': round(hav(p['lat'], p['lon'], best['lat'], best['lon']), 1),
             'elev_m': best.get('elev_m'),
+            'ref_elev_m': None if ref_elev is None else round(ref_elev, 1),
         }}
         matched += 1
     stats['climate'] = matched

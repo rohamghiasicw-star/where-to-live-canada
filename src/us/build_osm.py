@@ -195,20 +195,21 @@ STATE_REL = {
 }
 TERRITORIES = {"PR", "VI", "GU", "AS", "MP"}
 
-# Cross-border bands: country relation id + (south, west, north, east) box that
-# follows the international border.  Only elements landing within 15 km of a US
-# place are ever used, so the generous inland reach costs nothing but bytes.
-CANADA_REL = 1428125
-MEXICO_REL = 114686
+# Cross-border bands: neighbouring country + (south, west, north, east) box that
+# follows the international border.  The country is looked up by its
+# ISO3166-1 / admin_level=2 tags inside the query rather than by a relation id
+# typed in here, so there is no id in this file that was not returned by the API.
+# Only elements landing within 15 km of a US place are ever used, so the
+# generous inland reach costs nothing but bytes.
 BORDER_BANDS = {
-    # name            country rel   south   west     north   east
-    "CA_west":       (CANADA_REL,  (48.0, -139.5,  50.5,  -95.0)),   # BC AB SK MB
-    "CA_ontario_nw": (CANADA_REL,  (47.0,  -95.0,  50.5,  -84.0)),   # Superior / MN
-    "CA_ontario_s":  (CANADA_REL,  (41.5,  -84.0,  46.5,  -74.0)),   # Windsor Sarnia Niagara
-    "CA_quebec_s":   (CANADA_REL,  (44.5,  -78.0,  46.8,  -66.5)),   # NY VT NH border
-    "CA_maritimes":  (CANADA_REL,  (44.5,  -69.5,  48.5,  -63.5)),   # NB / Maine
-    "CA_yukon_bc":   (CANADA_REL,  (54.0, -141.5,  70.0, -122.0)),   # AK panhandle + north
-    "MX_border":     (MEXICO_REL,  (25.5, -117.5,  33.0,  -97.0)),   # CA AZ NM TX
+    # name           country  south   west     north   east
+    "CA_west":       ("CA",  (48.0, -139.5,  50.5,  -95.0)),   # BC AB SK MB
+    "CA_ontario_nw": ("CA",  (47.0,  -95.0,  50.5,  -84.0)),   # Superior / MN
+    "CA_ontario_s":  ("CA",  (41.5,  -84.0,  46.5,  -74.0)),   # Windsor Sarnia Niagara
+    "CA_quebec_s":   ("CA",  (44.5,  -78.0,  46.8,  -66.5)),   # NY VT NH border
+    "CA_maritimes":  ("CA",  (44.5,  -69.5,  48.5,  -63.5)),   # NB / Maine
+    "CA_yukon_bc":   ("CA",  (54.0, -141.5,  70.0, -122.0)),   # AK panhandle + north
+    "MX_border":     ("MX",  (25.5, -117.5,  33.0,  -97.0)),   # CA AZ NM TX
 }
 
 QUERY_AREA = """[out:json][timeout:600];
@@ -222,7 +223,7 @@ area(%d)->.a;
 out center;"""
 
 QUERY_BAND = """[out:json][timeout:600];
-area(%d)->.a;
+area["ISO3166-1"="%s"]["admin_level"="2"]->.a;
 (
   nwr["leisure"="pitch"]["sport"~"(^|;)soccer(;|$)"](area.a)(%f,%f,%f,%f);
   nwr["amenity"="place_of_worship"](area.a)(%f,%f,%f,%f);
@@ -286,8 +287,8 @@ def sane(region, d):
 
 def build_query(region):
     if region in BORDER_BANDS:
-        rel, b = BORDER_BANDS[region]
-        return QUERY_BAND % ((3600000000 + rel,) + b * 4)
+        iso, b = BORDER_BANDS[region]
+        return QUERY_BAND % ((iso,) + b * 4)
     return QUERY_AREA % (3600000000 + STATE_REL[region])
 
 
@@ -511,8 +512,14 @@ def main():
         for el in d["elements"]:
             elements.append(el)
     print("total raw elements fetched: %d" % len(elements))
-    if failed:
-        print("FAILED REGIONS (their places get nulls, not zeros): %s" % ",".join(failed))
+    dead_states = [r for r in failed if r in STATE_REL]
+    dead_bands = [r for r in failed if r in BORDER_BANDS]
+    if dead_states:
+        print("FAILED STATES - every place in them gets nulls, never zeros: %s"
+              % ",".join(dead_states))
+    if dead_bands:
+        print("FAILED CROSS-BORDER BANDS: %s - places near that stretch of border are "
+              "US-side only and are understated, not null" % ",".join(dead_bands))
 
     # one element can be returned by two region queries if it straddles a
     # border or sits in a band overlap; dedupe on (type, id) first.
@@ -541,14 +548,29 @@ def main():
     tagged = dedupe(tagged)
 
     # ---- assignment ------------------------------------------------------
-    counts = {(p["name"], p["state"]): {f: 0 for f in FIELDS} for p in places}
-    excl = {(p["name"], p["state"]): {f: 0 for f in FIELDS} for p in places}
+    # Counts are indexed by ROW, not by name+state.  data/us/places.json holds 4
+    # repeated name+state keys that are genuinely different places hundreds of km
+    # apart (Kailua HI on Oahu vs Kailua-Kona on Hawaii, 266 km; El Sobrante CA
+    # in Contra Costa vs Riverside, 631 km; also University FL and Fairwood WA).
+    # Bucketing on the key would have merged those discs and double counted the
+    # overlap, so every row keeps its own disc and its own honest number and the
+    # output simply carries two records that share a key.  They are printed below.
+    counts = [{f: 0 for f in FIELDS} for _ in places]
+    excl = [{f: 0 for f in FIELDS} for _ in places]
     plat = [p["lat"] for p in places]
     plon = [p["lon"] for p in places]
     pkey = [(p["name"], p["state"]) for p in places]
-    if len(counts) != len(places):
-        print("WARNING: %d places collapse to %d name+state keys"
-              % (len(places), len(counts)))
+    seen_k = {}
+    for k in pkey:
+        seen_k[k] = seen_k.get(k, 0) + 1
+    dupkeys = {k for k, n in seen_k.items() if n > 1}
+    if dupkeys:
+        print("repeated name+state keys (separate places, separate counts): %d"
+              % len(dupkeys))
+        for k in sorted(dupkeys):
+            ii = [i for i in range(len(pkey)) if pkey[i] == k]
+            print("    %s, %s at " % k + " and ".join(
+                "%.4f,%.4f" % (plat[i], plon[i]) for i in ii))
     find, group = tie_groups(plat, plon, pkey)
 
     # place index so each element only tests nearby places, not all 4,197.
@@ -582,7 +604,7 @@ def main():
 
         # main fields: every place whose 15 km disc contains this element
         for i in near:
-            c = counts[pkey[i]]
+            c = counts[i]
             for k in cats:
                 c[k] += 1
         if near:
@@ -594,7 +616,7 @@ def main():
             continue
         assigned += 1
         for i in group[find(best)]:
-            c = excl[pkey[i]]
+            c = excl[i]
             for k in cats:
                 c[k] += 1
     print("within 15 km of at least one place: %d   (radius fields)" % inradius)
@@ -602,16 +624,15 @@ def main():
           "   (exclusive fields)" % (assigned, RADIUS_KM, unassigned))
 
     out = []
-    for p in places:
-        k = (p["name"], p["state"])
+    for i, p in enumerate(places):
         dead = p["state"] in failed
         rec = {"name": p["name"], "state": p["state"]}
         for f in FIELDS:
-            rec[f] = None if dead else counts[k][f]
+            rec[f] = None if dead else counts[i][f]
         rec["radius_km"] = RADIUS_KM
         rec["method"] = METHOD
         for f in FIELDS:
-            rec[f + "_exclusive"] = None if dead else excl[k][f]
+            rec[f + "_exclusive"] = None if dead else excl[i][f]
         rec["method_exclusive"] = METHOD_EXCL
         out.append(rec)
 
@@ -635,11 +656,15 @@ BIG = [("New York", "NY"), ("Los Angeles", "CA"), ("Chicago", "IL"), ("Houston",
 SIGNALS = [("Lakewood", "NJ"), ("Brookline", "MA"), ("Dearborn", "MI"), ("Paterson", "NJ"),
            ("Salt Lake City", "UT"), ("Minneapolis", "MN"), ("Boston", "MA"),
            ("Phoenix", "AZ"), ("Miami", "FL")]
-SMALL = [("Lost Springs", "WY"), ("Monowi", "NE")]
 
 
 def check(out):
-    ix = {(r["name"], r["state"]): r for r in out}
+    ix = {}
+    for r in out:
+        ix.setdefault((r["name"], r["state"]), r)
+    pop = {}
+    for p in json.load(open(os.path.join(ROOT, "data", "us", "places.json"))):
+        pop.setdefault((p["name"], p["state"]), p["pop"])
     cols = ["soccer_pitches", "worship_total", "churches", "synagogues", "mosques",
             "temples_hindu", "gurdwaras", "temples_buddhist", "ice_rinks"]
     hdr = "%-26s" % "place" + "".join("%9s" % c[:8] for c in cols)
@@ -680,8 +705,14 @@ def check(out):
     for r in sorted([r for r in out if r["ice_rinks"] is not None],
                     key=lambda r: -r["ice_rinks"])[:10]:
         print(row((r["name"], r["state"])))
+    print("-- 12 smallest places by population: small or zero is the correct answer --")
+    for r in sorted([r for r in out if r["worship_total"] is not None],
+                    key=lambda r: pop.get((r["name"], r["state"]), 0))[:12]:
+        print(row((r["name"], r["state"])) + "   pop %d" % pop.get((r["name"], r["state"]), 0))
 
     live = [r for r in out if r["worship_total"] is not None]
+    z = sum(1 for r in live if not any(r[f] for f in FIELDS))
+    print("\nplaces with an all-zero row (real, not a gap): %d" % z)
     print("\ncoverage: %d/%d places have real counts, %d null (failed region)"
           % (len(live), len(out), len(out) - len(live)))
     for f in FIELDS:

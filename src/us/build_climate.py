@@ -339,6 +339,8 @@ def build(cache):
 
 
 def meta(stations):
+    bys = collections.Counter(s["state"] for s in stations)
+    empty = [st for st in STATES if not bys.get(st)]
     return {
         "source": "NOAA/NCEI 1991-2020 U.S. Climate Normals, monthly (v1.0.1)",
         "route": ("bulk by-station archive; the Access Data Service cannot "
@@ -377,6 +379,17 @@ def meta(stations):
                      "sunshine element, so there is no counterpart to the Canadian "
                      "'sun' field and none is invented"),
         "station_count": len(stations),
+        "states_with_no_station": empty,
+        "gaps": {
+            "dc": ("the District of Columbia has no 1991-2020 normals station at "
+                   "all. GHCN-Daily has 21 DC stations, including THE WHITE HOUSE, "
+                   "but every one is a short-record volunteer gauge that does not "
+                   "qualify for a normal, so none is published. Washington DC has "
+                   "to draw on MD and VA stations, and should be labelled as doing so."),
+            "no_elevation": sorted(s["id"] for s in stations if s["elev_m"] is None),
+            "no_elevation_note": ("elev_m is null for these; the matcher should "
+                                  "distrust them rather than treat them as sea level"),
+        },
     }
 
 
@@ -408,35 +421,72 @@ def km(a, b, c, d):
     return 2 * R * math.asin(math.sqrt(x))
 
 
+# Ranking the check-table pick, in kilometres, the way src/match_climate.py prices
+# a thin record. Nearest-with-the-most-elements is not good enough: it handed
+# Phoenix to SOUTH PHOENIX (a 16-year R-flagged co-op reading 32.1C in July,
+# which happens to also log snow) over SKY HARBOR (27 years, S-flagged, 35.3C)
+# purely because the airport does not report snow.
+QUAL_KM = {"C": 0, "S": 0, "R": 6, "P": 10, "Q": 14, "E": 25, None: 30}
+
+
+def pick_cost(d, s):
+    q = QUAL_KM.get(s["quality"]["tmean"], 30)
+    yr = s["years"]["tmean"] or 0
+    return d + q + max(0, 25 - yr)          # short record costs a km per missing year
+
+
 def validate(stations):
-    log("\n4. check table  (nearest station to each city, most complete record first;")
-    log("   this is a sanity print only, matching places to stations is a later step)")
+    log("\n4. check table")
+    log("   Pick = station within 40 km with a full 12-month tmean, ranked by")
+    log("   distance + a kilometre price on a thin or infilled record. A sanity")
+    log("   print only: matching places to stations is a later step.")
     hdr = (f"{'city':23s} {'station':30s} {'id':12s} {'km':>5s} {'elev_m':>7s} "
-           f"{'jan tmean':>9s} {'jul tmean':>9s} {'ann snow':>9s} {'q':>4s}")
+           f"{'jan tmean':>9s} {'jul tmean':>9s} {'ann snow':>9s} {'q':>4s} {'yr':>3s}")
     log("   " + hdr)
     log("   " + "-" * len(hdr))
     ok = True
     for city, lat, lon in CHECKS:
         near = [(km(lat, lon, s["lat"], s["lon"]), s) for s in stations]
         near = [t for t in near if t[0] <= 40]
-        near.sort(key=lambda t: (-t[1]["elements_full"], t[0]))
-        if not near:
+        full = [t for t in near if t[1]["completeness"]["tmean"] == 12]
+        pool = full or near
+        pool.sort(key=lambda t: pick_cost(*t))
+        if not pool:
             log(f"   {city:23s} NO STATION WITHIN 40 km")
             ok = False
             continue
-        d, s = near[0]
+        d, s = pool[0]
         jan = (s["tmean"] or {}).get("1")
         jul = (s["tmean"] or {}).get("7")
         sn = (s["snow"] or {}).get("13")
         f = lambda v: "null" if v is None else f"{v:.1f}"
         log(f"   {city:23s} {s['name'][:30]:30s} {s['id']:12s} {d:5.1f} "
             f"{'' if s['elev_m'] is None else s['elev_m']:>7} {f(jan):>9s} {f(jul):>9s} "
-            f"{f(sn):>9s} {str(s['quality']['tmean'] or '-'):>4s}")
+            f"{f(sn):>9s} {str(s['quality']['tmean'] or '-'):>4s} "
+            f"{str(s['years']['tmean'] or '-'):>3s}")
         if city in SANITY:
             label, test = SANITY[city]
             good = test(jan, jul, sn)
             ok &= good
             log(f"   {'':23s}   sanity: {label:32s} {'PASS' if good else 'FAIL'}")
+
+    log("\n4b. elevation is carried for every station, because the matcher needs it")
+    log("    (Revelstoke took its snow from a station 1,431 m up a mountain and read")
+    log("    1,388 cm of alpine snowpack instead of the town's 425 cm). Elevation")
+    log("    spread among stations within 40 km of each check city:")
+    have = sum(1 for s in stations if s["elev_m"] is not None)
+    log(f"    stations carrying elev_m: {have} of {len(stations)}"
+        f"  ({len(stations)-have} without)")
+    for city, lat, lon in CHECKS:
+        near = [s for s in stations if km(lat, lon, s["lat"], s["lon"]) <= 40
+                and s["elev_m"] is not None]
+        if not near:
+            continue
+        lo = min(near, key=lambda s: s["elev_m"])
+        hi = max(near, key=lambda s: s["elev_m"])
+        log(f"    {city:23s} {len(near):4d} stations, {lo['elev_m']:7.1f} m to "
+            f"{hi['elev_m']:7.1f} m  (spread {hi['elev_m']-lo['elev_m']:6.1f} m, "
+            f"highest = {hi['name'][:26]})")
 
     log("\n5. stations by state")
     bys = collections.Counter(s["state"] for s in stations)
