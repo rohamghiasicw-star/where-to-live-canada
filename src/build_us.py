@@ -47,6 +47,14 @@ TERRITORIES = {'PR', 'VI', 'GU', 'AS', 'MP'}
 dropped_terr = [p for p in places if p.get('state') in TERRITORIES]
 places = [p for p in places if p.get('state') not in TERRITORIES]
 
+# Two places carry a Census parenthetical that reads as a glitch on a result card.
+# The Canadian build does the same thing for border-split "(Part)" names.
+ALIAS = {'San Buenaventura (Ventura)': 'Ventura',
+         'El Paso de Robles (Paso Robles)': 'Paso Robles'}
+for p in places:
+    if p['name'] in ALIAS:
+        p['name'] = ALIAS[p['name']]
+
 # The app keys everything on `prov`; for the US that holds the two-letter state.
 for p in places:
     p['prov'] = p['state']
@@ -206,14 +214,19 @@ else:
 if pc and pol:
     n = 0
     for p in places:
-        fips = pc.get(str(p['geoid']))
-        if isinstance(fips, dict):
-            fips = fips.get('county_fips')
+        ent = pc.get(str(p['geoid']))
+        # a place straddling county lines carries every county it touches plus the
+        # one holding the largest share of its population; take that one and record
+        # that the lean is a partial picture.
+        if isinstance(ent, dict):
+            fips, multi = ent.get('county'), bool(ent.get('multi_county'))
+        else:
+            fips, multi = ent, False
         r = pol.get(str(fips).zfill(5)) if fips is not None else None
         if not r or r.get('lean') is None:
             continue
         p['politics'] = {'lean': r['lean'], 'riding': r.get('county_name'),
-                         'winner': r.get('winner')}
+                         'winner': r.get('lean_label'), 'multi_county': multi or None}
         n += 1
     stats['politics'] = n
 
@@ -283,7 +296,7 @@ def put(marker, payload):
 put('/*__CFG__*/', json.dumps({k: v for k, v in CFG.items()
     if k in ('cc', 'country', 'adjective', 'unit', 'riding_label', 'sources',
              'prov_line', 'detail_note', 'climate_period', 'pop_year', 'census_year',
-             'vote_year')}, separators=(',', ':'), ensure_ascii=False))
+             'vote_year', 'growth')}, separators=(',', ':'), ensure_ascii=False))
 put('/*__DATA__*/', json.dumps(places, separators=(',', ':'), ensure_ascii=False))
 put('/*__MAP__*/', json.dumps(mapgeo, separators=(',', ':')))
 put('/*__FONTS__*/', open(D('fonts/faces.css')).read())

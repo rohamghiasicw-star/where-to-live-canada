@@ -283,7 +283,7 @@ def put(marker, payload):
 
 put('/*__CFG__*/', json.dumps({k: v for k, v in CFG.items()
     if k in ('cc','country','adjective','unit','riding_label','sources',
-             'prov_line','detail_note','climate_period','pop_year','census_year','vote_year')},
+             'prov_line','detail_note','climate_period','pop_year','census_year','vote_year','growth')},
     separators=(',', ':'), ensure_ascii=False))
 put('/*__DATA__*/', json.dumps(places, separators=(',', ':'), ensure_ascii=False))
 put('/*__MAP__*/',  json.dumps(mapgeo, separators=(',', ':')))

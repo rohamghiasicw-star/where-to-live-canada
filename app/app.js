@@ -174,7 +174,8 @@ const Q_ALL = [
     opts: [['grow','On the way up'],['steady','Steady suits me']],
     score: (p, v) => { const x = p.life ? p.life.pop_change : null;
       if (x == null) return null;
-      return v === 'grow' ? clamp((x + 5) / 20, 0, 1) : near(x, 3, 12); },
+      const G = CFG.growth;
+      return v === 'grow' ? clamp((x + G.offset) / G.span, 0, 1) : near(x, G.steady, G.tol); },
     show: (p) => p.life && p.life.pop_change != null
       ? [(p.life.pop_change > 0 ? '+' : '') + p.life.pop_change.toFixed(1), '%'] : null,
   },

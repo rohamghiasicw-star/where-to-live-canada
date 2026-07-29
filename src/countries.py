@@ -35,6 +35,8 @@ CA = dict(
     census_year='2021',
     vote_year='2025',
     riding_label='Riding',
+    # growth calibration: Canada compares two census instants, 2016 to 2021
+    growth=dict(offset=5.0, span=20.0, steady=3.0, tol=12.0),
     # per-dimension provenance, shown on the column tooltips
     sources={
         'climate': 'Environment Canada normals 1981-2010',
@@ -74,6 +76,11 @@ US = dict(
     census_year='2023',
     vote_year='2024',
     riding_label='County',
+    # The US figure is a 2020-2024 five-year AVERAGE (centred about 2022) measured
+    # against an April 2020 instant, so it understates real growth by roughly half.
+    # Scoring it on the Canadian scale would have called genuinely booming Texas
+    # suburbs merely steady. Halved to match.
+    growth=dict(offset=2.5, span=10.0, steady=1.5, tol=6.0),
     sources={
         'climate': 'NOAA climate normals 1991-2020',
         'smoke': None,
