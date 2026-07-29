@@ -1,0 +1,54 @@
+      <div>
+        <h3>Climate</h3>
+        NOAA National Centers for Environmental Information, US Climate Normals
+        <b>1991-2020</b>, monthly. Each place gets one home station: the nearest with a complete
+        record, weighed on distance, elevation, and how much of the 12-month record is real.
+        Elevation is part of that distance and not an afterthought, because the nearest station
+        is often not at the same altitude as the town, and a station a thousand metres up a
+        mountain reports the alpine snowpack rather than the streets. Every place shows which
+        station its climate came from and how far off it is. NOAA publishes these in Fahrenheit
+        and inches; they are converted here to Celsius, millimetres and centimetres.
+        There is no US equivalent of the Canadian bright-sunshine-hours record, so that column
+        is absent rather than invented.
+      </div>
+      <div>
+        <h3>Wildfire smoke</h3>
+        Fire-attributed smoke only, not total fine particulate. This distinction is the whole
+        point: total PM2.5 is dominated by traffic, industry and wood stoves, so ranking on it
+        would call Los Angeles and the Ohio Valley smoky and Idaho clean, which is the wrong
+        answer. A long-run mean, so a single extreme fire year counts once rather than setting
+        the ranking. Coverage is the contiguous states; where a region is outside the source
+        the value is blank rather than a zero, because Alaska genuinely burns and a zero there
+        would be a lie.
+      </div>
+      <div>
+        <h3>The rest</h3>
+        Population, income, home value, rent, age structure, sex ratio, marital status and
+        commuting are American Community Survey 5-year estimates at place level. Home value is
+        a self-reported median, not a market price. Political lean is computed from the 2024
+        presidential result at county level and each place is placed in its county.
+        <b>County lean is a much coarser instrument than it looks:</b> Los Angeles County is
+        ten million people reduced to one number, and a place inside a big county inherits an
+        average that may describe nowhere in particular.
+        Shoreline distance is measured to Natural Earth coast and lake geometry. Soccer
+        pitches, rinks and places of worship are counted within a 15km drive from OpenStreetMap.
+        Pro teams and rapid transit were checked against league and transit-authority sources,
+        recording where the team actually plays rather than the city in its name.
+      </div>
+      <div>
+        <h3>What is missing</h3>
+        <b>The US census does not ask about religion.</b> There is no American equivalent of the
+        Canadian census religion table, so where this app can say what share of a Canadian town
+        belongs to a given faith, it can only count actual places of worship within a drive here.
+        That is a different measurement and it is labelled as one.
+        <br><br>Puerto Rico, the US Virgin Islands, Guam, American Samoa and the Northern
+        Marianas are not in this list. People live there and they deserve better, but the
+        boundary data files them separately from the states and each would need its own inset,
+        so including the places without the map would draw them nowhere.
+        <br><br>Residents have been researched for 0 of 712 places. That research exists for
+        Canada and has not been done here yet, so this version is scored on measured data only.
+        Where a number is missing it reads <b>..</b> and is dropped from the score rather than
+        guessed at. Nothing here is a recommendation. It is a way to argue with a list.
+        <br><br><a href="https://github.com/rohamghiasicw-star/where-to-live-canada" target="_blank" rel="noopener">Source and data</a>.
+        Map from Natural Earth. Type is Radio Canada, by Coppers and Brasses.
+      </div>

@@ -57,9 +57,54 @@ Hard-won notes, each one a real bug this script now prevents:
   (13 U.S.C. 221). The Canadian build has religion from the 2021 Census; there
   is no US equivalent at place level, so the field is absent rather than guessed.
 
+PROVENANCE, field by field. Nothing here is modelled, imputed or borrowed from a
+larger geography; every number is a published Census figure or plain arithmetic
+on two published figures.
+
+  geoid name state lat lon land_area_km2
+      2024 Census Gazetteer place file. lat/lon are the published INTPTLAT /
+      INTPTLONG internal points - NOTHING IS GEOCODED. land_area_km2 = ALAND/1e6.
+  pop median_age median_hh_income home_value_median rent_median
+      ACS 2024 5-year: B01003_001, B01002_001, B19013_001, B25077_001, B25064_001.
+      The dollar medians are top-coded by the Census, so the caps ($250,001 income,
+      $2,000,001 value, $3,501 rent) are real published values meaning "or more".
+  unemployment_pct       B23025_005 / B23025_003  (of the CIVILIAN LABOR FORCE,
+                         which is the official unemployment rate, not of 16+)
+  children_pct           B01001 under-18 cells (M+F) / B01001_001
+  seniors_pct            B01001 65-and-over cells (M+F) / B01001_001
+  working_age_pct        (B01001_001 - under 18 - 65 and over) / B01001_001
+  males_per_100_females  B01001_002 / B01001_026 * 100
+  never_married_pct      (B12001_003 + B12001_012) / B12001_001   (universe 15+)
+  foreign_born_pct       B05002_013 / B05002_001
+  nonwhite_pct           (B03002_001 - B03002_003) / B03002_001, i.e. everyone
+                         who is not White-alone-and-not-Hispanic
+  hispanic_pct           B03003_003 / B03003_001
+  commute_short_pct      B08303_002..004 (<15 min) / B08303_001
+  commute_long_pct       B08303_011..013 (45 min+) / B08303_001
+  commute_transit/walk/bike/car_pct
+                         B08301_010 / _019 / _018 / _002, each over B08301_001
+  pop_change_pct         COMPUTED HERE, not published:
+                         (pop - 2020 Decennial P1_001N) / 2020 P1_001N * 100.
+                         Caveat worth knowing before ranking on it: `pop` is a
+                         2020-2024 five-year AVERAGE while the base is an April
+                         2020 instant, so the average sits around 2022 and this
+                         understates true 2020-to-2024 growth by roughly half.
+                         It is directly reproducible from the two published
+                         columns, which is why it is built this way. Null where
+                         the two geographies are not comparable (see above).
+
 Run:  python3 src/us/build_places.py
 Cache: $LIVABLE_US_CACHE (default /tmp/livable_us_cache). Downloads are ~700MB
 of ACS table files streamed and filtered to place rows on the way in.
+
+Sources (all key-free):
+  https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2024_Gazetteer/2024_Gaz_place_national.zip
+  https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2020_Gazetteer/2020_Gaz_place_national.zip
+  https://api.census.gov/data/2024/acs/acs5/variables.json  (+ groups/<TABLE>.json)
+  https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/
+  https://data.census.gov/api/access/data/table?id=DECENNIALPL2020.P1&g=040XX00US<ST>$1600000
+  https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/cities/totals/sub-est2024.csv
+  https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_state_500k.zip
 """
 import json, os, re, csv, sys, glob, time, struct, unicodedata, zipfile, tempfile
 import urllib.request
