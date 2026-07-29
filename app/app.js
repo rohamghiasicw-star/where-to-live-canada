@@ -162,7 +162,13 @@ const Q_ALL = [
     opts: [['left','Left'],['centre','Centre'],['right','Right']],
     score: (p, v) => { const l = p.politics ? p.politics.lean : null;
       if (l == null) return null;
-      return near(l, { left:-55, centre:0, right:55 }[v], 95); },
+      const P = CFG.politics;                  // calibrated per country at build time
+      // Left and Right are one-sided: overshooting the target is not a miss.
+      // Symmetric targets scored Washington DC at zero on "Left" for being the
+      // most left-leaning place in the country, which is plainly the wrong answer.
+      if (v === 'left')  return l <= P.left  ? 1 : clamp(1 - (l - P.left) / P.tol, 0, 1);
+      if (v === 'right') return l >= P.right ? 1 : clamp(1 - (P.right - l) / P.tol, 0, 1);
+      return near(l, P.centre, P.tol); },
     show: (p) => p.politics && p.politics.lean != null
       ? [(p.politics.lean > 0 ? '+' : '') + p.politics.lean.toFixed(0), ''] : null,
   },

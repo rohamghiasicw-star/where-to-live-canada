@@ -266,6 +266,11 @@ for p in places:
     for junk in ('land_area_km2', 'median_age', 'geoid'):
         p.pop(junk, None)
 
+from politics_scale import calibrate as _cal
+CFG['politics'] = _cal([v.get('lean') for v in pol.values()]) or \
+    dict(left=-50.0, centre=42.0, right=80.0, tol=43.0)
+print("  politics scale", CFG['politics'])
+
 # ---- assemble, sharing the Canadian shell
 html = open(D('app/index.html')).read()
 N = len(places)
@@ -296,7 +301,7 @@ def put(marker, payload):
 put('/*__CFG__*/', json.dumps({k: v for k, v in CFG.items()
     if k in ('cc', 'country', 'adjective', 'unit', 'riding_label', 'sources',
              'prov_line', 'detail_note', 'climate_period', 'pop_year', 'census_year',
-             'vote_year', 'growth')}, separators=(',', ':'), ensure_ascii=False))
+             'vote_year', 'growth', 'politics')}, separators=(',', ':'), ensure_ascii=False))
 put('/*__DATA__*/', json.dumps(places, separators=(',', ':'), ensure_ascii=False))
 put('/*__MAP__*/', json.dumps(mapgeo, separators=(',', ':')))
 put('/*__FONTS__*/', open(D('fonts/faces.css')).read())

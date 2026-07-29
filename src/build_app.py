@@ -272,6 +272,13 @@ html = re.sub(r'Residents have been researched for \d+ of \d+ places',
 html = re.sub(r'Toronto down to <b>[^<]+</b>, pop\. [\d,]+',
               f"Toronto down to <b>{smallest['name']}</b>, pop. {int(smallest.get('pop') or 0):,}", html)
 
+from politics_scale import calibrate as _cal
+_pl = load('data/politics.json') or {}
+_pl = list(_pl.values()) if isinstance(_pl, dict) else _pl
+CFG['politics'] = _cal([r.get('lean') for r in _pl if isinstance(r, dict)]) or \
+    dict(left=-20.0, centre=0.0, right=45.0, tol=22.0)
+print("  politics scale", CFG['politics'])
+
 fonts = open(D('fonts/faces.css')).read()
 css  = open(D('app/style.css')).read()
 js   = open(D('app/app.js')).read()
@@ -283,7 +290,7 @@ def put(marker, payload):
 
 put('/*__CFG__*/', json.dumps({k: v for k, v in CFG.items()
     if k in ('cc','country','adjective','unit','riding_label','sources',
-             'prov_line','detail_note','climate_period','pop_year','census_year','vote_year','growth')},
+             'prov_line','detail_note','climate_period','pop_year','census_year','vote_year','growth','politics')},
     separators=(',', ':'), ensure_ascii=False))
 put('/*__DATA__*/', json.dumps(places, separators=(',', ':'), ensure_ascii=False))
 put('/*__MAP__*/',  json.dumps(mapgeo, separators=(',', ':')))
