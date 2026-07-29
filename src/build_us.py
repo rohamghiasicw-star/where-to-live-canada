@@ -54,7 +54,8 @@ ALIAS = {'San Buenaventura (Ventura)': 'Ventura',
          'Urban Honolulu': 'Honolulu',
          'Nashville-Davidson': 'Nashville',
          'Louisville/Jefferson County': 'Louisville',
-         'Athens-Clarke County': 'Athens'}
+         'Athens-Clarke County': 'Athens',
+         'Boise City': 'Boise'}
 for p in places:
     if p['name'] in ALIAS:
         p['name'] = ALIAS[p['name']]
@@ -209,21 +210,52 @@ if stations:
             dz = 0.0 if (ref_elev is None or s.get('elev_m') is None) \
                 else abs(s['elev_m'] - ref_elev)
             cs = s.get('completeness') or {}
-            # a station with no precipitation record is nearly useless here, and one
-            # with no snow record is a real loss in most of the country. Priced in
-            # kilometres so it trades off against distance rather than overriding it.
-            gap = (0 if cs.get('precip', 0) >= 6 else 45) + (0 if cs.get('snow', 0) >= 6 else 20)
-            cost = km + dz / 100.0 * 8.0 + (12 - comp) * 4.0 + gap
+            # A missing precipitation record is a real loss, a missing snow record
+            # less so. But weighting "has more elements" too heavily is itself a
+            # trap: it hands Phoenix to a 16-year co-op gauge that happens to log
+            # snow, over Sky Harbor's 27-year record 13 km closer that does not.
+            # Snow is cheap here for that reason.
+            # Whether a missing snow record matters depends on where you are. Phoenix
+            # averages no snow, so preferring a gauge that happens to log snow is
+            # actively wrong there: it took Phoenix to a station 2 km farther out and
+            # cost it the 27-year Sky Harbor record. The station's own January mean
+            # answers the question without needing the place's climate first.
+            _jan = (s.get('tmean') or {}).get('1')
+            snow_matters = _jan is not None and _jan <= 6.0
+            gap = (0 if cs.get('precip', 0) >= 6 else 45) \
+                + (6 if (snow_matters and cs.get('snow', 0) < 6) else 0)
+            # A value that exists is not the same as a value measured here. NCEI
+            # flags 5,714 stations' precipitation as E, statistically estimated from
+            # neighbours, and treating that as equal to a 30-year measured record is
+            # the Revelstoke mistake in a quieter form.
+            QUAL = {'S': 0, 'R': 22, 'P': 14, 'E': 40, 'C': 8, 'Q': 8}
+            q = s.get('quality') or {}
+            qpen = QUAL.get(q.get('tmean'), 0) + QUAL.get(q.get('precip'), 0) * 0.4
+            yrs = (s.get('years') or {}).get('tmean')
+            ypen = 0 if yrs is None else max(0, 30 - yrs) * 1.5
+            cost = km + dz / 100.0 * 8.0 + (12 - comp) * 4.0 + gap + qpen + ypen
             if best_cost is None or cost < best_cost:
                 best, best_cost = s, cost
         if not best:
             continue
         p['climate'] = {e: best.get(e) for e in ELEMS if best.get(e)}
+        # NCEI omits the snow column entirely for stations that do not measure snow,
+        # which in the Sun Belt is because there is none. Leaving that as unknown made
+        # the Snow question drop 653 places, so someone asking for as little snow as
+        # possible was denied exactly the places that have none. Where the January
+        # mean is comfortably above freezing, a missing snow record is read as zero
+        # and flagged, rather than left as a hole or quietly filled.
+        _j = (best.get('tmean') or {}).get('1')
+        if p['climate'].get('snow') is None and _j is not None and _j > 8.0:
+            p['climate']['snow'] = {'13': 0.0}
+            p['climate']['snow_inferred'] = True
         p['stations_used'] = {'tmean': {
             'id': best.get('id'), 'name': best.get('name'),
             'km': round(hav(p['lat'], p['lon'], best['lat'], best['lon']), 1),
             'elev_m': best.get('elev_m'),
             'ref_elev_m': None if ref_elev is None else round(ref_elev, 1),
+            'quality': (best.get('quality') or {}).get('tmean'),
+            'years': (best.get('years') or {}).get('tmean'),
         }}
         matched += 1
     stats['climate'] = matched

@@ -130,6 +130,11 @@ MAX_SEG_KM = 10.0          # densification target
 PAD_KM = MAX_SEG_KM / 2 + 1.0
 MIN_LAKE_KM2 = 50.0        # "roughly >50 km2"
 LAKE_CLASSES = {"Lake", "Reservoir", "Alkaline Lake"}
+# Natural Earth's marine polygons are label outlines, not water bodies, and the
+# Lake Pontchartrain one stops at lat 30.03 - just short of the south shore the
+# city of New Orleans actually sits on. Grow it before testing shoreline
+# segments so the whole lake is captured. 0.06 deg is ~6 km.
+LAGOON_PAD_DEG = 0.06
 R_EARTH_KM = 6371.0088     # sphere radius, used only to pick candidates
 ON_WATER_KM = 5.0
 
@@ -379,7 +384,7 @@ def lagoon_lakes():
         if nm.lower().startswith("lake") or nm.lower().endswith("lake") \
                 or " lake" in nm.lower():
             if bbox_hits_window(g.bounds):
-                out.append((nm, g))
+                out.append((nm, g.buffer(LAGOON_PAD_DEG)))
     sys.stderr.write("marine lagoons treated as lakes: %s\n"
                      % ", ".join(n for n, _ in out))
     return out
@@ -600,6 +605,12 @@ def main():
     lake_namer = Namer(read_ne("ne_10m_lakes")
                        + read_ne("ne_10m_lakes_north_america"))
 
+    debug = set(OCEAN_CHECKS + LAKE_CHECKS + INLAND_CHECKS + OTHER_CHECKS) \
+        if os.environ.get("US_WATER_DEBUG") else set()
+    if debug:
+        sys.stderr.write("\nDEBUG - place point -> nearest point found on each "
+                         "layer\n")
+
     out = []
     for n, p in enumerate(places):
         lat, lon = p["lat"], p["lon"]
@@ -654,6 +665,17 @@ def main():
             rec["nearest_water_type"] = typ
             rec["km_to_water"] = round(km, 1)
             rec["on_water"] = bool(km <= ON_WATER_KM)
+        if (p["name"], p["state"]) in debug:
+            sys.stderr.write(
+                "  %-16s %-3s at %9.5f,%10.5f | ocean %6.1f km at "
+                "%9.5f,%10.5f in_ocean=%s | lake %7.1f km at %9.5f,%10.5f "
+                "poly=%s\n"
+                % (p["name"], p["state"], lat, lon,
+                   -1 if o_km is None else o_km,
+                   o_pt[1] if o_pt else 0, o_pt[0] if o_pt else 0, in_ocean,
+                   -1 if l_km is None else l_km,
+                   l_pt[1] if l_pt else 0, l_pt[0] if l_pt else 0,
+                   lake_names[l_fid] if l_fid is not None else None))
         out.append(rec)
         if (n + 1) % 250 == 0:
             sys.stderr.write("  %d/%d\n" % (n + 1, len(places)))
