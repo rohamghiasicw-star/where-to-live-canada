@@ -364,6 +364,7 @@ _smallpop = int(smallest.get('pop') or 0)
 html = re.sub(r'New York down to <b>[^<]*</b>',
               'New York down to <b>%s, %s</b>' % (smallest['name'], smallest['prov']), html)
 html = re.sub(r'where [\d,]+ people live', 'where %s people live' % format(_smallpop, ','), html)
+html = html.replace('__SOURCES__', CFG['meta_sources'])
 html = html.replace('__COUNTRY__', CFG['country'])
 _o = other_country(CFG['cc'])
 html = html.replace('<!--__SWITCH__-->',
@@ -389,6 +390,24 @@ os.makedirs(D(os.path.dirname(CFG['out'])), exist_ok=True)
 out = D(CFG['out'])
 open(out, 'w').write(html)
 print("built %s  %.0fKB" % (out, os.path.getsize(out) / 1024))
+
+# staging copy, same banner treatment the Canadian build gets, so /us/ and
+# /staging/us/ are never confused for each other
+_banner = ('<div style="background:#B33A1E;color:#fff;font:600 12px/1.35 system-ui,sans-serif;'
+           'padding:7px 14px;text-align:center;letter-spacing:.02em">'
+           'STAGING &middot; work in progress, may be rough &middot; '
+           '<a href="../../us/" style="color:#fff">the stable version is here &rarr;</a></div>')
+_m = re.search(r'<div class="sheet"[^>]*>', html)
+if not _m:
+    raise SystemExit("build_us: could not find the root div to anchor the staging banner")
+_stg = html[:_m.start()] + _banner + html[_m.start():]
+_stg = re.sub(r'<title>([^<]*)</title>', lambda t: '<title>[STAGING] ' + t.group(1) + '</title>',
+              _stg, count=1)
+# the country switch inside staging should stay inside staging
+_stg = _stg.replace('<a class="cswitch" href="../"', '<a class="cswitch" href="../../staging/"')
+os.makedirs(D(os.path.dirname(CFG['staging'])), exist_ok=True)
+open(D(CFG['staging']), 'w').write(_stg)
+print("staging %s  %.0fKB" % (CFG['staging'], os.path.getsize(D(CFG['staging'])) / 1024))
 print("  places    %d   (%d territory places dropped: no map geometry)"
       % (len(places), len(dropped_terr)))
 for k, v in sorted(stats.items()):

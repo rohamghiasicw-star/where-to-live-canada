@@ -53,6 +53,8 @@ CA = dict(
                "2021 Census and StatCan's 2025 estimate. Politics from the 2025 federal result."),
     detail_note=("Population is StatCan's July 2025 estimate; income, home value and the rest are "
                  "2021 Census. Home value is what owners estimated in 2021, not a market price."),
+    meta_sources=('Environment Canada climate normals, wildfire smoke modelling, 2021 Census, '
+                  '2025 election results, and what residents say.'),
 )
 
 # ---- United States ----------------------------------------------------------
@@ -95,6 +97,8 @@ US = dict(
                "level, which is a coarse instrument in big counties."),
     detail_note=("Population, income, home value and the rest are American Community Survey "
                  "5-year estimates. Home value is a self-reported median, not a market price."),
+    meta_sources=('NOAA climate normals, fire-attributed wildfire smoke modelling, the American '
+                  'Community Survey, and the 2024 election result.'),
 )
 
 BY_CC = {'CA': CA, 'US': US}

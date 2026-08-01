@@ -971,7 +971,11 @@ const Q_ALL = [
       if (v === 'half') return near(d, 180, 260);
       return clamp(d / 420, 0, 1); },
     show: (p) => { const d = p.prox ? p.prox.drive_min_to_big_city : null;
-      return d == null ? null : (d === 0 ? ['here', ''] : [Math.round(d), 'm']); },
+      if (d == null) return null;
+      if (d === 0) return ['here', ''];
+      if (d < 150) return [Math.round(d), 'm'];       // minutes, while that still reads
+      return [(d / 60).toFixed(d < 600 ? 1 : 0), 'h'];
+    },
   },
   {
     id: 'water', g: 'The place', label: 'Near water', col: 'Water',
@@ -1142,7 +1146,7 @@ const Q_ALL = [
       ? [p.demo.males_per_100_females.toFixed(0), ''] : null,
   },
   {
-    id: 'faith', label: 'Faith community', col: 'Faith', g: 'Life there',
+    id: 'faith', cc: ['CA'], label: 'Faith community', col: 'Faith', g: 'Life there',
     hint: 'Somewhere your own community is actually present.',
     kind: 'opts', def: 'none', w: 0,
     opts: [['christian','Christian'],['muslim','Muslim'],['jewish','Jewish'],['sikh','Sikh'],

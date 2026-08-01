@@ -17,6 +17,8 @@ m=re.search(r'<div class="sheet"[^>]*>',html)
 if not m: raise SystemExit("make_staging: could not find the root <div class=\"sheet\"> to anchor the banner")
 i=m.start()
 html=html[:i]+banner+html[i:]
+# keep the country switch inside staging rather than bouncing to production
+html=html.replace('<a class="cswitch" href="us/"', '<a class="cswitch" href="us/"')
 html=re.sub(r'<title>([^<]*)</title>',lambda t:'<title>[STAGING] '+t.group(1)+'</title>',html,count=1)
 open(os.path.join(ROOT,'staging','index.html'),'w').write(html)
 print("staging/index.html written,",round(os.path.getsize(os.path.join(ROOT,'staging','index.html'))/1024),"KB")
