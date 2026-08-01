@@ -377,6 +377,7 @@ html = re.sub(r'New York down to <b>[^<]*</b>',
               'New York down to <b>%s, %s</b>' % (smallest['name'], smallest['prov']), html)
 html = re.sub(r'where [\d,]+ people live', 'where %s people live' % format(_smallpop, ','), html)
 html = html.replace('__SOURCES__', CFG['meta_sources'])
+html = html.replace('__FINDHINT__', CFG['find_hint'])
 html = html.replace('__COUNTRY__', CFG['country'])
 _o = other_country(CFG['cc'])
 html = html.replace('<!--__SWITCH__-->',

@@ -55,6 +55,7 @@ CA = dict(
                  "2021 Census. Home value is what owners estimated in 2021, not a market price."),
     meta_sources=('Environment Canada climate normals, wildfire smoke modelling, 2021 Census, '
                   '2025 election results, and what residents say.'),
+    find_hint='Find a place, like Goderich\u2026',
 )
 
 # ---- United States ----------------------------------------------------------
@@ -99,6 +100,7 @@ US = dict(
                  "5-year estimates. Home value is a self-reported median, not a market price."),
     meta_sources=('NOAA climate normals, fire-attributed wildfire smoke modelling, the American '
                   'Community Survey, and the 2024 election result.'),
+    find_hint='Find a place, like Kalamazoo\u2026',
 )
 
 BY_CC = {'CA': CA, 'US': US}

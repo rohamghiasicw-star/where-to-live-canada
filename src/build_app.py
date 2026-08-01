@@ -256,6 +256,7 @@ html = open(D('app/index.html')).read()
 html = html.replace('<!--__HEADNOTE__-->', open(D('app/head.%s.html' % CFG['cc'].lower())).read())
 html = html.replace('<!--__FOOT__-->', open(D('app/foot.%s.html' % CFG['cc'].lower())).read())
 html = html.replace('__SOURCES__', CFG['meta_sources'])
+html = html.replace('__FINDHINT__', CFG['find_hint'])
 html = html.replace('__COUNTRY__', CFG['country'])
 _o = other_country(CFG['cc'])
 html = html.replace('<!--__SWITCH__-->',
