@@ -423,8 +423,8 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
   h1 { font-size: 1.5rem; }
   .headnote, .lede { display: none; }
   .cswitch { grid-row: 1; grid-column: 2; justify-self: end; text-align: right;
-    padding: 0.9rem 0; background: none; border: 0; font-size: 0.75rem;
-    min-height: 44px; line-height: 1.3; }
+    padding: 0.9rem 0; background: none; border: 0; font-size: 0.8rem;
+    min-height: 44px; line-height: 1.3; white-space: nowrap; max-width: 100%; }
   .cswitch:hover { background: none; }
   .step-head { padding: 0.85rem var(--gut) 0.6rem; }
   .step-head h2 { font-size: clamp(1.6rem, 7.5vw, 2.1rem); }
@@ -551,7 +551,7 @@ review, the verdict, and DESIGN.md
 </div>
   </header>
 
-    <a class="cswitch" href="../">Looking at <b>Canada</b>. Switch to <b>the USA</b> &rsaquo;</a>
+    <a class="cswitch" href="../"><span class="only-wide">Looking at <b>Canada</b>. </span>Switch to <b>the USA</b> &rsaquo;</a>
 
   <main class="flow">
 

@@ -391,7 +391,8 @@ html = html.replace('__OGIMG__', CFG['og_image'])
 html = html.replace('__COUNTRY__', CFG['country'])
 _o = other_country(CFG['cc'])
 html = html.replace('<!--__SWITCH__-->',
-    '  <a class="cswitch" href="%s">Looking at <b>%s</b>. Switch to <b>%s</b> &rsaquo;</a>'
+    '  <a class="cswitch" href="%s"><span class="only-wide">Looking at <b>%s</b>. </span>'
+    'Switch to <b>%s</b> &rsaquo;</a>'
     % (_o['href'], CFG['country'], _o['label']))
 
 def put(marker, payload):
