@@ -378,6 +378,12 @@ html = re.sub(r'New York down to <b>[^<]*</b>',
 html = re.sub(r'where [\d,]+ people live', 'where %s people live' % format(_smallpop, ','), html)
 html = html.replace('__SOURCES__', CFG['meta_sources'])
 html = html.replace('__FINDHINT__', CFG['find_hint'])
+# A per-RESULT preview image is impossible here: the whole answer lives in the
+# URL hash, and a hash fragment is never sent to the server, so static hosting
+# can never see which result to render. Title and description still improve the
+# link card in iMessage, Slack and Twitter, and the share CARD covers the rest.
+html = html.replace('__OGTITLE__', CFG['og_title'])
+html = html.replace('__OGDESC__', CFG['og_desc'])
 html = html.replace('__COUNTRY__', CFG['country'])
 _o = other_country(CFG['cc'])
 html = html.replace('<!--__SWITCH__-->',

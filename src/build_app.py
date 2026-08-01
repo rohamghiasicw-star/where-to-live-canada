@@ -136,6 +136,13 @@ import re as _re
 for _p in places:
     if _p.get('csd'):
         _p['csd'] = _re.sub(r'\s*\(([A-Z]{1,3}|RGM|RDA|HAM)\)', '', _p['csd'])  # drop "Town (T)" codes
+# StatCan's verbose subdivision descriptor leaked into a place name:
+# "Antigonish (Subd. A, Subdivision of county municipality)". The "Subd. A" is real
+# and disambiguates it from Antigonish (Town), so keep that and drop the rest. This
+# only surfaced because a share card renders the name at 132px.
+for _p in places:
+    _p['name'] = _re.sub(r'\(Subd\. ([A-Z]),[^)]*\)', r'(Subd. \1)', _p['name'])
+
 # now that census/politics/prox/lived are attached under the original names, give
 # the kept border-split part its clean city name for display
 for _p in places:
@@ -257,6 +264,12 @@ html = html.replace('<!--__HEADNOTE__-->', open(D('app/head.%s.html' % CFG['cc']
 html = html.replace('<!--__FOOT__-->', open(D('app/foot.%s.html' % CFG['cc'].lower())).read())
 html = html.replace('__SOURCES__', CFG['meta_sources'])
 html = html.replace('__FINDHINT__', CFG['find_hint'])
+# A per-RESULT preview image is impossible here: the whole answer lives in the
+# URL hash, and a hash fragment is never sent to the server, so static hosting
+# can never see which result to render. Title and description still improve the
+# link card in iMessage, Slack and Twitter, and the share CARD covers the rest.
+html = html.replace('__OGTITLE__', CFG['og_title'])
+html = html.replace('__OGDESC__', CFG['og_desc'])
 html = html.replace('__COUNTRY__', CFG['country'])
 _o = other_country(CFG['cc'])
 html = html.replace('<!--__SWITCH__-->',

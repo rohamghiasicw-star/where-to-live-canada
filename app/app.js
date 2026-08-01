@@ -621,6 +621,158 @@ function ribbon(el, p) {
   t.forEach((v,i) => c.fillText(M[i], i*bw+bw/2-3, h-1));
 }
 
+/* ---------- the share card ----------
+   A quiz result spreads as an IMAGE, not a link: people screenshot it into a group
+   chat. A link cannot carry a rich preview here either, because the whole answer
+   lives in the URL hash and a hash fragment is never sent to a server, so GitHub
+   Pages can never render a per-result preview image. So the app draws the card
+   itself and hands over a real file.
+
+   The map is the point. Any quiz can print a name in big type; almost none can show
+   you WHERE on a real projection, drawn from the same geometry as the app. That is
+   the bit that makes the screenshot unmistakably this and not a personality test. */
+const CARD_W = 1080, CARD_H = 1350;   // 4:5, the tallest a feed will show uncropped
+
+async function drawCard() {
+  const r = ranked.find((x) => !x.excluded);
+  if (!r) return null;
+  const p = r.p;
+  try { await document.fonts.ready; } catch (e) {}   // never draw in a fallback face
+
+  const c = document.createElement('canvas');
+  c.width = CARD_W; c.height = CARD_H;
+  const x = c.getContext('2d');
+  const PAPER = css('--paper') || '#F7F7F4', INK = css('--ink') || '#17191D';
+  const INK2 = css('--ink-2'), INK3 = css('--ink-3'), WARM = css('--warm');
+
+  x.fillStyle = PAPER; x.fillRect(0, 0, CARD_W, CARD_H);
+  const M = 72;                                    // margin
+  x.fillStyle = INK; x.fillRect(0, 0, CARD_W, 10); // the field-guide top rule
+
+  x.textBaseline = 'alphabetic';
+  x.fillStyle = INK3;
+  x.font = "600 26px 'Radio Canada', sans-serif";
+  x.fillText('WHERE U BELONG', M, 112);
+
+  x.fillStyle = INK2;
+  x.font = "400 40px 'Radio Canada', sans-serif";
+  x.fillText(shared ? 'They belong in' : 'You belong in', M, 196);
+
+  // The name shrinks to fit rather than clipping, and the budget has to reserve the
+  // province code AND the score plate. Budgeting for the plate alone let "Cape
+  // Breton" push its NS straight under the 88.
+  const SCORE_W = 118;
+  x.font = "400 38px 'Radio Canada', sans-serif";
+  const pvW = x.measureText(p.prov).width;
+  const maxW = CARD_W - M * 2 - SCORE_W - 28 - pvW - 18;
+  let size = 132;
+  do { x.font = `700 ${size}px 'Radio Canada Big', Georgia, serif`; size -= 4; }
+  while (x.measureText(p.name).width > maxW && size > 40);
+  x.fillStyle = INK;
+  x.fillText(p.name, M, 316);
+  const nameW = x.measureText(p.name).width;
+  x.fillStyle = INK3;
+  x.font = "400 38px 'Radio Canada', sans-serif";
+  x.fillText(p.prov, M + nameW + 18, 316);
+
+  // score, as a plate not a medal
+  x.fillStyle = rampOf(r.fit);
+  x.fillRect(CARD_W - M - SCORE_W, 232, SCORE_W, 100);
+  x.fillStyle = css('--fit-ink');
+  x.font = "700 62px 'Radio Canada', sans-serif";
+  const sc = String(Math.round(r.fit));
+  x.fillText(sc, CARD_W - M - SCORE_W / 2 - x.measureText(sc).width / 2, 302);
+
+  // The map, from the same geometry the app draws. Height is CAPPED and the width
+  // follows, because the two countries have very different aspect ratios: the US
+  // sheet is wide and Canada's is nearly square, and a fixed width let the US map
+  // run long enough to push the rows under the footer.
+  const FOOT = 150, ROWS_TOP_GAP = 74;
+  const mapY = 372, MAP_MAX_H = 430;
+  const k = Math.min((CARD_W - M * 2) / 1000, MAP_MAX_H / MAPGEO.height);
+  const mapW = 1000 * k, mapH = MAPGEO.height * k;
+  const mapX = (CARD_W - mapW) / 2;               // centred, whatever the country
+  x.save();
+  // CLIP to the map box. The Canadian sheet is fitted to the inhabited band on
+  // purpose, so the arctic islands run to y = -184 and bleed off the top edge the
+  // way they do on a real map series. The app's canvas clips that; without the same
+  // clip here the arctic painted straight over the province code in the headline.
+  x.beginPath(); x.rect(mapX, mapY, mapW, mapH); x.clip();
+  x.translate(mapX, mapY); x.lineJoin = 'round';
+  for (const rings of Object.values(MAPGEO.prov)) {
+    for (const rg of rings) {
+      x.beginPath();
+      rg.forEach(([px, py], i) => i ? x.lineTo(px * k, py * k) : x.moveTo(px * k, py * k));
+      x.closePath();
+      x.fillStyle = css('--sink'); x.fill();
+      x.strokeStyle = css('--rule-2'); x.lineWidth = 0.8; x.stroke();
+    }
+  }
+  for (const q of ranked) {                       // the field, faint
+    if (q === r) continue;
+    x.globalAlpha = q.excluded ? 0.18 : 0.42;
+    x.beginPath(); x.arc(q.p.x * k, q.p.y * k, 2, 0, 6.284);
+    x.fillStyle = q.excluded ? css('--rule-2') : rampOf(q.fit); x.fill();
+  }
+  x.globalAlpha = 1;
+  x.beginPath(); x.arc(p.x * k, p.y * k, 15, 0, 6.284);
+  x.fillStyle = WARM; x.fill();
+  x.strokeStyle = INK; x.lineWidth = 4; x.stroke();
+  x.restore();
+
+  // what you asked for, and what it actually is there. Spacing is computed from
+  // what is left rather than assumed, so five picks cannot run into the footer.
+  const n = Math.min(picks.length, 5);
+  let y = mapY + mapH + ROWS_TOP_GAP;
+  x.fillStyle = INK3;
+  x.font = "600 26px 'Radio Canada', sans-serif";
+  x.fillText('WHAT YOU ASKED FOR', M, y);
+  y += 20;
+  const step = n ? Math.min(62, (CARD_H - FOOT - y) / n) : 0;
+  for (let i = 0; i < n; i++) {
+    const q = Q.find((z) => z.id === picks[i]), v = q.show(p);
+    y += step;
+    x.fillStyle = WARM; x.fillRect(M, y - 30, 34, 34);
+    x.fillStyle = INK; x.font = "700 22px 'Radio Canada', sans-serif";
+    x.fillText(String(i + 1), M + 11, y - 6);
+    x.fillStyle = INK; x.font = "600 34px 'Radio Canada', sans-serif";
+    x.fillText(q.label, M + 52, y);
+    if (v) {
+      x.fillStyle = INK2; x.font = "400 34px 'Radio Canada', sans-serif";
+      const t = v[0] + v[1];
+      x.fillText(t, CARD_W - M - x.measureText(t).width, y);
+    }
+    x.strokeStyle = css('--rule'); x.lineWidth = 1;
+    x.beginPath(); x.moveTo(M, y + 20); x.lineTo(CARD_W - M, y + 20); x.stroke();
+  }
+
+  x.fillStyle = INK3;
+  x.font = "400 28px 'Radio Canada', sans-serif";
+  x.fillText(`${DATA.length.toLocaleString()} places in ${CFG.country}, ranked on real data`, M, CARD_H - 92);
+  x.fillStyle = INK2;
+  x.font = "600 28px 'Radio Canada', sans-serif";
+  x.fillText(SHARE_HOST, M, CARD_H - 48);
+  return c;
+}
+const SHARE_HOST = location.host + location.pathname.replace(/index\.html$/, '');
+
+async function shareCard() {
+  const c = await drawCard(); if (!c) return;
+  const top = ranked.find((r) => !r.excluded);
+  const text = `Apparently I belong in ${top.p.name}, ${top.p.prov}. Where do you belong?`;
+  const blob = await new Promise((res) => c.toBlob(res, 'image/png'));
+  const file = new File([blob], 'where-u-belong.png', { type: 'image/png' });
+  // Web Share with a file is the good path on a phone. Everything else downloads.
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    try { await navigator.share({ files: [file], text, title: 'Where U Belong' }); return; }
+    catch (e) { if (e && e.name === 'AbortError') return; }
+  }
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'where-u-belong.png'; a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+
 /* ---------- render ---------- */
 function verdict() {
   const r = ranked.find((x) => !x.excluded);
@@ -702,7 +854,8 @@ function verdict() {
 
     ${runners.length ? `<p class="v-next">Then <b>${runners.map((x)=>x.p.name).join('</b>, <b>')}</b>.</p>` : ''}
     <div class="v-foot">
-      <button class="v-share" id="share">Send this to someone</button>
+      <button class="v-share" id="sharecard">Save the picture</button>
+      <button class="v-again" id="share">Send the link</button>
       <button class="v-again" id="vagain">Start over</button>
     </div>
     <p class="v-prov">${CFG.prov_line} Nothing here is a recommendation, and where a number
@@ -1072,6 +1225,7 @@ $('#qs').addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
   const ch = e.target.closest('.ca-ch');
   if (ch) { askIdx = +ch.dataset.goq; goTo('ask'); return; }
+  if (e.target.closest('#sharecard')) { shareCard(); return; }
   if (e.target.closest('#vagain')) { startOver(); return; }
   if (e.target.closest('#showall')) { showAll = !showAll; render(); return; }
   if (e.target.closest('#clearsearch')) { query = ''; const s = $('#search'); if (s) s.value = ''; render(); }

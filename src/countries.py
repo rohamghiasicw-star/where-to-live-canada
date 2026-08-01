@@ -56,6 +56,9 @@ CA = dict(
     meta_sources=('Environment Canada climate normals, wildfire smoke modelling, 2021 Census, '
                   '2025 election results, and what residents say.'),
     find_hint='Find a place, like Goderich\u2026',
+    og_title='Where U Belong \u2014 Canada',
+    og_desc=('Pick the five things that matter to you, rank them, and 710 Canadian cities and '
+             'towns re-sort against your answer.'),
 )
 
 # ---- United States ----------------------------------------------------------
@@ -101,6 +104,9 @@ US = dict(
     meta_sources=('NOAA climate normals, fire-attributed wildfire smoke modelling, the American '
                   'Community Survey, and the 2024 election result.'),
     find_hint='Find a place, like Kalamazoo\u2026',
+    og_title='Where U Belong \u2014 the USA',
+    og_desc=('Pick the five things that matter to you, rank them, and 4,197 American cities and '
+             'towns re-sort against your answer.'),
 )
 
 BY_CC = {'CA': CA, 'US': US}
