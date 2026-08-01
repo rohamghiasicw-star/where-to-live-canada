@@ -424,9 +424,13 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
   /* ONE QUESTION SHOULD OWN THE SCREEN. It was a 204px card floating in 356px of
      dead air. The screen now fills the viewport and the question sits in it, so the
      control lands under the thumb instead of halfway up the glass. */
-  .scr[data-scr="ask"] { display: flex; flex-direction: column;
-    min-height: calc(100vh - 56px - 3px); }
-  .sheet[data-screen="ask"] .scr[data-scr="ask"] { display: flex; }
+  /* Scoped to the ACTIVE screen. Written unscoped, `.scr[data-scr="ask"]`
+     outranked `.scr { display: none }` on specificity, so the question screen
+     rendered underneath every other screen: on the result you got the last
+     question, a screen of empty ink, the progress dots, and then your answer. */
+  .sheet[data-screen="ask"] .scr[data-scr="ask"] {
+    display: flex; flex-direction: column;
+    min-height: calc(100svh - 56px - 3px); }
   #qs { flex: 1 1 auto; }
   .q-solo { padding: 1.6rem 1.3rem 1.8rem; }
   .q-label { font-size: 1.25rem; }
