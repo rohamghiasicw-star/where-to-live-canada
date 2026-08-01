@@ -661,10 +661,12 @@ async function drawCard() {
   // The name shrinks to fit rather than clipping, and the budget has to reserve the
   // province code AND the score plate. Budgeting for the plate alone let "Cape
   // Breton" push its NS straight under the 88.
-  const SCORE_W = 118;
+  // No score on the card. A fit number invites an argument about the method
+  // instead of about the place, and the card's job is a claim about YOU, not a
+  // scorecard. The score stays on the result screen where the reasoning is.
   x.font = "400 38px 'Radio Canada', sans-serif";
   const pvW = x.measureText(p.prov).width;
-  const maxW = CARD_W - M * 2 - SCORE_W - 28 - pvW - 18;
+  const maxW = CARD_W - M * 2 - pvW - 24;
   let size = 132;
   do { x.font = `700 ${size}px 'Radio Canada Big', Georgia, serif`; size -= 4; }
   while (x.measureText(p.name).width > maxW && size > 40);
@@ -674,14 +676,6 @@ async function drawCard() {
   x.fillStyle = INK3;
   x.font = "400 38px 'Radio Canada', sans-serif";
   x.fillText(p.prov, M + nameW + 18, 316);
-
-  // score, as a plate not a medal
-  x.fillStyle = rampOf(r.fit);
-  x.fillRect(CARD_W - M - SCORE_W, 232, SCORE_W, 100);
-  x.fillStyle = css('--fit-ink');
-  x.font = "700 62px 'Radio Canada', sans-serif";
-  const sc = String(Math.round(r.fit));
-  x.fillText(sc, CARD_W - M - SCORE_W / 2 - x.measureText(sc).width / 2, 302);
 
   // The map, from the same geometry the app draws. Height is CAPPED and the width
   // follows, because the two countries have very different aspect ratios: the US
@@ -746,6 +740,13 @@ async function drawCard() {
     x.beginPath(); x.moveTo(M, y + 20); x.lineTo(CARD_W - M, y + 20); x.stroke();
   }
 
+  // The tradeoff, never collapsed. A result with no stated cost is a horoscope.
+  const giveUp = r.bad && r.bad.s < 0.45 ? SHORT[r.bad.id] : null;
+  if (giveUp) {
+    x.fillStyle = INK2;
+    x.font = "400 30px 'Radio Canada', sans-serif";
+    x.fillText(`What you give up: ${giveUp}.`, M, CARD_H - 136);
+  }
   x.fillStyle = INK3;
   x.font = "400 28px 'Radio Canada', sans-serif";
   x.fillText(`${DATA.length.toLocaleString()} places in ${CFG.country}, ranked on real data`, M, CARD_H - 92);

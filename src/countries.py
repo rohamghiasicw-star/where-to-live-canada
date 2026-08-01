@@ -57,6 +57,9 @@ CA = dict(
                   '2025 election results, and what residents say.'),
     find_hint='Find a place, like Goderich\u2026',
     og_title='Where U Belong \u2014 Canada',
+    og_url='https://rohamghiasicw-star.github.io/where-to-live-canada/canada/',
+    og_image='https://rohamghiasicw-star.github.io/where-to-live-canada/og-canada.png',   # absolute: crawlers reject relative
+
     og_desc=('Pick the five things that matter to you, rank them, and 710 Canadian cities and '
              'towns re-sort against your answer.'),
 )
@@ -105,6 +108,9 @@ US = dict(
                   'Community Survey, and the 2024 election result.'),
     find_hint='Find a place, like Kalamazoo\u2026',
     og_title='Where U Belong \u2014 the USA',
+    og_url='https://rohamghiasicw-star.github.io/where-to-live-canada/',
+    og_image='https://rohamghiasicw-star.github.io/where-to-live-canada/og-us.png',
+
     og_desc=('Pick the five things that matter to you, rank them, and 4,197 American cities and '
              'towns re-sort against your answer.'),
 )

@@ -384,6 +384,8 @@ html = html.replace('__FINDHINT__', CFG['find_hint'])
 # link card in iMessage, Slack and Twitter, and the share CARD covers the rest.
 html = html.replace('__OGTITLE__', CFG['og_title'])
 html = html.replace('__OGDESC__', CFG['og_desc'])
+html = html.replace('__OGURL__', CFG['og_url'])
+html = html.replace('__OGIMG__', CFG['og_image'])
 html = html.replace('__COUNTRY__', CFG['country'])
 _o = other_country(CFG['cc'])
 html = html.replace('<!--__SWITCH__-->',
