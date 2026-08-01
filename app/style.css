@@ -1,205 +1,289 @@
 /* ============================================================
-   WHERE TO LIVE / CANADA
-   A field-guide plate, not a dashboard.
+   WHERE U BELONG — Hardiness Zone Map
 
-   The rule this is built on: a graphical move is convincing when
-   it is a function of the data, and costume when it is a layer
-   over the data. Test each mark: could its value have come out
-   different? If no, it is decoration and it is gone.
+   A hardiness map floods a whole country with saturated bands to
+   answer one question: what survives where. That is already this
+   product's mechanism, so the map stops illustrating the answer
+   and becomes it.
 
-   Structure from Golden (1949/1966): everything resolves on the
-   page, no page turn, no drawer. Positional constancy from
-   Peterson and Sibley: the frame never moves, so the eye can
-   detect difference. Missing values keep their slot, the way an
-   MLS card leaves Taxes blank rather than deleting the cell.
+   Refused: the category's white sidebar of sliders over a pale
+   choropleth (MoveMap, Where Might I Live), AND its predictable
+   opposite, the cream-ground editorial data essay, which is what
+   this app used to be. Both are the same rut.
 
-   Colour: the only palette in the research worth trusting is
-   Sibley's own born-digital range-map key, because it shipped as
-   a file rather than as a scan with a cast. Opposed states get
-   opposed colour temperature (Golden 1966: summer orange vs
-   winter cyan), never neighbouring hues. Provenance gets its own
-   ink, because USGS and NRCan each spent a scarce plate on it.
-
-   No dark mode. There is no dark-mode paper.
-   No monospace. The 1985 MLS book was a proportional grotesque;
-   the inheritance is tabular figures, not typewriter cosplay.
+   Ground is printed ink. Panels are uncoated stock pasted onto
+   it. Colour is drenched: zone bands own whole regions.
    ============================================================ */
 
 :root {
-  /* ground: a cool off-white. deliberately not cream: cream plus a
-     rusty accent is now the "tasteful AI" costume. */
-  --paper:   #F7F7F4;
-  --page:    #FFFFFF;
-  --sink:    #EFEFEA;
-  --ink:     #17191D;   /* true near-black, faintly blue. the old one was green. */
-  --ink-2:   #585D65;
-  --ink-3:   #8B9098;
-  --rule:    #DEDFDA;
-  --rule-2:  #C7C9C2;
+  --ink:      #0B2A21;
+  --ink-2:    #123528;
+  --rule:     #21493B;
+  --rule-2:   #2E5C4A;
 
-  /* Sibley range-map key, sampled from his own published file */
-  --warm:    #DD8525;   /* summer.  runs hot: over budget, too hot, too far */
-  --cool:    #426BC1;   /* winter.  runs cold: too cold, too small, too quiet */
-  --check:   #564189;   /* provenance ink. what we did and did not verify. */
-  --thin:    #A6A78E;   /* thin evidence */
+  --stock:    #F4EBD4;
+  --stock-2:  #E7DABA;
+  --on-stock: #14231C;
+  --on-stock-2: #48584C;
+  --on-stock-3: #6B7A6F;
 
-  /* the quantitative ramp the old palette never had. a ranking tool
-     with no score ramp can label but cannot encode. teal-shifted,
-     the way real cartographic greens are; olive reads military. */
-  --fit-0:   #F4F5F2;
-  --fit-1:   #E4EDE9;
-  --fit-2:   #CBE0D9;
-  --fit-3:   #A8CEC3;
-  --fit-4:   #7FB8AA;
-  --fit-ink: #0A4F47;
+  --on-ink:   #F4EBD4;
+  --on-ink-2: #AFC8B8;
+  --on-ink-3: #86A492;
 
-  /* five sizes. The Pudding ships five. the old build had twenty,
-     seven of them crammed between 0.72 and 0.82rem. */
+  /* ZONE BANDS: the fit ramp as printed spot inks, cold to hot.
+     Reads like a hardiness map. Five countable bands, not a
+     smooth gradient, because a printed map has bands. */
+  --z1: #33507A;
+  --z2: #3C7F8C;
+  --z3: #6FA24A;
+  --z4: #D9A21B;
+  --z5: #D6461C;
+
+  --fit-0: #33507A;
+  --fit-1: #3C7F8C;
+  --fit-2: #6FA24A;
+  --fit-3: #D9A21B;
+  --fit-4: #D6461C;
+  --fit-ink: #FFFFFF;
+
+  --signal:  #E9B949;
+  --signal-2:#C8971F;
+  --check:   #A78BFA;
+  --thin:    #86A492;
+  --warm:    #E9B949;
+  --cool:    #3C7F8C;
+  --paper:   #F4EBD4;
+  --page:    #F4EBD4;
+  --sink:    #E7DABA;
+
   --t-xs: 0.8125rem;
   --t-s:  0.9375rem;
   --t-m:  1.0625rem;
-  --t-l:  1.5rem;
-  --t-xl: clamp(2.2rem, 4.5vw, 3.2rem);
+  --t-l:  1.375rem;
+  --t-xl: clamp(2.6rem, 9vw, 5rem);
 
   --gut: 1.5rem;
   --maxw: 1500px;
 }
 
 * { box-sizing: border-box; }
-
-html { background: var(--sink); }
+html { background: var(--ink); }
 
 body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  margin: 0; background: var(--ink); color: var(--on-ink);
   font-family: 'Radio Canada', ui-sans-serif, system-ui, sans-serif;
-  font-size: var(--t-m);
-  line-height: 1.5;
-  font-variant-numeric: tabular-nums;   /* the face actually ships tnum now */
-  -webkit-font-smoothing: antialiased;
+  font-size: var(--t-m); line-height: 1.5;
+  font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased;
 }
 
-/* a column so the action bar lands at the bottom of a short screen instead of
-   floating halfway up with dead paper under it */
-.sheet {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  background: var(--paper);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* display voice: the width axis gives a fat condensed sans, which is
+   seed-rack lettering. No new font; the file stays self-contained. */
+h1, .step-head h2, .v-name, .sheet-name, .pcard .pn, .plate h2, .v-wn {
+  font-family: 'Radio Canada', sans-serif;
+  font-stretch: 75%; font-weight: 700;
+  letter-spacing: -0.015em; line-height: 0.92; text-transform: uppercase;
 }
-.flow { flex: 1 1 auto; }
 
-/* ---------- head ---------- */
-.head {
-  padding: 1.4rem var(--gut) 1.1rem;
-  border-bottom: 2px solid var(--ink);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1.5rem;
-  align-items: end;
-}
-h1 {
-  font-family: 'Radio Canada Big', Georgia, serif;
-  font-weight: 700;
-  font-size: var(--t-xl);
-  line-height: 0.95;
-  margin: 0;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-/* "Emphasis on the U" is the name, so the U cannot be the muted word. It takes
-   the one accent colour the page allows and keeps the display weight. */
-h1 i { font-style: normal; color: var(--warm); font-weight: 700; }
-.lede {
-  font-size: var(--t-s);
-  color: var(--ink-2);
-  max-width: 62ch;
-  margin: 0.5rem 0 0;
-}
-.lede b { color: var(--ink); font-weight: 600; }
-.headnote {
-  font-size: var(--t-xs);
-  color: var(--ink-3);
-  text-align: right;
-  line-height: 1.45;
-}
-.headnote b { color: var(--ink-2); font-weight: 600; }
+.sheet { max-width: var(--maxw); margin: 0 auto; background: var(--ink);
+  min-height: 100vh; display: flex; flex-direction: column; }
+.flow { flex: 1 1 auto; min-width: 0; }
 
-/* ---------- screens ----------
-   One thing at a time. Pick, answer, result, and the field guide behind a button.
-   Everything on one scroll was what made this unreadable. */
-.flow { min-width: 0; }
-.flow, .scr, .plate { min-width: 0; }
+.head { padding: 1.5rem var(--gut) 1.1rem; display: grid;
+  grid-template-columns: 1fr auto; gap: 1.5rem; align-items: end;
+  border-bottom: 3px solid var(--signal); }
+h1 { font-size: var(--t-xl); margin: 0; text-wrap: balance; color: var(--on-ink); }
+h1 i { font-style: normal; color: var(--signal); }
+.lede { font-size: var(--t-s); color: var(--on-ink-2); max-width: 62ch; margin: 0.7rem 0 0; }
+.lede b { color: var(--on-ink); font-weight: 600; }
+.headnote { font-size: var(--t-xs); color: var(--on-ink-3); text-align: right; line-height: 1.45; }
+.headnote b { color: var(--on-ink-2); font-weight: 600; }
+.how { display: none; }
+
+.cswitch { display: block; padding: 0.55rem var(--gut); background: var(--ink-2);
+  border-bottom: 1px solid var(--rule); font-size: var(--t-xs);
+  color: var(--on-ink-2); text-decoration: none; }
+.cswitch b { color: var(--signal); font-weight: 600; }
+.cswitch:hover { background: var(--rule); color: var(--on-ink); }
+
 .scr { display: none; }
 .sheet[data-screen="pick"]    .scr[data-scr="pick"],
 .sheet[data-screen="ask"]     .scr[data-scr="ask"],
 .sheet[data-screen="result"]  .scr[data-scr="result"],
 .sheet[data-screen="explore"] .scr[data-scr="explore"] { display: block; }
-/* the intro earns its place on the first screen and nowhere else */
 .sheet:not([data-screen="pick"]) .lede,
 .sheet:not([data-screen="pick"]) .headnote { display: none; }
-/* a step is a column of reading, not a full-bleed dashboard. left aligned:
-   centring everything is one of the tells. */
 @media (min-width: 761px) {
-  .scr[data-scr="pick"], .scr[data-scr="ask"], .scr[data-scr="result"] { max-width: 820px; }
+  .scr[data-scr="pick"], .scr[data-scr="ask"], .scr[data-scr="result"] { max-width: 880px; }
 }
-.plate { min-width: 0; }
 
-.step-head { padding: 1.2rem var(--gut) 0.85rem; border-bottom: 1px solid var(--rule); }
-.step-n { margin: 0 0 0.25rem; font-size: var(--t-xs); font-weight: 600; color: var(--ink-3); }
-.step-sub { margin: 0.35rem 0 0; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.5; min-height: 1.2em; }
-.step-sub b { color: var(--ink); font-weight: 600; }
-.pk-why { margin: 0; padding: 0.9rem var(--gut) 1.1rem; font-size: var(--t-xs);
-  color: var(--ink-3); line-height: 1.55; border-bottom: 1px solid var(--rule); }
+.step-head { padding: 1.4rem var(--gut) 0.9rem; }
+.step-head h2 { font-size: clamp(1.9rem, 6.5vw, 2.9rem); margin: 0; color: var(--on-ink); }
+.step-n { margin: 0 0 0.4rem; font-size: var(--t-xs); font-weight: 700; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.07em; }
+.step-sub { margin: 0.6rem 0 0; font-size: var(--t-s); color: var(--on-ink-2); min-height: 1.2em; }
+.step-sub b { color: var(--on-ink); font-weight: 700; }
+.pk-why { margin: 0; padding: 1rem var(--gut) 1.4rem; font-size: var(--t-xs);
+  color: var(--on-ink-3); line-height: 1.55; max-width: 66ch; }
 
-/* the action bar. One primary move per screen, in the thumb zone. */
-.actionbar {
-  position: sticky; bottom: 0; z-index: 30; display: flex;
-  background: var(--page); border-top: 2px solid var(--ink);
-  padding-bottom: env(safe-area-inset-bottom, 0);
-}
-.ab-main, .ab-back {
-  font: inherit; font-weight: 600; cursor: pointer; border: 0;
-  padding: 0.95rem 1rem; min-height: 52px; border-radius: 0;
-}
-.ab-main { flex: 1 1 auto; background: var(--ink); color: var(--paper); font-size: var(--t-m); }
-.ab-main:disabled { background: var(--sink); color: var(--ink-3); cursor: default; }
-.ab-back { flex: 0 0 auto; background: var(--page); color: var(--ink-2);
+.picker { display: flex; flex-wrap: wrap; gap: 7px; padding: 0.4rem var(--gut) 0.5rem; }
+.pk-g { flex: 0 0 100%; margin: 0.9rem 0 0.15rem; font-size: var(--t-xs);
+  font-weight: 700; color: var(--on-ink-3); letter-spacing: 0.07em; text-transform: uppercase; }
+.pk-g:first-child { margin-top: 0; }
+.pk { font: inherit; font-size: var(--t-s); font-weight: 600; line-height: 1.1;
+  padding: 0.6rem 0.8rem; cursor: pointer; border-radius: 0;
+  border: 1px solid var(--rule-2); background: transparent; color: var(--on-ink-2);
+  display: inline-flex; align-items: center; gap: 0.5rem; }
+.pk:hover { border-color: var(--signal); color: var(--on-ink); }
+.pk:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+.pk.on { background: var(--stock); color: var(--on-stock); border-color: var(--stock);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+.pk-n { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
+  background: var(--z5); color: #fff; font-weight: 700; font-size: 0.8em;
+  font-variant-numeric: tabular-nums; }
+.picker.full .pk:not(.on) { opacity: 0.4; cursor: default; }
+.picker.full .pk:not(.on):hover { border-color: var(--rule-2); color: var(--on-ink-2); }
+
+.actionbar { position: sticky; bottom: 0; z-index: 30; display: flex;
+  background: var(--ink-2); border-top: 3px solid var(--signal);
+  padding-bottom: env(safe-area-inset-bottom, 0); }
+.ab-main, .ab-back { font: inherit; font-weight: 700; cursor: pointer; border: 0;
+  padding: 1rem; min-height: 56px; border-radius: 0; }
+.ab-main { flex: 1 1 auto; background: var(--signal); color: var(--ink); font-size: var(--t-m); }
+.ab-main:hover { background: var(--signal-2); }
+.ab-main:disabled { background: var(--rule); color: var(--on-ink-3); cursor: default; }
+.ab-back { flex: 0 0 auto; background: transparent; color: var(--on-ink-2);
   border-right: 1px solid var(--rule); font-size: var(--t-s); }
-.ab-back:hover { color: var(--ink); }
-.ab-main:focus-visible, .ab-back:focus-visible { outline: 2px solid var(--warm); outline-offset: -3px; }
+.ab-back:hover { color: var(--on-ink); }
+.ab-main:focus-visible, .ab-back:focus-visible { outline: 2px solid var(--stock); outline-offset: -4px; }
 
-/* one question, filling the screen */
-.q-solo { padding: 1.3rem var(--gut) 1.6rem; border-bottom: 0; }
-.q-rankline { margin: 0 0 0.5rem; font-size: var(--t-xs); color: var(--ink-3); }
-.q-flagnote { margin: 0.3rem 0 0; font-size: var(--t-xs); color: var(--ink-3); }
-.opts-big { flex-direction: column; align-items: stretch; gap: 6px; }
-.opts-big .opt { text-align: left; padding: 0.8rem 0.9rem; font-size: var(--t-m); }
-/* progress as ticks, not a ring or a percentage */
-.askdots { display: flex; gap: 5px; padding: 0.3rem var(--gut) 1.8rem; }
-.askdots .dot { width: 26px; height: 3px; background: var(--rule-2); }
-.askdots .dot.done { background: var(--ink-3); }
-.askdots .dot.on { background: var(--ink); }
+#qs { padding: 0 var(--gut); }
+.q-solo { background: var(--stock); color: var(--on-stock);
+  padding: 1.4rem 1.3rem 1.6rem; box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
+.q { padding: 1rem 0; }
+.q-rankline { margin: 0 0 0.6rem; font-size: var(--t-xs); color: var(--on-stock-2);
+  text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
+.q-rank { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
+  background: var(--z5); color: #fff; font-weight: 700; font-size: 0.85em;
+  margin-right: 0.5rem; vertical-align: -0.15em; font-variant-numeric: tabular-nums; }
+.q-label { font-size: var(--t-m); font-weight: 700; margin: 0; color: var(--on-stock); }
+.q-hint { font-size: var(--t-s); color: var(--on-stock-2); margin: 0.1rem 0 0.9rem; max-width: 62ch; }
+.q-flag { margin: 0.2rem 0 0; font-size: var(--t-m); color: var(--on-stock); font-weight: 700; }
+.q-flagnote { margin: 0.35rem 0 0; font-size: var(--t-xs); color: var(--on-stock-3); }
+.q-empty { margin: 0; padding: 1.2rem var(--gut) 1.4rem; font-size: var(--t-s);
+  color: var(--on-ink-3); line-height: 1.55; max-width: 62ch; }
 
-/* explore: the three ways to read the same ranking */
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opt { font: inherit; font-size: var(--t-s); font-weight: 600; line-height: 1.15;
+  padding: 0.65rem 0.85rem; cursor: pointer; border-radius: 0;
+  border: 1px solid var(--on-stock-3); background: transparent; color: var(--on-stock-2); }
+.opt:hover { border-color: var(--on-stock); color: var(--on-stock); }
+.opt[aria-pressed="true"] { background: var(--on-stock); color: var(--stock); border-color: var(--on-stock); }
+.opt:focus-visible { outline: 2px solid var(--z5); outline-offset: 2px; }
+.opts-big { flex-direction: column; align-items: stretch; gap: 7px; }
+.opts-big .opt { text-align: left; padding: 0.85rem 0.95rem; font-size: var(--t-m); }
+
+.slider-row { display: flex; align-items: center; gap: 0.6rem; }
+.step { width: 48px; height: 48px; flex: 0 0 auto; font: inherit; font-size: 1.4rem;
+  background: transparent; border: 1px solid var(--on-stock-3); color: var(--on-stock);
+  cursor: pointer; border-radius: 0; }
+.step:hover { border-color: var(--on-stock); background: var(--stock-2); }
+input[type=range] { flex: 1 1 auto; -webkit-appearance: none; appearance: none;
+  background: transparent; height: 44px; margin: 0; }
+input[type=range]::-webkit-slider-runnable-track { height: 3px; background: var(--on-stock-3); }
+input[type=range]::-moz-range-track { height: 3px; background: var(--on-stock-3); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 34px;
+  margin-top: -15.5px; background: var(--z5); border: 0; border-radius: 0; cursor: pointer; }
+input[type=range]::-moz-range-thumb { width: 20px; height: 34px; background: var(--z5);
+  border: 0; border-radius: 0; cursor: pointer; }
+input[type=range]:focus-visible { outline: 2px solid var(--z5); outline-offset: 4px; }
+.readout { font-weight: 700; font-size: var(--t-m); color: var(--on-stock); min-width: 4ch; }
+.scale-ends { display: flex; justify-content: space-between; font-size: var(--t-xs);
+  color: var(--on-stock-3); margin-top: 0.35rem; }
+
+.askdots { display: flex; gap: 6px; padding: 1rem var(--gut) 1.8rem; }
+.askdots .dot { width: 30px; height: 4px; background: var(--rule-2); }
+.askdots .dot.done { background: var(--on-ink-3); }
+.askdots .dot.on { background: var(--signal); }
+
+.verdict { padding: 0; }
+.v-hero { padding: 1.6rem var(--gut) 1.4rem; }
+.v-lead { font-size: var(--t-s); color: var(--signal); margin: 0 0 0.4rem;
+  text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+.v-name { font-size: clamp(2.6rem, 12vw, 5.5rem); margin: 0; color: var(--on-ink); }
+.v-name .pv { color: var(--on-ink-3); font-weight: 400; font-size: 0.3em;
+  margin-left: 0.5rem; letter-spacing: 0; text-transform: none; }
+.v-line { font-size: var(--t-m); margin: 0.9rem 0 0; max-width: 60ch; color: var(--on-ink-2); }
+.v-line .cut { color: var(--signal); }
+.v-score { margin: 0.7rem 0 0; font-size: var(--t-xs); color: var(--on-ink-3);
+  text-transform: uppercase; letter-spacing: 0.06em; }
+.v-score b { color: var(--z5); font-weight: 700; font-size: var(--t-l); letter-spacing: 0; }
+
+.checkans { background: var(--stock); color: var(--on-stock); }
+.ca-head { margin: 0; padding: 0.9rem var(--gut) 0.5rem; font-size: var(--t-xs);
+  font-weight: 700; color: var(--on-stock-2); text-transform: uppercase; letter-spacing: 0.07em; }
+.ca-row { display: grid; grid-template-columns: 1fr auto; gap: 0.15rem 0.8rem;
+  padding: 0.8rem var(--gut); border-top: 1px solid var(--stock-2); }
+.ca-k { font-size: var(--t-m); font-weight: 700; }
+.ca-v { grid-column: 1; font-size: var(--t-s); color: var(--on-stock-2); }
+.ca-got { grid-column: 1; font-size: var(--t-xs); color: var(--on-stock-3);
+  display: flex; align-items: center; gap: 0.55rem; }
+.ca-got b { color: var(--on-stock); font-weight: 700; }
+.ca-bar { flex: 0 0 56px; height: 8px; background: var(--stock-2); display: block; }
+.ca-bar i { display: block; height: 100%; }
+.ca-ch { grid-row: 1 / 4; grid-column: 2; align-self: center; font: inherit;
+  font-size: var(--t-xs); font-weight: 700; background: transparent;
+  border: 1px solid var(--on-stock-3); color: var(--on-stock-2);
+  padding: 0.45rem 0.65rem; min-height: 42px; cursor: pointer; border-radius: 0; }
+.ca-ch:hover { border-color: var(--on-stock); color: var(--on-stock); }
+.ca-ch:focus-visible { outline: 2px solid var(--z5); outline-offset: 2px; }
+
+.v-warn { font-size: var(--t-s); max-width: 64ch; color: var(--on-ink-2);
+  margin: 1rem var(--gut) 0; padding: 0.75rem 0.9rem; background: var(--ink-2); }
+.v-warn b { color: var(--on-ink); font-weight: 700; }
+.v-catch { font-size: var(--t-s); color: var(--on-ink-2); margin: 0;
+  padding: 0.8rem var(--gut) 0; max-width: 66ch; }
+.v-catch b { color: var(--on-ink); font-weight: 700; }
+
+.v-wild { font-size: var(--t-s); color: var(--on-stock-2); max-width: 66ch;
+  margin: 1.1rem var(--gut) 0.3rem; padding: 0.9rem 1rem;
+  background: var(--stock); box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
+.v-wild b { color: var(--on-stock); font-weight: 700; display: block; margin-bottom: 0.2rem; }
+.v-wn { color: var(--on-stock); font-size: 1.3rem; margin-right: 0.4rem; }
+.v-wn .pv { color: var(--on-stock-3); font-weight: 400; font-size: 0.6em;
+  margin-left: 0.3rem; text-transform: none; letter-spacing: 0; }
+
+.v-next { margin: 0; padding: 0.9rem var(--gut) 0; font-size: var(--t-s); color: var(--on-ink-2); }
+.v-next b { color: var(--on-ink); font-weight: 700; }
+.v-foot { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;
+  padding: 1.1rem var(--gut) 0.3rem; }
+.v-share { font: inherit; font-size: var(--t-m); font-weight: 700; cursor: pointer;
+  background: var(--z5); color: #fff; border: 0; padding: 0.85rem 1.2rem; border-radius: 0; }
+.v-share:hover { background: #B93A15; }
+.v-again { font: inherit; font-size: var(--t-s); font-weight: 600; background: transparent;
+  border: 1px solid var(--rule-2); color: var(--on-ink-2); padding: 0.7rem 0.95rem;
+  cursor: pointer; border-radius: 0; }
+.v-again:hover { border-color: var(--signal); color: var(--on-ink); }
+.v-prov { margin: 0; padding: 1.1rem var(--gut) 1.6rem; font-size: var(--t-xs);
+  color: var(--on-ink-3); line-height: 1.55; max-width: 74ch; }
+.empty { padding: 2rem var(--gut); color: var(--on-ink-2); }
+
 .explore-bar { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;
-  padding: 0.7rem var(--gut); border-bottom: 1px solid var(--rule); background: var(--page); }
+  padding: 0.75rem var(--gut); border-bottom: 1px solid var(--rule); }
 .explore-bar .findbar { flex: 1 1 220px; padding: 0; border: 0; background: none; }
+.findbar { padding: 0.7rem var(--gut); }
+#search { width: 100%; font: inherit; font-size: var(--t-s); color: var(--on-ink);
+  padding: 0.6rem 0.75rem; border: 1px solid var(--rule-2); border-radius: 0;
+  background: var(--ink-2); box-sizing: border-box; }
+#search:focus-visible { outline: 2px solid var(--signal); outline-offset: 1px; }
+#search::placeholder { color: var(--on-ink-3); }
 .vswitch { display: flex; border: 1px solid var(--rule-2); }
-.vswitch button {
-  font: inherit; font-size: var(--t-xs); font-weight: 600; color: var(--ink-3);
-  background: var(--page); border: 0; border-left: 1px solid var(--rule-2);
-  padding: 0.5rem 0.8rem; min-height: 40px; cursor: pointer;
-}
+.vswitch button { font: inherit; font-size: var(--t-xs); font-weight: 700; color: var(--on-ink-2);
+  background: transparent; border: 0; border-left: 1px solid var(--rule-2);
+  padding: 0.5rem 0.85rem; min-height: 42px; cursor: pointer;
+  text-transform: uppercase; letter-spacing: 0.04em; }
 .vswitch button:first-child { border-left: 0; }
-.vswitch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-/* the sources footer belongs with the numbers it explains. On the picker and the
-   question screens it was just a wall of small print under the one button that
-   matters. */
-.sheet:not([data-screen="explore"]) .foot { display: none; }
+.vswitch button[aria-pressed="true"] { background: var(--signal); color: var(--ink); }
 .plate[data-view="list"] .map-wrap,
 .plate[data-view="list"] .plate-head,
 .plate[data-view="list"] .plate-scroll,
@@ -208,509 +292,124 @@ h1 i { font-style: normal; color: var(--warm); font-weight: 700; }
 .plate[data-view="map"] .plate-scroll,
 .plate[data-view="table"] .cards,
 .plate[data-view="table"] .map-wrap { display: none; }
+.sheet:not([data-screen="explore"]) .foot { display: none; }
 
-/* ---------- survey ---------- */
-.step-head h2, .plate h2 {
-  font-family: 'Radio Canada Big', Georgia, serif;
-  font-weight: 700; font-size: var(--t-l); margin: 0; line-height: 1;
-  letter-spacing: -0.015em;
-}
-.survey-head { padding: 0.9rem var(--gut) 0.7rem; border-bottom: 1px solid var(--rule); }
-.survey-head p { margin: 0.25rem 0 0; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.5; }
-.survey-head p b { color: var(--ink); font-weight: 600; }
-.survey-head p em { font-style: italic; color: var(--ink); }
-
-.q { padding: 1rem var(--gut); border-bottom: 1px solid var(--rule); }
-.q-label { font-size: var(--t-s); font-weight: 600; margin: 0; }
-.q-hint { font-size: var(--t-xs); color: var(--ink-3); margin: 0.1rem 0 0.5rem; }
-
-/* ---------- the picker ----------
-   Every dimension as a tile. Tapping one ranks it and stamps the number, so
-   the weighting is the same gesture as the choosing. This replaced a
-   nineteen-times-repeated importance bar that nobody could read. */
-.pk-count { min-height: 1.2em; }
-.picker {
-  display: flex; flex-wrap: wrap; gap: 6px;
-  padding: 0.85rem var(--gut) 1rem;
-  border-bottom: 1px solid var(--rule);
-}
-.pk-g {
-  flex: 0 0 100%; margin: 0.35rem 0 0.1rem;
-  font-size: var(--t-xs); font-weight: 600; color: var(--ink-3);
-  text-transform: none;
-}
-.pk-g:first-child { margin-top: 0; }
-.pk {
-  font: inherit; font-size: var(--t-s); line-height: 1.15;
-  padding: 0.5rem 0.7rem; cursor: pointer; border-radius: 0;
-  border: 1px solid var(--rule-2); background: var(--page); color: var(--ink-2);
-  display: inline-flex; align-items: center; gap: 0.45rem;
-}
-.pk:hover { border-color: var(--ink-2); color: var(--ink); }
-.pk:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
-.pk.on { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
-/* the rank number is the whole point, so it gets the one accent colour */
-.pk-n {
-  display: inline-grid; place-items: center; width: 1.35em; height: 1.35em;
-  background: var(--warm); color: var(--ink); font-weight: 700;
-  font-size: 0.82em; font-variant-numeric: tabular-nums;
-}
-/* at five, the unpicked tiles stop inviting a tap */
-.picker.full .pk:not(.on) { opacity: 0.42; cursor: default; }
-.picker.full .pk:not(.on):hover { border-color: var(--rule-2); color: var(--ink-2); }
-
-.survey-head-2 { border-top: 0; }
-.q-empty {
-  margin: 0; padding: 1rem var(--gut) 1.2rem;
-  font-size: var(--t-xs); color: var(--ink-3); line-height: 1.55;
-  border-bottom: 1px solid var(--rule);
-}
-.q-flag { margin: 0.15rem 0 0; font-size: var(--t-s); color: var(--ink-2); }
-/* the rank badge repeated beside the question, so a scrolled survey still
-   tells you which answer is carrying the most weight */
-.q-rank {
-  display: inline-grid; place-items: center; width: 1.4em; height: 1.4em;
-  background: var(--warm); color: var(--ink); font-weight: 700;
-  font-size: 0.8em; margin-right: 0.5rem; vertical-align: 0.1em;
-  font-variant-numeric: tabular-nums;
-}
-
-.opts { display: flex; flex-wrap: wrap; gap: 5px; }
-.opt {
-  font: inherit; font-size: var(--t-s); line-height: 1.15;
-  padding: 0.55rem 0.75rem; cursor: pointer; border-radius: 0;
-  border: 1px solid var(--rule-2); background: var(--page); color: var(--ink-2);
-}
-.opt:hover { border-color: var(--ink-2); color: var(--ink); }
-.opt[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.opt:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
-
-
-/* +/- steppers flanking the slider. the slider alone was drag-only, unusable by
-   touch: a real showstopper for the two most important questions. */
-.step {
-  flex: 0 0 auto; width: 34px; height: 34px; padding: 0; border-radius: 0; cursor: pointer;
-  font: inherit; font-size: 1.2rem; line-height: 1; font-weight: 600;
-  border: 1px solid var(--rule-2); background: var(--page); color: var(--ink-2);
-}
-.step:hover { border-color: var(--ink); color: var(--ink); }
-.step:active { background: var(--ink); color: var(--paper); }
-.step:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
-
-.slider-row { display: flex; align-items: center; gap: 0.5rem; }
-input[type=range] {
-  flex: 1; -webkit-appearance: none; appearance: none; background: transparent;
-  height: 26px; margin: 0; cursor: pointer;
-}
-input[type=range]::-webkit-slider-runnable-track { height: 1px; background: var(--rule-2); }
-input[type=range]::-moz-range-track { height: 1px; background: var(--rule-2); }
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 12px; height: 24px; margin-top: -11.5px;
-  background: var(--page); border: 2px solid var(--ink); border-radius: 0;
-}
-input[type=range]::-moz-range-thumb { width: 12px; height: 24px; background: var(--page); border: 2px solid var(--ink); border-radius: 0; }
-input[type=range]:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
-.readout { font-size: var(--t-xs); font-weight: 600; min-width: 7ch; text-align: right; }
-.scale-ends { display: flex; justify-content: space-between; font-size: var(--t-xs); color: var(--ink-3); }
-
-.survey-foot { padding: 0.8rem var(--gut); }
-.reset {
-  font: inherit; font-size: var(--t-xs); background: none; border: 1px solid var(--rule-2);
-  color: var(--ink-2); padding: 0.35rem 0.6rem; cursor: pointer; border-radius: 0;
-}
-.reset:hover { border-color: var(--ink); color: var(--ink); }
-
-/* ---------- the verdict ----------
-   Grid-as-democracy versus one-number-escapes. The plate below gives
-   every place an identical cell. Here exactly one thing escapes. */
-.verdict { padding: 1.2rem var(--gut) 1.1rem; border-bottom: 1px solid var(--rule); background: var(--page); }
-.v-lead { font-size: var(--t-s); color: var(--ink-2); margin: 0; }
-.v-name {
-  font-family: 'Radio Canada Big', Georgia, serif;
-  font-weight: 700; font-size: var(--t-xl); line-height: 1;
-  margin: 0.1rem 0 0; letter-spacing: -0.025em;
-}
-.v-name .pv { color: var(--ink-3); font-weight: 400; font-size: 0.42em; margin-left: 0.4rem; }
-.v-line { font-size: var(--t-m); margin: 0.5rem 0 0; max-width: 62ch; }
-.v-line .cut { color: var(--warm); }
-.v-catch { font-size: var(--t-s); color: var(--ink-2); margin: 0;
-  padding: 0.7rem var(--gut) 0; max-width: 68ch; }
-.v-catch b { color: var(--ink); font-weight: 600; }
-/* the discovery line. ranking 710 places only earns its keep if the answer can
-   be somewhere you have never heard of, so that gets said in its own box. */
-.v-wild {
-  font-size: var(--t-s); color: var(--ink-2); max-width: 68ch;
-  margin: 0.9rem var(--gut) 0.2rem; padding: 0.7rem 0.85rem;
-  background: var(--page); border-left: 3px solid var(--warm);
-}
-.v-wild b { color: var(--ink); font-weight: 600; display: block; }
-.v-wn { font-family: 'Radio Canada Big', Georgia, serif; font-weight: 700;
-  color: var(--ink); font-size: 1.05rem; margin-right: 0.35rem; }
-.v-wn .pv { color: var(--ink-3); font-weight: 400; font-size: 0.68em; margin-left: 0.3rem; }
-/* ---------- the result ----------
-   The verdict, the reasoning, the tradeoff and the provenance all arrive without
-   being asked for. Datawrapper's rule, quoting the NYT's Archie Tse: if the
-   content is hidden, readers will not see it. Only the 27-column table is behind
-   a click, and that is proof of work for a sceptic, not the argument itself. */
-.verdict { padding: 0; }
-.v-hero { padding: 1.3rem var(--gut) 1.2rem; }
-.v-score { margin: 0.6rem 0 0; font-size: var(--t-xs); color: var(--ink-3); }
-.v-score b { color: var(--ink); font-weight: 700; font-size: var(--t-m); }
-
-/* answers, what this place scored on each, and a way back. GOV.UK check-answers. */
-.checkans { border-top: 1px solid var(--rule); background: var(--paper); }
-.ca-head { margin: 0; padding: 0.8rem var(--gut) 0.5rem; font-size: var(--t-xs);
-  font-weight: 600; color: var(--ink-3); }
-.ca-row {
-  display: grid; grid-template-columns: 1fr auto; gap: 0.15rem 0.8rem;
-  padding: 0.75rem var(--gut); border-top: 1px solid var(--rule);
-}
-.ca-k { font-size: var(--t-s); font-weight: 600; }
-.ca-v { grid-column: 1; font-size: var(--t-s); color: var(--ink-2); }
-.ca-got { grid-column: 1; font-size: var(--t-xs); color: var(--ink-3);
-  display: flex; align-items: center; gap: 0.5rem; }
-.ca-got b { color: var(--ink); font-weight: 600; }
-.ca-bar { flex: 0 0 54px; height: 6px; background: var(--sink); display: block; }
-.ca-bar i { display: block; height: 100%; }
-.ca-ch {
-  grid-row: 1 / 4; grid-column: 2; align-self: center;
-  font: inherit; font-size: var(--t-xs); font-weight: 600;
-  background: none; border: 1px solid var(--rule-2); color: var(--ink-2);
-  padding: 0.4rem 0.6rem; min-height: 40px; cursor: pointer; border-radius: 0;
-}
-.ca-ch:hover { border-color: var(--ink); color: var(--ink); }
-.ca-ch:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
-
-.v-prov { margin: 0; padding: 0.9rem var(--gut) 1.4rem; font-size: var(--t-xs);
-  color: var(--ink-3); line-height: 1.55; border-top: 1px solid var(--rule); max-width: 78ch; }
-.v-again {
-  font: inherit; font-size: var(--t-s); font-weight: 600; background: none;
-  border: 1px solid var(--rule-2); color: var(--ink-2); padding: 0.55rem 0.9rem;
-  cursor: pointer; border-radius: 0;
-}
-.v-again:hover { border-color: var(--ink); color: var(--ink); }
-
-.v-foot { display: flex; gap: 0.7rem; align-items: center; flex-wrap: wrap;
-  padding: 1rem var(--gut) 0.2rem; }
-.v-share {
-  font: inherit; font-size: var(--t-s); font-weight: 600; cursor: pointer; border-radius: 0;
-  background: var(--ink); color: var(--paper); border: 1px solid var(--ink); padding: 0.45rem 0.8rem;
-}
-.v-share:hover { background: var(--fit-ink); border-color: var(--fit-ink); }
-.v-next { margin: 0; padding: 0.2rem var(--gut) 0; font-size: var(--t-s); color: var(--ink-2); }
-.v-next b { color: var(--ink); font-weight: 600; }
-
-/* ---------- the plate ----------
-   Sibley's matrix. Rows are places, columns are dimensions, and the
-   column order never changes. Down a column compares one dimension
-   across places. Across a row is one place. */
-.plate-head {
-  padding: 0.85rem var(--gut) 0.7rem; border-bottom: 1px solid var(--rule);
-  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap;
-}
-.plate-head .note { font-size: var(--t-xs); color: var(--ink-3); }
-
-.plate-scroll { overflow-x: auto; }
-table.plate-t { border-collapse: collapse; width: 100%; font-size: var(--t-xs); }
-.plate-t tbody tr:nth-child(4n+1) td { box-shadow: inset 0 1px 0 var(--rule); }
-.plate-t thead th {
-  position: sticky; top: 0; z-index: 2; background: var(--paper);
-  font-weight: 400; font-size: var(--t-xs); color: var(--ink-3);
-  text-align: right; padding: 0.5rem 0.4rem; border-bottom: 1px solid var(--ink);
-  white-space: nowrap;
-}
-.plate-t thead th.l { text-align: left; }
-.plate-t tbody td {
-  padding: 0; border-bottom: 1px solid var(--rule-soft, #EDEEE9); text-align: right;
-  white-space: nowrap;
-}
-.plate-t tbody tr:hover td { background: var(--sink); }
-.plate-t tbody tr.cut td { opacity: 0.42; }
-
-/* the self-legending cell, MLS 1985: tiny light label welded to a bold
-   value. most web tables get this contrast backwards. */
-.cell { display: block; padding: 0.6rem 0.5rem; }
-.cell .v { font-weight: 600; color: var(--ink); }
-.cell .u { color: var(--ink-3); font-weight: 400; }
-/* not available. StatCan's published symbol, not an invented dash. */
-.cell .na { color: var(--ink-3); font-weight: 400; letter-spacing: 0.08em; }
-
-.rank { color: var(--ink-3); padding: 0.6rem 0.5rem; text-align: right; width: 3ch; }
-.pname {
-  text-align: left; padding: 0.6rem 0.5rem;
-  font-weight: 600; color: var(--ink); font-size: var(--t-s);
-  /* width axis carries settlement size: a big city is set wide, a village
-     narrow. type doing the work of a column. */
-  font-stretch: var(--w, 100%);
-}
-.pname .pv { color: var(--ink-3); font-weight: 400; margin-left: 0.3rem; }
-.pname button { all: unset; cursor: pointer; }
-.pname button:focus-visible { outline: 2px solid var(--warm); }
-
-/* score: the ramp. the only place a filled block appears, so it reads
-   as the answer rather than as chrome. */
-.fit { width: 3.2rem; }
-.fit .b { display: block; padding: 0.6rem 0.5rem; font-weight: 700; color: var(--fit-ink); }
-
-/* Peterson's arrow, rationed. it marks the dimension that separates this
-   place from the ones it is confusable with. mute on purpose: it says
-   "this is what differs", not "this is good". */
-.split { position: relative; }
-.split::after {
-  content: ""; position: absolute; left: 1px; top: 50%; width: 5px; height: 5px;
-  transform: translateY(-50%) rotate(45deg);
-  border-left: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
-}
-
-/* provenance ink. USGS and NRCan each spend a scarce plate saying how
-   much to trust the sheet. 28 of 129 places have resident research and
-   the rest do not, and they must not render identically. */
-.prov { width: 1.1rem; padding: 0 !important; }
-.prov i { display: block; width: 3px; height: 100%; min-height: 1.6rem; }
-.prov i.full { background: var(--check); }
-.prov i.none { background: repeating-linear-gradient(0deg, var(--thin) 0 2px, transparent 2px 5px); }
-
-/* ---------- detail ---------- */
-.detail td { padding: 0 !important; }
-/* the desktop detail row sits inside the 21-column table, so it inherited the
-   table's huge width and its right third scrolled off-screen. Pin it to the
-   left of the scroll viewport and bound it to the visible plate width. */
-.detail td { position: sticky; left: 0; }
-.dwrap { padding: 0.9rem var(--gut) 1.1rem; background: var(--page); border-bottom: 1px solid var(--rule);
-  position: sticky; left: 0; box-sizing: border-box;
-  width: calc(min(100vw, var(--maxw)) - 302px); max-width: 100vw; }
-.dgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4rem; }
-.drow b { text-align: right; }
-.dh { font-size: var(--t-xs); font-weight: 600; color: var(--ink); margin: 0 0 0.35rem;
-  padding-bottom: 0.2rem; border-bottom: 1px solid var(--rule-2); }
-.drow { display: flex; justify-content: space-between; gap: 1rem; font-size: var(--t-xs); padding: 0.14rem 0; }
-.drow span { color: var(--ink-3); }
-.drow b { font-weight: 600; }
-.prov-note { font-size: var(--t-xs); color: var(--ink-3); margin-top: 0.5rem; line-height: 1.5; }
-.prov-note em { font-style: normal; color: var(--check); font-weight: 600; }
-.quote { margin: 0 0 0.5rem; font-size: var(--t-xs); color: var(--ink-2); }
-.quote cite { display: block; font-style: normal; color: var(--ink-3); margin-top: 0.15rem; }
-.quote cite a { color: var(--cool); }
-ul.pts { margin: 0.2rem 0 0; padding-left: 1rem; }
-ul.pts li { font-size: var(--t-xs); color: var(--ink-2); margin-bottom: 0.2rem; }
-
-/* resident sentiment. opposed states get opposed colour temperature,
-   Golden 1966, never two neighbouring hues. */
-.sent { display: flex; flex-direction: column; gap: 2px; }
-.sr { display: grid; grid-template-columns: 5rem 1fr 2rem; gap: 0.35rem; align-items: center; font-size: var(--t-xs); }
-.sk { color: var(--ink-3); }
-.st { position: relative; height: 7px; background: var(--sink); }
-.st::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1px solid var(--rule-2); }
-.st i { position: absolute; top: 0; bottom: 0; display: block; }
-.sv { color: var(--ink-3); text-align: right; }
-
-.ribbon { width: 100%; height: 42px; display: block; }
-.rib-k { display: flex; justify-content: space-between; font-size: var(--t-xs); color: var(--ink-3); }
-
-/* ---------- map ---------- */
-.map-wrap { position: relative; padding: 1rem var(--gut) 1.2rem; border-bottom: 1px solid var(--rule); background: var(--page); }
-canvas#map { width: 100%; display: block; }
-.tip {
-  position: absolute; pointer-events: none; z-index: 5; background: var(--ink); color: var(--paper);
-  padding: 0.35rem 0.5rem; font-size: var(--t-xs); line-height: 1.35; max-width: 230px; opacity: 0;
-}
+.map-wrap { position: relative; background: var(--ink); }
+#map { display: block; width: 100%; }
+.tip { position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.12s;
+  background: var(--stock); color: var(--on-stock); font-size: var(--t-xs);
+  padding: 0.4rem 0.55rem; font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.5); }
 .tip.on { opacity: 1; }
-.tip b { font-weight: 700; display: block; }
-
-/* ---------- foot ---------- */
-.foot { border-top: 2px solid var(--ink); padding: 1rem var(--gut) 2.5rem; font-size: var(--t-xs);
-  color: var(--ink-3); line-height: 1.6; }
-.foot a { color: var(--cool); }
-.foot h3 { font-size: var(--t-xs); color: var(--ink); margin: 0 0 0.25rem; font-weight: 600; }
-.foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
-.legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.9rem; font-size: var(--t-xs); }
-.legend span { display: flex; align-items: center; gap: 0.3rem; color: var(--ink-2); }
-.legend i { width: 10px; height: 10px; display: inline-block; }
-
-.empty { padding: 1.5rem var(--gut); color: var(--ink-3); font-size: var(--t-s); }
-
-@media (max-width: 1000px) {
-  .field { grid-template-columns: 1fr; }
-  .survey { border-right: 0; border-bottom: 2px solid var(--ink); position: static; }
-  .dgrid { grid-template-columns: 1fr; gap: 1rem; }
-  .head { grid-template-columns: 1fr; }
-  .headnote { text-align: left; }
-}
-
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
-
-
-/* 746 rows is 23,000px of table nobody scrolls. Show the plate you would
-   actually read, and let the map carry the whole country. */
-.showall {
-  font: inherit; font-size: var(--t-xs); background: none; border: 0; padding: 0;
-  color: var(--cool); cursor: pointer; text-decoration: underline;
-}
-.showall:hover { color: var(--ink); }
-
-/* how to use it. a real sequence, so it earns its numbers. */
-ol.how {
-  margin: 0.6rem 0 0; padding: 0 0 0 1.1rem;
-  max-width: 68ch; font-size: var(--t-xs); color: var(--ink-2);
-}
-ol.how li { margin-bottom: 0.18rem; padding-left: 0.15rem; }
-ol.how li::marker { color: var(--ink-3); font-weight: 600; }
-ol.how b { color: var(--ink); font-weight: 600; }
-.lede em { font-style: italic; color: var(--ink); }
-
-/* the weight control says what it does now */
-
-/* when the answers contradict each other, say so */
-.v-warn {
-  font-size: var(--t-s); max-width: 66ch; color: var(--ink-2);
-  border-left: 2px solid var(--warm);
-  margin: 0.8rem var(--gut) 0; padding: 0.15rem 0 0.15rem 0.6rem;
-}
-.v-warn b { color: var(--ink); font-weight: 600; }
-
-/* the column heads are hoverable, so say so */
-.plate-t thead th[title] { cursor: help; text-decoration: underline dotted var(--rule-2); text-underline-offset: 3px; }
-
-/* ============================================================
-   MOBILE. Below 760px this stops being a desktop plate and
-   becomes a rank-and-compare tool, per NN/g: a comparison table
-   only helps decisions at <=5 items, and there are 712 here. So
-   the phone gets a ranked list of cards, a detail sheet, and a
-   map, switched by a bottom tab bar. The 21-column plate is
-   desktop-only. Answers still live in the URL hash exactly as
-   before; the tab is ephemeral, never in the URL.
-   ============================================================ */
-
-/* device-specific copy */
-.only-narrow { display: none; }
 
 .cards { display: block; list-style: none; margin: 0; padding: 0 0 2rem; }
+.pcard { display: grid; grid-template-columns: auto 1fr auto; gap: 0.45rem 0.85rem;
+  align-items: baseline; padding: 0.95rem var(--gut);
+  border-bottom: 1px solid var(--rule); width: 100%; text-align: left;
+  background: none; border-left: 0; border-right: 0; border-top: 0; font: inherit;
+  color: var(--on-ink); cursor: pointer; }
+.pcard:hover, .pcard:active { background: var(--ink-2); }
+.pcard .pr { color: var(--on-ink-3); font-size: var(--t-s); font-variant-numeric: tabular-nums; }
+.pcard .pn { font-size: 1.3rem; }
+.pcard .pn .pv { color: var(--on-ink-3); font-weight: 400; font-size: 0.6em;
+  margin-left: 0.3rem; text-transform: none; letter-spacing: 0; }
+.pcard .pf { font-weight: 700; color: #fff; font-size: 1.05rem; padding: 0.2rem 0.5rem; }
+.pcard .pwhy { grid-column: 2 / 4; font-size: var(--t-xs); color: var(--on-ink-2); margin-top: 0.1rem; }
+.pcard .pwhy .cut { color: var(--signal); }
+.pcard.excl .pf { color: var(--on-ink-3); background: var(--rule) !important; }
+.pcard .chips { grid-column: 1 / 4; display: flex; flex-wrap: wrap; gap: 5px; margin-top: 0.35rem; }
+.pcard .chip { font-size: var(--t-xs); border: 1px solid var(--rule-2); padding: 0.22rem 0.5rem; color: var(--on-ink-2); }
+.pcard .chip b { font-weight: 700; color: var(--on-ink); }
+.cards-head { padding: 0.75rem var(--gut); font-size: var(--t-xs); color: var(--on-ink-3);
+  border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--ink); z-index: 1; }
+.showall { font: inherit; font-size: var(--t-xs); font-weight: 700; background: none;
+  border: 0; color: var(--signal); cursor: pointer; text-decoration: underline; padding: 0; }
+
+.plate-head { display: flex; align-items: baseline; gap: 0.8rem; padding: 1rem var(--gut) 0.6rem; }
+.plate h2 { font-size: var(--t-l); margin: 0; color: var(--on-ink); }
+.plate-head .note { font-size: var(--t-xs); color: var(--on-ink-3); }
+.plate-scroll { overflow-x: auto; }
+.plate-t { border-collapse: collapse; font-size: var(--t-xs); width: 100%; }
+.plate-t thead th { position: sticky; top: 0; background: var(--ink-2); color: var(--on-ink-2);
+  font-weight: 700; padding: 0.5rem 0.4rem; text-align: right; white-space: nowrap;
+  border-bottom: 1px solid var(--rule-2); }
+.plate-t thead th.l { text-align: left; }
+.plate-t tbody td { padding: 0.35rem 0.4rem; text-align: right; border-bottom: 1px solid var(--rule); }
+.plate-t tbody tr:hover td { background: var(--ink-2); }
+.plate-t tbody tr.cut td { opacity: 0.45; }
+.plate-t thead th[title] { cursor: help; }
+.rank { color: var(--on-ink-3); }
+.pname { text-align: left; }
+.pname button { font: inherit; font-weight: 700; background: none; border: 0;
+  color: var(--on-ink); cursor: pointer; padding: 0; }
+.pname .pv { color: var(--on-ink-3); font-weight: 400; margin-left: 0.25rem; }
+.fit .b { display: inline-block; min-width: 2.4em; padding: 0.15rem 0.3rem; color: #fff; font-weight: 700; }
+.cell { display: inline-block; padding: 0.1rem 0.25rem; }
+.cell .u { color: var(--on-ink-3); }
+.na { color: var(--on-ink-3); }
+.split { outline: 1px solid var(--signal); outline-offset: -1px; }
+.prov i { display: inline-block; width: 8px; height: 8px; }
+.prov i.full { background: var(--check); }
+.prov i.none { background: repeating-linear-gradient(0deg, var(--thin) 0 2px, transparent 2px 5px); }
+.detail td { background: var(--ink-2); padding: 1rem var(--gut) !important; }
+.drow { display: flex; justify-content: space-between; gap: 1rem; padding: 0.25rem 0;
+  border-bottom: 1px solid var(--rule); font-size: var(--t-xs); }
+.drow span { color: var(--on-ink-3); }
+.drow b { color: var(--on-ink); font-weight: 700; }
+.drow .u { color: var(--on-ink-3); font-weight: 400; }
+.dgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 1.5rem; }
+.prov-note { font-size: var(--t-xs); color: var(--on-ink-3); margin: 0.8rem 0 0; }
+.quote { font-size: var(--t-xs); color: var(--on-ink-2); margin: 0.5rem 0 0; }
+.quote a { color: var(--signal); }
+
+.foot { padding: 2rem var(--gut) 3rem; border-top: 1px solid var(--rule); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; font-size: var(--t-xs);
+  color: var(--on-ink-3); padding-bottom: 1.2rem; }
+.legend i { display: inline-block; width: 12px; height: 12px; margin-right: 0.35rem; vertical-align: -1px; }
+.foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.foot-grid h3 { font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--signal); margin: 0 0 0.4rem; }
+.foot-grid div { font-size: var(--t-xs); color: var(--on-ink-3); line-height: 1.6; max-width: 62ch; }
+.foot-grid b { color: var(--on-ink-2); }
+.foot a { color: var(--on-ink-2); }
+
 .sheet-overlay { display: none; }
+.only-narrow { display: none; }
 
 @media (max-width: 760px) {
-  :root { --gut: 1rem; }
+  :root { --gut: 1.1rem; }
   .only-wide { display: none; }
   .only-narrow { display: inline; }
-  /* the intro is a desktop luxury; on a phone it buried the survey behind three
-     stacked text bands. Drop the how-to, the stat block AND the lede so the top
-     is just the title, then the live match bar, then the questions. */
-  .how, .headnote, .lede { display: none; }
-  .head { grid-template-columns: 1fr; padding: 0.9rem var(--gut) 0.7rem; }
-  h1 { font-size: clamp(1.8rem, 8vw, 2.2rem); }
-  /* lighter rules so the bands do not read as a wall */
-  .head { border-bottom-width: 1px; }
-  .step-head { padding-top: 0.9rem; padding-bottom: 0.7rem; }
+  .head { grid-template-columns: 1fr; padding: 1rem var(--gut) 0.8rem; }
+  .headnote, .lede { display: none; }
+  .step-head { padding: 1.1rem var(--gut) 0.8rem; }
+  .pk { padding: 0.7rem 0.9rem; font-size: var(--t-m); min-height: 46px; }
+  .opt { padding: 0.75rem 0.95rem; font-size: var(--t-m); }
+  #search { font-size: var(--t-m); padding: 0.75rem 0.85rem; }
+  .plate-scroll { display: none; }
+  .foot { padding-bottom: 4rem; }
 
-  /* the verdict is the answer, so it sits at the very top of List and Map */
-  .verdict { padding-bottom: 1rem; }
-
-  /* the cards: rank, name, fit, and the 2-3 stats that decided it */
-  .pcard {
-    display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem 0.8rem;
-    align-items: baseline; padding: 0.9rem var(--gut);
-    border-bottom: 1px solid var(--rule); width: 100%; text-align: left;
-    background: none; border-left: 0; border-right: 0; border-top: 0; font: inherit;
-    color: inherit; cursor: pointer;
-  }
-  .pcard:active { background: var(--sink); }
-  .pcard .pr { color: var(--ink-3); font-size: var(--t-s); font-variant-numeric: tabular-nums; }
-  .pcard .pn { font-family: 'Radio Canada Big', Georgia, serif; font-weight: 700;
-    font-size: 1.25rem; line-height: 1; }
-  .pcard .pn .pv { color: var(--ink-3); font-weight: 400; font-size: 0.7rem; margin-left: 0.3rem; }
-  .pcard .pf { font-weight: 700; color: var(--fit-ink); font-size: 1.1rem;
-    padding: 0.15rem 0.45rem; }
-  .pcard .pwhy { grid-column: 2 / 4; font-size: var(--t-xs); color: var(--ink-2); margin-top: 0.1rem; }
-  .pcard .pwhy .cut { color: var(--warm); }
-  .pcard.excl .pf { color: var(--ink-3); background: var(--sink); }
-  .pcard .chips { grid-column: 1 / 4; display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.3rem; }
-  .pcard .chip { font-size: var(--t-xs); border: 1px solid var(--rule-2); padding: 0.2rem 0.45rem; color: var(--ink-2); }
-  .pcard .chip b { font-weight: 600; color: var(--ink); }
-
-  .cards-head { padding: 0.7rem var(--gut); font-size: var(--t-xs); color: var(--ink-3);
-    border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--paper); z-index: 1; }
-
-  /* fatter controls: 44px minimum, per Apple and Material */
-  .opt { padding: 0.7rem 0.9rem; font-size: var(--t-m); }
-  /* the picker is the primary control on a phone, so its tiles clear 44px */
-  .pk { padding: 0.65rem 0.85rem; font-size: var(--t-m); min-height: 44px; }
-  .picker { gap: 7px; padding-bottom: 1.1rem; }
-  input[type=range] { height: 44px; }
-  .step { width: 44px; height: 44px; font-size: 1.4rem; }
-  .slider-row { flex-wrap: wrap; }
-  .slider-row .readout { flex: 1 0 100%; text-align: left; margin-top: 0.2rem; }
-  input[type=range]::-webkit-slider-thumb { width: 20px; height: 32px; margin-top: -15.5px; }
-  input[type=range]::-moz-range-thumb { width: 20px; height: 32px; }
-  .reset { padding: 0.7rem 1rem; font-size: var(--t-s); }
-  .q { padding: 1.1rem var(--gut); }
-  .q-label { font-size: var(--t-m); }
-  
-  /* map fills the screen on its own tab */
-  /* no min-height on the canvas: it draws at a fixed aspect and its height is set
-     in JS. forcing 60vh stretched Canada vertically and wrecked the map. */
-
-  /* footer only clutters the phone; keep it for the desktop plate */
-  .foot { padding-bottom: 6rem; }
-
-  /* the detail sheet: full place record, slides up, back-button closes it */
   .sheet-overlay { display: block; position: fixed; inset: 0; z-index: 50; }
   .sheet-overlay[hidden] { display: none; }
-  .sheet-scrim { position: absolute; inset: 0; background: rgba(20,22,18,0.4); }
-  .sheet-card {
-    position: absolute; left: 0; right: 0; bottom: 0; max-height: 92vh; overflow-y: auto;
-    background: var(--page); border-top: 3px solid var(--ink);
+  .sheet-scrim { position: absolute; inset: 0; background: rgba(6,20,15,0.72); }
+  .sheet-card { position: absolute; left: 0; right: 0; bottom: 0; max-height: 92vh; overflow-y: auto;
+    background: var(--ink); border-top: 3px solid var(--signal);
     padding: 0.5rem 0 calc(2rem + env(safe-area-inset-bottom, 0));
-    animation: sheetup 0.22s ease;
-  }
+    animation: sheetup 0.28s cubic-bezier(0.16, 1, 0.3, 1); }
   @keyframes sheetup { from { transform: translateY(100%); } to { transform: translateY(0); } }
   .sheet-close { position: sticky; top: 0; float: right; font: inherit; font-size: var(--t-s);
-    background: var(--page); border: 0; color: var(--ink-2); padding: 0.6rem 1rem; cursor: pointer; z-index: 2; }
+    background: var(--ink); border: 0; color: var(--on-ink-2); padding: 0.6rem 1rem; cursor: pointer; z-index: 2; }
   .sheet-card .dgrid { grid-template-columns: 1fr; padding: 0 var(--gut); }
-  .sheet-name { font-family: 'Radio Canada Big', Georgia, serif; font-weight: 700;
-    font-size: 1.8rem; padding: 0.3rem var(--gut) 0; line-height: 1; }
-  .sheet-name .pv { color: var(--ink-3); font-weight: 400; font-size: 0.9rem; margin-left: 0.4rem; }
-}
-@media (prefers-reduced-motion: reduce) { .sheet-card { animation: none; } }
-
-/* find-a-place search. Above the list on both layouts. */
-.findbar { padding: 0.7rem var(--gut); border-bottom: 1px solid var(--rule); background: var(--page); }
-#search {
-  width: 100%; font: inherit; font-size: var(--t-s); color: var(--ink);
-  padding: 0.55rem 0.7rem; border: 1px solid var(--rule-2); border-radius: 0;
-  background: var(--paper); box-sizing: border-box;
-}
-#search:focus-visible { outline: 2px solid var(--warm); outline-offset: 1px; }
-#search::placeholder { color: var(--ink-3); }
-.plate-head input { display: none; }
-@media (max-width: 760px) {
-  #search { font-size: var(--t-m); padding: 0.7rem 0.8rem; }   /* >=16px so iOS does not zoom */
+  .sheet-name { font-size: 2rem; padding: 0.3rem var(--gut) 0; color: var(--on-ink); }
+  .sheet-name .pv { color: var(--on-ink-3); font-weight: 400; font-size: 0.45em;
+    margin-left: 0.4rem; text-transform: none; }
 }
 
-/* Radio Canada Big's word space measures 0.182em - already on the tight side of
-   normal, not the wide broadcast space we assumed. The old -0.2em "fix" subtracted
-   MORE than the whole space, so titles collapsed to "Wheretolive" with no gaps at
-   all (worst on iOS, where the space is even narrower). Leave the natural space be. */
-h1, .step-head h2, .plate h2, .v-name, .sheet-name, .pcard .pn {
-  word-spacing: normal;
-}
-
-/* ---------- desktop action bar ----------
-   Must come after the base .ab-* rules: same specificity, so source order decides.
-   A 1500px-wide black button is a banner, not a button. */
 @media (min-width: 761px) {
   .actionbar { justify-content: flex-start; }
-  .ab-main { flex: 0 0 auto; min-width: 300px; }
+  .ab-main { flex: 0 0 auto; min-width: 320px; }
   .ab-back { min-width: 160px; }
 }
 
-/* ---------- country switch ----------
-   Two self-contained pages rather than one file carrying both countries: the US
-   list is several times longer and a single build would be a multi-megabyte
-   download on a phone. So this is a plain link, which also means each country
-   still works opened straight off disk. */
-.cswitch {
-  display: block; padding: 0.6rem var(--gut);
-  border-bottom: 1px solid var(--rule); background: var(--sink);
-  font-size: var(--t-xs); color: var(--ink-2); text-decoration: none;
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
 }
-.cswitch b { color: var(--ink); font-weight: 600; }
-.cswitch:hover { background: var(--page); color: var(--ink); }

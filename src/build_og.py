@@ -23,14 +23,15 @@ D = lambda *p: os.path.join(ROOT, *p)
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1200, 630
-PAPER = (247, 247, 244)
-INK = (23, 25, 29)
-INK2 = (88, 93, 101)
-INK3 = (139, 144, 152)
-SINK = (239, 239, 234)
-RULE2 = (199, 201, 194)
-WARM = (221, 133, 37)
-FIT = [(244, 245, 242), (228, 237, 233), (203, 224, 217), (168, 206, 195), (127, 184, 170)]
+# Hardiness Zone world: printed ink ground, stock type, five zone bands
+INK    = (11, 42, 33)
+INK2   = (18, 53, 40)
+STOCK  = (244, 235, 212)
+ONINK2 = (175, 200, 184)
+ONINK3 = (134, 164, 146)
+SIGNAL = (233, 185, 73)
+FIT    = [(51, 80, 122), (60, 127, 140), (111, 162, 74), (217, 162, 27), (214, 70, 28)]
+PAPER, SINK, RULE2, INK3, WARM = INK, INK2, INK2, ONINK3, SIGNAL
 
 
 def woff2_to_ttf(cache_dir):
@@ -77,9 +78,9 @@ def build(cc, page, out_name):
     mapgeo = json.loads(re.search(r';const MAPGEO=(\{.*?\});</script>', html, re.S).group(1))
     cfg = json.loads(re.search(r'const CFG=(\{.*?\});const DATA=', html, re.S).group(1))
 
-    img = Image.new('RGB', (W, H), PAPER)
+    img = Image.new('RGB', (W, H), INK)
     d = ImageDraw.Draw(img)
-    d.rectangle([0, 0, W, 8], fill=INK)
+    d.rectangle([0, 0, W, 14], fill=SIGNAL)
 
     fonts = woff2_to_ttf(os.path.join(os.environ.get('OG_CACHE', '/tmp/og-fonts')))
     big = fonts.get('Radio Canada Big') or fonts.get('Radio Canada')
@@ -87,17 +88,17 @@ def build(cc, page, out_name):
     F = lambda path, sz: ImageFont.truetype(path, sz) if path else ImageFont.load_default()
 
     M = 64
-    d.text((M, 74), 'WHERE U BELONG', font=F(reg, 26), fill=INK3)
-    d.text((M, 124), 'Where do', font=F(big, 74), fill=INK)
-    d.text((M, 206), 'you belong?', font=F(big, 74), fill=INK)
-    d.text((M, 320), 'Pick the five things that matter to you.', font=F(reg, 30), fill=INK2)
-    d.text((M, 362), 'Rank them. Every town re-sorts against', font=F(reg, 30), fill=INK2)
-    d.text((M, 404), 'your answer.', font=F(reg, 30), fill=INK2)
+    d.text((M, 76), 'WHERE U BELONG', font=F(reg, 26), fill=SIGNAL)
+    d.text((M, 126), 'WHERE DO', font=F(big, 82), fill=STOCK)
+    d.text((M, 214), 'YOU BELONG?', font=F(big, 82), fill=STOCK)
+    d.text((M, 336), 'Pick the five things that matter to you.', font=F(reg, 30), fill=ONINK2)
+    d.text((M, 378), 'Rank them. Every town re-sorts against', font=F(reg, 30), fill=ONINK2)
+    d.text((M, 420), 'your answer.', font=F(reg, 30), fill=ONINK2)
 
     n = len(data)
-    d.text((M, 486), '%s places in %s' % ('{:,}'.format(n), cfg['country']),
-           font=F(reg, 30), fill=INK)
-    d.text((M, 528), 'ranked on real data, not on a listicle', font=F(reg, 26), fill=INK3)
+    d.text((M, 494), '%s places in %s' % ('{:,}'.format(n), cfg['country']),
+           font=F(reg, 30), fill=STOCK)
+    d.text((M, 536), 'ranked on real data, not on a listicle', font=F(reg, 26), fill=ONINK3)
 
     # the map, right half, clipped to its box exactly as the share card does: the
     # Canadian sheet is fitted to the inhabited band so the arctic runs off the top
@@ -105,18 +106,39 @@ def build(cc, page, out_name):
     k = min(box_w / 1000.0, box_h / mapgeo['height'])
     mw, mh = 1000 * k, mapgeo['height'] * k
     ox, oy = box_x + (box_w - mw) / 2, box_y + (box_h - mh) / 2
-    layer = Image.new('RGB', (int(mw) + 2, int(mh) + 2), PAPER)
-    ld = ImageDraw.Draw(layer)
+    # the same zone flood the app draws: nearest place wins each cell, so the
+    # preview is the product's own map rather than a decorative outline
+    lw, lh = int(mw) + 2, int(mh) + 2
+    layer = Image.new('RGB', (lw, lh), INK)
+    mask = Image.new('L', (lw, lh), 0)
+    md = ImageDraw.Draw(mask)
     for rings in mapgeo['prov'].values():
         for rg in rings:
             pts = [(px * k, py * k) for px, py in rg]
             if len(pts) > 2:
-                ld.polygon(pts, fill=SINK, outline=RULE2)
-    for p in data:
-        px, py = p['x'] * k, p['y'] * k
-        c = FIT[min(4, int((p.get('pop') or 0) > 0) * 2 + 1)]
-        ld.ellipse([px - 1.6, py - 1.6, px + 1.6, py + 1.6], fill=c)
-    img.paste(layer, (int(ox), int(oy)))
+                md.polygon(pts, fill=255)
+    # coarse nearest-place field, then paste through the country mask
+    STEP = 3
+    pxs = [(p['x'] * k, p['y'] * k, i) for i, p in enumerate(data)]
+    band = [FIT[min(4, i * 5 // max(1, len(data)))] for i in range(len(data))]
+    from math import inf
+    buckets = {}
+    for bxp, byp, i in pxs:
+        buckets.setdefault((int(bxp // 40), int(byp // 40)), []).append((bxp, byp, i))
+    ld = ImageDraw.Draw(layer)
+    for yy in range(0, lh, STEP):
+        for xx in range(0, lw, STEP):
+            bb, bd = None, inf
+            for r in range(0, 5):
+                for by in range(int(yy // 40) - r, int(yy // 40) + r + 1):
+                    for bx in range(int(xx // 40) - r, int(xx // 40) + r + 1):
+                        for (bxp, byp, i) in buckets.get((bx, by), ()):
+                            dd = (bxp - xx) ** 2 + (byp - yy) ** 2
+                            if dd < bd: bd, bb = dd, i
+                if bb is not None and r: break
+            if bb is None: continue
+            ld.rectangle([xx, yy, xx + STEP, yy + STEP], fill=band[bb])
+    img.paste(layer, (int(ox), int(oy)), mask)
 
     path = D(out_name)
     img.save(path, 'PNG', optimize=True)

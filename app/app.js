@@ -538,6 +538,89 @@ let hot = -1, ranked = [], pts = [];
 const RAMP = ['--fit-0','--fit-1','--fit-2','--fit-3','--fit-4'];
 const rampOf = (f) => css(RAMP[clamp(Math.floor(f/100*RAMP.length), 0, RAMP.length-1)]);
 
+/* ---------- the map ----------
+   A hardiness map does not scatter dots, it floods the country in bands.
+   So every square of the sheet takes the zone colour of the nearest ranked
+   place: 4,197 points become a continuous field at finer resolution than
+   the county choropleths this category ships. Drawn into a small ImageData
+   and scaled up with smoothing OFF, so the band edges stay hard and printed
+   rather than blurring into a gradient. */
+let _fieldCache = { key: null, canvas: null };
+let ZONE_BREAKS = null;      // the quantile cuts, so the legend can state them
+
+function zoneField(W, H, k) {
+  // cache on the ranking, so panning or a tooltip never recomputes it
+  const key = W + 'x' + H + ':' + ranked.length + ':' + picks.join(',') +
+              ':' + Q.map((q) => state[q.id]).join(',');
+  if (_fieldCache.key === key) return _fieldCache.canvas;
+
+  const SC = 4;                                  // one field cell per 4 device px
+  const fw = Math.max(1, Math.ceil(W / SC)), fh = Math.max(1, Math.ceil(H / SC));
+  const off = document.createElement('canvas');
+  off.width = fw; off.height = fh;
+  const octx = off.getContext('2d');
+  const img = octx.createImageData(fw, fh);
+  const d = img.data;
+
+  // bucket the places so each cell searches a handful, not all 4,197
+  const BK = 48;
+  const bw = Math.ceil(W / BK) + 1, bh = Math.ceil(H / BK) + 1;
+  const buckets = new Array(bw * bh);
+  const live = ranked.filter((r) => !r.excluded);
+  for (const r of live) {
+    const bx = Math.min(bw - 1, Math.max(0, (r.p.x * k / BK) | 0));
+    const by = Math.min(bh - 1, Math.max(0, (r.p.y * k / BK) | 0));
+    (buckets[by * bw + bx] || (buckets[by * bw + bx] = [])).push(r);
+  }
+  // Class the bands by QUANTILE, not by raw score. Fits cluster in the middle, so
+   // splitting 0-100 into five equal slices painted almost everything one green and
+   // the map said "everywhere is fine". A printed zone map classes so every band is
+   // actually populated; this does the same, and the legend states the breaks.
+  const fits = live.map((r) => r.fit).sort((p, q) => p - q);
+  const brk = [0.2, 0.4, 0.6, 0.8].map((f) => fits[Math.floor(f * (fits.length - 1))] || 0);
+  ZONE_BREAKS = brk;
+  const bandOf = (f) => f < brk[0] ? 0 : f < brk[1] ? 1 : f < brk[2] ? 2 : f < brk[3] ? 3 : 4;
+  const rgb = RAMP.map((n) => {
+    const c = css(n).trim();
+    return [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)];
+  });
+
+  for (let fy = 0; fy < fh; fy++) {
+    const py = fy * SC + SC / 2;
+    const by0 = (py / BK) | 0;
+    for (let fx = 0; fx < fw; fx++) {
+      const px = fx * SC + SC / 2;
+      const bx0 = (px / BK) | 0;
+      let best = null, bd = Infinity;
+      // widen the ring until something is found; empty country is far from anywhere
+      for (let ring = 0; ring <= 6 && !best; ring++) {
+        for (let by = by0 - ring; by <= by0 + ring; by++) {
+          if (by < 0 || by >= bh) continue;
+          for (let bx = bx0 - ring; bx <= bx0 + ring; bx++) {
+            if (bx < 0 || bx >= bw) continue;
+            if (ring && Math.abs(by - by0) !== ring && Math.abs(bx - bx0) !== ring) continue;
+            const cell = buckets[by * bw + bx];
+            if (!cell) continue;
+            for (const r of cell) {
+              const dx = r.p.x * k - px, dy = r.p.y * k - py;
+              const dd = dx * dx + dy * dy;
+              if (dd < bd) { bd = dd; best = r; }
+            }
+          }
+        }
+        if (best && ring > 0) break;
+      }
+      const o = (fy * fw + fx) * 4;
+      if (!best) { d[o + 3] = 0; continue; }
+      const c = rgb[bandOf(best.fit)];
+      d[o] = c[0]; d[o + 1] = c[1]; d[o + 2] = c[2]; d[o + 3] = 255;
+    }
+  }
+  octx.putImageData(img, 0, 0);
+  _fieldCache = { key, canvas: off };
+  return off;
+}
+
 function drawMap() {
   const W = Math.round(cvs.getBoundingClientRect().width) || 800;
   const H = Math.round(W * (MAPGEO.height/1000));
@@ -546,60 +629,73 @@ function drawMap() {
   ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
   const k = W/1000;
   ctx.lineJoin = 'round';
+
+  // 1. clip to the country, so the field stops at the coastline
+  ctx.save();
+  ctx.beginPath();
+  for (const rings of Object.values(MAPGEO.prov)) {
+    for (const rg of rings) {
+      rg.forEach(([x,y],i) => i ? ctx.lineTo(x*k,y*k) : ctx.moveTo(x*k,y*k));
+      ctx.closePath();
+    }
+  }
+  ctx.clip();
+
+  // 2. flood it with zone bands
+  const field = zoneField(W, H, k);
+  ctx.imageSmoothingEnabled = false;             // hard printed edges, not a gradient
+  ctx.drawImage(field, 0, 0, W, H);
+  ctx.imageSmoothingEnabled = true;
+  ctx.restore();
+
+  // 3. state and province lines, cut back into the flood in the ground ink
+  ctx.strokeStyle = css('--ink');
+  ctx.lineWidth = 1;
+  ctx.globalAlpha = 0.5;
   for (const rings of Object.values(MAPGEO.prov)) {
     for (const rg of rings) {
       ctx.beginPath();
       rg.forEach(([x,y],i) => i ? ctx.lineTo(x*k,y*k) : ctx.moveTo(x*k,y*k));
-      ctx.closePath();
-      ctx.fillStyle = css('--sink'); ctx.fill();
-      ctx.strokeStyle = css('--rule-2'); ctx.lineWidth = 0.6; ctx.stroke();
+      ctx.closePath(); ctx.stroke();
     }
   }
-  // 712 dots sized by fit turn the populated corridors into overlapping blobs.
-  // Draw the field as small, faint dots so density reads as density, and let
-  // only the top matches stand out: bigger, opaque, ringed, and labelled.
+  ctx.globalAlpha = 1;
+
+  // 4. only the top matches get a mark. The field already says where is good.
   const small = MOBILE.matches;
-  const NTOP = small ? 6 : 12;
+  const NTOP = small ? 5 : 10;
   const topRecs = ranked.filter((r) => !r.excluded).slice(0, NTOP);
-  const topSet = new Set(topRecs.map((r) => r.p));
   pts = [];
-  for (const r of ranked.slice().reverse()) {
-    const x = r.p.x*k, y = r.p.y*k, isTop = topSet.has(r.p);
-    let rad;
-    if (r.excluded) rad = small ? 1 : 1.3;
-    else if (isTop) rad = small ? 4.5 : 5.5;
-    else rad = (small ? 1.4 : 1.8) + (r.fit/100) * (small ? 1.2 : 2);
-    ctx.globalAlpha = r.excluded ? 0.35 : (isTop ? 1 : 0.62);
-    ctx.beginPath(); ctx.arc(x, y, rad, 0, 6.284);
-    ctx.fillStyle = r.excluded ? css('--rule-2') : rampOf(r.fit); ctx.fill();
-    if (isTop) { ctx.globalAlpha = 1; ctx.strokeStyle = css('--fit-ink'); ctx.lineWidth = 1.3; ctx.stroke(); }
-    ctx.globalAlpha = 1;
-    pts.push({ x, y, r: Math.max(rad, isTop ? 9 : 5), rec: r });
+  for (const r of ranked) pts.push({ x: r.p.x*k, y: r.p.y*k, r: small ? 7 : 6, rec: r });
+  for (const r of topRecs.slice().reverse()) {
+    const x = r.p.x*k, y = r.p.y*k;
+    ctx.beginPath(); ctx.arc(x, y, small ? 5 : 6, 0, 6.284);
+    ctx.fillStyle = css('--stock'); ctx.fill();
+    ctx.strokeStyle = css('--ink'); ctx.lineWidth = 2.5; ctx.stroke();
   }
+
   const top = topRecs;
-  ctx.font = `600 ${Math.max(10, k*13)}px 'Radio Canada', sans-serif`;
+  ctx.font = `700 ${Math.max(11, k*13)}px 'Radio Canada', sans-serif`;
   ctx.textBaseline = 'middle';
   const placed = [];
   const hits = (a) => placed.some((b) => a.x < b.x+b.w && a.x+a.w > b.x && a.y < b.y+b.h && a.y+a.h > b.y);
   for (const r of top) {
     const x = r.p.x*k, y = r.p.y*k, t = r.p.name;
     const w = ctx.measureText(t).width, h = 13;
-    let spot = null;
-    for (const [tx,ty] of [[x+7,y],[x-7-w,y],[x-w/2,y-h],[x-w/2,y+h]]) {
-      if (tx < 2 || tx+w > W-2) continue;
-      const box = { x:tx-2, y:ty-h/2-1, w:w+4, h:h+2 };
-      if (!hits(box)) { spot = [tx,ty,box]; break; }
+    let put = null;
+    for (const [dx, dy] of [[10, 0], [-10 - w, 0], [0, -15], [0, 15], [10, -15], [-10 - w, 15]]) {
+      const box = { x: x + dx, y: y + dy - h / 2, w, h };
+      if (box.x < 3 || box.x + w > W - 3 || box.y < 3 || box.y + h > H - 3) continue;
+      if (hits(box)) continue;
+      put = box; break;
     }
-    if (!spot) continue;
-    placed.push(spot[2]);
-    ctx.fillStyle = css('--paper'); ctx.globalAlpha = 0.85;
-    ctx.fillRect(spot[2].x, spot[2].y, spot[2].w, spot[2].h); ctx.globalAlpha = 1;
-    ctx.fillStyle = css('--ink'); ctx.fillText(t, spot[0], spot[1]);
-  }
-  if (hot >= 0) {
-    const h = pts.find((q) => q.rec === ranked[hot]);
-    if (h) { ctx.beginPath(); ctx.arc(h.x,h.y,8,0,6.284);
-      ctx.strokeStyle = css('--ink'); ctx.lineWidth = 1.2; ctx.stroke(); }
+    if (!put) continue;
+    placed.push(put);
+    // a label on a flooded map needs its own stock behind it or it is unreadable
+    ctx.fillStyle = css('--stock');
+    ctx.fillRect(put.x - 4, put.y - 2, w + 8, h + 5);
+    ctx.fillStyle = css('--on-stock');
+    ctx.fillText(t, put.x, put.y + h / 2 + 1);
   }
 }
 
@@ -617,7 +713,7 @@ function ribbon(el, p) {
     c.fillStyle = v < 0 ? css('--cool') : css('--warm');   // opposed states, opposed temperature
     c.fillRect(i*bw+1.5, Math.min(y,zero), bw-3, Math.abs(zero-y));
   });
-  c.font = `9px 'Radio Canada', sans-serif`; c.fillStyle = css('--ink-3');
+  c.font = `9px 'Radio Canada', sans-serif`; c.fillStyle = css('--on-ink-3');
   t.forEach((v,i) => c.fillText(M[i], i*bw+bw/2-3, h-1));
 }
 
@@ -642,21 +738,22 @@ async function drawCard() {
   const c = document.createElement('canvas');
   c.width = CARD_W; c.height = CARD_H;
   const x = c.getContext('2d');
-  const PAPER = css('--paper') || '#F7F7F4', INK = css('--ink') || '#17191D';
-  const INK2 = css('--ink-2'), INK3 = css('--ink-3'), WARM = css('--warm');
+  const INK = css('--ink'), STOCK = css('--stock'), SIGNAL = css('--signal');
+  const ONSTOCK = css('--on-stock'), ONSTOCK2 = css('--on-stock-2'), ONSTOCK3 = css('--on-stock-3');
+  const ONINK2 = css('--on-ink-2'), ONINK3 = css('--on-ink-3');
 
-  x.fillStyle = PAPER; x.fillRect(0, 0, CARD_W, CARD_H);
-  const M = 72;                                    // margin
-  x.fillStyle = INK; x.fillRect(0, 0, CARD_W, 10); // the field-guide top rule
+  x.fillStyle = INK; x.fillRect(0, 0, CARD_W, CARD_H);
+  const M = 72;
+  x.fillStyle = SIGNAL; x.fillRect(0, 0, CARD_W, 14);
 
   x.textBaseline = 'alphabetic';
-  x.fillStyle = INK3;
-  x.font = "600 26px 'Radio Canada', sans-serif";
-  x.fillText('WHERE U BELONG', M, 112);
+  x.fillStyle = SIGNAL;
+  x.font = "700 26px 'Radio Canada', sans-serif";
+  x.fillText('WHERE U BELONG', M, 116);
 
-  x.fillStyle = INK2;
+  x.fillStyle = ONINK2;
   x.font = "400 40px 'Radio Canada', sans-serif";
-  x.fillText(shared ? 'They belong in' : 'You belong in', M, 196);
+  x.fillText(shared ? 'They belong in' : 'You belong in', M, 200);
 
   // The name shrinks to fit rather than clipping, and the budget has to reserve the
   // province code AND the score plate. Budgeting for the plate alone let "Cape
@@ -667,15 +764,16 @@ async function drawCard() {
   x.font = "400 38px 'Radio Canada', sans-serif";
   const pvW = x.measureText(p.prov).width;
   const maxW = CARD_W - M * 2 - pvW - 24;
+  const NAME = p.name.toUpperCase();
   let size = 132;
-  do { x.font = `700 ${size}px 'Radio Canada Big', Georgia, serif`; size -= 4; }
-  while (x.measureText(p.name).width > maxW && size > 40);
-  x.fillStyle = INK;
-  x.fillText(p.name, M, 316);
-  const nameW = x.measureText(p.name).width;
-  x.fillStyle = INK3;
+  do { x.font = `700 ${size}px 'Radio Canada', sans-serif`; x.canvas.style.fontStretch = '75%'; size -= 4; }
+  while (x.measureText(NAME).width > maxW && size > 40);
+  x.fillStyle = STOCK;
+  x.fillText(NAME, M, 322);
+  const nameW = x.measureText(NAME).width;
+  x.fillStyle = ONINK3;
   x.font = "400 38px 'Radio Canada', sans-serif";
-  x.fillText(p.prov, M + nameW + 18, 316);
+  x.fillText(p.prov, M + nameW + 18, 322);
 
   // The map, from the same geometry the app draws. Height is CAPPED and the width
   // follows, because the two countries have very different aspect ratios: the US
@@ -698,41 +796,47 @@ async function drawCard() {
       x.beginPath();
       rg.forEach(([px, py], i) => i ? x.lineTo(px * k, py * k) : x.moveTo(px * k, py * k));
       x.closePath();
-      x.fillStyle = css('--sink'); x.fill();
-      x.strokeStyle = css('--rule-2'); x.lineWidth = 0.8; x.stroke();
+      x.fillStyle = css('--ink-2'); x.fill();
     }
   }
-  for (const q of ranked) {                       // the field, faint
-    if (q === r) continue;
-    x.globalAlpha = q.excluded ? 0.18 : 0.42;
-    x.beginPath(); x.arc(q.p.x * k, q.p.y * k, 2, 0, 6.284);
-    x.fillStyle = q.excluded ? css('--rule-2') : rampOf(q.fit); x.fill();
+  // the same zone flood the app draws, so the card is the map not a legend of it
+  const fieldC = zoneField(Math.round(mapW), Math.round(mapH), k);
+  x.imageSmoothingEnabled = false;
+  x.drawImage(fieldC, 0, 0, mapW, mapH);
+  x.imageSmoothingEnabled = true;
+  x.strokeStyle = INK; x.lineWidth = 1.4; x.globalAlpha = 0.55;
+  for (const rings of Object.values(MAPGEO.prov)) {
+    for (const rg of rings) {
+      x.beginPath();
+      rg.forEach(([px, py], i) => i ? x.lineTo(px * k, py * k) : x.moveTo(px * k, py * k));
+      x.closePath(); x.stroke();
+    }
   }
   x.globalAlpha = 1;
-  x.beginPath(); x.arc(p.x * k, p.y * k, 15, 0, 6.284);
-  x.fillStyle = WARM; x.fill();
-  x.strokeStyle = INK; x.lineWidth = 4; x.stroke();
+  x.beginPath(); x.arc(p.x * k, p.y * k, 17, 0, 6.284);
+  x.fillStyle = STOCK; x.fill();
+  x.strokeStyle = INK; x.lineWidth = 5; x.stroke();
   x.restore();
 
   // what you asked for, and what it actually is there. Spacing is computed from
   // what is left rather than assumed, so five picks cannot run into the footer.
   const n = Math.min(picks.length, 5);
   let y = mapY + mapH + ROWS_TOP_GAP;
-  x.fillStyle = INK3;
-  x.font = "600 26px 'Radio Canada', sans-serif";
+  x.fillStyle = SIGNAL;
+  x.font = "700 26px 'Radio Canada', sans-serif";
   x.fillText('WHAT YOU ASKED FOR', M, y);
   y += 20;
   const step = n ? Math.min(62, (CARD_H - FOOT - y) / n) : 0;
   for (let i = 0; i < n; i++) {
     const q = Q.find((z) => z.id === picks[i]), v = q.show(p);
     y += step;
-    x.fillStyle = WARM; x.fillRect(M, y - 30, 34, 34);
-    x.fillStyle = INK; x.font = "700 22px 'Radio Canada', sans-serif";
+    x.fillStyle = css('--z5'); x.fillRect(M, y - 30, 34, 34);
+    x.fillStyle = '#fff'; x.font = "700 22px 'Radio Canada', sans-serif";
     x.fillText(String(i + 1), M + 11, y - 6);
-    x.fillStyle = INK; x.font = "600 34px 'Radio Canada', sans-serif";
+    x.fillStyle = STOCK; x.font = "700 34px 'Radio Canada', sans-serif";
     x.fillText(q.label, M + 52, y);
     if (v) {
-      x.fillStyle = INK2; x.font = "400 34px 'Radio Canada', sans-serif";
+      x.fillStyle = ONINK2; x.font = "400 34px 'Radio Canada', sans-serif";
       const t = v[0] + v[1];
       x.fillText(t, CARD_W - M - x.measureText(t).width, y);
     }
@@ -743,15 +847,15 @@ async function drawCard() {
   // The tradeoff, never collapsed. A result with no stated cost is a horoscope.
   const giveUp = r.bad && r.bad.s < 0.45 ? SHORT[r.bad.id] : null;
   if (giveUp) {
-    x.fillStyle = INK2;
+    x.fillStyle = SIGNAL;
     x.font = "400 30px 'Radio Canada', sans-serif";
     x.fillText(`What you give up: ${giveUp}.`, M, CARD_H - 136);
   }
-  x.fillStyle = INK3;
+  x.fillStyle = ONINK3;
   x.font = "400 28px 'Radio Canada', sans-serif";
   x.fillText(`${DATA.length.toLocaleString()} places in ${CFG.country}, ranked on real data`, M, CARD_H - 92);
-  x.fillStyle = INK2;
-  x.font = "600 28px 'Radio Canada', sans-serif";
+  x.fillStyle = ONINK2;
+  x.font = "700 28px 'Radio Canada', sans-serif";
   x.fillText(SHARE_HOST, M, CARD_H - 48);
   return c;
 }
