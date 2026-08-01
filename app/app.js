@@ -293,6 +293,36 @@ const Q_ALL = [
       return x == null ? null : [x.toFixed(x < 10 ? 1 : 0), '%']; },
   },
   {
+    /* The US census is barred by law from asking about religion, so where the
+       Canadian question measures the share of people, this one counts the actual
+       buildings you could drive to. Different measurement, said so in the hint.
+       Saturation is per religion because the base rates are nothing alike: a town
+       with 8 synagogues is a real Jewish community, 8 churches is a small town. */
+    id: 'worship', cc: ['US'], label: 'Faith community', col: 'Faith', g: 'Life there',
+    hint: 'Places of worship of your faith within a 15km drive, counted from OpenStreetMap.',
+    kind: 'opts', def: 'christian', w: 0,
+    opts: [['christian','Christian'],['muslim','Muslim'],['jewish','Jewish'],
+           ['sikh','Sikh'],['hindu','Hindu'],['buddhist','Buddhist']],
+    score: (p, v) => {
+      const o = p.osm; if (!o) return null;
+      // Saturation per religion, set so the question GRADES rather than just
+      // passes. At 6 synagogues everything from a single shul to Brooklyn tied at
+      // a perfect score, which answers "is there a community" but cannot tell a
+      // reader where the community is largest.
+      const F = { christian: ['churches', 250], muslim: ['mosques', 14],
+                  jewish: ['synagogues', 18], sikh: ['gurdwaras', 4],
+                  hindu: ['temples_hindu', 7], buddhist: ['temples_buddhist', 7] }[v];
+      const n = o[F[0]];
+      if (n == null) return null;
+      return clamp(Math.sqrt(n / F[1]), 0, 1);
+    },
+    show: (p) => { const o = p.osm; if (!o) return null;
+      const f = { christian:'churches', muslim:'mosques', jewish:'synagogues',
+                  sikh:'gurdwaras', hindu:'temples_hindu', buddhist:'temples_buddhist' }[state.worship];
+      return o[f] == null ? null : [o[f], ''];
+    },
+  },
+  {
     id: 'mood', label: 'What residents say', col: 'Mood', g: 'Life there',
     hint: `Only ${LIVED_N} of ${DATA.length} places are researched.`,
     kind: 'flag', def: 1, w: 0, want: 'Somewhere residents speak well of',
@@ -344,6 +374,7 @@ const COLHELP = {
   single:  ['Share of adults who have never married', '%', CFG.sources.census],
   gender:  ['Men per 100 women', '', CFG.sources.census],
   faith:   ['Share of residents in the community you picked', '%', CFG.sources.religion],
+  worship: ['Places of worship of the faith you picked, within a 15km drive', '', 'OpenStreetMap'],
   mood:    ['How residents sound about the place, -2 to +2', '', 'Forums, local news and blogs. Only where researched.'],
 };
 
@@ -354,7 +385,8 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   commute:'the short commute', car:'getting around without a car', jobs:'the job market',
   mix:'the mix of people', french:'the French', kids:'the young families',
   single:'the single crowd', gender:'the gender balance', faith:'your community',
-  water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train' };
+  water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
+  worship:'your faith community' };
 const said = (q) => q.kind === 'range' ? q.fmt(state[q.id])
   : q.kind === 'flag' ? q.want.toLowerCase()
   : (q.opts.find((o) => o[0] === state[q.id]) || ['',''])[1];
@@ -365,7 +397,8 @@ const PICKLABEL = { winter:'Winter', summer:'Summer', swing:'Seasons', rain:'Rai
   cost:'Housing cost', politics:'Politics', growth:'Growing', age:'Who lives there',
   commute:'Short commute', car:'Life without a car', jobs:'Jobs', mix:'Diverse',
   french:'French', mood:'What locals say', kids:'Kids around', single:'Single people',
-  gender:'Gender balance', faith:'Faith community', water:'Near water',
+  gender:'Gender balance', faith:'Faith community', worship:'Faith community',
+  water:'Near water',
   pitches:'Soccer pitches', sports:'Pro sports', transit:'Rapid transit' };
 const listify = (a) => a.length < 2 ? (a[0]||'') : a.slice(0,-1).join(', ') + ' and ' + a[a.length-1];
 function fmtNum(n) {
