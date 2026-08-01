@@ -311,8 +311,10 @@ if pc and pol:
         r = pol.get(str(fips).zfill(5)) if fips is not None else None
         if not r or r.get('lean') is None:
             continue
+        # key it the same way the Canadian build does, or the place record
+        # reads "Lean: undefined" on one country and not the other
         p['politics'] = {'lean': r['lean'], 'riding': r.get('county_name'),
-                         'winner': r.get('lean_label'), 'multi_county': multi or None}
+                         'lean_label': r.get('lean_label'), 'multi_county': multi or None}
         n += 1
     stats['politics'] = n
 

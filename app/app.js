@@ -998,7 +998,7 @@ function detailHTML(r) {
       ${row('Wildfire smoke', p.smoke ? p.smoke.mean_ugm3.toFixed(2) : NA, 'µg/m³')}
       <p class="prov-note">${st ? `From <em>${st.name}</em>, ${st.km}km away${
         st.delev != null ? `, ${st.delev}m difference in elevation` : ''}. ${
-        st.code === 'COMPUTED' ? st.note + '.' : 'ECCC normals 1981-2010.'}`
+        st.code === 'COMPUTED' ? st.note + '.' : CFG.sources.climate + '.'}`
         : 'No station close enough. These are blank, not estimated.'}</p>
     </div>
     <div>
@@ -1011,7 +1011,7 @@ function detailHTML(r) {
       ${row('Nearest city over 300k', p.prox ? p.prox.nearest_big_city : NA,
         p.prox && p.prox.drive_min_to_big_city != null ? `${Math.round(p.prox.drive_min_to_big_city)}min` : '')}
       ${row(CFG.riding_label, p.politics ? p.politics.riding : NA, '')}
-      ${row('Lean', p.politics ? p.politics.lean_label : NA, '')}
+      ${row('Lean', (p.politics && (p.politics.lean_label || p.politics.winner)) || NA, '')}
       <p class="prov-note">${p.csd ? `Census figures are for <em>${p.csd}</em>.` : ''} ${CFG.detail_note}</p>
     </div>
     <div>

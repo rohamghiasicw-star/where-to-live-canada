@@ -1,0 +1,694 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-01T00:00:00Z",
+  "title": "Design System: Where U Belong",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Printed Green Ink",
+        "canonical": "oklch(25.9% 0.040 170.9)",
+        "tonalRamp": [
+          "#00110B",
+          "#0E2D24",
+          "#2B4A3F",
+          "#49685D",
+          "#68887D",
+          "#89AA9E",
+          "#AED0C4",
+          "#D8F2E8"
+        ],
+        "purpose": "The ground of everything. html, body, sheet, map background, mobile detail sheet. Never a lighter page colour."
+      },
+      "ink-2": {
+        "role": "primary",
+        "displayName": "Ink Panel",
+        "canonical": "oklch(29.9% 0.047 166.1)",
+        "tonalRamp": [
+          "#00120A",
+          "#0A2E21",
+          "#284A3D",
+          "#46695A",
+          "#658A7A",
+          "#86AB9B",
+          "#ABD2C0",
+          "#D6F3E6"
+        ],
+        "purpose": "One step up from the ground for sub-surfaces that belong to the ground, not to pasted stock. Table header, search field, row hover, action bar, country switcher."
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "oklch(37.2% 0.052 168.3)",
+        "tonalRamp": [
+          "#00120A",
+          "#032E22",
+          "#234B3D",
+          "#426A5B",
+          "#618B7A",
+          "#82AC9B",
+          "#A7D3C1",
+          "#D3F4E6"
+        ]
+      },
+      "rule-2": {
+        "role": "neutral",
+        "displayName": "Rule Bright",
+        "canonical": "oklch(43.6% 0.059 166.2)",
+        "tonalRamp": [
+          "#001309",
+          "#002F20",
+          "#1E4C3B",
+          "#3D6B59",
+          "#5D8C78",
+          "#7EAE99",
+          "#A3D4BF",
+          "#D0F5E4"
+        ]
+      },
+      "stock": {
+        "role": "secondary",
+        "displayName": "Uncoated Stock",
+        "canonical": "oklch(94.1% 0.032 89.1)",
+        "tonalRamp": [
+          "#110D03",
+          "#2D2614",
+          "#49422F",
+          "#68604C",
+          "#88806B",
+          "#A9A18B",
+          "#D0C7B0",
+          "#F1EBDA"
+        ],
+        "purpose": "A pasted physical sheet, not a background. One-question panel, check-answers block, selected picker tile, map tooltip, map label plates."
+      },
+      "stock-2": {
+        "role": "secondary",
+        "displayName": "Stock Shadow",
+        "canonical": "oklch(89.1% 0.045 88.5)",
+        "tonalRamp": [
+          "#130C00",
+          "#2F2509",
+          "#4C4126",
+          "#6B5F43",
+          "#8B7F62",
+          "#ADA182",
+          "#D3C6A7",
+          "#F4EBD2"
+        ]
+      },
+      "on-ink": {
+        "role": "neutral",
+        "displayName": "On Ink",
+        "canonical": "oklch(94.1% 0.032 89.1)",
+        "tonalRamp": [
+          "#110D03",
+          "#2D2614",
+          "#49422F",
+          "#68604C",
+          "#88806B",
+          "#A9A18B",
+          "#D0C7B0",
+          "#F1EBDA"
+        ],
+        "purpose": "Identical value to stock. Same ink, same paper.",
+        "alias": "--paper, --page (both dead)"
+      },
+      "on-ink-2": {
+        "role": "neutral",
+        "displayName": "On Ink Muted",
+        "canonical": "oklch(80.9% 0.035 157.5)",
+        "tonalRamp": [
+          "#041109",
+          "#172C20",
+          "#33483B",
+          "#506759",
+          "#6F8778",
+          "#90A899",
+          "#B5CFBF",
+          "#DEF1E4"
+        ]
+      },
+      "on-ink-3": {
+        "role": "neutral",
+        "displayName": "On Ink Faint",
+        "canonical": "oklch(69.1% 0.042 158.7)",
+        "tonalRamp": [
+          "#021108",
+          "#122D1F",
+          "#2E493A",
+          "#4C6858",
+          "#6B8877",
+          "#8CAA98",
+          "#B1D0BD",
+          "#DAF2E3"
+        ]
+      },
+      "on-stock": {
+        "role": "neutral",
+        "displayName": "On Stock",
+        "canonical": "oklch(24.0% 0.025 163.7)",
+        "tonalRamp": [
+          "#06100B",
+          "#1B2A23",
+          "#37473F",
+          "#54655D",
+          "#73857C",
+          "#94A79D",
+          "#BACDC3",
+          "#E1EFE8"
+        ]
+      },
+      "on-stock-2": {
+        "role": "neutral",
+        "displayName": "On Stock Muted",
+        "canonical": "oklch(44.3% 0.028 152.8)",
+        "tonalRamp": [
+          "#061009",
+          "#1C2A20",
+          "#37473B",
+          "#556559",
+          "#748578",
+          "#95A799",
+          "#BACDBF",
+          "#E1EFE5"
+        ]
+      },
+      "on-stock-3": {
+        "role": "neutral",
+        "displayName": "On Stock Faint",
+        "canonical": "oklch(56.4% 0.024 153.7)",
+        "tonalRamp": [
+          "#07100A",
+          "#1D2A21",
+          "#39463C",
+          "#56655A",
+          "#76857A",
+          "#96A69B",
+          "#BCCCC0",
+          "#E2EFE6"
+        ]
+      },
+      "fit-0": {
+        "role": "tertiary",
+        "displayName": "Zone 1, Cold Indigo",
+        "canonical": "oklch(42.9% 0.078 257.6)",
+        "tonalRamp": [
+          "#000C26",
+          "#0A254C",
+          "#26436B",
+          "#44618D",
+          "#6282AF",
+          "#83A3D3",
+          "#A8CAFB",
+          "#D3EDFF"
+        ],
+        "purpose": "Worst fifth of the live ranking, by quantile.",
+        "alias": "--z1 (dead)"
+      },
+      "fit-1": {
+        "role": "tertiary",
+        "displayName": "Zone 2, Teal",
+        "canonical": "oklch(55.8% 0.070 212.0)",
+        "tonalRamp": [
+          "#00121A",
+          "#002E3A",
+          "#004C58",
+          "#266B78",
+          "#498C99",
+          "#6BAEBB",
+          "#91D4E2",
+          "#C3F5FF"
+        ],
+        "alias": "--z2 (dead)"
+      },
+      "fit-2": {
+        "role": "tertiary",
+        "displayName": "Zone 3, Moss",
+        "canonical": "oklch(65.6% 0.131 133.8)",
+        "tonalRamp": [
+          "#001400",
+          "#013100",
+          "#215000",
+          "#3F6F11",
+          "#5F9138",
+          "#7FB35B",
+          "#A4DA80",
+          "#D1FAB7"
+        ],
+        "alias": "--z3 (dead)"
+      },
+      "fit-3": {
+        "role": "tertiary",
+        "displayName": "Zone 4, Gold",
+        "canonical": "oklch(74.4% 0.147 83.0)",
+        "tonalRamp": [
+          "#220200",
+          "#471500",
+          "#673500",
+          "#885400",
+          "#AA7500",
+          "#CE9700",
+          "#F6BD44",
+          "#FFE593"
+        ],
+        "alias": "--z4 (dead)"
+      },
+      "fit-4": {
+        "role": "tertiary",
+        "displayName": "Zone 5, Hot Red",
+        "canonical": "oklch(59.3% 0.188 35.8)",
+        "tonalRamp": [
+          "#350000",
+          "#650000",
+          "#8B0000",
+          "#B21E00",
+          "#D8481F",
+          "#FF6D46",
+          "#FF946C",
+          "#FFC8A9"
+        ],
+        "purpose": "Best fifth of the live ranking, by quantile. Same value as z5.",
+        "alias": "--z5 (live, as UI red)"
+      },
+      "z5": {
+        "role": "tertiary",
+        "displayName": "Counting Red",
+        "canonical": "oklch(59.3% 0.188 35.8)",
+        "tonalRamp": [
+          "#350000",
+          "#650000",
+          "#8B0000",
+          "#B21E00",
+          "#D8481F",
+          "#FF6D46",
+          "#FF946C",
+          "#FFC8A9"
+        ],
+        "purpose": "Not a band in practice. The app's counting red: rank badges, slider thumb, verdict score, in-panel focus ring, the share button."
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "Signal Mustard",
+        "canonical": "oklch(80.9% 0.138 85.2)",
+        "tonalRamp": [
+          "#200400",
+          "#431900",
+          "#633800",
+          "#835700",
+          "#A57800",
+          "#C89A1F",
+          "#F0C051",
+          "#FFE699"
+        ],
+        "purpose": "The single action colour. The two 3px bracket rules, the primary button, the active view tab, step numbers, footer headings, the U in the wordmark."
+      },
+      "signal-2": {
+        "role": "primary",
+        "displayName": "Signal Mustard Deep",
+        "canonical": "oklch(70.4% 0.137 83.7)",
+        "tonalRamp": [
+          "#200300",
+          "#441800",
+          "#643700",
+          "#855600",
+          "#A77700",
+          "#CA9922",
+          "#F1BF53",
+          "#FFE69A"
+        ]
+      },
+      "check": {
+        "role": "tertiary",
+        "displayName": "Researched Violet",
+        "canonical": "oklch(70.9% 0.159 293.5)",
+        "tonalRamp": [
+          "#15003A",
+          "#30006A",
+          "#4A268D",
+          "#6748B0",
+          "#8669D5",
+          "#A78BFA",
+          "#CDB2FF",
+          "#EFDCFF"
+        ],
+        "purpose": "The only colour outside the green/warm/zone families. Marks one thing: residents were actually researched for this place."
+      },
+      "thin": {
+        "role": "neutral",
+        "displayName": "Hatch Thin",
+        "canonical": "oklch(69.1% 0.042 158.7)",
+        "tonalRamp": [
+          "#021108",
+          "#122D1F",
+          "#2E493A",
+          "#4C6858",
+          "#6B8877",
+          "#8CAA98",
+          "#B1D0BD",
+          "#DAF2E3"
+        ]
+      },
+      "warm": {
+        "role": "tertiary",
+        "displayName": "Warm (above zero)",
+        "canonical": "oklch(80.9% 0.138 85.2)",
+        "tonalRamp": [
+          "#200400",
+          "#431900",
+          "#633800",
+          "#835700",
+          "#A57800",
+          "#C89A1F",
+          "#F0C051",
+          "#FFE699"
+        ]
+      },
+      "cool": {
+        "role": "tertiary",
+        "displayName": "Cool (below zero)",
+        "canonical": "oklch(55.8% 0.070 212.0)",
+        "tonalRamp": [
+          "#00121A",
+          "#002E3A",
+          "#004C58",
+          "#266B78",
+          "#498C99",
+          "#6BAEBB",
+          "#91D4E2",
+          "#C3F5FF"
+        ]
+      },
+      "sink": {
+        "role": "neutral",
+        "displayName": "Sink (excluded plate)",
+        "canonical": "oklch(89.1% 0.045 88.5)",
+        "tonalRamp": [
+          "#130C00",
+          "#2F2509",
+          "#4C4126",
+          "#6B5F43",
+          "#8B7F62",
+          "#ADA182",
+          "#D3C6A7",
+          "#F4EBD2"
+        ],
+        "purpose": "JS-only. The flat plate behind an excluded place's score, so 'ruled out' reads as a different kind of thing than a low score."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The answer. The place name on the verdict screen and nothing else. Radio Canada width axis at 75%, weight 700, uppercase."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The wordmark only. 'Where U Belong' with the U in signal mustard; the <i> is neutralised to normal so emphasis is colour, not slant."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The step head on every screen. 'What matters to you?', the current question label."
+      },
+      "subhead": {
+        "displayName": "Subhead",
+        "purpose": "A place name in a ranked row, the wildcard place, the 'All 4,197' plate heading. 2rem in the mobile detail sheet."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default copy at normal width. Capped 60ch to 66ch. tabular-nums is on and never turned off."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Lede, secondary lines, option labels, search field. Steps up to body size below 761px so touch copy stays legible."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase +0.07em. Picker group headings, question progress, 'Why, answer by answer', footer headings, view tabs, chips, the whole footer body."
+      }
+    },
+    "shadows": [
+      {
+        "name": "paste-tile",
+        "value": "0 2px 4px rgba(0,0,0,0.4)",
+        "purpose": "A selected picker tile, the moment it flips from an outlined chip to a sheet of stock."
+      },
+      {
+        "name": "paste-panel",
+        "value": "0 3px 8px rgba(0,0,0,0.35)",
+        "purpose": "The two large stock rectangles: the one-question panel and the wildcard note."
+      },
+      {
+        "name": "float-label",
+        "value": "0 2px 6px rgba(0,0,0,0.5)",
+        "purpose": "The map tooltip, the only thing that genuinely floats over the flooded field."
+      }
+    ],
+    "motion": [
+      {
+        "name": "sheet-up",
+        "value": "transform 0.28s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The mobile detail sheet sliding up from the bottom edge. The only entrance animation in the system."
+      },
+      {
+        "name": "tip-fade",
+        "value": "opacity 0.12s",
+        "purpose": "The map tooltip appearing and disappearing."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "* { transition: none !important; animation: none !important; }",
+        "purpose": "prefers-reduced-motion: reduce kills every transition and animation globally. Nothing is exempt."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "max-width: 760px",
+        "purpose": "The mobile world. Gutter 1.1rem, headnote and lede hidden, controls step up a size, the 27-column table leaves the flow, detail moves to a bottom sheet. Also read in JS via matchMedia as a structural switch."
+      },
+      {
+        "name": "wide",
+        "value": "min-width: 761px",
+        "purpose": "Reading width clamps to 880px on pick/ask/result; the action bar left-aligns with fixed button widths."
+      }
+    ],
+    "constraints": [
+      {
+        "name": "single-file",
+        "value": "one self-contained HTML file per country",
+        "purpose": "Fonts (156 KB of base64 Radio Canada), all place data and the map geometry are inlined at build time by src/build_app.py. Roughly 7 MB raw, 1.3 MB gzipped for the US. Anything the design needs must survive inlining: no CDN font, no icon font, no remote image, no runtime fetch."
+      },
+      {
+        "name": "answer-in-hash",
+        "value": "the entire answer lives in location.hash",
+        "purpose": "Picks and answers encode to the hash as questionIndex.value pairs joined by underscores. A hash fragment is never sent to a server (RFC 3986 section 3.5), so GitHub Pages can never render a per-result link preview. This is why the 1080x1350 share card exists, and why the static 1200x630 og image is generic rather than per-result."
+      },
+      {
+        "name": "canvas-display-face",
+        "value": "canvas.style.fontStretch = '75%'",
+        "purpose": "The 2D context font shorthand used on the share card carries no width keyword, so the condensed display face on the card is set through the detached canvas element's inline style rather than through ctx.font. It is the one place where the display voice is not applied by the stylesheet."
+      }
+    ],
+    "deadTokens": [
+      {
+        "name": "--z1 / --z2 / --z3 / --z4",
+        "reason": "Defined in :root and referenced by nothing in CSS, JS or HTML. Pairwise identical to --fit-0..--fit-3, which are the live names."
+      },
+      {
+        "name": "--paper / --page",
+        "reason": "Both #F4EBD4, duplicates of --stock. Referenced nowhere."
+      },
+      {
+        "name": "--fit-ink",
+        "reason": "#FFFFFF, referenced nowhere. Fit plates and rank badges use a literal #fff."
+      },
+      {
+        "name": "--ink-3",
+        "reason": "Consumed once in app.js (the empty-search message) but never defined, so that message falls back to inherited colour."
+      },
+      {
+        "name": "--w on .pname",
+        "reason": "app.js sets an inline --w per row, meant to carry settlement size on the width axis. No CSS rule consumes it, so table place names all set at the same width."
+      },
+      {
+        "name": ".only-wide / .only-narrow",
+        "reason": "Responsive display utilities defined in the stylesheet but applied to no element in the markup or the generated HTML."
+      },
+      {
+        "name": ".dh / .dwrap / .rib-k / .ribbon / .pts / .sent / .sr / .sk / .st / .sv",
+        "reason": "Emitted by detailHTML() in app.js for the place-detail record but carrying no CSS rule anywhere in the shipped file, so the detail column headings, resident sentiment bars and climate-ribbon key render at browser defaults."
+      },
+      {
+        "name": "Radio Canada Big",
+        "reason": "A second family (40 KB of base64) declared in fonts/faces.css and therefore inlined into every built page, but never referenced by the app's CSS or JS. It exists so src/build_og.py can extract it offline for the static 1200x630 og image."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Picker Tile",
+      "kind": "chip",
+      "refersTo": "picker-tile",
+      "description": "An unpicked dimension in the seed rack. Outlined, transparent, hard-edged; hover brightens the border to mustard.",
+      "html": "<button class=\"ds-pk\" type=\"button\" aria-pressed=\"false\">Winter</button>",
+      "css": ".ds-pk{font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif;font-size:.9375rem;font-weight:600;line-height:1.1;padding:.6rem .8rem;cursor:pointer;border-radius:0;border:1px solid var(--rule-2,#2E5C4A);background:transparent;color:var(--on-ink-2,#AFC8B8);display:inline-flex;align-items:center;gap:.5rem}.ds-pk:hover{border-color:var(--signal,#E9B949);color:var(--on-ink,#F4EBD4)}.ds-pk:focus-visible{outline:2px solid var(--signal,#E9B949);outline-offset:2px}"
+    },
+    {
+      "name": "Picker Tile, Picked",
+      "kind": "chip",
+      "refersTo": "picker-tile-selected",
+      "description": "A picked dimension. The tile stops being an outline and becomes a pasted sheet of stock carrying a red rank stamp. State change is material, not a tint.",
+      "html": "<button class=\"ds-pk-on\" type=\"button\" aria-pressed=\"true\" aria-label=\"Winter, ranked 1\"><span class=\"ds-pk-n\">1</span>Winter</button>",
+      "css": ".ds-pk-on{font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif;font-size:.9375rem;font-weight:600;line-height:1.1;padding:.6rem .8rem;cursor:pointer;border-radius:0;border:1px solid var(--stock,#F4EBD4);background:var(--stock,#F4EBD4);color:var(--on-stock,#14231C);display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 2px 4px rgba(0,0,0,.4)}.ds-pk-on:focus-visible{outline:2px solid var(--signal,#E9B949);outline-offset:2px}.ds-pk-n{display:inline-grid;place-items:center;width:1.5em;height:1.5em;background:var(--z5,#D6461C);color:#fff;font-weight:700;font-size:.8em;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Action Bar",
+      "kind": "nav",
+      "refersTo": "action-primary",
+      "description": "The only persistent control in the app. Sticky to the bottom edge, 3px mustard top rule, safe-area padding. The primary label states what happens next; secondary is a colour absence, never an outlined pill.",
+      "html": "<div class=\"ds-actionbar\"><button class=\"ds-ab-back\">Back</button><button class=\"ds-ab-main\">Where do I belong?</button></div>",
+      "css": ".ds-actionbar{display:flex;background:var(--ink-2,#123528);border-top:3px solid var(--signal,#E9B949);padding-bottom:env(safe-area-inset-bottom,0)}.ds-ab-main,.ds-ab-back{font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif;font-weight:700;cursor:pointer;border:0;padding:1rem;min-height:56px;border-radius:0}.ds-ab-main{flex:1 1 auto;background:var(--signal,#E9B949);color:var(--ink,#0B2A21);font-size:1.0625rem}.ds-ab-main:hover{background:var(--signal-2,#C8971F)}.ds-ab-main:disabled{background:var(--rule,#21493B);color:var(--on-ink-3,#86A492);cursor:default}.ds-ab-back{flex:0 0 auto;background:transparent;color:var(--on-ink-2,#AFC8B8);border-right:1px solid var(--rule,#21493B);font-size:.9375rem}.ds-ab-back:hover{color:var(--on-ink,#F4EBD4)}.ds-ab-main:focus-visible,.ds-ab-back:focus-visible{outline:2px solid var(--stock,#F4EBD4);outline-offset:-4px}"
+    },
+    {
+      "name": "One-Question Panel",
+      "kind": "card",
+      "refersTo": "question-panel",
+      "description": "One question, filling the screen, on its own sheet of paper. A pasted stock panel with a red rank stamp, the hint, and the control. Inside the panel the whole text ramp flips to on-stock and focus turns red.",
+      "html": "<div class=\"ds-q-solo\"><p class=\"ds-q-rankline\"><span class=\"ds-q-rank\">1</span>This is your top priority</p><p class=\"ds-q-hint\">How cold a January are you willing to live with?</p><div class=\"ds-opts\"><button class=\"ds-opt\" aria-pressed=\"true\">Mild. I do not want a real winter.</button><button class=\"ds-opt\" aria-pressed=\"false\">Cold is fine if it is dry.</button></div></div>",
+      "css": ".ds-q-solo{background:var(--stock,#F4EBD4);color:var(--on-stock,#14231C);padding:1.4rem 1.3rem 1.6rem;box-shadow:0 3px 8px rgba(0,0,0,.35);font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif}.ds-q-rankline{margin:0 0 .6rem;font-size:.8125rem;color:var(--on-stock-2,#48584C);text-transform:uppercase;letter-spacing:.07em;font-weight:700}.ds-q-rank{display:inline-grid;place-items:center;width:1.5em;height:1.5em;background:var(--z5,#D6461C);color:#fff;font-weight:700;font-size:.85em;margin-right:.5rem;vertical-align:-.15em;font-variant-numeric:tabular-nums}.ds-q-hint{font-size:.9375rem;color:var(--on-stock-2,#48584C);margin:.1rem 0 .9rem;max-width:62ch}.ds-opts{display:flex;flex-direction:column;align-items:stretch;gap:7px}.ds-opt{font-family:inherit;font-size:1.0625rem;font-weight:600;line-height:1.15;text-align:left;padding:.85rem .95rem;cursor:pointer;border-radius:0;border:1px solid var(--on-stock-3,#6B7A6F);background:transparent;color:var(--on-stock-2,#48584C)}.ds-opt:hover{border-color:var(--on-stock,#14231C);color:var(--on-stock,#14231C)}.ds-opt[aria-pressed=\"true\"]{background:var(--on-stock,#14231C);color:var(--stock,#F4EBD4);border-color:var(--on-stock,#14231C)}.ds-opt:focus-visible{outline:2px solid var(--z5,#D6461C);outline-offset:2px}"
+    },
+    {
+      "name": "Check-Answers Row",
+      "kind": "custom",
+      "refersTo": "check-answer-panel",
+      "description": "The signature result component, borrowed from the GOV.UK check-answers pattern. What you asked for, what this place actually is, the sub-score as a ramp-coloured bar, and an edit affordance, in one boring legible row. Never collapsed behind a click.",
+      "html": "<div class=\"ds-checkans\"><p class=\"ds-ca-head\">Why, answer by answer</p><div class=\"ds-ca-row\"><span class=\"ds-ca-k\"><span class=\"ds-q-rank\">1</span>Winter</span><span class=\"ds-ca-v\">Mild. I do not want a real winter.</span><span class=\"ds-ca-got\">Nanaimo is <b>3.4&deg;C</b><span class=\"ds-ca-bar\"><i style=\"width:86%;background:var(--fit-4,#D6461C)\"></i></span></span><button class=\"ds-ca-ch\">Change</button></div></div>",
+      "css": ".ds-checkans{background:var(--stock,#F4EBD4);color:var(--on-stock,#14231C);font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif}.ds-ca-head{margin:0;padding:.9rem 1.5rem .5rem;font-size:.8125rem;font-weight:700;color:var(--on-stock-2,#48584C);text-transform:uppercase;letter-spacing:.07em}.ds-ca-row{display:grid;grid-template-columns:1fr auto;gap:.15rem .8rem;padding:.8rem 1.5rem;border-top:1px solid var(--stock-2,#E7DABA)}.ds-ca-k{font-size:1.0625rem;font-weight:700}.ds-ca-v{grid-column:1;font-size:.9375rem;color:var(--on-stock-2,#48584C)}.ds-ca-got{grid-column:1;font-size:.8125rem;color:var(--on-stock-3,#6B7A6F);display:flex;align-items:center;gap:.55rem}.ds-ca-got b{color:var(--on-stock,#14231C);font-weight:700}.ds-ca-bar{flex:0 0 56px;height:8px;background:var(--stock-2,#E7DABA);display:block}.ds-ca-bar i{display:block;height:100%}.ds-ca-ch{grid-row:1/4;grid-column:2;align-self:center;font-family:inherit;font-size:.8125rem;font-weight:700;background:transparent;border:1px solid var(--on-stock-3,#6B7A6F);color:var(--on-stock-2,#48584C);padding:.45rem .65rem;min-height:42px;cursor:pointer;border-radius:0}.ds-ca-ch:hover{border-color:var(--on-stock,#14231C);color:var(--on-stock,#14231C)}.ds-ca-ch:focus-visible{outline:2px solid var(--z5,#D6461C);outline-offset:2px}.ds-q-rank{display:inline-grid;place-items:center;width:1.5em;height:1.5em;background:var(--z5,#D6461C);color:#fff;font-weight:700;font-size:.85em;margin-right:.5rem;vertical-align:-.15em;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Explore View Switch",
+      "kind": "nav",
+      "refersTo": "view-switch-button",
+      "description": "Three ways to read one ranking, as a hard-edged segmented control. Active is a solid mustard fill; aria-pressed is the source of truth and CSS mirrors it.",
+      "html": "<div class=\"ds-vswitch\" role=\"group\" aria-label=\"How to show the places\"><button aria-pressed=\"true\">Ranked</button><button aria-pressed=\"false\">Map</button><button aria-pressed=\"false\">Table</button></div>",
+      "css": ".ds-vswitch{display:flex;border:1px solid var(--rule-2,#2E5C4A)}.ds-vswitch button{font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif;font-size:.8125rem;font-weight:700;color:var(--on-ink-2,#AFC8B8);background:transparent;border:0;border-left:1px solid var(--rule-2,#2E5C4A);padding:.5rem .85rem;min-height:42px;cursor:pointer;text-transform:uppercase;letter-spacing:.04em}.ds-vswitch button:first-child{border-left:0}.ds-vswitch button[aria-pressed=\"true\"]{background:var(--signal,#E9B949);color:var(--ink,#0B2A21)}.ds-vswitch button:focus-visible{outline:2px solid var(--signal,#E9B949);outline-offset:2px}"
+    },
+    {
+      "name": "Find A Place Field",
+      "kind": "input",
+      "refersTo": "search-input",
+      "description": "The only text input in the product. An ink-panel fill inside a bright rule, no radius, no icon. Typing force-switches the explore view to the ranked list, because a search whose results you cannot see is a dead end.",
+      "html": "<input class=\"ds-search\" type=\"search\" placeholder=\"Find a place by name\" aria-label=\"Find a place by name\" autocomplete=\"off\">",
+      "css": ".ds-search{width:100%;font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif;font-size:.9375rem;color:var(--on-ink,#F4EBD4);padding:.6rem .75rem;border:1px solid var(--rule-2,#2E5C4A);border-radius:0;background:var(--ink-2,#123528);box-sizing:border-box}.ds-search::placeholder{color:var(--on-ink-3,#86A492)}.ds-search:focus-visible{outline:2px solid var(--signal,#E9B949);outline-offset:1px}"
+    },
+    {
+      "name": "Ranked Place Row",
+      "kind": "custom",
+      "refersTo": "place-row",
+      "description": "The mobile ranking unit. Despite its class name in source (pcard) it is a ruled row, not a card: no radius, no shadow, no panel fill. Rank, name, a solid fit plate in the row's ramp colour, the reason, and the weighted-dimension chips.",
+      "html": "<button class=\"ds-pcard\"><span class=\"ds-pr\">1</span><span class=\"ds-pn\">Nanaimo<span class=\"ds-pv\">BC</span></span><span class=\"ds-pf\" style=\"background:var(--fit-4,#D6461C)\">88</span><span class=\"ds-pwhy\">Gets you the winter and the water</span><span class=\"ds-chips\"><span class=\"ds-chip\">Jan <b>3.4&deg;</b></span><span class=\"ds-chip\">Rain <b>1152mm</b></span></span></button>",
+      "css": ".ds-pcard{display:grid;grid-template-columns:auto 1fr auto;gap:.45rem .85rem;align-items:baseline;padding:.95rem 1.5rem;border:0;border-bottom:1px solid var(--rule,#21493B);width:100%;text-align:left;background:none;font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif;color:var(--on-ink,#F4EBD4);cursor:pointer;font-variant-numeric:tabular-nums}.ds-pcard:hover,.ds-pcard:active{background:var(--ink-2,#123528)}.ds-pcard:focus-visible{outline:2px solid var(--signal,#E9B949);outline-offset:-2px}.ds-pr{color:var(--on-ink-3,#86A492);font-size:.9375rem}.ds-pn{font-size:1.3rem;font-weight:700;font-stretch:75%;letter-spacing:-.015em;line-height:.92;text-transform:uppercase}.ds-pv{color:var(--on-ink-3,#86A492);font-weight:400;font-size:.6em;margin-left:.3rem;text-transform:none;letter-spacing:0}.ds-pf{font-weight:700;color:#fff;font-size:1.05rem;padding:.2rem .5rem}.ds-pwhy{grid-column:2/4;font-size:.8125rem;color:var(--on-ink-2,#AFC8B8);margin-top:.1rem}.ds-chips{grid-column:1/4;display:flex;flex-wrap:wrap;gap:5px;margin-top:.35rem}.ds-chip{font-size:.8125rem;border:1px solid var(--rule-2,#2E5C4A);padding:.22rem .5rem;color:var(--on-ink-2,#AFC8B8)}.ds-chip b{font-weight:700;color:var(--on-ink,#F4EBD4)}"
+    },
+    {
+      "name": "Zone Band Ramp",
+      "kind": "custom",
+      "refersTo": "fit-ramp",
+      "description": "The fit ramp as it is meant to be read: five countable printed bands, cold to hot, with hard edges between them. The map paints these same five colours by quantile of the live fit distribution, so every band is always populated.",
+      "html": "<div class=\"ds-ramp\"><i style=\"background:var(--fit-0,#33507A)\"></i><i style=\"background:var(--fit-1,#3C7F8C)\"></i><i style=\"background:var(--fit-2,#6FA24A)\"></i><i style=\"background:var(--fit-3,#D9A21B)\"></i><i style=\"background:var(--fit-4,#D6461C)\"></i><span class=\"ds-ramp-k\"><span>Does not fit</span><span>Fits you</span></span></div>",
+      "css": ".ds-ramp{display:grid;grid-template-columns:repeat(5,1fr);font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif}.ds-ramp i{display:block;height:44px}.ds-ramp-k{grid-column:1/6;display:flex;justify-content:space-between;font-size:.8125rem;color:var(--on-ink-3,#86A492);padding-top:.4rem;text-transform:uppercase;letter-spacing:.07em;font-weight:700}"
+    },
+    {
+      "name": "Provenance Legend",
+      "kind": "custom",
+      "refersTo": "legend",
+      "description": "How the product says what it does not know. A researched place gets a solid violet square, an unresearched one gets a hatch, and a missing value reads as the two dots StatCan publishes for 'not available'. Never a dash, never a zero, never an estimate.",
+      "html": "<div class=\"ds-legend\"><span><i style=\"background:var(--check,#A78BFA)\"></i>Residents researched</span><span><i class=\"ds-hatch\"></i>Not researched</span><span>&nbsp;<b>..</b>&nbsp; Not available</span></div>",
+      "css": ".ds-legend{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-family:\"Radio Canada\",ui-sans-serif,system-ui,sans-serif;font-size:.8125rem;color:var(--on-ink-3,#86A492)}.ds-legend i{display:inline-block;width:12px;height:12px;margin-right:.35rem;vertical-align:-1px}.ds-legend b{color:var(--on-ink-2,#AFC8B8)}.ds-hatch{background:repeating-linear-gradient(0deg,var(--thin,#86A492) 0 2px,transparent 2px 5px)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Hardiness Zone Map",
+    "overview": "A plant hardiness map floods an entire country in saturated bands to answer exactly one question: what survives where. That is already this product's mechanism, so the map stops illustrating the answer and becomes it. The whole visual world is built out of that one idea. Ground is deep printed ink. Panels are sheets of uncoated warm stock pasted onto the ink. Colour is not decoration, it is classification: five countable zone bands own whole regions of the screen at once.\n\nThe surface is a printed sheet, not a dashboard. There are no gradients on any surface, no rounded corners anywhere, no card grid, no illustration, and no imagery of any kind. Rules and hard colour edges do the work that borders, shadows and elevation do in a typical product UI. Density is high but ordered: full-bleed horizontal rules, generous vertical rhythm, and one loud thing per screen.\n\nThis world was chosen against two specific alternatives, and both refusals are load-bearing. The category default is a white sidebar of sliders over a pale choropleth (MoveMap, Where Might I Live). Its predictable opposite is the cream-ground editorial data essay, which is literally what this app used to be before this rebuild. Both were rejected as the same rut: a quiet neutral field with data politely arranged on top of it. Reaching for either is undoing the decision, not iterating on it.",
+    "keyCharacteristics": [
+      "Deep printed-green ink ground (ink), never a white or cream page.",
+      "Warm uncoated stock (stock) used as pasted-on panels, never as the page.",
+      "A five-band fit ramp, cold to hot, classed so every band is populated.",
+      "Mustard (signal) as the single action colour, used sparingly.",
+      "One typeface at two widths. The 75% width axis is the display face.",
+      "Zero border-radius, zero gradients, hard printed edges everywhere.",
+      "Thumb-first: a sticky action bar, 44px+ targets, one question per screen."
+    ],
+    "rules": [
+      {
+        "name": "The Ink Is The Page Rule",
+        "section": "colors",
+        "body": "The ground is ink, always. Warm stock arrives only as a discrete pasted panel with hard edges and its own on-stock text ramp. A stock panel that bleeds to the full width of the page and carries the whole screen is a cream editorial essay wearing a costume, and that is the rejected world."
+      },
+      {
+        "name": "The One Signal Rule",
+        "section": "colors",
+        "body": "Mustard is the action colour and only the action colour. Two mustard things competing on a screen means one of them is not an action."
+      },
+      {
+        "name": "The Live Ramp Is --fit-* Rule",
+        "section": "colors",
+        "body": "The CSS defines the zone ramp twice: --z1 through --z5, and --fit-0 through --fit-4, pairwise identical in value. Only the --fit-* names are live. app.js reads them by literal string through getComputedStyle, so the map field, the table fit plate, the mobile score chip and the check-answers bars are all driven by --fit-*. --z1 through --z4 are referenced by nothing at all; --z5 survives only as the UI counting red. Editing --z1..--z4 changes nothing. Change --fit-0..--fit-4 to move the ramp, and keep --z5 in step with --fit-4 by hand."
+      },
+      {
+        "name": "The Quantile Rule",
+        "section": "colors",
+        "body": "Bands are cut by quantile of the live fit distribution, not by raw score. A palette change must preserve five clearly countable steps, because the map's claim is that you can count the zones."
+      },
+      {
+        "name": "The One Face Rule",
+        "section": "typography",
+        "body": "The display voice is a width axis, not a second family. Never add a condensed or slab display font to get a bigger headline. The page ships as a single self-contained file with the font inlined as base64, so a second family is real weight on every load."
+      },
+      {
+        "name": "The Uppercase Display Rule",
+        "section": "typography",
+        "body": "Everything in the display voice is uppercase with letter-spacing -0.015em and line-height 0.92. Tight, stacked, and set in caps is what makes it read as printed signage rather than as a big paragraph."
+      },
+      {
+        "name": "The Tabular Rule",
+        "section": "typography",
+        "body": "font-variant-numeric: tabular-nums is set on body and is never turned off. Every ranking, score, temperature and count in this product is meant to be scanned in a column."
+      },
+      {
+        "name": "The Paste Rule",
+        "section": "elevation",
+        "body": "A shadow in this system means 'this is stock on top of ink'. If a surface is not stock-coloured, it gets no shadow. Ink-coloured sub-surfaces separate by value alone."
+      },
+      {
+        "name": "The No Lift Rule",
+        "section": "elevation",
+        "body": "Nothing rises on hover. Hover changes colour or border, never transform, never shadow depth. The only motion in the entire system is the mobile sheet sliding up and the map tooltip fading."
+      }
+    ],
+    "dos": [
+      "Do keep ink (#0B2A21) as the page ground on every screen and every new surface.",
+      "Do introduce a new light surface as a pasted stock panel with hard edges, the paste shadow, and the full on-stock / on-stock-2 / on-stock-3 text ramp.",
+      "Do drive any fit-coloured element from --fit-0 through --fit-4, and keep z5 equal to fit-4 if you retune the ramp.",
+      "Do class any new banded visualization by quantile of the live distribution, so every band stays populated and countable.",
+      "Do write border-radius: 0 explicitly on any new control.",
+      "Do reach for the width axis (font-stretch: 75%, weight 700, uppercase) when you need a display voice, and never for a second font family.",
+      "Do keep touch targets at 42px minimum and 56px on the primary action, and give every slider a pair of - / + steppers.",
+      "Do state the cost. A result surface must show what you give up alongside what you get, uncollapsed.",
+      "Do keep everything inlineable. Fonts, data and map geometry ship inside one self-contained HTML file per country, so no new asset may require a network request.",
+      "Do use .. for a missing value."
+    ],
+    "donts": [
+      "Don't build a white or pale sidebar of sliders over a light choropleth. That is the category default (MoveMap, Where Might I Live) and it is explicitly refused.",
+      "Don't retreat to a cream-ground editorial data essay. That is this app's own previous design and it was rejected as the same rut as the first refusal.",
+      "Don't add gradients to any surface. The only linear-gradient in the system is a 2px hatch pattern standing in for 'not researched'.",
+      "Don't add rounded corners, card grids, elevation scales, hover lift, or imagery.",
+      "Don't spend mustard on anything that is not an action.",
+      "Don't turn on imageSmoothingEnabled for the zone field. Soft band edges destroy the printed-map claim.",
+      "Don't edit --z1 through --z4 expecting the map to change. They are dead aliases; app.js reads --fit-* by name.",
+      "Don't collapse the reasoning behind a disclosure. The check-answers rows, the tradeoff line and the provenance notes are visible by default on purpose.",
+      "Don't put a fit score on the share card.",
+      "Don't add a second font family, an icon font, or any remote asset.",
+      "Don't rely on a per-result link preview. The answer lives in the URL hash, which never reaches a server, which is exactly why the share card exists."
+    ]
+  }
+}

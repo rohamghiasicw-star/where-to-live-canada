@@ -49,21 +49,23 @@
   --on-ink-2: #AFC8B8;
   --on-ink-3: #86A492;
 
-  /* ZONE BANDS: the fit ramp as printed spot inks, cold to hot.
-     Reads like a hardiness map. Five countable bands, not a
-     smooth gradient, because a printed map has bands. */
-  --z1: #33507A;
-  --z2: #3C7F8C;
-  --z3: #6FA24A;
-  --z4: #D9A21B;
-  --z5: #D6461C;
-
-  --fit-0: #33507A;
-  --fit-1: #3C7F8C;
-  --fit-2: #6FA24A;
-  --fit-3: #D9A21B;
-  --fit-4: #D6461C;
+  /* ZONE BANDS: the fit ramp as printed spot inks, cold to hot. Five
+     countable bands, not a smooth gradient, because a printed map has
+     bands. THESE NAMES ARE LOAD-BEARING: app.js reads them as literal
+     strings through getComputedStyle, so renaming one silently breaks
+     the map. There is deliberately no second --z1..--z5 alias set;
+     having two names for one colour meant edits to the alias did
+     nothing, which is worse than a long name. */
+  --fit-0: #33507A;   /* indigo   — does not suit you */
+  --fit-1: #3C7F8C;   /* teal     */
+  --fit-2: #6FA24A;   /* moss     */
+  --fit-3: #D9A21B;   /* gold     */
+  --fit-4: #D6461C;   /* hot red  — suits you best */
   --fit-ink: #FFFFFF;
+
+  /* the same red doing UI duty: rank badges, slider thumb, share button.
+     Named separately from --fit-4 because they are free to diverge. */
+  --hot:     #D6461C;
 
   --signal:  #E9B949;
   --signal-2:#C8971F;
@@ -157,7 +159,7 @@ h1 i { font-style: normal; color: var(--signal); }
 .pk.on { background: var(--stock); color: var(--on-stock); border-color: var(--stock);
   box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
 .pk-n { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
-  background: var(--z5); color: #fff; font-weight: 700; font-size: 0.8em;
+  background: var(--hot); color: #fff; font-weight: 700; font-size: 0.8em;
   font-variant-numeric: tabular-nums; }
 .picker.full .pk:not(.on) { opacity: 0.4; cursor: default; }
 .picker.full .pk:not(.on):hover { border-color: var(--rule-2); color: var(--on-ink-2); }
@@ -182,7 +184,7 @@ h1 i { font-style: normal; color: var(--signal); }
 .q-rankline { margin: 0 0 0.6rem; font-size: var(--t-xs); color: var(--on-stock-2);
   text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
 .q-rank { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
-  background: var(--z5); color: #fff; font-weight: 700; font-size: 0.85em;
+  background: var(--hot); color: #fff; font-weight: 700; font-size: 0.85em;
   margin-right: 0.5rem; vertical-align: -0.15em; font-variant-numeric: tabular-nums; }
 .q-label { font-size: var(--t-m); font-weight: 700; margin: 0; color: var(--on-stock); }
 .q-hint { font-size: var(--t-s); color: var(--on-stock-2); margin: 0.1rem 0 0.9rem; max-width: 62ch; }
@@ -197,7 +199,7 @@ h1 i { font-style: normal; color: var(--signal); }
   border: 1px solid var(--on-stock-3); background: transparent; color: var(--on-stock-2); }
 .opt:hover { border-color: var(--on-stock); color: var(--on-stock); }
 .opt[aria-pressed="true"] { background: var(--on-stock); color: var(--stock); border-color: var(--on-stock); }
-.opt:focus-visible { outline: 2px solid var(--z5); outline-offset: 2px; }
+.opt:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
 .opts-big { flex-direction: column; align-items: stretch; gap: 7px; }
 .opts-big .opt { text-align: left; padding: 0.85rem 0.95rem; font-size: var(--t-m); }
 
@@ -211,10 +213,10 @@ input[type=range] { flex: 1 1 auto; -webkit-appearance: none; appearance: none;
 input[type=range]::-webkit-slider-runnable-track { height: 3px; background: var(--on-stock-3); }
 input[type=range]::-moz-range-track { height: 3px; background: var(--on-stock-3); }
 input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 34px;
-  margin-top: -15.5px; background: var(--z5); border: 0; border-radius: 0; cursor: pointer; }
-input[type=range]::-moz-range-thumb { width: 20px; height: 34px; background: var(--z5);
+  margin-top: -15.5px; background: var(--hot); border: 0; border-radius: 0; cursor: pointer; }
+input[type=range]::-moz-range-thumb { width: 20px; height: 34px; background: var(--hot);
   border: 0; border-radius: 0; cursor: pointer; }
-input[type=range]:focus-visible { outline: 2px solid var(--z5); outline-offset: 4px; }
+input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset: 4px; }
 .readout { font-weight: 700; font-size: var(--t-m); color: var(--on-stock); min-width: 4ch; }
 .scale-ends { display: flex; justify-content: space-between; font-size: var(--t-xs);
   color: var(--on-stock-3); margin-top: 0.35rem; }
@@ -235,7 +237,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--z5); outline-offset: 
 .v-line .cut { color: var(--signal); }
 .v-score { margin: 0.7rem 0 0; font-size: var(--t-xs); color: var(--on-ink-3);
   text-transform: uppercase; letter-spacing: 0.06em; }
-.v-score b { color: var(--z5); font-weight: 700; font-size: var(--t-l); letter-spacing: 0; }
+.v-score b { color: var(--hot); font-weight: 700; font-size: var(--t-l); letter-spacing: 0; }
 
 .checkans { background: var(--stock); color: var(--on-stock); }
 .ca-head { margin: 0; padding: 0.9rem var(--gut) 0.5rem; font-size: var(--t-xs);
@@ -254,7 +256,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--z5); outline-offset: 
   border: 1px solid var(--on-stock-3); color: var(--on-stock-2);
   padding: 0.45rem 0.65rem; min-height: 42px; cursor: pointer; border-radius: 0; }
 .ca-ch:hover { border-color: var(--on-stock); color: var(--on-stock); }
-.ca-ch:focus-visible { outline: 2px solid var(--z5); outline-offset: 2px; }
+.ca-ch:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
 
 .v-warn { font-size: var(--t-s); max-width: 64ch; color: var(--on-ink-2);
   margin: 1rem var(--gut) 0; padding: 0.75rem 0.9rem; background: var(--ink-2); }
@@ -276,7 +278,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--z5); outline-offset: 
 .v-foot { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;
   padding: 1.1rem var(--gut) 0.3rem; }
 .v-share { font: inherit; font-size: var(--t-m); font-weight: 700; cursor: pointer;
-  background: var(--z5); color: #fff; border: 0; padding: 0.85rem 1.2rem; border-radius: 0; }
+  background: var(--hot); color: #fff; border: 0; padding: 0.85rem 1.2rem; border-radius: 0; }
 .v-share:hover { background: #B93A15; }
 .v-again { font: inherit; font-size: var(--t-s); font-weight: 600; background: transparent;
   border: 1px solid var(--rule-2); color: var(--on-ink-2); padding: 0.7rem 0.95rem;
@@ -431,6 +433,25 @@ input[type=range]:focus-visible { outline: 2px solid var(--z5); outline-offset: 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ---------- the place record ----------
+   detailHTML emits these; without rules the whole record fell back to
+   browser defaults inside an otherwise committed world. */
+.dh { font-size: var(--t-xs); font-weight: 700; color: var(--signal);
+  text-transform: uppercase; letter-spacing: 0.07em; margin: 1.1rem 0 0.4rem; }
+.dwrap { padding: 0 var(--gut) 1rem; }
+.ribbon { display: block; width: 100%; height: 42px; margin-top: 0.3rem; }
+.rib-k { font-size: var(--t-xs); color: var(--on-ink-3); margin: 0.2rem 0 0; }
+.pts { display: flex; flex-wrap: wrap; gap: 5px; margin: 0.3rem 0 0; padding: 0; list-style: none; }
+.pts li { font-size: var(--t-xs); border: 1px solid var(--rule-2);
+  padding: 0.2rem 0.5rem; color: var(--on-ink-2); }
+.sent { display: grid; gap: 0.3rem; margin: 0.3rem 0 0; }
+.sr { display: grid; grid-template-columns: 8rem 1fr auto; gap: 0.6rem;
+  align-items: center; font-size: var(--t-xs); }
+.sk { color: var(--on-ink-2); }
+.st { height: 8px; background: var(--ink-2); position: relative; }
+.st i { position: absolute; top: 0; bottom: 0; display: block; }
+.sv { color: var(--on-ink-3); font-variant-numeric: tabular-nums; }
 </style>
 
 <!--
@@ -536,7 +557,7 @@ review, the verdict, and DESIGN.md
   <footer class="foot">
     <div class="legend">
       <span><i style="background:var(--fit-4)"></i>Fits you</span>
-      <span><i style="background:var(--fit-1)"></i>Does not</span>
+      <span><i style="background:var(--fit-0)"></i>Does not</span>
       <span><i style="background:var(--check)"></i>Residents researched</span>
       <span><i style="background:repeating-linear-gradient(0deg,var(--thin) 0 2px,transparent 2px 5px)"></i>Not researched</span>
       <span><i style="border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);transform:rotate(45deg)"></i>What splits it from its neighbours</span>
@@ -1598,7 +1619,7 @@ function detailHTML(r) {
       ${row('Wildfire smoke', p.smoke ? p.smoke.mean_ugm3.toFixed(2) : NA, 'µg/m³')}
       <p class="prov-note">${st ? `From <em>${st.name}</em>, ${st.km}km away${
         st.delev != null ? `, ${st.delev}m difference in elevation` : ''}. ${
-        st.code === 'COMPUTED' ? st.note + '.' : 'ECCC normals 1981-2010.'}`
+        st.code === 'COMPUTED' ? st.note + '.' : CFG.sources.climate + '.'}`
         : 'No station close enough. These are blank, not estimated.'}</p>
     </div>
     <div>
@@ -1611,7 +1632,7 @@ function detailHTML(r) {
       ${row('Nearest city over 300k', p.prox ? p.prox.nearest_big_city : NA,
         p.prox && p.prox.drive_min_to_big_city != null ? `${Math.round(p.prox.drive_min_to_big_city)}min` : '')}
       ${row(CFG.riding_label, p.politics ? p.politics.riding : NA, '')}
-      ${row('Lean', p.politics ? p.politics.lean_label : NA, '')}
+      ${row('Lean', (p.politics && (p.politics.lean_label || p.politics.winner)) || NA, '')}
       <p class="prov-note">${p.csd ? `Census figures are for <em>${p.csd}</em>.` : ''} ${CFG.detail_note}</p>
     </div>
     <div>
