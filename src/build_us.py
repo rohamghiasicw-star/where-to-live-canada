@@ -179,8 +179,25 @@ if stations:
         # stations at 200-400 m and one at 1,900 m should not take the outlier.
         # Without this the Revelstoke failure recurs, and it recurs silently,
         # because an alpine snowfall figure looks like a real number.
+        # Local station elevation, computed either way, because it is also the
+        # sanity check on the measured place elevation below.
+        _wz = [(hav(p['lat'], p['lon'], c['lat'], c['lon']), c['elev_m'])
+               for c in cands if c.get('elev_m') is not None]
+        _wz.sort()
+        _near = [z for km_, z in _wz[:5] if km_ <= 40] or [z for _, z in _wz[:3]]
+        _local = sorted(_near)[len(_near) // 2] if _near else None
+
         if p.get('elev_m') is not None:
-            ref_elev = p['elev_m']           # true elevation, once that step lands
+            ref_elev = p['elev_m']           # measured, and right for almost everywhere
+            # But places.json carries the Census polygon's INTERNAL POINT, not the
+            # populated core, and for a giant municipality that point can sit up a
+            # mountain. Anchorage covers 4,421 km2 and its internal point reads
+            # 1,216 m while the city is at about 30 m. Trusting that would invert
+            # this whole guard: it would go looking for an alpine station. Weather
+            # stations cluster where people are, so a sharp disagreement with the
+            # local station profile means the internal point is not the town.
+            if _local is not None and abs(ref_elev - _local) > 400:
+                ref_elev = _local
         else:
             # Proxy, and a biased one in exactly the terrain that matters: in
             # mountains the median of nearby stations is dragged upward by the
@@ -188,15 +205,7 @@ if stations:
             # local profile of 602 m because San Jacinto rises 3,300 m beside it.
             # Taking the nearest handful rather than everything within 60 km keeps
             # the reference closer to the valley floor the town actually sits on.
-            withz = [(hav(p['lat'], p['lon'], c['lat'], c['lon']), c['elev_m'])
-                     for c in cands if c.get('elev_m') is not None]
-            withz.sort()
-            near = [z for km_, z in withz[:5] if km_ <= 40] or [z for _, z in withz[:3]]
-            if near:
-                ev = sorted(near)
-                ref_elev = ev[len(ev) // 2]
-            else:
-                ref_elev = None
+            ref_elev = _local
 
         best, best_cost = None, None
         for s in cands:
@@ -342,6 +351,9 @@ for p in places:
             c[el] = {'13': c[el].get('13'), '1': c[el].get('1'), '7': c[el].get('7')}
     for junk in ('land_area_km2', 'median_age', 'geoid'):
         p.pop(junk, None)
+    st = (p.get('stations_used') or {}).get('tmean')
+    if st:
+        st.pop('ref_elev_m', None)     # audit field, not something a reader sees
 
 from politics_scale import calibrate as _cal
 CFG['politics'] = _cal([v.get('lean') for v in pol.values()]) or \

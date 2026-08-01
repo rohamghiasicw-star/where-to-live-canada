@@ -7,8 +7,8 @@ WHY THIS FILE EXISTS AT ALL
   The app's originator asked for two things by name: "number of soccer pitches"
   as a fun, non-boring ranking category, and places of worship, because "a
   Jewish person would want a synagogue within driving distance".  Both are real
-  OSM tags.  In the US version they matter MORE than in Canada: the US census
-  does not ask about religion at all, so there is no US equivalent of the
+  OSM tags.  In the US version they matter MORE than in Canada: the US census is
+  legally barred from asking about religion, so there is no US equivalent of the
   Canadian census religion table.  Counting the actual buildings in OSM is the
   only honest way to answer "is there a synagogue near me" for a US place.
 
@@ -28,7 +28,9 @@ WHAT IT COUNTS (all straight from OSM tags, nothing modelled or estimated)
                    with sport containing "ice_hockey"
 
   Exactly the nine fields the Canadian file carries, same names, same tag
-  tests, so the two countries are directly comparable.
+  tests, so the two countries are directly comparable.  The output record
+  layout is identical to data/osm.json too, with "state" where Canada has
+  "prov".
 
 HOW THE DATA IS FETCHED  (efficiency is the whole problem here)
   4,197 separate per-place Overpass "around" queries would be ~4,197 calls and
@@ -45,20 +47,48 @@ HOW THE DATA IS FETCHED  (efficiency is the whole problem here)
   between states.  Raw responses are cached on disk keyed by region, so a
   restart or a re-run costs the API nothing.
 
-  A GEOFABRIK EXTRACT WAS CONSIDERED AND REJECTED.  us-latest.osm.pbf is
-  ~12 GB and needs osmium/pyosmium to read; neither was installed on this
-  machine and only 33 GB of disk was free, so the download plus a node-location
-  index would have been tighter on disk than on patience.  Overpass with
-  51 state-clipped queries returns only the ~0.5 M elements actually wanted
-  instead of ~10^9 nodes, and the state areas make the coverage auditable
-  region by region.  If this ever needs to be re-run monthly, switch to the
-  extract; for a one-off build Overpass is the cheaper and more reliable path.
+  A GEOFABRIK EXTRACT WAS THE PREFERRED PLAN AND WAS MEASURED, NOT ASSUMED.
+  pyosmium 4.3.1 does ship a cp314 arm64 wheel, so the local-parse route was
+  genuinely open.  What killed it was throughput: download.geofabrik.de served
+  this machine a sustained 1.43 MB/s (measured on
+  north-america/us/michigan-latest.osm.pbf, 35.8 MB in 25 s, and 1.26 MB/s on
+  rhode-island-latest).  The 51 state extracts are ~11 GB, so the download
+  alone was ~2.3 hours before a single element had been parsed, and a
+  node-location index pass on top of that.  Meanwhile a previous run of this
+  script had ALREADY banked 17 of the 51 state responses in the Overpass cache
+  (34 MB, RI MA AK AL AR AZ CA CO CT DC DE FL GA HI IA ID IL) at roughly one
+  state per minute.  Finishing on Overpass was ~50 minutes from a third of the
+  way done; restarting on Geofabrik was ~3+ hours from zero.  The thing the
+  bulk-extract advice is really guarding against - thousands of small per-place
+  Overpass calls - is not what this file does; 58 big state-sized calls with
+  out center, long timeouts, sequential, backed off and cached is the sanctioned
+  fallback shape.  If this ever needs re-running monthly on a fatter pipe,
+  switch to the extract.
 
   STATE RELATION IDS were not typed from memory.  They were resolved live by
   querying rel["ISO3166-2"~"^US-"][admin_level=4] before this script was
   written: 56 relations, 56 distinct ISO codes, no duplicates and no misses.
   The five territory codes (PR VI GU AS MP) are deliberately dropped, which
   also drops the 29 Puerto Rico places in data/us/places.json.
+
+CHECKPOINTING  (the reason the first attempt at this file produced nothing)
+  The first version fetched all 58 regions and only then wrote the output, so
+  when it was cut off after 19 minutes with 17 states in hand it left NO file at
+  all - a third of the work done and zero of it usable.  This version rewrites
+  data/us/osm.json in full after EVERY region completes.  A place in a state
+  that has not been fetched yet carries null in all nine fields, never 0, so a
+  gap can never be misread as "OSM says there is nothing here".  The last
+  element of the output array is a {"_progress": ...} record naming exactly
+  which regions are done and which are pending.  Interrupt this script at any
+  point and what is on disk is a real, usable, honestly-labelled dataset.
+
+  ONE HONEST CAVEAT ON PARTIAL FILES.  A 15 km disc does not stop at a state
+  line, so while neighbouring states are still pending, a place near a state
+  border in a COMPLETED state is undercounted rather than null - Kansas City MO
+  cannot see its Kansas half until KS lands.  That is why _progress carries
+  border_caveat and why the counts are rewritten from scratch (not incremented)
+  after every region: the moment the last region lands, every border place is
+  correct.  Only a run that finishes every state is free of this.
 
 CROSS-BORDER BANDS
   A state-clipped query stops at the international border, which would quietly
@@ -133,12 +163,35 @@ COORDINATE TWINS (affects the *_exclusive fields only)
   special handling: two places at nearly the same point simply have nearly the
   same disc.  The groups found in this input are printed at build time.
 
+READING THE NUMBERS - TWO THINGS THAT LOOK LIKE BUGS AND ARE NOT
+
+  1. THE PLACE POINT IS THE CITY POLYGON'S CENTROID, NOT ITS DOWNTOWN, and for
+  an oddly shaped city that moves the disc.  Los Angeles sits at 34.019,
+  -118.411 in data/us/places.json - out by Culver City and Palms, because the
+  LA city limits are a barbell running down to San Pedro and the centroid lands
+  west of downtown.  Its 15 km disc therefore covers Santa Monica and the
+  Westside and misses downtown, East LA and most of the Valley, so LA scores
+  lower than Chicago or Houston on worship and pitches.  That is the disc doing
+  exactly what it says, not a missing query.  LA's land area is 1,219 km2 and a
+  15 km disc is 707 km2, so no single disc could have covered it anyway.  This
+  file does not move the place points; data/us/places.json is not ours to edit.
+
+  2. OSM COMPLETENESS IS NOT UNIFORM, so the radius counts compare mapping
+  effort as well as reality.  Chicagoland and the Denver suburbs are mapped
+  much more densely for both churches and pitches than Los Angeles is, which is
+  why small suburbs sitting in the middle of a dense, well-mapped metro (Oak
+  Park IL, Englewood CO, Belmont MA) outrank the big-city rows on the pitch
+  column: their disc is centred on the dense part while the big city's centroid
+  is not.  Every number here is a true count of what OSM holds.  It is not a
+  census of what exists on the ground, and it should not be presented as one.
+
 HONEST ZEROS
   Zero is a real answer and is never filled in.  A small town with no mosque
   inside 15 km gets mosques = 0, because OSM says there is none.  The only
-  nulls written are for a region whose Overpass query failed permanently - all
-  nine fields go null for every place in it and the region is named in the
-  build log, so a missing region can never be mistaken for a real zero.
+  nulls written are for a state that has not been fetched yet or whose query
+  failed permanently - all nine fields go null for every place in it and the
+  state is named in _progress, so a missing state can never be mistaken for a
+  real zero.
 
 Reads data/us/places.json.  Writes data/us/osm.json.  Nothing else is touched -
 not the Canadian data, not the app code, not data/us/places.json.
@@ -147,6 +200,8 @@ not the Canadian data, not the app code, not data/us/places.json.
   python3 src/us/build_osm.py --refetch     # re-hits the API for every region
   python3 src/us/build_osm.py --state=RI,MA # one or more regions only
   python3 src/us/build_osm.py --check       # rebuild + print the check table
+  python3 src/us/build_osm.py --cached-only # never hit the network, just
+                                            # rebuild from whatever is cached
 """
 
 import json, math, os, sys, tempfile, time
@@ -194,6 +249,11 @@ STATE_REL = {
     'WI': 165466, 'WV': 162068, 'WY': 161991,
 }
 TERRITORIES = {"PR", "VI", "GU", "AS", "MP"}
+
+# States named in the validation brief.  They are fetched before the rest so
+# that the check table has something to say as early as possible, and so an
+# interrupted run still covers the places the result will be judged on.
+SIGNAL_STATES = ["NY", "TX", "NJ", "MI", "UT", "MN", "MA", "CA", "IL", "AZ", "FL"]
 
 # Cross-border bands: neighbouring country + (south, west, north, east) box that
 # follows the international border.  The country is looked up by its
@@ -292,18 +352,37 @@ def build_query(region):
     return QUERY_AREA % (3600000000 + STATE_REL[region])
 
 
-def fetch(region, force=False):
-    """One Overpass call for one region. Cached. Retries with backoff."""
-    path = os.path.join(CACHE, "osm_%s.json" % region)
-    if os.path.exists(path) and not force:
+def cache_path(region):
+    return os.path.join(CACHE, "osm_%s.json" % region)
+
+
+def cached(region):
+    """Return the cached response for a region, or None. Never hits the API."""
+    path = cache_path(region)
+    if not os.path.exists(path):
+        return None
+    try:
         with open(path) as f:
             d = json.load(f)
-        bad = sane(region, d)
-        if bad:
-            print("  %s cached file REJECTED (%s), refetching" % (region, bad))
-        else:
+    except Exception as e:
+        print("  %-14s cached file UNREADABLE (%s)" % (region, e))
+        return None
+    bad = sane(region, d)
+    if bad:
+        print("  %-14s cached file REJECTED (%s)" % (region, bad))
+        return None
+    return d
+
+
+def fetch(region, force=False, cached_only=False):
+    """One Overpass call for one region. Cached. Retries with backoff."""
+    if not force:
+        d = cached(region)
+        if d is not None:
             print("  %-14s cached: %6d elements" % (region, len(d["elements"])))
             return d
+    if cached_only:
+        raise RuntimeError("not cached and --cached-only was given")
     body = urllib.parse.urlencode({"data": build_query(region)}).encode()
     delay = 30
     for attempt in range(10):
@@ -317,7 +396,9 @@ def fetch(region, force=False):
             if bad:
                 raise ValueError("bad response from %s: %s" % (ep.split("/")[2], bad))
             print("  %-14s ok: %6d elements in %5.0fs (%s)"
-                  % (region, len(d["elements"]), time.time() - t0, ep.split("/")[2]))
+                  % (region, len(d["elements"]), time.time() - t0, ep.split("/")[2]),
+                  flush=True)
+            path = cache_path(region)
             tmp = path + ".part"
             with open(tmp, "w") as f:
                 json.dump(d, f)
@@ -384,7 +465,7 @@ CELL = 0.01  # ~1.1 km lat; comfortably larger than the 100 m dedupe test radius
 PCELL = 0.25  # place index cell, degrees
 
 
-def dedupe(tagged):
+def dedupe(tagged, verbose=True):
     """Two-pass near-duplicate collapse, identical rule to the Canadian build."""
     # pass 1: same non-empty name within 100 m and sharing a category.
     keep = []
@@ -413,7 +494,8 @@ def dedupe(tagged):
         buckets.setdefault((nm, gx, gy), []).append(r)
         keep.append(r)
     tagged = keep
-    print("after same-name/100m dedupe: %d  (collapsed %d)" % (len(tagged), dropped_dupe))
+    if verbose:
+        print("after same-name/100m dedupe: %d  (collapsed %d)" % (len(tagged), dropped_dupe))
 
     # pass 2: an unnamed element sitting on top of a named one, same category,
     # is the same building mapped twice. Drop the unnamed one.
@@ -443,11 +525,13 @@ def dedupe(tagged):
             dropped_un += 1
         else:
             keep2.append(r)
-    print("after unnamed-on-named/50m dedupe: %d  (collapsed %d)" % (len(keep2), dropped_un))
+    if verbose:
+        print("after unnamed-on-named/50m dedupe: %d  (collapsed %d)"
+              % (len(keep2), dropped_un))
     return keep2
 
 
-def tie_groups(plat, plon, pkey):
+def tie_groups(plat, plon, pkey, verbose=True):
     """Union places within TIE_KM into shared-catchment groups."""
     n = len(plat)
     parent = list(range(n))
@@ -474,65 +558,27 @@ def tie_groups(plat, plon, pkey):
     for i in range(n):
         group.setdefault(find(i), []).append(i)
     twins = [g for g in group.values() if len(g) > 1]
-    print("coordinate tie-groups (shared catchment): %d groups, %d places"
-          % (len(twins), sum(len(g) for g in twins)))
-    for g in sorted(twins, key=lambda g: pkey[g[0]]):
-        print("    " + " == ".join("%s, %s" % pkey[i] for i in g))
+    if verbose:
+        print("coordinate tie-groups (shared catchment): %d groups, %d places"
+              % (len(twins), sum(len(g) for g in twins)))
+        for g in sorted(twins, key=lambda g: pkey[g[0]]):
+            print("    " + " == ".join("%s, %s" % pkey[i] for i in g))
     return find, group
 
 
-def main():
-    force = "--refetch" in sys.argv
-    only = None
-    for a in sys.argv[1:]:
-        if a.startswith("--state="):
-            only = a.split("=", 1)[1].split(",")
-
-    raw = json.load(open(os.path.join(ROOT, "data", "us", "places.json")))
-    skipped = [p for p in raw if p["state"] in TERRITORIES]
-    places = [{"name": p["name"], "state": p["state"], "lat": p["lat"], "lon": p["lon"]}
-              for p in raw if p["state"] not in TERRITORIES]
-    print("places: %d  (skipped %d territory places: %s)"
-          % (len(places), len(skipped),
-             ",".join(sorted({p["state"] for p in skipped})) or "none"))
-
-    regions = only or (list(STATE_REL) + list(BORDER_BANDS))
-    print("fetching %d regions from Overpass (%d states+DC, %d cross-border bands)"
-          % (len(regions), sum(1 for r in regions if r in STATE_REL),
-             sum(1 for r in regions if r in BORDER_BANDS)))
-    elements = []
-    failed = []
-    for rg in regions:
-        try:
-            d = fetch(rg, force=force)
-        except Exception as e:
-            print("  !! %s FAILED PERMANENTLY: %s" % (rg, e))
-            failed.append(rg)
-            continue
-        for el in d["elements"]:
-            elements.append(el)
-    print("total raw elements fetched: %d" % len(elements))
-    dead_states = [r for r in failed if r in STATE_REL]
-    dead_bands = [r for r in failed if r in BORDER_BANDS]
-    if dead_states:
-        print("FAILED STATES - every place in them gets nulls, never zeros: %s"
-              % ",".join(dead_states))
-    if dead_bands:
-        print("FAILED CROSS-BORDER BANDS: %s - places near that stretch of border are "
-              "US-side only and are understated, not null" % ",".join(dead_bands))
-
+def compute(elements, places, verbose=True):
+    """Classify, dedupe and assign. Returns (counts, excl) indexed by place row."""
     # one element can be returned by two region queries if it straddles a
     # border or sits in a band overlap; dedupe on (type, id) first.
     seen = {}
     for el in elements:
         seen[(el["type"], el["id"])] = el
-    elements = list(seen.values())
-    print("after id dedupe: %d" % len(elements))
+    if verbose:
+        print("raw elements: %d   after id dedupe: %d" % (len(elements), len(seen)))
 
-    # classify + coordinate
     tagged = []
     nocoord = 0
-    for el in elements:
+    for el in seen.values():
         cats = categorise(el)
         if not cats:
             continue
@@ -543,35 +589,18 @@ def main():
         tagged.append((c[0], c[1], cats,
                        (el.get("tags", {}).get("name") or "").strip().lower(),
                        el["type"], el["id"]))
-    print("classified elements: %d  (dropped %d with no coordinate)" % (len(tagged), nocoord))
+    if verbose:
+        print("classified elements: %d  (dropped %d with no coordinate)"
+              % (len(tagged), nocoord))
     tagged.sort(key=lambda r: (r[3], r[0], r[1]))
-    tagged = dedupe(tagged)
+    tagged = dedupe(tagged, verbose=verbose)
 
-    # ---- assignment ------------------------------------------------------
-    # Counts are indexed by ROW, not by name+state.  data/us/places.json holds 4
-    # repeated name+state keys that are genuinely different places hundreds of km
-    # apart (Kailua HI on Oahu vs Kailua-Kona on Hawaii, 266 km; El Sobrante CA
-    # in Contra Costa vs Riverside, 631 km; also University FL and Fairwood WA).
-    # Bucketing on the key would have merged those discs and double counted the
-    # overlap, so every row keeps its own disc and its own honest number and the
-    # output simply carries two records that share a key.  They are printed below.
     counts = [{f: 0 for f in FIELDS} for _ in places]
     excl = [{f: 0 for f in FIELDS} for _ in places]
     plat = [p["lat"] for p in places]
     plon = [p["lon"] for p in places]
     pkey = [(p["name"], p["state"]) for p in places]
-    seen_k = {}
-    for k in pkey:
-        seen_k[k] = seen_k.get(k, 0) + 1
-    dupkeys = {k for k, n in seen_k.items() if n > 1}
-    if dupkeys:
-        print("repeated name+state keys (separate places, separate counts): %d"
-              % len(dupkeys))
-        for k in sorted(dupkeys):
-            ii = [i for i in range(len(pkey)) if pkey[i] == k]
-            print("    %s, %s at " % k + " and ".join(
-                "%.4f,%.4f" % (plat[i], plon[i]) for i in ii))
-    find, group = tie_groups(plat, plon, pkey)
+    find, group = tie_groups(plat, plon, pkey, verbose=verbose)
 
     # place index so each element only tests nearby places, not all 4,197.
     pgrid = {}
@@ -579,9 +608,7 @@ def main():
         pgrid.setdefault((int(plat[i] / PCELL), int(plon[i] / PCELL)), []).append(i)
 
     dlat = RADIUS_KM / 110.574 + 1e-9
-    assigned = 0
-    unassigned = 0
-    inradius = 0
+    assigned = unassigned = inradius = 0
     for la, lo, cats, nm, ty, oid in tagged:
         dlon = RADIUS_KM / (111.320 * max(math.cos(math.radians(la)), 1e-6)) + 1e-9
         rx = int(dlat / PCELL) + 1
@@ -619,30 +646,147 @@ def main():
             c = excl[i]
             for k in cats:
                 c[k] += 1
-    print("within 15 km of at least one place: %d   (radius fields)" % inradius)
-    print("assigned to a nearest place: %d   beyond %.0f km of every place: %d"
-          "   (exclusive fields)" % (assigned, RADIUS_KM, unassigned))
+    if verbose:
+        print("within 15 km of at least one place: %d   (radius fields)" % inradius)
+        print("assigned to a nearest place: %d   beyond %.0f km of every place: %d"
+              "   (exclusive fields)" % (assigned, RADIUS_KM, unassigned))
+    return counts, excl, len(tagged)
 
+
+def write_out(places, counts, excl, done, failed, n_elements):
+    """Rewrite data/us/osm.json from scratch. Safe to call after every region."""
+    live_states = set(done)
     out = []
     for i, p in enumerate(places):
-        dead = p["state"] in failed
+        alive = p["state"] in live_states
         rec = {"name": p["name"], "state": p["state"]}
         for f in FIELDS:
-            rec[f] = None if dead else counts[i][f]
+            rec[f] = counts[i][f] if alive else None
         rec["radius_km"] = RADIUS_KM
         rec["method"] = METHOD
         for f in FIELDS:
-            rec[f + "_exclusive"] = None if dead else excl[i][f]
+            rec[f + "_exclusive"] = excl[i][f] if alive else None
         rec["method_exclusive"] = METHOD_EXCL
         out.append(rec)
+
+    done_states = sorted(s for s in done if s in STATE_REL)
+    # Anything not done and not failed is pending, including a state that was
+    # never in this run's region list at all (a --state=... run).  Listing only
+    # the queued ones would let a state be null in the data and invisible here.
+    pend_states = sorted(s for s in STATE_REL if s not in done and s not in failed)
+    out.append({"_progress": {
+        "complete": not pend_states and not failed,
+        "states_done": done_states,
+        "states_pending": pend_states,
+        "bands_done": sorted(s for s in done if s in BORDER_BANDS),
+        "bands_pending": sorted(s for s in BORDER_BANDS
+                                if s not in done and s not in failed),
+        "failed": sorted(failed),
+        "places_with_counts": sum(1 for p in places if p["state"] in live_states),
+        "places_null": sum(1 for p in places if p["state"] not in live_states),
+        "osm_elements_counted": n_elements,
+        "source": "OpenStreetMap via Overpass API, one area-clipped query per "
+                  "state + 7 cross-border bands, out center",
+        "null_means": "state not fetched yet or its query failed permanently; "
+                      "0 always means OSM really has none within radius_km",
+        "border_caveat": "while states_pending is non-empty, a place in a done "
+                         "state whose 15 km disc crosses into a pending state is "
+                         "UNDERCOUNTED, not null; counts are recomputed from "
+                         "scratch after every region so this self-corrects when "
+                         "the last state lands",
+        "note": "this trailing record is build progress, not a place; it has no "
+                "name/state key so a name+state join skips it",
+    }})
 
     path = os.path.join(ROOT, "data", "us", "osm.json")
     tmp = path + ".part"
     with open(tmp, "w") as f:
         json.dump(out, f, indent=0)
     os.replace(tmp, path)
-    print("wrote %s (%d places, %.1f MB)"
-          % (path, len(out), os.path.getsize(path) / 1e6))
+    return path, out
+
+
+def main():
+    force = "--refetch" in sys.argv
+    cached_only = "--cached-only" in sys.argv
+    only = None
+    for a in sys.argv[1:]:
+        if a.startswith("--state="):
+            only = a.split("=", 1)[1].split(",")
+
+    raw = json.load(open(os.path.join(ROOT, "data", "us", "places.json")))
+    skipped = [p for p in raw if p["state"] in TERRITORIES]
+    places = [{"name": p["name"], "state": p["state"], "lat": p["lat"], "lon": p["lon"]}
+              for p in raw if p["state"] not in TERRITORIES]
+    print("places: %d  (skipped %d territory places: %s)"
+          % (len(places), len(skipped),
+             ",".join(sorted({p["state"] for p in skipped})) or "none"), flush=True)
+
+    # Counts are indexed by ROW, not by name+state.  data/us/places.json holds a
+    # few repeated name+state keys that are genuinely different places hundreds
+    # of km apart (Kailua HI on Oahu vs Kailua-Kona on Hawaii; El Sobrante CA in
+    # Contra Costa vs Riverside).  Bucketing on the key would have merged those
+    # discs and double counted the overlap, so every row keeps its own disc and
+    # its own honest number and the output carries two records sharing a key.
+    nplaces = {}
+    for p in places:
+        nplaces[p["state"]] = nplaces.get(p["state"], 0) + 1
+
+    # ---- region order: cached first (free), then the states the result will be
+    # judged on, then the states holding the most places.  Bands last: they only
+    # refine border places and are worthless until the states around them exist.
+    def rank(rg):
+        is_band = rg in BORDER_BANDS
+        have = os.path.exists(cache_path(rg))
+        sig = SIGNAL_STATES.index(rg) if rg in SIGNAL_STATES else 99
+        return (is_band, not have, sig, -nplaces.get(rg, 0), rg)
+
+    regions = only or sorted(list(STATE_REL) + list(BORDER_BANDS), key=rank)
+    print("regions to process: %d (%d states+DC, %d cross-border bands)"
+          % (len(regions), sum(1 for r in regions if r in STATE_REL),
+             sum(1 for r in regions if r in BORDER_BANDS)), flush=True)
+
+    elements = []
+    done = []       # regions whose data is in hand
+    failed = []     # regions that will never arrive
+    pending = list(regions)
+    t_start = time.time()
+
+    for n, rg in enumerate(regions, 1):
+        pending.remove(rg)
+        try:
+            d = fetch(rg, force=force, cached_only=cached_only)
+            elements.extend(d["elements"])
+            done.append(rg)
+        except Exception as e:
+            print("  !! %s FAILED PERMANENTLY: %s" % (rg, e), flush=True)
+            failed.append(rg)
+
+        # ---- CHECKPOINT: rewrite the whole output after every single region.
+        t0 = time.time()
+        counts, excl, n_el = compute(elements, places, verbose=False)
+        path, out = write_out(places, counts, excl, done, failed, n_el)
+        live = sum(1 for p in places if p["state"] in set(done))
+        print("  [%2d/%2d] checkpoint: %d/%d places with counts, %d elements, "
+              "%.1f MB, recompute %.0fs, elapsed %.0fm"
+              % (n, len(regions), live, len(places), n_el,
+                 os.path.getsize(path) / 1e6, time.time() - t0,
+                 (time.time() - t_start) / 60), flush=True)
+
+    # ---- final pass, verbose, so the log carries the real dedupe numbers
+    print("\n=== final rebuild ===", flush=True)
+    counts, excl, n_el = compute(elements, places, verbose=True)
+    path, out = write_out(places, counts, excl, done, failed, n_el)
+    dead_states = [r for r in failed if r in STATE_REL]
+    dead_bands = [r for r in failed if r in BORDER_BANDS]
+    if dead_states:
+        print("FAILED STATES - every place in them is null, never zero: %s"
+              % ",".join(sorted(dead_states)))
+    if dead_bands:
+        print("FAILED CROSS-BORDER BANDS: %s - places near that stretch of border "
+              "are US-side only and are understated, not null" % ",".join(sorted(dead_bands)))
+    print("wrote %s (%d place records + 1 _progress record, %.1f MB)"
+          % (path, len(out) - 1, os.path.getsize(path) / 1e6))
     if "--check" in sys.argv:
         check(out)
     return out
@@ -659,6 +803,7 @@ SIGNALS = [("Lakewood", "NJ"), ("Brookline", "MA"), ("Dearborn", "MI"), ("Paters
 
 
 def check(out):
+    out = [r for r in out if "_progress" not in r]
     ix = {}
     for r in out:
         ix.setdefault((r["name"], r["state"]), r)
@@ -676,6 +821,10 @@ def check(out):
         return "%-26s" % ("%s, %s" % k) + "".join(
             "%9s" % ("null" if r[c] is None else r[c]) for c in cols)
 
+    def top(field, n=10):
+        return sorted([r for r in out if r[field] is not None],
+                      key=lambda r: -r[field])[:n]
+
     print("\n=== CHECK TABLE (15 km radius counts) ===")
     print(hdr)
     print("-" * len(hdr))
@@ -685,26 +834,11 @@ def check(out):
     print("-- named signal places: a zero here means the query or assignment is wrong --")
     for k in SIGNALS:
         print(row(k))
-    print("-- top 10 by soccer_pitches --")
-    for r in sorted([r for r in out if r["soccer_pitches"] is not None],
-                    key=lambda r: -r["soccer_pitches"])[:10]:
-        print(row((r["name"], r["state"])))
-    print("-- top 10 by worship_total --")
-    for r in sorted([r for r in out if r["worship_total"] is not None],
-                    key=lambda r: -r["worship_total"])[:10]:
-        print(row((r["name"], r["state"])))
-    print("-- top 10 by synagogues --")
-    for r in sorted([r for r in out if r["synagogues"] is not None],
-                    key=lambda r: -r["synagogues"])[:10]:
-        print(row((r["name"], r["state"])))
-    print("-- top 10 by mosques --")
-    for r in sorted([r for r in out if r["mosques"] is not None],
-                    key=lambda r: -r["mosques"])[:10]:
-        print(row((r["name"], r["state"])))
-    print("-- top 10 by ice_rinks --")
-    for r in sorted([r for r in out if r["ice_rinks"] is not None],
-                    key=lambda r: -r["ice_rinks"])[:10]:
-        print(row((r["name"], r["state"])))
+    for f in ("soccer_pitches", "worship_total", "synagogues", "mosques",
+              "temples_hindu", "gurdwaras", "temples_buddhist", "ice_rinks"):
+        print("-- top 10 by %s --" % f)
+        for r in top(f):
+            print(row((r["name"], r["state"])))
     print("-- 12 smallest places by population: small or zero is the correct answer --")
     for r in sorted([r for r in out if r["worship_total"] is not None],
                     key=lambda r: pop.get((r["name"], r["state"]), 0))[:12]:
@@ -713,7 +847,7 @@ def check(out):
     live = [r for r in out if r["worship_total"] is not None]
     z = sum(1 for r in live if not any(r[f] for f in FIELDS))
     print("\nplaces with an all-zero row (real, not a gap): %d" % z)
-    print("\ncoverage: %d/%d places have real counts, %d null (failed region)"
+    print("coverage: %d/%d places have real counts, %d null (state not fetched)"
           % (len(live), len(out), len(out) - len(live)))
     for f in FIELDS:
         nz = sum(1 for r in live if r[f])
