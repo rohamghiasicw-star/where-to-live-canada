@@ -536,7 +536,12 @@ function confusion(r, ranked) {
 const cvs = $('#map'), ctx = cvs.getContext('2d');
 let hot = -1, ranked = [], pts = [];
 const RAMP = ['--fit-0','--fit-1','--fit-2','--fit-3','--fit-4'];
-const rampOf = (f) => css(RAMP[clamp(Math.floor(f/100*RAMP.length), 0, RAMP.length-1)]);
+const bandIdx = (f) => clamp(Math.floor(f/100*RAMP.length), 0, RAMP.length-1);
+const rampOf = (f) => css(RAMP[bandIdx(f)]);
+/* a band used as a TEXT background needs its own foreground; the map ramp alone
+   put cream on gold at 1.94:1 */
+const inkOn = (f) => css('--on-fit-' + bandIdx(f));
+const unitOn = (f) => css('--unit-' + bandIdx(f));
 
 /* ---------- the map ----------
    A hardiness map does not scatter dots, it floods the country in bands.
@@ -622,7 +627,19 @@ function zoneField(W, H, k) {
 }
 
 function drawMap() {
-  const W = Math.round(cvs.getBoundingClientRect().width) || 800;
+  // On a phone the sheet is tall and the country is wide, so fitting the map to the
+  // WIDTH shrank it to a 243px strip. Fit it to the available HEIGHT instead and let
+  // it pan sideways; a map you can pan is normal, a map too small to read is not.
+  const wrap = cvs.parentElement;
+  let W;
+  if (MOBILE.matches) {
+    const avail = Math.max(240, Math.min(innerHeight * 0.78, innerHeight - 210));
+    W = Math.round(avail * (1000 / MAPGEO.height));
+    cvs.style.width = W + 'px';
+  } else {
+    cvs.style.width = '100%';
+    W = Math.round(cvs.getBoundingClientRect().width) || 800;
+  }
   const H = Math.round(W * (MAPGEO.height/1000));
   const dpr = window.devicePixelRatio || 1;
   cvs.width = W*dpr; cvs.height = H*dpr; cvs.style.height = H+'px';
@@ -764,9 +781,9 @@ async function drawCard() {
   x.font = "400 38px 'Radio Canada', sans-serif";
   const pvW = x.measureText(p.prov).width;
   const maxW = CARD_W - M * 2 - pvW - 24;
-  const NAME = p.name.toUpperCase();
+  const NAME = p.name.replace(/\s*\([^)]*\)\s*$/, '').toUpperCase();
   let size = 132;
-  do { x.font = `700 ${size}px 'Radio Canada', sans-serif`; x.canvas.style.fontStretch = '75%'; size -= 4; }
+  do { x.font = `700 condensed ${size}px 'Radio Canada', sans-serif`; size -= 4; }
   while (x.measureText(NAME).width > maxW && size > 40);
   x.fillStyle = STOCK;
   x.fillText(NAME, M, 322);
@@ -791,6 +808,18 @@ async function drawCard() {
   // clip here the arctic painted straight over the province code in the headline.
   x.beginPath(); x.rect(mapX, mapY, mapW, mapH); x.clip();
   x.translate(mapX, mapY); x.lineJoin = 'round';
+  // Clip to the COUNTRY as well, exactly as drawMap does. Clipping to the bounding
+  // rectangle alone painted open ocean in fit colours: the Arctic came out solid
+  // indigo and the Atlantic solid orange, which is both ugly and a claim about
+  // water nobody measured.
+  x.beginPath();
+  for (const rings of Object.values(MAPGEO.prov)) {
+    for (const rg of rings) {
+      rg.forEach(([px, py], i) => i ? x.lineTo(px * k, py * k) : x.moveTo(px * k, py * k));
+      x.closePath();
+    }
+  }
+  x.clip();
   for (const rings of Object.values(MAPGEO.prov)) {
     for (const rg of rings) {
       x.beginPath();
@@ -830,7 +859,7 @@ async function drawCard() {
   for (let i = 0; i < n; i++) {
     const q = Q.find((z) => z.id === picks[i]), v = q.show(p);
     y += step;
-    x.fillStyle = css('--z5'); x.fillRect(M, y - 30, 34, 34);
+    x.fillStyle = css('--hot'); x.fillRect(M, y - 30, 34, 34);
     x.fillStyle = '#fff'; x.font = "700 22px 'Radio Canada', sans-serif";
     x.fillText(String(i + 1), M + 11, y - 6);
     x.fillStyle = STOCK; x.font = "700 34px 'Radio Canada', sans-serif";
@@ -936,8 +965,8 @@ function verdict() {
 
   host.innerHTML = `
     <div class="v-hero">
-      <p class="v-lead">${shared ? 'They belong in' : 'You belong in'}</p>
       <h2 class="v-name">${p.name}<span class="pv">${p.prov}</span></h2>
+      <p class="v-lead">${shared ? 'is where they belong.' : 'is where you belong.'}</p>
       <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
         ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
       <p class="v-score">Fit <b>${Math.round(r.fit)}</b> out of 100${
@@ -959,8 +988,8 @@ function verdict() {
 
     ${runners.length ? `<p class="v-next">Then <b>${runners.map((x)=>x.p.name).join('</b>, <b>')}</b>.</p>` : ''}
     <div class="v-foot">
-      <button class="v-share" id="sharecard">Save the picture</button>
-      <button class="v-again" id="share">Send the link</button>
+      <button class="v-share" id="share">Send the link</button>
+      <button class="v-again" id="abEdit">Change answers</button>
       <button class="v-again" id="vagain">Start over</button>
     </div>
     <p class="v-prov">${CFG.prov_line} Nothing here is a recommendation, and where a number
@@ -971,8 +1000,10 @@ function cellHTML(q, r) {
   const v = q.show(r.p);
   if (!v) return `<span class="cell"><span class="na">${NA}</span></span>`;
   const s = r.cells[q.id];
-  const tint = (s != null && wOf(q.id)) ? `background:${rampOf(s*100)}` : '';
-  return `<span class="cell" style="${tint}"><span class="v">${v[0]}</span><span class="u">${v[1]}</span></span>`;
+  const lit = s != null && wOf(q.id);
+  const tint = lit ? `background:${rampOf(s*100)};color:${inkOn(s*100)}` : '';
+  const ut = lit ? ` style="color:${unitOn(s*100)}"` : '';
+  return `<span class="cell" style="${tint}"><span class="v">${v[0]}</span><span class="u"${ut}>${v[1]}</span></span>`;
 }
 
 function detailHTML(r) {
@@ -1094,7 +1125,7 @@ function drawTable() {
     return `<tr class="${r.excluded ? 'cut' : ''}">
       <td class="rank">${r.excluded ? '' : rank+1}</td>
       <td class="pname" style="--w:${wd.toFixed(0)}%"><button data-i="${rank}">${p.name}<span class="pv">${p.prov}</span></button></td>
-      <td class="fit"><span class="b" style="background:${r.excluded ? css('--sink') : rampOf(r.fit)}">${
+      <td class="fit"><span class="b" style="background:${r.excluded ? css('--rule') : rampOf(r.fit)};color:${r.excluded ? css('--on-ink-3') : inkOn(r.fit)}">${
         r.excluded ? '—' : Math.round(r.fit)}</span></td>
       ${cols.map((q) => `<td class="${cf && cf.splitter === q.id ? 'split' : ''}">${cellHTML(q, r)}</td>`).join('')}
       <td class="prov"><i class="${p.lived ? 'full' : 'none'}" title="${
@@ -1126,17 +1157,19 @@ function drawCards() {
       const q = Q.find((x) => x.id === pt.id); const v = q.show(p);
       return v ? `<span class="chip">${q.col} <b>${v[0]}${v[1]}</b></span>` : '';
     }).filter(Boolean).join('');
+    const cf = r.excluded ? null : confusion(r, ranked);
     const why = r.excluded
       ? `<span class="cut">Ruled out on ${r.excluded}</span>`
+      : cf ? `What sets it apart from ${cf.others[0]} is ${SHORT[cf.splitter]}`
       : (r.good.length ? `Gets you ${listify(r.good.map((g) => SHORT[g.id]))}` : 'the closest to what you asked');
     return `<li><button class="pcard ${r.excluded ? 'excl' : ''}" data-i="${rank}">
       <span class="pr">${r.excluded ? '—' : rank + 1}</span>
       <span class="pn">${p.name}<span class="pv">${p.prov}</span></span>
-      <span class="pf" style="background:${r.excluded ? 'var(--sink)' : rampOf(r.fit)}">${r.excluded ? '—' : Math.round(r.fit)}</span>
+      <span class="pf" style="background:${r.excluded ? 'var(--rule)' : rampOf(r.fit)};color:${r.excluded ? 'var(--on-ink-3)' : inkOn(r.fit)}">${r.excluded ? '—' : Math.round(r.fit)}</span>
       <span class="pwhy">${why}</span>
       <span class="chips">${chips}</span>
     </button></li>`;
-  }).join('') : `<li class="cards-head" style="color:var(--ink-3)">No place named “${query}”. Try part of the name.</li>`);
+  }).join('') : `<li class="cards-head" style="color:var(--on-ink-3)">No place named “${query}”. Try part of the name.</li>`);
 }
 
 function openSheet(r) {
@@ -1195,8 +1228,10 @@ function actionbar() {
       <button class="ab-main" id="abGo">${
         askIdx >= n - 1 ? 'Where do I belong?' : 'Next'}</button>`;
   } else if (screen === 'result') {
-    bar.innerHTML = `<button class="ab-back" id="abEdit">Change answers</button>
-      <button class="ab-main" id="abExplore">See all ${DATA.length}</button>`;
+    // Sharing IS the job, so it takes the primary slot in the thumb zone. It used
+    // to sit 830px down the page, below the fold, behind a scroll.
+    bar.innerHTML = `<button class="ab-back" id="abExplore">See all ${DATA.length}</button>
+      <button class="ab-main" id="sharecard">Save the picture</button>`;
   } else {
     // on the field guide the way back to your answer is the primary move, not editing
     bar.innerHTML = `<button class="ab-back" id="abEdit">Change answers</button>
@@ -1246,8 +1281,10 @@ function buildPicker() {
     const head = q.g !== lastG ? `<p class="pk-g">${q.g}</p>` : '';
     lastG = q.g;
     const i = picks.indexOf(q.id);
+    const full = picks.length >= MAX_PICKS && i < 0;
     return head + `<button class="pk${i >= 0 ? ' on' : ''}" type="button" data-pick="${q.id}"
-      aria-pressed="${i >= 0}" aria-label="${PICKLABEL[q.id] || q.label}${i >= 0 ? `, ranked ${i+1}` : ''}"
+      aria-pressed="${i >= 0}"${full ? ' disabled aria-disabled="true"' : ''}
+      aria-label="${PICKLABEL[q.id] || q.label}${i >= 0 ? `, ranked ${i+1}` : ''}"
       >${i >= 0 ? `<span class="pk-n">${i + 1}</span>` : ''}${PICKLABEL[q.id] || q.label}</button>`;
   }).join('');
   host.classList.toggle('full', picks.length >= MAX_PICKS);
@@ -1280,7 +1317,7 @@ function buildAsk() {
   const q = Q.find((x) => x.id === id);
   const nth = ['your top priority','your second priority','your third priority',
                'your fourth priority','your fifth priority'][askIdx] || 'a priority';
-  $('#askProg').textContent = `Question ${askIdx + 1} of ${picks.length}`;
+  $('#askProg').textContent = '';   // the dots carry progress; an eyebrow is banned
   $('#askTitle').textContent = q.label;
   $('#qs').innerHTML = `<div class="q q-solo">
       <p class="q-rankline"><span class="q-rank">${askIdx + 1}</span>This is ${nth}</p>

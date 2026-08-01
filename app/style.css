@@ -42,22 +42,31 @@
   --fit-1: #3C7F8C;   /* teal     */
   --fit-2: #6FA24A;   /* moss     */
   --fit-3: #D9A21B;   /* gold     */
-  --fit-4: #D6461C;   /* hot red  — suits you best */
-  --fit-ink: #FFFFFF;
+  --fit-4: #C23C14;   /* hot red  — suits you best (deepened so type clears 4.5:1) */
+  /* per-band foreground. A ramp built for a map is not a ramp for type: on gold the
+     cream sat at 1.94:1. Light bands take ink, dark bands take cream, and the unit
+     suffix is tinted from the band rather than the global grey. */
+  --on-fit-0: #F4EBD4;
+  --on-fit-1: #EAF3F5;
+  --on-fit-2: #14231C;
+  --on-fit-3: #14231C;
+  --on-fit-4: #FFF4EF;
+  --unit-0: #C3D2E4;
+  --unit-1: #CFE4E8;
+  --unit-2: #2C4A22;
+  --unit-3: #4A3705;
+  --unit-4: #F6D2C4;
 
   /* the same red doing UI duty: rank badges, slider thumb, share button.
      Named separately from --fit-4 because they are free to diverge. */
-  --hot:     #D6461C;
+  --hot:     #C23C14;
 
   --signal:  #E9B949;
   --signal-2:#C8971F;
-  --check:   #A78BFA;
+  --check:   #8C6BB1;   /* re-mixed from the stock/signal family, not off the shelf */
   --thin:    #86A492;
   --warm:    #E9B949;
   --cool:    #3C7F8C;
-  --paper:   #F4EBD4;
-  --page:    #F4EBD4;
-  --sink:    #E7DABA;
 
   --t-xs: 0.8125rem;
   --t-s:  0.9375rem;
@@ -143,8 +152,8 @@ h1 i { font-style: normal; color: var(--signal); }
 .pk-n { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
   background: var(--hot); color: #fff; font-weight: 700; font-size: 0.8em;
   font-variant-numeric: tabular-nums; }
-.picker.full .pk:not(.on) { opacity: 0.4; cursor: default; }
-.picker.full .pk:not(.on):hover { border-color: var(--rule-2); color: var(--on-ink-2); }
+.pk[disabled] { opacity: 0.55; cursor: default; border-style: dashed; }
+.pk[disabled]:hover { border-color: var(--rule-2); color: var(--on-ink-2); }
 
 .actionbar { position: sticky; bottom: 0; z-index: 30; display: flex;
   background: var(--ink-2); border-top: 3px solid var(--signal);
@@ -160,9 +169,12 @@ h1 i { font-style: normal; color: var(--signal); }
 .ab-main:focus-visible, .ab-back:focus-visible { outline: 2px solid var(--stock); outline-offset: -4px; }
 
 #qs { padding: 0 var(--gut); }
-.q-solo { background: var(--stock); color: var(--on-stock);
-  padding: 1.4rem 1.3rem 1.6rem; box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
 .q { padding: 1rem 0; }
+/* after .q on purpose: both classes sit on the same element and equal specificity
+   means source order decides. Written the other way round, the panel's horizontal
+   padding was dead and every control ran flush to the cream edge. */
+.q.q-solo { background: var(--stock); color: var(--on-stock);
+  padding: 1.4rem 1.3rem 1.6rem; box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
 .q-rankline { margin: 0 0 0.6rem; font-size: var(--t-xs); color: var(--on-stock-2);
   text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
 .q-rank { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
@@ -376,19 +388,58 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 
 .sheet-overlay { display: none; }
 .only-narrow { display: none; }
+.map-hint { display: none; margin: 0; padding: 0.5rem var(--gut);
+  font-size: var(--t-xs); color: var(--on-ink-3); border-bottom: 1px solid var(--rule); }
 
 @media (max-width: 760px) {
   :root { --gut: 1.1rem; }
   .only-wide { display: none; }
   .only-narrow { display: inline; }
-  .head { grid-template-columns: 1fr; padding: 1rem var(--gut) 0.8rem; }
+
+  /* CHROME BUDGET. 256px, a third of the phone, was being spent before the first
+     tile: wordmark band, then a full-width country strip, then a two-line heading.
+     The wordmark and the country switch now share one row and the heading tightens,
+     which puts the first tile near 150px and six more tiles on screen. */
+  .head { grid-template-columns: auto 1fr; align-items: center; gap: 0.6rem;
+    padding: 0.55rem var(--gut); border-bottom-width: 2px; }
+  h1 { font-size: 1.5rem; }
   .headnote, .lede { display: none; }
-  .step-head { padding: 1.1rem var(--gut) 0.8rem; }
+  .cswitch { grid-row: 1; grid-column: 2; justify-self: end; text-align: right;
+    padding: 0.9rem 0; background: none; border: 0; font-size: 0.75rem;
+    min-height: 44px; line-height: 1.3; }
+  .cswitch:hover { background: none; }
+  .step-head { padding: 0.85rem var(--gut) 0.6rem; }
+  .step-head h2 { font-size: clamp(1.6rem, 7.5vw, 2.1rem); }
+  .step-sub { margin-top: 0.4rem; }
+  .picker { padding-top: 0.2rem; }
+  .pk-g { margin-top: 0.6rem; }
+  .pk-why { padding: 0.8rem var(--gut) 1.1rem; }
+
   .pk { padding: 0.7rem 0.9rem; font-size: var(--t-m); min-height: 46px; }
   .opt { padding: 0.75rem 0.95rem; font-size: var(--t-m); }
   #search { font-size: var(--t-m); padding: 0.75rem 0.85rem; }
   .plate-scroll { display: none; }
   .foot { padding-bottom: 4rem; }
+
+  /* ONE QUESTION SHOULD OWN THE SCREEN. It was a 204px card floating in 356px of
+     dead air. The screen now fills the viewport and the question sits in it, so the
+     control lands under the thumb instead of halfway up the glass. */
+  .scr[data-scr="ask"] { display: flex; flex-direction: column;
+    min-height: calc(100vh - 56px - 3px); }
+  .sheet[data-screen="ask"] .scr[data-scr="ask"] { display: flex; }
+  #qs { flex: 1 1 auto; }
+  .q-solo { padding: 1.6rem 1.3rem 1.8rem; }
+  .q-label { font-size: 1.25rem; }
+  .q-hint { font-size: var(--t-m); }
+  .opts-big .opt { padding: 1rem; font-size: 1.0625rem; }
+  .askdots { padding-bottom: 1.1rem; }
+
+  /* THE MAP IS THE HERO AND IT WAS A 243px STRIP, 30% of the screen. It now fills
+     the viewport height and pans sideways, the way a map is meant to be read on a
+     phone, instead of being shrunk to fit a shape it does not have. */
+  .map-wrap { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+  #map { width: auto; height: calc(100vh - 210px); max-height: 78vh; }
+  .map-hint { display: block; }
 
   .sheet-overlay { display: block; position: fixed; inset: 0; z-index: 50; }
   .sheet-overlay[hidden] { display: none; }
@@ -434,3 +485,17 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 .st { height: 8px; background: var(--ink-2); position: relative; }
 .st i { position: absolute; top: 0; bottom: 0; display: block; }
 .sv { color: var(--on-ink-3); font-variant-numeric: tabular-nums; }
+
+/* F13: every control carries the same authored focus ring. Nine were falling back
+   to the user agent's, which renders platform blue on the cream panels. */
+.v-again:focus-visible, .vswitch button:focus-visible, .pcard:focus-visible,
+.pname button:focus-visible, .sheet-close:focus-visible, .showall:focus-visible,
+.cswitch:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+.step:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
+
+/* F15: the explore view was uncapped, so at 1440 a ranked row put the name at
+   x=1366 and the score at x=1380 with 1300px of empty ink between them. */
+@media (min-width: 1100px) {
+  .scr[data-scr="explore"] .cards,
+  .scr[data-scr="explore"] .explore-bar { max-width: 1100px; }
+}

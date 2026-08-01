@@ -296,6 +296,18 @@ CFG['politics'] = _cal([r.get('lean') for r in _pl if isinstance(r, dict)]) or \
     dict(left=-20.0, centre=0.0, right=45.0, tol=22.0)
 print("  politics scale", CFG['politics'])
 
+# Guard: app.js reads design tokens as literal strings through getComputedStyle,
+# so a CSS rename fails silently at runtime rather than at build. A stale --z5
+# lookup once left the share card's rank badges three different colours.
+_css = open(D('app/style.css')).read()
+_js = open(D('app/app.js')).read()
+_defined = {m.group(1) for m in re.finditer(r'^\s*(--[a-z0-9-]+)\s*:', _css, re.M)}
+_read = {m.group(1) for m in re.finditer(r"css\('(--[a-z0-9-]+)'\)", _js)}
+_missing = sorted(t for t in _read if t not in _defined)
+if _missing:
+    raise SystemExit('build_app: app.js reads tokens the stylesheet does not define: '
+                     + ', '.join(_missing))
+
 fonts = open(D('fonts/faces.css')).read()
 css  = open(D('app/style.css')).read()
 js   = open(D('app/app.js')).read()

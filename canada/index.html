@@ -60,22 +60,31 @@
   --fit-1: #3C7F8C;   /* teal     */
   --fit-2: #6FA24A;   /* moss     */
   --fit-3: #D9A21B;   /* gold     */
-  --fit-4: #D6461C;   /* hot red  — suits you best */
-  --fit-ink: #FFFFFF;
+  --fit-4: #C23C14;   /* hot red  — suits you best (deepened so type clears 4.5:1) */
+  /* per-band foreground. A ramp built for a map is not a ramp for type: on gold the
+     cream sat at 1.94:1. Light bands take ink, dark bands take cream, and the unit
+     suffix is tinted from the band rather than the global grey. */
+  --on-fit-0: #F4EBD4;
+  --on-fit-1: #EAF3F5;
+  --on-fit-2: #14231C;
+  --on-fit-3: #14231C;
+  --on-fit-4: #FFF4EF;
+  --unit-0: #C3D2E4;
+  --unit-1: #CFE4E8;
+  --unit-2: #2C4A22;
+  --unit-3: #4A3705;
+  --unit-4: #F6D2C4;
 
   /* the same red doing UI duty: rank badges, slider thumb, share button.
      Named separately from --fit-4 because they are free to diverge. */
-  --hot:     #D6461C;
+  --hot:     #C23C14;
 
   --signal:  #E9B949;
   --signal-2:#C8971F;
-  --check:   #A78BFA;
+  --check:   #8C6BB1;   /* re-mixed from the stock/signal family, not off the shelf */
   --thin:    #86A492;
   --warm:    #E9B949;
   --cool:    #3C7F8C;
-  --paper:   #F4EBD4;
-  --page:    #F4EBD4;
-  --sink:    #E7DABA;
 
   --t-xs: 0.8125rem;
   --t-s:  0.9375rem;
@@ -161,8 +170,8 @@ h1 i { font-style: normal; color: var(--signal); }
 .pk-n { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
   background: var(--hot); color: #fff; font-weight: 700; font-size: 0.8em;
   font-variant-numeric: tabular-nums; }
-.picker.full .pk:not(.on) { opacity: 0.4; cursor: default; }
-.picker.full .pk:not(.on):hover { border-color: var(--rule-2); color: var(--on-ink-2); }
+.pk[disabled] { opacity: 0.55; cursor: default; border-style: dashed; }
+.pk[disabled]:hover { border-color: var(--rule-2); color: var(--on-ink-2); }
 
 .actionbar { position: sticky; bottom: 0; z-index: 30; display: flex;
   background: var(--ink-2); border-top: 3px solid var(--signal);
@@ -178,9 +187,12 @@ h1 i { font-style: normal; color: var(--signal); }
 .ab-main:focus-visible, .ab-back:focus-visible { outline: 2px solid var(--stock); outline-offset: -4px; }
 
 #qs { padding: 0 var(--gut); }
-.q-solo { background: var(--stock); color: var(--on-stock);
-  padding: 1.4rem 1.3rem 1.6rem; box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
 .q { padding: 1rem 0; }
+/* after .q on purpose: both classes sit on the same element and equal specificity
+   means source order decides. Written the other way round, the panel's horizontal
+   padding was dead and every control ran flush to the cream edge. */
+.q.q-solo { background: var(--stock); color: var(--on-stock);
+  padding: 1.4rem 1.3rem 1.6rem; box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
 .q-rankline { margin: 0 0 0.6rem; font-size: var(--t-xs); color: var(--on-stock-2);
   text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
 .q-rank { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
@@ -394,19 +406,58 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 
 .sheet-overlay { display: none; }
 .only-narrow { display: none; }
+.map-hint { display: none; margin: 0; padding: 0.5rem var(--gut);
+  font-size: var(--t-xs); color: var(--on-ink-3); border-bottom: 1px solid var(--rule); }
 
 @media (max-width: 760px) {
   :root { --gut: 1.1rem; }
   .only-wide { display: none; }
   .only-narrow { display: inline; }
-  .head { grid-template-columns: 1fr; padding: 1rem var(--gut) 0.8rem; }
+
+  /* CHROME BUDGET. 256px, a third of the phone, was being spent before the first
+     tile: wordmark band, then a full-width country strip, then a two-line heading.
+     The wordmark and the country switch now share one row and the heading tightens,
+     which puts the first tile near 150px and six more tiles on screen. */
+  .head { grid-template-columns: auto 1fr; align-items: center; gap: 0.6rem;
+    padding: 0.55rem var(--gut); border-bottom-width: 2px; }
+  h1 { font-size: 1.5rem; }
   .headnote, .lede { display: none; }
-  .step-head { padding: 1.1rem var(--gut) 0.8rem; }
+  .cswitch { grid-row: 1; grid-column: 2; justify-self: end; text-align: right;
+    padding: 0.9rem 0; background: none; border: 0; font-size: 0.75rem;
+    min-height: 44px; line-height: 1.3; }
+  .cswitch:hover { background: none; }
+  .step-head { padding: 0.85rem var(--gut) 0.6rem; }
+  .step-head h2 { font-size: clamp(1.6rem, 7.5vw, 2.1rem); }
+  .step-sub { margin-top: 0.4rem; }
+  .picker { padding-top: 0.2rem; }
+  .pk-g { margin-top: 0.6rem; }
+  .pk-why { padding: 0.8rem var(--gut) 1.1rem; }
+
   .pk { padding: 0.7rem 0.9rem; font-size: var(--t-m); min-height: 46px; }
   .opt { padding: 0.75rem 0.95rem; font-size: var(--t-m); }
   #search { font-size: var(--t-m); padding: 0.75rem 0.85rem; }
   .plate-scroll { display: none; }
   .foot { padding-bottom: 4rem; }
+
+  /* ONE QUESTION SHOULD OWN THE SCREEN. It was a 204px card floating in 356px of
+     dead air. The screen now fills the viewport and the question sits in it, so the
+     control lands under the thumb instead of halfway up the glass. */
+  .scr[data-scr="ask"] { display: flex; flex-direction: column;
+    min-height: calc(100vh - 56px - 3px); }
+  .sheet[data-screen="ask"] .scr[data-scr="ask"] { display: flex; }
+  #qs { flex: 1 1 auto; }
+  .q-solo { padding: 1.6rem 1.3rem 1.8rem; }
+  .q-label { font-size: 1.25rem; }
+  .q-hint { font-size: var(--t-m); }
+  .opts-big .opt { padding: 1rem; font-size: 1.0625rem; }
+  .askdots { padding-bottom: 1.1rem; }
+
+  /* THE MAP IS THE HERO AND IT WAS A 243px STRIP, 30% of the screen. It now fills
+     the viewport height and pans sideways, the way a map is meant to be read on a
+     phone, instead of being shrunk to fit a shape it does not have. */
+  .map-wrap { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+  #map { width: auto; height: calc(100vh - 210px); max-height: 78vh; }
+  .map-hint { display: block; }
 
   .sheet-overlay { display: block; position: fixed; inset: 0; z-index: 50; }
   .sheet-overlay[hidden] { display: none; }
@@ -452,6 +503,20 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 .st { height: 8px; background: var(--ink-2); position: relative; }
 .st i { position: absolute; top: 0; bottom: 0; display: block; }
 .sv { color: var(--on-ink-3); font-variant-numeric: tabular-nums; }
+
+/* F13: every control carries the same authored focus ring. Nine were falling back
+   to the user agent's, which renders platform blue on the cream panels. */
+.v-again:focus-visible, .vswitch button:focus-visible, .pcard:focus-visible,
+.pname button:focus-visible, .sheet-close:focus-visible, .showall:focus-visible,
+.cswitch:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+.step:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
+
+/* F15: the explore view was uncapped, so at 1440 a ranked row put the name at
+   x=1366 and the score at x=1380 with 1300px of empty ink between them. */
+@media (min-width: 1100px) {
+  .scr[data-scr="explore"] .cards,
+  .scr[data-scr="explore"] .explore-bar { max-width: 1100px; }
+}
 </style>
 
 <!--
@@ -529,6 +594,7 @@ review, the verdict, and DESIGN.md
         </div>
       </div>
 
+      <p class="map-hint">Drag the map sideways.</p>
       <div class="plate" data-view="list">
         <div class="map-wrap">
           <canvas id="map" role="img" aria-label="Map of Canada, each place shaded by how well it fits your answers"></canvas>
@@ -1157,7 +1223,12 @@ function confusion(r, ranked) {
 const cvs = $('#map'), ctx = cvs.getContext('2d');
 let hot = -1, ranked = [], pts = [];
 const RAMP = ['--fit-0','--fit-1','--fit-2','--fit-3','--fit-4'];
-const rampOf = (f) => css(RAMP[clamp(Math.floor(f/100*RAMP.length), 0, RAMP.length-1)]);
+const bandIdx = (f) => clamp(Math.floor(f/100*RAMP.length), 0, RAMP.length-1);
+const rampOf = (f) => css(RAMP[bandIdx(f)]);
+/* a band used as a TEXT background needs its own foreground; the map ramp alone
+   put cream on gold at 1.94:1 */
+const inkOn = (f) => css('--on-fit-' + bandIdx(f));
+const unitOn = (f) => css('--unit-' + bandIdx(f));
 
 /* ---------- the map ----------
    A hardiness map does not scatter dots, it floods the country in bands.
@@ -1243,7 +1314,19 @@ function zoneField(W, H, k) {
 }
 
 function drawMap() {
-  const W = Math.round(cvs.getBoundingClientRect().width) || 800;
+  // On a phone the sheet is tall and the country is wide, so fitting the map to the
+  // WIDTH shrank it to a 243px strip. Fit it to the available HEIGHT instead and let
+  // it pan sideways; a map you can pan is normal, a map too small to read is not.
+  const wrap = cvs.parentElement;
+  let W;
+  if (MOBILE.matches) {
+    const avail = Math.max(240, Math.min(innerHeight * 0.78, innerHeight - 210));
+    W = Math.round(avail * (1000 / MAPGEO.height));
+    cvs.style.width = W + 'px';
+  } else {
+    cvs.style.width = '100%';
+    W = Math.round(cvs.getBoundingClientRect().width) || 800;
+  }
   const H = Math.round(W * (MAPGEO.height/1000));
   const dpr = window.devicePixelRatio || 1;
   cvs.width = W*dpr; cvs.height = H*dpr; cvs.style.height = H+'px';
@@ -1385,9 +1468,9 @@ async function drawCard() {
   x.font = "400 38px 'Radio Canada', sans-serif";
   const pvW = x.measureText(p.prov).width;
   const maxW = CARD_W - M * 2 - pvW - 24;
-  const NAME = p.name.toUpperCase();
+  const NAME = p.name.replace(/\s*\([^)]*\)\s*$/, '').toUpperCase();
   let size = 132;
-  do { x.font = `700 ${size}px 'Radio Canada', sans-serif`; x.canvas.style.fontStretch = '75%'; size -= 4; }
+  do { x.font = `700 condensed ${size}px 'Radio Canada', sans-serif`; size -= 4; }
   while (x.measureText(NAME).width > maxW && size > 40);
   x.fillStyle = STOCK;
   x.fillText(NAME, M, 322);
@@ -1412,6 +1495,18 @@ async function drawCard() {
   // clip here the arctic painted straight over the province code in the headline.
   x.beginPath(); x.rect(mapX, mapY, mapW, mapH); x.clip();
   x.translate(mapX, mapY); x.lineJoin = 'round';
+  // Clip to the COUNTRY as well, exactly as drawMap does. Clipping to the bounding
+  // rectangle alone painted open ocean in fit colours: the Arctic came out solid
+  // indigo and the Atlantic solid orange, which is both ugly and a claim about
+  // water nobody measured.
+  x.beginPath();
+  for (const rings of Object.values(MAPGEO.prov)) {
+    for (const rg of rings) {
+      rg.forEach(([px, py], i) => i ? x.lineTo(px * k, py * k) : x.moveTo(px * k, py * k));
+      x.closePath();
+    }
+  }
+  x.clip();
   for (const rings of Object.values(MAPGEO.prov)) {
     for (const rg of rings) {
       x.beginPath();
@@ -1451,7 +1546,7 @@ async function drawCard() {
   for (let i = 0; i < n; i++) {
     const q = Q.find((z) => z.id === picks[i]), v = q.show(p);
     y += step;
-    x.fillStyle = css('--z5'); x.fillRect(M, y - 30, 34, 34);
+    x.fillStyle = css('--hot'); x.fillRect(M, y - 30, 34, 34);
     x.fillStyle = '#fff'; x.font = "700 22px 'Radio Canada', sans-serif";
     x.fillText(String(i + 1), M + 11, y - 6);
     x.fillStyle = STOCK; x.font = "700 34px 'Radio Canada', sans-serif";
@@ -1557,8 +1652,8 @@ function verdict() {
 
   host.innerHTML = `
     <div class="v-hero">
-      <p class="v-lead">${shared ? 'They belong in' : 'You belong in'}</p>
       <h2 class="v-name">${p.name}<span class="pv">${p.prov}</span></h2>
+      <p class="v-lead">${shared ? 'is where they belong.' : 'is where you belong.'}</p>
       <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
         ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
       <p class="v-score">Fit <b>${Math.round(r.fit)}</b> out of 100${
@@ -1580,8 +1675,8 @@ function verdict() {
 
     ${runners.length ? `<p class="v-next">Then <b>${runners.map((x)=>x.p.name).join('</b>, <b>')}</b>.</p>` : ''}
     <div class="v-foot">
-      <button class="v-share" id="sharecard">Save the picture</button>
-      <button class="v-again" id="share">Send the link</button>
+      <button class="v-share" id="share">Send the link</button>
+      <button class="v-again" id="abEdit">Change answers</button>
       <button class="v-again" id="vagain">Start over</button>
     </div>
     <p class="v-prov">${CFG.prov_line} Nothing here is a recommendation, and where a number
@@ -1592,8 +1687,10 @@ function cellHTML(q, r) {
   const v = q.show(r.p);
   if (!v) return `<span class="cell"><span class="na">${NA}</span></span>`;
   const s = r.cells[q.id];
-  const tint = (s != null && wOf(q.id)) ? `background:${rampOf(s*100)}` : '';
-  return `<span class="cell" style="${tint}"><span class="v">${v[0]}</span><span class="u">${v[1]}</span></span>`;
+  const lit = s != null && wOf(q.id);
+  const tint = lit ? `background:${rampOf(s*100)};color:${inkOn(s*100)}` : '';
+  const ut = lit ? ` style="color:${unitOn(s*100)}"` : '';
+  return `<span class="cell" style="${tint}"><span class="v">${v[0]}</span><span class="u"${ut}>${v[1]}</span></span>`;
 }
 
 function detailHTML(r) {
@@ -1715,7 +1812,7 @@ function drawTable() {
     return `<tr class="${r.excluded ? 'cut' : ''}">
       <td class="rank">${r.excluded ? '' : rank+1}</td>
       <td class="pname" style="--w:${wd.toFixed(0)}%"><button data-i="${rank}">${p.name}<span class="pv">${p.prov}</span></button></td>
-      <td class="fit"><span class="b" style="background:${r.excluded ? css('--sink') : rampOf(r.fit)}">${
+      <td class="fit"><span class="b" style="background:${r.excluded ? css('--rule') : rampOf(r.fit)};color:${r.excluded ? css('--on-ink-3') : inkOn(r.fit)}">${
         r.excluded ? '—' : Math.round(r.fit)}</span></td>
       ${cols.map((q) => `<td class="${cf && cf.splitter === q.id ? 'split' : ''}">${cellHTML(q, r)}</td>`).join('')}
       <td class="prov"><i class="${p.lived ? 'full' : 'none'}" title="${
@@ -1747,17 +1844,19 @@ function drawCards() {
       const q = Q.find((x) => x.id === pt.id); const v = q.show(p);
       return v ? `<span class="chip">${q.col} <b>${v[0]}${v[1]}</b></span>` : '';
     }).filter(Boolean).join('');
+    const cf = r.excluded ? null : confusion(r, ranked);
     const why = r.excluded
       ? `<span class="cut">Ruled out on ${r.excluded}</span>`
+      : cf ? `What sets it apart from ${cf.others[0]} is ${SHORT[cf.splitter]}`
       : (r.good.length ? `Gets you ${listify(r.good.map((g) => SHORT[g.id]))}` : 'the closest to what you asked');
     return `<li><button class="pcard ${r.excluded ? 'excl' : ''}" data-i="${rank}">
       <span class="pr">${r.excluded ? '—' : rank + 1}</span>
       <span class="pn">${p.name}<span class="pv">${p.prov}</span></span>
-      <span class="pf" style="background:${r.excluded ? 'var(--sink)' : rampOf(r.fit)}">${r.excluded ? '—' : Math.round(r.fit)}</span>
+      <span class="pf" style="background:${r.excluded ? 'var(--rule)' : rampOf(r.fit)};color:${r.excluded ? 'var(--on-ink-3)' : inkOn(r.fit)}">${r.excluded ? '—' : Math.round(r.fit)}</span>
       <span class="pwhy">${why}</span>
       <span class="chips">${chips}</span>
     </button></li>`;
-  }).join('') : `<li class="cards-head" style="color:var(--ink-3)">No place named “${query}”. Try part of the name.</li>`);
+  }).join('') : `<li class="cards-head" style="color:var(--on-ink-3)">No place named “${query}”. Try part of the name.</li>`);
 }
 
 function openSheet(r) {
@@ -1816,8 +1915,10 @@ function actionbar() {
       <button class="ab-main" id="abGo">${
         askIdx >= n - 1 ? 'Where do I belong?' : 'Next'}</button>`;
   } else if (screen === 'result') {
-    bar.innerHTML = `<button class="ab-back" id="abEdit">Change answers</button>
-      <button class="ab-main" id="abExplore">See all ${DATA.length}</button>`;
+    // Sharing IS the job, so it takes the primary slot in the thumb zone. It used
+    // to sit 830px down the page, below the fold, behind a scroll.
+    bar.innerHTML = `<button class="ab-back" id="abExplore">See all ${DATA.length}</button>
+      <button class="ab-main" id="sharecard">Save the picture</button>`;
   } else {
     // on the field guide the way back to your answer is the primary move, not editing
     bar.innerHTML = `<button class="ab-back" id="abEdit">Change answers</button>
@@ -1867,8 +1968,10 @@ function buildPicker() {
     const head = q.g !== lastG ? `<p class="pk-g">${q.g}</p>` : '';
     lastG = q.g;
     const i = picks.indexOf(q.id);
+    const full = picks.length >= MAX_PICKS && i < 0;
     return head + `<button class="pk${i >= 0 ? ' on' : ''}" type="button" data-pick="${q.id}"
-      aria-pressed="${i >= 0}" aria-label="${PICKLABEL[q.id] || q.label}${i >= 0 ? `, ranked ${i+1}` : ''}"
+      aria-pressed="${i >= 0}"${full ? ' disabled aria-disabled="true"' : ''}
+      aria-label="${PICKLABEL[q.id] || q.label}${i >= 0 ? `, ranked ${i+1}` : ''}"
       >${i >= 0 ? `<span class="pk-n">${i + 1}</span>` : ''}${PICKLABEL[q.id] || q.label}</button>`;
   }).join('');
   host.classList.toggle('full', picks.length >= MAX_PICKS);
@@ -1901,7 +2004,7 @@ function buildAsk() {
   const q = Q.find((x) => x.id === id);
   const nth = ['your top priority','your second priority','your third priority',
                'your fourth priority','your fifth priority'][askIdx] || 'a priority';
-  $('#askProg').textContent = `Question ${askIdx + 1} of ${picks.length}`;
+  $('#askProg').textContent = '';   // the dots carry progress; an eyebrow is banned
   $('#askTitle').textContent = q.label;
   $('#qs').innerHTML = `<div class="q q-solo">
       <p class="q-rankline"><span class="q-rank">${askIdx + 1}</span>This is ${nth}</p>
