@@ -21,8 +21,8 @@ CA = dict(
     country='Canada',
     adjective='Canadian',
     unit='province',
-    out='index.html',
-    staging='staging/index.html',
+    out='canada/index.html',
+    staging='staging/canada/index.html',
     rings='data/canada_rings.json',
     rings_key='prov',
     proj=CA_PROJ,
@@ -66,8 +66,8 @@ US = dict(
     country_short='the USA',
     adjective='American',
     unit='state',
-    out='us/index.html',
-    staging='staging/us/index.html',
+    out='index.html',
+    staging='staging/index.html',
     rings='data/us/us_rings.json',
     rings_key='state',
     proj=None,               # already projected to metres by src/us/build_map.py
@@ -105,9 +105,10 @@ BY_CC = {'CA': CA, 'US': US}
 
 
 def other(cc):
-    """The sibling country, for the switch link. Paths are relative to the built
-    page, which is why the two directions are not symmetrical: Canada sits at the
-    root and the US one directory down."""
+    """The sibling country, for the switch link.
+
+    The USA sits at the root because Doug asked for it to be the opening country.
+    Canada moved down a directory, so the two directions are not symmetrical."""
     if cc == 'CA':
-        return dict(cc='US', label='the USA', href='us/')
-    return dict(cc='CA', label='Canada', href='../')
+        return dict(cc='US', label='the USA', href='../')
+    return dict(cc='CA', label='Canada', href='canada/')

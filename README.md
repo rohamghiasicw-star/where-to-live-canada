@@ -2,7 +2,16 @@
 
 Pick up to five things that matter to you and rank them by the order you pick. It re-ranks all 710 Canadian cities and towns against your answer, tells you why, and tells you what it costs you.
 
-**Live: https://rohamghiasicw-star.github.io/where-to-live-canada/**
+**Live:**
+- **United States**, 4,197 places: https://rohamghiasicw-star.github.io/where-to-live-canada/
+- **Canada**, 710 places: https://rohamghiasicw-star.github.io/where-to-live-canada/canada/
+
+The USA is the front page because that is the opening country Doug asked for. The
+repo name is a fossil from when it was Canada only.
+
+Two self-contained pages rather than one file holding both. The US list is six
+times longer, and a combined build would be a multi-megabyte parse on a phone. It
+also means either country still works opened straight off disk with no server.
 
 Or just open `index.html` in any browser. The whole thing is one self-contained file. Fonts, data, and the map of Canada are all inlined, so it works offline, off a USB stick, or emailed to someone. No server, no build, no dependencies.
 
@@ -34,7 +43,23 @@ The Goderich line checks out, by the way. Routed on real roads it is 98.6km and 
 | Distance to ocean or a big lake | Natural Earth coast and lake geometry, measured to the shoreline |
 | Soccer pitches, ice rinks, places of worship | OpenStreetMap, counted within a 15km drive |
 | Pro sports teams, rapid transit | League and transit-authority sources, verified 2026 |
-| What residents say | Reddit, local news, forums, personal blogs (71 places so far) |
+| What residents say | Reddit, local news, forums, personal blogs (71 places, Canada only so far) |
+
+The US equivalents, where they differ:
+
+| Dimension | US source |
+|---|---|
+| Temperature, snow, rain | NOAA/NCEI US Climate Normals 1991-2020 |
+| Wildfire smoke | Childs et al. 2022, fire-attributed smoke PM2.5, 2006-2020, 10km |
+| Population, income, housing, age, sex, marital status | American Community Survey 5-year |
+| Political lean | 2024 presidential result, county level |
+| Map | USGS Albers (EPSG:5070), Alaska and Hawaii as insets |
+
+Two questions do not exist in the US build. **French**, obviously. And **Faith
+community**, because the US Census Bureau is barred by law from asking about
+religion (13 U.S.C. 221), so there is no place-level equivalent of the Canadian
+religion table. There is also **no sunshine column**: the US 1991-2020 normals
+publish no bright-sunshine element, and none was invented from cloud cover.
 
 ## How it decides
 
@@ -59,6 +84,22 @@ Worth stating, because the whole point is that the numbers are real.
 **Nine places had no published normals nearby.** Their figures are computed from raw ECCC monthly observations and labelled as computed, with the year count. Iqaluit has no published normals at all; it uses 13 years of its own station's observations.
 
 **Two geocodes were wrong.** Kenora resolved to Kenora *District* (54.0°N, hundreds of km off) and Perth to Perth *County*. Both silently poison every distance and climate lookup downstream. Caught by checking each result against its province.
+
+**Total PM2.5 is not wildfire smoke, and in the US it looks like it might be.** The
+Canadian version of this trap was an inversion. The American one is subtler and
+therefore worse: total PM2.5 correlates with fire-attributed smoke at r = +0.316,
+so it explains about a tenth of it while looking plausible. Ontario, California has
+2.4x the total PM2.5 of Hamilton, Montana and 12% of the wildfire smoke. Ranking on
+the obvious field would have produced a confident, wrong answer.
+
+**No Canadian riding is anywhere near the political scale the code assumed.** The
+Politics question scored against hardcoded targets of -55 left and +55 right. The
+most left-leaning Canadian riding is -19.6, so picking "Left" could never score
+above 0.63 and had been quietly under-scoring since it was written. The US runs
+-86.6 to +92.9 on the same nominal scale, because pinning both parties to the ends
+of a two-party race uses the full width. Targets are now read off each country's own
+distribution, and the ends are one-sided, because a symmetric target scored
+Washington DC at zero on "Left" for being the most left-leaning place in America.
 
 **Statistics Canada ships that file as latin-1.** Read as UTF-8 with error replacement, "Montréal" quietly becomes `montral` and every accented Quebec place fails to match while the script reports no error.
 

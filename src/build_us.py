@@ -396,7 +396,7 @@ print("built %s  %.0fKB" % (out, os.path.getsize(out) / 1024))
 _banner = ('<div style="background:#B33A1E;color:#fff;font:600 12px/1.35 system-ui,sans-serif;'
            'padding:7px 14px;text-align:center;letter-spacing:.02em">'
            'STAGING &middot; work in progress, may be rough &middot; '
-           '<a href="../../us/" style="color:#fff">the stable version is here &rarr;</a></div>')
+           '<a href="../" style="color:#fff">the stable version is here &rarr;</a></div>')
 _m = re.search(r'<div class="sheet"[^>]*>', html)
 if not _m:
     raise SystemExit("build_us: could not find the root div to anchor the staging banner")
@@ -404,7 +404,7 @@ _stg = html[:_m.start()] + _banner + html[_m.start():]
 _stg = re.sub(r'<title>([^<]*)</title>', lambda t: '<title>[STAGING] ' + t.group(1) + '</title>',
               _stg, count=1)
 # the country switch inside staging should stay inside staging
-_stg = _stg.replace('<a class="cswitch" href="../"', '<a class="cswitch" href="../../staging/"')
+_stg = _stg.replace('<a class="cswitch" href="canada/"', '<a class="cswitch" href="canada/"')
 os.makedirs(D(os.path.dirname(CFG['staging'])), exist_ok=True)
 open(D(CFG['staging']), 'w').write(_stg)
 print("staging %s  %.0fKB" % (CFG['staging'], os.path.getsize(D(CFG['staging'])) / 1024))
