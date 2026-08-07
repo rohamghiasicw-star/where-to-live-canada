@@ -778,9 +778,9 @@ async function drawCard() {
   // No score on the card. A fit number invites an argument about the method
   // instead of about the place, and the card's job is a claim about YOU, not a
   // scorecard. The score stays on the result screen where the reasoning is.
-  x.font = "400 38px 'Radio Canada', sans-serif";
+  x.font = "700 54px 'Radio Canada', sans-serif";
   const pvW = x.measureText(p.prov).width;
-  const maxW = CARD_W - M * 2 - pvW - 24;
+  const maxW = CARD_W - M * 2 - pvW - 28;
   const NAME = p.name.replace(/\s*\([^)]*\)\s*$/, '').toUpperCase();
   let size = 132;
   do { x.font = `700 condensed ${size}px 'Radio Canada', sans-serif`; size -= 4; }
@@ -788,9 +788,9 @@ async function drawCard() {
   x.fillStyle = STOCK;
   x.fillText(NAME, M, 322);
   const nameW = x.measureText(NAME).width;
-  x.fillStyle = ONINK3;
-  x.font = "400 38px 'Radio Canada', sans-serif";
-  x.fillText(p.prov, M + nameW + 18, 322);
+  x.fillStyle = SIGNAL;
+  x.font = "700 54px 'Radio Canada', sans-serif";
+  x.fillText(p.prov, M + nameW + 20, 322);
 
   // The map, from the same geometry the app draws. Height is CAPPED and the width
   // follows, because the two countries have very different aspect ratios: the US
@@ -987,9 +987,15 @@ function verdict() {
       population ${fmtNum(wild.p.pop)}, and it scores ${Math.round(wild.fit)} on the same answers.</p>` : ''}
 
     ${runners.length ? `<p class="v-next">Then <b>${runners.map((x)=>x.p.name).join('</b>, <b>')}</b>.</p>` : ''}
+    <p class="v-how"><span class="vh-t">How this was scored</span>
+      Only the ${picks.length} thing${picks.length === 1 ? '' : 's'} you picked count${picks.length === 1 ? 's' : ''}; everything else is ignored.
+      Your first pick counts <b>${picks.length} times</b> your last, in the order you tapped them.
+      Each place scores 0 to 1 on each one, and they combine as a <b>weighted power mean</b>
+      rather than an average, so a place cannot fail the thing you care most about and win by
+      being middling everywhere else. Where a number is missing it is dropped rather than
+      guessed, and the fit is docked for how much of your answer it could not measure.</p>
     <div class="v-foot">
       <button class="v-share" id="share">Send the link</button>
-      <button class="v-again" id="abEdit">Change answers</button>
       <button class="v-again" id="vagain">Start over</button>
     </div>
     <p class="v-prov">${CFG.prov_line} Nothing here is a recommendation, and where a number
