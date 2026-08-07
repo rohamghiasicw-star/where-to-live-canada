@@ -13,6 +13,10 @@ const swingOf = (p) => { const a = cv(p, 'tmean', '7'), b = cv(p, 'tmean', '1');
   return (a == null || b == null) ? null : a - b; };
 const LIVED_N = DATA.filter((p) => p.lived).length;   // researched places, live count
 
+/* "Longueuil is 30%" leaves out what the 30% are. */
+const FAITH_NOUN = { christian: 'Christian', muslim: 'Muslim', jewish: 'Jewish',
+  sikh: 'Sikh', hindu: 'Hindu', buddhist: 'Buddhist' };
+
 /* ---------- the dimensions ----------
    Each is one column of the plate, in a fixed order that never changes.
    `show` renders the value; a place with no data still gets its cell. */
@@ -80,6 +84,7 @@ const Q_ALL = [
     hard: (p, v) => v === 'deal' && p.smoke && p.smoke.mean_ugm3 > 1.5,
     hardWhy: 'the smoke',
     show: (p) => p.smoke ? [p.smoke.mean_ugm3.toFixed(2), ''] : null,
+    sent: (v) => `gets <b>${v[0]} µg/m³</b>`,
   },
   {
     id: 'size', g: 'The place', label: 'Size', col: 'People', hint: 'How big a place.',
@@ -89,6 +94,7 @@ const Q_ALL = [
       const t = { village:3.4, town:4.1, small:4.8, mid:5.4, big:6.2 }[v];
       return near(Math.log10(Math.max(p.pop, 300)), t, 1.5); },
     show: (p) => p.pop == null ? null : [fmtNum(p.pop), ''],
+    sent: (v) => `has <b>${v[0]} people</b>`,
   },
   {
     id: 'prox', g: 'The place', label: 'Near a city', col: 'Drive', hint: 'To the nearest metro over 300,000.',
@@ -126,6 +132,7 @@ const Q_ALL = [
       if (n == null) return null;
       return clamp(Math.sqrt(n / 50), 0, 1); },   // 50 within a drive is plenty
     show: (p) => p.osm && p.osm.soccer_pitches != null ? [p.osm.soccer_pitches, ''] : null,
+    sent: (v) => `has <b>${v[0]} pitches</b>`,
   },
   {
     id: 'sports', g: 'The place', label: 'Pro sports', col: 'Pro',
@@ -137,6 +144,7 @@ const Q_ALL = [
       return clamp(0.6 + (c.pro_league_count || 1) / 8 * 0.4, 0, 1); },
     show: (p) => (p.civic && p.civic.pro_league_count)
       ? [p.civic.pro_league_count, ''] : ['0', ''],
+    sent: (v) => `has <b>${v[0]} pro teams</b>`,
   },
   {
     id: 'transit', g: 'The place', label: 'Rapid transit', col: 'Rail',
@@ -148,6 +156,8 @@ const Q_ALL = [
     show: (p) => { const c = p.civic;
       if (!c || !c.rapid_transit) return ['no', ''];
       return [{ subway: 'metro', 'light rail': 'LRT', 'commuter rail': 'GO' }[c.transit_type] || 'yes', '']; },
+    sent: (v) => v[0] === 'no' ? 'has <b>no rapid transit</b>'
+      : `has <b>${{ metro: 'a metro', LRT: 'light rail', GO: 'commuter rail' }[v[0]] || 'rapid transit'}</b>`,
   },
   {
     id: 'cost', g: 'The place', label: 'Housing budget', col: 'Home', hint: 'What you can pay.',
@@ -159,6 +169,7 @@ const Q_ALL = [
     hard: (p, v) => p.cost && p.cost.home_price != null && p.cost.home_price > v * 1000 * 1.6,
     hardWhy: 'the price',
     show: (p) => (p.cost && p.cost.home_price) ? [fmtNum(p.cost.home_price), ''] : null,
+    sent: (v) => `costs <b>$${v[0]}</b>`,
   },
   {
     id: 'politics', g: 'The place', label: 'Politics', col: 'Lean', hint: `Vote-weighted lean of the ${CFG.sources.politics_unit}, ${CFG.vote_year}.`,
@@ -198,6 +209,7 @@ const Q_ALL = [
       if (x == null) return null;
       return near(x, { young: 36, mixed: 43, older: 56 }[v], 14); },
     show: (p) => p.life && p.life.median_age != null ? [p.life.median_age.toFixed(0), ''] : null,
+    sent: (v) => `runs to a median age of <b>${v[0]}</b>`,
   },
   {
     id: 'commute', label: 'The commute', col: 'Short', g: 'Life there',
@@ -273,6 +285,7 @@ const Q_ALL = [
       return near(x, { women: 88, even: 100, men: 112 }[v], 16); },
     show: (p) => p.demo && p.demo.males_per_100_females != null
       ? [p.demo.males_per_100_females.toFixed(0), ''] : null,
+    sent: (v) => `has <b>${v[0]} men per 100 women</b>`,
   },
   {
     id: 'faith', cc: ['CA'], label: 'Faith community', col: 'Faith', g: 'Life there',
@@ -291,6 +304,9 @@ const Q_ALL = [
     show: (p) => { const d = p.demo; if (!d) return null;
       const v = state.faith, x = d[v === 'none' ? 'no_religion_pct' : v + '_pct'];
       return x == null ? null : [x.toFixed(x < 10 ? 1 : 0), '%']; },
+    sent: (v) => state.faith === 'none'
+      ? `is <b>${v[0]}%</b> no religion`
+      : `is <b>${v[0]}%</b> ${(FAITH_NOUN[state.faith] || '')}`,
   },
   {
     /* The US census is barred by law from asking about religion, so where the
@@ -387,8 +403,11 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   single:'the single crowd', gender:'the gender balance', faith:'your community',
   water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
   worship:'your faith community' };
+/* Lowercasing "Rail I can actually use" for mid-sentence use printed the pronoun
+   as "i". Nothing else in English is a bare lowercase "i", so put it back. */
+const lc = (s) => s.toLowerCase().replace(/\bi\b/g, 'I');
 const said = (q) => q.kind === 'range' ? q.fmt(state[q.id])
-  : q.kind === 'flag' ? q.want.toLowerCase()
+  : q.kind === 'flag' ? lc(q.want)
   : (q.opts.find((o) => o[0] === state[q.id]) || ['',''])[1];
 /* short name for the picker tile. the survey label is a sentence heading;
    a tile needs two or three words that read at a glance. */
@@ -529,7 +548,7 @@ function confusion(r, ranked) {
     if (!best || avg > best.avg) best = { id: q.id, avg };
   }
   if (!best || best.avg < 0.12) return null;
-  return { others: near_.map((x) => x.p.name), splitter: best.id };
+  return { others: near_.map((x) => `${x.p.name} ${x.p.prov}`), splitter: best.id };
 }
 
 /* ---------- map ---------- */
@@ -926,12 +945,12 @@ function verdict() {
     const Qof = (id) => Q.find((q) => q.id === id);
     if (worst.length === 2) {
       const a = Qof(worst[0].id), b = Qof(worst[1].id);
-      conflict = `Nowhere in ${CFG.country} is both <b>${said(a).toLowerCase()}</b> (${a.label.toLowerCase()})
-        and <b>${said(b).toLowerCase()}</b> (${b.label.toLowerCase()}). ${p.name} is the closest compromise.`;
+      conflict = `Nowhere in ${CFG.country} is both <b>${lc(said(a))}</b> (${lc(a.label)})
+        and <b>${lc(said(b))}</b> (${lc(b.label)}). ${p.name} is the closest compromise.`;
     } else if (worst.length === 1) {
       const a = Qof(worst[0].id);
-      conflict = `Nowhere that fits the rest of your answers is also <b>${said(a).toLowerCase()}</b>
-        (${a.label.toLowerCase()}). That is the one giving way.`;
+      conflict = `Nowhere that fits the rest of your answers is also <b>${lc(said(a))}</b>
+        (${lc(a.label)}). That is the one giving way.`;
     }
   }
   /* The point of ranking 710 places rather than the famous 30 is that the answer
@@ -948,7 +967,12 @@ function verdict() {
      back to change it. This is the GOV.UK check-answers pattern: it is the "why",
      the decomposition and the edit affordance in one boring, legible component.
      It is deliberately NOT hidden behind a click - the whole argument for the
-     result screen is that the reasoning arrives without being asked for. */
+     result screen is that the reasoning arrives without being asked for.
+     `show` returns what the compact table needs, where the column header does the
+     labelling, so the value is often a bare number with no unit. "Marinette is 102"
+     says nothing and Doug read exactly that, so a question with a value that cannot
+     carry the sentence on its own supplies `sent`: the whole predicate, verb and
+     unit included, because half of these want "has" or "costs", not "is". */
   const rows = picks.map((id, i) => {
     const q = Q.find((x) => x.id === id);
     const sc = r.cells[id], val = q.show(p);
@@ -957,8 +981,9 @@ function verdict() {
     return `<div class="ca-row">
       <span class="ca-k"><span class="q-rank">${i + 1}</span>${q.label}</span>
       <span class="ca-v">${said(q)}</span>
-      <span class="ca-got">${val ? `${p.name} is <b>${val[0]}${val[1]}</b>` :
-        `<span class="na">not recorded here</span>`}${bar}</span>
+      <span class="ca-got"><span class="ca-said">${val
+        ? (q.sent ? `${p.name} ${q.sent(val)}` : `${p.name} is <b>${val[0]}${val[1]}</b>`)
+        : `<span class="na">not recorded here</span>`}</span>${bar}</span>
       <button class="ca-ch" data-goq="${i}">Change</button>
     </div>`;
   }).join('');
@@ -986,7 +1011,8 @@ function verdict() {
       <span class="v-wn">${wild.p.name}<span class="pv">${wild.p.prov}</span></span>
       population ${fmtNum(wild.p.pop)}, and it scores ${Math.round(wild.fit)} on the same answers.</p>` : ''}
 
-    ${runners.length ? `<p class="v-next">Then <b>${runners.map((x)=>x.p.name).join('</b>, <b>')}</b>.</p>` : ''}
+    ${runners.length ? `<p class="v-next">Then ${runners.map((x)=>
+      `<b>${x.p.name}<span class="pv">${x.p.prov}</span></b>`).join(', ')}.</p>` : ''}
     <div class="v-how"><span class="vh-t">How this was scored</span>
       <ul>
         ${picks.length > 1 ? `<li><b>${Q.find((q) => q.id === picks[0]).label}</b> counted most.
@@ -1463,7 +1489,7 @@ cvs.addEventListener('mousemove', (e) => {
   for (const q of pts) { const d = Math.hypot(q.x-mx, q.y-my); if (d < q.r+3 && d < bd) { bd = d; best = q; } }
   if (best) {
     const r = best.rec; hot = ranked.indexOf(r);
-    tip.innerHTML = `<b>${r.p.name}</b>${r.excluded ? 'ruled out on '+r.excluded
+    tip.innerHTML = `<b>${r.p.name} ${r.p.prov}</b>${r.excluded ? 'ruled out on '+r.excluded
       : 'fit '+Math.round(r.fit)+', rank '+(hot+1)}`;
     tip.style.left = clamp(mx+12, 0, b.width-240)+'px'; tip.style.top = (my+12)+'px';
     tip.classList.add('on'); cvs.style.cursor = 'pointer';

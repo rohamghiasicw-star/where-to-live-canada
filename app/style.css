@@ -242,6 +242,9 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 .ca-v { grid-column: 1; font-size: var(--t-s); color: var(--on-stock-2); }
 .ca-got { grid-column: 1; font-size: var(--t-xs); color: var(--on-stock-3);
   display: flex; align-items: center; gap: 0.55rem; }
+/* The sentence is one flex item, not a loose text node beside a <b>. Loose, it
+   broke between "Marinette is" and the number it was reporting. */
+.ca-said { min-width: 0; }
 .ca-got b { color: var(--on-stock); font-weight: 700; }
 .ca-bar { flex: 0 0 56px; height: 8px; background: var(--stock-2); display: block; }
 .ca-bar i { display: block; height: 100%; }
@@ -269,6 +272,9 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 
 .v-next { margin: 0; padding: 0.9rem var(--gut) 0; font-size: var(--t-s); color: var(--on-ink-2); }
 .v-next b { color: var(--on-ink); font-weight: 700; }
+/* Doug had to Google the state, so every place named anywhere on this screen
+   carries one. Quieter than the name it belongs to, never absent. */
+.v-next .pv { color: var(--signal); font-weight: 700; font-size: 0.88em; margin-left: 0.3rem; }
 .v-foot { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;
   padding: 1.1rem var(--gut) 0.3rem; }
 .v-share { font: inherit; font-size: var(--t-s); font-weight: 700; cursor: pointer;
