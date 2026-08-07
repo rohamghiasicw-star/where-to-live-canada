@@ -508,8 +508,11 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 
 /* How the scoring works, in the reader's own words. Doug asked this unprompted
    after using it, which means the result was landing without the method. */
-.v-how { margin: 1rem var(--gut) 0; padding: 0.9rem 1rem; background: var(--ink-2);
-  font-size: var(--t-s); color: var(--on-ink-2); max-width: 66ch; line-height: 1.55; }
+.v-how { margin: 1rem var(--gut) 0; padding: 0.85rem 1rem; background: var(--ink-2);
+  font-size: var(--t-s); color: var(--on-ink-2); max-width: 56ch; }
+.v-how ul { margin: 0; padding: 0; list-style: none; }
+.v-how li { padding: 0.28rem 0; line-height: 1.45; }
+.v-how li + li { border-top: 1px solid var(--rule); }
 .v-how b { color: var(--on-ink); font-weight: 700; }
 .v-how .vh-t { display: block; color: var(--signal); font-weight: 700; font-size: var(--t-xs);
   text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; }

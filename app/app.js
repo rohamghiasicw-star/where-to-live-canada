@@ -987,13 +987,14 @@ function verdict() {
       population ${fmtNum(wild.p.pop)}, and it scores ${Math.round(wild.fit)} on the same answers.</p>` : ''}
 
     ${runners.length ? `<p class="v-next">Then <b>${runners.map((x)=>x.p.name).join('</b>, <b>')}</b>.</p>` : ''}
-    <p class="v-how"><span class="vh-t">How this was scored</span>
-      Only the ${picks.length} thing${picks.length === 1 ? '' : 's'} you picked count${picks.length === 1 ? 's' : ''}; everything else is ignored.
-      Your first pick counts <b>${picks.length} times</b> your last, in the order you tapped them.
-      Each place scores 0 to 1 on each one, and they combine as a <b>weighted power mean</b>
-      rather than an average, so a place cannot fail the thing you care most about and win by
-      being middling everywhere else. Where a number is missing it is dropped rather than
-      guessed, and the fit is docked for how much of your answer it could not measure.</p>
+    <div class="v-how"><span class="vh-t">How this was scored</span>
+      <ul>
+        <li>Only your ${picks.length} pick${picks.length === 1 ? '' : 's'} count${picks.length === 1 ? 's' : ''}. Nothing else does.</li>
+        ${picks.length > 1 ? `<li><b>${Q.find((q) => q.id === picks[0]).label}</b> counts
+          <b>${picks.length}&times;</b> more than <b>${Q.find((q) => q.id === picks[picks.length-1]).label}</b>,
+          because you tapped it first.</li>` : ''}
+        <li>Nothing is guessed. A missing number lowers the score.</li>
+      </ul></div>
     <div class="v-foot">
       <button class="v-share" id="share">Send the link</button>
       <button class="v-again" id="vagain">Start over</button>
