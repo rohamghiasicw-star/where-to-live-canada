@@ -1203,8 +1203,19 @@ $('#cards').addEventListener('click', (e) => {
    Shown once, remembered, and reachable again from the picker. It is skippable
    because onboarding that blocks the product is a toll booth, not a guide. */
 const GUIDE_KEY = 'wub.guide.seen';
+const GUIDE_STEPS = 3;
+let gStep = 0;
+function paintGuide() {
+  const card = $('.guide-card');
+  card.dataset.gstep = gStep;
+  $('#guideDots').innerHTML = Array.from({ length: GUIDE_STEPS },
+    (_, i) => `<i class="${i === gStep ? 'on' : ''}"></i>`).join('');
+  $('#guideGo').textContent = gStep === GUIDE_STEPS - 1 ? 'Start' : 'Next';
+  $('#guideSkip').hidden = gStep === GUIDE_STEPS - 1;
+}
 function openGuide() {
-  const g = $('#guide'); g.hidden = false;
+  gStep = 0; paintGuide();
+  $('#guide').hidden = false;
   document.body.style.overflow = 'hidden';
   const b = $('#guideGo'); if (b) b.focus();
 }
@@ -1213,10 +1224,16 @@ function closeGuide() {
   document.body.style.overflow = '';
   try { localStorage.setItem(GUIDE_KEY, '1'); } catch (e) {}
 }
-$('#guideGo').addEventListener('click', closeGuide);
+$('#guideGo').addEventListener('click', () => {
+  if (gStep < GUIDE_STEPS - 1) { gStep++; paintGuide(); } else closeGuide();
+});
+$('#guideSkip').addEventListener('click', closeGuide);
 $('#guide').addEventListener('click', (e) => { if (e.target.id === 'guide') closeGuide(); });
 addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !$('#guide').hidden) closeGuide();
+  if ($('#guide').hidden) return;
+  if (e.key === 'Escape') closeGuide();
+  if (e.key === 'ArrowRight' && gStep < GUIDE_STEPS - 1) { gStep++; paintGuide(); }
+  if (e.key === 'ArrowLeft' && gStep > 0) { gStep--; paintGuide(); }
 });
 document.addEventListener('click', (e) => {
   if (e.target.closest('#showguide')) openGuide();

@@ -114,34 +114,33 @@ review, the verdict, and DESIGN.md
 
   <div class="actionbar" id="actionbar"></div>
 
-  <!-- First run. Shows the mechanic instead of describing it, because the one thing
-       everybody asks is why tap ORDER matters. Skippable, and reopenable from the
-       picker. -->
+  <!-- First run. One card at a time, the same rhythm as the question screens,
+       because three panels stacked is the clutter it was meant to cure. -->
   <div class="guide" id="guide" hidden>
-    <div class="guide-card" role="dialog" aria-modal="true" aria-label="How it works">
-      <h2>How it works</h2>
+    <div class="guide-card" role="dialog" aria-modal="true" aria-label="How it works" data-gstep="0">
 
-      <div class="g-step">
-        <p class="g-say">Tap what matters. Up to five.</p>
+      <div class="g-step" data-g="0">
+        <p class="g-say">Tap what matters.<br>Up to five.</p>
         <div class="g-tiles">
           <span class="g-t on"><i>1</i>Winter</span>
           <span class="g-t on"><i>2</i>Housing cost</span>
           <span class="g-t on"><i>3</i>Near water</span>
           <span class="g-t">Politics</span>
+          <span class="g-t">Snow</span>
         </div>
       </div>
 
-      <div class="g-step">
-        <p class="g-say">Your first tap counts most.</p>
+      <div class="g-step" data-g="1">
+        <p class="g-say">Whatever you tap first<br>counts most.</p>
         <div class="g-bars">
           <span class="g-b"><b>Winter</b><i style="width:100%;background:var(--fit-4)"></i></span>
-          <span class="g-b"><b>Housing cost</b><i style="width:66%;background:var(--fit-3)"></i></span>
-          <span class="g-b"><b>Near water</b><i style="width:33%;background:var(--fit-2)"></i></span>
+          <span class="g-b"><b>Housing cost</b><i style="width:64%;background:var(--fit-3)"></i></span>
+          <span class="g-b"><b>Near water</b><i style="width:32%;background:var(--fit-2)"></i></span>
         </div>
       </div>
 
-      <div class="g-step">
-        <p class="g-say">Then every town re-sorts against you.</p>
+      <div class="g-step" data-g="2">
+        <p class="g-say">Then every town<br>re-sorts against you.</p>
         <div class="g-ramp">
           <span style="background:var(--fit-0)"></span>
           <span style="background:var(--fit-1)"></span>
@@ -152,7 +151,11 @@ review, the verdict, and DESIGN.md
         <p class="g-key"><span>Does not suit you</span><span>Suits you</span></p>
       </div>
 
-      <button class="g-go" id="guideGo">Start</button>
+      <div class="g-foot">
+        <div class="g-dots" id="guideDots"></div>
+        <button class="g-go" id="guideGo">Next</button>
+        <button class="g-skip" id="guideSkip">Skip</button>
+      </div>
     </div>
   </div>
 
