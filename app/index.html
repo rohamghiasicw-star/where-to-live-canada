@@ -56,7 +56,7 @@ review, the verdict, and DESIGN.md
         <p class="step-sub" id="pkcount"></p>
       </div>
       <div class="picker" id="picker"></div>
-      <p class="pk-why">Pick in the order you care. Your first pick counts most, and
+      <p class="pk-why"><button class="pk-how" id="showguide" type="button">How it works</button> Pick in the order you care. Your first pick counts most, and
         anything you leave out is not scored at all.</p>
     </section>
 
@@ -113,6 +113,48 @@ review, the verdict, and DESIGN.md
   </main>
 
   <div class="actionbar" id="actionbar"></div>
+
+  <!-- First run. Shows the mechanic instead of describing it, because the one thing
+       everybody asks is why tap ORDER matters. Skippable, and reopenable from the
+       picker. -->
+  <div class="guide" id="guide" hidden>
+    <div class="guide-card" role="dialog" aria-modal="true" aria-label="How it works">
+      <h2>How it works</h2>
+
+      <div class="g-step">
+        <p class="g-say">Tap what matters. Up to five.</p>
+        <div class="g-tiles">
+          <span class="g-t on"><i>1</i>Winter</span>
+          <span class="g-t on"><i>2</i>Housing cost</span>
+          <span class="g-t on"><i>3</i>Near water</span>
+          <span class="g-t">Politics</span>
+        </div>
+      </div>
+
+      <div class="g-step">
+        <p class="g-say">Your first tap counts most.</p>
+        <div class="g-bars">
+          <span class="g-b"><b>Winter</b><i style="width:100%;background:var(--fit-4)"></i></span>
+          <span class="g-b"><b>Housing cost</b><i style="width:66%;background:var(--fit-3)"></i></span>
+          <span class="g-b"><b>Near water</b><i style="width:33%;background:var(--fit-2)"></i></span>
+        </div>
+      </div>
+
+      <div class="g-step">
+        <p class="g-say">Then every town re-sorts against you.</p>
+        <div class="g-ramp">
+          <span style="background:var(--fit-0)"></span>
+          <span style="background:var(--fit-1)"></span>
+          <span style="background:var(--fit-2)"></span>
+          <span style="background:var(--fit-3)"></span>
+          <span style="background:var(--fit-4)"></span>
+        </div>
+        <p class="g-key"><span>Does not suit you</span><span>Suits you</span></p>
+      </div>
+
+      <button class="g-go" id="guideGo">Start</button>
+    </div>
+  </div>
 
   <footer class="foot">
     <div class="legend">

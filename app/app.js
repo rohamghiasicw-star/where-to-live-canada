@@ -989,10 +989,8 @@ function verdict() {
     ${runners.length ? `<p class="v-next">Then <b>${runners.map((x)=>x.p.name).join('</b>, <b>')}</b>.</p>` : ''}
     <div class="v-how"><span class="vh-t">How this was scored</span>
       <ul>
-        <li>Only your ${picks.length} pick${picks.length === 1 ? '' : 's'} count${picks.length === 1 ? 's' : ''}. Nothing else does.</li>
-        ${picks.length > 1 ? `<li><b>${Q.find((q) => q.id === picks[0]).label}</b> counts
-          <b>${picks.length}&times;</b> more than <b>${Q.find((q) => q.id === picks[picks.length-1]).label}</b>,
-          because you tapped it first.</li>` : ''}
+        ${picks.length > 1 ? `<li><b>${Q.find((q) => q.id === picks[0]).label}</b> counted most.
+          You tapped it first.</li>` : '<li>Only what you picked counted.</li>'}
         <li>Nothing is guessed. A missing number lowers the score.</li>
       </ul></div>
     <div class="v-foot">
@@ -1199,6 +1197,29 @@ addEventListener('popstate', () => closeSheet(true));
 $('#cards').addEventListener('click', (e) => {
   const b = e.target.closest('.pcard'); if (!b) return;
   openSheet(ranked[+b.dataset.i]);
+});
+
+/* ---------- first run ----------
+   Shown once, remembered, and reachable again from the picker. It is skippable
+   because onboarding that blocks the product is a toll booth, not a guide. */
+const GUIDE_KEY = 'wub.guide.seen';
+function openGuide() {
+  const g = $('#guide'); g.hidden = false;
+  document.body.style.overflow = 'hidden';
+  const b = $('#guideGo'); if (b) b.focus();
+}
+function closeGuide() {
+  $('#guide').hidden = true;
+  document.body.style.overflow = '';
+  try { localStorage.setItem(GUIDE_KEY, '1'); } catch (e) {}
+}
+$('#guideGo').addEventListener('click', closeGuide);
+$('#guide').addEventListener('click', (e) => { if (e.target.id === 'guide') closeGuide(); });
+addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !$('#guide').hidden) closeGuide();
+});
+document.addEventListener('click', (e) => {
+  if (e.target.closest('#showguide')) openGuide();
 });
 
 /* ---------- screens ----------
@@ -1468,5 +1489,10 @@ if (shared) $('#lede').innerHTML = `Someone sent you their answers, so this is <
    of sharing one. Everyone else starts at the picker. */
 buildPicker();
 if (shared && picks.length) { screen = 'result'; root.dataset.screen = 'result'; }
+else {
+  let seen = false;
+  try { seen = localStorage.getItem(GUIDE_KEY) === '1'; } catch (e) { seen = true; }
+  if (!seen) openGuide();
+}
 actionbar();
 draw();          // first paint is synchronous: never depend on a frame that may not come

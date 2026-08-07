@@ -516,3 +516,51 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 .v-how b { color: var(--on-ink); font-weight: 700; }
 .v-how .vh-t { display: block; color: var(--signal); font-weight: 700; font-size: var(--t-xs);
   text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; }
+
+/* ---------- first run ----------
+   Everyone asks the same question: why does tap ORDER matter. So the guide shows
+   it as three descending bars rather than explaining it in a sentence. Three beats,
+   skippable, and reopenable from the picker. */
+.guide { position: fixed; inset: 0; z-index: 60; background: rgba(6,20,15,0.88);
+  display: grid; place-items: end center; padding: 0; }
+.guide[hidden] { display: none; }
+.guide-card { width: 100%; max-width: 560px; background: var(--ink);
+  border-top: 4px solid var(--signal); max-height: 94svh; overflow-y: auto;
+  padding: 1.4rem var(--gut) calc(1.4rem + env(safe-area-inset-bottom, 0));
+  animation: guideup 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes guideup { from { transform: translateY(4%); opacity: 0 } to { transform: none; opacity: 1 } }
+.guide-card h2 { font-family: 'Radio Canada', sans-serif; font-stretch: 75%; font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.015em; font-size: 2rem; margin: 0 0 1.2rem;
+  color: var(--on-ink); line-height: 0.95; }
+.g-step { padding: 0 0 1.3rem; }
+.g-say { margin: 0 0 0.6rem; font-size: var(--t-m); color: var(--on-ink); font-weight: 600; }
+
+.g-tiles { display: flex; flex-wrap: wrap; gap: 6px; }
+.g-t { display: inline-flex; align-items: center; gap: 0.45rem; font-size: var(--t-s);
+  font-weight: 600; padding: 0.5rem 0.7rem; border: 1px solid var(--rule-2); color: var(--on-ink-3); }
+.g-t.on { background: var(--stock); color: var(--on-stock); border-color: var(--stock); }
+.g-t i { font-style: normal; display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
+  background: var(--hot); color: #fff; font-weight: 700; font-size: 0.8em; }
+
+.g-bars { display: grid; gap: 0.5rem; }
+.g-b { display: grid; grid-template-columns: 9rem 1fr; gap: 0.6rem; align-items: center; }
+.g-b b { font-size: var(--t-s); font-weight: 600; color: var(--on-ink-2); }
+.g-b i { display: block; height: 18px; }
+
+.g-ramp { display: flex; height: 26px; }
+.g-ramp span { flex: 1 1 0; }
+.g-key { display: flex; justify-content: space-between; margin: 0.35rem 0 0;
+  font-size: var(--t-xs); color: var(--on-ink-3); }
+
+.g-go { width: 100%; font: inherit; font-size: var(--t-m); font-weight: 700; cursor: pointer;
+  background: var(--signal); color: var(--ink); border: 0; padding: 1rem; min-height: 56px;
+  border-radius: 0; margin-top: 0.4rem; }
+.g-go:hover { background: var(--signal-2); }
+.g-go:focus-visible { outline: 2px solid var(--stock); outline-offset: -4px; }
+
+.pk-how { font: inherit; font-size: var(--t-xs); font-weight: 700; background: none;
+  border: 0; border-bottom: 1px solid var(--signal); color: var(--signal);
+  cursor: pointer; padding: 0 0 1px; margin-right: 0.35rem; }
+.pk-how:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+
+@media (min-width: 761px) { .guide { place-items: center; } .guide-card { border: 0; border-top: 4px solid var(--signal); } }
