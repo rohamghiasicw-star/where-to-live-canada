@@ -833,6 +833,10 @@ const swingOf = (p) => { const a = cv(p, 'tmean', '7'), b = cv(p, 'tmean', '1');
 const LIVED_N = DATA.filter((p) => p.lived).length;   // researched places, live count
 
 /* "Longueuil is 30%" leaves out what the 30% are. */
+const LANG_NOUN = { spanish: 'Spanish', chinese: 'Chinese', tagalog: 'Tagalog',
+  vietnamese: 'Vietnamese', korean: 'Korean', arabic: 'Arabic', french: 'French',
+  slavic: 'Slavic-language', indoeuro: 'Indo-European-language',
+  asian_pi: 'Asian or Pacific language' };
 const FAITH_NOUN = { christian: 'Christian', muslim: 'Muslim', jewish: 'Jewish',
   sikh: 'Sikh', hindu: 'Hindu', buddhist: 'Buddhist' };
 
@@ -1074,6 +1078,34 @@ const Q_ALL = [
     show: (p) => p.life && p.life.french_pct != null ? [p.life.french_pct.toFixed(0), '%'] : null,
   },
   {
+    /* Doug's "multilingual or expat density": somewhere your language is already
+       spoken, not somewhere you would be the only one. ACS C16001, which is the
+       only language table published at place level - B16001 stops at PUMA. The
+       three bucket options are named as buckets because that is what the Census
+       publishes; Russian and Portuguese do not exist on their own at this level. */
+    id: 'lang', cc: ['US'], label: 'Your language', col: 'Lang', g: 'Life there',
+    hint: 'Share of people who speak it at home. American Community Survey.',
+    kind: 'opts', def: 'spanish', w: 0,
+    opts: [['spanish','Spanish'],['chinese','Chinese'],['tagalog','Tagalog or Filipino'],
+           ['vietnamese','Vietnamese'],['korean','Korean'],['arabic','Arabic'],
+           ['french','French or Haitian Creole'],['slavic','Russian, Polish or Slavic'],
+           ['indoeuro','Another Indo-European language'],
+           ['asian_pi','Another Asian or Pacific language']],
+    /* Saturation per language, measured off the real distribution rather than
+       guessed: the 99.9th percentile of the 4,226 places. One number for all of
+       them would be wrong in both directions - 5% Spanish is unremarkable and 5%
+       Korean is one of the largest Korean communities in the country. */
+    score: (p, v) => { const L = p.lang; if (!L) return null;
+      const x = L[v]; if (x == null) return null;
+      const SAT = { spanish: 96, chinese: 39, tagalog: 14, vietnamese: 14, korean: 15,
+                    arabic: 20, french: 27, slavic: 21, indoeuro: 24, asian_pi: 19 }[v];
+      return clamp(Math.sqrt(x / SAT), 0, 1); },
+    show: (p) => { const L = p.lang; if (!L) return null;
+      const x = L[state.lang];
+      return x == null ? null : [x.toFixed(x < 10 ? 1 : 0), '%']; },
+    sent: (v) => `is <b>${v[0]}%</b> ${(LANG_NOUN[state.lang] || '')}-speaking at home`,
+  },
+  {
     id: 'kids', label: 'Kids around', col: 'Kids', g: 'Life there',
     hint: 'Share of the population under 15. The median place is 16%.',
     kind: 'opts', def: 'many', w: 0,
@@ -1221,7 +1253,9 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   mix:'the mix of people', french:'the French', kids:'the young families',
   single:'the single crowd', gender:'the gender balance', faith:'your community',
   water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
-  worship:'your faith community' };
+  worship:'your faith community', lang:'your language',
+  dog:'somewhere for a dog', arts:'the arts scene', food:'the local food',
+  learn:'the libraries', health:'the healthcare', volunteer:'somewhere to pitch in' };
 /* Lowercasing "Rail I can actually use" for mid-sentence use printed the pronoun
    as "i". Nothing else in English is a bare lowercase "i", so put it back. */
 const lc = (s) => s.toLowerCase().replace(/\bi\b/g, 'I');
@@ -1751,7 +1785,7 @@ function verdict() {
   const host = $('#verdict');
   if (!r) { host.innerHTML = `<p class="empty">Nothing clears your dealbreakers. Loosen one.</p>`; return; }
   const p = r.p, L = p.lived || {};
-  const reasons = r.good.map((g) => SHORT[g.id]);
+  const reasons = r.good.map((g) => SHORT[g.id]).filter(Boolean);
   const against = r.bad && r.bad.s < 0.45 ? SHORT[r.bad.id] : null;
   const cf = confusion(r, ranked);
   const runners = ranked.filter((x)=>!x.excluded).slice(1,4);
@@ -2011,7 +2045,8 @@ function drawCards() {
     const why = r.excluded
       ? `<span class="cut">Ruled out on ${r.excluded}</span>`
       : cf ? `What sets it apart from ${cf.others[0]} is ${SHORT[cf.splitter]}`
-      : (r.good.length ? `Gets you ${listify(r.good.map((g) => SHORT[g.id]))}` : 'the closest to what you asked');
+      : (r.good.length ? `Gets you ${listify(r.good.map((g) => SHORT[g.id]).filter(Boolean))}`
+         : 'the closest to what you asked');
     return `<li><button class="pcard ${r.excluded ? 'excl' : ''}" data-i="${rank}">
       <span class="pr">${r.excluded ? '—' : rank + 1}</span>
       <span class="pn">${p.name}<span class="pv">${p.prov}</span></span>
@@ -2288,7 +2323,7 @@ document.addEventListener('click', async (e) => {
   const b = e.target.closest('#share'); if (!b) return;
   const top = ranked.find((r) => !r.excluded);
   const mine = picks.length
-    ? ` I ranked ${listify(picks.slice(0, 3).map((id) => SHORT[id]))} and got ${Math.round(top.fit)} out of 100.`
+    ? ` I ranked ${listify(picks.slice(0, 3).map((id) => SHORT[id]).filter(Boolean))} and got ${Math.round(top.fit)} out of 100.`
     : '';
   const text = top
     ? `Apparently I belong in ${top.p.name}, ${top.p.prov}.${mine} Where do you belong?`

@@ -210,8 +210,197 @@ county-level fallback for any place that ever fails to join. Ignore the 8.41 GB 
 
 ---
 
-## 2. Canada - ISED / CRTC National Broadband Data
+## 2. Canada - CRTC / ISED
 
-See section below (filled in from a separate verification pass).
+Short version: **the CRTC file is the Canadian twin of the FCC place file** - one 32 MB download,
+7-digit CSD code, direct join, no spatial work. ISED's National Broadband Data is the only source
+with a real fibre flag, but it costs three joins and overstates coverage.
+
+### 2a. THE ONE TO USE: CRTC Table 9 - broadband and mobile availability by CSD
+
+**Verdict: USABLE.** Direct join on the 7-digit CSD code. **712 / 712 of this app's Canadian
+places matched, zero missing** (tested against `data/allplaces.json`).
+
+| | |
+|---|---|
+| Download URL | `https://applications.crtc.gc.ca/OpenData/CASP/COMMUNICATION%20MONITORING%20REPORTS/Telecommunications%20Overview/English/data-mobile-and-broadband-availability.zip` |
+| **Measured size** | **32,317,554 bytes = 32.32 MB** zipped (confirmed live: HTTP 200, real `content-length`) |
+| Inner file | `C-T9.csv`, 108,936,843 bytes uncompressed, **796,316 data rows** |
+| Parent dataset | "Telecommunications Sector - CMR", open.canada.ca package `bd41f23a-6dbc-45ee-9419-422153aff567` |
+| Data dictionary | `.../English/data-dictionary-mobile-and-broadband-availability.pdf` (65,278 bytes) |
+| Geographic unit | **Census Subdivision** |
+| Join key | column 3, `ID de la subdivision de recensement / Census Subdivision ID` - **5,303 distinct codes, all exactly 7 digits** |
+| Licence / cost | Open Government Licence - Canada. Free. **No login, no API key, no click-through** |
+| Vintage | data years **2016-2024**; CRTC package `metadata_modified` 2025-12-20 |
+
+**Parsing traps - all three will silently corrupt your load:**
+
+1. Encoding is **cp1252, not UTF-8**.
+2. The header is on **line 5**. Lines 1-4 are title/source banner.
+3. Quoted fields contain embedded newlines and commas (the Population Centre column). Use a real
+   CSV reader, never `split(',')`.
+4. **The in-file title says "by CMA and year". The title is wrong** - the geography really is
+   Census Subdivision. Verified directly: column 3 is labelled Census Subdivision ID and holds
+   values like `5915022` = Vancouver, `4807001` = Provost No. 52.
+
+**Shape of the data.** Long format, one row per CSD x speed tier x year. The `Vitesses / Speeds`
+column takes 18 values:
+
+- Fixed: `1.5+`, `5+`, `10+`, `16+`, `25+`, `50+`, `100+`, `150+`, `200+`, `Gigabit`,
+  `50/10/Any`, `50/10/U` (U = unlimited data)
+- Mobile: `HSPA+`, `LTE`, `LTEA`, `NR`, `AllMobile`
+- **`AllDemographics` = the denominator row**
+
+**`Logements / Dwellings` is a dwelling COUNT, not a percent.** To get a share:
+
+```
+pct(tier) = dwellings[CSD, tier, year] / dwellings[CSD, 'AllDemographics', year]
+```
+
+Verified against real 2024 rows:
+
+| CSD | place | dwellings | 50/10/U | 100+ | Gigabit |
+|---|---|---|---|---|---|
+| 5915022 | Vancouver | 328,347 | 100.00% | 99.96% | 99.95% |
+| 5915004 | Surrey | 195,098 | 100.00% | 99.97% | 99.97% |
+| 3520005 | Toronto | 1,253,238 | 100.00% | 99.89% | 99.87% |
+| 2466023 | Montreal | 878,542 | 100.00% | 99.98% | 99.96% |
+| 1001370 | Carbonear | 2,289 | 99.75% | 99.75% | 99.75% |
+
+**Which tier to rank on - measured across this app's own 712 places, 2024:**
+
+| tier | min | p10 | median | p90 | places pinned at ~100% |
+|---|---|---|---|---|---|
+| 50/10 unlimited | 0.0 | 99.3 | 100.0 | 100.0 | **505 of 712 (71%)** |
+| 100+ | 0.0 | 95.7 | 99.7 | 100.0 | 187 (26%) |
+| **Gigabit** | **0.0** | **87.3** | 99.7 | 100.0 | 169 (24%) |
+
+**Do not rank on 50/10.** It is saturated - 71% of the app's places sit at 100%, so it cannot
+separate anything. **Rank on Gigabit**, with `100+` as the secondary. Same failure mode as
+`Any Technology` on the US side.
+
+Be honest about the shape though: even Gigabit has a median of 99.7, so the dimension is flat for
+the top half of the list and only earns its keep in the bottom ~25%. The tail is real and correct:
+
+```
+Dawson YT          50/10  99.7%   100+  99.7%   Gigabit   0.0%
+Yellowknife NT     50/10  98.8%   100+  98.8%   Gigabit   0.0%
+Whitehorse YT      50/10  98.4%   100+  98.4%   Gigabit   0.0%
+Labrador City NL   50/10  97.9%   100+  97.9%   Gigabit   0.0%
+Elk Point AB       50/10 100.0%   100+  33.1%   Gigabit   0.0%
+Smoky Lake AB      50/10 100.0%   100+  22.0%   Gigabit   0.0%
+Rankin Inlet NU    50/10   0.0%   100+   0.0%   Gigabit   0.0%
+Cape Dorset NU     50/10   0.0%   100+   0.0%   Gigabit   0.0%
+```
+
+**Known limitation: C-T9 has no technology column.** No fibre/cable/DSL split. If fibre
+specifically matters, you need 2b.
+
+### 2b. ISED National Broadband Data - the only real fibre flag
+
+**Verdict: USABLE WITH WORK.** No spatial join is required, but it is a three-hop chain and the
+fibre number is optimistic. Only worth it if fibre-vs-not is a distinct dimension for you.
+
+- Package: "National Broadband Data" on open.canada.ca, ISED. Licence **OGL-Canada**, free, no login.
+- Live map: `https://ised-isde.canada.ca/app/scr/sittibc/web/bbmap`
+  (the URL printed in some ISED docs 302s to `/site/ised` then 301s to the ISED homepage - dead)
+- Vintage: CKAN `date_modified` 2026-05-28, ZIP internals 2026-05-05, ISED page "Date modified:
+  2026-07-31". Cadence stated inconsistently (CKAN `as_needed` vs page "annual surveys").
+  Demographics are 2021 Census.
+
+| resource | URL | measured size |
+|---|---|---|
+| NBD PHH Speeds (CSV) | `https://ised-isde.canada.ca/app/scr/sittibc/web/api/openData/NBD_PHH_Speeds.zip` | **190,214,440 B = 190.21 MB** |
+| NBD Map (CSV, hexagons) | `.../openData/Map_Data_CSV.zip` | live (HTTP 200) |
+| NBD Map (Shapefile) | `.../openData/Map_Data_Shapefile.zip` | live |
+| NBD Roads (GPKG) | `.../openData/NBD_Roads_GPKG.zip` | **COULD NOT CONFIRM - HEAD returned 504 Gateway Time-out** |
+| PHH 2021 (CSV) | separate package `b3a1d603-...` | **209,139,581 B = 209.14 MB** |
+| StatCan Geographic Attribute File | - | 9,832,890 B = 9.83 MB, 498,786 rows |
+
+**Geographic unit: pseudo-household (PHH) representative points - NOT hexagons.** The hexagons are
+a separate map product, roughly 25 km each.
+
+**Fields (from the shipped data dictionary):**
+- `PHH_ID`
+- `Combined_{tier}_Combine`, `Wired_{tier}_Filaire`, `Wireless_{tier}_Sans_fil` booleans (0/1) for
+  tiers `lt5_1`, `5_1`, `10_2`, `25_5`, `50_10`
+- `Combined_Max_Threshold-Combine_Seuil_Max` and the Wired/Wireless variants - enum
+  `{"", "<5_1", "5_1", "10_2", "25_5", "50_10"}`. `50_10` is the top bucket and does **not**
+  preclude faster service, so there is no gigabit signal here.
+- `Avail_LTE_Mobile_Dispo`
+- Undocumented extra column actually shipped: `Satellite_Max_Threshold-Satellite_Seuil_Max`
+- Dictionary contradicts the file: documented `Avail_5_1_75PctPlus_Dispo` /
+  `Avail_50_10_Gradient_Dispo` ship as generic **`Expr1` / `Expr2`**
+
+**Joining to CSD - no spatial join needed, but three hops:**
+
+```
+ISP_Hex_FSI.csv (HEXuid + Technology)
+  -> PHH_2021       (HEXUID_IdUHEX -> DBUID_Ididu)
+  -> StatCan Geographic Attribute File (DBUID_IDIDU -> CSDUID_SDRIDU)
+```
+
+- `NBD_PHH_Speeds` itself carries **no** census geography and **no** lat/lon - only `PHH_ID`.
+- `PHH_2021` is the bridge: `PHH_ID, Type, Pop2021, TDwell2021_TLog2021, URDwell2021_RH2021,
+  DBUID_Ididu, HEXUID_IdUHEX, Pruid_Pridu, Latitude, Longitude`.
+- The hexagon map files carry no census geography either (`HEXuid_HEXidu`, `PRNAME`, `PCPUID`,
+  `PNuid` only) and the CSVs have no coordinates - geometry lives only in SHP/GPKG,
+  Lambert Conformal Conic NAD83.
+- Chain match rates measured on two provinces: **Nunavut 777/777 dissemination blocks matched,
+  0 unmatched; PEI 99,428 PHH rows -> 98 CSDs, 0 unmatched.**
+
+**Fibre:** `ISP_Hex_FSI.csv`, column `Technology`, exact value **`"Fibre to the home"`**
+(19,132 rows across 14,604 hexagons). **Caveat that matters:** a hexagon is ~25 km and is flagged
+if *any* ISP offers FTTH *anywhere* inside it, so a hexagon-derived fibre share **overstates**
+real coverage. Do not present it as a household-level fibre rate.
+
+**ISED download gotchas:**
+- ISED sends **no `content-length`** and ignores HEAD and Range. Any ISED size not measured by a
+  full download is unverifiable.
+- `NBD_PHH_Speeds.zip` **silently truncates on plain curl** - three attempts died at 17/25/30 MB
+  with HTTP 200 and a corrupt archive. Only completed with `--retry 3 --retry-all-errors`.
+- **CKAN's own size fields are wrong.** It claims 110 MB for `PHH_2021_CSV.zip` (really 209.14 MB)
+  and 186 MB for `NBD_PHH_Speeds` (really 190.21 MB). Do not cite them.
+
+### 2c. Ruled out - do not spend time here
+
+- **StatCan: NOT USABLE.** No internet/broadband variable exists below the province level
+  anywhere. 2021 Census Profile returns 0 hits across 2,631 characteristics;
+  `getAllCubesListLite` returns 0 cube titles matching "broadband".
+- **StatCan SDG indicator 9.3.1 CSV (21,292 bytes): NOT USABLE.** Province-only, GeoCode is
+  2-digit PRUIDs.
+- **CRTC `OLMCDownloadPackage.zip`: NOT USABLE.** It has a tempting CSD-keyed `Prcnt5010unl_illim`
+  column, but the denominator is restricted to official-language-minority dwellings near
+  designated schools. Wrong universe - it is not a general population rate.
+
+---
+
+## Recommendation
+
+| | US | Canada |
+|---|---|---|
+| Source | FCC BDC Census Place summary | CRTC CMR Table 9 (`C-T9.csv`) |
+| Download | 56 files, **27.4 MB** | 1 file, **32.32 MB** |
+| Join | `geography_id` = 7-digit place GEOID | CSD ID = 7-digit CSD code |
+| Match vs this app | **305/305 sampled, 0 missing** | **712/712, 0 missing** |
+| Rank on | `technology='Any Terrestrial'` + `Fiber`, `speed_100_20` / `speed_1000_100` | `Gigabit`, then `100+` |
+| Trap | `Any Technology` counts satellite, reads ~1.000 everywhere | 50/10 is saturated, 71% of places at 100% |
+| Licence | US public domain | OGL-Canada |
+| Fibre available | **yes**, native `Fiber` technology row | not in CRTC; needs ISED 3-hop, and it overstates |
+
+Both sides are one modest download with a clean 7-digit join and no spatial work. The dimension is
+real but **left-skewed on both sides** - it will separate the bottom quarter of the list and be
+flat across the top. Rank on the demanding tier (gigabit / terrestrial-fibre), not the basic one.
+
+### Caveats to carry into the build
+
+1. Neither source is a speed *test*. Both are carrier-reported *availability*. They answer "is
+   service sold here", not "what will I actually get". The FCC data is provider self-reported and
+   subject to a challenge process.
+2. The two countries are not directly comparable. Different tiers, different denominators (FCC
+   counts broadband serviceable locations, CRTC counts dwellings), different vintages
+   (FCC Dec 2025, CRTC 2024). Normalise within each country before combining.
+3. FCC gives a fibre share directly. Canada does not, at CSD level, from an authoritative source.
+   If you want one number both countries share, use the terrestrial 100/20-equivalent tier, not fibre.
 
 ---

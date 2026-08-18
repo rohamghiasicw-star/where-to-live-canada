@@ -434,7 +434,9 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   mix:'the mix of people', french:'the French', kids:'the young families',
   single:'the single crowd', gender:'the gender balance', faith:'your community',
   water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
-  worship:'your faith community' };
+  worship:'your faith community', lang:'your language',
+  dog:'somewhere for a dog', arts:'the arts scene', food:'the local food',
+  learn:'the libraries', health:'the healthcare', volunteer:'somewhere to pitch in' };
 /* Lowercasing "Rail I can actually use" for mid-sentence use printed the pronoun
    as "i". Nothing else in English is a bare lowercase "i", so put it back. */
 const lc = (s) => s.toLowerCase().replace(/\bi\b/g, 'I');
@@ -964,7 +966,7 @@ function verdict() {
   const host = $('#verdict');
   if (!r) { host.innerHTML = `<p class="empty">Nothing clears your dealbreakers. Loosen one.</p>`; return; }
   const p = r.p, L = p.lived || {};
-  const reasons = r.good.map((g) => SHORT[g.id]);
+  const reasons = r.good.map((g) => SHORT[g.id]).filter(Boolean);
   const against = r.bad && r.bad.s < 0.45 ? SHORT[r.bad.id] : null;
   const cf = confusion(r, ranked);
   const runners = ranked.filter((x)=>!x.excluded).slice(1,4);
@@ -1224,7 +1226,8 @@ function drawCards() {
     const why = r.excluded
       ? `<span class="cut">Ruled out on ${r.excluded}</span>`
       : cf ? `What sets it apart from ${cf.others[0]} is ${SHORT[cf.splitter]}`
-      : (r.good.length ? `Gets you ${listify(r.good.map((g) => SHORT[g.id]))}` : 'the closest to what you asked');
+      : (r.good.length ? `Gets you ${listify(r.good.map((g) => SHORT[g.id]).filter(Boolean))}`
+         : 'the closest to what you asked');
     return `<li><button class="pcard ${r.excluded ? 'excl' : ''}" data-i="${rank}">
       <span class="pr">${r.excluded ? '—' : rank + 1}</span>
       <span class="pn">${p.name}<span class="pv">${p.prov}</span></span>
@@ -1501,7 +1504,7 @@ document.addEventListener('click', async (e) => {
   const b = e.target.closest('#share'); if (!b) return;
   const top = ranked.find((r) => !r.excluded);
   const mine = picks.length
-    ? ` I ranked ${listify(picks.slice(0, 3).map((id) => SHORT[id]))} and got ${Math.round(top.fit)} out of 100.`
+    ? ` I ranked ${listify(picks.slice(0, 3).map((id) => SHORT[id]).filter(Boolean))} and got ${Math.round(top.fit)} out of 100.`
     : '';
   const text = top
     ? `Apparently I belong in ${top.p.name}, ${top.p.prov}.${mine} Where do you belong?`
