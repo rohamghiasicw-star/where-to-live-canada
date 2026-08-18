@@ -193,7 +193,9 @@ for r in (load('data/osm.json') or []):
     k = key(r.get('name',''), r.get('prov',''))
     if k not in by: continue
     a = {f: r.get(f) for f in ('soccer_pitches','churches','mosques','synagogues',
-         'gurdwaras','temples_hindu','temples_buddhist','worship_total','ice_rinks')
+         'gurdwaras','temples_hindu','temples_buddhist','worship_total','ice_rinks',
+         'dog_parks','vets','arts_venues','local_food','learning',
+         'health_facilities','volunteer_orgs')
          if r.get(f) is not None}
     if a: a['radius_km'] = r.get('radius_km'); by[k]['osm'] = a
 stats['osm'] = sum(1 for p in places if p.get('osm'))

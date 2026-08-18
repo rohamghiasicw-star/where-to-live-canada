@@ -241,6 +241,27 @@ UNIVERSE = {          # asserted against groups/<T>.json before any arithmetic
     'B03003': 'Total population',
     'B08301': 'Workers 16 years and over',
     'B08303': 'Workers 16 years and over who did not work from home',
+    'C16001': 'Population 5 years and over',
+}
+
+# Language spoken at home. C16001, NOT B16001: B16001 has zero place-level rows,
+# it stops at PUMA. These twelve groups are the whole ceiling for place-level
+# language in the ACS, which is why Russian and Portuguese cannot be had on their
+# own here - they sit inside the Slavic and Other Indo-European buckets. Canada
+# publishes both separately, so the two countries are deliberately not symmetric.
+LANGS = {
+    'spanish':    'Spanish:',
+    'french':     'French, Haitian, or Cajun:',
+    'germanic':   'German or other West Germanic languages:',
+    'slavic':     'Russian, Polish, or other Slavic languages:',
+    'indoeuro':   'Other Indo-European languages:',
+    'korean':     'Korean:',
+    'chinese':    'Chinese (incl. Mandarin, Cantonese):',
+    'vietnamese': 'Vietnamese:',
+    'tagalog':    'Tagalog (incl. Filipino):',
+    'asian_pi':   'Other Asian and Pacific Island languages:',
+    'arabic':     'Arabic:',
+    'other_lang': 'Other and unspecified languages:',
 }
 UNDER18_AGES = ('Under 5 years', '5 to 9 years', '10 to 14 years', '15 to 17 years')
 SENIOR_AGES  = ('65 and 66 years', '67 to 69 years', '70 to 74 years',
@@ -308,6 +329,9 @@ def resolve_variables():
         assert got == want, f"{t} universe is {got!r}, expected {want!r}"
     print(f"  resolved {len(V)} ACS variable IDs from published metadata; "
           f"{sum(1 for v in UNIVERSE.values() if v)} universes asserted")
+    V['lang_total'] = by_label('C16001', 'Estimate!!Total:')
+    for k, lab in LANGS.items():
+        V[f'lang_{k}'] = by_label('C16001', f'Estimate!!Total:!!{lab}')
     return V
 
 
@@ -498,6 +522,8 @@ def main():
             'commute_bike_pct':  pct(get(geoid,'mode_bike'), mode_t),
             'commute_car_pct':   pct(get(geoid,'mode_car'), mode_t),
             'pop_change_pct':    pop_change,
+            'lang':              {k: pct(get(geoid, f'lang_{k}'), get(geoid, 'lang_total'))
+                                  for k in LANGS},
             '_dec2020': d20, '_incomparable': why, '_lsad': gz['LSAD'],
         })
     print(f"  {len(places)} places with ACS data; {len(skipped_no_acs)} gazetteer places have none")

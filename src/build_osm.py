@@ -132,15 +132,41 @@ PROV_REL = {
     "YT": 391455, "NT": 391220, "NU": 390840,
 }
 
-QUERY = """[out:json][timeout:600];
-area(%d)->.a;
-(
-  nwr["leisure"="pitch"]["sport"~"(^|;)soccer(;|$)"](area.a);
-  nwr["amenity"="place_of_worship"](area.a);
-  nwr["leisure"="ice_rink"](area.a);
-  nwr["leisure"~"^(pitch|sports_centre)$"]["sport"~"(^|;)ice_hockey(;|$)"](area.a);
-);
-out center;"""
+# Overpass returns 504 on the full sixteen-line query for a province the size of
+# Newfoundland: too much work for one request. The tag list is split into batches
+# that each fit inside the endpoint's budget and the elements are merged. Batch 0
+# is the original four lines, which completed for every province before this.
+TAG_BATCHES = [
+    ['nwr["leisure"="pitch"]["sport"~"(^|;)soccer(;|$)"](area.a);',
+     'nwr["amenity"="place_of_worship"](area.a);',
+     'nwr["leisure"="ice_rink"](area.a);',
+     'nwr["leisure"~"^(pitch|sports_centre)$"]["sport"~"(^|;)ice_hockey(;|$)"](area.a);'],
+    ['nwr["leisure"="dog_park"](area.a);',
+     'nwr["amenity"="veterinary"](area.a);',
+     'nwr["amenity"="arts_centre"](area.a);',
+     'nwr["amenity"="studio"](area.a);',
+     'nwr["tourism"="gallery"](area.a);',
+     'nwr["tourism"="museum"](area.a);'],
+    ['nwr["leisure"="hackerspace"](area.a);',
+     'nwr["craft"](area.a);',
+     'nwr["amenity"="marketplace"](area.a);',
+     'nwr["shop"="farm"](area.a);',
+     'nwr["shop"="greengrocer"](area.a);',
+     'nwr["amenity"="library"](area.a);'],
+    ['nwr["amenity"="college"](area.a);',
+     'nwr["amenity"="university"](area.a);',
+     'nwr["amenity"="hospital"](area.a);',
+     'nwr["amenity"="clinic"](area.a);',
+     'nwr["amenity"="community_centre"](area.a);',
+     'nwr["amenity"="animal_shelter"](area.a);'],
+    ['nwr["office"="ngo"](area.a);',
+     'nwr["office"="charity"](area.a);'],
+]
+
+
+def query_for(area_id, batch):
+    return ("[out:json][timeout:600];\narea(%d)->.a;\n(\n  " % area_id
+            + "\n  ".join(TAG_BATCHES[batch]) + "\n);\nout center;")
 
 
 # Rough Canada bounding box, used only to prove a mirror actually served us
@@ -148,7 +174,7 @@ out center;"""
 CA_BOX = (41.0, -142.0, 84.0, -51.0)
 
 
-def sane(prov, d):
+def sane(prov, d, require_nonempty=True):
     """Refuse a response that cannot be a real answer for this province.
 
     Guards against a mirror that holds only a regional extract: it resolves the
@@ -159,7 +185,8 @@ def sane(prov, d):
     if els is None:
         return "no elements key"
     if len(els) == 0:
-        return "zero elements - no Canadian province has zero churches/pitches/rinks"
+        return ("zero elements - no Canadian province has zero churches/pitches/rinks"
+                if require_nonempty else None)
     inbox = 0
     for el in els:
         c = coord(el)
@@ -170,19 +197,21 @@ def sane(prov, d):
     return None
 
 
-def fetch(prov, force=False):
-    """One Overpass call for one province. Cached. Retries with backoff."""
-    path = os.path.join(CACHE, "osm_%s.json" % prov)
+def fetch(prov, batch, force=False):
+    """One Overpass call for one province and one tag batch. Cached, retried."""
+    tag = "%s_b%d" % (prov, batch)
+    need = (batch == 0)
+    path = os.path.join(CACHE, "osm_%s.json" % tag)
     if os.path.exists(path) and not force:
         with open(path) as f:
             d = json.load(f)
-        bad = sane(prov, d)
+        bad = sane(prov, d, need)
         if bad:
-            print("  %s cached file REJECTED (%s), refetching" % (prov, bad))
+            print("  %s cached file REJECTED (%s), refetching" % (tag, bad))
         else:
-            print("  %s cached: %d elements" % (prov, len(d["elements"])))
+            print("  %s cached: %d elements" % (tag, len(d["elements"])))
             return d
-    q = QUERY % (3600000000 + PROV_REL[prov])
+    q = query_for(3600000000 + PROV_REL[prov], batch)
     body = urllib.parse.urlencode({"data": q}).encode()
     delay = 30
     for attempt in range(10):
@@ -192,22 +221,22 @@ def fetch(prov, force=False):
             req = urllib.request.Request(ep, data=body, headers={"User-Agent": UA})
             raw = urllib.request.urlopen(req, timeout=700).read()
             d = json.loads(raw)
-            bad = sane(prov, d)
+            bad = sane(prov, d, need)
             if bad:
                 raise ValueError("bad response from %s: %s" % (ep.split("/")[2], bad))
             print("  %s ok: %d elements in %.0fs (%s)"
-                  % (prov, len(d["elements"]), time.time() - t0, ep.split("/")[2]))
+                  % (tag, len(d["elements"]), time.time() - t0, ep.split("/")[2]))
             with open(path, "w") as f:
                 json.dump(d, f)
-            time.sleep(4)  # be polite between provinces
+            time.sleep(4)  # be polite between calls
             return d
         except Exception as e:
             code = getattr(e, "code", "")
             print("  %s attempt %d failed (%s %s), sleeping %ds"
-                  % (prov, attempt + 1, code, str(e)[:120], delay))
+                  % (tag, attempt + 1, code, str(e)[:120], delay))
             time.sleep(delay)
             delay = min(int(delay * 1.7), 300)
-    raise RuntimeError("Overpass failed for %s after 10 attempts" % prov)
+    raise RuntimeError("Overpass failed for %s after 10 attempts" % tag)
 
 
 def coord(el):
@@ -254,11 +283,34 @@ def categorise(el):
         t.get("leisure") in ("pitch", "sports_centre") and has_sport(t, HOCKEY)
     ):
         out.add("ice_rinks")
+
+    # Doug's "alternative reasons" list, 2026-08-14. Each of these is a thing a
+    # person actually moves for and none of them appear on a best-places list.
+    am = t.get("amenity")
+    if t.get("leisure") == "dog_park":
+        out.add("dog_parks")
+    if am == "veterinary":
+        out.add("vets")
+    # subculture: where a scene physically happens. craft=* is any workshop -
+    # a bookbinder, a brewery, a luthier - which is the maker end of it.
+    if (am in ("arts_centre", "studio") or t.get("tourism") in ("gallery", "museum")
+            or t.get("leisure") == "hackerspace" or t.get("craft")):
+        out.add("arts_venues")
+    if am == "marketplace" or t.get("shop") in ("farm", "greengrocer"):
+        out.add("local_food")
+    if am in ("library", "college", "university"):
+        out.add("learning")
+    if am in ("hospital", "clinic"):
+        out.add("health_facilities")
+    if am in ("community_centre", "animal_shelter") or t.get("office") in ("ngo", "charity"):
+        out.add("volunteer_orgs")
     return out
 
 
 FIELDS = ["soccer_pitches", "churches", "mosques", "synagogues", "temples_hindu",
-          "gurdwaras", "temples_buddhist", "worship_total", "ice_rinks"]
+          "gurdwaras", "temples_buddhist", "worship_total", "ice_rinks",
+          "dog_parks", "vets", "arts_venues", "local_food", "learning",
+          "health_facilities", "volunteer_orgs"]
 
 
 def main():
@@ -278,15 +330,16 @@ def main():
     elements = []
     failed = []
     for pv in provs:
-        try:
-            d = fetch(pv, force=force)
-        except Exception as e:
-            print("  !! %s FAILED PERMANENTLY: %s" % (pv, e))
-            failed.append(pv)
-            continue
-        for el in d["elements"]:
-            el["_src"] = pv
-            elements.append(el)
+        for bi in range(len(TAG_BATCHES)):
+            try:
+                d = fetch(pv, bi, force=force)
+            except Exception as e:
+                print("  !! %s batch %d FAILED PERMANENTLY: %s" % (pv, bi, e))
+                failed.append("%s_b%d" % (pv, bi))
+                continue
+            for el in d["elements"]:
+                el["_src"] = pv
+                elements.append(el)
     print("total raw elements fetched: %d" % len(elements))
 
     # one element can be returned by two province queries only if it straddles a

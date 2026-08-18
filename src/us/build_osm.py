@@ -272,25 +272,37 @@ BORDER_BANDS = {
     "MX_border":     ("MX",  (25.5, -117.5,  33.0,  -97.0)),   # CA AZ NM TX
 }
 
-QUERY_AREA = """[out:json][timeout:600];
-area(%d)->.a;
-(
-  nwr["leisure"="pitch"]["sport"~"(^|;)soccer(;|$)"](area.a);
-  nwr["amenity"="place_of_worship"](area.a);
-  nwr["leisure"="ice_rink"](area.a);
-  nwr["leisure"~"^(pitch|sports_centre)$"]["sport"~"(^|;)ice_hockey(;|$)"](area.a);
-);
-out center;"""
-
-QUERY_BAND = """[out:json][timeout:600];
-area["ISO3166-1"="%s"]["admin_level"="2"]->.a;
-(
-  nwr["leisure"="pitch"]["sport"~"(^|;)soccer(;|$)"](area.a)(%f,%f,%f,%f);
-  nwr["amenity"="place_of_worship"](area.a)(%f,%f,%f,%f);
-  nwr["leisure"="ice_rink"](area.a)(%f,%f,%f,%f);
-  nwr["leisure"~"^(pitch|sports_centre)$"]["sport"~"(^|;)ice_hockey(;|$)"](area.a)(%f,%f,%f,%f);
-);
-out center;"""
+# Overpass returns 504 on the full sixteen-line query for a state the size of
+# Texas: too much work for one request. The tag list is split into batches that
+# each fit inside the endpoint's budget and the elements are merged. Batch 0 is
+# the original four lines, which completed for every region before this.
+# %s is the area/bbox suffix, which differs between a state and a border band.
+TAG_BATCHES = [
+    ['nwr["leisure"="pitch"]["sport"~"(^|;)soccer(;|$)"]%s;',
+     'nwr["amenity"="place_of_worship"]%s;',
+     'nwr["leisure"="ice_rink"]%s;',
+     'nwr["leisure"~"^(pitch|sports_centre)$"]["sport"~"(^|;)ice_hockey(;|$)"]%s;'],
+    ['nwr["leisure"="dog_park"]%s;',
+     'nwr["amenity"="veterinary"]%s;',
+     'nwr["amenity"="arts_centre"]%s;',
+     'nwr["amenity"="studio"]%s;',
+     'nwr["tourism"="gallery"]%s;',
+     'nwr["tourism"="museum"]%s;'],
+    ['nwr["leisure"="hackerspace"]%s;',
+     'nwr["craft"]%s;',
+     'nwr["amenity"="marketplace"]%s;',
+     'nwr["shop"="farm"]%s;',
+     'nwr["shop"="greengrocer"]%s;',
+     'nwr["amenity"="library"]%s;'],
+    ['nwr["amenity"="college"]%s;',
+     'nwr["amenity"="university"]%s;',
+     'nwr["amenity"="hospital"]%s;',
+     'nwr["amenity"="clinic"]%s;',
+     'nwr["amenity"="community_centre"]%s;',
+     'nwr["amenity"="animal_shelter"]%s;'],
+    ['nwr["office"="ngo"]%s;',
+     'nwr["office"="charity"]%s;'],
+]
 
 # Per-region sanity box (south, west, north, east).  A response is refused if it
 # is empty or if fewer than 90% of its elements fall inside the box, which is
@@ -321,7 +333,7 @@ def coord(el):
     return None
 
 
-def sane(region, d):
+def sane(region, d, require_nonempty=True):
     """Refuse a response that cannot be a real answer for this region.
 
     Guards against a mirror that holds only a regional extract: it resolves the
@@ -332,7 +344,8 @@ def sane(region, d):
     if els is None:
         return "no elements key"
     if len(els) == 0:
-        return "zero elements - no US state has zero churches/pitches/rinks"
+        return ("zero elements - no US state has zero churches/pitches/rinks"
+                if require_nonempty else None)
     box = region_box(region)
     inbox = 0
     for el in els:
@@ -345,20 +358,24 @@ def sane(region, d):
     return None
 
 
-def build_query(region):
+def build_query(region, batch):
     if region in BORDER_BANDS:
         iso, b = BORDER_BANDS[region]
-        return QUERY_BAND % ((iso,) + b * 4)
-    return QUERY_AREA % (3600000000 + STATE_REL[region])
+        head = '[out:json][timeout:600];\narea["ISO3166-1"="%s"]["admin_level"="2"]->.a;\n(\n' % iso
+        suffix = "(area.a)(%f,%f,%f,%f)" % b
+    else:
+        head = "[out:json][timeout:600];\narea(%d)->.a;\n(\n" % (3600000000 + STATE_REL[region])
+        suffix = "(area.a)"
+    return head + "".join("  " + (t % suffix) + "\n" for t in TAG_BATCHES[batch]) + ");\nout center;"
 
 
-def cache_path(region):
-    return os.path.join(CACHE, "osm_%s.json" % region)
+def cache_path(region, batch=0):
+    return os.path.join(CACHE, "osm_%s_b%d.json" % (region, batch))
 
 
-def cached(region):
+def cached(region, batch=0):
     """Return the cached response for a region, or None. Never hits the API."""
-    path = cache_path(region)
+    path = cache_path(region, batch)
     if not os.path.exists(path):
         return None
     try:
@@ -367,23 +384,23 @@ def cached(region):
     except Exception as e:
         print("  %-14s cached file UNREADABLE (%s)" % (region, e))
         return None
-    bad = sane(region, d)
+    bad = sane(region, d, batch == 0)
     if bad:
         print("  %-14s cached file REJECTED (%s)" % (region, bad))
         return None
     return d
 
 
-def fetch(region, force=False, cached_only=False):
-    """One Overpass call for one region. Cached. Retries with backoff."""
+def fetch_one(region, batch, force=False, cached_only=False):
+    """One Overpass call for one region and one tag batch. Cached, retried."""
     if not force:
-        d = cached(region)
+        d = cached(region, batch)
         if d is not None:
-            print("  %-14s cached: %6d elements" % (region, len(d["elements"])))
+            print("  %-14s cached: %6d elements" % ("%s b%d" % (region, batch), len(d["elements"])))
             return d
     if cached_only:
         raise RuntimeError("not cached and --cached-only was given")
-    body = urllib.parse.urlencode({"data": build_query(region)}).encode()
+    body = urllib.parse.urlencode({"data": build_query(region, batch)}).encode()
     delay = 30
     for attempt in range(10):
         ep = ENDPOINTS[attempt % len(ENDPOINTS)]
@@ -392,13 +409,13 @@ def fetch(region, force=False, cached_only=False):
             req = urllib.request.Request(ep, data=body, headers={"User-Agent": UA})
             raw = urllib.request.urlopen(req, timeout=700).read()
             d = json.loads(raw)
-            bad = sane(region, d)
+            bad = sane(region, d, batch == 0)
             if bad:
                 raise ValueError("bad response from %s: %s" % (ep.split("/")[2], bad))
             print("  %-14s ok: %6d elements in %5.0fs (%s)"
-                  % (region, len(d["elements"]), time.time() - t0, ep.split("/")[2]),
+                  % ("%s b%d" % (region, batch), len(d["elements"]), time.time() - t0, ep.split("/")[2]),
                   flush=True)
-            path = cache_path(region)
+            path = cache_path(region, batch)
             tmp = path + ".part"
             with open(tmp, "w") as f:
                 json.dump(d, f)
@@ -408,11 +425,19 @@ def fetch(region, force=False, cached_only=False):
         except Exception as e:
             code = getattr(e, "code", "")
             print("  %-14s attempt %d failed (%s %s), sleeping %ds"
-                  % (region, attempt + 1, code, str(e)[:110].replace("\n", " "), delay),
+                  % ("%s b%d" % (region, batch), attempt + 1, code, str(e)[:110].replace("\n", " "), delay),
                   flush=True)
             time.sleep(delay)
             delay = min(int(delay * 1.7), 300)
-    raise RuntimeError("Overpass failed for %s after 10 attempts" % region)
+    raise RuntimeError("Overpass failed for %s b%d after 10 attempts" % (region, batch))
+
+
+def fetch(region, force=False, cached_only=False):
+    """Every tag batch for one region, merged. Callers still think in regions."""
+    els = []
+    for bi in range(len(TAG_BATCHES)):
+        els.extend(fetch_one(region, bi, force=force, cached_only=cached_only)["elements"])
+    return {"elements": els}
 
 
 def hav(lat1, lon1, lat2, lon2):
@@ -450,11 +475,34 @@ def categorise(el):
         t.get("leisure") in ("pitch", "sports_centre") and has_sport(t, HOCKEY)
     ):
         out.add("ice_rinks")
+
+    # Doug's "alternative reasons" list, 2026-08-14. Each of these is a thing a
+    # person actually moves for and none of them appear on a best-places list.
+    am = t.get("amenity")
+    if t.get("leisure") == "dog_park":
+        out.add("dog_parks")
+    if am == "veterinary":
+        out.add("vets")
+    # subculture: where a scene physically happens. craft=* is any workshop -
+    # a bookbinder, a brewery, a luthier - which is the maker end of it.
+    if (am in ("arts_centre", "studio") or t.get("tourism") in ("gallery", "museum")
+            or t.get("leisure") == "hackerspace" or t.get("craft")):
+        out.add("arts_venues")
+    if am == "marketplace" or t.get("shop") in ("farm", "greengrocer"):
+        out.add("local_food")
+    if am in ("library", "college", "university"):
+        out.add("learning")
+    if am in ("hospital", "clinic"):
+        out.add("health_facilities")
+    if am in ("community_centre", "animal_shelter") or t.get("office") in ("ngo", "charity"):
+        out.add("volunteer_orgs")
     return out
 
 
 FIELDS = ["soccer_pitches", "churches", "mosques", "synagogues", "temples_hindu",
-          "gurdwaras", "temples_buddhist", "worship_total", "ice_rinks"]
+          "gurdwaras", "temples_buddhist", "worship_total", "ice_rinks",
+          "dog_parks", "vets", "arts_venues", "local_food", "learning",
+          "health_facilities", "volunteer_orgs"]
 
 METHOD = ("count within radius_km great-circle of the place point; overlaps between "
           "neighbouring places are real, do not sum this column")
@@ -737,7 +785,7 @@ def main():
     # refine border places and are worthless until the states around them exist.
     def rank(rg):
         is_band = rg in BORDER_BANDS
-        have = os.path.exists(cache_path(rg))
+        have = all(os.path.exists(cache_path(rg, b)) for b in range(len(TAG_BATCHES)))
         sig = SIGNAL_STATES.index(rg) if rg in SIGNAL_STATES else 99
         return (is_band, not have, sig, -nplaces.get(rg, 0), rg)
 

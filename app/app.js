@@ -14,6 +14,10 @@ const swingOf = (p) => { const a = cv(p, 'tmean', '7'), b = cv(p, 'tmean', '1');
 const LIVED_N = DATA.filter((p) => p.lived).length;   // researched places, live count
 
 /* "Longueuil is 30%" leaves out what the 30% are. */
+const LANG_NOUN = { spanish: 'Spanish', chinese: 'Chinese', tagalog: 'Tagalog',
+  vietnamese: 'Vietnamese', korean: 'Korean', arabic: 'Arabic', french: 'French',
+  slavic: 'Slavic-language', indoeuro: 'Indo-European-language',
+  asian_pi: 'Asian or Pacific language' };
 const FAITH_NOUN = { christian: 'Christian', muslim: 'Muslim', jewish: 'Jewish',
   sikh: 'Sikh', hindu: 'Hindu', buddhist: 'Buddhist' };
 
@@ -253,6 +257,34 @@ const Q_ALL = [
       if (x == null) return null;
       return v === 'yes' ? clamp(x / 70, 0, 1) : near(x, 25, 45); },
     show: (p) => p.life && p.life.french_pct != null ? [p.life.french_pct.toFixed(0), '%'] : null,
+  },
+  {
+    /* Doug's "multilingual or expat density": somewhere your language is already
+       spoken, not somewhere you would be the only one. ACS C16001, which is the
+       only language table published at place level - B16001 stops at PUMA. The
+       three bucket options are named as buckets because that is what the Census
+       publishes; Russian and Portuguese do not exist on their own at this level. */
+    id: 'lang', cc: ['US'], label: 'Your language', col: 'Lang', g: 'Life there',
+    hint: 'Share of people who speak it at home. American Community Survey.',
+    kind: 'opts', def: 'spanish', w: 0,
+    opts: [['spanish','Spanish'],['chinese','Chinese'],['tagalog','Tagalog or Filipino'],
+           ['vietnamese','Vietnamese'],['korean','Korean'],['arabic','Arabic'],
+           ['french','French or Haitian Creole'],['slavic','Russian, Polish or Slavic'],
+           ['indoeuro','Another Indo-European language'],
+           ['asian_pi','Another Asian or Pacific language']],
+    /* Saturation per language, measured off the real distribution rather than
+       guessed: the 99.9th percentile of the 4,226 places. One number for all of
+       them would be wrong in both directions - 5% Spanish is unremarkable and 5%
+       Korean is one of the largest Korean communities in the country. */
+    score: (p, v) => { const L = p.lang; if (!L) return null;
+      const x = L[v]; if (x == null) return null;
+      const SAT = { spanish: 96, chinese: 39, tagalog: 14, vietnamese: 14, korean: 15,
+                    arabic: 20, french: 27, slavic: 21, indoeuro: 24, asian_pi: 19 }[v];
+      return clamp(Math.sqrt(x / SAT), 0, 1); },
+    show: (p) => { const L = p.lang; if (!L) return null;
+      const x = L[state.lang];
+      return x == null ? null : [x.toFixed(x < 10 ? 1 : 0), '%']; },
+    sent: (v) => `is <b>${v[0]}%</b> ${(LANG_NOUN[state.lang] || '')}-speaking at home`,
   },
   {
     id: 'kids', label: 'Kids around', col: 'Kids', g: 'Life there',

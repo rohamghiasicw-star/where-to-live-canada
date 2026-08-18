@@ -326,7 +326,9 @@ for fname, field, fields in (
                                      'nearest_water_name', 'nearest_water_type', 'on_water')),
     ('data/us/osm.json', 'osm', ('soccer_pitches', 'churches', 'mosques', 'synagogues',
                                  'gurdwaras', 'temples_hindu', 'temples_buddhist',
-                                 'worship_total', 'ice_rinks', 'radius_km')),
+                                 'worship_total', 'ice_rinks', 'radius_km',
+                                 'dog_parks', 'vets', 'arts_venues', 'local_food',
+                                 'learning', 'health_facilities', 'volunteer_orgs')),
     ('data/us/proximity.json', 'prox', ('nearest_big_city', 'km_to_big_city',
                                         'drive_min_to_big_city', 'routed')),
 ):
