@@ -286,6 +286,9 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
   border: 1px solid var(--rule-2); color: var(--on-ink-2); padding: 0.7rem 0.95rem;
   cursor: pointer; border-radius: 0; }
 .v-again:hover { border-color: var(--signal); color: var(--on-ink); }
+.card-img { display: block; width: 100%; height: auto; max-width: 420px; margin: 0 auto; }
+.card-hint { margin: 0.8rem 0 0; text-align: center; font-size: var(--t-xs); color: var(--on-ink-3); }
+
 .v-prov { margin: 0; padding: 1.1rem var(--gut) 1.6rem; font-size: var(--t-xs);
   color: var(--on-ink-3); line-height: 1.55; max-width: 74ch; }
 .empty { padding: 2rem var(--gut); color: var(--on-ink-2); }

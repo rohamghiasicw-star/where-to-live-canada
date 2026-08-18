@@ -304,6 +304,9 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
   border: 1px solid var(--rule-2); color: var(--on-ink-2); padding: 0.7rem 0.95rem;
   cursor: pointer; border-radius: 0; }
 .v-again:hover { border-color: var(--signal); color: var(--on-ink); }
+.card-img { display: block; width: 100%; height: auto; max-width: 420px; margin: 0 auto; }
+.card-hint { margin: 0.8rem 0 0; text-align: center; font-size: var(--t-xs); color: var(--on-ink-3); }
+
 .v-prov { margin: 0; padding: 1.1rem var(--gut) 1.6rem; font-size: var(--t-xs);
   color: var(--on-ink-3); line-height: 1.55; max-width: 74ch; }
 .empty { padding: 2rem var(--gut); color: var(--on-ink-2); }
@@ -1762,21 +1765,59 @@ async function drawCard() {
 }
 const SHARE_HOST = location.host + location.pathname.replace(/index\.html$/, '');
 
-async function shareCard() {
-  const c = await drawCard(); if (!c) return;
-  const top = ranked.find((r) => !r.excluded);
-  const text = `Apparently I belong in ${top.p.name}, ${top.p.prov}. Where do you belong?`;
-  const blob = await new Promise((res) => c.toBlob(res, 'image/png'));
-  const file = new File([blob], 'where-u-belong.png', { type: 'image/png' });
-  // Web Share with a file is the good path on a phone. Everything else downloads.
-  if (navigator.canShare && navigator.canShare({ files: [file] })) {
-    try { await navigator.share({ files: [file], text, title: 'Where U Belong' }); return; }
-    catch (e) { if (e && e.name === 'AbortError') return; }
+/* A phone can hand a file to the system share sheet; a desktop cannot, and gets
+   the clipboard instead. Decided once, and the button says which, because
+   "Save the picture" promised a file and delivered a Save As dialog. */
+const CAN_SHARE_FILES = !!(navigator.canShare && navigator.canShare(
+  { files: [new File([new Uint8Array(1)], 'p.png', { type: 'image/png' })] }));
+const SHARE_LABEL = CAN_SHARE_FILES ? 'Send the picture' : 'Copy the picture';
+
+/* The picture IS the product - the job is getting it into a chat. A download
+   interrupts that with a filename and a folder picker and then leaves the thing
+   in Downloads to go and find. Share sheet on a phone, clipboard on a desktop,
+   and if both are refused, the card on screen to long-press. No save dialog on
+   any path. */
+function shareCard() {
+  const btn = $('#sharecard');
+  const say = (t) => { if (!btn) return; btn.textContent = t;
+    setTimeout(() => { btn.textContent = SHARE_LABEL; }, 2600); };
+
+  // The blob is requested but NOT awaited before asking for the clipboard:
+  // Safari only honours a write requested inside the click that caused it, and
+  // awaiting the canvas first spends the gesture. ClipboardItem takes the promise.
+  const blobP = drawCard().then((c) => c && new Promise((res) => c.toBlob(res, 'image/png')));
+
+  if (!CAN_SHARE_FILES && window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+    navigator.clipboard.write([new ClipboardItem({ 'image/png': blobP })])
+      .then(() => say('Copied. Paste it anywhere.'))
+      .catch(() => blobP.then(showCardSheet));
+    return;
   }
+  blobP.then(async (blob) => {
+    if (!blob) return;
+    const top = ranked.find((r) => !r.excluded);
+    const file = new File([blob], 'where-u-belong.png', { type: 'image/png' });
+    const text = `Apparently I belong in ${top.p.name}, ${top.p.prov}. Where do you belong?`;
+    if (CAN_SHARE_FILES) {
+      try { await navigator.share({ files: [file], text, title: 'Where U Belong' }); return; }
+      catch (e) { if (e && e.name === 'AbortError') return; }
+    }
+    showCardSheet(blob);
+  });
+}
+
+// Last resort, and still not a dialog: the card on screen, theirs to take.
+function showCardSheet(blob) {
+  if (!blob) return;
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'where-u-belong.png'; a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  $('#sheetBody').innerHTML =
+    `<img class="card-img" src="${url}" alt="Your result as a picture" width="1080" height="1350">
+     <p class="card-hint">Press and hold, or right-click, to save it.</p>`;
+  const sh = $('#sheet'); sh.hidden = false;
+  if (!history.state || !history.state.sheet)
+    history.pushState({ sheet: true }, '', location.href);
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 
 /* ---------- render ---------- */
@@ -2156,7 +2197,7 @@ function actionbar() {
     // Sharing IS the job, so it takes the primary slot in the thumb zone. It used
     // to sit 830px down the page, below the fold, behind a scroll.
     bar.innerHTML = `<button class="ab-back" id="abExplore">See all ${DATA.length}</button>
-      <button class="ab-main" id="sharecard">Save the picture</button>`;
+      <button class="ab-main" id="sharecard">${SHARE_LABEL}</button>`;
   } else {
     // on the field guide the way back to your answer is the primary move, not editing
     bar.innerHTML = `<button class="ab-back" id="abEdit">Change answers</button>
