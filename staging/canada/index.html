@@ -893,7 +893,11 @@ const Q_ALL = [
     show: (p) => { const x = cv(p, 'snow'); return x == null ? null : [Math.round(x), 'cm']; },
   },
   {
-    id: 'sun', g: 'Climate', label: 'Sun', col: 'Sun', hint: 'Hours of it a year.',
+    /* Canada only. NOAA's US normals carry no sunshine element, so every one of
+       the 4,197 US places returned "not recorded here" while the tile sat there
+       looking pickable. A tile that can never answer is worse than a missing
+       one: it spends a pick and hands back a winner chosen on nothing. */
+    id: 'sun', cc: ['CA'], g: 'Climate', label: 'Sun', col: 'Sun', hint: 'Hours of it a year.',
     kind: 'opts', def: 'yes', w: 1,
     opts: [['yes','I need sun'],['grey','Grey suits me fine']],
     score: (p, v) => { const s = cv(p, 'sun'); if (s == null) return null;
