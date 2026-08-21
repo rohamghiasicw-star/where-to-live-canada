@@ -287,6 +287,28 @@ const Q_ALL = [
     sent: (v) => `is <b>${v[0]}%</b> ${(LANG_NOUN[state.lang] || '')}-speaking at home`,
   },
   {
+    /* Doug asked for "healthier lifestyle" and named his own test: San Diego
+       versus Kansas City. San Diego is 19.8% inactive, Kansas City MO 29.7%,
+       Kansas City KS 35.3%, so the measure separates exactly what he meant.
+
+       ONE named measure, not a blended health score. That is CDC's own
+       instruction: the data "should not be used for ranking the overall health"
+       but individual measures "can be compared". Blending inactivity, obesity,
+       smoking and self-rated health would also just re-rank income. Binge
+       drinking is deliberately absent for the same reason - it runs backwards,
+       and San Diego scores worst of the three cities on it. */
+    id: 'active', cc: ['US'], label: 'An active place', col: 'Active', g: 'Life there',
+    hint: 'Adults reporting no leisure-time physical activity. CDC PLACES, modelled from BRFSS 2023.',
+    kind: 'flag', def: 1, w: 0, want: 'Somewhere people are active',
+    score: (p) => { const h = p.health; if (!h || h.inactive_pct == null) return null;
+      // 15% inactive is about the fittest place in the country, 45% about the
+      // least. Linear between, because the published range is already narrow.
+      return clamp(1 - (h.inactive_pct - 15) / 30, 0, 1); },
+    show: (p) => p.health && p.health.inactive_pct != null
+      ? [p.health.inactive_pct.toFixed(1), '%'] : null,
+    sent: (v) => `has <b>${v[0]}%</b> of adults getting no exercise`,
+  },
+  {
     id: 'kids', label: 'Kids around', col: 'Kids', g: 'Life there',
     hint: 'Share of the population under 15. The median place is 16%.',
     kind: 'opts', def: 'many', w: 0,
@@ -434,7 +456,7 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   mix:'the mix of people', french:'the French', kids:'the young families',
   single:'the single crowd', gender:'the gender balance', faith:'your community',
   water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
-  worship:'your faith community', lang:'your language',
+  worship:'your faith community', lang:'your language', active:'the active life',
   dog:'somewhere for a dog', arts:'the arts scene', food:'the local food',
   learn:'the libraries', health:'the healthcare', volunteer:'somewhere to pitch in' };
 /* Lowercasing "Rail I can actually use" for mid-sentence use printed the pronoun

@@ -318,6 +318,18 @@ if pc and pol:
         n += 1
     stats['politics'] = n
 
+# ---- CDC PLACES, keyed on the 7-digit place GEOID rather than name+state,
+# because the GEOID is exact and a name match is not. Modelled estimates, so the
+# app says so on the question rather than presenting them as measured.
+_health = load('data/us/health.json') or {}
+n = 0
+for p_ in places:
+    h = _health.get(p_.get('geoid'))
+    if h:
+        p_['health'] = h
+        n += 1
+stats['health'] = n
+
 # ---- the country-agnostic joins, keyed on name+state
 for fname, field, fields in (
     ('data/us/civic.json', 'civic', ('has_pro_team', 'pro_league_count', 'teams',
