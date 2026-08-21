@@ -458,6 +458,19 @@ def has_sport(tags, want):
     return want in [x.strip() for x in s.split(";")]
 
 
+
+
+# craft=* was pulled whole, but in North America the tag is overwhelmingly
+# trades: measured across the Canadian pull it is electrician, builder, hvac,
+# plumber, roofer, floorer, insulation. A plumber is not an arts scene, and
+# counting one would put population-correlated noise into the single
+# dimension that is meant not to be population. Keep the makers only.
+CRAFT_ARTS = {"pottery", "atelier", "glassblower", "jeweller", "goldsmith",
+              "bookbinder", "sculptor", "artist", "photographer", "printmaker",
+              "engraver", "musical_instrument", "luthier", "weaver",
+              "basket_maker", "restoration", "stonemason", "clockmaker"}
+
+
 def categorise(el):
     """Return the set of category keys this element counts toward."""
     t = el.get("tags", {})
@@ -486,7 +499,7 @@ def categorise(el):
     # subculture: where a scene physically happens. craft=* is any workshop -
     # a bookbinder, a brewery, a luthier - which is the maker end of it.
     if (am in ("arts_centre", "studio") or t.get("tourism") in ("gallery", "museum")
-            or t.get("leisure") == "hackerspace" or t.get("craft")):
+            or t.get("leisure") == "hackerspace" or t.get("craft") in CRAFT_ARTS):
         out.add("arts_venues")
     if am == "marketplace" or t.get("shop") in ("farm", "greengrocer"):
         out.add("local_food")

@@ -129,6 +129,25 @@ const Q_ALL = [
       return [W.km_to_water < 1 ? '0' : Math.round(W.km_to_water), 'km']; },
   },
   {
+    /* Doug: "Outdoor activities ( hiking bicycling proximity to skiing etc)".
+       Skiing is the one of the three with a clean current source for both
+       countries: OpenSkiMap, rebuilt nightly from OSM, filtered to operating
+       downhill areas with at least one lift - 526 US and 236 Canadian. The lift
+       filter is what drops tubing hills and abandoned rope tows.
+
+       Distance is STRAIGHT LINE and the hint says so. A mountain range between
+       you and the hill makes it optimistic, and the routing engine this repo
+       uses elsewhere is a public demo server nobody should ask 4,197 times. */
+    id: 'ski', g: 'The place', label: 'Skiing', col: 'Ski',
+    hint: 'Straight-line km to the nearest operating lift-served hill. OpenSkiMap.',
+    kind: 'flag', def: 1, w: 0, want: 'Skiing I can get to',
+    score: (p) => { const s_ = p.ski; if (!s_ || s_.km_to_ski == null) return null;
+      return clamp(1 - s_.km_to_ski / 200, 0, 1); },
+    show: (p) => p.ski && p.ski.km_to_ski != null
+      ? [p.ski.km_to_ski < 1 ? '0' : Math.round(p.ski.km_to_ski), 'km'] : null,
+    sent: (v) => `is <b>${v[0]}km</b> from a hill`,
+  },
+  {
     id: 'pitches', g: 'The place', label: 'Soccer pitches', col: 'Pitch',
     hint: 'Pitches within a 15km drive, counted off OpenStreetMap.',
     kind: 'flag', def: 1, w: 0, want: 'Somewhere I can actually get a game',
@@ -457,6 +476,7 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   single:'the single crowd', gender:'the gender balance', faith:'your community',
   water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
   worship:'your faith community', lang:'your language', active:'the active life',
+  ski:'the skiing',
   dog:'somewhere for a dog', arts:'the arts scene', food:'the local food',
   learn:'the libraries', health:'the healthcare', volunteer:'somewhere to pitch in' };
 /* Lowercasing "Rail I can actually use" for mid-sentence use printed the pronoun

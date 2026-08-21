@@ -124,3 +124,59 @@ anywhere else - and only with HRC's permission, since there is no open licence.
 
 Every real measure here scores the **government**, not the place, and all three
 sources say so themselves.
+
+---
+
+# Verdict 2: Healthier lifestyle - SHIPPED (US)
+
+CDC PLACES physical inactivity, place level, 4,188 of 4,197. San Diego 19.8%,
+Kansas City MO 29.7%, KS 35.3% - Doug's own test, working. One named measure,
+not a health score, on CDC's own instruction. PA and KY are absent from the 2025
+release entirely (both failed the BRFSS minimum) and are backfilled from 2024.
+Modelled estimates, said so in the hint. Canada floors at health region: 712/712
+join but 711 places share only 106 values, so six BC mountain towns read
+identically. Deferred, not shipped.
+
+# Verdict 3: Skiing - SHIPPED (both countries)
+
+OpenSkiMap, nightly from OSM, operating downhill areas with at least one lift:
+**526 US, 236 Canada**. Straight-line km, said so in the hint. Ski alone returns
+Lebanon NH at 0 km; ski plus an active place returns Steamboat Springs.
+
+Hiking and bicycling are NOT shipped, and for a measured reason. The USGS
+national trail layer's coverage is state-dependent - **Vermont 8,495 miles
+against Rhode Island 32.5**, a 260x gap that is about who mapped it, not who has
+trails. Ranking on it would put Rhode Island towns last for a fake reason. For
+bicycling, no US agency publishes lane mileage at all: not FHWA, not BTS, not
+Census, all three checked. The honest proxy is ACS bike-commute share, which is
+already sitting in `places.json` unused.
+
+# Two defects this round found in our OWN work
+
+**1. `craft=*` was polluting the arts count.** Measured across the Canadian pull,
+the tag in North America is electrician, builder, hvac, plumber, roofer, floorer,
+insulation. A plumber is not an arts scene, and counting one puts
+population-correlated noise into the single dimension meant not to be
+population. Now an explicit maker allowlist. No refetch needed - the data was
+already pulled, only the classification changed.
+
+**2. The 15 km radius breaks down around dense cities.** Measured from our own
+file:
+
+| Place | arts within 15 km |
+| --- | --- |
+| **Hoboken NJ** (pop 60k) | **1,540** |
+| Jersey City NJ | 1,539 |
+| **New York NY** | **1,538** |
+| Union City NJ | 1,475 |
+
+Hoboken outscores New York City because a 15 km disc from its centroid swallows
+Manhattan. For the five reachability dimensions this is fine and intended - "is
+there a vet I can drive to" is a question about what you can reach, and the file
+says so. For **arts it is wrong**, because "is this an arts town" is a question
+about the place, not its neighbours.
+
+**So arts is the one OSM dimension not shipping yet.** The fix is per-capita on
+the exclusive column, which independent work found is genuinely uncorrelated with
+population (spearman -0.107, against 0.925 for raw counts). The other five ship
+on the radius column as designed.

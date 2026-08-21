@@ -14,13 +14,20 @@ of similar size?**
 
 ## Summary table
 
-| # | Source | Format | Granularity | Join key | Separates similar-size places? | Verdict |
+| # | Source | Format / size | Granularity | Join key | Separates similar-size places? | Verdict |
 |---|---|---|---|---|---|---|
-| 1 | IMLS Museum Data Files 2018 | 3 CSV in ZIP, 2.9 MB | Individual museum, lat/lon | lat/lon + county FIPS | Yes, but 2018 and museums only | USABLE WITH WORK |
-| 2 | NEA grant awards | see §2 | see §2 | see §2 | see §2 | see §2 |
-| 3 | IRS BMF, NTEE major group A | 4 CSV, 324 MB | Org, city/state/ZIP | city+state or geocode | **Yes - the best of the lot** | **USABLE WITH WORK** |
-| 4 | OSM performance tags | Overpass | Element, lat/lon | lat/lon | Mixed - see per-tag verdicts | PARTLY USABLE |
-| 5 | Canada national culture lists | see §5 | see §5 | see §5 | see §5 | see §5 |
+| 1 | IMLS Museum Data Files 2018 | 3 CSV in ZIP, 2.9 MB | Museum, lat/lon | lat/lon + county FIPS | Yes, but frozen at 2018 | USABLE WITH WORK |
+| 2a | NEA grant awards (undocumented API) | JSON, 65.0 MB | Grant, city/ZIP | ZIP -> place | **No - 63% of places are zero** | NOT USABLE |
+| 2b | NEA Arts Data Profile / ACPSA | CSV, 5.1 MB | **State only** (51 values) | none | No - state only | NOT USABLE |
+| 2c | SMU DataArts / Arts Vibrancy | Tableau / $750 | **CBSA** | none | No - CBSA only | NOT USABLE |
+| 2d | NADAC at ICPSR | login-walled | CBSA | none | No | NOT USABLE |
+| 3 | **IRS BMF, NTEE major group A** | 4 CSV, 324 MB | Org, city/state/ZIP | geocode -> place | **Yes - the best of the lot** | **USABLE WITH WORK** |
+| 4 | OSM culture tags | Overpass / taginfo | Element, lat/lon | lat/lon | **theatre/cinema/museum yes; music_venue and nightclub no** | PARTLY USABLE |
+| 5a | **StatCan ODCAF** (Canada) | CSV in ZIP, 1.3 MB | Facility, **CSDUID + lat/lon** | **CSD code direct** | Yes, but 5.2x province bias | **USABLE** |
+| 5b | **StatCan CBC 33101176** (Canada) | CSV, 188 MB | **CSD** | **CSD code direct** | **Yes - best Canadian option** | **USABLE** |
+| 5c | CHIN / Artefacts Canada | search-only web app | n/a | none | n/a - no bulk download | NOT USABLE |
+| 5d | StatCan Heritage Institutions Survey | archived tables | Canada / province | none | No | NOT USABLE |
+| 6 | US Census ZIP Business Patterns | CSV, 291 MB | ZIP | ZCTA -> place | **No - 68-79% of places are zero** | NOT USABLE |
 
 **Headline:** the single best culture measure available is **IRS BMF NTEE major group A,
 per capita**. Measured on the real 4,226-place spine, its raw count correlates with
@@ -143,9 +150,117 @@ culture tag.
 
 ---
 
-## 3. IRS Exempt Organizations BMF, NTEE major group A
+## 2. NEA / NCAR / SMU DataArts
 
-*(§2 NEA/DataArts and §5 Canada appear below - they were verified in parallel.)*
+Short answer: **DataArts is not free and not joinable. The NEA has exactly one
+sub-state dataset, and I measured it against the real spine - it does not work either.**
+
+### 2a. NEA grant awards - free, big, current, and still NOT USABLE
+
+There is no documented bulk download. `https://www.arts.gov/grants/recent-grants` is a link
+page; the search app at `https://apps.nea.gov/grantsearch/` 302s to a React SPA at
+`https://grantsearch.nea.gov/`. Reading that SPA's JS bundle exposes an **undocumented,
+unauthenticated JSON API**. I called it myself:
+
+| | |
+|---|---|
+| Bulk URL | `https://grantsearch.nea.gov/api/Grants/Export` |
+| **My own measurement** | **HTTP 200, 65,013,823 bytes, `application/json`, 34.3 s, no key, no login** |
+| Stats URL | `https://grantsearch.nea.gov/api/Grants/Stats` -> HTTP 200, `{"TotalAmount":3319870602.9900,"UniqueStates":58,"UniqueOrganizations":12683}` |
+| Records | **65,932 grants**, FY**1998-2026**, $3.32 bn |
+| Fields | OrganizationName, City, State, Zip, ProjectDescription, FiscalYear, GrantAmount, DivisionName, ProgramName, CategoryDesc, GrantFrom/ToDate |
+| Geography | City, State, Zip populated. **`CongressionalDistrict` is null in all 65,932 rows. No lat/lon.** |
+| Licence | **Could not confirm** - no explicit statement found. Federal work, so 17 U.S.C. 105 public domain is an inference, not something read off the page. |
+
+I joined it properly - ZIP5 -> ZCTA -> place via the free Census crosswalk (§6), not by
+city name - and got a **97.3% record match rate** (64,150 of 65,932; 29 had no usable ZIP,
+1,753 ZIPs are not in the ZCTA crosswalk). Then measured it against the real 4,226-place
+spine:
+
+| pop band | n | % of places with ZERO grants ever (FY1998-2026) | % with ZERO since FY2016 | median $/capita |
+|---|---|---|---|---|
+| 10k-25k | 2,350 | **79%** | 86% | 0.00 |
+| 25k-50k | 993 | **58%** | 68% | 0.00 |
+| 50k-100k | 532 | 37% | 52% | 0.30 |
+| 100k-250k | 259 | 15% | 24% | 1.16 |
+| 250k-1M | 83 | **0%** | 4% | 7.68 |
+
+**Only 1,563 of 4,226 places (37.0%) have ever received an NEA grant in 29 years.** Since
+FY2016 it is 1,184 places (28.0%).
+
+**Size-confound verdict: this IS the population dimension wearing a hat.** Raw grant count
+vs population pearson **0.871**; grant dollars vs population pearson **0.820**. Worse, look
+at the zero column - it falls monotonically from 79% to 0% as population rises. "Has an NEA
+grant" is essentially a test of whether a town is big enough to host a major institution.
+Per-capita dollars does not rescue it, because for 79% of small towns the numerator is
+exactly zero and per-capita of zero is still zero. A dimension that cannot distinguish
+between two-thirds of the places in the app is not a dimension.
+
+**VERDICT: NOT USABLE** as a ranking input. Genuinely interesting as a *tie-breaker flag*
+for the ~1,200 places that do appear, or as descriptive copy ("this town has won N NEA
+grants"), but never as a scored dimension.
+
+*Caveat:* the endpoint is undocumented - found by reading a JS bundle. It has no stability
+guarantee and could be locked down without notice. Do not build a scheduled job on it
+without a cached fallback.
+
+### 2b. NEA research / Arts Data Profile series - NOT USABLE, state-level only
+
+`https://www.arts.gov/impact/research/arts-data-profile-series` lists 38 profiles. All are
+national, state, or rural/urban-binary. I downloaded the flagship file to prove it rather
+than take the titles at face value:
+
+- `https://www.arts.gov/sites/default/files/2001_2023ACPSA_R-2025.csv`
+- **HTTP 200, 5,072,279 bytes, 44,574 data rows** (Arts and Cultural Production Satellite
+  Account, 2001-2023)
+- Columns: `State,Year,Industry,Tot_VA,VA_ratio,ACPSA_VA,VA_LQ,Tot_Emp,Emp_ratio,ACPSA_Emp,Emp_LQ,Tot_Comp,Comp_ratio,ACPSA_Comp,Comp_LQ`
+- **The `State` column has exactly 51 distinct values** (`01 Alabama` … 50 states + DC).
+
+Free, clean, well documented - and **state-level only**. It cannot be joined to a place
+GEOID, and the app already has state. Zero separating power between two towns in the same
+state. **NOT USABLE.**
+
+### 2c. SMU DataArts (formerly NCAR) - NOT USABLE. Paywalled and CBSA-level.
+
+- **The URL in the brief is dead.** `https://www.smu.edu/meadows/newsandevents/artsvibrancyindex`
+  returns **HTTP 404** (I checked; it serves a 57,173-byte error page). The live home is
+  `culturaldata.org`.
+- **Cultural Data Profile is not free.** ICPSR's catalogue record for it
+  (`https://www.icpsr.umich.edu/web/NADAC/studies/39140`) states the price: CDP datasets for
+  the past five completed fiscal years cost **$750**, with academic discounts. The
+  `https://culturaldata.org/services/dataset-access/` route is a request-and-approval form,
+  not a download.
+- **Arts Vibrancy Index is not raw data.** The Data Explorer page embeds two Tableau Public
+  vizzes. The state-level workbook downloads (`https://public.tableau.com/workbooks/state_AVI2025.twb`,
+  200, 15,816 bytes) but is state-level. The Top-100 workbook
+  (`https://public.tableau.com/workbooks/ArtsVibrancyTop100VertTest.twb`) returns **404** -
+  download disabled.
+- **The disqualifier is granularity, not price.** The index is published for **Core Based
+  Statistical Areas**, and several published entries are metro *divisions*
+  (`San Francisco-San Mateo-Redwood City, CA`). A CBSA spans whole counties. **Every town in
+  a metro would receive one identical score**, which is precisely the discrimination the app
+  needs and would not get. Only the top 100 communities plus 50 states are published at all.
+
+**Is DataArts subscription-only? Effectively yes** - $750 for the org-level microdata, and
+the free published product is CBSA-level. **NOT USABLE.**
+
+### 2d. NADAC at ICPSR - free of charge but login-walled, and wrong granularity
+
+`https://www.icpsr.umich.edu/web/NADAC/` (302s to `/sites/nadac/home`) hosts 182 studies and
+states that users obtain data at no charge. **But download requires a login.** I confirmed
+this myself: `https://www.icpsr.umich.edu/web/NADAC/studies/38936/versions/V2/download/bundle?path=NADAC`
+redirects to a Keycloak OIDC login at
+`https://login.icpsr.umich.edu/realms/icpsr/protocol/openid-connect/auth?...`. No anonymous
+bulk access, no API.
+
+Beyond the login, the content is wrong for this purpose: SPPA 2022 (ICPSR 38936) is
+household survey microdata whose smallest geography is CBSA. The org-level entries (37335
+Arts Vibrancy, 39140 CDP) are bibliographic stubs that explicitly say the data are not
+available from ICPSR. **NOT USABLE.**
+
+---
+
+## 3. IRS Exempt Organizations BMF, NTEE major group A
 
 ### Download - re-measured today, not carried over
 
@@ -311,6 +426,7 @@ and a national charity headquartered in a small town inflates it.
 geocode-and-point-in-polygon join, and it is not optional.
 
 ---
+
 ## 4. OpenStreetMap - which additional tags actually carry live music and performance
 
 ### Method
@@ -461,163 +577,78 @@ that host live music" in North America - the tag exists but nobody applies it.
 
 ---
 
-## 2. NEA / NCAR / SMU DataArts
+## 4b. OSM tags tested per-place against real Overpass queries
 
-Short answer: **DataArts is not free and not joinable. The NEA has exactly one
-sub-state dataset, and I measured it against the real spine - it does not work either.**
+National totals say a tag exists. They do not say whether it separates two towns. So I ran
+real Overpass queries, 15 km radius around each place's spine coordinate, exact-match tags
+only, one `out count;` per tag in a single bbox-limited query. Twelve places chosen as
+known-arty vs known-not-arty at similar sizes.
 
-### 2a. NEA grant awards - free, big, current, and still NOT USABLE
+Query form used (this is the pattern that does NOT 504 - a `[bbox:]` setting in front of the
+`around:` filter cuts the scan enormously):
 
-There is no documented bulk download. `https://www.arts.gov/grants/recent-grants` is a link
-page; the search app at `https://apps.nea.gov/grantsearch/` 302s to a React SPA at
-`https://grantsearch.nea.gov/`. Reading that SPA's JS bundle exposes an **undocumented,
-unauthenticated JSON API**. I called it myself:
+```
+[out:json][timeout:120][bbox:{s},{w},{n},{e}];
+nwr["amenity"="theatre"](around:15000,{lat},{lon});out count;
+nwr["amenity"="cinema"](around:15000,{lat},{lon});out count;
+...
+```
 
-| | |
-|---|---|
-| Bulk URL | `https://grantsearch.nea.gov/api/Grants/Export` |
-| **My own measurement** | **HTTP 200, 65,013,823 bytes, `application/json`, 34.3 s, no key, no login** |
-| Stats URL | `https://grantsearch.nea.gov/api/Grants/Stats` -> HTTP 200, `{"TotalAmount":3319870602.9900,"UniqueStates":58,"UniqueOrganizations":12683}` |
-| Records | **65,932 grants**, FY**1998-2026**, $3.32 bn |
-| Fields | OrganizationName, City, State, Zip, ProjectDescription, FiscalYear, GrantAmount, DivisionName, ProgramName, CategoryDesc, GrantFrom/ToDate |
-| Geography | City, State, Zip populated. **`CongressionalDistrict` is null in all 65,932 rows. No lat/lon.** |
-| Licence | **Could not confirm** - no explicit statement found. Federal work, so 17 U.S.C. 105 public domain is an inference, not something read off the page. |
+| Place | pop | theatre | music_venue | nightclub | cinema | comm_ctr | arts_ctr | museum | events |
+|---|---|---|---|---|---|---|---|---|---|
+| Santa Fe, NM | 89,019 | **15** | 0 | 1 | 8 | 17 | 11 | 28 | 13 |
+| Santa Barbara, CA | 87,779 | **17** | 1 | 1 | 10 | 23 | 5 | 21 | 15 |
+| Asheville, NC | 94,535 | **9** | 1 | 1 | 6 | 13 | 3 | 6 | 8 |
+| Burlington, VT | 44,675 | **8** | 0 | 2 | 4 | 18 | 3 | 7 | 1 |
+| Sarasota, FL | 56,970 | **7** | 0 | 0 | 7 | 7 | 0 | 13 | 1 |
+| Atascocita, TX | 99,354 | **1** | 0 | 0 | 3 | 15 | 0 | 1 | 5 |
+| Tracy, CA | 96,966 | **2** | 0 | 0 | 1 | 2 | 1 | 2 | 0 |
+| Poinciana, FL | 75,068 | **0** | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
+| Stratford, ON | 33,232 | **7** | 0 | 0 | 1 | 0 | 0 | 3 | 0 |
+| Victoria, BC | 91,867 | **12** | 0 | 4 | 7 | 31 | 5 | 22 | 5 |
+| Nanaimo, BC | 99,863 | **6** | 1 | 3 | 3 | 10 | 3 | 5 | 0 |
+| Vaughan, ON | 323,103 | 22 | 0 | 7 | 12 | **109** | 5 | 9 | 24 |
 
-I joined it properly - ZIP5 -> ZCTA -> place via the free Census crosswalk (§6), not by
-city name - and got a **97.3% record match rate** (64,150 of 65,932; 29 had no usable ZIP,
-1,753 ZIPs are not in the ZCTA crosswalk). Then measured it against the real 4,226-place
-spine:
+Zero-rate across the 12 sampled places:
 
-| pop band | n | % of places with ZERO grants ever (FY1998-2026) | % with ZERO since FY2016 | median $/capita |
-|---|---|---|---|---|
-| 10k-25k | 2,350 | **79%** | 86% | 0.00 |
-| 25k-50k | 993 | **58%** | 68% | 0.00 |
-| 50k-100k | 532 | 37% | 52% | 0.30 |
-| 100k-250k | 259 | 15% | 24% | 1.16 |
-| 250k-1M | 83 | **0%** | 4% | 7.68 |
-
-**Only 1,563 of 4,226 places (37.0%) have ever received an NEA grant in 29 years.** Since
-FY2016 it is 1,184 places (28.0%).
-
-**Size-confound verdict: this IS the population dimension wearing a hat.** Raw grant count
-vs population pearson **0.871**; grant dollars vs population pearson **0.820**. Worse, look
-at the zero column - it falls monotonically from 79% to 0% as population rises. "Has an NEA
-grant" is essentially a test of whether a town is big enough to host a major institution.
-Per-capita dollars does not rescue it, because for 79% of small towns the numerator is
-exactly zero and per-capita of zero is still zero. A dimension that cannot distinguish
-between two-thirds of the places in the app is not a dimension.
-
-**VERDICT: NOT USABLE** as a ranking input. Genuinely interesting as a *tie-breaker flag*
-for the ~1,200 places that do appear, or as descriptive copy ("this town has won N NEA
-grants"), but never as a scored dimension.
-
-*Caveat:* the endpoint is undocumented - found by reading a JS bundle. It has no stability
-guarantee and could be locked down without notice. Do not build a scheduled job on it
-without a cached fallback.
-
-### 2b. NEA research / Arts Data Profile series - NOT USABLE, state-level only
-
-`https://www.arts.gov/impact/research/arts-data-profile-series` lists 38 profiles. All are
-national, state, or rural/urban-binary. I downloaded the flagship file to prove it rather
-than take the titles at face value:
-
-- `https://www.arts.gov/sites/default/files/2001_2023ACPSA_R-2025.csv`
-- **HTTP 200, 5,072,279 bytes, 44,574 data rows** (Arts and Cultural Production Satellite
-  Account, 2001-2023)
-- Columns: `State,Year,Industry,Tot_VA,VA_ratio,ACPSA_VA,VA_LQ,Tot_Emp,Emp_ratio,ACPSA_Emp,Emp_LQ,Tot_Comp,Comp_ratio,ACPSA_Comp,Comp_LQ`
-- **The `State` column has exactly 51 distinct values** (`01 Alabama` … 50 states + DC).
-
-Free, clean, well documented - and **state-level only**. It cannot be joined to a place
-GEOID, and the app already has state. Zero separating power between two towns in the same
-state. **NOT USABLE.**
-
-### 2c. SMU DataArts (formerly NCAR) - NOT USABLE. Paywalled and CBSA-level.
-
-- **The URL in the brief is dead.** `https://www.smu.edu/meadows/newsandevents/artsvibrancyindex`
-  returns **HTTP 404** (I checked; it serves a 57,173-byte error page). The live home is
-  `culturaldata.org`.
-- **Cultural Data Profile is not free.** ICPSR's catalogue record for it
-  (`https://www.icpsr.umich.edu/web/NADAC/studies/39140`) states the price: CDP datasets for
-  the past five completed fiscal years cost **$750**, with academic discounts. The
-  `https://culturaldata.org/services/dataset-access/` route is a request-and-approval form,
-  not a download.
-- **Arts Vibrancy Index is not raw data.** The Data Explorer page embeds two Tableau Public
-  vizzes. The state-level workbook downloads (`https://public.tableau.com/workbooks/state_AVI2025.twb`,
-  200, 15,816 bytes) but is state-level. The Top-100 workbook
-  (`https://public.tableau.com/workbooks/ArtsVibrancyTop100VertTest.twb`) returns **404** -
-  download disabled.
-- **The disqualifier is granularity, not price.** The index is published for **Core Based
-  Statistical Areas**, and several published entries are metro *divisions*
-  (`San Francisco-San Mateo-Redwood City, CA`). A CBSA spans whole counties. **Every town in
-  a metro would receive one identical score**, which is precisely the discrimination the app
-  needs and would not get. Only the top 100 communities plus 50 states are published at all.
-
-**Is DataArts subscription-only? Effectively yes** - $750 for the org-level microdata, and
-the free published product is CBSA-level. **NOT USABLE.**
-
-### 2d. NADAC at ICPSR - free of charge but login-walled, and wrong granularity
-
-`https://www.icpsr.umich.edu/web/NADAC/` (302s to `/sites/nadac/home`) hosts 182 studies and
-states that users obtain data at no charge. **But download requires a login.** I confirmed
-this myself: `https://www.icpsr.umich.edu/web/NADAC/studies/38936/versions/V2/download/bundle?path=NADAC`
-redirects to a Keycloak OIDC login at
-`https://login.icpsr.umich.edu/realms/icpsr/protocol/openid-connect/auth?...`. No anonymous
-bulk access, no API.
-
-Beyond the login, the content is wrong for this purpose: SPPA 2022 (ICPSR 38936) is
-household survey microdata whose smallest geography is CBSA. The org-level entries (37335
-Arts Vibrancy, 39140 CDP) are bibliographic stubs that explicitly say the data are not
-available from ICPSR. **NOT USABLE.**
-
----
-
-## 6. BONUS - Census ZIP Business Patterns (not in the brief, checked anyway, NOT USABLE)
-
-Worth ruling out explicitly because it looks perfect on paper: an annual, current, free
-federal count of business establishments by industry at ZIP level.
-
-| | |
-|---|---|
-| URL | `https://www2.census.gov/programs-surveys/cbp/datasets/2023/zbp23detail.zip` |
-| **Measured** | **HTTP 200, 15,712,046 bytes zipped -> 291,122,039 bytes, 2,974,116 rows** |
-| Vintage | 2023 data, file dated 09 Jun 2025. Annual series. |
-| Fields | `zip,name,naics,est,n<5,…,n1000,city,stabbr,cty_name` |
-| Licence | US federal, public domain, free, no login |
-| Crosswalk | `https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_place20_natl.txt` - **HTTP 200, 9,811,563 bytes**, free, ZCTA -> place GEOID |
-
-The `est` column is never suppressed (0 unparseable across all 2,974,116 rows), and the ZIP
-join is clean: **11,059 of 11,459 ZIPs (96.5%)** matched a ZCTA in the crosswalk.
-
-**But the culture industries are far too thin.** National establishment totals I counted:
-
-| NAICS | Meaning | Establishments |
+| Tag | zero in | max |
 |---|---|---|
-| `7111//` | Performing Arts Companies | **5,666** |
-| `712///` | Museums, Historical Sites and Similar | **2,715** |
-| `7113//` | Promoters of Performing Arts | 3,933 |
-| `512131` | Motion Picture Theaters | 268 (6-digit detail is disclosure-suppressed in most ZIPs) |
-| `71----` | Whole sector 71 Arts/Entertainment/Recreation | 156,063 (but `713///` alone - gyms, golf, bowling - is 79,444, so the sector is useless as a culture proxy) |
+| `amenity=theatre` | **1/12** | 22 |
+| `amenity=cinema` | **1/12** | 12 |
+| `tourism=museum` | **1/12** | 28 |
+| `amenity=community_centre` | 1/12 | 109 |
+| `amenity=arts_centre` | 4/12 | 11 |
+| `amenity=events_venue` | 4/12 | 24 |
+| `amenity=nightclub` | 5/12 | 7 |
+| **`amenity=music_venue`** | **9/12** | **1** |
 
-Only **2,715 museum establishments nationally**, against 30,178 in IMLS and 14,800 in OSM.
-The reason is structural: CBP counts establishments **with paid employees**, and most small
-museums and arts groups are volunteer-run with no payroll. CBP is blind to exactly the
-organisations that distinguish a small arts town.
+### What this proves
 
-Joined to the spine (7111 + 712 + 7113 = 11,177 establishments assigned):
+**`amenity=theatre` is the winner, and it is not measuring population.** Compare places of
+nearly identical size: Santa Fe 89,019 pop -> **15 theatres**, against Atascocita 99,354 pop
+-> **1**, Tracy 96,966 -> **2**, Poinciana 75,068 -> **0**. The three larger towns have
+almost no theatres and the smaller arts town has fifteen. That is exactly the discrimination
+he wants. Burlington VT at 44,675 pop has 8 - twice as many as three towns more than double
+its size.
 
-| pop band | n | median count | % zero |
-|---|---|---|---|
-| 25k-50k | 993 | 0 | **79%** |
-| 50k-100k | 532 | 0 | **68%** |
-| 100k-250k | 259 | 3 | 48% |
+**`amenity=music_venue` is confirmed dead in the field, not just in aggregate.** Zero in 9
+of 12 places, and the maximum anywhere was **1**. Santa Fe - one of the densest arts towns
+in America - has **zero**. Nothing can be built on this tag.
 
-**Size-confound verdict: fails twice.** Raw count vs population pearson **0.888**, and the
-zero rate again falls with population. Same failure shape as the NEA grants.
+**`amenity=nightclub` is too sparse to rank on.** Zero in 5 of 12, including Sarasota and
+Santa Fe. It is not measuring nightlife, it is measuring whether a mapper bothered.
 
-**VERDICT: NOT USABLE** for this dimension. Worth remembering that the **ZBP file and the
-free ZCTA->place crosswalk both work perfectly** - if he ever wants a different dimension
-built on business counts (restaurants, groceries, gyms), that pipeline is verified and
-ready. It is the culture NAICS codes specifically that are too thin.
+**`amenity=cinema` and `tourism=museum` both work** and both separate the same way (Santa Fe
+28 museums vs Poinciana 0).
+
+**`amenity=community_centre` is erratic - do not trust it.** Vaughan ON returned **109**
+while Stratford ON returned **0**. Stratford is the single most theatre-driven town in
+Canada. A tag that scores Canada's premier theatre town at zero and a Toronto commuter
+suburb at 109 is not measuring culture.
+
+**Vaughan also re-demonstrates the metro contamination problem from §1.** Its 15 km radius
+reaches into Toronto, which is where the 109 community centres and most of the 22 theatres
+actually are. Any radius-based measure will keep giving big-city assets to suburbs.
 
 ---
 
@@ -841,3 +872,160 @@ quality and neither needs geocoding. Use them instead.**
 **Warning:** pre-2019 CRA files use a different, incompatible 2-digit category scheme. Do
 not mix vintages.
 
+---
+
+## 6. BONUS - Census ZIP Business Patterns (not in the brief, checked anyway, NOT USABLE)
+
+Worth ruling out explicitly because it looks perfect on paper: an annual, current, free
+federal count of business establishments by industry at ZIP level.
+
+| | |
+|---|---|
+| URL | `https://www2.census.gov/programs-surveys/cbp/datasets/2023/zbp23detail.zip` |
+| **Measured** | **HTTP 200, 15,712,046 bytes zipped -> 291,122,039 bytes, 2,974,116 rows** |
+| Vintage | 2023 data, file dated 09 Jun 2025. Annual series. |
+| Fields | `zip,name,naics,est,n<5,…,n1000,city,stabbr,cty_name` |
+| Licence | US federal, public domain, free, no login |
+| Crosswalk | `https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_place20_natl.txt` - **HTTP 200, 9,811,563 bytes**, free, ZCTA -> place GEOID |
+
+The `est` column is never suppressed (0 unparseable across all 2,974,116 rows), and the ZIP
+join is clean: **11,059 of 11,459 ZIPs (96.5%)** matched a ZCTA in the crosswalk.
+
+**But the culture industries are far too thin.** National establishment totals I counted:
+
+| NAICS | Meaning | Establishments |
+|---|---|---|
+| `7111//` | Performing Arts Companies | **5,666** |
+| `712///` | Museums, Historical Sites and Similar | **2,715** |
+| `7113//` | Promoters of Performing Arts | 3,933 |
+| `512131` | Motion Picture Theaters | 268 (6-digit detail is disclosure-suppressed in most ZIPs) |
+| `71----` | Whole sector 71 Arts/Entertainment/Recreation | 156,063 (but `713///` alone - gyms, golf, bowling - is 79,444, so the sector is useless as a culture proxy) |
+
+Only **2,715 museum establishments nationally**, against 30,178 in IMLS and 14,800 in OSM.
+The reason is structural: CBP counts establishments **with paid employees**, and most small
+museums and arts groups are volunteer-run with no payroll. CBP is blind to exactly the
+organisations that distinguish a small arts town.
+
+Joined to the spine (7111 + 712 + 7113 = 11,177 establishments assigned):
+
+| pop band | n | median count | % zero |
+|---|---|---|---|
+| 25k-50k | 993 | 0 | **79%** |
+| 50k-100k | 532 | 0 | **68%** |
+| 100k-250k | 259 | 3 | 48% |
+
+**Size-confound verdict: fails twice.** Raw count vs population pearson **0.888**, and the
+zero rate again falls with population. Same failure shape as the NEA grants.
+
+**VERDICT: NOT USABLE** for this dimension. Worth remembering that the **ZBP file and the
+free ZCTA->place crosswalk both work perfectly** - if he ever wants a different dimension
+built on business counts (restaurants, groceries, gyms), that pipeline is verified and
+ready. It is the culture NAICS codes specifically that are too thin.
+
+---
+
+## What I would actually build
+
+**US - two ingredients, both verified:**
+
+1. **IRS BMF NTEE major group A, per 10,000 population.** 118,457 organisations. Per-capita
+   rate is independent of population (spearman -0.107) and still spreads places 8.8x inside
+   a single population band. Use `A_all`, not the performance subset - `A_perf_event` is
+   conceptually purer but 26% of towns sit on 0-2 organisations, which is rounding, not
+   signal. **Requires the geocode + point-in-polygon join.** The city-name join loses 35% of
+   organisations and is biased against the largest cities and against CDPs.
+2. **OSM `amenity=theatre`, and add `amenity=cinema`.** Both well mapped, both cross-border
+   comparable (index 0.91 and 0.80), both empirically separate similar-sized towns.
+   `tourism=museum` he already pulls and it is ~complete.
+
+Optional third: **IMLS 2018 non-`HSC` museums** via lat/lon. Free, precise, but frozen at
+2018 and largely redundant with OSM `tourism=museum` (they agree to 6.5%).
+
+**Canada - two ingredients:**
+
+1. **StatCan CBC table 33101176, NAICS 711 + 712, per capita.** 71% place coverage, direct
+   CSD join, updated 2026-08-14, mild province bias (2.3x). **Not NAICS 71** - that is 62%
+   gyms and golf courses.
+2. **ODCAF excluding libraries/archives**, for named venues and the museum/theatre/gallery
+   breakdown. 64% place coverage, `CSDUID` on 96.2% of rows. **Within-province only** - the
+   5.2x province bias makes cross-province per-capita comparison invalid.
+
+**Three things to stop or fix:**
+
+- **Stop pulling `craft=*` unfiltered.** In North America it is dominated by HVAC, plumbers,
+  roofers and electricians. It is adding population-correlated noise to a dimension whose
+  entire purpose is to not be population.
+- **Drop `amenity=music_venue` and `amenity=nightclub` from consideration.** Verified dead
+  and near-dead respectively.
+- **Fix the centroid join before trusting any radius count.** It currently gives Manhattan's
+  museums to Hoboken (154 vs New York's 75) and Philadelphia's to Camden (81 vs 31), and it
+  inflates national totals 6.0x. This affects the existing `data/osm.json` too.
+
+**On his original instinct:** he was right that big cities have more. Every raw count tested
+confirmed it - NTEE-A raw count vs population pearson 0.925, NEA grants 0.871, ZBP 0.888,
+Canadian NAICS 71 spearman 0.849. The fix is not a different dataset, it is **per-capita
+normalisation plus a source with enough volume that small towns are not all zero**. That is
+the entire reason NTEE-A (118,457 orgs) works and NEA grants (65,932 grants but 63% of
+places at zero) does not.
+
+---
+
+## What I could NOT confirm
+
+Listed plainly so none of it is mistaken for verified fact.
+
+1. **Licence for the NEA grants data.** No copyright or reuse statement was found on
+   `arts.gov`. US federal work being public domain under 17 U.S.C. 105 is an inference, not
+   something read off a page.
+2. **Stability of `https://grantsearch.nea.gov/api/Grants/Export`.** It is undocumented -
+   discovered by reading the search app's JavaScript bundle. No published rate limit, ToS,
+   or stability guarantee. It could be locked down without notice.
+3. **End-to-end runtime and real match rate of geocoding 118,457 NTEE-A addresses** through
+   the Census batch geocoder. The 65.2% figure is for naive city-name matching, which is the
+   method being *rejected*. The geocoded route is scoped but not executed or benchmarked.
+4. **Whether the low NTEE-A scores for CDPs are real or join artifacts.** Atascocita TX,
+   Alafaya FL and Poinciana FL all score n=1. I argue this is a postal-city artifact, but I
+   did not prove it by geocoding those organisations.
+5. **Per-place OSM counts for the full 4,197 / 710 universe.** I sampled **12 places**.
+   The per-tag verdicts combine those 12 real queries with national taginfo counts. A full
+   sweep at the observed 78-368 s per place would take many hours and was not run.
+6. **Whether adding `amenity=theatre` actually improves the composite score**, as opposed to
+   duplicating what NTEE-A already captures. I could not test the correlation between them
+   without a full-universe OSM sweep.
+7. **Whether OSM element counts double-count venues** mapped as both a node and a building
+   way. taginfo counts elements. Treat all OSM figures as upper bounds.
+8. **Any IMLS MUDF vintage before 2018.** The page references FY2014 Q1, FY2015 Q1 and
+   FY2015 Q3 releases but exposes no download links for them. I did not locate them.
+9. **ODCAF v2.** `ODCAF_V1.0.zip` still carries `Last-Modified: 2020-10-01` and the StatCan
+   LODE page links only v1.0. I found no v2; I did not exhaustively prove none exists.
+10. **ODCAF duplicate rate.** The 7,972 figure is as-published. I did not read the full
+    874,894-byte metadata PDF or test for duplicate facilities.
+11. **StatCan CBC "absent means zero".** Absent CSD/NAICS combinations were treated as zero
+    businesses. No blanks appeared in the published arts rows, but I did not find StatCan
+    documentation explicitly confirming that an absent row means zero rather than suppressed.
+12. **CHIN.** `www.canada.ca` blocks scripted clients (HTTP/2 `INTERNAL_ERROR`) and returns
+    403 to WebFetch, so the CHIN pages were read through a browser only. The conclusion that
+    there is no downloadable "Directory of Canadian Museums" rests on its absence from the
+    CHIN homepage navigation, **not an exhaustive crawl**. A directory could exist on a
+    canada.ca subpage that was never reached. `app.pch.gc.ca/application/cmc-dcm/` returns
+    only a JS cookie stub and its real content was never seen.
+13. **Whether SMU DataArts would supply sub-CBSA Arts Vibrancy scores on request.** The
+    request form was not submitted - that would be an outward message.
+14. **Whether the Arts Vibrancy Top-100 Tableau viz exposes a "Download Data" option to a
+    logged-in Tableau user.** The `.twb` returning 404 strongly implies download is disabled,
+    but this was not proven from inside a Tableau session.
+15. **The full NADAC 182-study catalogue.** Roughly ten titles and six study pages were
+    inspected. An obscure organisation-level city dataset was not exhaustively ruled out.
+16. **Spine size discrepancy.** The brief says 4,197 US places and 710 Canadian. The repo
+    files hold **4,226** (`data/us/places.json`) and **712** (`data/allplaces.json`). All
+    percentages above are computed against 4,226 and 712. The gap is small but real -
+    reconcile before quoting coverage figures.
+
+## Reproduction
+
+Working files (scratch, not committed) at
+`/private/tmp/claude-501/-Users-rohamghiasi-Desktop-Mover-Files/898cd956-8c42-40ae-92fa-2eca54ad7bc5/scratchpad/`:
+`bmf/eo1-4.csv`, `imls/`, `zbp/`, `zcta_place.txt`, `nea_grants.json`,
+`odcaf_v/`, `cbc/33101176.csv`, `osm_sweep.jsonl`, `places_enriched.json`,
+`ca_enriched.json`, and the scripts `analyze.py`, `confound.py`, `robust.py`, `subsets.py`,
+`osmsweep2.py`.

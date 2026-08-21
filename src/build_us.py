@@ -341,6 +341,8 @@ for fname, field, fields in (
                                  'worship_total', 'ice_rinks', 'radius_km',
                                  'dog_parks', 'vets', 'arts_venues', 'local_food',
                                  'learning', 'health_facilities', 'volunteer_orgs')),
+    ('data/us/ski.json', 'ski', ('km_to_ski', 'nearest_ski', 'nearest_ski_vert',
+                                 'km_to_big_ski')),
     ('data/us/proximity.json', 'prox', ('nearest_big_city', 'km_to_big_city',
                                         'drive_min_to_big_city', 'routed')),
 ):

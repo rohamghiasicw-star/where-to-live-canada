@@ -200,6 +200,15 @@ for r in (load('data/osm.json') or []):
     if a: a['radius_km'] = r.get('radius_km'); by[k]['osm'] = a
 stats['osm'] = sum(1 for p in places if p.get('osm'))
 
+# Straight-line km to the nearest operating lift-served downhill area.
+for r in (load('data/ski.json') or []):
+    k = key(r.get('name',''), r.get('prov',''))
+    if k in by:
+        by[k]['ski'] = {f: r.get(f) for f in
+            ('km_to_ski','nearest_ski','nearest_ski_vert','km_to_big_ski')
+            if r.get(f) is not None}
+stats['ski'] = sum(1 for p in places if p.get('ski'))
+
 stats['politics'] = merge('data/politics.json', 'politics', lambda r: {
     'lean': r.get('lean'), 'lean_label': r.get('lean_label'),
     'riding': r.get('riding'), 'winner': r.get('riding_2021_winner'),
