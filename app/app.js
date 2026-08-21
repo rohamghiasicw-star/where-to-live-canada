@@ -1011,8 +1011,25 @@ function verdict() {
   // a low top score means the answers contradict each other. name the two that fight.
   const live = ranked.filter((x) => !x.excluded).length;
   const cut = ranked.length - live;
+  /* Doug ranked the commute first and got a town scoring 41 out of 100 on it,
+     with nothing on screen saying so. The note below existed but was gated on
+     the OVERALL fit being under 62, and a place can score 79 overall while
+     completely failing the one thing you put first - the other four picks carry
+     it. Gate on the pick instead: if what you ranked first or second is what
+     gave way, that is the sentence the reader needs, whatever the total says.
+     "The order you tap is the weighting" has to include admitting when the
+     country cannot honour it. */
+  let gaveWay = null;
+  for (const id of picks.slice(0, 2)) {
+    const part = r.parts.find((x) => x.id === id);
+    if (part && part.s < 0.45) {
+      gaveWay = { q: Q.find((q) => q.id === id), s: part.s, rank: picks.indexOf(id) };
+      break;
+    }
+  }
+
   let conflict = null;
-  if (r.fit < 62) {
+  if (!gaveWay && r.fit < 62) {
     const worst = r.parts.filter((x) => x.s < 0.4).sort((a,b) => a.s - b.s).slice(0,2);
     const Qof = (id) => Q.find((q) => q.id === id);
     if (worst.length === 2) {
@@ -1075,6 +1092,10 @@ function verdict() {
       ${rows}
     </div>
 
+    ${gaveWay ? `<p class="v-warn">You ranked <b>${lc(SHORT[gaveWay.q.id] || gaveWay.q.label)}</b>
+      ${gaveWay.rank ? 'second' : 'first'} and it is the pick that gave way: ${p.name} scores
+      <b>${Math.round(gaveWay.s * 100)} out of 100</b> on it. That is as close as anything gets
+      to the rest of your answers. Drop a pick to get it back.</p>` : ''}
     ${conflict || cutMsg ? `<p class="v-warn">${[cutMsg, conflict].filter(Boolean).join(' ')}</p>` : ''}
     ${cf ? `<p class="v-catch">Nearly the same on your answers: <b>${cf.others.join(', ')}</b>.
       What separates them is <b>${SHORT[cf.splitter]}</b>.</p>` : ''}
