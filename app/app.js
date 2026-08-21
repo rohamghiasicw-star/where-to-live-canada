@@ -1485,7 +1485,6 @@ MOBILE.addEventListener('change', () => { selected = null; render(); });
    picked ask you anything. Pick nothing and you are asked nothing. */
 const PICKABLE = Q.filter((q) => !q.noPick);
 function buildPicker() {
-  const qt = $('#qtotal'); if (qt) qt.textContent = PICKABLE.length;   // never let the copy go stale
   let lastG = null;
   const host = $('#picker');
   host.innerHTML = PICKABLE.map((q) => {
@@ -1501,7 +1500,7 @@ function buildPicker() {
   host.classList.toggle('full', picks.length >= MAX_PICKS);
   const n = picks.length;
   $('#pkcount').innerHTML = n === 0
-    ? `Tap up to ${MAX_PICKS}. The order you tap is the order they count.`
+    ? `Tap up to ${MAX_PICKS} of <b>${PICKABLE.length}</b>. The order you tap is the order they count.`
     : n >= MAX_PICKS
       ? `That is your ${MAX_PICKS}. Tap one again to swap it out.`
       : `<b>${n} of ${MAX_PICKS}</b> picked. ${n === 1 ? 'Pick another, or stop here.' : 'Keep going, or stop here.'}`;

@@ -429,10 +429,19 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
      tile: wordmark band, then a full-width country strip, then a two-line heading.
      The wordmark and the country switch now share one row and the heading tightens,
      which puts the first tile near 150px and six more tiles on screen. */
-  .head { grid-template-columns: auto 1fr; align-items: center; gap: 0.6rem;
+  /* minmax(0,1fr) auto, not auto 1fr: the first column used to shrink-wrap the
+     wordmark, so the lede underneath inherited a ~150px measure and wrapped to
+     two lines. The switch link only ever needs its own width. */
+  .head { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.6rem;
     padding: 0.55rem var(--gut); border-bottom-width: 2px; }
   h1 { font-size: 1.5rem; }
-  .headnote, .lede { display: none; }
+  /* The lede used to go entirely. Someone arriving on a link Doug forwarded got
+     a wordmark and a wall of tiles with nothing saying what the thing does. Keep
+     the half that makes the claim, drop the half that recites the count - the
+     picker line below says how many places and how many categories anyway. */
+  .headnote { display: none; }
+  .lede { font-size: 0.78rem; margin: 0.15rem 0 0; line-height: 1.35; }
+  .lede-b { display: none; }
   .cswitch { grid-row: 1; grid-column: 2; justify-self: end; text-align: right;
     padding: 0.9rem 0; background: none; border: 0; font-size: 0.8rem;
     min-height: 44px; line-height: 1.3; white-space: nowrap; max-width: 100%; }
@@ -630,8 +639,9 @@ review, the verdict, and DESIGN.md
   <header class="head">
     <div class="head-main">
       <h1>Where <i>U</i> Belong</h1>
-      <p class="lede" id="lede">Every best-places-to-live list picks the weights for you.
-      This one asks what <em>you</em> want, then re-ranks all <b>710 places in Canada</b> against it.</p>
+      <p class="lede" id="lede"><span class="lede-a">Every best-places list picks the weights.
+      This one asks <em>you</em>.</span><span class="lede-b"> Say what matters and it re-ranks
+      all <b>710 places in Canada</b> against your answer.</span></p>
     </div>
     <div class="headnote">      <b>710</b> cities and towns, every one in Canada<br>
       where 1,000 people live at real density<br>
@@ -2307,7 +2317,6 @@ MOBILE.addEventListener('change', () => { selected = null; render(); });
    picked ask you anything. Pick nothing and you are asked nothing. */
 const PICKABLE = Q.filter((q) => !q.noPick);
 function buildPicker() {
-  const qt = $('#qtotal'); if (qt) qt.textContent = PICKABLE.length;   // never let the copy go stale
   let lastG = null;
   const host = $('#picker');
   host.innerHTML = PICKABLE.map((q) => {
@@ -2323,7 +2332,7 @@ function buildPicker() {
   host.classList.toggle('full', picks.length >= MAX_PICKS);
   const n = picks.length;
   $('#pkcount').innerHTML = n === 0
-    ? `Tap up to ${MAX_PICKS}. The order you tap is the order they count.`
+    ? `Tap up to ${MAX_PICKS} of <b>${PICKABLE.length}</b>. The order you tap is the order they count.`
     : n >= MAX_PICKS
       ? `That is your ${MAX_PICKS}. Tap one again to swap it out.`
       : `<b>${n} of ${MAX_PICKS}</b> picked. ${n === 1 ? 'Pick another, or stop here.' : 'Keep going, or stop here.'}`;

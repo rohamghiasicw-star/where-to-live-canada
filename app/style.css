@@ -411,10 +411,19 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
      tile: wordmark band, then a full-width country strip, then a two-line heading.
      The wordmark and the country switch now share one row and the heading tightens,
      which puts the first tile near 150px and six more tiles on screen. */
-  .head { grid-template-columns: auto 1fr; align-items: center; gap: 0.6rem;
+  /* minmax(0,1fr) auto, not auto 1fr: the first column used to shrink-wrap the
+     wordmark, so the lede underneath inherited a ~150px measure and wrapped to
+     two lines. The switch link only ever needs its own width. */
+  .head { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.6rem;
     padding: 0.55rem var(--gut); border-bottom-width: 2px; }
   h1 { font-size: 1.5rem; }
-  .headnote, .lede { display: none; }
+  /* The lede used to go entirely. Someone arriving on a link Doug forwarded got
+     a wordmark and a wall of tiles with nothing saying what the thing does. Keep
+     the half that makes the claim, drop the half that recites the count - the
+     picker line below says how many places and how many categories anyway. */
+  .headnote { display: none; }
+  .lede { font-size: 0.78rem; margin: 0.15rem 0 0; line-height: 1.35; }
+  .lede-b { display: none; }
   .cswitch { grid-row: 1; grid-column: 2; justify-self: end; text-align: right;
     padding: 0.9rem 0; background: none; border: 0; font-size: 0.8rem;
     min-height: 44px; line-height: 1.3; white-space: nowrap; max-width: 100%; }
