@@ -554,10 +554,50 @@ function decodeState(s) {
   } catch (e) { return false; }
 }
 let shared = location.hash.length > 2 && decodeState(location.hash.slice(1));
+
+/* Doug's note, with the Social Network clip attached: the moment that made
+   Facemash was comparison, not data. A shared link already carries the sender's
+   entire answer - that is what the hash IS - and the app used to throw it away
+   the instant you touched anything. Keep it, and once you have your own result
+   you get both side by side. */
+/* Snapshot at load, NOT on first change. The picker handler splices picks
+   before it calls ownIt(), so a snapshot taken there is already the reader's
+   answer wearing the sender's name - it put the sender in Camden when they had
+   been sent Buffalo. Nothing can have changed yet at this line. */
+let theirs = shared && picks.length
+  ? { picks: picks.slice(), state: Object.assign({}, state) } : null;
 function ownIt() {   // the moment they change anything, the result is theirs, not the sender's
   if (!shared) return;
   shared = false;
   const l = $('#lede'); if (l && ORIG_LEDE) l.innerHTML = ORIG_LEDE;
+}
+
+/* Score a stashed answer without disturbing the live one. picks is swapped out
+   and back; state is copied over a snapshot so a key the sender never set falls
+   back to the default rather than reading whatever you last chose. */
+function resultFor(snap) {
+  if (!snap || !snap.picks.length) return null;
+  const p0 = picks.slice(), s0 = Object.assign({}, state);
+  picks = snap.picks.slice();
+  Object.assign(state, snap.state);
+  let out = null;
+  try { out = scoreAll().find((r) => !r.excluded) || null; }
+  finally { picks = p0; Object.assign(state, s0); }
+  return out;
+}
+
+/* How much two answers actually agree: same thing picked AND the same thing
+   asked of it. Picking winter and wanting opposite winters is not agreement. */
+function agreementWith(snap) {
+  if (!snap) return null;
+  const mine = new Set(picks), same = [];
+  for (const id of snap.picks) {
+    if (!mine.has(id)) continue;
+    const q = Q.find((x) => x.id === id); if (!q) continue;
+    const a = snap.state[id], b = state[id];
+    if (q.kind === 'range' ? Math.abs(a - b) <= (q.step || 1) * 2 : a === b) same.push(id);
+  }
+  return { shared: same, n: same.length, of: Math.max(picks.length, snap.picks.length) };
 }
 
 /* ---------- scoring ----------
@@ -1132,6 +1172,26 @@ function verdict() {
       <p class="v-score">Fit <b>${Math.round(r.fit)}</b> out of 100${
         r.coverage < 0.999 ? `, on the ${Math.round(r.coverage*100)}% of your answers it has data for` : ''}</p>
     </div>
+
+    ${(() => {
+      // The comparison band. Only ever shown once you have made the answer your
+      // own, because before that "they" and "you" are the same person.
+      const t = resultFor(theirs); if (!t) return '';
+      const ag = agreementWith(theirs);
+      const same = t.p.name === p.name && t.p.prov === p.prov;
+      const names = ag.shared.map((id) => SHORT[id]).filter(Boolean);
+      return `<div class="vs">
+        <p class="vs-h">${same ? 'You landed in the same place' : 'You and whoever sent you this'}</p>
+        ${same ? '' : `<p class="vs-row"><span>They belong in</span>
+          <b>${t.p.name}<span class="pv">${t.p.prov}</span></b></p>
+        <p class="vs-row"><span>You belong in</span>
+          <b>${p.name}<span class="pv">${p.prov}</span></b></p>`}
+        <p class="vs-agree">${ag.n
+          ? `You asked for the same thing on <b>${ag.n} of ${ag.of}</b>${
+              names.length ? ': ' + listify(names) : ''}.`
+          : `You did not agree on a single one of ${ag.of}.`}</p>
+      </div>`;
+    })()}
 
     <div class="checkans">
       <p class="ca-head">Why, answer by answer</p>

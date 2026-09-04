@@ -286,6 +286,22 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
   border: 1px solid var(--rule-2); color: var(--on-ink-2); padding: 0.7rem 0.95rem;
   cursor: pointer; border-radius: 0; }
 .v-again:hover { border-color: var(--signal); color: var(--on-ink); }
+/* The comparison band. Doug's Social Network note: the moment is not the data,
+   it is seeing yourself next to someone else. Stock panel so it reads as the
+   pasted-on card it is, not another paragraph of the result. */
+.vs { background: var(--stock); color: var(--on-stock); margin: 0 var(--gut) 1.3rem;
+  padding: 1rem 1.1rem; box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
+.vs-h { margin: 0 0 0.7rem; font-size: var(--t-xs); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.07em; color: var(--on-stock-2); }
+.vs-row { margin: 0 0 0.35rem; font-size: var(--t-s); color: var(--on-stock-2);
+  display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: baseline; }
+.vs-row b { font-family: 'Radio Canada', sans-serif; font-stretch: 75%; font-weight: 700;
+  text-transform: uppercase; font-size: 1.35rem; line-height: 1; color: var(--on-stock);
+  letter-spacing: -0.01em; }
+.vs-row .pv { color: var(--hot); font-size: 0.62em; margin-left: 0.3rem; }
+.vs-agree { margin: 0.7rem 0 0; font-size: var(--t-s); color: var(--on-stock-2); }
+.vs-agree b { color: var(--on-stock); font-weight: 700; }
+
 .card-img { display: block; width: 100%; height: auto; max-width: 420px; margin: 0 auto; }
 .card-hint { margin: 0.8rem 0 0; text-align: center; font-size: var(--t-xs); color: var(--on-ink-3); }
 
