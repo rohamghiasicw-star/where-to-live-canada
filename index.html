@@ -304,6 +304,27 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
   border: 1px solid var(--rule-2); color: var(--on-ink-2); padding: 0.7rem 0.95rem;
   cursor: pointer; border-radius: 0; }
 .v-again:hover { border-color: var(--signal); color: var(--on-ink); }
+.v-rare { margin: 0.35rem 0 0; font-size: var(--t-xs); color: var(--on-ink-3); }
+.v-invite { margin: 1.1rem var(--gut) 0; padding: 0.8rem 0.9rem; max-width: 60ch;
+  border-left: 3px solid var(--signal); background: var(--ink-2);
+  font-size: var(--t-s); color: var(--on-ink-2); }
+
+/* The reveal. A ranking of four thousand places settling on one answer is the
+   only dramatic thing this app does, and it used to just appear, fully formed,
+   with no sense that anything had been searched. */
+@keyframes vland { from { opacity: 0; transform: translateY(0.22em) } to { opacity: 1; transform: none } }
+.sheet[data-screen="result"] .v-name { animation: vland 0.42s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.sheet[data-screen="result"] .v-lead { animation: vland 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both; }
+.sheet[data-screen="result"] .v-line { animation: vland 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both; }
+.sheet[data-screen="result"] .v-score,
+.sheet[data-screen="result"] .v-rare { animation: vland 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both; }
+.sheet[data-screen="result"] .vs { animation: vland 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both; }
+@media (prefers-reduced-motion: reduce) {
+  .sheet[data-screen="result"] .v-name, .sheet[data-screen="result"] .v-lead,
+  .sheet[data-screen="result"] .v-line, .sheet[data-screen="result"] .v-score,
+  .sheet[data-screen="result"] .v-rare, .sheet[data-screen="result"] .vs { animation: none; }
+}
+
 /* The comparison band. Doug's Social Network note: the moment is not the data,
    it is seeing yourself next to someone else. Stock panel so it reads as the
    pasted-on card it is, not another paragraph of the result. */
@@ -2034,8 +2055,20 @@ function verdict() {
       <p class="v-lead">${shared ? 'is where they belong.' : 'is where you belong.'}</p>
       <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
         ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
-      <p class="v-score">Fit <b>${Math.round(r.fit)}</b> out of 100${
+      <p class="v-score">Fit <b class="v-num">${Math.round(r.fit)}</b> out of 100${
         r.coverage < 0.999 ? `, on the ${Math.round(r.coverage*100)}% of your answers it has data for` : ''}</p>
+      ${(() => {
+        /* The app searches thousands of places and then shows one, which reads
+           like a lookup rather than a search. Saying how close the field got
+           puts the other 4,196 back on screen, and it costs nothing - the
+           ranking is already computed. */
+        const live = ranked.filter((x) => !x.excluded);
+        const close = live.filter((x) => x.fit >= r.fit - 5).length - 1;
+        return `<p class="v-rare">${close === 0
+          ? `Nothing else in ${CFG.country} came within 5 points.`
+          : close === 1 ? `One other place came within 5 points.`
+          : `${close.toLocaleString()} of ${live.length.toLocaleString()} places came within 5 points.`}</p>`;
+      })()}
     </div>
 
     ${(() => {
@@ -2083,6 +2116,8 @@ function verdict() {
           You tapped it first.</li>` : '<li>Only what you picked counted.</li>'}
         <li>Nothing is guessed. A missing number lowers the score.</li>
       </ul></div>
+    ${theirs ? '' : `<p class="v-invite">Send this to someone. When they answer,
+      you both see where the other landed.</p>`}
     <div class="v-foot">
       <button class="v-share" id="share">Send the link</button>
       <button class="v-again" id="vagain">Start over</button>

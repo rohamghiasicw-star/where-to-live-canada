@@ -1169,8 +1169,20 @@ function verdict() {
       <p class="v-lead">${shared ? 'is where they belong.' : 'is where you belong.'}</p>
       <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
         ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
-      <p class="v-score">Fit <b>${Math.round(r.fit)}</b> out of 100${
+      <p class="v-score">Fit <b class="v-num">${Math.round(r.fit)}</b> out of 100${
         r.coverage < 0.999 ? `, on the ${Math.round(r.coverage*100)}% of your answers it has data for` : ''}</p>
+      ${(() => {
+        /* The app searches thousands of places and then shows one, which reads
+           like a lookup rather than a search. Saying how close the field got
+           puts the other 4,196 back on screen, and it costs nothing - the
+           ranking is already computed. */
+        const live = ranked.filter((x) => !x.excluded);
+        const close = live.filter((x) => x.fit >= r.fit - 5).length - 1;
+        return `<p class="v-rare">${close === 0
+          ? `Nothing else in ${CFG.country} came within 5 points.`
+          : close === 1 ? `One other place came within 5 points.`
+          : `${close.toLocaleString()} of ${live.length.toLocaleString()} places came within 5 points.`}</p>`;
+      })()}
     </div>
 
     ${(() => {
@@ -1218,6 +1230,8 @@ function verdict() {
           You tapped it first.</li>` : '<li>Only what you picked counted.</li>'}
         <li>Nothing is guessed. A missing number lowers the score.</li>
       </ul></div>
+    ${theirs ? '' : `<p class="v-invite">Send this to someone. When they answer,
+      you both see where the other landed.</p>`}
     <div class="v-foot">
       <button class="v-share" id="share">Send the link</button>
       <button class="v-again" id="vagain">Start over</button>
