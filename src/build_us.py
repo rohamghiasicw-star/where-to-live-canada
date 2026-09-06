@@ -340,7 +340,8 @@ for fname, field, fields in (
                                  'gurdwaras', 'temples_hindu', 'temples_buddhist',
                                  'worship_total', 'ice_rinks', 'radius_km',
                                  'dog_parks', 'vets', 'arts_venues', 'local_food',
-                                 'learning', 'health_facilities', 'volunteer_orgs')),
+                                 'learning', 'health_facilities', 'volunteer_orgs',
+                                 'arts_venues_exclusive')),
     ('data/us/ski.json', 'ski', ('km_to_ski', 'nearest_ski', 'nearest_ski_vert',
                                  'km_to_big_ski')),
     ('data/us/proximity.json', 'prox', ('nearest_big_city', 'km_to_big_city',
@@ -372,6 +373,24 @@ for p in places:
     st = (p.get('stations_used') or {}).get('tmean')
     if st:
         st.pop('ref_elev_m', None)     # audit field, not something a reader sees
+
+# ---- saturation for the OSM count questions, measured per country rather than
+# shared. The distributions genuinely differ - the 90th percentile for libraries
+# and campuses is 33 in Canada and 75 in the US - and one constant would push a
+# whole country down the curve and flatten its grading. p90 is the point where a
+# place is well served; above it the question stops discriminating anyway.
+def _p90(field):
+    xs = sorted(v for v in ((r.get('osm') or {}).get(field)
+                            for r in places if isinstance(r, dict))
+                if v is not None)
+    if not xs:
+        return None
+    return max(1, int(round(xs[int((len(xs) - 1) * 0.90)])))
+
+CFG['osmsat'] = {f: _p90(f) for f in
+                 ('dog_parks', 'vets', 'arts_venues_exclusive', 'local_food',
+                  'learning', 'health_facilities', 'volunteer_orgs')}
+print("  osm saturation", CFG['osmsat'])
 
 from politics_scale import calibrate as _cal
 CFG['politics'] = _cal([v.get('lean') for v in pol.values()]) or \

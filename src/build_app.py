@@ -194,8 +194,8 @@ for r in (load('data/osm.json') or []):
     if k not in by: continue
     a = {f: r.get(f) for f in ('soccer_pitches','churches','mosques','synagogues',
          'gurdwaras','temples_hindu','temples_buddhist','worship_total','ice_rinks',
-         'dog_parks','vets','arts_venues','local_food','learning',
-         'health_facilities','volunteer_orgs')
+         'dog_parks','vets','arts_venues','arts_venues_exclusive','local_food',
+         'learning','health_facilities','volunteer_orgs')
          if r.get(f) is not None}
     if a: a['radius_km'] = r.get('radius_km'); by[k]['osm'] = a
 stats['osm'] = sum(1 for p in places if p.get('osm'))
@@ -300,6 +300,24 @@ html = re.sub(r'Residents have been researched for \d+ of \d+ places',
               f'Residents have been researched for {lived} of {N} places', html)
 html = re.sub(r'Toronto down to <b>[^<]+</b>, pop\. [\d,]+',
               f"Toronto down to <b>{smallest['name']}</b>, pop. {int(smallest.get('pop') or 0):,}", html)
+
+# ---- saturation for the OSM count questions, measured per country rather than
+# shared. The distributions genuinely differ - the 90th percentile for libraries
+# and campuses is 33 in Canada and 75 in the US - and one constant would push a
+# whole country down the curve and flatten its grading. p90 is the point where a
+# place is well served; above it the question stops discriminating anyway.
+def _p90(field):
+    xs = sorted(v for v in ((r.get('osm') or {}).get(field)
+                            for r in places if isinstance(r, dict))
+                if v is not None)
+    if not xs:
+        return None
+    return max(1, int(round(xs[int((len(xs) - 1) * 0.90)])))
+
+CFG['osmsat'] = {f: _p90(f) for f in
+                 ('dog_parks', 'vets', 'arts_venues_exclusive', 'local_food',
+                  'learning', 'health_facilities', 'volunteer_orgs')}
+print("  osm saturation", CFG['osmsat'])
 
 from politics_scale import calibrate as _cal
 _pl = load('data/politics.json') or {}

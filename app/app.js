@@ -215,6 +215,59 @@ const Q_ALL = [
       ? [(p.politics.lean > 0 ? '+' : '') + p.politics.lean.toFixed(0), ''] : null,
   },
   /* --- what living there is actually like. all 2021 Census, all 129/129. --- */
+  /* Doug's "alternative reasons" list, counted off OpenStreetMap within a 15km
+     drive of each place. Saturation is the 90th percentile measured per country
+     at build time, because the distributions genuinely differ - libraries and
+     campuses saturate at 75 in the US and 33 in Canada, and one shared number
+     would push a whole country down the curve. */
+  {
+    id: 'dog', label: 'Dog friendly', col: 'Dogs', g: "What's nearby",
+    hint: 'Off-leash dog parks within a 15km drive, counted from OpenStreetMap.',
+    kind: 'flag', def: 1, w: 0, want: 'Somewhere good for a dog',
+    score: (p) => osmScore(p, 'dog_parks'),
+    show: (p) => osmShow(p, 'dog_parks'),
+    sent: (v) => `has <b>${v[0]} dog parks</b> within a 15km drive`,
+  },
+  {
+    id: 'arts', label: 'Arts and makers', col: 'Arts', g: "What's nearby",
+    hint: 'Galleries, museums, studios, arts centres and maker workshops. Counted to the nearest place, not by radius, because a 15km disc around a small town next to a big one hands it the big one\u2019s galleries.',
+    kind: 'flag', def: 1, w: 0, want: 'An arts and maker scene',
+    score: (p) => osmScore(p, 'arts_venues_exclusive'),
+    show: (p) => osmShow(p, 'arts_venues_exclusive'),
+    sent: (v) => `has <b>${v[0]} arts spots</b> within a 15km drive`,
+  },
+  {
+    id: 'food', label: 'Local food', col: 'Food', g: "What's nearby",
+    hint: 'Markets, farm shops and greengrocers within a 15km drive, from OpenStreetMap.',
+    kind: 'flag', def: 1, w: 0, want: 'Farmers markets and local food',
+    score: (p) => osmScore(p, 'local_food'),
+    show: (p) => osmShow(p, 'local_food'),
+    sent: (v) => `has <b>${v[0]} markets and farm shops</b> within a 15km drive`,
+  },
+  {
+    id: 'learn', label: 'Libraries and learning', col: 'Learn', g: "What's nearby",
+    hint: 'Libraries, colleges and universities within a 15km drive, from OpenStreetMap.',
+    kind: 'flag', def: 1, w: 0, want: 'Libraries and somewhere to study',
+    score: (p) => osmScore(p, 'learning'),
+    show: (p) => osmShow(p, 'learning'),
+    sent: (v) => `has <b>${v[0]} libraries and campuses</b> within a 15km drive`,
+  },
+  {
+    id: 'health', label: 'Healthcare nearby', col: 'Care', g: "What's nearby",
+    hint: 'Hospitals and clinics within a 15km drive, from OpenStreetMap.',
+    kind: 'flag', def: 1, w: 0, want: 'Healthcare close by',
+    score: (p) => osmScore(p, 'health_facilities'),
+    show: (p) => osmShow(p, 'health_facilities'),
+    sent: (v) => `has <b>${v[0]} hospitals and clinics</b> within a 15km drive`,
+  },
+  {
+    id: 'volunteer', label: 'Somewhere to pitch in', col: 'Civic', g: "What's nearby",
+    hint: 'Community centres, animal shelters and registered charities within a 15km drive, from OpenStreetMap.',
+    kind: 'flag', def: 1, w: 0, want: 'Somewhere to volunteer',
+    score: (p) => osmScore(p, 'volunteer_orgs'),
+    show: (p) => osmShow(p, 'volunteer_orgs'),
+    sent: (v) => `has <b>${v[0]} community places</b> within a 15km drive`,
+  },
   {
     id: 'growth', label: 'Growing or emptying', col: 'Growth', g: 'Life there',
     hint: 'Population change 2016 to 2021. Some of these towns are shrinking.',
@@ -480,9 +533,10 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   single:'the single crowd', gender:'the gender balance', faith:'your community',
   water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
   worship:'your faith community', lang:'your language', active:'the active life',
-  ski:'the skiing',
-  dog:'somewhere for a dog', arts:'the arts scene', food:'the local food',
-  learn:'the libraries', health:'the healthcare', volunteer:'somewhere to pitch in' };
+  ski:'the skiing', dog:'somewhere for a dog', arts:'the arts scene',
+  food:'the local food', learn:'the libraries', health:'the healthcare',
+  volunteer:'somewhere to pitch in',
+};
 /* Lowercasing "Rail I can actually use" for mid-sentence use printed the pronoun
    as "i". Nothing else in English is a bare lowercase "i", so put it back. */
 const lc = (s) => s.toLowerCase().replace(/\bi\b/g, 'I');
@@ -610,6 +664,19 @@ function agreementWith(snap) {
       most about and still win by being mediocre on everything else. p=0.5
       makes a bad score on a heavy dimension bite instead of averaging out.  */
 const P_MEAN = 0.5;
+/* Every OSM count question is the same shape: a count, saturating. The
+   saturation point is measured per country at build time and arrives in CFG. */
+const osmScore = (p, field) => {
+  const o = p.osm; if (!o) return null;
+  const n = o[field]; if (n == null) return null;
+  const sat = (CFG.osmsat || {})[field] || 30;
+  return clamp(Math.sqrt(n / sat), 0, 1);
+};
+const osmShow = (p, field) => {
+  const o = p.osm; if (!o || o[field] == null) return null;
+  return [o[field], ''];
+};
+
 const wOf = (id) => { const i = picks.indexOf(id); return i < 0 ? 0 : picks.length - i; };
 
 function scoreAll() {
