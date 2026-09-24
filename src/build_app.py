@@ -213,6 +213,7 @@ stats['ski'] = sum(1 for p in places if p.get('ski'))
 for fname, field, keys in (
     ('data/language_ca.json', 'lang', None),
     ('data/broadband_ca.json', 'net', ('gigabit_pct', 'fast_pct', 'basic_pct')),
+    ('data/quake_ca.json', 'quake', ('quake',)),
 ):
     for r in (load(fname) or []):
         k = key(r.get('name', ''), r.get('prov', ''))

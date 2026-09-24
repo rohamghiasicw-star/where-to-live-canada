@@ -86,6 +86,45 @@ const Q_ALL = [
     show: (p) => { const x = cv(p, 'sun'); return x == null ? null : [Math.round(x), 'h']; },
   },
   {
+    /* Which hazard, not FEMA's composite. The composite is expected annual loss
+       weighted by social vulnerability and community resilience, so it partly
+       measures how much there is to lose - Los Angeles County scores 100 in
+       large part because it is Los Angeles. Asking which one answers the
+       question a person actually has.
+
+       RFLD is RIVERINE flood and CFLD is coastal, and they are labelled apart
+       for a reason: on riverine alone Corpus Christi reads among the safest in
+       the country, which is true and would look like a bug. */
+    id: 'hazard', cc: ['US'], g: 'Climate', label: 'Disaster risk', col: 'Risk',
+    hint: 'FEMA National Risk Index, published per county, so neighbouring towns share a figure.',
+    kind: 'opts', def: 'wildfire', w: 0,
+    opts: [['wildfire','Away from wildfire'],['hurricane','Away from hurricanes'],
+           ['tornado','Away from tornadoes'],['flood','Away from river flooding'],
+           ['coastal','Away from coastal flooding'],['quake','Away from earthquakes'],
+           ['any','Away from all of it']],
+    score: (p, v) => { const h = p.hazard; if (!h || h[v] == null) return null;
+      return clamp(1 - h[v] / 100, 0, 1); },
+    show: (p) => { const h = p.hazard; if (!h) return null;
+      const x = h[state.hazard];
+      return x == null ? null : [x.toFixed(0), ''];
+    },
+    sent: (v) => `scores <b>${v[0]} out of 100</b> for that risk`,
+  },
+  {
+    /* Canada has no all-hazard index. What it does have, keyed straight to the
+       census subdivision, is NRCan's seismic risk assessment - so Canada asks
+       about earthquakes and the US asks which hazard. Different questions
+       because the data is different, rather than one forced onto the other.
+       It discriminates properly: Vancouver Island tops it, Newfoundland floors it. */
+    id: 'quake', cc: ['CA'], g: 'Climate', label: 'Earthquake risk', col: 'Quake',
+    hint: 'NRCan seismic risk index per census subdivision. Higher means more at risk.',
+    kind: 'flag', def: 1, w: 0, want: 'Away from earthquake country',
+    score: (p) => { const q = p.quake; if (!q || q.quake == null) return null;
+      return clamp(1 - q.quake / 30, 0, 1); },
+    show: (p) => p.quake && p.quake.quake != null ? [p.quake.quake.toFixed(1), ''] : null,
+    sent: (v) => `scores <b>${v[0]}</b> on the seismic index`,
+  },
+  {
     id: 'smoke', g: 'Climate', label: 'Wildfire smoke', col: 'Smoke',
     hint: 'Modelled smoke from fire only, 12-year average.',
     kind: 'opts', def: 'less', w: 2,
@@ -579,7 +618,8 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   single:'the single crowd', gender:'the gender balance', faith:'your community',
   water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
   worship:'your faith community', lang:'your language', active:'the active life',
-  ski:'the skiing', langca:'your language', net:'the internet', dog:'somewhere for a dog', arts:'the arts scene',
+  ski:'the skiing', langca:'your language', net:'the internet',
+  hazard:'the safety from disasters', quake:'the quiet ground', dog:'somewhere for a dog', arts:'the arts scene',
   food:'the local food', learn:'the libraries', health:'the healthcare',
   volunteer:'somewhere to pitch in',
 };

@@ -9,9 +9,9 @@ download, real join test, measured coverage. Notes in `research/src-*.md`.
 
 | # | Dimension | US source | CA source | Join | State |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Your language | ACS C16001 | StatCan 98-401-X2021005 | GEOID / CSD | US **shipped**, CA building |
-| 2 | Internet | FCC BDC place summary, 27.4 MB | CRTC CMR C-T9, 32.3 MB | **both direct, 7-digit** | queued |
-| 3 | Natural hazard | FEMA NRI county CSV | NRCan Seismic PSRA | county FIPS / **csduid direct** | queued |
+| 1 | Your language | ACS C16001 | StatCan 98-401-X2021005 | GEOID / CSD | **shipped both** |
+| 2 | Internet | FCC BDC place summary, 27.4 MB | CRTC CMR C-T9, 32.3 MB | **both direct, 7-digit** | CA **shipped**, US queued (Akamai blocks curl) |
+| 3 | Natural hazard | FEMA NRI county CSV | NRCan Seismic PSRA | county FIPS / **csduid direct** | **shipped both** |
 | 4 | Dark sky | VIIRS VNL V2 via Zenodo | same file, global raster | lat/lon sample | queued |
 | 5 | Walkability | EPA National Walkability Index | StatCan Proximity Measures | block group -> place / **CSDUID** | queued |
 | 6 | Coverage audit | every dimension, both countries | | | after 1-5 |
@@ -42,3 +42,18 @@ download, real join test, measured coverage. Notes in `research/src-*.md`.
   4,197 - worse than not existing, because it spends one of five picks.
 - Saturation is measured per country at build time, never shared.
 - Missing is `null`, never `0`. A fabricated zero ranks a town as having none.
+
+
+## Corrections to the source research, found by measuring
+
+- **FEMA riverine flood is `RFLD_RISKS`, not `IFLD_RISKS`.** The source note had
+  it the other way round. Checked against the real header.
+- **RFLD is riverine and CFLD is coastal, and they must be labelled apart.** On
+  riverine alone Corpus Christi reads among the safest places in the country.
+  That is true, and shown as plain "flood" it would look like a broken app.
+- **StatCan language cannot be joined on name.** The census writes "Trepassey,
+  Town (T)" where the app writes "Trepassey"; a name join matched **0 of 712**.
+  `census.json` already carries the 7-digit CSD code - use it.
+- **Canadian gigabit is flat**, median 99.7% with 174 of 688 at exactly 100. It
+  ships as a filter against the worst, not a ranking of the best, and the hint
+  says so.

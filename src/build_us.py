@@ -330,6 +330,14 @@ for p_ in places:
         n += 1
 stats['health'] = n
 
+# ---- FEMA National Risk Index, keyed on the place GEOID via the county crosswalk
+_haz = load('data/us/hazard.json') or {}
+for p_ in places:
+    h = _haz.get(p_.get('geoid'))
+    if h:
+        p_['hazard'] = h
+stats['hazard'] = sum(1 for p in places if p.get('hazard'))
+
 # ---- the country-agnostic joins, keyed on name+state
 for fname, field, fields in (
     ('data/us/civic.json', 'civic', ('has_pro_team', 'pro_league_count', 'teams',
