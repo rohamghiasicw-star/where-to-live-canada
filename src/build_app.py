@@ -209,6 +209,19 @@ for r in (load('data/ski.json') or []):
             if r.get(f) is not None}
 stats['ski'] = sum(1 for p in places if p.get('ski'))
 
+# Language spoken most often at home, 2021 Census, and gigabit availability.
+for fname, field, keys in (
+    ('data/language_ca.json', 'lang', None),
+    ('data/broadband_ca.json', 'net', ('gigabit_pct', 'fast_pct', 'basic_pct')),
+):
+    for r in (load(fname) or []):
+        k = key(r.get('name', ''), r.get('prov', ''))
+        if k not in by:
+            continue
+        by[k][field] = r['lang'] if keys is None else {
+            f: r[f] for f in keys if r.get(f) is not None}
+    stats[field] = sum(1 for p in places if p.get(field))
+
 stats['politics'] = merge('data/politics.json', 'politics', lambda r: {
     'lean': r.get('lean'), 'lean_label': r.get('lean_label'),
     'riding': r.get('riding'), 'winner': r.get('riding_2021_winner'),

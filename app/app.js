@@ -14,6 +14,9 @@ const swingOf = (p) => { const a = cv(p, 'tmean', '7'), b = cv(p, 'tmean', '1');
 const LIVED_N = DATA.filter((p) => p.lived).length;   // researched places, live count
 
 /* "Longueuil is 30%" leaves out what the 30% are. */
+const LANGCA_NOUN = { punjabi: 'Punjabi', mandarin: 'Mandarin', cantonese: 'Cantonese',
+  tagalog: 'Tagalog', spanish: 'Spanish', arabic: 'Arabic', persian: 'Persian',
+  urdu: 'Urdu', korean: 'Korean', tamil: 'Tamil', russian: 'Russian', german: 'German' };
 const LANG_NOUN = { spanish: 'Spanish', chinese: 'Chinese', tagalog: 'Tagalog',
   vietnamese: 'Vietnamese', korean: 'Korean', arabic: 'Arabic', french: 'French',
   slavic: 'Slavic-language', indoeuro: 'Indo-European-language',
@@ -185,6 +188,21 @@ const Q_ALL = [
       return [{ subway: 'metro', 'light rail': 'LRT', 'commuter rail': 'GO' }[c.transit_type] || 'yes', '']; },
     sent: (v) => v[0] === 'no' ? 'has <b>no rapid transit</b>'
       : `has <b>${{ metro: 'a metro', LRT: 'light rail', GO: 'commuter rail' }[v[0]] || 'rapid transit'}</b>`,
+  },
+  {
+    /* Gigabit, not 50/10. 50/10 is saturated across Canada and separates almost
+       nothing. Gigabit is still flat at the top - the median place is at 99.7%
+       and 174 of 688 sit at exactly 100 - so this question is not really a
+       ranking of the best, it is a filter against the worst, the same shape as
+       rapid transit inverted. Provost AB reads 0.0%, and if you work from home
+       that is the whole point of asking. The hint says so. */
+    id: 'net', cc: ['CA'], g: 'The place', label: 'Fast internet', col: 'Gig',
+    hint: 'Homes that can get gigabit. Most of Canada can, so this mostly rules out the places that cannot. CRTC 2025.',
+    kind: 'flag', def: 1, w: 0, want: 'Internet I can work on',
+    score: (p) => { const n = p.net; if (!n || n.gigabit_pct == null) return null;
+      return clamp(n.gigabit_pct / 100, 0, 1); },
+    show: (p) => p.net && p.net.gigabit_pct != null ? [p.net.gigabit_pct.toFixed(0), '%'] : null,
+    sent: (v) => `has gigabit at <b>${v[0]}%</b> of homes`,
   },
   {
     id: 'cost', g: 'The place', label: 'Housing budget', col: 'Home', hint: 'What you can pay.',
@@ -385,6 +403,34 @@ const Q_ALL = [
     sent: (v) => `has <b>${v[0]}%</b> of adults getting no exercise`,
   },
   {
+    /* Canada's half of the language question. StatCan splits Mandarin from
+       Cantonese and publishes Punjabi, Urdu, Persian and Tamil on their own -
+       none of which the US census can separate - so the two countries offer
+       deliberately different lists rather than a forced common denominator.
+       "Spoken most often at home", not mother tongue: the stricter of the two,
+       and the one that answers whether you would actually hear it.
+       The twelve offered are the twelve with a real community somewhere; the
+       rest top out under 4% in the best place in the country. */
+    id: 'langca', cc: ['CA'], label: 'Your language', col: 'Lang', g: 'Life there',
+    hint: 'Share who speak it most often at home. 2021 Census.',
+    kind: 'opts', def: 'punjabi', w: 0,
+    opts: [['punjabi','Punjabi'],['mandarin','Mandarin'],['cantonese','Cantonese'],
+           ['tagalog','Tagalog or Filipino'],['spanish','Spanish'],['arabic','Arabic'],
+           ['persian','Persian or Farsi'],['urdu','Urdu'],['korean','Korean'],
+           ['tamil','Tamil'],['russian','Russian'],['german','German']],
+    score: (p, v) => { const L = p.lang; if (!L) return null;
+      const x = L[v]; if (x == null) return null;
+      // 99.9th percentile of the 712 places, per language, same as the US side
+      const SAT = { punjabi: 18, mandarin: 12, cantonese: 17, tagalog: 6, spanish: 4,
+                    arabic: 4, persian: 8, urdu: 3, korean: 3, tamil: 3,
+                    russian: 4, german: 27 }[v];
+      return clamp(Math.sqrt(x / SAT), 0, 1); },
+    show: (p) => { const L = p.lang; if (!L) return null;
+      const x = L[state.langca];
+      return x == null ? null : [x.toFixed(1), '%']; },
+    sent: (v) => `is <b>${v[0]}%</b> ${(LANGCA_NOUN[state.langca] || '')}-speaking at home`,
+  },
+  {
     id: 'kids', label: 'Kids around', col: 'Kids', g: 'Life there',
     hint: 'Share of the population under 15. The median place is 16%.',
     kind: 'opts', def: 'many', w: 0,
@@ -533,7 +579,7 @@ const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'
   single:'the single crowd', gender:'the gender balance', faith:'your community',
   water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
   worship:'your faith community', lang:'your language', active:'the active life',
-  ski:'the skiing', dog:'somewhere for a dog', arts:'the arts scene',
+  ski:'the skiing', langca:'your language', net:'the internet', dog:'somewhere for a dog', arts:'the arts scene',
   food:'the local food', learn:'the libraries', health:'the healthcare',
   volunteer:'somewhere to pitch in',
 };
