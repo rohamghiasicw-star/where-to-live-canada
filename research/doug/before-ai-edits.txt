@@ -1,0 +1,202 @@
+Where U Belong
+Emphasis on the U
+I’ve been giving this a lot of thought. It needs to be personal, flexible and viral. Which means that instead of the usual (see below), the App will pull data from AI, which is then combined with personal choices to produce a score. It must be weighted.
+Top 5 current criteria for Canada’s Top Cities
+Affordability, job market, healthcare, climate, and livability
+
+These are boring and have already been done; we can do climate but also add things that are easily referenced in AI.
+Assume there are 20 categories, and we allow 5 choices.  For example,
+  - Climate temperature
+  - Population
+  - Proximity to water
+  - Within one hour of a large city
+  - Number of soccer pitches!
+I might rank 3,4,1,2,5. You might go 5,2,1,4,3.
+Then the person answers the questions, and the scores are weighted and tabulated to arrive at the Top 3-5 cites/towns.
+ Climate
+Seasonality fluctuations on a scale of 1-5
+Ex. Albuquerque, New Mexico is a 1, Ottawa is a 5
+Precipitation 1-5 Kamloops or Regina vs Victoria
+Population
+Size of town/city. Under 10K, under 20, under 50, under 100, under 500k, under 1000000 or any
+Near ocean or Lake
+Proximity
+Near Bigger City
+Less boring categories. 
+High percent of single people? M/F ( ex Ottawa has many single females due to Gov’t jobs, and Anchorage is known for a higher male population)
+ High percentage of younger people vs retirees, 
+Higher percentage of children
+Pro Sports team
+Political leaning Left or Right
+Racial Mix
+Churches (ex Jewish people would want a synagogue within driving distance)
+Transit (does it have a subway or not)
+Schools (that is very boring)
+ChatGPT came back with a list based on a top 10. (but it wasn’t ranked)
+  - Raleigh, North Carolina
+  - Austin, Texas
+  - Tampa–St. Petersburg, Florida
+  - Denver, Colorado
+  - Charlotte, North Carolina
+The key for this App is that it must be different and more personalized than anything they can just use with AI and a simple search.
+The App needs to be an aggregator and provide creative ideas that the user has not considered. More creativity is needed from me
+
+Questions and Categories
+  - Temperature seasonality. 
+“How important is it for you to have consistent temperatures all year round?”
+Score 1- I don’t care at all.
+Score 2 - A bit of change is okay.
+Score 3 – It is not too important
+Score 4 It bothers me when the temperature changes too much.
+Score 5 – I much prefer consistent weather within the smallest range possible.
+
+  - Precipitation
+“How much do you prefer dry weather compared to a lot of rain and snow?”
+ Score 1- I don’t mind rain and snow; in fact, I like it.
+Score 2 – Snow and rain are a part of life, just not too much,
+Score 3 – It is not a deal-breaker one way or the other.
+Score 4- Not a big fan of snow and rain, but I can handle it.
+Score 5 – I much prefer dry weather and would rather not own an umbrella or snow boots.
+
+  - Daily changes in temperature and humidity.
+“How uncomfortable is it for you when the day becomes much hotter and more humid?”
+ Score 1- Deep down, I like changes in my daily weather. No problem for me!
+Score 2 – I expect changes and don’t mind them.
+Score 3 – As long as this happens occasionally, it's not a big deal.
+Score 4- I do get uncomfortable when it's too hot and humid.
+Score 5 – Very uncomfortable. I would stay all day indoors if I could.
+
+  - Population
+“How does the size of the city or town affect you?”
+ Score 1- I’m a small-towner. In fact, I prefer rural living.
+Score 2 – I like smaller places where I know more people.
+Score 3 – If the city or town has everything I need, I am okay with the population.
+Score 4- I prefer cities and like the action and energy.
+Score 5 – Big cities are the most fun. I love them!
+
+  - Transit/Transportation
+How important is it that you have options for getting around, like public transit, ride-sharing, or alternative transportation to your vehicle?
+ Score 1- Love my car/truck and go everywhere in it.
+Score 2 – Occasionally I like to get a ride or take things like subways or buses.
+Score 3 – I own a vehicle but like to take public transportation to work/school.
+Score 4- Because I hate traffic, I need choices and have access to a car/truck.
+Score 5 – It's essential because I don’t own or want to own a vehicle.
+
+  - Outdoor activities (hiking, skiing, kayaking, skiing etc.)
+“Does the place where you belong need to have access to this?
+
+Score 1- Not really my thing.
+Score 2 – I don’t do these things that often to make a difference.
+Score 3 – Being near these activities would be a nice bonus.
+Score 4 - It is important to me.
+Score 5 – Good outdoor activities are a must! 
+
+  - Water- the proximity to the ocean, a lake or river.
+How important is it that you have options for getting around, like public transit, ride-sharing, or alternative transportation to your vehicle?
+ Score 1- Love my car/truck and go everywhere in it.
+Score 2 – Occasionally I like to get a ride or take things like subways or buses.
+Score 3 – I own a vehicle but like to take public transportation to work/school.
+Score 4- Because I hate traffic, I need choices and have access to a car/truck.
+Score 5 – It's essential because I don’t own or want to own a vehicle. 
+
+  - Cost of living.
+“Is affordability a big factor?”
+ Score 1- I assume it is pretty much the same everywhere, but not too important.
+Score 2 – Not a deal breaker.
+Score 3 – As long as it's not as expensive as downtown New York or San Francisco.
+Score 4 – It's important to me.
+Score 5 – Absolutely yes! 
+
+  - Political Temperament.
+“How much of a role does the political climate play in your decision to live in a particular place if you chose to relocate?”
+ Score 1- I assume it is pretty much the same everywhere, but not too important.
+Score 2 – Not a deal breaker.
+Score 3 – As long as it's not as expensive as downtown New York or San Francisco.
+Score 4 – It's pretty important to me.
+Score 5 – If I feel like the city/town does not match my views, I will not live there. 
+
+  -  Culture and Events
+“This category allows you to rank the importance of accessibility to various cultural activities such as concerts, theatre, arts, etc.”
+Score 1 I prefer staying at home or going to the local theatre. Plus, I can’t afford big concerts.
+Score 2 – I’ll travel to a few events I’m interested in each year.
+Score 3 – Although I don’t go to events as much, it is still an advantage to be close.
+Score 4 – I do like going to events but am willing to travel a reasonable distance.
+Score 5 – Because I love attending these, it is essential for me to be fairly close to attend these events.
+
+  - Healthy lifestyle
+“While anyone can be healthy anywhere, some places have more access to healthy things like gyms, health food stores, and healthy-choice restaurants”
+ Score 1- Not too important. Aren’t all places the same for this?
+Score 2 – A healthy city is a nice-to-have, not a need-to-have.
+Score 3 – It is a consideration, but I can figure out and adapt wherever I am.
+Score 4 – Very important.
+Score 5 – It’s a must!
+
+Roham- see this link The Top 50 Best Low-Cost U.S. Cities for a Fresh Start in 2026
+
+  -  Inclusivity.
+“It is a given that there are all types of people everywhere; some places have a much more tolerant vibe than others.”
+ Score 1 - People are entitled to their opinions, and I am entitled to mine, but I wouldn’t avoid living anywhere because of these perceptions.
+Score 2– My views are personal, so I don’t think this matters much.
+Score 3 – I’d rather not live in places that seem to have a generally less-tolerant attitude.
+Score 4 – It bothers me to live in a city that would seem to have more hateful words and actions.
+Score 5 – My home city must be tolerant of all types of people regardless of race, sex or religion.
+
+(I don’t really like the one above. Too ambiguous and unnecessarily difficult)
+
+  -  Dating potential.
+“Some cities or towns have an imbalance of males to females.”
+ Score 1 - Really not important because I feel that when I meet the right person, I will know.
+Score 2 – Somewhat not important.
+Score 3 – The numbers don’t matter; you must put yourself out there to find dating partners either way.
+Score 4 – I’ll take any help I can get, and everything else being equal, this is an interesting statistic for choosing the right place.
+Score 5 – It will be a big advantage if the city has more potential dating partners 
+
+  -  Housing costs
+“The price of renting or buying a home varies across the country. This section asks how important the cost of housing is to you.”
+Score 1 – I will find the right place to live wherever I go.
+Score 2 – I will adapt where I live to my budget.
+Score 3 – Since I am not wealthy, the very high prices aren’t in my market anywhere.
+Score 4 – I'm unlikely I can afford to live in a very expensive place.
+Score 5 – The very expensive neighbourhoods anywhere are off my list. 
+
+  -  Job Market
+“The Job market refers to locations with generally more opportunity to find work due to local economic factors. For example, Silicon Valley (Toronto) has more potential than rural Mississippi (New Brunswick). 
+Score 1 I will already have my job settled before choosing a place to live.
+Score 2 – My status is flexible.
+Score 3 – My field of work doesn’t vary much by region.
+Score 4 – The local job opportunities are important to me.
+Score 5 – I will be looking for work immediately, so the local job market needs to be excellent for me to move there.
+
+17. Commute or Drivability (for vehicle owners)
+ As a regular driver, how much do long commutes or traffic congestion bother you? 
+Score 1- I don’t mind driving, and commuting is part of life.
+Score 2 – Except for the worst traffic jams, I am usually okay even though I complain a bit.
+Score 3 – A commute under an hour is fine.
+Score 4 – The city/town must be less than a ½ hour from work or school, etc.
+Score 5 – I hate traffic and prefer to live closer to work/school. 
+
+18. Safety  
+ Gun ownership, crime rate, murder rate, etc. 
+Score 1-- I feel it is everywhere, and you need to avoid dangerous neighbourhoods. Safety is a personal choice.
+Score 2 – I consider the overall safety of a city/town where I might live.
+Score 3 – It is an uncomfortable truth everywhere. I will choose the most appropriate neighbourhood within any city/town. Every place has good and bad parts.
+Score 4 – Safety is a concerning factor.
+Score 5 – I won’t move to a place that ranks high in this category.    
+
+19. Air Quality
+ Clean air vs. city air 
+Score 1- Not a big deal to me.
+Score 2 – Nobody likes it, but air quality is getting better, right?
+Score 3 – Air quality is not a deciding factor.
+Score 4 – While I do actively seek to live somewhere with poor air, the other factors are far more important. 
+Score 5 – Smog, heat advisories and smoke are non-starters.
+
+20. General (food, taxes, amenities)
+ The cost of living without my rent or ownership. 
+Score 1- Not important.
+Score 2 – A lesser factor.
+Score 3 – Not crucial but a slight consideration.
+Score 4 – Fairly important.
+Score 5 – Due to my circumstances, this is very important to me.
+
+The Top 50 Best Low-Cost U.S. Cities for a Fresh Start in 2026

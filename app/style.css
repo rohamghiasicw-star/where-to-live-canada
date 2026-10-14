@@ -195,6 +195,10 @@ h1 i { font-style: normal; color: var(--signal); }
 .opt[aria-pressed="true"] { background: var(--on-stock); color: var(--stock); border-color: var(--on-stock); }
 .opt:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
 .opts-big { flex-direction: column; align-items: stretch; gap: 7px; }
+/* Doug's own question, above the answers. It reads as the question being asked,
+   so it gets the weight; the hint underneath is only the data note. */
+.q-ask { margin: 0 0 0.5rem; font-size: var(--t-l); font-weight: 600; line-height: 1.3;
+  color: var(--on-stock); max-width: 34ch; }
 .opts-big .opt { text-align: left; padding: 0.85rem 0.95rem; font-size: var(--t-m); }
 
 .slider-row { display: flex; align-items: center; gap: 0.6rem; }

@@ -213,6 +213,10 @@ h1 i { font-style: normal; color: var(--signal); }
 .opt[aria-pressed="true"] { background: var(--on-stock); color: var(--stock); border-color: var(--on-stock); }
 .opt:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
 .opts-big { flex-direction: column; align-items: stretch; gap: 7px; }
+/* Doug's own question, above the answers. It reads as the question being asked,
+   so it gets the weight; the hint underneath is only the data note. */
+.q-ask { margin: 0 0 0.5rem; font-size: var(--t-l); font-weight: 600; line-height: 1.3;
+  color: var(--on-stock); max-width: 34ch; }
 .opts-big .opt { text-align: left; padding: 0.85rem 0.95rem; font-size: var(--t-m); }
 
 .slider-row { display: flex; align-items: center; gap: 0.6rem; }
@@ -914,20 +918,30 @@ const Q_ALL = [
   {
     id: 'swing', g: 'Climate', label: 'Seasons', col: 'Swing',
     hint: 'The gap between January and July. Ottawa swings 31°, Victoria 10°.',
+    ask: 'How important is it to have the same temperature all year round?',
     kind: 'opts', def: 'big', w: 1,
-    opts: [['big','Four real seasons'],['mid','Some change'],['mild','Much the same all year']],
+    opts: [['big',"I don\u2019t care at all. Bring on four real seasons."],
+           ['bigish','A bit of change is okay.'],
+           ['mid',"It\u2019s not too important to me."],
+           ['mildish','It bothers me when the temperature changes too much.'],
+           ['mild','I much prefer the same weather all year.']],
     score: (p, v) => { const s = swingOf(p); if (s == null) return null;
-      return near(s, { big: 34, mid: 24, mild: 11 }[v], 15); },
+      return near(s, { big: 34, bigish: 28, mid: 22, mildish: 16, mild: 11 }[v], 12); },
     show: (p) => { const s = swingOf(p); return s == null ? null : [s.toFixed(0), '°']; },
   },
   {
-    id: 'rain', g: 'Climate', label: 'Rain', col: 'Rain', hint: 'Total precipitation in a year.',
+    id: 'rain', g: 'Climate', label: 'Rain and snow', col: 'Rain', hint: 'Total precipitation in a year.',
+    ask: 'How much do you prefer dry weather over a lot of rain and snow?',
     kind: 'opts', def: 'dry', w: 0,
-    opts: [['dry','Keep it dry'],['mid','In between'],['wet','I like the rain']],
+    opts: [['dry',"Dry, please. I\u2019d rather not own an umbrella or snow boots."],
+           ['drier','Not a big fan of rain and snow, but I can handle it.'],
+           ['mid',"It\u2019s not a deal-breaker either way."],
+           ['wetter','Rain and snow are part of life. Just not too much.'],
+           ['wet',"I don\u2019t mind rain and snow. In fact, I like it."]],
     score: (p, v) => { const r = cv(p, 'precip'); if (r == null) return null;
       if (v === 'dry') return clamp(1 - (r - 300) / 900, 0, 1);
       if (v === 'wet') return clamp((r - 400) / 900, 0, 1);
-      return near(r, 800, 500); },
+      return near(r, { drier: 550, mid: 800, wetter: 1100 }[v], 450); },
     show: (p) => { const r = cv(p, 'precip'); return r == null ? null : [Math.round(r), 'mm']; },
   },
   {
@@ -1006,9 +1020,16 @@ const Q_ALL = [
     sent: (v) => `gets <b>${v[0]} µg/m³</b>`,
   },
   {
-    id: 'size', g: 'The place', label: 'Size', col: 'People', hint: 'How big a place.',
+    /* The answers are Doug's, from his own draft before the AI rewrite. His are
+       funnier than the rewrite, and "make it funnier" was his ask. */
+    id: 'size', g: 'The place', label: 'Size', col: 'People', hint: 'Population, from the latest census.',
+    ask: 'How does the size of a city or town affect you?',
     kind: 'opts', def: 'small', w: 2,
-    opts: [['village','Village'],['town','Town'],['small','Small city'],['mid','Mid city'],['big','Big city']],
+    opts: [['village',"I\u2019m a small-towner. In fact, I prefer rural living."],
+           ['town','I like smaller places where I know more people.'],
+           ['small','If it has everything I need, the size is fine.'],
+           ['mid','I prefer cities. I like the action and energy.'],
+           ['big','Big cities are the most fun. I love them!']],
     score: (p, v) => { if (p.pop == null) return null;
       const t = { village:3.4, town:4.1, small:4.8, mid:5.4, big:6.2 }[v];
       return near(Math.log10(Math.max(p.pop, 300)), t, 1.5); },
@@ -1032,7 +1053,7 @@ const Q_ALL = [
     },
   },
   {
-    id: 'water', g: 'The place', label: 'Near water', col: 'Water',
+    id: 'water', g: 'The place', label: 'Near a body of water', col: 'Water',
     hint: 'Distance to the ocean or a big lake, measured to the shoreline.',
     kind: 'opts', def: 'any', w: 0,
     opts: [['ocean','On the ocean'],['lake','On a lake'],['any','Either will do']],
@@ -1506,7 +1527,7 @@ const PICKLABEL = { winter:'Winter', summer:'Summer', swing:'Seasons', rain:'Rai
   commute:'Short commute', car:'Life without a car', jobs:'Jobs', mix:'Diverse',
   french:'French', mood:'What locals say', kids:'Kids around', single:'Single people',
   gender:'Gender balance', faith:'Faith community', worship:'Faith community',
-  water:'Near water',
+  water:'Near a body of water',
   pitches:'Soccer pitches', sports:'Pro sports', transit:'Rapid transit' };
 const listify = (a) => a.length < 2 ? (a[0]||'') : a.slice(0,-1).join(', ') + ' and ' + a[a.length-1];
 function fmtNum(n) {
@@ -1554,7 +1575,9 @@ function decodeState(s) {
         const n = +val; if (!Number.isFinite(n)) throw 0;
         state[q.id] = clamp(n, q.min, q.max);
       } else if (q.kind === 'opts') {
-        const o = q.opts[+val]; if (!o) throw 0; state[q.id] = o[0];
+        // A link made before a question changed shape keeps its pick and falls back
+        // to the default answer, rather than the whole link failing to open.
+        const o = q.opts[+val]; state[q.id] = o ? o[0] : q.def;
       }
       next.push(q.id);
     }
@@ -2627,6 +2650,7 @@ function buildAsk() {
   $('#askTitle').textContent = q.label;
   $('#qs').innerHTML = `<div class="q q-solo">
       <p class="q-rankline"><span class="q-rank">${askIdx + 1}</span>This is ${nth}</p>
+      ${q.ask ? `<p class="q-ask">${q.ask}</p>` : ''}
       <p class="q-hint">${q.hint}</p>
       ${controlHTML(q)}
     </div>`;
