@@ -712,7 +712,22 @@ function decodeState(s) {
     return true;
   } catch (e) { return false; }
 }
-let shared = location.hash.length > 2 && decodeState(location.hash.slice(1));
+/* Doug's headline idea, in his words: "the key to success is shareability, plus
+   the option to complete the quiz for someone else." A guess carries the name it
+   was made for ahead of a tilde - "#Charlie~8.0_3.0" - so Charlie opens a result
+   about himself, then answers for real and sees how well he was read. */
+const esc = (t) => String(t).replace(/[&<>"']/g, (c) =>
+  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+let guessFor = '';
+let rawHash = location.hash.slice(1);
+{ const t = rawHash.indexOf('~');
+  if (t > 0) {
+    // The name arrives from a URL, so it is length-capped here and escaped everywhere it is shown.
+    try { guessFor = decodeURIComponent(rawHash.slice(0, t)).trim().slice(0, 24); } catch (e) {}
+    rawHash = rawHash.slice(t + 1);
+  } }
+let shared = rawHash.length > 1 && decodeState(rawHash);
+const guessedFor = shared ? guessFor : '';   // you opened a guess made about you
 
 /* Doug's note, with the Social Network clip attached: the moment that made
    Facemash was comparison, not data. A shared link already carries the sender's
@@ -727,7 +742,7 @@ let theirs = shared && picks.length
   ? { picks: picks.slice(), state: Object.assign({}, state) } : null;
 function ownIt() {   // the moment they change anything, the result is theirs, not the sender's
   if (!shared) return;
-  shared = false;
+  shared = false; guessFor = '';
   const l = $('#lede'); if (l && ORIG_LEDE) l.innerHTML = ORIG_LEDE;
 }
 
@@ -1081,7 +1096,7 @@ async function drawCard() {
 
   x.fillStyle = ONINK2;
   x.font = "400 40px 'Radio Canada', sans-serif";
-  x.fillText(shared ? 'They belong in' : 'You belong in', M, 200);
+  x.fillText(guessFor ? `${guessFor} belongs in` : shared ? 'They belong in' : 'You belong in', M, 200);
 
   // The name shrinks to fit rather than clipping, and the budget has to reserve the
   // province code AND the score plate. Budgeting for the plate alone let "Cape
@@ -1233,7 +1248,9 @@ function shareCard() {
     if (!blob) return;
     const top = ranked.find((r) => !r.excluded);
     const file = new File([blob], 'where-u-belong.png', { type: 'image/png' });
-    const text = `Apparently I belong in ${top.p.name}, ${top.p.prov}. Where do you belong?`;
+    const text = guessFor
+      ? `${guessFor}, I think you belong in ${top.p.name}, ${top.p.prov}. Am I right?`
+      : `Apparently I belong in ${top.p.name}, ${top.p.prov}. Where do you belong?`;
     if (CAN_SHARE_FILES) {
       try { await navigator.share({ files: [file], text, title: 'Where U Belong' }); return; }
       catch (e) { if (e && e.name === 'AbortError') return; }
@@ -1327,7 +1344,7 @@ function verdict() {
       `<span class="ca-bar"><i style="width:${Math.round(sc*100)}%;background:${rampOf(sc*100)}"></i></span>`;
     return `<div class="ca-row">
       <span class="ca-k"><span class="q-rank">${i + 1}</span>${q.label}</span>
-      <span class="ca-v">${said(q)}</span>
+      <span class="ca-v">${((t) => t.charAt(0).toUpperCase() + t.slice(1))(said(q))}</span>
       <span class="ca-got"><span class="ca-said">${val
         ? (q.sent ? `${p.name} ${q.sent(val)}` : `${p.name} is <b>${val[0]}${val[1]}</b>`)
         : `<span class="na">not recorded here</span>`}</span>${bar}</span>
@@ -1338,7 +1355,10 @@ function verdict() {
   host.innerHTML = `
     <div class="v-hero">
       <h2 class="v-name">${p.name}<span class="pv">${p.prov}</span></h2>
-      <p class="v-lead">${shared ? 'is where they belong.' : 'is where you belong.'}</p>
+      <p class="v-lead">${guessedFor && shared ? 'is where somebody thinks you belong.'
+        : shared ? 'is where they belong.'
+        : guessFor ? `is where ${esc(guessFor)} belongs.`
+        : 'is where you belong.'}</p>
       <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
         ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
       <p class="v-score">Fit <b class="v-num">${Math.round(r.fit)}</b> out of 100${
@@ -1359,19 +1379,27 @@ function verdict() {
 
     ${(() => {
       // The comparison band. Only ever shown once you have made the answer your
-      // own, because before that "they" and "you" are the same person.
+      // own, because before that "they" and "you" are the same person. The guard
+      // has to be explicit: the sender's answer is snapshotted at load, so without
+      // it the band appeared on arrival comparing their answer with itself.
+      if (shared) return '';
       const t = resultFor(theirs); if (!t) return '';
       const ag = agreementWith(theirs);
       const same = t.p.name === p.name && t.p.prov === p.prov;
       const names = ag.shared.map((id) => SHORT[id]).filter(Boolean);
+      const g = !!guessedFor;
       return `<div class="vs">
-        <p class="vs-h">${same ? 'You landed in the same place' : 'You and whoever sent you this'}</p>
-        ${same ? '' : `<p class="vs-row"><span>They belong in</span>
+        <p class="vs-h">${g ? (same ? 'They guessed it exactly' : 'How well do they know you?')
+          : same ? 'You landed in the same place' : 'You and whoever sent you this'}</p>
+        ${same ? '' : `<p class="vs-row"><span>${g ? 'They guessed' : 'They belong in'}</span>
           <b>${t.p.name}<span class="pv">${t.p.prov}</span></b></p>
         <p class="vs-row"><span>You belong in</span>
           <b>${p.name}<span class="pv">${p.prov}</span></b></p>`}
-        <p class="vs-agree">${ag.n
-          ? `You asked for the same thing on <b>${ag.n} of ${ag.of}</b>${
+        <p class="vs-agree">${g
+          ? (ag.n ? `They got <b>${ag.n} of ${ag.of}</b> of your answers right${
+                names.length ? ': ' + listify(names) : ''}.`
+              : `They did not get a single one of your ${ag.of} answers right.`)
+          : ag.n ? `You asked for the same thing on <b>${ag.n} of ${ag.of}</b>${
               names.length ? ': ' + listify(names) : ''}.`
           : `You did not agree on a single one of ${ag.of}.`}</p>
       </div>`;
@@ -1402,7 +1430,13 @@ function verdict() {
           You tapped it first.</li>` : '<li>Only what you picked counted.</li>'}
         <li>Nothing is guessed. A missing number lowers the score.</li>
       </ul></div>
-    ${theirs ? '' : `<p class="v-invite">Send this to someone. When they answer,
+    ${guessedFor && shared ? `<div class="v-guessed">
+        <p>Somebody answered this <b>as you</b>. Are they right?</p>
+        <button class="v-self" id="answerSelf" type="button">Answer for yourself</button>
+      </div>`
+      : theirs ? '' : guessFor ? `<p class="v-invite">Send it to ${esc(guessFor)}. When they answer
+        for themselves, you both see how well you know them.</p>`
+      : `<p class="v-invite">Send this to someone. When they answer,
       you both see where the other landed.</p>`}
     <div class="v-foot">
       <button class="v-share" id="share">Send the link</button>
@@ -1502,7 +1536,9 @@ function displayList() {
 
 function draw() {
   ranked = scoreAll();
-  history.replaceState(null, '', picks.length ? '#' + encodeState() : location.pathname);
+  history.replaceState(null, '', picks.length
+    ? '#' + (guessFor ? encodeURIComponent(guessFor) + '~' : '') + encodeState()
+    : location.pathname);
   // only the screen on show gets built. The table is 710 rows by 27 columns and
   // there is no reason to pay for it while someone is still picking.
   if (screen === 'result') { verdict(); return; }
@@ -1744,6 +1780,17 @@ function buildPicker() {
       >${i >= 0 ? `<span class="pk-n">${i + 1}</span>` : ''}${PICKLABEL[q.id] || q.label}</button>`;
   }).join('');
   host.classList.toggle('full', picks.length >= MAX_PICKS);
+  const tt = $('#pkTitle');
+  if (tt) tt.textContent = guessFor ? `What matters to ${guessFor}?` : 'What matters to you?';
+  const fw = $('#forwho');
+  if (fw) fw.innerHTML = guessFor
+    ? `<p class="fw-on">Answering as <b>${esc(guessFor)}</b>.
+        <button class="fw-link" id="fwStop" type="button">Do it for me instead</button></p>`
+    : fwOpen
+    ? `<form class="fw-form" id="fwForm"><input class="fw-in" id="fwName" maxlength="24"
+        autocomplete="off" placeholder="Their first name" aria-label="Their first name">
+        <button class="fw-go" type="submit">Start</button></form>`
+    : `<button class="fw-link" id="fwStart" type="button">Do it for someone else</button>`;
   const n = picks.length;
   $('#pkcount').innerHTML = n === 0
     ? `Tap up to ${MAX_PICKS} of <b>${PICKABLE.length}</b>. The order you tap is the order they count.`
@@ -1771,8 +1818,9 @@ function controlHTML(q) {
 function buildAsk() {
   const id = picks[askIdx]; if (!id) return;
   const q = Q.find((x) => x.id === id);
-  const nth = ['your top priority','your second priority','your third priority',
-               'your fourth priority','your fifth priority'][askIdx] || 'a priority';
+  const who = guessFor ? `${esc(guessFor)}\u2019s` : 'your';
+  const nth = [`${who} top priority`, `${who} second priority`, `${who} third priority`,
+               `${who} fourth priority`, `${who} fifth priority`][askIdx] || 'a priority';
   $('#askProg').textContent = '';   // the dots carry progress; an eyebrow is banned
   $('#askTitle').textContent = q.label;
   $('#qs').innerHTML = `<div class="q q-solo">
@@ -1821,6 +1869,25 @@ $('#qs').addEventListener('click', (e) => {
     render();
   }
 });
+let fwOpen = false;
+document.addEventListener('click', (e) => {
+  if (e.target.closest('#fwStart')) {
+    fwOpen = true; buildPicker(); const i = $('#fwName'); if (i) i.focus(); return; }
+  if (e.target.closest('#fwStop')) {
+    guessFor = ''; fwOpen = false; buildPicker(); render(); return; }
+  if (e.target.closest('#answerSelf')) {
+    // Start clean: the point is to see how well they read you, so your five
+    // picks have to be yours, not theirs pre-filled.
+    ownIt(); picks = []; Q.forEach((q) => { state[q.id] = q.def; });
+    goTo('pick'); return; }
+});
+document.addEventListener('submit', (e) => {
+  if (!e.target.closest('#fwForm')) return;
+  e.preventDefault();
+  const v = ($('#fwName').value || '').trim().slice(0, 24);
+  if (!v) return;
+  guessFor = v; fwOpen = false; buildPicker(); render();
+});
 document.addEventListener('click', (e) => {
   const ch = e.target.closest('.ca-ch');
   if (ch) { askIdx = +ch.dataset.goq; goTo('ask'); return; }
@@ -1857,9 +1924,9 @@ document.addEventListener('click', async (e) => {
   const mine = picks.length
     ? ` I ranked ${listify(picks.slice(0, 3).map((id) => SHORT[id]).filter(Boolean))} and got ${Math.round(top.fit)} out of 100.`
     : '';
-  const text = top
-    ? `Apparently I belong in ${top.p.name}, ${top.p.prov}.${mine} Where do you belong?`
-    : 'Where do you belong in Canada?';
+  const text = !top ? 'Where do you belong in Canada?'
+    : guessFor ? `${guessFor}, I think you belong in ${top.p.name}, ${top.p.prov}. Am I right?`
+    : `Apparently I belong in ${top.p.name}, ${top.p.prov}.${mine} Where do you belong?`;
   try {
     if (navigator.share) { await navigator.share({ title: 'Where U Belong', text, url: location.href }); return; }
     await navigator.clipboard.writeText(`${text} ${location.href}`);

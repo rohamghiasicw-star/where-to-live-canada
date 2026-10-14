@@ -195,6 +195,27 @@ h1 i { font-style: normal; color: var(--signal); }
 .opt[aria-pressed="true"] { background: var(--on-stock); color: var(--stock); border-color: var(--on-stock); }
 .opt:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
 .opts-big { flex-direction: column; align-items: stretch; gap: 7px; }
+/* Do it for someone else. Quiet until used: a link, then an inline name field,
+   then a line saying whose answers these are. */
+.forwho { margin-top: 0.6rem; min-height: 1.6em; }
+.fw-link { font: inherit; font-size: var(--t-s); font-weight: 700; background: none; border: 0;
+  border-bottom: 1px solid var(--signal); color: var(--signal); padding: 0 0 1px; cursor: pointer; }
+.fw-link:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+.fw-on { margin: 0; font-size: var(--t-s); color: var(--on-ink-2); }
+.fw-on b { color: var(--signal); }
+.fw-on .fw-link { margin-left: 0.4rem; font-size: var(--t-xs); }
+.fw-form { display: flex; gap: 6px; max-width: 22rem; }
+.fw-in { flex: 1 1 auto; min-width: 0; font: inherit; font-size: var(--t-m); padding: 0.6rem 0.75rem;
+  border: 1px solid var(--rule-2); background: var(--ink-2); color: var(--on-ink); border-radius: 0; }
+.fw-in:focus { outline: 2px solid var(--signal); outline-offset: 0; }
+.fw-go { font: inherit; font-weight: 700; border: 0; background: var(--signal); color: var(--ink);
+  padding: 0 1rem; cursor: pointer; border-radius: 0; min-height: 44px; }
+.v-guessed { margin: 1.1rem var(--gut) 0; padding: 1rem 1.1rem; background: var(--stock);
+  color: var(--on-stock); box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
+.v-guessed p { margin: 0 0 0.75rem; font-size: var(--t-m); }
+.v-self { font: inherit; font-weight: 700; border: 0; background: var(--hot); color: #fff;
+  padding: 0.85rem 1.1rem; min-height: 48px; cursor: pointer; border-radius: 0; width: 100%; }
+
 /* Doug's own question, above the answers. It reads as the question being asked,
    so it gets the weight; the hint underneath is only the data note. */
 .q-ask { margin: 0 0 0.5rem; font-size: var(--t-l); font-weight: 600; line-height: 1.3;
