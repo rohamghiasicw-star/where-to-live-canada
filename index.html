@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<script>if(!location.hash&&!/[?&]us\b/.test(location.search))location.replace("canada/")</script>
 <title>Where U Belong</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Pick the five things that matter to you, rank them, and every city and town in the United States re-sorts against your answer. NOAA climate normals, fire-attributed wildfire smoke modelling, the American Community Survey, and the 2024 election result.">
@@ -213,8 +214,13 @@ h1 i { font-style: normal; color: var(--signal); }
 .opt[aria-pressed="true"] { background: var(--on-stock); color: var(--stock); border-color: var(--on-stock); }
 .opt:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
 .opts-big { flex-direction: column; align-items: stretch; gap: 7px; }
-/* Do it for someone else. Quiet until used: a link, then an inline name field,
-   then a line saying whose answers these are. */
+/* Guess a friend. Doug, Oct 26: "guess your friend's choices" is the key to it
+   spreading, because most people using this are not actually moving. So it is a
+   real button on the first screen, not a quiet link. */
+.fw-start { font: inherit; font-size: var(--t-m); font-weight: 700; border: 0; cursor: pointer;
+  background: var(--signal); color: var(--ink); padding: 0.7rem 1.1rem; min-height: 44px;
+  border-radius: 0; box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
+.fw-start:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 2px; }
 .forwho { margin-top: 0.6rem; min-height: 1.6em; }
 .fw-link { font: inherit; font-size: var(--t-s); font-weight: 700; background: none; border: 0;
   border-bottom: 1px solid var(--signal); color: var(--signal); padding: 0 0 1px; cursor: pointer; }
@@ -2507,7 +2513,7 @@ function draw() {
   ranked = scoreAll();
   history.replaceState(null, '', picks.length
     ? '#' + (guessFor ? encodeURIComponent(guessFor) + '~' : '') + encodeState()
-    : location.pathname);
+    : location.pathname + location.search);   // keep ?us, or a reload of the US page lands on Canada
   // only the screen on show gets built. The table is 710 rows by 27 columns and
   // there is no reason to pay for it while someone is still picking.
   if (screen === 'result') { verdict(); return; }
@@ -2759,7 +2765,7 @@ function buildPicker() {
     ? `<form class="fw-form" id="fwForm"><input class="fw-in" id="fwName" maxlength="24"
         autocomplete="off" placeholder="Their first name" aria-label="Their first name">
         <button class="fw-go" type="submit">Start</button></form>`
-    : `<button class="fw-link" id="fwStart" type="button">Do it for someone else</button>`;
+    : `<button class="fw-start" id="fwStart" type="button">Guess where a friend belongs</button>`;
   const n = picks.length;
   $('#pkcount').innerHTML = n === 0
     ? `Tap up to ${MAX_PICKS} of <b>${PICKABLE.length}</b>. The order you tap is the order they count.`
@@ -2884,7 +2890,7 @@ $('#tbody').addEventListener('click', (e) => {
 function startOver() {
   Q.forEach((q) => { state[q.id] = q.def; });
   picks = []; askIdx = 0; selected = null; query = '';
-  history.replaceState(null, '', location.pathname);
+  history.replaceState(null, '', location.pathname + location.search);
   goTo('pick');
 }
 document.addEventListener('click', async (e) => {

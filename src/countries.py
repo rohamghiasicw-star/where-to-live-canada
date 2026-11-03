@@ -124,5 +124,5 @@ def other(cc):
     The USA sits at the root because Doug asked for it to be the opening country.
     Canada moved down a directory, so the two directions are not symmetrical."""
     if cc == 'CA':
-        return dict(cc='US', label='the USA', href='../')
+        return dict(cc='US', label='the USA', href='../?us')
     return dict(cc='CA', label='Canada', href='canada/')

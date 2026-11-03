@@ -453,6 +453,11 @@ put('/*__FONTS__*/', open(D('fonts/faces.css')).read())
 put('/*__CSS__*/', open(D('app/style.css')).read())
 put('/*__JS__*/', open(D('app/app.js')).read())
 
+# Canada first (Doug, Oct 8: "wondering if the original thought of Canada is
+# smarter"; his texts: "Canadian version first"). The bare root goes to Canada.
+# A hash means someone opened a shared US result, and ?us means they switched
+# country on purpose, so both stay here.
+html = html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<script>if(!location.hash&&!/[?&]us\\b/.test(location.search))location.replace("canada/")</script>', 1)
 os.makedirs(D(os.path.dirname(CFG['out'])), exist_ok=True)
 out = D(CFG['out'])
 open(out, 'w').write(html)

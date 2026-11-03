@@ -195,8 +195,13 @@ h1 i { font-style: normal; color: var(--signal); }
 .opt[aria-pressed="true"] { background: var(--on-stock); color: var(--stock); border-color: var(--on-stock); }
 .opt:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
 .opts-big { flex-direction: column; align-items: stretch; gap: 7px; }
-/* Do it for someone else. Quiet until used: a link, then an inline name field,
-   then a line saying whose answers these are. */
+/* Guess a friend. Doug, Oct 26: "guess your friend's choices" is the key to it
+   spreading, because most people using this are not actually moving. So it is a
+   real button on the first screen, not a quiet link. */
+.fw-start { font: inherit; font-size: var(--t-m); font-weight: 700; border: 0; cursor: pointer;
+  background: var(--signal); color: var(--ink); padding: 0.7rem 1.1rem; min-height: 44px;
+  border-radius: 0; box-shadow: 0 3px 8px rgba(0,0,0,0.35); }
+.fw-start:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 2px; }
 .forwho { margin-top: 0.6rem; min-height: 1.6em; }
 .fw-link { font: inherit; font-size: var(--t-s); font-weight: 700; background: none; border: 0;
   border-bottom: 1px solid var(--signal); color: var(--signal); padding: 0 0 1px; cursor: pointer; }

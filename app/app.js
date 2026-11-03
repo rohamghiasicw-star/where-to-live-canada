@@ -1595,7 +1595,7 @@ function draw() {
   ranked = scoreAll();
   history.replaceState(null, '', picks.length
     ? '#' + (guessFor ? encodeURIComponent(guessFor) + '~' : '') + encodeState()
-    : location.pathname);
+    : location.pathname + location.search);   // keep ?us, or a reload of the US page lands on Canada
   // only the screen on show gets built. The table is 710 rows by 27 columns and
   // there is no reason to pay for it while someone is still picking.
   if (screen === 'result') { verdict(); return; }
@@ -1847,7 +1847,7 @@ function buildPicker() {
     ? `<form class="fw-form" id="fwForm"><input class="fw-in" id="fwName" maxlength="24"
         autocomplete="off" placeholder="Their first name" aria-label="Their first name">
         <button class="fw-go" type="submit">Start</button></form>`
-    : `<button class="fw-link" id="fwStart" type="button">Do it for someone else</button>`;
+    : `<button class="fw-start" id="fwStart" type="button">Guess where a friend belongs</button>`;
   const n = picks.length;
   $('#pkcount').innerHTML = n === 0
     ? `Tap up to ${MAX_PICKS} of <b>${PICKABLE.length}</b>. The order you tap is the order they count.`
@@ -1972,7 +1972,7 @@ $('#tbody').addEventListener('click', (e) => {
 function startOver() {
   Q.forEach((q) => { state[q.id] = q.def; });
   picks = []; askIdx = 0; selected = null; query = '';
-  history.replaceState(null, '', location.pathname);
+  history.replaceState(null, '', location.pathname + location.search);
   goTo('pick');
 }
 document.addEventListener('click', async (e) => {
