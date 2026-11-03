@@ -5,6 +5,13 @@ const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const M = ['J','F','M','A','M','J','J','A','S','O','N','D'];
 const cv = (p, el, m = '13') => (p.climate && p.climate[el]) ? p.climate[el][m] : null;
+/* 0 = mild summers, 1 = the muggiest in the country. Canada: humidex-over-30
+   days (p90 is 47). US: July mean daily high, 26 to 36. */
+const heatOf = (p) => { if (CFG.cc === 'CA') { const h = cv(p, 'humidex30');
+    return h == null ? null : clamp(h / 50, 0, 1); }
+  const t = cv(p, 'tmax', '7'); return t == null ? null : clamp((t - 26) / 10, 0, 1); };
+const railOf = (p) => { const c = p.civic; if (!c || !c.rapid_transit) return 0;
+  return { subway: 1, 'light rail': 0.9, 'commuter rail': 0.5 }[c.transit_type] || 0.5; };
 const NA = '..';   // StatCan's published symbol for "not available", not an invented dash
 const near = (x, t, tol) => x == null ? null : clamp(1 - Math.abs(x - t) / tol, 0, 1);
 /* how far the year swings, July mean minus January mean. Doug's "seasonality
@@ -36,11 +43,31 @@ const Q_ALL = [
     show: (p) => { const x = cv(p, 'tmean', '1'); return x == null ? null : [x.toFixed(1), '°']; },
   },
   {
-    id: 'summer', g: 'Climate', label: 'Summer', col: 'Jul', hint: 'And the July.',
-    kind: 'range', min: 12, max: 24, step: 1, def: 20, w: 1,
-    fmt: (v) => `${v}°`, ends: ['Cool', 'Hot'],
-    score: (p, v) => near(cv(p, 'tmean', '7'), v, 7),
-    show: (p) => { const x = cv(p, 'tmean', '7'); return x == null ? null : [x.toFixed(1), '°']; },
+    /* Doug's own scale, "How uncomfortable is it for you when the day becomes
+       much hotter and more humid?". Canada answers it with the real thing:
+       Environment Canada's days a year with humidex over 30, which is heat AND
+       humidity together (Toronto 50, Halifax 14, Vancouver 5). NOAA's US normals
+       carry no humidity element, so the US reads July afternoon highs and the
+       hint says so. Answer 1 is "I like changes", so it leans warm rather than
+       going flat; 2 to 5 penalise heat harder each step. */
+    id: 'summer', g: 'Climate', label: 'Heat and humidity', col: 'Heat',
+    hint: CFG.cc === 'CA' ? 'Days a year the humidex goes over 30. Environment Canada normals.'
+      : 'Average July afternoon high. NOAA normals carry no humidity, so this is heat alone.',
+    ask: 'How uncomfortable is it for you when the day gets much hotter and more humid?',
+    kind: 'opts', def: 'h3', w: 1,
+    opts: [['h1','Deep down, I like changes in my daily weather. No problem for me.'],
+           ['h2',"I expect changes and don\u2019t mind them."],
+           ['h3',"As long as it only happens now and then, it\u2019s not a big deal."],
+           ['h4','I do get uncomfortable when it\u2019s too hot and humid.'],
+           ['h5','Very uncomfortable. I would stay indoors all day if I could.']],
+    score: (p, v) => { const s = heatOf(p); if (s == null) return null;
+      return { h1: 0.5 + 0.5 * s, h2: 1 - 0.25 * s, h3: 1 - 0.5 * s,
+               h4: 1 - 0.8 * s, h5: clamp(1 - 1.3 * s, 0, 1) }[v]; },
+    show: (p) => { if (CFG.cc === 'CA') { const h = cv(p, 'humidex30');
+        return h == null ? null : [Math.round(h), 'd']; }
+      const t = cv(p, 'tmax', '7'); return t == null ? null : [t.toFixed(0), '°']; },
+    sent: (v) => CFG.cc === 'CA' ? `gets <b>${v[0]} muggy days</b> a year`
+      : `has July highs around <b>${v[0]}°</b>`,
   },
   {
     id: 'swing', g: 'Climate', label: 'Seasons', col: 'Swing',
@@ -233,12 +260,26 @@ const Q_ALL = [
     sent: (v) => `has <b>${v[0]} pro teams</b>`,
   },
   {
-    id: 'transit', g: 'The place', label: 'Rapid transit', col: 'Rail',
-    hint: 'A subway, light rail or commuter train serving the place.',
-    kind: 'flag', def: 1, w: 0, want: 'Rail I can actually use',
-    score: (p) => { const c = p.civic;
-      if (!c || !c.rapid_transit) return 0;
-      return { subway: 1, 'light rail': 0.9, 'commuter rail': 0.5 }[c.transit_type] || 0.5; },
+    /* Doug's five answers run from "love my car" to "no car at all", so one
+       number cannot answer them. Two real ones: rail serving the place (transit
+       authority sources) and the share who get to work by transit, foot or bike
+       (census). The car lover gets the places built for driving, the
+       no-car answer leans hardest on the census share because that is what
+       living without one actually looks like. */
+    id: 'transit', g: 'The place', label: 'Getting around', col: 'Rail',
+    hint: 'Rail serving the place, plus the share who get to work by transit, foot or bike.',
+    ask: 'How important is it to have ways of getting around besides your own vehicle?',
+    kind: 'opts', def: 't3', w: 0,
+    opts: [['t1','Love my car or truck and go everywhere in it.'],
+           ['t2','Now and then I like to get a ride or take the subway or bus.'],
+           ['t3','I own a vehicle but like to take transit to work or school.'],
+           ['t4','I hate traffic, so I need choices, but I have a car or truck too.'],
+           ['t5',"It\u2019s essential. I don\u2019t own a vehicle and don\u2019t want one."]],
+    score: (p, v) => { const t = railOf(p), x = p.life ? p.life.carfree_pct : null;
+      if (x == null) return v === 't3' ? 0.25 + 0.75 * t : null;
+      const c = clamp(x / (CFG.cc === 'CA' ? 20 : 12), 0, 1);  // ~p90 of each country
+      return { t1: 1 - c, t2: 0.6 + 0.4 * (0.6 * t + 0.4 * c), t3: 0.25 + 0.75 * t,
+               t4: 0.15 + 0.85 * (0.6 * t + 0.4 * c), t5: 0.6 * c + 0.4 * t }[v]; },
     show: (p) => { const c = p.civic;
       if (!c || !c.rapid_transit) return ['no', ''];
       return [{ subway: 'metro', 'light rail': 'LRT', 'commuter rail': 'GO' }[c.transit_type] || 'yes', '']; },
@@ -366,12 +407,27 @@ const Q_ALL = [
     sent: (v) => `runs to a median age of <b>${v[0]}</b>`,
   },
   {
+    /* Doug's commute scale. His 3 is "under an hour is fine" and his 4 is
+       "under half an hour", so the census long-commute share does the work at
+       the low end and the under-15-minutes share at the high end. Canada's long
+       bucket is 60 minutes and over; the ACS one used for the US is 45 and over. */
     id: 'commute', label: 'The commute', col: 'Short', g: 'Life there',
-    hint: 'Share of workers who get there in under 15 minutes.',
-    kind: 'flag', def: 1, w: 0, want: 'A short commute',
-    score: (p) => { const x = p.life ? p.life.commute_short_pct : null;
-      if (x == null) return null; return clamp(x / 80, 0, 1); },
+    hint: CFG.cc === 'CA' ? 'Share of workers under 15 minutes, and over an hour. Census 2021.'
+      : 'Share of workers under 15 minutes, and over 45. American Community Survey.',
+    ask: 'As a regular driver, how much do long commutes or traffic bother you?',
+    kind: 'opts', def: 'c3', w: 0,
+    opts: [['c1',"I don\u2019t mind driving. Commuting is part of life."],
+           ['c2','Apart from the worst traffic jams I\u2019m okay, even if I complain a bit.'],
+           ['c3','A commute under an hour is fine.'],
+           ['c4','It has to be less than half an hour from work or school.'],
+           ['c5','I hate traffic and would rather live close to work or school.']],
+    score: (p, v) => { const L = p.life || {}, x = L.commute_short_pct, y = L.commute_long_pct;
+      if (x == null && y == null) return null;
+      const S = x == null ? 0.5 : clamp(x / 70, 0, 1), G = y == null ? 0.5 : clamp(y / (CFG.cc === 'CA' ? 15 : 35), 0, 1);  // 60+ vs 45+ min, ~p90
+      return { c1: 0.7 + 0.3 * S, c2: 1 - 0.6 * G, c3: 1 - G,
+               c4: 0.6 * S + 0.4 * (1 - G), c5: S }[v]; },
     show: (p) => p.life && p.life.commute_short_pct != null ? [p.life.commute_short_pct.toFixed(0), '%'] : null,
+    sent: (v) => `has <b>${v[0]}%</b> of workers there in under 15 minutes`,
   },
   {
     id: 'car', label: 'Life without a car', col: 'Carfree', g: 'Life there',
@@ -596,7 +652,8 @@ const Q = Q_ALL.filter((q) => !q.cc || q.cc.includes(CFG.cc));
    help strip. an abbreviation nobody can expand is not a label. */
 const COLHELP = {
   winter:  ['Average January temperature', '°C', CFG.sources.climate],
-  summer:  ['Average July temperature', '°C', CFG.sources.climate],
+  summer:  CFG.cc === 'CA' ? ['Days a year with humidex over 30', 'days', CFG.sources.climate]
+           : ['Average July afternoon high', '°C', CFG.sources.climate],
   swing:   ['How far the year swings, July mean minus January mean', '°C', CFG.sources.climate],
   rain:    ['Total precipitation in a year', 'mm', CFG.sources.climate],
   snow:    ['Snow that falls in a year', 'cm', CFG.sources.climate],
@@ -626,14 +683,14 @@ const COLHELP = {
   mood:    ['How residents sound about the place, -2 to +2', '', 'Forums, local news and blogs. Only where researched.'],
 };
 
-const SHORT = { winter:'the winter', summer:'the summer', snow:'the snow', sun:'the sun',
+const SHORT = { winter:'the winter', summer:'the summers', snow:'the snow', sun:'the sun',
   swing:'the seasons', rain:'the rain',
   smoke:'clean air', size:'the size', prox:'the drive', cost:'the price',
   politics:'the politics', mood:'the mood', growth:'the growth', age:'the crowd',
-  commute:'the short commute', car:'getting around without a car', jobs:'the job market',
+  commute:'the commute', car:'getting around without a car', jobs:'the job market',
   mix:'the mix of people', french:'the French', kids:'the young families',
   single:'the single crowd', gender:'the gender balance', faith:'your community',
-  water:'the water', pitches:'the soccer', sports:'the pro team', transit:'the train',
+  water:'the water', pitches:'the soccer', sports:'the pro team', transit:'getting around',
   worship:'your faith community', lang:'your language', active:'the active life',
   ski:'the skiing', langca:'your language', net:'the internet',
   hazard:'the safety from disasters', quake:'the quiet ground', dog:'somewhere for a dog', arts:'the arts scene',
@@ -648,14 +705,14 @@ const said = (q) => q.kind === 'range' ? q.fmt(state[q.id])
   : (q.opts.find((o) => o[0] === state[q.id]) || ['',''])[1];
 /* short name for the picker tile. the survey label is a sentence heading;
    a tile needs two or three words that read at a glance. */
-const PICKLABEL = { winter:'Winter', summer:'Summer', swing:'Seasons', rain:'Rain',
+const PICKLABEL = { winter:'Winter', summer:'Heat and humidity', swing:'Seasons', rain:'Rain',
   snow:'Snow', sun:'Sun', smoke:'Clean air', size:'Size of place', prox:'Near a city',
   cost:'Housing cost', politics:'Politics', growth:'Growing', age:'Who lives there',
-  commute:'Short commute', car:'Life without a car', jobs:'Jobs', mix:'Diverse',
+  commute:'Commute', car:'Life without a car', jobs:'Jobs', mix:'Diverse',
   french:'French', mood:'What locals say', kids:'Kids around', single:'Single people',
   gender:'Gender balance', faith:'Faith community', worship:'Faith community',
   water:'Near a body of water',
-  pitches:'Soccer pitches', sports:'Pro sports', transit:'Rapid transit' };
+  pitches:'Soccer pitches', sports:'Pro sports', transit:'Getting around' };
 const listify = (a) => a.length < 2 ? (a[0]||'') : a.slice(0,-1).join(', ') + ' and ' + a[a.length-1];
 function fmtNum(n) {
   if (n == null) return NA;
