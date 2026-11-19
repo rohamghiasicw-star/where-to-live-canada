@@ -684,6 +684,9 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 .pk-how:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
 
 @media (min-width: 761px) { .guide { place-items: center; } }
+
+/* deep mode: how many questions a topic tile will ask */
+.pk-q { margin-left: 0.45rem; font-size: var(--t-xs); font-weight: 700; opacity: 0.6; }
 </style>
 
 <!--
@@ -1648,6 +1651,37 @@ function fmtNum(n) {
    seventeen lukewarm answers outvote the one thing someone actually cared
    about. Five ranked picks say the same thing in a fifth of the taps. */
 const MAX_PICKS = 5;
+/* Deep mode. Doug, Thursday 17 October 2026, after testing five: "The reasons I
+   provided 5 questions per topic were to make it more accurate, have the
+   questionnaire take a bit longer, and finally to avoid duplicating answers.
+   Maybe fewer topics but deeper (up to 5) questions?" So in this mode the tiles
+   are his topics, not single questions. You still rank up to five, and each
+   topic you pick asks every question under it, up to five. A topic's weight is
+   split across its questions, so a five-question topic does not outvote a
+   one-question topic just by being longer. Life without a car is left out: it
+   is the same answer as "Getting around" asked twice, the duplication he named.
+   On staging, or any link with ?deep, until he and Roham pick one. */
+const DEEP = /\/staging\//.test(location.pathname) || /[?&]deep\b/.test(location.search);
+const TOPICS = [
+  ['weather', 'Weather', ['winter', 'summer', 'swing', 'rain', 'snow']],
+  ['air', 'Air, sun and natural risk', ['smoke', 'sun', 'hazard', 'quake']],
+  ['place', 'Size and location', ['size', 'prox', 'water', 'growth']],
+  ['around', 'Getting around', ['transit', 'commute']],
+  ['money', 'Money and work', ['cost', 'jobs', 'net']],
+  ['outdoors', 'Outdoors and sports', ['ski', 'pitches', 'sports', 'active', 'dog']],
+  ['culture', 'Culture and healthy living', ['arts', 'food', 'learn', 'health', 'volunteer']],
+  ['people', 'The people', ['mix', 'age', 'kids', 'faith', 'worship']],
+  ['politics', 'Politics', ['politics']],
+  ['dating', 'Dating potential', ['single', 'gender']],
+  ['language', 'Language', ['french', 'langca', 'lang']],
+].map(([id, label, qs]) => ({ id, label, qs: qs.filter((x) => Q.some((q) => q.id === x)) }))
+ .filter((t) => t.qs.length);
+const topicOf = (qid) => TOPICS.find((t) => t.qs.includes(qid));
+// the topics in the order they were picked, read off the question order
+const pickedTopics = () => { const out = [];
+  for (const id of picks) { const t = topicOf(id); if (t && !out.includes(t)) out.push(t); }
+  return out; };
+const MAX_Q = DEEP ? MAX_PICKS * 5 : MAX_PICKS;
 const state = {};
 let picks = [];
 Q.forEach((q) => { state[q.id] = q.def; });
@@ -1666,7 +1700,7 @@ const encodeState = () => picks.map((id) => {
 }).join('_');
 function decodeState(s) {
   const parts = (s || '').split('_').filter(Boolean);
-  if (!parts.length || parts.length > MAX_PICKS) return false;
+  if (!parts.length || parts.length > MAX_Q) return false;
   const next = [];
   try {
     for (const part of parts) {
@@ -1772,7 +1806,12 @@ const osmShow = (p, field) => {
   return [o[field], ''];
 };
 
-const wOf = (id) => { const i = picks.indexOf(id); return i < 0 ? 0 : picks.length - i; };
+const wOf = (id) => {
+  if (!picks.includes(id)) return 0;
+  if (DEEP) { const ts = pickedTopics(), t = topicOf(id), ti = ts.indexOf(t);
+    if (ti < 0) return 0;
+    return (ts.length - ti) / picks.filter((x) => topicOf(x) === t).length; }
+  const i = picks.indexOf(id); return picks.length - i; };
 
 function scoreAll() {
   const out = DATA.map((p) => {
@@ -2401,7 +2440,9 @@ function verdict() {
       `<b>${x.p.name}<span class="pv">${x.p.prov}</span></b>`).join(', ')}.</p>` : ''}
     <div class="v-how"><span class="vh-t">How this was scored</span>
       <ul>
-        ${picks.length > 1 ? `<li><b>${Q.find((q) => q.id === picks[0]).label}</b> counted most.
+        ${DEEP && pickedTopics().length > 1 ? `<li><b>${pickedTopics()[0].label}</b> counted most.
+          You tapped it first. Each topic's weight is split across its questions.</li>`
+        : !DEEP && picks.length > 1 ? `<li><b>${Q.find((q) => q.id === picks[0]).label}</b> counted most.
           You tapped it first.</li>` : '<li>Only what you picked counted.</li>'}
         <li>Nothing is guessed. A missing number lowers the score.</li>
       </ul></div>
@@ -2736,6 +2777,15 @@ $('#vswitch').addEventListener('click', (e) => {
 // re-render when crossing the desktop/mobile boundary so the right structure builds
 MOBILE.addEventListener('change', () => { selected = null; render(); });
 
+/* deep mode: say which topic this question belongs to and how far through it you are */
+function deepLine(q, who) {
+  const ts = pickedTopics(), t = topicOf(q.id), ti = ts.indexOf(t);
+  const inT = picks.filter((x) => topicOf(x) === t), k = inT.indexOf(q.id);
+  const rank = ['top', 'second', 'third', 'fourth', 'fifth'][ti] || 'a';
+  return `<span class="q-rank">${ti + 1}</span>${t.label}, ${who} ${rank} priority${
+    inT.length > 1 ? ` \u00b7 question ${k + 1} of ${inT.length}` : ''}`;
+}
+
 /* ---------- survey ----------
    Two parts. The picker is every dimension as a tile; tapping one adds it to
    your ranking and stamps it with its number. Below it, only the things you
@@ -2744,6 +2794,17 @@ const PICKABLE = Q.filter((q) => !q.noPick);
 function buildPicker() {
   let lastG = null;
   const host = $('#picker');
+  if (DEEP) {
+    const ts = pickedTopics();
+    host.innerHTML = TOPICS.map((t) => {
+      const i = ts.indexOf(t), full = ts.length >= MAX_PICKS && i < 0;
+      return `<button class="pk${i >= 0 ? ' on' : ''}" type="button" data-topic="${t.id}"
+        aria-pressed="${i >= 0}"${full ? ' disabled aria-disabled="true"' : ''}
+        aria-label="${t.label}, ${t.qs.length} question${t.qs.length > 1 ? 's' : ''}${i >= 0 ? `, ranked ${i+1}` : ''}"
+        >${i >= 0 ? `<span class="pk-n">${i + 1}</span>` : ''}${t.label}<span class="pk-q">${t.qs.length}</span></button>`;
+    }).join('');
+    host.classList.toggle('full', ts.length >= MAX_PICKS);
+  } else
   host.innerHTML = PICKABLE.map((q) => {
     const head = q.g !== lastG ? `<p class="pk-g">${q.g}</p>` : '';
     lastG = q.g;
@@ -2754,7 +2815,7 @@ function buildPicker() {
       aria-label="${PICKLABEL[q.id] || q.label}${i >= 0 ? `, ranked ${i+1}` : ''}"
       >${i >= 0 ? `<span class="pk-n">${i + 1}</span>` : ''}${PICKLABEL[q.id] || q.label}</button>`;
   }).join('');
-  host.classList.toggle('full', picks.length >= MAX_PICKS);
+  if (!DEEP) host.classList.toggle('full', picks.length >= MAX_PICKS);
   const tt = $('#pkTitle');
   if (tt) tt.textContent = guessFor ? `What matters to ${guessFor}?` : 'What matters to you?';
   const fw = $('#forwho');
@@ -2766,8 +2827,13 @@ function buildPicker() {
         autocomplete="off" placeholder="Their first name" aria-label="Their first name">
         <button class="fw-go" type="submit">Start</button></form>`
     : `<button class="fw-start" id="fwStart" type="button">Guess where a friend belongs</button>`;
-  const n = picks.length;
-  $('#pkcount').innerHTML = n === 0
+  const n = DEEP ? pickedTopics().length : picks.length;
+  $('#pkcount').innerHTML = DEEP ? (n === 0
+    ? `Tap up to ${MAX_PICKS} of <b>${TOPICS.length}</b> topics. The order you tap is the order they count. Each one asks up to 5 questions.`
+    : n >= MAX_PICKS
+      ? `That is your ${MAX_PICKS} topics, <b>${picks.length} questions</b>. Tap one again to swap it out.`
+      : `<b>${n} of ${MAX_PICKS}</b> topics, ${picks.length} questions. ${n === 1 ? 'Pick another, or stop here.' : 'Keep going, or stop here.'}`)
+    : n === 0
     ? `Tap up to ${MAX_PICKS} of <b>${PICKABLE.length}</b>. The order you tap is the order they count.`
     : n >= MAX_PICKS
       ? `That is your ${MAX_PICKS}. Tap one again to swap it out.`
@@ -2799,7 +2865,7 @@ function buildAsk() {
   $('#askProg').textContent = '';   // the dots carry progress; an eyebrow is banned
   $('#askTitle').textContent = q.label;
   $('#qs').innerHTML = `<div class="q q-solo">
-      <p class="q-rankline"><span class="q-rank">${askIdx + 1}</span>This is ${nth}</p>
+      <p class="q-rankline">${DEEP ? deepLine(q, who) : `<span class="q-rank">${askIdx + 1}</span>This is ${nth}`}</p>
       ${q.ask ? `<p class="q-ask">${q.ask}</p>` : ''}
       <p class="q-hint">${q.hint}</p>
       ${controlHTML(q)}
@@ -2810,6 +2876,13 @@ function buildAsk() {
 
 $('#picker').addEventListener('click', (e) => {
   const b = e.target.closest('.pk'); if (!b) return;
+  if (DEEP) {
+    const t = TOPICS.find((x) => x.id === b.dataset.topic); if (!t) return;
+    if (pickedTopics().includes(t)) picks = picks.filter((x) => topicOf(x) !== t);
+    else if (pickedTopics().length >= MAX_PICKS) return;
+    else picks.push(...t.qs);
+    ownIt(); buildPicker(); actionbar(); render(); return;
+  }
   const id = b.dataset.pick, i = picks.indexOf(id);
   if (i >= 0) picks.splice(i, 1);                       // tap again to drop, the rest renumber
   else if (picks.length >= MAX_PICKS) return;           // full: the tiles are visibly dimmed
@@ -2897,7 +2970,7 @@ document.addEventListener('click', async (e) => {
   const b = e.target.closest('#share'); if (!b) return;
   const top = ranked.find((r) => !r.excluded);
   const mine = picks.length
-    ? ` I ranked ${listify(picks.slice(0, 3).map((id) => SHORT[id]).filter(Boolean))} and got ${Math.round(top.fit)} out of 100.`
+    ? ` I ranked ${DEEP ? listify(pickedTopics().slice(0, 3).map((t) => t.label.toLowerCase())) : listify(picks.slice(0, 3).map((id) => SHORT[id]).filter(Boolean))} and got ${Math.round(top.fit)} out of 100.`
     : '';
   const text = !top ? 'Where do you belong in Canada?'
     : guessFor ? `${guessFor}, I think you belong in ${top.p.name}, ${top.p.prov}. Am I right?`

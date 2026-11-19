@@ -665,3 +665,6 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 .pk-how:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
 
 @media (min-width: 761px) { .guide { place-items: center; } }
+
+/* deep mode: how many questions a topic tile will ask */
+.pk-q { margin-left: 0.45rem; font-size: var(--t-xs); font-weight: 700; opacity: 0.6; }
