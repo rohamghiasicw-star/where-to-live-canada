@@ -2,31 +2,31 @@
 name: Where U Belong
 description: A hardiness zone map that floods a whole country in five printed bands, so the map is the answer rather than an illustration of it.
 colors:
-  ink: "#0B2A21"
-  ink-2: "#123528"
-  rule: "#21493B"
-  rule-2: "#2E5C4A"
-  stock: "#F4EBD4"
-  stock-2: "#E7DABA"
-  on-ink: "#F4EBD4"
-  on-ink-2: "#AFC8B8"
-  on-ink-3: "#86A492"
-  on-stock: "#14231C"
-  on-stock-2: "#48584C"
-  on-stock-3: "#6B7A6F"
-  fit-0: "#33507A"
-  fit-1: "#3C7F8C"
-  fit-2: "#6FA24A"
-  fit-3: "#D9A21B"
-  fit-4: "#D6461C"
-  z5: "#D6461C"
-  signal: "#E9B949"
-  signal-2: "#C8971F"
-  check: "#A78BFA"
-  thin: "#86A492"
-  warm: "#E9B949"
-  cool: "#3C7F8C"
-  sink: "#E7DABA"
+  ink: "#FFFFFF"
+  ink-2: "#F4F6FB"
+  rule: "#E4E8F0"
+  rule-2: "#C8D0DE"
+  stock: "#F4F7FC"
+  stock-2: "#E2E9F4"
+  on-ink: "#0D1A30"
+  on-ink-2: "#45526B"
+  on-ink-3: "#5D6983"
+  on-stock: "#0D1A30"
+  on-stock-2: "#45526B"
+  on-stock-3: "#5D6983"
+  fit-0: "#2B3A6B"
+  fit-1: "#3566C9"
+  fit-2: "#45A6E0"
+  fit-3: "#9DD9D2"
+  fit-4: "#FFC83D"
+  z5: "#0B5CFF"
+  signal: "#0B5CFF"
+  signal-2: "#0047D1"
+  check: "#7C3AED"
+  thin: "#5D6983"
+  warm: "#E8A317"
+  cool: "#3566C9"
+  sink: "#E2E9F4"
 typography:
   display:
     fontFamily: "Radio Canada, sans-serif"
@@ -215,6 +215,14 @@ on top of it. Reaching for either is undoing the decision, not iterating on it.
 - Thumb-first: a sticky action bar, 44px+ targets, one question per screen.
 
 ## Colors
+
+> **Palette replaced Thursday 19 November 2026.** Roham rejected the green and mustard
+> world and picked "blue, white and sun" from eight rendered options
+> (`research/palettes/`). White ground, navy type, one blue action colour, a
+> navy-to-gold fit ramp, and selected tiles filled blue. The token ROLES below still
+> hold; the hex values and colour names in this section are the old world. The truth is
+> `app/style.css` `:root` and the frontmatter above. The share card and the OG images
+> draw text in `--on-ink`, never `--stock`, because the panel colour is now near white.
 
 A printed two-ink world (dark green ground, warm stock) with a five-step spot-colour
 zone ramp laid over it and a single mustard signal for action.

@@ -1176,7 +1176,7 @@ async function drawCard() {
   const x = c.getContext('2d');
   const INK = css('--ink'), STOCK = css('--stock'), SIGNAL = css('--signal');
   const ONSTOCK = css('--on-stock'), ONSTOCK2 = css('--on-stock-2'), ONSTOCK3 = css('--on-stock-3');
-  const ONINK2 = css('--on-ink-2'), ONINK3 = css('--on-ink-3');
+  const ONINK = css('--on-ink'), ONINK2 = css('--on-ink-2'), ONINK3 = css('--on-ink-3');
 
   x.fillStyle = INK; x.fillRect(0, 0, CARD_W, CARD_H);
   const M = 72;
@@ -1204,7 +1204,7 @@ async function drawCard() {
   let size = 132;
   do { x.font = `700 condensed ${size}px 'Radio Canada', sans-serif`; size -= 4; }
   while (x.measureText(NAME).width > maxW && size > 40);
-  x.fillStyle = STOCK;
+  x.fillStyle = ONINK;   // text on the card ground, so it follows the ground, not the panel
   x.fillText(NAME, M, 322);
   const nameW = x.measureText(NAME).width;
   x.fillStyle = SIGNAL;
@@ -1262,7 +1262,7 @@ async function drawCard() {
   }
   x.globalAlpha = 1;
   x.beginPath(); x.arc(p.x * k, p.y * k, 17, 0, 6.284);
-  x.fillStyle = STOCK; x.fill();
+  x.fillStyle = ONINK; x.fill();
   x.strokeStyle = INK; x.lineWidth = 5; x.stroke();
   x.restore();
 
@@ -1281,7 +1281,7 @@ async function drawCard() {
     x.fillStyle = css('--hot'); x.fillRect(M, y - 30, 34, 34);
     x.fillStyle = '#fff'; x.font = "700 22px 'Radio Canada', sans-serif";
     x.fillText(String(i + 1), M + 11, y - 6);
-    x.fillStyle = STOCK; x.font = "700 34px 'Radio Canada', sans-serif";
+    x.fillStyle = ONINK; x.font = "700 34px 'Radio Canada', sans-serif";
     x.fillText(q.label, M + 52, y);
     if (v) {
       x.fillStyle = ONINK2; x.font = "400 34px 'Radio Canada', sans-serif";

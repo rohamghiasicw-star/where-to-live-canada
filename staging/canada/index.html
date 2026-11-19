@@ -34,20 +34,20 @@
    ============================================================ */
 
 :root {
-  --ink:      #0B2A21;
-  --ink-2:    #123528;
-  --rule:     #21493B;
-  --rule-2:   #2E5C4A;
+  --ink:      #FFFFFF;
+  --ink-2:    #F4F6FB;
+  --rule:     #E4E8F0;
+  --rule-2:   #C8D0DE;
 
-  --stock:    #F4EBD4;
-  --stock-2:  #E7DABA;
-  --on-stock: #14231C;
-  --on-stock-2: #48584C;
-  --on-stock-3: #6B7A6F;
+  --stock:    #F4F7FC;
+  --stock-2:  #E2E9F4;
+  --on-stock: #0D1A30;
+  --on-stock-2: #45526B;
+  --on-stock-3: #5D6983;
 
-  --on-ink:   #F4EBD4;
-  --on-ink-2: #AFC8B8;
-  --on-ink-3: #86A492;
+  --on-ink:   #0D1A30;
+  --on-ink-2: #45526B;
+  --on-ink-3: #5D6983;
 
   /* ZONE BANDS: the fit ramp as printed spot inks, cold to hot. Five
      countable bands, not a smooth gradient, because a printed map has
@@ -56,35 +56,35 @@
      the map. There is deliberately no second --z1..--z5 alias set;
      having two names for one colour meant edits to the alias did
      nothing, which is worse than a long name. */
-  --fit-0: #33507A;   /* indigo   — does not suit you */
-  --fit-1: #3C7F8C;   /* teal     */
-  --fit-2: #6FA24A;   /* moss     */
-  --fit-3: #D9A21B;   /* gold     */
-  --fit-4: #C23C14;   /* hot red  — suits you best (deepened so type clears 4.5:1) */
+  --fit-0: #2B3A6B;   /* navy, does not suit you */
+  --fit-1: #3566C9;   /* blue */
+  --fit-2: #45A6E0;   /* sky */
+  --fit-3: #9DD9D2;   /* mint */
+  --fit-4: #FFC83D;   /* sun gold, suits you best. Dark type on it, never white */
   /* per-band foreground. A ramp built for a map is not a ramp for type: on gold the
      cream sat at 1.94:1. Light bands take ink, dark bands take cream, and the unit
      suffix is tinted from the band rather than the global grey. */
-  --on-fit-0: #F4EBD4;
-  --on-fit-1: #EAF3F5;
-  --on-fit-2: #14231C;
-  --on-fit-3: #14231C;
-  --on-fit-4: #FFF4EF;
-  --unit-0: #C3D2E4;
-  --unit-1: #CFE4E8;
-  --unit-2: #2C4A22;
-  --unit-3: #4A3705;
-  --unit-4: #F6D2C4;
+  --on-fit-0: #FFFFFF;
+  --on-fit-1: #FFFFFF;
+  --on-fit-2: #14161B;
+  --on-fit-3: #14161B;
+  --on-fit-4: #14161B;
+  --unit-0: #FFFFFF;
+  --unit-1: #FFFFFF;
+  --unit-2: #14161B;
+  --unit-3: #14161B;
+  --unit-4: #14161B;
 
   /* the same red doing UI duty: rank badges, slider thumb, share button.
      Named separately from --fit-4 because they are free to diverge. */
-  --hot:     #C23C14;
+  --hot:     #0B5CFF;
 
-  --signal:  #E9B949;
-  --signal-2:#C8971F;
-  --check:   #8C6BB1;   /* re-mixed from the stock/signal family, not off the shelf */
-  --thin:    #86A492;
-  --warm:    #E9B949;
-  --cool:    #3C7F8C;
+  --signal:  #0B5CFF;
+  --signal-2:#0047D1;
+  --check:   #7C3AED;   /* re-mixed from the stock/signal family, not off the shelf */
+  --thin:    #5D6983;
+  --warm:    #E8A317;
+  --cool:    #3566C9;
 
   --t-xs: 0.8125rem;
   --t-s:  0.9375rem;
@@ -165,8 +165,9 @@ h1 i { font-style: normal; color: var(--signal); }
   display: inline-flex; align-items: center; gap: 0.5rem; }
 .pk:hover { border-color: var(--signal); color: var(--on-ink); }
 .pk:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
-.pk.on { background: var(--stock); color: var(--on-stock); border-color: var(--stock);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+.pk.on { background: var(--signal); color: #fff; border-color: var(--signal);
+  box-shadow: 0 2px 4px rgba(13,26,48,0.25); }
+.pk.on .pk-n { background: #fff; color: var(--signal); }
 .pk-n { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em;
   background: var(--hot); color: #fff; font-weight: 700; font-size: 0.8em;
   font-variant-numeric: tabular-nums; }
@@ -552,7 +553,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
 
   .sheet-overlay { display: block; position: fixed; inset: 0; z-index: 50; }
   .sheet-overlay[hidden] { display: none; }
-  .sheet-scrim { position: absolute; inset: 0; background: rgba(6,20,15,0.72); }
+  .sheet-scrim { position: absolute; inset: 0; background: rgba(13,26,48,0.45); }
   .sheet-card { position: absolute; left: 0; right: 0; bottom: 0; max-height: 92vh; overflow-y: auto;
     background: var(--ink); border-top: 3px solid var(--signal);
     padding: 0.5rem 0 calc(2rem + env(safe-area-inset-bottom, 0));
@@ -624,7 +625,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--hot); outline-offset:
    One card at a time, the same rhythm the question screens use. Everyone asked why
    tap ORDER matters, so the middle card answers it as three descending bars: a
    sentence has to be decoded, bars do not. */
-.guide { position: fixed; inset: 0; z-index: 60; background: rgba(6,20,15,0.9);
+.guide { position: fixed; inset: 0; z-index: 60; background: rgba(13,26,48,0.7);
   display: grid; place-items: end center; }
 .guide[hidden] { display: none; }
 .guide-card { width: 100%; max-width: 560px; background: var(--ink);
@@ -2079,7 +2080,7 @@ async function drawCard() {
   const x = c.getContext('2d');
   const INK = css('--ink'), STOCK = css('--stock'), SIGNAL = css('--signal');
   const ONSTOCK = css('--on-stock'), ONSTOCK2 = css('--on-stock-2'), ONSTOCK3 = css('--on-stock-3');
-  const ONINK2 = css('--on-ink-2'), ONINK3 = css('--on-ink-3');
+  const ONINK = css('--on-ink'), ONINK2 = css('--on-ink-2'), ONINK3 = css('--on-ink-3');
 
   x.fillStyle = INK; x.fillRect(0, 0, CARD_W, CARD_H);
   const M = 72;
@@ -2107,7 +2108,7 @@ async function drawCard() {
   let size = 132;
   do { x.font = `700 condensed ${size}px 'Radio Canada', sans-serif`; size -= 4; }
   while (x.measureText(NAME).width > maxW && size > 40);
-  x.fillStyle = STOCK;
+  x.fillStyle = ONINK;   // text on the card ground, so it follows the ground, not the panel
   x.fillText(NAME, M, 322);
   const nameW = x.measureText(NAME).width;
   x.fillStyle = SIGNAL;
@@ -2165,7 +2166,7 @@ async function drawCard() {
   }
   x.globalAlpha = 1;
   x.beginPath(); x.arc(p.x * k, p.y * k, 17, 0, 6.284);
-  x.fillStyle = STOCK; x.fill();
+  x.fillStyle = ONINK; x.fill();
   x.strokeStyle = INK; x.lineWidth = 5; x.stroke();
   x.restore();
 
@@ -2184,7 +2185,7 @@ async function drawCard() {
     x.fillStyle = css('--hot'); x.fillRect(M, y - 30, 34, 34);
     x.fillStyle = '#fff'; x.font = "700 22px 'Radio Canada', sans-serif";
     x.fillText(String(i + 1), M + 11, y - 6);
-    x.fillStyle = STOCK; x.font = "700 34px 'Radio Canada', sans-serif";
+    x.fillStyle = ONINK; x.font = "700 34px 'Radio Canada', sans-serif";
     x.fillText(q.label, M + 52, y);
     if (v) {
       x.fillStyle = ONINK2; x.font = "400 34px 'Radio Canada', sans-serif";

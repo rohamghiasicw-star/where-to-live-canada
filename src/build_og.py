@@ -23,14 +23,15 @@ D = lambda *p: os.path.join(ROOT, *p)
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1200, 630
-# Hardiness Zone world: printed ink ground, stock type, five zone bands
-INK    = (11, 42, 33)
-INK2   = (18, 53, 40)
-STOCK  = (244, 235, 212)
-ONINK2 = (175, 200, 184)
-ONINK3 = (134, 164, 146)
-SIGNAL = (233, 185, 73)
-FIT    = [(51, 80, 122), (60, 127, 140), (111, 162, 74), (217, 162, 27), (214, 70, 28)]
+# Blue, white and sun (Roham picked it 2026-11-19): white ground, navy type, blue
+# action, a navy-to-gold fit ramp. STOCK is the type colour on the ground here.
+INK    = (255, 255, 255)
+INK2   = (244, 246, 251)
+STOCK  = (13, 26, 48)
+ONINK2 = (69, 82, 107)
+ONINK3 = (93, 105, 131)
+SIGNAL = (11, 92, 255)
+FIT    = [(43, 58, 107), (53, 102, 201), (69, 166, 224), (157, 217, 210), (255, 200, 61)]
 PAPER, SINK, RULE2, INK3, WARM = INK, INK2, INK2, ONINK3, SIGNAL
 
 
