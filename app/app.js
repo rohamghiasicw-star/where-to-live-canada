@@ -730,7 +730,7 @@ function fmtNum(n) {
    seventeen lukewarm answers outvote the one thing someone actually cared
    about. Five ranked picks say the same thing in a fifth of the taps. */
 const MAX_PICKS = 5;
-/* Deep mode. Doug, Thursday 17 October 2026, after testing five: "The reasons I
+/* Deep mode. Doug, Saturday 17 October 2026, after testing five: "The reasons I
    provided 5 questions per topic were to make it more accurate, have the
    questionnaire take a bit longer, and finally to avoid duplicating answers.
    Maybe fewer topics but deeper (up to 5) questions?" So in this mode the tiles
