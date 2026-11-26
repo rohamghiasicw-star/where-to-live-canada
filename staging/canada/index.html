@@ -2866,7 +2866,13 @@ function buildAsk() {
                `${who} fourth priority`, `${who} fifth priority`][askIdx] || 'a priority';
   $('#askProg').textContent = '';   // the dots carry progress; an eyebrow is banned
   $('#askTitle').textContent = q.label;
+  // a picked topic with nothing to answer (all flags) never gets a screen, so the
+  // first screen says where it went instead of skipping a number silently
+  const free = DEEP && askIdx === 0
+    ? pickedTopics().filter((t) => !askList().some((x) => topicOf(x) === t)) : [];
   $('#qs').innerHTML = `<div class="q q-solo">
+      ${free.length ? `<p class="q-hint">${listify(free.map((t) => t.label))} ${free.length > 1
+        ? 'need no answers. They count' : 'needs no answers. It counts'} just for being picked.</p>` : ''}
       <p class="q-rankline">${DEEP ? deepLine(q, who) : `<span class="q-rank">${askIdx + 1}</span>This is ${nth}`}</p>
       ${q.ask ? `<p class="q-ask">${q.ask}</p>` : ''}
       <p class="q-hint">${q.hint}</p>
