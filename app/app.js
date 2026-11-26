@@ -863,9 +863,12 @@ function agreementWith(snap) {
 }
 
 /* ---------- scoring ----------
-   1. Weight comes from your ranking. With n picks, your first counts n and your
-      last counts 1, so a full five reads 5-4-3-2-1. It is stated on the page in
-      those words, because a weighting nobody can explain is a black box.
+   1. Weight comes from your ranking, on Doug's own points (Tuesday 18 August
+      2026): "1st- 10 points, 2nd- 7, 3rd-6, 4th-5, 5th- 1 ... If people put
+      something down as 1st, the output needs to reflect this." Fewer than five
+      picks take the top of the same scale. It is stated on the page as "your
+      first pick counts most", because a weighting nobody can explain is a
+      black box.
 
    2. The fit is a weighted power mean with p<1, not a plain average. A plain
       average is fully compensatory: a place can fail the one thing you care
@@ -885,12 +888,13 @@ const osmShow = (p, field) => {
   return [o[field], ''];
 };
 
+const RANK_W = [10, 7, 6, 5, 1];
 const wOf = (id) => {
   if (!picks.includes(id)) return 0;
   if (DEEP) { const ts = pickedTopics(), t = topicOf(id), ti = ts.indexOf(t);
     if (ti < 0) return 0;
-    return (ts.length - ti) / picks.filter((x) => topicOf(x) === t).length; }
-  const i = picks.indexOf(id); return picks.length - i; };
+    return (RANK_W[ti] || 0) / picks.filter((x) => topicOf(x) === t).length; }
+  return RANK_W[picks.indexOf(id)] || 0; };
 
 function scoreAll() {
   const out = DATA.map((p) => {
