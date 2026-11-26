@@ -739,8 +739,10 @@ const MAX_PICKS = 5;
    split across its questions, so a five-question topic does not outvote a
    one-question topic just by being longer. Life without a car is left out: it
    is the same answer as "Getting around" asked twice, the duplication he named.
-   On staging, or any link with ?deep, until he and Roham pick one. */
-const DEEP = /\/staging\//.test(location.pathname) || /[?&]deep\b/.test(location.search);
+   The default since Wednesday 25 November 2026 (Roham: "make it main"). The
+   older one-question-per-tile version is kept on any link with ?quick, and
+   old ?deep links still open this one. */
+const DEEP = !/[?&]quick\b/.test(location.search);
 const TOPICS = [
   ['weather', 'Weather', ['winter', 'summer', 'swing', 'rain', 'snow']],
   ['air', 'Air, sun and natural risk', ['smoke', 'sun', 'hazard', 'quake']],

@@ -801,20 +801,20 @@ review, the verdict, and DESIGN.md
       <div class="g-step" data-g="0">
         <p class="g-say">Tap what matters.<br>Up to five.</p>
         <div class="g-tiles">
-          <span class="g-t on"><i>1</i>Winter</span>
-          <span class="g-t on"><i>2</i>Housing cost</span>
-          <span class="g-t on"><i>3</i>Near a body of water</span>
+          <span class="g-t on"><i>1</i>Weather</span>
+          <span class="g-t on"><i>2</i>Money and work</span>
+          <span class="g-t on"><i>3</i>Size and location</span>
           <span class="g-t">Politics</span>
-          <span class="g-t">Snow</span>
+          <span class="g-t">The people</span>
         </div>
       </div>
 
       <div class="g-step" data-g="1">
         <p class="g-say">Whatever you tap first<br>counts most.</p>
         <div class="g-bars">
-          <span class="g-b"><b>Winter</b><i style="width:100%;background:var(--fit-4)"></i></span>
-          <span class="g-b"><b>Housing cost</b><i style="width:70%;background:var(--fit-3)"></i></span>
-          <span class="g-b"><b>Near a body of water</b><i style="width:60%;background:var(--fit-2)"></i></span>
+          <span class="g-b"><b>Weather</b><i style="width:100%;background:var(--fit-4)"></i></span>
+          <span class="g-b"><b>Money and work</b><i style="width:70%;background:var(--fit-3)"></i></span>
+          <span class="g-b"><b>Size and location</b><i style="width:60%;background:var(--fit-2)"></i></span>
         </div>
       </div>
 
@@ -1661,8 +1661,10 @@ const MAX_PICKS = 5;
    split across its questions, so a five-question topic does not outvote a
    one-question topic just by being longer. Life without a car is left out: it
    is the same answer as "Getting around" asked twice, the duplication he named.
-   On staging, or any link with ?deep, until he and Roham pick one. */
-const DEEP = /\/staging\//.test(location.pathname) || /[?&]deep\b/.test(location.search);
+   The default since Wednesday 25 November 2026 (Roham: "make it main"). The
+   older one-question-per-tile version is kept on any link with ?quick, and
+   old ?deep links still open this one. */
+const DEEP = !/[?&]quick\b/.test(location.search);
 const TOPICS = [
   ['weather', 'Weather', ['winter', 'summer', 'swing', 'rain', 'snow']],
   ['air', 'Air, sun and natural risk', ['smoke', 'sun', 'hazard', 'quake']],
