@@ -1449,6 +1449,11 @@ function verdict() {
     </div>`;
   }).join('');
 
+  /* Someone else's result (a link a friend sent, or a guess you are making for
+     a friend) says "they" all the way down, not "they belong" then "gets you". */
+  const other = shared ? !guessedFor : !!guessFor;
+  const you = other ? 'them' : 'you', You = other ? 'They' : 'You',
+        your = other ? 'their' : 'your', subj = other ? 'they' : 'you';
   host.innerHTML = `
     <div class="v-hero">
       <h2 class="v-name">${p.name}<span class="pv">${p.prov}</span></h2>
@@ -1456,10 +1461,10 @@ function verdict() {
         : shared ? 'is where they belong.'
         : guessFor ? `is where ${esc(guessFor)} belongs.`
         : 'is where you belong.'}</p>
-      <p class="v-line">${reasons.length ? `It gets you ${listify(reasons)}.` : 'It is the closest thing to what you asked for.'}
-        ${against ? `<span class="cut">You give up ${against}.</span>` : ''}</p>
+      <p class="v-line">${reasons.length ? `It gets ${you} ${listify(reasons)}.` : `It is the closest thing to what ${subj} asked for.`}
+        ${against ? `<span class="cut">${You} give up ${against}.</span>` : ''}</p>
       <p class="v-score">Fit <b class="v-num">${Math.round(r.fit)}</b> out of 100${
-        r.coverage < 0.999 ? `, on the ${Math.round(r.coverage*100)}% of your answers it has data for` : ''}</p>
+        r.coverage < 0.999 ? `, on the ${Math.round(r.coverage*100)}% of ${your} answers it has data for` : ''}</p>
       ${(() => {
         /* The app searches thousands of places and then shows one, which reads
            like a lookup rather than a search. Saying how close the field got
