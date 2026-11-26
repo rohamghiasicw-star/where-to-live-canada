@@ -734,7 +734,7 @@ review, the verdict, and DESIGN.md
         <div class="forwho" id="forwho"></div>
       </div>
       <div class="picker" id="picker"></div>
-      <p class="pk-why"><button class="pk-how" id="showguide" type="button">How it works</button> Pick in the order you care. Your first pick counts most, and
+      <p class="pk-why"><button class="pk-how" id="showguide" type="button">How it works</button> Your first pick counts most, and
         anything you leave out is not scored at all.</p>
     </section>
 
@@ -2342,16 +2342,20 @@ function verdict() {
      unit included, because half of these want "has" or "costs", not "is". */
   const rows = picks.map((id, i) => {
     const q = Q.find((x) => x.id === id);
+    // the badge is the rank you gave it: in deep mode that is the topic's rank,
+    // so Winter and Heat both read 1 under Weather, not 1 and 2. Only rows with
+    // something to answer get a Change button.
+    const rk = DEEP ? pickedTopics().indexOf(topicOf(id)) + 1 : i + 1, ai = askList().indexOf(id);
     const sc = r.cells[id], val = q.show(p);
     const bar = sc == null ? '' :
       `<span class="ca-bar"><i style="width:${Math.round(sc*100)}%;background:${rampOf(sc*100)}"></i></span>`;
     return `<div class="ca-row">
-      <span class="ca-k"><span class="q-rank">${i + 1}</span>${q.label}</span>
+      <span class="ca-k"><span class="q-rank">${rk}</span>${q.label}</span>
       <span class="ca-v">${((t) => t.charAt(0).toUpperCase() + t.slice(1))(said(q))}</span>
       <span class="ca-got"><span class="ca-said">${val
         ? (q.sent ? `${p.name} ${q.sent(val)}` : `${p.name} is <b>${val[0]}${val[1]}</b>`)
         : `<span class="na">not recorded here</span>`}</span>${bar}</span>
-      <button class="ca-ch" data-goq="${i}">Change</button>
+      ${ai >= 0 ? `<button class="ca-ch" data-goq="${ai}">Change</button>` : ''}
     </div>`;
   }).join('');
 
@@ -2381,7 +2385,7 @@ function verdict() {
         return `<p class="v-rare">${close === 0
           ? `Nothing else in ${CFG.country} came within 5 points.`
           : close === 1 ? `One other place came within 5 points.`
-          : `${close.toLocaleString()} of ${live.length.toLocaleString()} places came within 5 points.`}</p>`;
+          : `${close.toLocaleString()} other places came within 5 points.`}</p>`;
       })()}
     </div>
 
@@ -2707,12 +2711,19 @@ let screen = 'pick';        // pick | ask | result | explore
 let askIdx = 0;
 let exView = 'list';        // list | map | table
 
+/* The picks that have something to answer. In deep mode a topic's flag items
+   (skiing, pro sports, the arts...) still count, but they get no screen of their
+   own: five screens of "nothing to set here" read as broken. A topic that is all
+   flags asks nothing and goes straight into the score. */
+const askList = () => DEEP ? picks.filter((id) => (Q.find((q) => q.id === id) || {}).kind !== 'flag') : picks;
+
 function goTo(s) {
   screen = s;
   root.dataset.screen = s;
   if (s === 'ask') {
     if (!picks.length) { screen = 'pick'; root.dataset.screen = 'pick'; }
-    else askIdx = clamp(askIdx, 0, picks.length - 1);
+    else if (!askList().length) { screen = 'result'; root.dataset.screen = 'result'; }
+    else askIdx = clamp(askIdx, 0, askList().length - 1);
   }
   if (screen === 'pick') buildPicker();
   if (screen === 'ask') buildAsk();
@@ -2722,10 +2733,11 @@ function goTo(s) {
 }
 
 function actionbar() {
-  const bar = $('#actionbar'), n = picks.length;
+  const bar = $('#actionbar'), n = askList().length;
   if (screen === 'pick') {
-    bar.innerHTML = `<button class="ab-main" id="abGo"${n ? '' : ' disabled'}>${
-      n ? `Answer ${n} question${n > 1 ? 's' : ''}` : 'Pick at least one thing'}</button>`;
+    bar.innerHTML = `<button class="ab-main" id="abGo"${picks.length ? '' : ' disabled'}>${
+      !picks.length ? 'Pick at least one thing'
+      : n ? `Answer ${n} question${n > 1 ? 's' : ''}` : 'Where do I belong?'}</button>`;
   } else if (screen === 'ask') {
     bar.innerHTML = `<button class="ab-back" id="abBack">Back</button>
       <button class="ab-main" id="abGo">${
@@ -2746,7 +2758,7 @@ $('#actionbar').addEventListener('click', (e) => {
   const b = e.target.closest('button'); if (!b || b.disabled) return;
   if (b.id === 'abGo' && screen === 'pick') { askIdx = 0; goTo('ask'); return; }
   if (b.id === 'abGo' && screen === 'ask') {
-    if (askIdx >= picks.length - 1) goTo('result');
+    if (askIdx >= askList().length - 1) goTo('result');
     else { askIdx++; buildAsk(); actionbar(); scrollTo(0, 0); }
     return;
   }
@@ -2774,7 +2786,7 @@ MOBILE.addEventListener('change', () => { selected = null; render(); });
 /* deep mode: say which topic this question belongs to and how far through it you are */
 function deepLine(q, who) {
   const ts = pickedTopics(), t = topicOf(q.id), ti = ts.indexOf(t);
-  const inT = picks.filter((x) => topicOf(x) === t), k = inT.indexOf(q.id);
+  const inT = askList().filter((x) => topicOf(x) === t), k = inT.indexOf(q.id);
   const rank = ['top', 'second', 'third', 'fourth', 'fifth'][ti] || 'a';
   return `<span class="q-rank">${ti + 1}</span>${t.label}, ${who} ${rank} priority${
     inT.length > 1 ? ` \u00b7 question ${k + 1} of ${inT.length}` : ''}`;
@@ -2794,8 +2806,8 @@ function buildPicker() {
       const i = ts.indexOf(t), full = ts.length >= MAX_PICKS && i < 0;
       return `<button class="pk${i >= 0 ? ' on' : ''}" type="button" data-topic="${t.id}"
         aria-pressed="${i >= 0}"${full ? ' disabled aria-disabled="true"' : ''}
-        aria-label="${t.label}, ${t.qs.length} question${t.qs.length > 1 ? 's' : ''}${i >= 0 ? `, ranked ${i+1}` : ''}"
-        >${i >= 0 ? `<span class="pk-n">${i + 1}</span>` : ''}${t.label}<span class="pk-q">${t.qs.length}</span></button>`;
+        aria-label="${t.label}${i >= 0 ? `, ranked ${i+1}` : ''}"
+        >${i >= 0 ? `<span class="pk-n">${i + 1}</span>` : ''}${t.label}</button>`;
     }).join('');
     host.classList.toggle('full', ts.length >= MAX_PICKS);
   } else
@@ -2822,16 +2834,12 @@ function buildPicker() {
         <button class="fw-go" type="submit">Start</button></form>`
     : `<button class="fw-start" id="fwStart" type="button">Guess where a friend belongs</button>`;
   const n = DEEP ? pickedTopics().length : picks.length;
-  $('#pkcount').innerHTML = DEEP ? (n === 0
-    ? `Tap up to ${MAX_PICKS} of <b>${TOPICS.length}</b> topics. The order you tap is the order they count. Each one asks up to 5 questions.`
+  // one plain instruction at a time: what to tap, then what to press
+  $('#pkcount').innerHTML = n === 0
+    ? `Tap up to ${MAX_PICKS} ${DEEP ? 'topics' : 'things'}, <b>most important first</b>.`
     : n >= MAX_PICKS
-      ? `That is your ${MAX_PICKS} topics, <b>${picks.length} questions</b>. Tap one again to swap it out.`
-      : `<b>${n} of ${MAX_PICKS}</b> topics, ${picks.length} questions. ${n === 1 ? 'Pick another, or stop here.' : 'Keep going, or stop here.'}`)
-    : n === 0
-    ? `Tap up to ${MAX_PICKS} of <b>${PICKABLE.length}</b>. The order you tap is the order they count.`
-    : n >= MAX_PICKS
-      ? `That is your ${MAX_PICKS}. Tap one again to swap it out.`
-      : `<b>${n} of ${MAX_PICKS}</b> picked. ${n === 1 ? 'Pick another, or stop here.' : 'Keep going, or stop here.'}`;
+      ? `That is ${MAX_PICKS}. To swap one, tap it to take it off.`
+      : `<b>${n} of ${MAX_PICKS}</b> picked. Tap another, or press the button at the bottom.`;
 }
 
 /* the control for one question. Shared by the solo ask screen. */
@@ -2851,7 +2859,7 @@ function controlHTML(q) {
 
 /* one question, filling the screen, in rank order. */
 function buildAsk() {
-  const id = picks[askIdx]; if (!id) return;
+  const id = askList()[askIdx]; if (!id) return;
   const q = Q.find((x) => x.id === id);
   const who = guessFor ? `${esc(guessFor)}\u2019s` : 'your';
   const nth = [`${who} top priority`, `${who} second priority`, `${who} third priority`,
@@ -2864,7 +2872,7 @@ function buildAsk() {
       <p class="q-hint">${q.hint}</p>
       ${controlHTML(q)}
     </div>`;
-  $('#askdots').innerHTML = picks.map((_, i) =>
+  $('#askdots').innerHTML = askList().map((_, i) =>
     `<span class="dot${i === askIdx ? ' on' : i < askIdx ? ' done' : ''}"></span>`).join('');
 }
 
